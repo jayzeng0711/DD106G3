@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/customized_cuisine.scss"
+    ],
+    "names": [],
+    "file": "customized_cuisine.css"
+}
