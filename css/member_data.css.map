@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/member_data.scss"
+    ],
+    "names": [],
+    "file": "member_data.css"
+}
