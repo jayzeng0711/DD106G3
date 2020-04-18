@@ -1,6 +1,6 @@
 // 畫面的寶貝球圖片
 Resources = {
-    pokeball: 'http://127.0.0.1:5500/images/Group%2071.png',
+    pokeball: './images/Group%2071.png',
     pokeballActive: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballactive.png',
     pokeballClosed: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballclosed.png'
 };
@@ -44,7 +44,7 @@ $(document).ready(function(){
         $(document).ready(function(){
             //隨機出現的八種海鮮
             var seafood_img = anime.random(1,8);
-            $('#target').css('background-image',`url("http://127.0.0.1:5500/images/seafood${seafood_img}.png")`)
+            $('#target').css('background-image',`url("./images/seafood${seafood_img}.png")`)
         })
             
         // 遊戲倒數
@@ -556,7 +556,7 @@ $(document).ready(function(){
                             //抓到後換海鮮
                             $(document).ready(function(){
                                 var seafood_img = anime.random(1,8);
-                                $('#target').css('background-image',`url("http://127.0.0.1:5500/images/seafood${seafood_img}.png")`)
+                                $('#target').css('background-image',`url("./images/seafood${seafood_img}.png")`)
                             })
                             //如果球丟完了，遊戲結束
                             function end_game(){
@@ -603,7 +603,7 @@ $(document).ready(function(){
                              //沒抓到後換海鮮
                              $(document).ready(function(){
                                 var seafood_img = anime.random(1,8);
-                                $('#target').css('background-image',`url("http://127.0.0.1:5500/images/seafood${seafood_img}.png")`)
+                                $('#target').css('background-image',`url("./images/seafood${seafood_img}.png")`)
                             })
                             seafood_animate.play();//球搖三下結束後，海鮮繼續跑
                             if(ball_num <= 0){

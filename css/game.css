@@ -236,7 +236,7 @@
   width: 50%;
 }
 
-#touch-layer #asd .score_point_div .score_div .final_point {
+#touch-layer #asd .score_point_div .score_div #final_point {
   color: red;
   font-size: 20px;
 }
