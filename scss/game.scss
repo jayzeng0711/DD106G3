@@ -525,3 +525,20 @@
 .hidden {
   display: none !important;
 }
+
+@media screen and (max-width:768px){
+  .wrapper_bottom{
+    display: block;
+    .game_title{
+      text-align: center;
+      font-size: 20px;
+    }
+    .show_seafood_img_div{
+      width: 60%;
+      margin: 0 auto;
+    }
+  }
+  #touch-layer{
+    width: 96%;
+  }
+}

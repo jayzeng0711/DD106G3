@@ -631,4 +631,21 @@
 .hidden {
   display: none !important;
 }
+
+@media screen and (max-width: 768px) {
+  .wrapper_bottom {
+    display: block;
+  }
+  .wrapper_bottom .game_title {
+    text-align: center;
+    font-size: 20px;
+  }
+  .wrapper_bottom .show_seafood_img_div {
+    width: 60%;
+    margin: 0 auto;
+  }
+  #touch-layer {
+    width: 96%;
+  }
+}
 /*# sourceMappingURL=game.css.map */
