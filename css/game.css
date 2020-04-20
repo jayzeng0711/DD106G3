@@ -375,6 +375,8 @@
   background-position: center center;
   background-size: contain;
   z-index: 2;
+  -webkit-filter: drop-shadow(-10px 10px 7px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(-10px 10px 7px rgba(0, 0, 0, 0.5));
 }
 
 #touch-layer #screen #ball {
