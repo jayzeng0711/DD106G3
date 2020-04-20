@@ -1,0 +1,79 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    }
+    *{
+        box-sizing: border-box;
+    }
+    a{
+        text-decoration: none;
+    }
+    #Mem{
+        display: flex;
+        height: 100%;
+    } 
+    
+    /*左半邊*/
+    #Mem_list{
+        background-color: #D9E8EC;
+        text-align: center;
+        flex: 1;
+        padding-top: 100px;
+    }
+    #Mem_list a{  
+        display: block;
+        padding: 30px 20px;
+    }
+    #Mem_list a:hover{
+        background-color: #B3B3B3;
+    }
+    
+    /*右半邊*/
+    #Memall{
+        /* background-color: #FFE9AE; */
+        flex: 3;
+    }
+    
+    #Memall_img{
+    padding-top: 60px;
+    text-align: center;
+    }
+    #Memall_img img{
+    margin: 40px 0px 20px;
+    border-radius: 50%;
+    }
+    #Memall_img_Btn{
+    transform: translate(170px,-40px);
+    }
+    #Memall_tabble table{
+        margin: 20px auto;
+    }
+    #Memall_tabble td{
+    padding: 15px 50px;
+    }
+    #Memall_style{
+    padding-top: 80px;
+    text-align: center;
+    }
+    #EditBox{
+    background-color: #ddd;
+    width: 350px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translatey(-50%);
+    border-radius: 10px;
+    text-align: center;
+    /* display: none; */
+    }
+    #EditBox.Showbox{
+        display: none;
+    }
+    .Btn_style{
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        background-color:#FFE9AE;
+        margin-top: 50px;
+    }
