@@ -1,0 +1,228 @@
+@keyframes waves{ /*波浪*/
+    0%{
+       background-image: url(/Image/wave_keyframes01.png);
+    }
+    50%{
+       background-image: url(/Image/wave_keyframes02.png);
+    }
+    100%{
+       background-image: url(/Image/wave_keyframes03.png);
+        }
+}
+
+@keyframes waves_calm{ /*海面*/
+    0%{
+        background-position: 50px 25px;
+    }
+    25%{
+        background-position: 25px 50px;
+    }
+    50%{
+        background-position: 50px 25px;
+    }
+    75%{
+        background-position: -25px -50px;
+    }
+    100%{
+        background-position: -50px -25px;
+    }
+}
+
+@keyframes ripples{ /*漣漪*/
+    0%{
+        background-image: url(/Image/ripple_keyframes01.png);
+    }
+    50%{
+        background-image: url(/Image/ripple_keyframes02.png);
+    }
+    100%{
+        background-image: url(/Image/ripple_keyframes03.png);
+    }
+}
+
+@keyframes sailing{ /*船行*/
+    0%{
+        transform: rotate(-1deg);
+    }
+    25%{
+        transform: rotate(0deg);
+    }
+    37%{
+        top:-5px;
+        transform: rotate(2deg);
+    }
+    50%{
+        top:-2px;
+        transform: rotate(3deg);
+    }
+    62%{
+        transform: rotate(3deg);
+    }
+    75%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-2deg);
+    }
+}
+
+@keyframes wabble{
+    0%{
+        top:0px;
+    }
+    50%{
+        top:-2px;
+    }
+    100%{
+        top:0px;
+    }
+}
+
+@keyframes cloud{ /*雲在飄*/
+    from{
+        background-position: 0 0;
+    }
+    to{
+        background-position: 5760px 0;
+    }
+}
+
+body{
+    height: 920px;
+    margin: 0;
+    padding: 0;
+    /*background: linear-gradient(to bottom, #9cd6ff, #ffffff);*/
+    /*background: linear-gradient(to bottom, #9cd6ff, #ffffff , #48c6e4);*/
+    background: radial-gradient(ellipse at top, #FEFFDB,#9cd6ff, #48c6e4);
+}
+
+header{
+    width: 1920px;
+    border: 1px solid red;
+    margin-bottom: 250px;
+}
+
+div.logo{
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+div.logo > img{
+    max-width: 100%;
+}
+
+div.cloud{
+    border: 1px solid red;
+    background-image: url(/Image/clouds.png);
+    width: 1920px;
+    height: 500px;
+    margin-top: -500px;
+    animation: cloud 180s infinite ;
+}
+
+div.warp{
+    border: 1px solid gold;
+    width: 1920px;
+    display: inline-block;
+}
+
+ul.cruises{
+    border: 1px solid firebrick;
+    width: 1920px;
+    margin: 0 auto;
+    margin-left: -45px;
+}
+
+li{
+    border: 1px solid purple;
+    list-style: none;
+    display: inline-block;
+    width: 30%;
+    margin-left: 220px;
+}
+
+li > a{
+    border: 1px solid red;
+    display: inline-block;
+    position: relative;
+}
+
+li >a.front {
+    background-image: url(/Image/Cruise_landingPage_02.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 650px;
+    height: 170px;
+    animation: sailing 2s infinite;
+    animation-timing-function: cubic-bezier(.17,.67,.58,.56);
+}
+
+li >a.back {
+    background-image: url(/Image/Cruise_landingPage_01.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 650px;
+    height: 170px;
+    animation: wabble 2s infinite;
+    animation-timing-function: cubic-bezier(.17,.67,.58,.56);
+}
+
+li >a.front >h1{
+    display: inline-block;
+    position: absolute;
+    top:10%;
+    left: 40%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    font-family: microsoft jhenghei;
+    color: #363636;
+    font-size: 5rem;
+}
+
+li >a.back >h1{
+    display: inline-block;
+    position: absolute;
+    top:10%;
+    left: 55%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    font-family: microsoft jhenghei;
+    color: #363636;
+    font-size: 5rem;
+}
+
+div.waves{
+    background-image: url(/Image/wave_keyframes01.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 574px;
+    height: 123px;
+    margin-left: 100px;
+    margin-top: 80px;
+    animation: waves 0.5s infinite ease-in-out;
+}
+
+div.ripples{
+    background-image: url(/Image/ripple_keyframes01.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 753px;
+    height: 33px;
+    margin-left: -130px;
+    margin-top: 150px;
+    animation: ripples 3s infinite ease-in-out;
+}
+
+li >a.front:hover{
+    animation: sailing 1s infinite;
+}
+
+div.ocean{
+    background-image: url(/Image/Ocean_top.png);
+    background-size: contain;
+    width: 1920px;
+    height: 187px;
+    margin-top: -120px;
+    animation: waves_calm 5s infinite alternate ease-in-out;
+}
