@@ -47,4 +47,77 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.aaa {
+  position: relative;
+  z-index: 1;
+}
+
+.aaa::after {
+  content: "";
+  background-image: url("/images/cloud.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  height: 150px;
+  width: 100%;
+  z-index: -1;
+}
+
+.opacity_div {
+  -webkit-transition: .5s all;
+  transition: .5s all;
+}
+
+.text_a {
+  position: relative;
+}
+
+.ship_img_div:hover .text_a::after {
+  width: 100%;
+}
+
+.text_a::after {
+  content: "";
+  bottom: -5px;
+  left: 0;
+  position: absolute;
+  width: 0%;
+  background-color: #000;
+  height: 3px;
+  -webkit-transition: .5s all;
+  transition: .5s all;
+}
+
+.img_cruise {
+  -webkit-animation: ship_shake 1s ease 0s infinite alternate;
+          animation: ship_shake 1s ease 0s infinite alternate;
+}
+
+@-webkit-keyframes ship_shake {
+  0% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
+
+@keyframes ship_shake {
+  0% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
 /*# sourceMappingURL=reset.css.map */
