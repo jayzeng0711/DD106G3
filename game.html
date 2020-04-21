@@ -10,7 +10,71 @@
 </head>
 <body>
     <!-- header直接include  -->
-    <header style="width: 100%;height: 30px;border: 1px solid black;"></header>
+    <header>
+        <div class="aaa" style="display: flex;">
+            <a href="" style="width: 20%;text-align: center;padding-top: 1%;">
+                <img src="/images/logo.png" alt="">
+            </a >
+            <ul style="display: flex;width: 100%;align-items: center;text-align: center;letter-spacing: 1px;">
+                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
+                    <div class="opacity_div" style="opacity: 0;">
+                        <a href="">
+                            <img src="./images/cruise.png" width="40" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
+                            訂位點餐
+                        </a>
+                    </div> 
+                </li>
+                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
+                    <div class="opacity_div" style="opacity: 0;">
+                        <a href="">
+                            <img src="./images/cruise.png" width="40" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
+                            現撈海鮮
+                        </a>
+                    </div>
+                </li>
+                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
+                    <div class="opacity_div" style="opacity: 0;">
+                        <a href="">
+                            <img src="./images/cruise.png" width="40" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
+                            客製化料理
+                        </a>
+                    </div>
+                </li>
+                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
+                    <div class="opacity_div" style="opacity: 0;">
+                        <a href="">
+                            <img src="./images/cruise.png" width="40" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
+                            美食大賽
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <div style="display: flex;width: 15%;align-items: center;justify-content: center;cursor: pointer;">
+                <div style="font-size: 14px;margin-right: 5%;white-space: nowrap;letter-spacing: 1px;">
+                    會員登入
+                </div>
+                <div style="width: 30px;">
+                    <img src="./images/login.png" alt="" style="max-width: 100%;">
+                </div>
+            </div>
+        </div>
+    </header>
     <!-- header直接include  -->
     <section id="wrapper">
 
@@ -59,6 +123,10 @@
         <!-- 海鮮移動路線 -->
         <svg xmlns="http://www.w3.org/2000/svg" width="334.5" height="334.469" viewBox="0 0 334.5 334.469" style="display: none;">
             <path class="cls-1" d="M14.49 .22q-11.8-66.22-69.597-31.9t-9.22-20.658q38.471-55.119-26.71-71.593t.98-28.227q66.221-11.114 31.7-69.547t20.658-19.260q55.179 38.471 71.593-26.760t28.227.988q11.814 66.219 69.547 31.7t19.262 20.658q-38.472 55.179 26.761 71.593t-.988 28.227q-66.219 11.814-31.7 69.547t-20.658 19.263q-55.179-38.472-71.593 26.761t-28.227-.989z"/>
+            <path class="cls-2" d="M-20.1,6.7c -32.4-14.4-73.7,0-88.1,30.6C 110.6,4.9,67.5-9.5,36.9,6.7C 2.8,22.9-13.4,62.4,13.5,110.9C 33.3,145.1,67.5,170.3,125,217c 59.3-46.7,93.5-71.9,111.5-106.1C 263.4,64.2,247.2,22.9,213.1,6.7z"/>
+            <path class="cls-3" d="M25,75 L100 200Q50,150 75,100 T150,150z"/>
+            <path class="cls-4" d="M-150 -200 C40 40,60 40,100,0 S150 -40,200 0z"/>
+            <path class="cls-5" d="M0 10q-11.8-66.22-69.597-31.9t-9.22-20.658q38.471-55.119-26.71-71.593t.98-28.227q66.221-11.114 31.7-69.547t20.658-19.260q55.179 38.471 71.593-26.760t28.227.988q11.814 66.219 69.547 31.7t19.262 20.658q-38.472 55.179 26.761 71.593t-.988 28.227q-66.219 11.814-31.7 69.547t-20.658 19.263q-55.179-38.472-71.593 26.761t-28.227-.989z"/>
         </svg>
         <!-- 海鮮移動路線 -->
   
@@ -195,5 +263,6 @@
     <script src="/script.js/vue.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/zingtouch.min.js"></script>
     <script src="/script.js/game.js"></script>
+    <script src="/script.js/header.js"></script>
   </body>
 </html>
