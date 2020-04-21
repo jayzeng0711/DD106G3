@@ -55,16 +55,13 @@ table {
 
 .aaa::after {
   content: "";
-  background-image: url("/images/cloud.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url("/images/cloud.png") no-repeat center/cover;
   position: absolute;
-  top: 0;
+  top: -30px;
   left: 0;
   right: 0;
   bottom: auto;
-  height: 150px;
+  height: 180px;
   width: 100%;
   z-index: -1;
 }
