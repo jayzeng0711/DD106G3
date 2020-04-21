@@ -13,7 +13,7 @@
 }
 
 #wrapper {
-  padding-bottom: 10%;
+  padding: 10% 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #41B6E6), to(#001871));
   background: linear-gradient(to bottom, #41B6E6 0, #001871 100%);
 }
@@ -132,6 +132,7 @@
   width: 90%;
   border: 1px solid black;
   z-index: 1;
+  overflow: hidden;
 }
 
 #touch-layer #game_start {
@@ -155,6 +156,7 @@
   bottom: 35%;
   font-size: 25px;
   color: #404040;
+  cursor: pointer;
 }
 
 #touch-layer #asd {
@@ -331,6 +333,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 
 #touch-layer #screen #time_up {
