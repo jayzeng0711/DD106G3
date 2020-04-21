@@ -13,7 +13,9 @@
 
 body {
     font-family: 'jf-openhuninn-1.0';
-    background: linear-gradient(#abdcfa,#11408c);
+    // background: linear-gradient(#abdcfa,#11408c);
+    background-image: url(../images/ocean_bg2.png);
+    background-size: contain;
 }
 
 header {
@@ -315,7 +317,7 @@ footer {
 
 .eventImg .character img{
     width: 230px;
-    
+    cursor: pointer;
 }
 
 /* ------------ aboutContest 結束 ---------------*/
@@ -338,16 +340,29 @@ footer {
 .filter{
     margin-top: 60px;
     margin-bottom: 40px;
+
+    span{
+        font-size: 20px;
+        color: #fff;
+    }
+    select{
+        font-family: 'jf-openhuninn-1.0';
+        font-size: 20px;
+        color: #ffffff;
+        background-color: #4EB6E6;
+        padding: 10px;
+        border-radius: 10px;
+        border: transparent;
+    }
 }
 
-.filter select{
-    font-family: 'jf-openhuninn-1.0';
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #4EB6E6;
-    padding: 10px;
-    border-radius: 10px;
-    border: transparent;
+@keyframes move {
+    0% {
+        transform: translateY(-20px);
+    }
+    100%{
+        transform: translateY(20px);
+    }
 }
 
 .contain .cookList_item {
@@ -356,6 +371,11 @@ footer {
     margin: 0 20px 70px 20px;
     background-image: url(../images/cookList_item_bg.png);
     border-radius: 10px;
+    animation-name: move;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate-reverse;
+    // animation-timing-function:linear;
     // border: 2px solid rgb(3, 129, 41);
 
     .cookList_img{
@@ -490,6 +510,14 @@ footer {
         }
     
     }
+}
+
+.contain .cookList_item:nth-child(2),.contain .cookList_item:nth-child(5){
+    animation-delay: 1s;
+}
+
+.contain .cookList_item:nth-child(3),.contain .cookList_item:nth-child(6){
+    animation-delay: 0.8s;
 }
 
 

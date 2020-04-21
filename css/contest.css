@@ -15,8 +15,8 @@
 
 body {
   font-family: 'jf-openhuninn-1.0';
-  background: -webkit-gradient(linear, left top, left bottom, from(#abdcfa), to(#11408c));
-  background: linear-gradient(#abdcfa, #11408c);
+  background-image: url(../images/ocean_bg2.png);
+  background-size: contain;
 }
 
 header {
@@ -311,6 +311,7 @@ footer {
 
 .eventImg .character img {
   width: 230px;
+  cursor: pointer;
 }
 
 /* ------------ aboutContest 結束 ---------------*/
@@ -333,6 +334,11 @@ footer {
   margin-bottom: 40px;
 }
 
+.filter span {
+  font-size: 20px;
+  color: #fff;
+}
+
 .filter select {
   font-family: 'jf-openhuninn-1.0';
   font-size: 20px;
@@ -343,12 +349,41 @@ footer {
   border: transparent;
 }
 
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+}
+
+@keyframes move {
+  0% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+}
+
 .contain .cookList_item {
   display: inline-block;
   width: 340px;
   margin: 0 20px 70px 20px;
   background-image: url(../images/cookList_item_bg.png);
   border-radius: 10px;
+  -webkit-animation-name: move;
+          animation-name: move;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
 }
 
 .contain .cookList_item .cookList_img .cookList_cook {
@@ -482,6 +517,16 @@ footer {
   color: #ffffff;
   width: 130px;
   padding: 10px 10px;
+}
+
+.contain .cookList_item:nth-child(2), .contain .cookList_item:nth-child(5) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.contain .cookList_item:nth-child(3), .contain .cookList_item:nth-child(6) {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
 }
 
 /* ------------ cookList 結束 ---------------*/
