@@ -32,12 +32,10 @@ html,body{
     #Memall{
         /* background-color: #FFE9AE; */
         flex: 3;
+        text-align: center;
+        padding-top: 60px;
     }
     
-    #Memall_img{
-    padding-top: 60px;
-    text-align: center;
-    }
     #Memall_img img{
     margin: 40px 0px 20px;
     border-radius: 50%;
@@ -75,5 +73,5 @@ html,body{
         height: 40px;
         border-radius: 10px;
         background-color:#FFE9AE;
-        margin-top: 50px;
+        margin: 25px 20px;
     }

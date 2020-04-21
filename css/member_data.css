@@ -45,11 +45,8 @@ a {
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
-}
-
-#Memall_img {
-  padding-top: 60px;
   text-align: center;
+  padding-top: 60px;
 }
 
 #Memall_img img {
@@ -98,6 +95,6 @@ a {
   height: 40px;
   border-radius: 10px;
   background-color: #FFE9AE;
-  margin-top: 50px;
+  margin: 25px 20px;
 }
 /*# sourceMappingURL=member_data.css.map */
