@@ -9,7 +9,71 @@
     <link rel="stylesheet" href="./css/contest.css">
 </head>
 <body>
-    <header>header</header>
+    <header>
+        <div class="aaa" style="display: flex;">
+            <a href="" style="width: 20%;text-align: center;padding-top: 1%;">
+                <img src="/images/logo.png" alt="">
+            </a >
+            <ul style="display: flex;width: 100%;align-items: center;text-align: center;letter-spacing: 1px;">
+                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
+                    <div class="opacity_div" style="opacity: 0;">
+                        <a href="">
+                            <img src="./images/cruise.png" width="40" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
+                            訂位點餐
+                        </a>
+                    </div> 
+                </li>
+                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
+                    <div class="opacity_div" style="opacity: 0;">
+                        <a href="">
+                            <img src="./images/cruise.png" width="40" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
+                            現撈海鮮
+                        </a>
+                    </div>
+                </li>
+                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
+                    <div class="opacity_div" style="opacity: 0;">
+                        <a href="">
+                            <img src="./images/cruise.png" width="40" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
+                            客製化料理
+                        </a>
+                    </div>
+                </li>
+                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
+                    <div class="opacity_div" style="opacity: 0;">
+                        <a href="">
+                            <img src="./images/cruise.png" width="40" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
+                            美食大賽
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <div style="display: flex;width: 15%;align-items: center;justify-content: center;cursor: pointer;">
+                <div style="font-size: 14px;margin-right: 5%;white-space: nowrap;letter-spacing: 1px;">
+                    會員登入
+                </div>
+                <div style="width: 30px;">
+                    <img src="./images/login.png" alt="" style="max-width: 100%;">
+                </div>
+            </div>
+        </div>
+    </header>
 
     <section class="ranking">
 
@@ -25,11 +89,11 @@
                     <div class="cookList_img">
                         <figure class="cookList_cook">
                             <figcaption>
-                                <p>料理名稱3</p>
+                                <p id="name_1">料理名稱3</p>
                                 <p>票數:1111</p>
                                 <p>參賽日期:2020.05.03</p>
                             </figcaption>
-                            <img src="./images/cook1.png" alt="">
+                            <img id="cook_1" src="./images/cook1.png" alt="">
                             
                         </figure>
                         <figure class="barrel">
@@ -39,8 +103,8 @@
                     <div class="ranking_bg">
 
                         <div class="cookList_infoPanel">
-                            <a href=""><span>投票</span></a>
-                            <a href=""><span>查看詳情</span></a>
+                            <div>投票</div>
+                            <div id="detail_1" class="look_detail">查看詳情</div>
                         </div>
                         <div class="icon">
                             <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
@@ -76,11 +140,11 @@
                     <div class="cookList_img">
                         <figure class="cookList_cook">
                             <figcaption>
-                                <p>料理名稱1</p>
+                                <p id="name_2">料理名稱1</p>
                                 <p>票數:8888</p>
                                 <p>參賽日期:2020.05.03</p>
                             </figcaption>
-                            <img src="./images/cook2.png" alt="">
+                            <img id="cook_2" src="./images/cook2.png" alt="">
                             
                         </figure>
                         <figure class="barrel">
@@ -90,8 +154,8 @@
                     <div class="ranking_bg">
 
                         <div class="cookList_infoPanel">
-                            <a href=""><span>投票</span></a>
-                            <a href=""><span>查看詳情</span></a>
+                            <div>投票</div>
+                            <div id="detail_2" class="look_detail">查看詳情</div>
                         </div>
                         <div class="icon">
                             <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
@@ -127,11 +191,11 @@
                     <div class="cookList_img">
                         <figure class="cookList_cook">
                             <figcaption>
-                                <p>料理名稱3</p>
+                                <p id="name_3">料理名稱3</p>
                                 <p>票數:2222</p>
                                 <p>參賽日期:2020.05.03</p>
                             </figcaption>
-                            <img src="./images/cook3.png" alt="">
+                            <img id="cook_3" src="./images/cook3.png" alt="">
                             
                         </figure>
                         <figure class="barrel">
@@ -141,8 +205,8 @@
                     <div class="ranking_bg">
 
                         <div class="cookList_infoPanel">
-                            <a href=""><span>投票</span></a>
-                            <a href=""><span>查看詳情</span></a>
+                            <div>投票</div>
+                            <div id="detail_3" class="look_detail">查看詳情</div>
                         </div>
                         <div class="icon">
                             <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
@@ -245,17 +309,17 @@
 
                     <div class="cookList_img">
                         <figure class="cookList_cook">
-                            <img src="./images/cook4.png" alt="">
+                            <img id="cook_4" src="./images/cook4.png" alt="">
                             <figcaption>
-                                <p>料理名稱1</p>
+                                <p id="name_4">料理名稱1</p>
                                 <p>票數:1111</p>
                                 <p>參賽日期:2020.05.03</p>
                             </figcaption>
                         </figure>
                     </div>
                     <div class="cookList_infoPanel">
-                        <a href=""><span>投票</span></a>
-                        <a href=""><span>查看詳情</span></a>
+                        <div>投票</div>
+                        <div id="detail_4" class="look_detail">查看詳情</div>
                     </div>
                     <div class="icon">
                         <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
@@ -287,17 +351,17 @@
 
                     <div class="cookList_img">
                         <figure class="cookList_cook">
-                            <img src="./images/cook5.png" alt="">
+                            <img id="cook_5" src="./images/cook5.png" alt="">
                             <figcaption>
-                                <p>料理名稱1</p>
+                                <p id="name_5">料理名稱1</p>
                                 <p>票數:1111</p>
                                 <p>參賽日期:2020.05.03</p>
                             </figcaption>
                         </figure>
                     </div>
                     <div class="cookList_infoPanel">
-                        <a href=""><span>投票</span></a>
-                        <a href=""><span>查看詳情</span></a>
+                        <div>投票</div>
+                        <div id="detail_5" class="look_detail">查看詳情</div>
                     </div>
                     <div class="icon">
                         <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
@@ -329,17 +393,17 @@
 
                     <div class="cookList_img">
                         <figure class="cookList_cook">
-                            <img src="./images/cook6.png" alt="">
+                            <img id="cook_6" src="./images/cook6.png" alt="">
                             <figcaption>
-                                <p>料理名稱1</p>
+                                <p id="name_6">料理名稱1</p>
                                 <p>票數:1111</p>
                                 <p>參賽日期:2020.05.03</p>
                             </figcaption>
                         </figure>
                     </div>
                     <div class="cookList_infoPanel">
-                        <a href=""><span>投票</span></a>
-                        <a href=""><span>查看詳情</span></a>
+                        <div>投票</div>
+                        <div id="detail_6" class="look_detail">查看詳情</div>
                     </div>
                     <div class="icon">
                         <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
@@ -371,17 +435,17 @@
 
                     <div class="cookList_img">
                         <figure class="cookList_cook">
-                            <img src="./images/cook7.png" alt="">
+                            <img id="cook_7" src="./images/cook7.png" alt="">
                             <figcaption>
-                                <p>料理名稱1</p>
+                                <p id="name_7">料理名稱1</p>
                                 <p>票數:1111</p>
                                 <p>參賽日期:2020.05.03</p>
                             </figcaption>
                         </figure>
                     </div>
                     <div class="cookList_infoPanel">
-                        <a href=""><span>投票</span></a>
-                        <a href=""><span>查看詳情</span></a>
+                        <div>投票</div>
+                        <div id="detail_7" class="look_detail">查看詳情</div>
                     </div>
                     <div class="icon">
                         <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
@@ -413,17 +477,17 @@
 
                     <div class="cookList_img">
                         <figure class="cookList_cook">
-                            <img src="./images/cook8.png" alt="">
+                            <img id="cook_8" src="./images/cook8.png" alt="">
                             <figcaption>
-                                <p>料理名稱1</p>
+                                <p id="name_8">料理名稱1</p>
                                 <p>票數:1111</p>
                                 <p>參賽日期:2020.05.03</p>
                             </figcaption>
                         </figure>
                     </div>
                     <div class="cookList_infoPanel">
-                        <a href=""><span>投票</span></a>
-                        <a href=""><span>查看詳情</span></a>
+                        <div>投票</div>
+                        <div id="detail_8" class="look_detail">查看詳情</div>
                     </div>
                     <div class="icon">
                         <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
@@ -455,17 +519,17 @@
 
                     <div class="cookList_img">
                         <figure class="cookList_cook">
-                            <img src="./images/cook1.png" alt="">
+                            <img id="cook_9" src="./images/cook1.png" alt="">
                             <figcaption>
-                                <p>料理名稱1</p>
+                                <p id="name_9">料理名稱1</p>
                                 <p>票數:1111</p>
                                 <p>參賽日期:2020.05.03</p>
                             </figcaption>
                         </figure>
                     </div>
                     <div class="cookList_infoPanel">
-                        <a href=""><span>投票</span></a>
-                        <a href=""><span>查看詳情</span></a>
+                        <div>投票</div>
+                        <div id="detail_9" class="look_detail">查看詳情</div>
                     </div>
                     <div class="icon">
                         <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
@@ -646,7 +710,10 @@
     </section>
 
     <!-- 查看詳情燈箱 -->
-    <section class="look">
+    <div class="look_back" style="background-color: rgba(66, 66, 66, .6);width: 100%;height: 100vh;position: fixed;top: 0;z-index: 1;display: none;">
+
+    </div>
+    <section class="look" style="position: fixed;z-index: 2;display: none;">
 
         <div class="wrap">
             <div class="cross">
@@ -655,9 +722,9 @@
             <div class="look_img">
                 <figure>
                     <figcaption>
-                        <p>無敵海膽特特特餐</p>
+                        <p class="light_title">無敵海膽特特特餐</p>
                     </figcaption>
-                    <img src="./images/cook4.png" alt="">
+                    <img class="light_img" src="./images/cook4.png" alt="">
                 </figure>
             </div>
             <div class="food">
@@ -707,9 +774,12 @@
         </div>
     </section>
     
-
     <footer>footer</footer>
 
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/script.js/vue.js"></script>
+    <script src="/script.js/header.js"></script>
+    <script src="/script.js/contest.js"></script>
 </body>
 </html>
 </body>

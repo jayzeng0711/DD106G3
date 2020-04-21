@@ -48,13 +48,16 @@ border-spacing: 0;
     z-index: 1;
     &::after{
         content: "";
-        background: url("/images/cloud.png") no-repeat center/cover;
+        background-image: url('/images/cloud.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         position: absolute;
-        top: -30px;
+        top: 0;
         left: 0;
         right: 0;
         bottom: auto;
-        height: 180px;
+        height: 150px;
         width: 100%;
         z-index: -1;
     }
@@ -77,5 +80,16 @@ border-spacing: 0;
     background-color: #000;
     height: 3px;
     transition: .5s all;
+}
+.img_cruise{
+    animation: ship_shake 1s ease 0s infinite alternate;
+}
+@keyframes ship_shake{
+    0%{
+        transform: translateY(-5px);
+    }
+    100%{
+        transform: translateY(5px);
+    }
 }
 // header
