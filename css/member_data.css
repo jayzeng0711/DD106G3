@@ -45,15 +45,13 @@ a {
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
-<<<<<<< HEAD
-=======
+  text-align: center;
+  padding-top: 60px;
 }
 
 .Memall_img {
   padding-top: 60px;
->>>>>>> dev
   text-align: center;
-  padding-top: 60px;
 }
 
 .Memall_img img {
@@ -101,13 +99,9 @@ a {
   height: 40px;
   border-radius: 10px;
   background-color: #FFE9AE;
-<<<<<<< HEAD
-  margin: 25px 20px;
-=======
 }
 
 form div {
   margin: 5% 0;
->>>>>>> dev
 }
 /*# sourceMappingURL=member_data.css.map */
