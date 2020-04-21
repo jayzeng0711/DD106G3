@@ -76,16 +76,16 @@ footer {
 }
 
 .contain .ranking_item:nth-child(1), .contain .ranking_item:nth-child(3) {
-  position: relative;
-  top: 100px;
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
   margin-bottom: 200px;
 }
 
 .contain .ranking_item .cookList_img .cookList_cook {
   margin: 0px auto 0px auto;
   width: 340px;
-  position: relative;
-  top: 70px;
+  -webkit-transform: translateY(70px);
+          transform: translateY(70px);
 }
 
 .contain .ranking_item .cookList_img .cookList_cook img {
