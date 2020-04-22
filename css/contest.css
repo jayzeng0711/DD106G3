@@ -419,6 +419,7 @@ footer {
   padding: 10px;
   color: #ffffff;
   text-align: center;
+  cursor: pointer;
 }
 
 .contain .cookList_item .cookList_infoPanel div:nth-child(2) {
@@ -721,4 +722,52 @@ footer {
 }
 
 /*------------------ 完成投票提示結束 ----------------*/
+/*--------置頂按鈕---------*/
+@-webkit-keyframes to_top {
+  0% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+  100% {
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
+  }
+}
+@keyframes to_top {
+  0% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+  100% {
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
+  }
+}
+
+#go_top {
+  width: 150px;
+  height: 150px;
+  background: none;
+  position: fixed;
+  right: 50px;
+  bottom: 100px;
+  border: transparent;
+  outline: none;
+  cursor: pointer;
+  -webkit-animation-name: to_top;
+          animation-name: to_top;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+#go_top img {
+  width: 100%;
+}
+
+/*--------置頂按鈕結束---------*/
 /*# sourceMappingURL=contest.css.map */

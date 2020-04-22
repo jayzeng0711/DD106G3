@@ -434,6 +434,7 @@ footer {
             padding: 10px;
             color: #ffffff;
             text-align: center;
+            cursor: pointer;
             // border: 1px solid yellow;
         }
     
@@ -754,3 +755,34 @@ footer {
     }
 }
 /*------------------ 完成投票提示結束 ----------------*/
+
+/*--------置頂按鈕---------*/
+@keyframes to_top {
+    0% {
+        transform: translateY(-15px);
+    }
+    100%{
+        transform: translateY(15px);
+    }
+}
+
+#go_top {
+    width: 150px;
+    height:150px;
+    background: none;
+    position: fixed;
+    right: 50px;
+    bottom: 100px;
+    border: transparent;
+    outline: none;
+    cursor: pointer;
+    animation-name: to_top;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate-reverse;
+    animation-timing-function:linear;
+}
+#go_top img{
+    width: 100%;
+}
+/*--------置頂按鈕結束---------*/
