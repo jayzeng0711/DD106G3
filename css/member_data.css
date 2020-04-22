@@ -45,6 +45,8 @@ a {
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
+  text-align: center;
+  padding-top: 60px;
 }
 
 .Memall_img {
