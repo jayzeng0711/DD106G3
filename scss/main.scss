@@ -1,0 +1,616 @@
+@font-face {
+    font-family: 'jf-openhuninn-1.0';
+    src: url(../font/jf-openhuninn-1.0.woff) format("woff");
+    src: url(../font/jf-openhuninn-1.0.ttf) format("truetype");
+}
+
+* {
+    font-family: 'jf-openhuninn-1.0';
+}
+
+.section1.bg {
+    background: url(../images/shortbg.png) left top;
+}
+
+.section1 {
+    background: url(../images/shortbg.png) right top;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    transition: all 5s ease-in-out;
+    .layer1 {
+        width: 60%;
+        position: absolute;
+        bottom: 0;
+        left: 20%;
+        transform: translateX(-60%);
+        z-index: 500;
+        transition: all 0.5s linear;
+    }
+    .layer2 {
+        width: 40%;
+        position: absolute;
+        bottom: 0;
+        right: -10%;
+        z-index: 500;
+    }
+    .text {
+        position: relative;
+        top: 0;
+        transition: all 2s ease-out;
+        margin: 0 auto;
+        font-size: 6em;
+        color: #035;
+        text-align: center;
+        animation: textJump 2s cubic-bezier(0.68, -0.6, 0.32, 1.6) backwards;
+    }
+    @keyframes textJump {
+        0% {
+            top: 100vh,
+        }
+        100% {
+            top: 0,
+        }
+    }
+    .wave {
+        z-index: 1;
+        width: 100%;
+        background-size: 50vh 15vh;
+        position: absolute;
+        animation: wave 20s linear infinite;
+    }
+    .wave1 {
+        background-image: url(../images/wave2.png);
+        height: 15vh;
+        bottom: 17vh;
+        animation-direction: reverse;
+    }
+    .wave2 {
+        background-image: url(../images/wave3.png);
+        height: 15vh;
+        bottom: 15vh;
+    }
+    .wave3 {
+        background-image: url(../images/wave2.png);
+        height: 15vh;
+        bottom: 10vh;
+        animation-direction: reverse;
+    }
+    .wave4 {
+        height: 20vh;
+        background-image: url(../images/wave1.png);
+        background-size: 50vh 20vh;
+        bottom: 0;
+    }
+    @keyframes wave {
+        0% {
+            background-position: 0
+        }
+        100% {
+            background-position: 100%
+        }
+    }
+    .boat {
+        position: relative;
+        bottom: -70vh;
+        z-index: 1;
+        img {
+            width: 300px;
+            position: relative;
+            left: 0;
+            transition: all .5s;
+            transform: rotateZ(-2deg);
+            animation: boatfloat 3s infinite;
+        }
+    }
+    @keyframes boatfloat {
+        0% {
+            transform: rotateZ(-2deg);
+        }
+        50% {
+            transform: rotateZ(2deg);
+        }
+        100% {
+            transform: rotateZ(-2deg);
+        }
+    }
+    img.flyfish1 {
+        width: 100px;
+        position: relative;
+        bottom: -100vh;
+        left: 200px;
+        transform: rotateZ(60deg);
+    }
+    img.flyfish2 {
+        width: 100px;
+        position: relative;
+        bottom: -100vh;
+        left: 300px;
+        transform: rotateZ(20deg);
+    }
+    img.flyfish3 {
+        width: 100px;
+        position: relative;
+        bottom: -100vh;
+        left: 450px;
+        transform: rotateZ(180deg);
+    }
+    img.fly1 {
+        animation: fishfly1 2s ease-in-out;
+    }
+    img.fly2 {
+        animation: fishfly1 2s ease-in-out;
+    }
+    img.fly3 {
+        animation: fishfly1 2s ease-in-out;
+    }
+    @keyframes fishfly1 {
+        0% {
+            bottom: -100vh;
+            transform: rotateZ(60deg);
+        }
+        25% {
+            transform: rotateZ(100deg);
+        }
+        50% {
+            bottom: 0;
+            transform: rotateZ(230deg);
+        }
+        75% {
+            transform: rotateZ(250deg);
+        }
+        100% {
+            bottom: -100vh;
+            transform: rotateZ(270deg);
+        }
+    }
+    @keyframes fishfly2 {
+        0% {
+            bottom: -100vh;
+            transform: rotateZ(20deg);
+        }
+        25% {
+            transform: rotateZ(0deg);
+        }
+        50% {
+            bottom: -10vh;
+            transform: rotateZ(-20deg);
+        }
+        75% {
+            transform: rotateZ(0deg);
+        }
+        100% {
+            bottom: -100vh;
+            transform: rotateZ(15deg);
+        }
+    }
+    @keyframes fishfly3 {
+        0% {
+            bottom: -100vh;
+            transform: rotateZ(20deg);
+        }
+        25% {
+            transform: rotateZ(80deg);
+        }
+        50% {
+            bottom: 10vh;
+            transform: rotateZ(180deg);
+        }
+        75% {
+            transform: rotateZ(250deg);
+        }
+        100% {
+            bottom: -100vh;
+            transform: rotateZ(360deg);
+        }
+    }
+    // img.bubble1 {
+    //     width: 35px;
+    //     position: relative;
+    //     left: -20px;
+    //     top: 5px;
+    // }
+    // img.bubble2 {
+    //     width: 30px;
+    //     position: relative;
+    //     left: 30px;
+    //     top: -5px;
+    // }
+    // img.bubble3 {
+    //     width: 25px;
+    //     position: relative;
+    //     left: -5px;
+    // }
+    // img.bubble4 {
+    //     width: 35px;
+    //     position: relative;
+    //     right: -10px;
+    //     top: 5px;
+    // }
+    // img.bubble5 {
+    //     width: 30px;
+    //     position: relative;
+    //     right: 20px;
+    //     top: 0px;
+    // }
+    // img.bubble6 {
+    //     width: 25px;
+    //     position: relative;
+    //     right: 50px;
+    // }
+    .captain {
+        opacity: 0;
+        transition: all 1s;
+        img {
+            width: 30%;
+            position: absolute;
+            top: 10vh;
+            right: 20vh;
+        }
+        .item {
+            position: absolute;
+            top: 25%;
+            left: 20%;
+            z-index: 2;
+            color: #035;
+            background-color: #eaf1f6;
+            padding: 20px;
+            border-radius: 10px;
+            h3 {
+                padding-bottom: 30px;
+            }
+            .buttonGo {
+                display: inline-block;
+                padding: 5px 20px;
+                background-color: #86d1ef;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.wrapperWheel {
+    display: none;
+}
+
+// .wrapperBg {
+//     display: none;
+// }
+.section2 {
+    background: url(../images/shortbg.png) center top;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    .title {
+        width: 80%;
+        height: 50%;
+        background: url(../images/cloud.svg) center no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        h2 {
+            align-self: center;
+            font-size: 26px;
+        }
+    }
+    .row1 {
+        height: 70vh;
+        .calendar {
+            margin: 0 auto;
+            .datetable {
+                float: right;
+                margin: 20px auto;
+                display: inline-block;
+                border-collapse: collapse;
+                background-color: #d8ecf9;
+                border-radius: 5px;
+                th,
+                td {
+                    text-align: center;
+                    font-size: 20px;
+                    width: 60px;
+                    padding: 5px 10px;
+                    display: inline-block;
+                }
+            }
+        }
+        .reservation {
+            z-index: 1;
+            width: 300px;
+            height: 320px;
+            color: #fff;
+            background-color: #318DD6;
+            border: 3px solid #fff;
+            border-radius: 10px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            p {
+                text-align: center;
+                margin: 20px;
+            }
+            .choice {
+                margin: 20px 0 0 30px;
+                span {
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+            }
+            .button {
+                width: 100px;
+                margin: 20px auto;
+                padding: 5px 10px;
+                background-color: #130B6E;
+                text-align: center;
+                border-radius: 10px;
+            }
+        }
+        .island {
+            position: absolute;
+            bottom: 0;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.ocean {
+    background: url(../images/ocean.png)bottom;
+    width: 100%;
+    height: 30vh;
+    position: absolute;
+    bottom: 0;
+    img {
+        width: 80%;
+        display: inline-block;
+        margin-top: 30px;
+    }
+}
+
+.boat2 {
+    width: 200px;
+    position: relative;
+    display: none;
+    top: -100px;
+    z-index: 2;
+    img {
+        width: 80%;
+        position: relative;
+        left: 0;
+        transition: all .5s;
+    }
+}
+
+.wrapperBg {
+    background: url(../images/oceanbottom.jpg) center top;
+    background-size: cover;
+    height: 100%;
+}
+
+.section3 {
+    overflow: hidden;
+    .title {
+        margin-top: 30px;
+        height: 80px;
+        background: url(../images/titlebg.svg) center no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        h2 {
+            align-self: center;
+            color: rgb(243, 240, 240);
+            font-size: 22px;
+        }
+    }
+    .row2 {
+        height: 80vh;
+    }
+    .menu {
+        margin-top: 20px;
+        background-color: #e0f1fc;
+        border-radius: 5px;
+        text-align: center;
+        width: 300px;
+        padding: 30px;
+        display: inline-block;
+        img {
+            width: 80%;
+        }
+        p {
+            margin: 3px;
+        }
+        .button {
+            margin: 0px auto;
+            width: 80px;
+            text-align: center;
+            background-color: #ef915b;
+            border-radius: 10px;
+            padding: 5px 0;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+    .menu1,
+    .menu2 {
+        width: 100px;
+        height: 160px;
+        background-color: #e0f1fc;
+        display: inline-block;
+        margin: 30px;
+    }
+    .waiter img {
+        width: 80%;
+        right: 30%;
+        transition: all 1s;
+    }
+}
+
+.section4 {
+    .row1 {
+        .title {
+            margin-top: 30px;
+            height: 80px;
+            background: url(../images/titlebg.svg) center no-repeat;
+            background-size: contain;
+            display: flex;
+            justify-content: center;
+            h2 {
+                font-size: 22px;
+                align-self: center;
+                color: rgb(243, 240, 240);
+            }
+        }
+        .text {
+            margin-top: 20px;
+            color: #fff;
+            display: inline-block;
+            p {
+                margin: 0;
+                padding: 5px;
+            }
+        }
+    }
+    .row2,
+    .row3 {
+        .step {
+            margin: 0 auto;
+            background-color: #318DD6;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            padding: 12px;
+            p {
+                color: #fff;
+                margin: 5px;
+            }
+        }
+        .game {
+            margin-top: 20px;
+            height: 400px;
+            background-color: #e0f1fc;
+        }
+        .text {
+            margin-top: 50px;
+            color: #fff;
+            display: inline-block;
+            p {
+                margin: 0;
+                padding: 5px;
+            }
+        }
+        .button {
+            margin: 20px auto;
+            width: 80px;
+            text-align: center;
+            background-color: #ef915b;
+            border-radius: 10px;
+            padding: 5px 0;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+    .row3 {
+        margin-top: 50px;
+    }
+    .cookWrapper {
+        position: relative;
+        height: 500px;
+        .cookPic1 {
+            position: relative;
+            top: 10px;
+            left: 150px;
+        }
+        .cookPic2 {
+            position: relative;
+            top: 100px;
+            left: 0px;
+        }
+        .cookPic3 {
+            position: relative;
+            top: 200px;
+            left: 0px;
+        }
+        .cookPic4 {
+            position: relative;
+            top: 270px;
+            left: 80px;
+        }
+        img {
+            width: 100px;
+        }
+        .cookPic4 img {
+            width: 100px;
+        }
+        .half img {
+            height: 500px;
+            width: auto;
+            position: absolute;
+            left: 350px;
+            top: 0px;
+        }
+    }
+}
+
+.section5 {
+    overflow: hidden;
+    .title {
+        margin-top: 30px;
+        height: 80px;
+        background: url(../images/titlebg.svg) center no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        h2 {
+            font-size: 22px;
+            align-self: center;
+            color: rgb(243, 240, 240);
+        }
+    }
+    .text {
+        color: #fff;
+        p {
+            margin: 0;
+            padding: 5px;
+        }
+    }
+    .button {
+        margin: 20px auto;
+        width: 80px;
+        text-align: center;
+        background-color: #ef915b;
+        border-radius: 10px;
+        padding: 5px 0;
+        color: #fff;
+        cursor: pointer;
+    }
+    .contest {
+        .cook {
+            color: #fff;
+            text-align: center;
+            img {
+                width: 100%;
+            }
+            .button {
+                background-color: #a7d4eb;
+                color: #333;
+            }
+        }
+        .cook1 {
+            position: relative;
+            bottom: -80px;
+        }
+        .cook3 {
+            position: relative;
+            bottom: -120px;
+        }
+        .box {
+            width: 60%;
+            margin: 0 auto;
+        }
+    }
+}

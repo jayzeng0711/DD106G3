@@ -13,7 +13,7 @@
 
 //section的css
 #wrapper{
-  padding-bottom: 10%;
+  padding: 10% 0;
   background: linear-gradient(to bottom, #41B6E6 0, #001871 100%);
 }
 //section的css
@@ -96,6 +96,7 @@
   width: 90%;
   border: 1px solid black;
   z-index: 1;
+  overflow: hidden;
   //遊戲開始圖片
   #game_start{
     animation: start 2s ease 0s infinite alternate;
@@ -117,6 +118,7 @@
     bottom: 35%;
     font-size: 25px;
     color: #404040;
+    cursor: pointer;
   }
   //click的文字
   //有抓到海鮮遊戲結束視窗
@@ -259,6 +261,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
     #time_up{
       position: absolute;
       z-index: 100;
