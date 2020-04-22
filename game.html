@@ -4,77 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/game.css">
     <title>Document</title>
 </head>
 <body>
     <!-- header直接include  -->
-    <header>
-        <div class="aaa" style="display: flex;">
-            <a href="" style="width: 20%;text-align: center;padding: .5% 0;">
-                <img src="/images/logo.png" alt="">
-            </a >
-            <ul style="display: flex;width: 100%;align-items: center;text-align: center;letter-spacing: 1px;">
-                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
-                    <div class="opacity_div" style="opacity: 0;">
-                        <a href="">
-                            <img src="./images/cruise.png" width="40" alt="">
-                        </a>
-                    </div>
-                    <div>
-                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
-                            訂位點餐
-                        </a>
-                    </div> 
-                </li>
-                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
-                    <div class="opacity_div" style="opacity: 0;">
-                        <a href="">
-                            <img src="./images/cruise.png" width="40" alt="">
-                        </a>
-                    </div>
-                    <div>
-                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
-                            現撈海鮮
-                        </a>
-                    </div>
-                </li>
-                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
-                    <div class="opacity_div" style="opacity: 0;">
-                        <a href="">
-                            <img src="./images/cruise.png" width="40" alt="">
-                        </a>
-                    </div>
-                    <div>
-                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
-                            客製化料理
-                        </a>
-                    </div>
-                </li>
-                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
-                    <div class="opacity_div" style="opacity: 0;">
-                        <a href="">
-                            <img src="./images/cruise.png" width="40" alt="">
-                        </a>
-                    </div>
-                    <div>
-                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
-                            美食大賽
-                        </a>
-                    </div>
-                </li>
-            </ul>
-            <div style="display: flex;width: 15%;align-items: center;justify-content: center;cursor: pointer;">
-                <div style="font-size: 14px;margin-right: 5%;white-space: nowrap;letter-spacing: 1px;">
-                    會員登入
-                </div>
-                <div style="width: 30px;">
-                    <img src="./images/login.png" alt="" style="max-width: 100%;">
-                </div>
-            </div>
-        </div>
-    </header>
+    @@include('./layout/header.html')
     <!-- header直接include  -->
     <section id="wrapper">
 

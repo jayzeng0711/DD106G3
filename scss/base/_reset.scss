@@ -41,55 +41,6 @@ table {
 border-collapse: collapse;
 border-spacing: 0;
 }
-
-// header
-.aaa{
-    position: relative;
-    z-index: 1;
-    &::after{
-        content: "";
-        background-image: url('/images/cloud.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: auto;
-        height: 150px;
-        width: 100%;
-        z-index: -1;
-    }
+*{
+    box-sizing: border-box;
 }
-.opacity_div{
-    transition: .5s all;
-}
-.text_a{
-    position: relative;
-}
-.ship_img_div:hover .text_a::after{
-    width: 100%;
-}
-.text_a::after{
-    content: "";
-    bottom: -5px;
-    left: 0;
-    position: absolute;
-    width: 0%;
-    background-color: #000;
-    height: 3px;
-    transition: .5s all;
-}
-.img_cruise{
-    animation: ship_shake 1s ease 0s infinite alternate;
-}
-@keyframes ship_shake{
-    0%{
-        transform: translateY(-5px);
-    }
-    100%{
-        transform: translateY(5px);
-    }
-}
-// header

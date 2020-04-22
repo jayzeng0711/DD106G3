@@ -1,0 +1,64 @@
+// header
+.pu_head_wrap_div{
+    display: flex;
+    position: relative;
+    z-index: 1;
+    .pu_logo_a{
+        width: 20%;
+        text-align: center;
+        padding-top: 1%;
+    }
+    .pu_head_ul{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 1px;
+        .pu_head_li{
+            width: 22%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            .pu_text_a{
+                color: #01355D;
+                text-decoration: none;
+            }
+        }
+    }
+    .pu_mem_login_div_wrap{
+        display: flex;
+        width: 15%;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        .pu_mem_login_div{
+            font-size: $fontSize;
+            margin-right: 5%;
+            white-space: nowrap;
+            letter-spacing: 1px;
+        }
+        .pu_icon_div{
+            width: 30px;
+            img{
+                max-width: 100%;
+            }
+        }
+    }
+    &::after{
+        content: "";
+        background-image: url('/images/cloud.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        height: 150px;
+        width: 100%;
+        z-index: -1;
+    }
+}
+// header

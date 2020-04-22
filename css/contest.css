@@ -7,12 +7,6 @@
           box-sizing: border-box;
 }
 
-@font-face {
-  font-family: 'jf-openhuninn-1.0';
-  src: url(../font/jf-openhuninn-1.0.woff) format("woff");
-  src: url(../font/jf-openhuninn-1.0.ttf) format("truetype");
-}
-
 body {
   font-family: 'jf-openhuninn-1.0';
   background-image: url(../images/ocean_bg2.png);
