@@ -1,12 +1,12 @@
 @keyframes waves{ /*波浪*/
     0%{
-       background-image: url(/Image/wave_keyframes01.png);
+       background-image: url("/images/wave_keyframes01.png");
     }
     50%{
-       background-image: url(/Image/wave_keyframes02.png);
+       background-image: url("/images/wave_keyframes02.png");
     }
     100%{
-       background-image: url(/Image/wave_keyframes03.png);
+       background-image: url("/images/wave_keyframes03.png");
         }
 }
 
@@ -30,13 +30,13 @@
 
 @keyframes ripples{ /*漣漪*/
     0%{
-        background-image: url(/Image/ripple_keyframes01.png);
+        background-image: url("/images/ripple_keyframes01.png");
     }
     50%{
-        background-image: url(/Image/ripple_keyframes02.png);
+        background-image: url("/images/ripple_keyframes02.png");
     }
     100%{
-        background-image: url(/Image/ripple_keyframes03.png);
+        background-image: url("/images/ripple_keyframes03.png");
     }
 }
 
@@ -114,7 +114,7 @@ div.logo > img{
 
 div.cloud{
     border: 1px solid red;
-    background-image: url(/Image/clouds.png);
+    background-image: url("/images/clouds.png");
     width: 1920px;
     height: 500px;
     margin-top: -500px;
@@ -149,7 +149,7 @@ li > a{
 }
 
 li >a.front {
-    background-image: url(/Image/Cruise_landingPage_02.png);
+    background-image: url("/images/Cruise_landingPage_02.png");
     background-size: contain;
     background-repeat: no-repeat;
     width: 650px;
@@ -159,7 +159,7 @@ li >a.front {
 }
 
 li >a.back {
-    background-image: url(/Image/Cruise_landingPage_01.png);
+    background-image: url("/images/Cruise_landingPage_01.png");
     background-size: contain;
     background-repeat: no-repeat;
     width: 650px;
@@ -171,8 +171,8 @@ li >a.back {
 li >a.front >h1{
     display: inline-block;
     position: absolute;
-    top:10%;
-    left: 40%;
+    top:-20%;
+    left: 60%;
     margin: 0;
     transform: translate(-50%, -50%);
     font-family: microsoft jhenghei;
@@ -183,8 +183,8 @@ li >a.front >h1{
 li >a.back >h1{
     display: inline-block;
     position: absolute;
-    top:10%;
-    left: 55%;
+    top:-20%;
+    left: 40%;
     margin: 0;
     transform: translate(-50%, -50%);
     font-family: microsoft jhenghei;
@@ -193,7 +193,7 @@ li >a.back >h1{
 }
 
 div.waves{
-    background-image: url(/Image/wave_keyframes01.png);
+    background-image: url("/images/wave_keyframes01.png");
     background-repeat: no-repeat;
     background-size: contain;
     width: 574px;
@@ -204,7 +204,7 @@ div.waves{
 }
 
 div.ripples{
-    background-image: url(/Image/ripple_keyframes01.png);
+    background-image: url("/images/ripple_keyframes01.png");
     background-repeat: no-repeat;
     background-size: contain;
     width: 753px;
@@ -219,7 +219,7 @@ li >a.front:hover{
 }
 
 div.ocean{
-    background-image: url(/Image/Ocean_top.png);
+    background-image: url("/images/Ocean_top.png");
     background-size: contain;
     width: 1920px;
     height: 187px;
