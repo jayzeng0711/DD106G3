@@ -1,16 +1,4 @@
 @charset "UTF-8";
-@-webkit-keyframes waves {
-  /*波浪*/
-  0% {
-    background-image: url("/images/wave_keyframes01.png");
-  }
-  50% {
-    background-image: url("/images/wave_keyframes02.png");
-  }
-  100% {
-    background-image: url("/images/wave_keyframes03.png");
-  }
-}
 @keyframes waves {
   /*波浪*/
   0% {
@@ -23,26 +11,6 @@
     background-image: url("/images/wave_keyframes03.png");
   }
 }
-
-@-webkit-keyframes waves_calm {
-  /*海面*/
-  0% {
-    background-position: 50px 25px;
-  }
-  25% {
-    background-position: 25px 50px;
-  }
-  50% {
-    background-position: 50px 25px;
-  }
-  75% {
-    background-position: -25px -50px;
-  }
-  100% {
-    background-position: -50px -25px;
-  }
-}
-
 @keyframes waves_calm {
   /*海面*/
   0% {
@@ -61,20 +29,6 @@
     background-position: -50px -25px;
   }
 }
-
-@-webkit-keyframes ripples {
-  /*漣漪*/
-  0% {
-    background-image: url("/images/ripple_keyframes01.png");
-  }
-  50% {
-    background-image: url("/images/ripple_keyframes02.png");
-  }
-  100% {
-    background-image: url("/images/ripple_keyframes03.png");
-  }
-}
-
 @keyframes ripples {
   /*漣漪*/
   0% {
@@ -87,87 +41,32 @@
     background-image: url("/images/ripple_keyframes03.png");
   }
 }
-
-@-webkit-keyframes sailing {
-  /*船行*/
-  0% {
-    -webkit-transform: rotate(-1deg);
-            transform: rotate(-1deg);
-  }
-  25% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  37% {
-    top: -5px;
-    -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
-  }
-  50% {
-    top: -2px;
-    -webkit-transform: rotate(3deg);
-            transform: rotate(3deg);
-  }
-  62% {
-    -webkit-transform: rotate(3deg);
-            transform: rotate(3deg);
-  }
-  75% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
-  }
-}
-
 @keyframes sailing {
   /*船行*/
   0% {
-    -webkit-transform: rotate(-1deg);
-            transform: rotate(-1deg);
+    transform: rotate(-1deg);
   }
   25% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   37% {
     top: -5px;
-    -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
   50% {
     top: -2px;
-    -webkit-transform: rotate(3deg);
-            transform: rotate(3deg);
+    transform: rotate(3deg);
   }
   62% {
-    -webkit-transform: rotate(3deg);
-            transform: rotate(3deg);
+    transform: rotate(3deg);
   }
   75% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
+    transform: rotate(-2deg);
   }
 }
-
-@-webkit-keyframes wabble {
-  0% {
-    top: 0px;
-  }
-  50% {
-    top: -2px;
-  }
-  100% {
-    top: 0px;
-  }
-}
-
 @keyframes wabble {
   0% {
     top: 0px;
@@ -179,17 +78,6 @@
     top: 0px;
   }
 }
-
-@-webkit-keyframes cloud {
-  /*雲在飄*/
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 5760px 0;
-  }
-}
-
 @keyframes cloud {
   /*雲在飄*/
   from {
@@ -199,10 +87,9 @@
     background-position: 5760px 0;
   }
 }
-
 div.forALL {
   width: 100%;
-  height: 850px;
+  height: 100vh;
   margin: 0;
   margin-top: -71px;
   padding: 0;
@@ -226,8 +113,7 @@ div.cloud {
   background-image: url("/images/clouds.png");
   height: 500px;
   margin-top: -500px;
-  -webkit-animation: cloud 180s infinite;
-          animation: cloud 180s infinite;
+  animation: cloud 180s infinite;
 }
 
 div.warp {
@@ -237,11 +123,8 @@ div.warp {
 
 ul.cruises {
   border: 1px solid firebrick;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 li {
@@ -264,10 +147,8 @@ li > a.front {
   background-repeat: no-repeat;
   width: 650px;
   height: 170px;
-  -webkit-animation: sailing 2s infinite;
-          animation: sailing 2s infinite;
-  -webkit-animation-timing-function: cubic-bezier(0.17, 0.67, 0.58, 0.56);
-          animation-timing-function: cubic-bezier(0.17, 0.67, 0.58, 0.56);
+  animation: sailing 2s infinite;
+  animation-timing-function: cubic-bezier(0.17, 0.67, 0.58, 0.56);
 }
 
 li > a.back {
@@ -276,10 +157,8 @@ li > a.back {
   background-repeat: no-repeat;
   width: 650px;
   height: 170px;
-  -webkit-animation: wabble 2s infinite;
-          animation: wabble 2s infinite;
-  -webkit-animation-timing-function: cubic-bezier(0.17, 0.67, 0.58, 0.56);
-          animation-timing-function: cubic-bezier(0.17, 0.67, 0.58, 0.56);
+  animation: wabble 2s infinite;
+  animation-timing-function: cubic-bezier(0.17, 0.67, 0.58, 0.56);
 }
 
 li > a.front > h1 {
@@ -288,8 +167,7 @@ li > a.front > h1 {
   top: -20%;
   left: 60%;
   margin: 0;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-family: microsoft jhenghei;
   color: #363636;
   font-size: 5rem;
@@ -301,8 +179,7 @@ li > a.back > h1 {
   top: -20%;
   left: 40%;
   margin: 0;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-family: microsoft jhenghei;
   color: #363636;
   font-size: 5rem;
@@ -316,8 +193,7 @@ div.waves {
   height: 123px;
   margin-left: 100px;
   margin-top: 80px;
-  -webkit-animation: waves 0.5s infinite ease-in-out;
-          animation: waves 0.5s infinite ease-in-out;
+  animation: waves 0.5s infinite ease-in-out;
 }
 
 div.ripples {
@@ -328,13 +204,11 @@ div.ripples {
   height: 33px;
   margin-left: -130px;
   margin-top: 150px;
-  -webkit-animation: ripples 3s infinite ease-in-out;
-          animation: ripples 3s infinite ease-in-out;
+  animation: ripples 3s infinite ease-in-out;
 }
 
 li > a.front:hover {
-  -webkit-animation: sailing 1s infinite;
-          animation: sailing 1s infinite;
+  animation: sailing 1s infinite;
 }
 
 div.ocean {
@@ -342,7 +216,7 @@ div.ocean {
   background-size: contain;
   height: 187px;
   margin-top: -120px;
-  -webkit-animation: waves_calm 5s infinite alternate ease-in-out;
-          animation: waves_calm 5s infinite alternate ease-in-out;
+  animation: waves_calm 5s infinite alternate ease-in-out;
 }
+
 /*# sourceMappingURL=index.css.map */
