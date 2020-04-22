@@ -8,66 +8,67 @@ html,body{
     a{
         text-decoration: none;
     }
-    #Mem{
+    .Mem{
         display: flex;
         height: 100%;
     } 
     
     /*左半邊*/
-    #Mem_list{
+    .Mem_list{
         background-color: #D9E8EC;
         text-align: center;
         flex: 1;
         padding-top: 100px;
     }
-    #Mem_list a{  
+    .Mem_list a{  
         display: block;
         padding: 30px 20px;
     }
-    #Mem_list a:hover{
+    .Mem_list a:hover{
         background-color: #B3B3B3;
     }
     
     /*右半邊*/
-    #Memall{
+    .Memall{
         /* background-color: #FFE9AE; */
         flex: 3;
+        text-align: center;
+        padding-top: 60px;
     }
     
-    #Memall_img{
+    .Memall_img{
     padding-top: 60px;
     text-align: center;
     }
-    #Memall_img img{
+    .Memall_img img{
     margin: 40px 0px 20px;
     border-radius: 50%;
     }
-    #Memall_img_Btn{
+    .Memall_img_Btn{
     transform: translate(170px,-40px);
     }
-    #Memall_tabble table{
+    .Memall_tabble table{
         margin: 20px auto;
     }
-    #Memall_tabble td{
+    .Memall_tabble td{
     padding: 15px 50px;
     }
-    #Memall_style{
+    .Memall_style{
     padding-top: 80px;
     text-align: center;
     }
-    #EditBox{
+    .EditBox{
     background-color: #ddd;
     width: 350px;
-    height: 400px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translatey(-50%);
     border-radius: 10px;
     text-align: center;
-    /* display: none; */
+    padding: 2% 0;
     }
-    #EditBox.Showbox{
+    .Showbox{
         display: none;
     }
     .Btn_style{
@@ -75,5 +76,10 @@ html,body{
         height: 40px;
         border-radius: 10px;
         background-color:#FFE9AE;
-        margin-top: 50px;
+        // margin-top: 50px;
+    }
+    form{
+        div{
+            margin: 5% 0;
+        }
     }
