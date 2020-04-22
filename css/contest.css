@@ -15,21 +15,8 @@
 
 body {
   font-family: 'jf-openhuninn-1.0';
-  background: -webkit-gradient(linear, left top, left bottom, from(#abdcfa), to(#11408c));
-  background: linear-gradient(#abdcfa, #11408c);
-}
-
-header {
-  width: 100%;
-  height: 100px;
-  font-size: 40px;
-  text-align: center;
-  background-color: #000000;
-  color: #ffffff;
-  position: fixed;
-  top: 0;
-  z-index: 10;
-  /* border: 1px solid red; */
+  background-image: url(../images/ocean_bg2.png);
+  background-size: contain;
 }
 
 footer {
@@ -134,25 +121,20 @@ footer {
           justify-content: space-between;
 }
 
-.contain .ranking_item .ranking_bg .cookList_infoPanel a {
+.contain .ranking_item .ranking_bg .cookList_infoPanel div {
   display: inline-block;
-  text-decoration: none;
   background-color: #001871;
   border-radius: 10px;
   margin: 10px 0;
-}
-
-.contain .ranking_item .ranking_bg .cookList_infoPanel a:nth-child(2) {
-  background-color: #4EB6E6;
-}
-
-.contain .ranking_item .ranking_bg .cookList_infoPanel span {
-  text-align: center;
-  display: inline-block;
   font-size: 16px;
-  color: #ffffff;
   width: 130px;
   padding: 10px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.contain .ranking_item .ranking_bg .cookList_infoPanel div:nth-child(2) {
+  background-color: #4EB6E6;
 }
 
 .contain .ranking_item .ranking_bg .icon {
@@ -311,6 +293,7 @@ footer {
 
 .eventImg .character img {
   width: 230px;
+  cursor: pointer;
 }
 
 /* ------------ aboutContest 結束 ---------------*/
@@ -333,6 +316,11 @@ footer {
   margin-bottom: 40px;
 }
 
+.filter span {
+  font-size: 20px;
+  color: #fff;
+}
+
 .filter select {
   font-family: 'jf-openhuninn-1.0';
   font-size: 20px;
@@ -343,12 +331,41 @@ footer {
   border: transparent;
 }
 
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+}
+
+@keyframes move {
+  0% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+}
+
 .contain .cookList_item {
   display: inline-block;
   width: 340px;
   margin: 0 20px 70px 20px;
   background-image: url(../images/cookList_item_bg.png);
   border-radius: 10px;
+  -webkit-animation-name: move;
+          animation-name: move;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
 }
 
 .contain .cookList_item .cookList_img .cookList_cook {
@@ -392,25 +409,21 @@ footer {
           justify-content: space-between;
 }
 
-.contain .cookList_item .cookList_infoPanel a {
+.contain .cookList_item .cookList_infoPanel div {
   display: inline-block;
-  text-decoration: none;
   background-color: #001871;
   border-radius: 10px;
   margin: 10px 0;
-}
-
-.contain .cookList_item .cookList_infoPanel a:nth-child(2) {
-  background-color: #4EB6E6;
-}
-
-.contain .cookList_item .cookList_infoPanel span {
-  text-align: center;
-  display: inline-block;
   font-size: 16px;
-  color: #ffffff;
   width: 130px;
   padding: 10px;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.contain .cookList_item .cookList_infoPanel div:nth-child(2) {
+  background-color: #4EB6E6;
 }
 
 .contain .cookList_item .icon {
@@ -482,6 +495,16 @@ footer {
   color: #ffffff;
   width: 130px;
   padding: 10px 10px;
+}
+
+.contain .cookList_item:nth-child(2), .contain .cookList_item:nth-child(5) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.contain .cookList_item:nth-child(3), .contain .cookList_item:nth-child(6) {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
 }
 
 /* ------------ cookList 結束 ---------------*/
@@ -699,4 +722,52 @@ footer {
 }
 
 /*------------------ 完成投票提示結束 ----------------*/
+/*--------置頂按鈕---------*/
+@-webkit-keyframes to_top {
+  0% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+  100% {
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
+  }
+}
+@keyframes to_top {
+  0% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+  100% {
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
+  }
+}
+
+#go_top {
+  width: 150px;
+  height: 150px;
+  background: none;
+  position: fixed;
+  right: 50px;
+  bottom: 100px;
+  border: transparent;
+  outline: none;
+  cursor: pointer;
+  -webkit-animation-name: to_top;
+          animation-name: to_top;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+#go_top img {
+  width: 100%;
+}
+
+/*--------置頂按鈕結束---------*/
 /*# sourceMappingURL=contest.css.map */

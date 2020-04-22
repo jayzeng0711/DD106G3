@@ -13,21 +13,23 @@
 
 body {
     font-family: 'jf-openhuninn-1.0';
-    background: linear-gradient(#abdcfa,#11408c);
+    // background: linear-gradient(#abdcfa,#11408c);
+    background-image: url(../images/ocean_bg2.png);
+    background-size: contain;
 }
 
-header {
-    width: 100%;
-    height: 100px;
-    font-size: 40px;
-    text-align: center;
-    background-color: #000000;
-    color: #ffffff;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    /* border: 1px solid red; */
-}
+// header {
+//     width: 100%;
+//     height: 100px;
+//     font-size: 40px;
+//     text-align: center;
+//     background-color: #000000;
+//     color: #ffffff;
+//     position: fixed;
+//     top: 0;
+//     z-index: 10;
+//     /* border: 1px solid red; */
+// }
 
 footer {
     width: 100%;
@@ -139,27 +141,31 @@ footer {
     display: flex;
     justify-content: space-between;
 
-    a{
+    div{
         display: inline-block;
-        text-decoration: none;
         background-color: #001871;
         border-radius: 10px;
         margin: 10px 0;
+        font-size: 16px;
+        width: 130px;
+        padding: 10px;
+        color: #ffffff;
+        text-align: center;
         // border: 1px solid yellow;
     }
 
-    a:nth-child(2){
+    div:nth-child(2){
         background-color: #4EB6E6;
     }
 
-    span{
-        text-align: center;
-        display: inline-block;
-        font-size: 16px;
-        color: #ffffff;
-        width: 130px;
-        padding: 10px;
-    }
+    // span{
+    //     text-align: center;
+    //     display: inline-block;
+    //     font-size: 16px;
+    //     color: #ffffff;
+    //     width: 130px;
+    //     padding: 10px;
+    // }
 }
 
 .contain .ranking_item .ranking_bg .icon{
@@ -315,7 +321,7 @@ footer {
 
 .eventImg .character img{
     width: 230px;
-    
+    cursor: pointer;
 }
 
 /* ------------ aboutContest 結束 ---------------*/
@@ -338,16 +344,29 @@ footer {
 .filter{
     margin-top: 60px;
     margin-bottom: 40px;
+
+    span{
+        font-size: 20px;
+        color: #fff;
+    }
+    select{
+        font-family: 'jf-openhuninn-1.0';
+        font-size: 20px;
+        color: #ffffff;
+        background-color: #4EB6E6;
+        padding: 10px;
+        border-radius: 10px;
+        border: transparent;
+    }
 }
 
-.filter select{
-    font-family: 'jf-openhuninn-1.0';
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #4EB6E6;
-    padding: 10px;
-    border-radius: 10px;
-    border: transparent;
+@keyframes move {
+    0% {
+        transform: translateY(-20px);
+    }
+    100%{
+        transform: translateY(20px);
+    }
 }
 
 .contain .cookList_item {
@@ -356,6 +375,11 @@ footer {
     margin: 0 20px 70px 20px;
     background-image: url(../images/cookList_item_bg.png);
     border-radius: 10px;
+    animation-name: move;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate-reverse;
+    // animation-timing-function:linear;
     // border: 2px solid rgb(3, 129, 41);
 
     .cookList_img{
@@ -400,27 +424,32 @@ footer {
         display: flex;
         justify-content: space-between;
     
-        a{
+        div{
             display: inline-block;
-            text-decoration: none;
             background-color: #001871;
             border-radius: 10px;
             margin: 10px 0;
+            font-size: 16px;
+            width: 130px;
+            padding: 10px;
+            color: #ffffff;
+            text-align: center;
+            cursor: pointer;
             // border: 1px solid yellow;
         }
     
-        a:nth-child(2){
+        div:nth-child(2){
             background-color: #4EB6E6;
         }
     
-        span{
-            text-align: center;
-            display: inline-block;
-            font-size: 16px;
-            color: #ffffff;
-            width: 130px;
-            padding: 10px;
-        }
+        // span{
+        //     text-align: center;
+        //     display: inline-block;
+        //     font-size: 16px;
+        //     color: #ffffff;
+        //     width: 130px;
+        //     padding: 10px;
+        // }
     }
 
     .icon{
@@ -490,6 +519,14 @@ footer {
         }
     
     }
+}
+
+.contain .cookList_item:nth-child(2),.contain .cookList_item:nth-child(5){
+    animation-delay: 1s;
+}
+
+.contain .cookList_item:nth-child(3),.contain .cookList_item:nth-child(6){
+    animation-delay: 0.8s;
 }
 
 
@@ -718,3 +755,34 @@ footer {
     }
 }
 /*------------------ 完成投票提示結束 ----------------*/
+
+/*--------置頂按鈕---------*/
+@keyframes to_top {
+    0% {
+        transform: translateY(-15px);
+    }
+    100%{
+        transform: translateY(15px);
+    }
+}
+
+#go_top {
+    width: 150px;
+    height:150px;
+    background: none;
+    position: fixed;
+    right: 50px;
+    bottom: 100px;
+    border: transparent;
+    outline: none;
+    cursor: pointer;
+    animation-name: to_top;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate-reverse;
+    animation-timing-function:linear;
+}
+#go_top img{
+    width: 100%;
+}
+/*--------置頂按鈕結束---------*/

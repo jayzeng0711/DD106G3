@@ -3,6 +3,100 @@ window.addEventListener('load', function() {
     AOS.init();
 
 
+    // 進入首頁，第一屏島嶼移動，背景圖改變位置
+
+    let islandMoveTime = setInterval(islandMove, 30);
+
+    function islandMove() {
+
+        let i = 380;
+        let layer1Left = parseInt($('.layer1').css('left'));
+        let layer1width = ($('.layer1').width());
+        let layer2Right = parseInt($('.layer2').css('right'));
+        let layer2width = ($('.layer2').width());
+
+        $('.layer1').css({
+            left: layer1Left - i + "px",
+            width: layer1width + i + "px",
+
+        });
+        $('.layer2').css({
+            right: layer2Right - (i / 60) + "px",
+            width: (layer2width + i / 300) + "px",
+
+        });
+
+
+        $('.section1').addClass('bg');
+
+        if (layer1Left < -1000 && layer2Right < -1000) {
+            clearInterval(islandMoveTime);
+
+        }
+
+
+    }
+
+    // 滾動滑鼠船前進
+
+    window.onmousewheel = move;
+
+    function move() {
+
+        if ($('.wrapperWheel').css('display') == "none") {
+            let divLeft = parseInt($('.boat img').css('left'));
+
+            if (divLeft < $(window).width()) {
+                $('.boat img').css('left', '+=300');
+            } else {
+                $('.captain').css('opacity', '1');
+                $('.section1 .text').css('opacity', '0');
+
+            }
+            console.log(divLeft);
+            console.log($(window).width());
+
+            let fishFlyTime = setInterval(function() {
+                    let divLeft = parseInt($('.boat img').css('left'));
+                    if (divLeft > 100) {
+                        $('img.flyfish1').addClass('fly1');
+                    }
+                    if (divLeft > 200) {
+                        $('img.flyfish2').addClass('fly2');
+                    }
+                    if (divLeft > 350) {
+                        $('img.flyfish3').addClass('fly3');
+                        clearInterval(fishFlyTime);
+
+                    }
+                },
+                10);
+
+        }
+
+
+
+    };
+
+
+    // 出發按鈕，船長和公告消失
+
+    $('.buttonGo').click(function() {
+
+        $('.captain').css('opacity', '0');
+        $('.wrapperWheel').css('display', 'block');
+        $('.section1 .text').css('opacity', '1');
+        setTimeout(function() {
+            $('.captain').css('display', 'none');
+        }, );
+
+    });
+
+
+
+
+
+
     // 泡泡動畫
     bubblePop();
     bubblePop1();
@@ -35,33 +129,18 @@ window.addEventListener('load', function() {
 
     // 變換料理
 
-    setInterval(changeCookImg, 1000);
-    setInterval(changeCookImg, 1500);
+    // setInterval(changeCookImg, 1000);
+    // setInterval(changeCookImg, 1500);
 
     function changeCookImg() {
         let cookNum = Math.floor(Math.random() * 7);
         let cookImg = document.getElementsByClassName('cookImg')[cookNum];
-        let cookImgSrc = Math.floor(Math.random() * 13) + 1;
-        cookImg.src = "./image/cook" + cookImgSrc + ".png";
+        let cookImgSrc = Math.floor(Math.random() * 8) + 1;
+        cookImg.src = "./images/cook" + cookImgSrc + ".png";
 
     };
 
-    // 滾動滑鼠船前進
 
-    window.onmousewheel = move;
-
-    function move() {
-
-        let divLeft = parseInt($('.boat img').css('left'));
-
-        if (divLeft < $(window).width()) {
-            $('.boat img').css('left', '+=300');
-        } else {
-            $('.wrapperWheel').css('display', 'block');
-            ocean();
-        }
-
-    };
 
     // 雲和島嶼消失
 
@@ -100,25 +179,6 @@ window.addEventListener('load', function() {
 
     }
 
-
-    // 出發按鈕，船長和公告消失
-
-    $('.buttonGo').click(function() {
-
-        $('.section2 .text').css('display', 'none');
-        TweenMax.to('.captain img', 0.5, {
-            x: -2000,
-            delay: 1,
-
-        });
-
-        setTimeout(reservation, 3000);
-        boat();
-        $('.wrapperBg').css('display', 'block');
-        $('.boat2').css('display', 'block');
-
-
-    });
 
 
     // 訂位

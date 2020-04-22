@@ -35,9 +35,8 @@ score = 0
 
 //遊戲開始按鈕
 $(document).ready(function(){
-    $('#game_start').click(function(){
-
-        $(this).css('display','none');
+    $('#game_start,#click_text').click(function(){
+        $('#game_start,#click_text').css('display','none');
         $('#click_text').css('display','none');
         $('#asd').css('display','none');
         $('#asd_fail').css('display','none');
@@ -46,7 +45,9 @@ $(document).ready(function(){
             var seafood_img = anime.random(1,8);
             $('#target').css('background-image',`url("./images/seafood${seafood_img}.png")`)
         })
-            
+        $('#fake_ball').mousemove(function(){
+            $(this).css('cursor','pointer');
+        })
         // 遊戲倒數
         time = 60;
         function timeup() {
@@ -123,20 +124,21 @@ $(document).ready(function(){
 
         //Initial Setup
         resetState();
-        
+
         //海鮮的動畫，利用anime.js套件
-        // 使用方式 http://www.htmleaf.com/jQuery/jquery-tools/201607013672.html
-        let path = anime.path('.cls-1');
-        var seafood_animate = anime({
-            targets: ['#target'],
-            rotate: 20,
-            duration: 10000,
-            loop: true,
-            translateX: path,
-            translateY: path,
-            easing: 'linear',
-            direction: 'alternate'
-        });
+            // 使用方式 http://www.htmleaf.com/jQuery/jquery-tools/201607013672.html
+            path_num = anime.random(1,5);
+            path = anime.path(`.cls-${path_num}`);
+            seafood_animate = anime({
+                targets: ['#target'],
+                rotate: 20,
+                duration: 10000,
+                loop: true,
+                translateX: path,
+                translateY: path,
+                easing: 'linear',
+                direction: 'alternate'
+            });
     
     
         //隨著螢幕變化，rwd球的位置
@@ -441,7 +443,6 @@ $(document).ready(function(){
         
             }, 1000);
         }
-        
         function animateCaptureState() {
             var ballContainer = document.getElementById('capture-screen');
             ballContainer.classList.toggle('hidden');
