@@ -87,25 +87,21 @@
     }
 }
 
-body{
-    height: 920px;
+div.forALL{
+    width: 100%;
+    height: 850px;
     margin: 0;
+    margin-top: -71px;
     padding: 0;
     /*background: linear-gradient(to bottom, #9cd6ff, #ffffff);*/
     /*background: linear-gradient(to bottom, #9cd6ff, #ffffff , #48c6e4);*/
     background: radial-gradient(ellipse at top, #FEFFDB,#9cd6ff, #48c6e4);
 }
 
-header{
-    width: 1920px;
-    border: 1px solid red;
-    margin-bottom: 250px;
-}
-
 div.logo{
-    width: 500px;
+    width: 300px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 70px;
 }
 
 div.logo > img{
@@ -115,7 +111,6 @@ div.logo > img{
 div.cloud{
     border: 1px solid red;
     background-image: url("/images/clouds.png");
-    width: 1920px;
     height: 500px;
     margin-top: -500px;
     animation: cloud 180s infinite ;
@@ -123,23 +118,24 @@ div.cloud{
 
 div.warp{
     border: 1px solid gold;
-    width: 1920px;
-    display: inline-block;
+    // display: inline-block;
+    margin-top: 280px;
 }
 
 ul.cruises{
     border: 1px solid firebrick;
-    width: 1920px;
-    margin: 0 auto;
-    margin-left: -45px;
+    // margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
 }
 
 li{
     border: 1px solid purple;
     list-style: none;
     display: inline-block;
-    width: 30%;
-    margin-left: 220px;
+    // width: 30%;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 li > a{
@@ -221,7 +217,6 @@ li >a.front:hover{
 div.ocean{
     background-image: url("/images/Ocean_top.png");
     background-size: contain;
-    width: 1920px;
     height: 187px;
     margin-top: -120px;
     animation: waves_calm 5s infinite alternate ease-in-out;
