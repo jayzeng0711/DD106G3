@@ -46,15 +46,35 @@ window.addEventListener('load', function() {
         if ($('.wrapperWheel').css('display') == "none") {
             let divLeft = parseInt($('.boat img').css('left'));
 
-            if (divLeft < $(window).width()) {
-                $('.boat img').css('left', '+=300');
-            } else {
-                $('.captain').css('opacity', '1');
-                $('.section1 .text').css('opacity', '0');
+            // if (divLeft < $(window).width()) {
+            //     $('.boat img').css('left', '+=300');
+            // } else {
 
+            //     $('.captain').css('opacity', '1');
+            //     $('.section1 .text').css('opacity', '0');
+
+            // }
+
+            let boatWid = $('.boat img').width();
+            let boatLeft = $('.boat img').offset().left;
+            let layer3Left = $('.layer3').offset().left;
+            // console.log(divLeft);
+            // console.log($(window).width());
+
+            // 船碰到港口
+            console.log($('.boat img').offset().left + $('.boat img').width());
+            if ((boatWid / 2) + boatLeft > layer3Left) {
+                $('.port').css('opacity', 1);
+
+                setTimeout(function() {
+                    $('.captain').css('opacity', '1');
+                    $('.section1 .text').css('opacity', '0');
+
+                }, 1000);
+
+            } else {
+                $('.boat img').css('left', '+=300');
             }
-            console.log(divLeft);
-            console.log($(window).width());
 
             let fishFlyTime = setInterval(function() {
                     let divLeft = parseInt($('.boat img').css('left'));
@@ -84,15 +104,23 @@ window.addEventListener('load', function() {
     $('.buttonGo').click(function() {
 
         $('.captain').css('opacity', '0');
-        $('.wrapperWheel').css('display', 'block');
         $('.section1 .text').css('opacity', '1');
         setTimeout(function() {
             $('.captain').css('display', 'none');
-        }, );
+            $('.wrapperWheel').css('display', 'block');
+
+        }, 500);
 
     });
 
 
+    // 點餐卡片會動
+
+    VanillaTilt.init(document.querySelectorAll(".menu"), {
+        max: 25,
+        speed: 1000,
+        scale: 1.2
+    });
 
 
 
@@ -181,16 +209,6 @@ window.addEventListener('load', function() {
 
 
 
-    // 訂位
-    function reservation() {
-
-        $('.cloud1').css('display', 'flex');
-        $('.reservation').css('display', 'inline-block');
-        $('.map ').css('display', 'inline-block');
-
-
-
-    }
 
 
 
@@ -235,11 +253,11 @@ window.addEventListener('load', function() {
 
     timeCook.from('.cookPic1', 3, {
         x: -150,
-        y: 100,
+        y: 0,
         ease: Power3.easeInOut
 
     }).from('.cookPic2', 3, {
-        x: -250,
+        x: -200,
         y: 30,
         ease: Power3.easeInOut
 
@@ -249,6 +267,21 @@ window.addEventListener('load', function() {
         ease: Power3.easeInOut
 
     }).from('.cookPic4', 3, {
+        x: -200,
+        y: 50,
+        ease: Power3.easeInOut
+
+    }).from('.cookPic5', 3, {
+        x: -250,
+        y: 20,
+        ease: Power3.easeInOut
+
+    }).from('.cookPic6', 3, {
+        x: -100,
+        y: 20,
+        ease: Power3.easeInOut
+
+    }).from('.cookPic7', 3, {
         x: -100,
         y: 20,
         ease: Power3.easeInOut
@@ -257,7 +290,7 @@ window.addEventListener('load', function() {
 
 
     var ourScene3 = new ScrollMagic.Scene({
-            triggerElement: '.cookPin',
+            triggerElement: '#cookPin',
             duration: '100%',
             triggerHook: 0,
             // offset: '200'
