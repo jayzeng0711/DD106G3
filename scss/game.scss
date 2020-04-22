@@ -1,6 +1,4 @@
-* {
-    box-sizing: border-box;
-}
+@import "base/var" ;
 
 #screen,
 #touch-layer,
@@ -129,7 +127,7 @@
     text-align: center;
     background-color: white;
     padding: 3%;
-    display: none;
+    // display: none;
     .suc_cap_div{
       font-size: 30px;
       color: #30B0E1;
@@ -164,14 +162,7 @@
           margin-bottom: 20px;
         }
         #re_game_start{
-          background-color: #FFBA59;
-          padding: 20px 40px;
-          border-radius: 10px;
-          border: none;
-          outline: none;
-          cursor: pointer;
-          font-size: 30px;
-          color: white;
+          @extend %btn;
         }
       }
       .score_div{
