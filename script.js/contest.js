@@ -25,3 +25,17 @@ function aaa(id){
         'top':(window_h-look_h)/2+'px',
     });
 }
+
+
+
+// 至頂按鈕，回到最上方
+$(function(){
+  
+    $("#go_top").on("click", function(e){
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, 750);
+    });
+    
+  });
