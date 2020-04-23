@@ -45,7 +45,6 @@ a {
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
-  text-align: center;
   padding-top: 60px;
 }
 
@@ -64,17 +63,14 @@ a {
           transform: translate(170px, -40px);
 }
 
-.Memall_tabble table {
-  margin: 20px auto;
-}
-
-.Memall_tabble td {
-  padding: 15px 50px;
+.Memall_tabble ul li {
+  width: 100px;
+  display: inline-block;
+  margin: 30px 50px 30px 15px;
 }
 
 .Memall_style {
   padding-top: 80px;
-  text-align: center;
 }
 
 .EditBox {
@@ -99,9 +95,5 @@ a {
   height: 40px;
   border-radius: 10px;
   background-color: #FFE9AE;
-}
-
-form div {
-  margin: 5% 0;
 }
 /*# sourceMappingURL=member_data.css.map */

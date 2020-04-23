@@ -32,7 +32,7 @@ html,body{
     .Memall{
         /* background-color: #FFE9AE; */
         flex: 3;
-        text-align: center;
+        // text-align: center;
         padding-top: 60px;
     }
     
@@ -47,15 +47,15 @@ html,body{
     .Memall_img_Btn{
     transform: translate(170px,-40px);
     }
-    .Memall_tabble table{
-        margin: 20px auto;
+    .Memall_tabble ul li{
+        width: 100px;
+        display: inline-block;
+        margin: 30px 50px 30px 15px;
     }
-    .Memall_tabble td{
-    padding: 15px 50px;
-    }
+
     .Memall_style{
     padding-top: 80px;
-    text-align: center;
+    // text-align: center;
     }
     .EditBox{
     background-color: #ddd;
@@ -77,9 +77,4 @@ html,body{
         border-radius: 10px;
         background-color:#FFE9AE;
         // margin-top: 50px;
-    }
-    form{
-        div{
-            margin: 5% 0;
-        }
     }
