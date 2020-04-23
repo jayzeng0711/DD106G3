@@ -7,6 +7,8 @@
     <title>美食大賽</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="./css/contest.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/animate.css">
 </head>
 <body>
     <header>
@@ -86,7 +88,7 @@
                 
                 <div class="ranking_item">
 
-                    <div class="cookList_img">
+                    <div class="cookList_img animated swing">
                         <figure class="cookList_cook">
                             <figcaption>
                                 <p id="name_1">料理名稱3</p>
@@ -137,7 +139,7 @@
                 </div>
                 <div class="ranking_item">
 
-                    <div class="cookList_img">
+                    <div class="cookList_img animated swing">
                         <figure class="cookList_cook">
                             <figcaption>
                                 <p id="name_2">料理名稱1</p>
@@ -188,7 +190,7 @@
                 </div>
                 <div class="ranking_item">
 
-                    <div class="cookList_img">
+                    <div class="cookList_img animated swing">
                         <figure class="cookList_cook">
                             <figcaption>
                                 <p id="name_3">料理名稱3</p>
@@ -259,7 +261,7 @@
                         <div class="text">
                             <img src="./images/Icon map-boating.png" alt="">
                             <span>活動期間</span>
-                            <p>2020.05.01 ~ 2020.05.08</p>
+                            <p>2020.05.01 ~ 2020.06.01</p>
                         </div>
                         <div class="text">
                             <img src="./images/Icon map-boating.png" alt="">
@@ -274,12 +276,12 @@
                     </div>
 
                 </div>
-                <div class="eventImg">
+                <div class="eventImg animated pulse infinite">
                     <div class="board">
                         <a href=""><p>立即前往小遊戲參加活動!</p></a>
                     </div>
                     <div class="character">
-                        <img src="./images/Life_saver.png" alt="">
+                        <img src="./images/Life_saver.png">
                     </div>
                 </div>
 
@@ -300,6 +302,7 @@
             <div class="contain">
 
                 <div class="filter">
+                    <span>排序篩選：</span>
                     <select name="" id="order">
                         <option value="date">參賽日期(新→舊)</option>
                         <option value="vote">得票數(高→低)</option>
@@ -773,9 +776,17 @@
             <p>您已投給<span>〔無敵海膽特特特餐〕</span>一票!</p>
         </div>
     </section>
+
+    <button type="button" id="go_top">
+        <img src="./images/waiter.png" alt="">
+    </button>
     
     <footer>footer</footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="/jquery/jquery.min.js"></script>
     <script src="/script.js/vue.js"></script>
     <script src="/script.js/header.js"></script>

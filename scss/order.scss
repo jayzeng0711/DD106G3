@@ -1,0 +1,231 @@
+@font-face {
+    font-family: 'jf-openhuninn-1.0';
+    src: url(../font/jf-openhuninn-1.0.woff) format("woff");
+    src: url(../font/jf-openhuninn-1.0.ttf) format("truetype");
+}
+
+* {
+    font-family: 'jf-openhuninn-1.0';
+}
+
+main {
+    background: url(../images/longbg.jpg) center top;
+    width: 100%;
+}
+
+.section1 {
+    padding-top: 50px;
+    h2 {
+        text-align: center;
+        color: #035;
+    }
+    img {
+        width: 100%;
+    }
+    .reservation {
+        width: 300px;
+        height: 320px;
+        color: #fff;
+        background-color: #318DD6;
+        border: 3px solid #fff;
+        border-radius: 10px;
+        p {
+            text-align: center;
+            margin: 20px;
+        }
+        .choice {
+            margin: 20px 0 0 30px;
+            span {
+                display: inline-block;
+                margin-right: 10px;
+            }
+        }
+        .button {
+            width: 100px;
+            margin: 20px auto;
+            padding: 5px 10px;
+            background-color: #130B6E;
+            text-align: center;
+            border-radius: 10px;
+        }
+    }
+}
+
+.section2 {
+    h2 {
+        margin-top: 20px;
+        text-align: center;
+        color: #035;
+    }
+    h4 {
+        margin-top: 20px;
+        text-align: center;
+        color: #035;
+    }
+    .category {
+        color: #035;
+        margin-top: 5%;
+        display: flex;
+        text-align: center;
+    }
+    .menu {
+        margin-top: 20px;
+        background-color: #e0f1fc;
+        border-radius: 5px;
+        text-align: center;
+        width: 300px;
+        padding: 30px;
+        display: inline-block;
+        img {
+            width: 80%;
+        }
+        p {
+            margin: 3px;
+        }
+        .button {
+            margin: 0px auto;
+            width: 80px;
+            text-align: center;
+            background-color: #ef915b;
+            border-radius: 10px;
+            padding: 5px 0;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+}
+
+.img1 {
+    width: 70%;
+}
+
+.menu {
+    margin-top: 40px;
+}
+
+
+/*換頁簽*/
+
+div.pagination_block {
+    display: inline-block;
+}
+
+div.pagination_block>ul.pagination {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
+
+div.pagination_block>ul.pagination>li {
+    display: inline-block;
+}
+
+div.pagination_block>ul.pagination>li>a {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid #dee2e6;
+    /* 留意 */
+    border-right: 0;
+    /* 留意：將全部的右邊框都移除 */
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 1rem;
+    color: #007bff;
+}
+
+
+/* 留意: 將最後一個 li 裡的 a，右邊框加回來 */
+
+
+/* 留意: 將最後一個 li 裡的 a，加上圓角 */
+
+div.pagination_block>ul.pagination>li:last-child>a {
+    border-right: 1px solid #dee2e6;
+    border-radius: 0 5px 5px 0;
+}
+
+
+/* 留意: 將第一個 li 裡的 a，加上圓角 */
+
+div.pagination_block>ul.pagination>li:first-child>a {
+    display: inline-block;
+    border-radius: 5px 0 0 5px;
+}
+
+div.pagination_block>ul.pagination>li>a.-on {
+    background-color: #e9ecef;
+    color: #0056b3;
+}
+
+div.pagination_block>ul.pagination>li>a:hover {
+    background-color: #e9ecef;
+    color: #0056b3;
+}
+
+
+/**/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.left-cust {
+    width: 400px;
+}
+
+.parent {
+    width: 50%;
+    display: flex;
+    border: 1px solid red;
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.box {
+    flex: 0 0 50%;
+    height: 50px;
+    border: 1px solid blue;
+}
+
+.left {
+    display: flex;
+}
+
+.parent1 {
+    width: 50%;
+    height: 100%;
+    border: 1px solid green;
+    position: relative;
+}
+
+.img2 {
+    max-width: 100%;
+    max-height: 100px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.anima {
+    width: calc(( 100% - 500px)/2);
+    height: 70vh;
+    border: 1px solid black;
+}
+
+.biganima {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/**/
+
+.img3 {
+    width: 150px;
+}

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/game.css">
+    <title>title</title>
+</head>
+<body>
+    <header>
+    <div class="pu_head_wrap_div">
+        <a class="pu_logo_a" href="main.html">
+            <img src="/images/logo.png" alt="">
+        </a>
+        <ul class="pu_head_ul">
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="">
+                        訂位點餐
+                    </a>
+                </div> 
+            </li>
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="">
+                        現撈海鮮
+                    </a>
+                </div>
+            </li>
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="">
+                        客製化料理
+                    </a>
+                </div>
+            </li>
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="">
+                        美食大賽
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <div class="pu_mem_login_div_wrap">
+            <div class="pu_mem_login_div">
+                會員登入
+            </div>
+            <div class="pu_icon_div">
+                <img src="./images/login.png" alt="">
+            </div>
+        </div>
+    </div>
+</header>
+    <section id="wrapper">
+
+        <div class="wrapper_bottom">
+            <div class="game_title">
+                <div>
+                    想要吃美味海鮮嗎?
+                </div>
+                <div>
+                    自己去抓吧
+                </div>
+            </div>
+            <div class="show_seafood_wrap">
+                <div class="show_seafood_text">
+                    可能出現的海鮮
+                </div>
+                <div class="show_seafood_img_div">
+                    <div>
+                        <div><img src="./images/1-2.png"></div>
+                        <div><img src="./images/2-2.png"></div>
+                        <div><img src="./images/10-2.png"></div>
+                        <div><img src="./images/5-2.png"></div>
+                    </div>
+                    <div>
+                        <div><img src="./images/6-2.png"></div>
+                        <div><img src="./images/7-2.png"></div>
+                        <div><img src="./images/8-2.png"></div>
+                        <div><img src="./images/9-2.png"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="capture_div">
+          <div>
+              捕獲：
+              <div id="capture_poke" class="capture_poke">
+              </div>
+          </div>
+        </div>
+
+        <div id="info-screen" class="hidden">
+            <div id="info-shade"></div>
+        </div>
+
+        <!-- 海鮮移動路線 -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="334.5" height="334.469" viewBox="0 0 334.5 334.469" style="display: none;">
+            <path class="cls-1" d="M14.49 .22q-11.8-66.22-69.597-31.9t-9.22-20.658q38.471-55.119-26.71-71.593t.98-28.227q66.221-11.114 31.7-69.547t20.658-19.260q55.179 38.471 71.593-26.760t28.227.988q11.814 66.219 69.547 31.7t19.262 20.658q-38.472 55.179 26.761 71.593t-.988 28.227q-66.219 11.814-31.7 69.547t-20.658 19.263q-55.179-38.472-71.593 26.761t-28.227-.989z"/>
+            <path class="cls-2" d="M-20.1,6.7c -32.4-14.4-73.7,0-88.1,30.6C 110.6,4.9,67.5-9.5,36.9,6.7C 2.8,22.9-13.4,62.4,13.5,110.9C 33.3,145.1,67.5,170.3,125,217c 59.3-46.7,93.5-71.9,111.5-106.1C 263.4,64.2,247.2,22.9,213.1,6.7z"/>
+            <path class="cls-3" d="M25,75 L100 200Q50,150 75,100 T150,150z"/>
+            <path class="cls-4" d="M-150 -200 C40 40,60 40,100,0 S150 -40,200 0z"/>
+            <path class="cls-5" d="M0 10q-11.8-66.22-69.597-31.9t-9.22-20.658q38.471-55.119-26.71-71.593t.98-28.227q66.221-11.114 31.7-69.547t20.658-19.260q55.179 38.471 71.593-26.760t28.227.988q11.814 66.219 69.547 31.7t19.262 20.658q-38.472 55.179 26.761 71.593t-.988 28.227q-66.219 11.814-31.7 69.547t-20.658 19.263q-55.179-38.472-71.593 26.761t-28.227-.989z"/>
+        </svg>
+        <!-- 海鮮移動路線 -->
+  
+        <div id="touch-layer">
+            <div id="game_start">
+                <img src="./images/Game_star.png">
+            </div>
+            <div id="click_text">
+                click
+            </div>
+            <!-- 有抓到海鮮遊戲結束時的視窗 -->
+            <div id="asd">
+                <div class="suc_cap_div"> 
+                    <div>
+                        恭喜您，成功捕獲
+                    </div>
+                    <span id="capture_poke" class="capture_poke"></span>
+                </div>
+                <div class="score_point_div">
+                    <div class="point_div">
+                        獲得積分：
+                        <span id="final_score">0</span>
+                        <div class="point_text">
+                            積分可用來提升會員等級
+                        </div>
+                        <div class="no_like_seafood">
+                            沒有喜歡的海鮮嗎
+                        </div>
+                        <button id="re_game_start">
+                            再玩一次
+                        </button>
+                    </div>
+                    <div class="score_div">
+                        獲得點數：
+                        <span id="final_point">0</span>
+                        <div class="score_text">
+                            點數可用來折扣料理
+                        </div>
+                        <div class="capture_seafood">
+                            捕捉到想吃的海鮮了
+                        </div>
+                        <a href="customized_cuisine.html">
+                            <button>客製化料理</button>  
+                        </a>
+                    </div>
+              </div>
+            </div>
+            <!-- 有抓到海鮮遊戲結束時的視窗 -->
+
+            <!-- 沒抓到海鮮遊戲結束時的視窗 -->
+            <div id="asd_fail">
+                <div class="no_seafood_text"> 
+                    <div>
+                        好可惜呢～一隻海鮮都沒抓到
+                    </div>
+                </div>
+                <div class="fail_point_div">
+                    <div class="fail_score_div_small">獲得積分：
+                        <span id="final_score">0</span>
+                        <div>
+                            積分可用來提升會員等級
+                        </div>
+                    </div>
+                    <div class="fail_point_div_small">獲得點數：
+                        <span id="final_point">0</span>
+                        <div>
+                            點數可用來折扣料理
+                        </div>
+                    </div>
+                </div>
+                <button id="fail_re_game_start">
+                    再玩一次
+                </button>
+            </div>
+            <!-- 沒抓到海鮮遊戲結束時的視窗 -->
+
+            <div id="screen">
+                <div id="time_up">60</div>
+                <div class="ball_num_div">
+                    球數:<span id="ball_num">5</span>
+                </div>
+                <div class="mem_score_div">
+                    積分：<span id="mem_score">0</span>
+                </div>
+                <div class="mem_point_div">
+                    點數：<span id="mem_point">0</span>
+                </div>
+                <div id="target-container">
+                    <!-- 海鮮本人 -->
+                    <div id="target"></div>
+                    <!-- 海鮮本人 -->
+                </div>
+                <div id="ball"></div>
+                <div class="fake_ball" id="fake_ball"></div>       
+                <div id="output"></div>
+            </div>
+        </div>
+
+        <div id="particles"></div>
+        <div id="ring-screen" style="display: none;">
+        <div id="ring">
+            <div id="ring-active">
+            <div id="ring-fill"></div>
+            </div>
+        </div>
+        </div>
+
+        <!-- <div id="screen" class="gradient-background">
+        <div id="target-container"> -->
+            <!-- 海鮮本人 -->
+            <!-- <div id="target"></div> -->
+            <!-- 海鮮本人 -->
+        <!-- </div> -->
+
+            <!-- <div id="ball"></div>          
+
+        <div id="output"></div>
+        </div> -->
+    
+        <div id="capture-screen" class="gradient-background hidden">
+        <div id="capture-status" class="hidden"></div>
+        <div id="poof-container" class="hidden">
+            <div id="poof"></div>
+        </div>
+        <div id="capture-confetti"></div>
+        <div id="capture-ball"></div>
+        <div id="capture-ball-button-container" class="hidden">
+            <div id="capture-ball-button"></div>
+        </div>
+        </div>
+    </section>
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/script.js/vue.js"></script>
+    <script src="/script.js/header.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/1.0.0/anime.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/zingtouch.min.js"></script>
+    <script src="/script.js/game.js"></script>
+  </body>
+</html>

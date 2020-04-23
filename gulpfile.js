@@ -1,91 +1,118 @@
 var gulp = require('gulp');
-var prompt = require("gulp-prompt");
+var cleanCSS = require('gulp-clean-css');
+var sass = require('gulp-sass');
+var fileinclude = require('gulp-file-include');
+var imagemin = require('gulp-imagemin');
+var jshint = require('gulp-jshint');
+var sourcemaps = require('gulp-sourcemaps');
+var browserSync = require('browser-sync').create();
+var reload = browserSync.reload;
 
 
 
+//path 路徑
+var web = {
+    html: [
+        '*.html',
+        '**/*.html'
+    ],
+    sass: [
+        'scss/*.scss',
+        'scss/**/*.scss',
+    ],
+    js: [
+        'script.js/*.js'
+    ],
+    img: [
+        'images/*.*',
+        'images/**/*.*',
+    ],
+    font: [
+        'font/*.*', 
+         'font/**/*.*'
+    ]
+}
 
-
-//樣式 sass style
-// var styles = require('./gulp/scripts/style.js');
-var styles = require('./gulp/scripts/stylus.js');
-
-
-
-// 刷新瀏覽器並同步
-var browerSync = require('./gulp/task/browerSync.js');
-// 選擇 1.html 使用app/html   2.pug 使用app/pug  3. all 使用全部
-var selectMoudule = new browerSync('html') // html or pug or all
-
-
-
-//打包
-
-var build = require('./gulp/scripts/copy_dist.js');
-// var build = require('./gulp/scripts/connect-php.js');
-
-
-//壓縮
-var autoprefixer = require("./gulp/scripts/autoprefixer.js");
-
-
-
-
-//==================
-// 執行指令
-//==================
-
-
-// 一般開發
-// gulp.task('default', ['styles', 'static', 'libs']);
-// gulp.task('common', ['styles', 'static']);
-
-//server 專案
-gulp.task('server', ['styles', 'connect-sync']);
-
-//打包專案
-gulp.task('build', ['dist']);
-//壓縮專案
-
-//清除檔案
-
-// gulp.task('clear', ['clean']);
-
-//test function
-// gulp.task('test', ['styles']);
-
-
-
-
-
-gulp.task('selecttask', function () {
-    
-    //三種模式用變數帶出來    
-    var  task_mission = ['all' , 'dev' , 'clear' , 'style' ,'stylus' , 'comp']
-
-    return gulp.src('./gulpfile.js')
-        .pipe(prompt.prompt({
-            type: 'checkbox',
-            name: 'task',
-            message: '你想執行那個任務？（ 請按空白鍵選擇 ）',
-            choices: task_mission
-        }, function (res) {
-            var selectedTask = res.task;
-            gulp.start(selectedTask);
-            // console.log('選中:', res);
-        }));
+//流程
+gulp.task('concatjs', function () {
+    gulp.src('script.js/*.js').pipe(gulp.dest('dest/js'));
 });
 
-// 執行模式  會相對應上方的task_mission 變數
-gulp.task('all', ['sass', 'static', 'libs']);
-gulp.task('dev', ['sass', 'static']);
-gulp.task('clear', ['clean']);
-gulp.task('style', ['sass' , 'watch']);
-gulp.task('stylus', ['stylus_follow']);
-gulp.task('comp', ['autoprefixer']);
+gulp.task('img', function () {
+    gulp.src(web.img).pipe(gulp.dest('dest/img'));
+});
 
-//執行
-gulp.task('default', ['selecttask']);
+gulp.task('font', function () {
+    gulp.src(web.font).pipe(gulp.dest('dest/font'));
+});
 
 
+//任務串連
+gulp.task('concatcss', ['sass'], function () {
+    return gulp.src('css/*.css')
+        .pipe(cleanCSS({
+            compatibility: 'ie9'
+        }))
+        .pipe(gulp.dest('dest/css'));
+});
 
-// gulp.task('pugs', ['compilePug']);
+
+gulp.task('lint', function() {
+    return gulp.src('script.js/*.js')
+      .pipe(jshint())
+      .pipe(jshint.reporter('default'));
+  });
+
+
+gulp.task('sass', function () {
+    return gulp.src('scss/*.scss')
+       .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        // .pipe(cleanCSS({compatibility: 'ie9'}))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('dest/css/'));
+});
+
+
+//打包html
+
+
+gulp.task('fileinclude', function () {
+    gulp.src(['*.html'])
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('dest/'));
+});
+
+
+//壓縮圖片
+gulp.task('mini_img', function () {
+    return  gulp.src('images/*.*')
+      .pipe(imagemin())
+      .pipe(gulp.dest('dest/mini_img/'))
+  });
+
+gulp.task('watch' , function(){
+  gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['concatcss']);
+  gulp.watch('script.js/*.js', ['concatjs']);
+  gulp.watch(['*.html' , '**/*.html'],  ['fileinclude']);
+});
+
+gulp.task('default', function () {
+    browserSync.init({
+        server: {
+            files: ['**'],
+            proxy: 'http://localhost:3000',
+            baseDir: "./",
+            index: "index.html"
+        }
+    });
+    gulp.watch(web.html, ['fileinclude']).on('change', reload);
+    gulp.watch(web.sass, ['sass']).on('change', reload);
+    gulp.watch(web.js, ['concatjs']).on('change', reload);
+    gulp.watch(web.js, ['lint']).on('change', reload);
+    gulp.watch(web.img, ['img']).on('change', reload);
+    gulp.watch(web.font, ['font']).on('change', reload);
+});

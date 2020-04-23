@@ -4,27 +4,89 @@
     src: url(../font/jf-openhuninn-1.0.ttf) format("truetype");
 }
 
-
-
 * {
     font-family: 'jf-openhuninn-1.0';
-
 }
 
-
+.section1.bg {
+    background: url(../images/shortbg.png) left top;
+}
 
 .section1 {
-    background: url(../images/shortbg.png) center top;
+    background: url(../images/shortbg.png) right top;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
-    h1 {
-        text-align: center;
+    position: relative;
+    transition: all 5s ease-in-out;
+    .layer1 {
+        width: 60%;
+        position: absolute;
+        bottom: 0;
+        left: 20%;
+        transform: translateX(-60%);
+        z-index: 500;
+        transition: all 0.5s linear;
     }
-    h2 {
+    .layer2 {
+        width: 40%;
+        position: absolute;
+        bottom: 0;
+        right: -10%;
+        z-index: 500;
+    }
+    .port {
+        border-radius: 20px;
+        background-color: rgb(24, 92, 126);
+        display: inline-block;
+        position: absolute;
+        right: 20vh;
+        bottom: 60vh;
+        animation: portname 2s ease-in infinite;
+        opacity: 0;
+        transition: all 1s;
+        p {
+            color: #fff;
+            font-size: 24px;
+            margin: 0;
+            padding: 10px 20px;
+        }
+    }
+    @keyframes portname {
+        0%,
+        100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+    }
+    .layer3 {
+        width: 40%;
+        position: absolute;
+        bottom: 20vh;
+        right: -10%;
+        z-index: 15;
+    }
+    .text {
+        position: relative;
+        top: 0;
+        transition: all 2s ease-out;
+        margin: 0 auto;
+        font-size: 6em;
+        color: #035;
         text-align: center;
+        animation: textJump 2s cubic-bezier(0.68, -0.6, 0.32, 1.6) backwards;
+    }
+    @keyframes textJump {
+        0% {
+            top: 100vh,
+        }
+        100% {
+            top: 0,
+        }
     }
     .wave {
-        z-index: 1;
         width: 100%;
         background-size: 50vh 15vh;
         position: absolute;
@@ -35,23 +97,27 @@
         height: 15vh;
         bottom: 17vh;
         animation-direction: reverse;
+        z-index: 0;
     }
     .wave2 {
         background-image: url(../images/wave3.png);
         height: 15vh;
         bottom: 15vh;
+        z-index: 10;
     }
     .wave3 {
         background-image: url(../images/wave2.png);
         height: 15vh;
         bottom: 10vh;
         animation-direction: reverse;
+        z-index: 20;
     }
     .wave4 {
         height: 20vh;
         background-image: url(../images/wave1.png);
         background-size: 50vh 20vh;
         bottom: 0;
+        z-index: 30;
     }
     @keyframes wave {
         0% {
@@ -62,134 +128,172 @@
         }
     }
     .boat {
-        position: relative;
-        bottom: -20vh;
-        z-index: 1;
+        position: absolute;
+        bottom: 10vh;
+        z-index: 50;
         img {
-            width: 200px;
+            width: 300px;
             position: relative;
             left: 0;
             transition: all .5s;
+            transform: rotateZ(-2deg);
+            animation: boatfloat 3s infinite;
         }
     }
-    .seafood {
-        z-index: 2;
+    @keyframes boatfloat {
+        0% {
+            transform: rotateZ(-2deg);
+        }
+        50% {
+            transform: rotateZ(2deg);
+        }
+        100% {
+            transform: rotateZ(-2deg);
+        }
+    }
+    img.flyfish1 {
+        width: 100px;
         position: relative;
-       
-        .row1 {
-            padding-top: 20px;
+        bottom: -100vh;
+        left: 200px;
+        transform: rotateZ(60deg);
+    }
+    img.flyfish2 {
+        width: 100px;
+        position: relative;
+        bottom: -100vh;
+        left: 300px;
+        transform: rotateZ(20deg);
+    }
+    img.flyfish3 {
+        width: 100px;
+        position: relative;
+        bottom: -100vh;
+        left: 450px;
+        transform: rotateZ(180deg);
+    }
+    img.fly1 {
+        animation: fishfly1 2s ease-in-out;
+    }
+    img.fly2 {
+        animation: fishfly1 2s ease-in-out;
+    }
+    img.fly3 {
+        animation: fishfly1 2s ease-in-out;
+    }
+    @keyframes fishfly1 {
+        0% {
+            bottom: -100vh;
+            transform: rotateZ(60deg);
         }
-        .row2,
-        .wow3,
-        .row4 {
-            margin-top: 50px;
+        25% {
+            transform: rotateZ(100deg);
         }
-      
-        img {
-            width: 80%;
-            display: block;
-            margin: 0 auto;
-            z-index: 3;
+        50% {
+            bottom: 0;
+            transform: rotateZ(230deg);
         }
-        img.bubble1 {
-            width: 35px;
-            position: relative;
-            left: -20px;
-            top: 5px;
+        75% {
+            transform: rotateZ(250deg);
         }
-        img.bubble2 {
-            width: 30px;
-            position: relative;
-            left: 30px;
-            top: -5px;
-        }
-        img.bubble3 {
-            width: 25px;
-            position: relative;
-            left: -5px;
-        }
-        img.bubble4 {
-            width: 35px;
-            position: relative;
-            right: -10px;
-            top: 5px;
-        }
-        img.bubble5 {
-            width: 30px;
-            position: relative;
-            right: 20px;
-            top: 0px;
-        }
-        img.bubble6 {
-            width: 25px;
-            position: relative;
-            right: 50px;
+        100% {
+            bottom: -100vh;
+            transform: rotateZ(270deg);
         }
     }
-}
-
-.wrapperWheel {
-    display: none;
-}
-
-.wrapperBg {
-    display: none;
-}
-
-.section2 {
-    background: url(../images/shortbg.png) center top;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    .row1 {
-        height: 70vh;
-        .cloud {
-            position: relative;
-            right: 100px;
-            float: right;
-            transition: all .5s;
-            img {
-                width: 50%;
-            }
+    @keyframes fishfly2 {
+        0% {
+            bottom: -100vh;
+            transform: rotateZ(20deg);
         }
-        .cloud1 {
-            background: url(../images/cloud.svg) center no-repeat;
-            width: 40%;
-            height: 50%;
-            background-size: cotain;
-            transition: all .5s;
-            display: none;
-            // display: flex;
-            justify-content: center;
-            h2 {
-                align-self: center;
-            }
+        25% {
+            transform: rotateZ(0deg);
         }
-        .reservation {
-            width: 300px;
-            height: 300px;
-            border: 1px solid #000;
-            // display: inline-block;
-            display: none;
+        50% {
+            bottom: -10vh;
+            transform: rotateZ(-20deg);
         }
-        .map {
-            width: 300px;
-            height: 300px;
-            border: 1px solid #000;
-            // display: inline-block;
-            display: none;
+        75% {
+            transform: rotateZ(0deg);
         }
-        .text {
-            z-index: 1;
+        100% {
+            bottom: -100vh;
+            transform: rotateZ(15deg);
+        }
+    }
+    @keyframes fishfly3 {
+        0% {
+            bottom: -100vh;
+            transform: rotateZ(20deg);
+        }
+        25% {
+            transform: rotateZ(80deg);
+        }
+        50% {
+            bottom: 10vh;
+            transform: rotateZ(180deg);
+        }
+        75% {
+            transform: rotateZ(250deg);
+        }
+        100% {
+            bottom: -100vh;
+            transform: rotateZ(360deg);
+        }
+    }
+    // img.bubble1 {
+    //     width: 35px;
+    //     position: relative;
+    //     left: -20px;
+    //     top: 5px;
+    // }
+    // img.bubble2 {
+    //     width: 30px;
+    //     position: relative;
+    //     left: 30px;
+    //     top: -5px;
+    // }
+    // img.bubble3 {
+    //     width: 25px;
+    //     position: relative;
+    //     left: -5px;
+    // }
+    // img.bubble4 {
+    //     width: 35px;
+    //     position: relative;
+    //     right: -10px;
+    //     top: 5px;
+    // }
+    // img.bubble5 {
+    //     width: 30px;
+    //     position: relative;
+    //     right: 20px;
+    //     top: 0px;
+    // }
+    // img.bubble6 {
+    //     width: 25px;
+    //     position: relative;
+    //     right: 50px;
+    // }
+    .captain {
+        opacity: 0;
+        transition: all 1s;
+        img {
+            width: 30%;
             position: absolute;
-            transform: translateX(50%) translateY(30%);
-            width: 500px;
+            top: 10vh;
+            left: 50%;
+        }
+        .item {
+            position: absolute;
+            top: 25%;
+            left: 20%;
+            z-index: 2;
             color: #035;
             background-color: #eaf1f6;
             padding: 20px;
             border-radius: 10px;
-            opacity: 0;
-            transition: all 0.5s;
+            z-index: 500;
             h3 {
                 padding-bottom: 30px;
             }
@@ -201,28 +305,102 @@
                 cursor: pointer;
             }
         }
-        .island img {
-            position: relative;
-            right: 0;
-            width: 100%;
-            transition: all .5s;
+    }
+}
+
+.wrapperWheel {
+    display: none;
+}
+
+// .wrapperBg {
+//     display: none;
+// }
+.section2 {
+    background: url(../images/shortbg.png) center top;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    .title {
+        width: 80%;
+        height: 50%;
+        background: url(../images/cloud.svg) center no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        h2 {
+            align-self: center;
+            font-size: 26px;
         }
-        .captain img {
-            width: 50%;
+    }
+    .row1 {
+        height: 70vh;
+        .calendar {
+            margin: 0 auto;
+            .datetable {
+                float: right;
+                margin: 20px auto;
+                display: inline-block;
+                border-collapse: collapse;
+                background-color: #d8ecf9;
+                border-radius: 5px;
+                th,
+                td {
+                    text-align: center;
+                    font-size: 20px;
+                    width: 60px;
+                    padding: 5px 10px;
+                    display: inline-block;
+                }
+            }
+        }
+        .reservation {
+            z-index: 1;
+            width: 300px;
+            height: 320px;
+            color: #fff;
+            background-color: #318DD6;
+            border: 3px solid #fff;
+            border-radius: 10px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            p {
+                text-align: center;
+                margin: 20px;
+            }
+            .choice {
+                margin: 20px 0 0 30px;
+                span {
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+            }
+            .button {
+                width: 100px;
+                margin: 20px auto;
+                padding: 5px 10px;
+                background-color: #130B6E;
+                text-align: center;
+                border-radius: 10px;
+            }
+        }
+        .island {
             position: absolute;
             bottom: 0;
-            right: 30%;
-            opacity: 0;
-            transition: all 1s;
+            img {
+                width: 100%;
+            }
         }
     }
-    .ocean {
-        background: url(../images/ocean.png)bottom;
-        width: 100%;
-        height: 30vh;
-        position: absolute;
-        bottom: 0;
-    }
+}
+
+.ocean {
+    background: url(../images/ocean.png)bottom;
+    width: 100%;
+    height: 30vh;
+    position: absolute;
+    // bottom: 0;
 }
 
 .boat2 {
@@ -232,7 +410,7 @@
     top: -100px;
     z-index: 2;
     img {
-        width: 100%;
+        width: 80%;
         position: relative;
         left: 0;
         transition: all .5s;
@@ -246,8 +424,8 @@
 }
 
 .section3 {
-    margin-top: -80px;
     overflow: hidden;
+    height: 100vh;
     .title {
         margin-top: 30px;
         height: 80px;
@@ -264,26 +442,91 @@
     .row2 {
         height: 80vh;
     }
-    .menu {
-        margin-top: 20px;
-        background-color: #e0f1fc;
-        border-radius: 5px;
-        text-align: center;
-        img {
-            width: 30%;
+    .menucontainer {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        transform-style: preserve-3d;
+        .menu {
+            position: relative;
+            transform-style: preserve-3d;
+            margin-right: 30px;
+            border-radius: 5px;
+            background-color: #4EB6E6;
+            padding-top: 10px;
+            .imgbox {
+                position: relative;
+                h4 {
+                    text-align: center;
+                    font-size: 20px;
+                    margin: 20px;
+                    color: #034;
+                }
+                img {
+                    margin: 0 auto;
+                    display: block;
+                    width: 70%;
+                }
+            }
+            .text {
+                margin: 10px auto;
+                display: inline-block;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                transform-origin: top;
+                transition: all 0.3s;
+                transform-style: preserve-3d;
+                h4 {
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 16px;
+                    margin: 0;
+                }
+            }
         }
-        h4 {
-            margin: 20px;
+        .menu1 {
+            animation: menufloat1 3s ease-in infinite;
+        }
+        .menu2 {
+            animation: menufloat2 2.5s ease-in infinite;
+        }
+        .menu3 {
+            animation: menufloat1 2.5s ease-in infinite;
+        }
+        .menu:hover .imgbox {
+            top: 0%;
+        }
+        .menu:hover .imgbox h4 {
+            display: none;
         }
         .button {
-            margin: 0px auto;
-            width: 80px;
-            text-align: center;
-            background-color: #ef915b;
-            border-radius: 10px;
-            padding: 5px 0;
+            width: 100px;
+            margin: 20px auto;
+            padding: 5px 10px;
+            background-color: #130B6E;
             color: #fff;
-            cursor: pointer;
+            text-align: center;
+            border-radius: 10px;
+        }
+        @keyframes menufloat1 {
+            0%,
+            100% {
+                top: 0px;
+            }
+            50% {
+                top: 10px;
+            }
+        }
+        @keyframes menufloat2 {
+            0%,
+            100% {
+                top: 0px;
+            }
+            50% {
+                top: -10px;
+            }
         }
     }
     .waiter img {
@@ -294,6 +537,8 @@
 }
 
 .section4 {
+    height: 100vh;
+    overflow: hidden;
     .row1 {
         .title {
             margin-top: 30px;
@@ -337,6 +582,10 @@
             margin-top: 20px;
             height: 400px;
             background-color: #e0f1fc;
+            border: 1px solid #000;
+            img {
+                width: 100%;
+            }
         }
         .text {
             margin-top: 50px;
@@ -358,49 +607,100 @@
             cursor: pointer;
         }
     }
-    .row3 {
+}
+
+#cookPin {
+    margin-bottom: 2px;
+}
+
+.section5 {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    height: 90vh;
+    overflow: hidden;
+    .step {
+        margin: 0 auto;
+        background-color: #318DD6;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        padding: 12px;
+        p {
+            color: #fff;
+            margin: 5px;
+        }
+    }
+    .text {
         margin-top: 50px;
+        color: #fff;
+        display: inline-block;
+        p {
+            margin: 0;
+            padding: 5px;
+        }
+    }
+    .button {
+        margin: 20px auto;
+        width: 80px;
+        text-align: center;
+        background-color: #ef915b;
+        border-radius: 10px;
+        padding: 5px 0;
+        color: #fff;
+        cursor: pointer;
     }
     .cookWrapper {
         position: relative;
-        height: 500px;
+        height: 80vh;
         .cookPic1 {
-            position: relative;
-            top: 10px;
-            left: 150px;
+            position: absolute;
+            top: 0vh;
+            right: 5vh;
         }
         .cookPic2 {
-            position: relative;
-            top: 100px;
-            left: 0px;
+            position: absolute;
+            top: 15vh;
+            right: 10vh;
         }
         .cookPic3 {
-            position: relative;
-            top: 200px;
-            left: 0px;
+            position: absolute;
+            top: 20vh;
+            right: 30vh;
         }
         .cookPic4 {
-            position: relative;
-            top: 270px;
-            left: 80px;
+            position: absolute;
+            top: 35vh;
+            right: 25vh;
+        }
+        .cookPic5 {
+            position: absolute;
+            top: 50vh;
+            right: 5vh;
+        }
+        .cookPic6 {
+            position: absolute;
+            top: 60vh;
+            right: 30vh;
+        }
+        .cookPic7 {
+            position: absolute;
+            top: 70vh;
+            right: 10vh;
         }
         img {
             width: 100px;
         }
         .cookPic4 img {
-            width: 200px;
+            width: 100px;
         }
-        .half img {
-            height: 500px;
-            width: auto;
-            position: absolute;
-            left: 350px;
-            top: 0px;
-        }
+    }
+    .half img {
+        height: 80vh;
     }
 }
 
-.section5 {
+.section6 {
     overflow: hidden;
     .title {
         margin-top: 30px;
