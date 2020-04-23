@@ -28,11 +28,12 @@
     background-color: #e0f1fc;
     border-radius: 20px;
     letter-spacing: 1px;
-    padding: 2%;
+    width: 50%;
+    padding: 1%;
     .game_rule_div{
       font-size: $fontSize*1.5;
       text-align: center;
-      margin-bottom: 1%;
+      margin-bottom: 2%;
     }
     .game_rule_div_bot_wrap{
       display: flex;
@@ -40,15 +41,8 @@
       justify-content: center;
     }
     .game_rule_div_bot{
-      width: 50%;
-      div{
-        margin-bottom: 1%;
-        span{
-          &:first-child{
-            color: #4669e6;
-            margin-right: 2%;
-          }
-        }
+      .intro_title{
+        color: #4669e6;;
       }
     }
   }
