@@ -178,14 +178,7 @@
           margin-bottom: 20px;
         }
         button{
-          background-color: #30B2E3;
-          padding: 20px 40px;
-          border-radius: 10px;
-          border: none;
-          outline: none;
-          cursor: pointer;
-          font-size: 30px;
-          color: white;
+          @extend %btn_ano;
         }
       }
     }
@@ -520,8 +513,7 @@
 .hidden {
   display: none !important;
 }
-
-@media screen and (max-width:768px){
+@include rwd(small) {
   .wrapper_bottom{
     display: block;
     .game_title{
