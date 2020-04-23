@@ -96,7 +96,7 @@ gulp.task('mini_img', function () {
 
 gulp.task('watch' , function(){
   gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['concatcss']);
-  gulp.watch('js/*.js', ['concatjs']);
+  gulp.watch('script.js/*.js', ['concatjs']);
   gulp.watch(['*.html' , '**/*.html'],  ['fileinclude']);
 });
 
@@ -106,7 +106,7 @@ gulp.task('default', function () {
             files: ['**'],
             proxy: 'http://localhost:3000',
             baseDir: "./",
-            index: "game.html"
+            index: "index.html"
         }
     });
     gulp.watch(web.html, ['fileinclude']).on('change', reload);
