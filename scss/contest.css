@@ -1,0 +1,768 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'jf-openhuninn-1.0';
+  background-image: url(../images/ocean_bg2.png);
+  background-size: contain;
+}
+
+footer {
+  width: 100%;
+  height: 100px;
+  font-size: 40px;
+  text-align: center;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* ------------ ranking 開始 ---------------*/
+.ranking {
+  padding-top: 100px;
+  margin-bottom: 70px;
+}
+
+.wrap {
+  padding: 0 20px;
+  margin: auto;
+  max-width: 1200px;
+}
+
+.ranking_title {
+  padding-top: 60px;
+}
+
+.ranking_title h1 {
+  font-family: 'HonyaJi-Re';
+  font-size: 36px;
+  text-align: center;
+}
+
+.contain .ranking_item {
+  display: inline-block;
+  width: 340px;
+  margin: 0 20px 0px 20px;
+}
+
+.contain .ranking_item .ranking_bg {
+  background-image: url(../images/cookList_item_bg.png);
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.contain .ranking_item:nth-child(1), .contain .ranking_item:nth-child(3) {
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+  margin-bottom: 200px;
+}
+
+.contain .ranking_item .cookList_img .cookList_cook {
+  margin: 0px auto 0px auto;
+  width: 340px;
+  -webkit-transform: translateY(70px);
+          transform: translateY(70px);
+}
+
+.contain .ranking_item .cookList_img .cookList_cook img {
+  width: 100%;
+}
+
+.contain .ranking_item .cookList_img .cookList_cook figcaption {
+  margin-bottom: 20px;
+}
+
+.contain .ranking_item .cookList_img .cookList_cook p {
+  font-size: 28px;
+  color: #000000;
+  text-align: center;
+}
+
+.contain .ranking_item .cookList_img .cookList_cook p:nth-child(2) {
+  font-size: 20px;
+  color: #4669e6;
+}
+
+.contain .ranking_item .cookList_img .cookList_cook p:nth-child(3) {
+  font-size: 14px;
+  color: #4e4e4e;
+  margin-top: 10px;
+}
+
+.contain .ranking_item .cookList_img .barrel {
+  width: 250px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.contain .ranking_item .cookList_img .barrel img {
+  width: 100%;
+}
+
+.contain .ranking_item .ranking_bg .cookList_infoPanel {
+  width: 300px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.contain .ranking_item .ranking_bg .cookList_infoPanel div {
+  display: inline-block;
+  background-color: #001871;
+  border-radius: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  width: 130px;
+  padding: 10px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.contain .ranking_item .ranking_bg .cookList_infoPanel div:nth-child(2) {
+  background-color: #4EB6E6;
+}
+
+.contain .ranking_item .ranking_bg .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.contain .ranking_item .ranking_bg .icon .message, .contain .ranking_item .ranking_bg .icon .favorite {
+  width: 35px;
+  cursor: pointer;
+}
+
+.contain .ranking_item .ranking_bg .icon span {
+  font-size: 16px;
+  margin: 0 20px 0px 5px;
+}
+
+.contain .ranking_item .ranking_bg .msg {
+  background-color: #ffffff;
+  border-radius: 0 0 10px 10px;
+  width: 300px;
+  margin: 0 auto 0px auto;
+  border: 1px solid lightskyblue;
+  -webkit-box-shadow: 1px 1px 1px #b7e3ff;
+          box-shadow: 1px 1px 1px #b7e3ff;
+}
+
+.contain .ranking_item .ranking_bg .msg .big {
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+  padding: 10px;
+  background-color: #001871;
+}
+
+.contain .ranking_item .ranking_bg .msg img {
+  width: 50px;
+  vertical-align: middle;
+}
+
+.contain .ranking_item .ranking_bg .msg p {
+  font-size: 16px;
+  padding: 10px;
+}
+
+.contain .ranking_item .ranking_bg .msg .more {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.contain .ranking_item .ranking_bg .msg .more a {
+  display: inline-block;
+  background-color: #4EB6E6;
+  border-radius: 10px;
+}
+
+.contain .ranking_item .ranking_bg .msg .more span {
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  color: #ffffff;
+  width: 130px;
+  padding: 10px 10px;
+}
+
+/* ------------ ranking 結束 ---------------*/
+/* ------------ aboutContest 開始 ---------------*/
+.aboutContest {
+  margin-bottom: 70px;
+}
+
+.event {
+  display: inline-block;
+  width: 630px;
+  background-color: #e0f1fc;
+  border-radius: 50px;
+  padding: 40px;
+  /* border: 1px solid blue; */
+}
+
+.event .aboutContest_title {
+  margin-bottom: 30px;
+}
+
+.event .aboutContest_title p {
+  font-size: 40px;
+  text-align: center;
+}
+
+.event .description .text {
+  margin-bottom: 10px;
+}
+
+.event .description .text img {
+  width: 60px;
+  margin-right: 30px;
+  vertical-align: top;
+}
+
+.event .description .text span {
+  font-size: 20px;
+  color: #4669e6;
+  margin-right: 30px;
+  vertical-align: top;
+}
+
+.event .description .text p {
+  display: inline-block;
+  width: 340px;
+  font-size: 20px;
+  vertical-align: top;
+}
+
+.eventImg {
+  display: inline-block;
+  width: 520px;
+  /* border: 1px solid red; */
+  vertical-align: top;
+}
+
+.eventImg .board {
+  display: inline-block;
+  width: 250px;
+  height: 80px;
+  background-image: url(../images/Path315.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  top: 30px;
+  left: 85px;
+  vertical-align: top;
+}
+
+.eventImg .board a {
+  display: inline-block;
+}
+
+.eventImg .board p {
+  width: 185px;
+  padding: 15px 15px 15px 20px;
+  font-size: 20px;
+  color: #001871;
+}
+
+.eventImg .character {
+  display: inline-block;
+}
+
+.eventImg .character img {
+  width: 230px;
+  cursor: pointer;
+}
+
+/* ------------ aboutContest 結束 ---------------*/
+/* ------------ cookList 開始 ---------------*/
+.cookList {
+  margin-bottom: 70px;
+}
+
+.cookList .cookList_title {
+  padding-top: 60px;
+}
+
+.cookList .cookList_title h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+.filter {
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.filter span {
+  font-size: 20px;
+  color: #fff;
+}
+
+.filter select {
+  font-family: 'jf-openhuninn-1.0';
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #4EB6E6;
+  padding: 10px;
+  border-radius: 10px;
+  border: transparent;
+}
+
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+}
+
+@keyframes move {
+  0% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+}
+
+.contain .cookList_item {
+  display: inline-block;
+  width: 340px;
+  margin: 0 20px 70px 20px;
+  background-image: url(../images/cookList_item_bg.png);
+  border-radius: 10px;
+  -webkit-animation-name: move;
+          animation-name: move;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+.contain .cookList_item .cookList_img .cookList_cook {
+  margin: 20px auto 0 auto;
+  width: 300px;
+}
+
+.contain .cookList_item .cookList_img .cookList_cook img {
+  width: 100%;
+}
+
+.contain .cookList_item .cookList_img .cookList_cook figcaption {
+  margin-top: 20px;
+}
+
+.contain .cookList_item .cookList_img .cookList_cook p {
+  font-size: 28px;
+  color: #000000;
+  text-align: center;
+}
+
+.contain .cookList_item .cookList_img .cookList_cook p:nth-child(2) {
+  font-size: 20px;
+  color: #4669e6;
+}
+
+.contain .cookList_item .cookList_img .cookList_cook p:nth-child(3) {
+  font-size: 14px;
+  color: #4e4e4e;
+  margin-top: 10px;
+}
+
+.contain .cookList_item .cookList_infoPanel {
+  width: 300px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.contain .cookList_item .cookList_infoPanel div {
+  display: inline-block;
+  background-color: #001871;
+  border-radius: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  width: 130px;
+  padding: 10px;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.contain .cookList_item .cookList_infoPanel div:nth-child(2) {
+  background-color: #4EB6E6;
+}
+
+.contain .cookList_item .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.contain .cookList_item .icon .message, .contain .cookList_item .icon .favorite {
+  width: 35px;
+  cursor: pointer;
+}
+
+.contain .cookList_item .icon span {
+  font-size: 16px;
+  margin: 0 20px 0px 5px;
+}
+
+.contain .cookList_item .msg {
+  background-color: #ffffff;
+  border-radius: 0 0 10px 10px;
+  width: 300px;
+  margin: 0 auto 30px auto;
+  border: 1px solid lightskyblue;
+  -webkit-box-shadow: 1px 1px 1px #b7e3ff;
+          box-shadow: 1px 1px 1px #b7e3ff;
+}
+
+.contain .cookList_item .msg .big {
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+  padding: 10px;
+  background-color: #001871;
+}
+
+.contain .cookList_item .msg img {
+  width: 50px;
+  vertical-align: middle;
+}
+
+.contain .cookList_item .msg p {
+  font-size: 16px;
+  padding: 10px;
+}
+
+.contain .cookList_item .msg .more {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.contain .cookList_item .msg .more a {
+  display: inline-block;
+  background-color: #4EB6E6;
+  border-radius: 10px;
+}
+
+.contain .cookList_item .msg .more span {
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  color: #ffffff;
+  width: 130px;
+  padding: 10px 10px;
+}
+
+.contain .cookList_item:nth-child(2), .contain .cookList_item:nth-child(5) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.contain .cookList_item:nth-child(3), .contain .cookList_item:nth-child(6) {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+/* ------------ cookList 結束 ---------------*/
+/*------------------ 頁碼開始 ----------------*/
+.page-normal {
+  margin: 50px auto 50px auto;
+  text-align: center;
+}
+
+.page-normal a {
+  /* border: 1px solid rgb(201, 1, 75); */
+  padding: 5px 7px;
+  font-size: 16px;
+  color: #4EB6E6;
+  text-decoration: none;
+}
+
+.page-normal a:hover {
+  color: #ffffff;
+  background-color: #4EB6E6;
+}
+
+.page-normal .page-current {
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #4EB6E6;
+}
+
+.page-normal .page-prev {
+  font-size: 16px;
+  color: #4EB6E6;
+}
+
+.page-normal a,
+.page-normal a:hover,
+.page-normal .page-prev,
+.page-normal .page-current {
+  border: 1px solid #4EB6E6;
+  padding: 5px 7px;
+}
+
+/*------------------ 頁碼結束 ----------------*/
+/*------------------ 查看詳情 ----------------*/
+.look {
+  margin-bottom: 100px;
+}
+
+.look .wrap {
+  width: 500px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin: auto;
+  border-radius: 10px;
+  background-image: url(../images/look_bg.jpg);
+  position: relative;
+}
+
+.look .wrap .cross {
+  display: inline-block;
+  width: 40px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.look .wrap .cross img {
+  width: 100%;
+}
+
+.look .wrap .look_img {
+  width: 400px;
+  margin: 0 auto 20px auto;
+}
+
+.look .wrap .look_img p {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.look .wrap .look_img img {
+  width: 100%;
+}
+
+.look .wrap .food {
+  width: 400px;
+  margin: auto;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #585858;
+}
+
+.look .wrap .food span {
+  font-size: 20px;
+  margin-right: 93px;
+}
+
+.look .wrap .food p {
+  display: inline-block;
+  width: 120px;
+  font-size: 20px;
+}
+
+.look .wrap .food .pic {
+  display: inline-block;
+  width: 70px;
+  vertical-align: middle;
+}
+
+.look .wrap .food .pic img {
+  width: 100%;
+}
+
+.look .wrap .Ingredients {
+  width: 400px;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.look .wrap .Ingredients span {
+  font-size: 20px;
+  margin-right: 93px;
+}
+
+.look .wrap .Ingredients p {
+  display: inline-block;
+  width: 120px;
+  font-size: 20px;
+}
+
+.look .wrap .Ingredients .pic {
+  display: inline-block;
+  width: 70px;
+  vertical-align: middle;
+}
+
+.look .wrap .Ingredients .pic img {
+  width: 100%;
+}
+
+.look .wrap .Ingredients_bottom {
+  width: 400px;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.look .wrap .Ingredients_bottom span {
+  font-size: 20px;
+  margin-right: 93px;
+}
+
+.look .wrap .Ingredients_bottom p {
+  display: inline-block;
+  width: 120px;
+  font-size: 20px;
+}
+
+.look .wrap .Ingredients_bottom .pic {
+  display: inline-block;
+  width: 70px;
+  vertical-align: middle;
+}
+
+.look .wrap .Ingredients_bottom .pic img {
+  width: 100%;
+}
+
+.look .wrap .cooking_way {
+  width: 400px;
+  margin: auto;
+  padding-top: 20px;
+  border-top: 1px dashed #585858;
+}
+
+.look .wrap .cooking_way span {
+  font-size: 20px;
+  margin-right: 93px;
+}
+
+.look .wrap .cooking_way p {
+  display: inline-block;
+  width: 120px;
+  font-size: 20px;
+}
+
+.look .wrap .cooking_way .pic {
+  display: inline-block;
+  width: 70px;
+  vertical-align: middle;
+}
+
+.look .wrap .cooking_way .pic img {
+  width: 100%;
+}
+
+/*------------------ 查看詳情結束 ----------------*/
+/*------------------ 完成投票提示 ----------------*/
+.vote {
+  display: inline-block;
+  width: 630px;
+  background-color: #e0f1fc;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  margin: 0 auto 100px 400px;
+}
+
+.vote p {
+  font-size: 16px;
+}
+
+.vote p span {
+  font-size: 18px;
+  color: #ff6600;
+}
+
+/*------------------ 完成投票提示結束 ----------------*/
+/*--------置頂按鈕---------*/
+@-webkit-keyframes to_top {
+  0% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+  100% {
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
+  }
+}
+@keyframes to_top {
+  0% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+  100% {
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
+  }
+}
+
+#go_top {
+  width: 150px;
+  height: 150px;
+  background: none;
+  position: fixed;
+  right: 50px;
+  bottom: 100px;
+  border: transparent;
+  outline: none;
+  cursor: pointer;
+  -webkit-animation-name: to_top;
+          animation-name: to_top;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+#go_top img {
+  width: 100%;
+}
+
+/*--------置頂按鈕結束---------*/
+/*# sourceMappingURL=contest.css.map */

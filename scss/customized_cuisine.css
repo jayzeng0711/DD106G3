@@ -1,0 +1,446 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+/* main區域 */
+main {
+  position: relative;
+  margin: 0 auto;
+}
+
+main::before {
+  top: -500px;
+  right: -100px;
+  background-color: rgba(250, 208, 91, 0.863);
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  width: 100%;
+  height: 1000px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.intro {
+  font-size: 20px;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.intro > p {
+  margin-bottom: 30px;
+}
+
+.intro .steps {
+  margin: 50px 0;
+}
+
+.intro .steps p {
+  margin-bottom: 30px;
+  margin-left: -550px;
+}
+
+.intro .steps p:nth-child(2) {
+  margin-left: -350px;
+}
+
+.intro .steps p:nth-child(3) {
+  margin-left: -30px;
+}
+
+.intro .steps p:nth-child(4) {
+  margin-left: 10px;
+}
+
+.intro .steps p:nth-child(5) {
+  margin-left: 250px;
+}
+
+.intro .to-game p {
+  display: inline-block;
+  padding-top: 10px;
+  margin-left: 450px;
+}
+
+.intro .to-game a {
+  text-decoration: none;
+}
+
+.intro .to-game a button {
+  padding: 5px;
+  cursor: pointer;
+  background-color: #40B5E5;
+  border: transparent;
+  border-radius: 10px;
+  color: aliceblue;
+}
+
+section {
+  background-color: #E3D6B3;
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+
+.upper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.side-left {
+  width: 40%;
+  height: 100px;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.side-right {
+  width: 60%;
+  padding: 50px 10px 0;
+  display: inline-block;
+}
+
+.side-right .for-phone {
+  display: none;
+}
+
+.side-right .choose-fish,
+.side-right .choose-element {
+  width: 95%;
+  margin: auto;
+  font-size: 24px;
+}
+
+.side-right .choose-fish h3,
+.side-right .choose-element h3 {
+  margin-bottom: 20px;
+}
+
+.side-right .choose-fish ul,
+.side-right .choose-element ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.side-right .choose-fish ul li,
+.side-right .choose-element ul li {
+  width: 23%;
+  font-size: 18px;
+  border: 1px solid white;
+}
+
+.side-right .choose-fish ul li figure img,
+.side-right .choose-element ul li figure img {
+  width: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.side-right .choose-fish ul li figure figcaption,
+.side-right .choose-element ul li figure figcaption {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.side-right .choose-cook {
+  width: 95%;
+  margin: auto;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.side-right .choose-cook h3 {
+  margin: 20px 0;
+}
+
+.side-right .choose-cook ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.side-right .choose-cook ul li {
+  width: 30%;
+  font-size: 18px;
+  text-align: center;
+  padding: 55px;
+  border: 1px solid azure;
+}
+
+form {
+  width: 90%;
+  padding: 20px 10px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+form .food-info {
+  margin: 20px 0;
+  text-align: left;
+  width: 100%;
+}
+
+form .food-info span {
+  display: inline-block;
+  margin-left: 20px;
+  background-color: #4d4d4d;
+  color: whitesmoke;
+  padding: 10px;
+}
+
+form .food-info label {
+  width: 20%;
+}
+
+form .food-info input {
+  line-height: normal;
+  display: block;
+  margin: 10px 0 0;
+  border: solid 1px #ececec;
+  border-radius: 4px;
+  background: #f9f9f9;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 25px;
+  padding: 25px 50px;
+}
+
+form .food-info textarea {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: auto;
+  width: 100%;
+  margin: 10px 0 0;
+  border: solid 1px #ececec;
+  border-radius: 4px;
+  background: #f9f9f9;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 280px;
+  padding: 25px 50px;
+  resize: vertical;
+}
+
+form .form-control input {
+  border: transparent;
+  background-color: #40B5E5;
+  color: aliceblue;
+  padding: 20px 50px;
+  margin: 0 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+form .form-control input:first-child {
+  background-color: #021A71;
+}
+
+@media screen and (max-width: 1200px) {
+  .side-right .choose-cook ul li {
+    padding: 50px 46px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .intro .steps p {
+    margin-left: -250px;
+  }
+  .intro .steps p:nth-child(2) {
+    margin-left: -170px;
+  }
+  .intro .steps p:nth-child(3) {
+    margin-left: 35px;
+  }
+  .intro .steps p:nth-child(4) {
+    margin-left: 0px;
+  }
+  .intro .steps p:nth-child(5) {
+    margin-left: 81px;
+  }
+  .intro .to-game p {
+    margin-left: 3px;
+  }
+  .side-right .choose-cook ul li {
+    padding: 33px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .upper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .upper .side-left {
+    width: 100%;
+  }
+  .upper .side-right {
+    width: 100%;
+  }
+  .upper .for-phone {
+    display: block;
+    width: 100%;
+    /* 頁籤內容區塊 */
+  }
+  .upper .for-phone .list-block ul.tab-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .upper .for-phone .list-block ul.tab-list li {
+    display: inline-block;
+    width: 100%;
+    /* 將底部黑線改成白色 */
+  }
+  .upper .for-phone .list-block ul.tab-list li > a {
+    display: inline-block;
+    padding: 2% 33%;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    color: aliceblue;
+    text-decoration: none;
+    text-align: center;
+    background-color: darkorange;
+    position: relative;
+    top: 2px;
+  }
+  .upper .for-phone .list-block ul.tab-list li > a.-on {
+    color: black;
+    background-color: crimson;
+  }
+  .upper .for-phone .list-block ul.tab-list li > a.-on::after {
+    width: 100%;
+    left: 0;
+  }
+  .upper .for-phone .tab-contents {
+    border: 1px solid black;
+  }
+  .upper .for-phone .tab-contents .tab {
+    padding: 10px;
+    display: none;
+  }
+  .upper .for-phone .tab-contents .tab.-on {
+    display: block;
+  }
+  .upper .for-phone .tab-contents .tab.-on .cabinet-top,
+  .upper .for-phone .tab-contents .tab.-on .cabinet-bottom {
+    width: 100%;
+    height: 150px;
+    background-color: bisque;
+    position: relative;
+  }
+  .upper .for-phone .tab-contents .tab.-on .cabinet-top ul,
+  .upper .for-phone .tab-contents .tab.-on .cabinet-bottom ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .upper .for-phone .tab-contents .tab.-on .cabinet-top ul li,
+  .upper .for-phone .tab-contents .tab.-on .cabinet-bottom ul li {
+    width: 23%;
+    font-size: 18px;
+    border: 1px solid white;
+  }
+  .upper .for-phone .tab-contents .tab.-on .cabinet-top ul li figure img,
+  .upper .for-phone .tab-contents .tab.-on .cabinet-bottom ul li figure img {
+    width: 100%;
+    -o-object-fit: fill;
+       object-fit: fill;
+    -o-object-position: center;
+       object-position: center;
+  }
+  .upper .for-phone .tab-contents .tab.-on .cabinet-top ul li figure figcaption,
+  .upper .for-phone .tab-contents .tab.-on .cabinet-bottom ul li figure figcaption {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .upper .for-phone .tab-contents .tab.-on .cabinet-top::before,
+  .upper .for-phone .tab-contents .tab.-on .cabinet-bottom::before {
+    bottom: 0px;
+    left: -0px;
+    background-color: peru;
+    position: absolute;
+    z-index: 1;
+    content: '';
+    width: 100%;
+    height: 20px;
+  }
+  .upper .choose-fish,
+  .upper .choose-cook,
+  .upper .choose-element {
+    display: none;
+  }
+  .intro {
+    font-size: 16px;
+  }
+  .intro .steps p {
+    margin-left: 0px;
+  }
+  .intro .steps p:nth-child(2) {
+    margin-left: 0px;
+  }
+  .intro .steps p:nth-child(3) {
+    margin-left: 0px;
+  }
+  .intro .steps p:nth-child(4) {
+    margin-left: 0px;
+  }
+  .intro .steps p:nth-child(5) {
+    margin-left: 0px;
+  }
+  .intro .to-game p {
+    margin-left: 0;
+  }
+  form .food-info span {
+    padding: 5px;
+  }
+  form .food-info input,
+  form .food-info textarea {
+    padding: 2px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  form .form-control input {
+    padding: 10px 40px;
+    margin: 0 5px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  form .form-control input {
+    padding: 10px 25px;
+    margin: 0 5px;
+  }
+}
+/*# sourceMappingURL=customized_cuisine.css.map */
