@@ -106,7 +106,7 @@ gulp.task('default', function () {
             files: ['**'],
             proxy: 'http://localhost:3000',
             baseDir: "./",
-            index: "index.html"
+            index: "game.html"
         }
     });
     gulp.watch(web.html, ['fileinclude']).on('change', reload);

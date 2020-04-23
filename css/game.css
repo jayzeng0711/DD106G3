@@ -302,7 +302,7 @@ table {
 }
 
 #wrapper {
-  padding: 10% 0;
+  padding: 7% 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #41B6E6), to(#001871));
   background: linear-gradient(to bottom, #41B6E6 0, #001871 100%);
 }
@@ -313,23 +313,50 @@ table {
   display: flex;
   width: 90%;
   margin: 0 auto;
-  padding-top: 3%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .wrapper_bottom .game_title {
-  color: white;
-  font-size: 30px;
+  font-size: 16px;
+  background-color: #e0f1fc;
+  border-radius: 20px;
   letter-spacing: 1px;
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
+  padding: 2%;
 }
 
-.wrapper_bottom .game_title div {
-  margin-bottom: 2%;
+.wrapper_bottom .game_title .game_rule_div {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 1%;
+}
+
+.wrapper_bottom .game_title .game_rule_div_bot_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrapper_bottom .game_title .game_rule_div_bot {
+  width: 50%;
+}
+
+.wrapper_bottom .game_title .game_rule_div_bot div {
+  margin-bottom: 1%;
+}
+
+.wrapper_bottom .game_title .game_rule_div_bot div span:first-child {
+  color: #4669e6;
+  margin-right: 2%;
 }
 
 .wrapper_bottom .show_seafood_wrap {
