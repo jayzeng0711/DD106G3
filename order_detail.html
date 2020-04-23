@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訂位詳情</title>
+
+    <link rel="stylesheet" href="/css/order_detail.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#header').load("/layout/header.html");
+        });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="title">
+        <img src="images/ribb0n-remake.png">
+        訂位
+    </div>
+
+    <div class="theForm">
+        <pre class="bar01">日期          時段          港口          人數</pre>
+        <div class="DT">
+            <select>
+                <option>2020/05/01</option>
+                <option>2020/05/02</option>
+                <option>2020/05/03</option>
+            </select>
+
+            <select>
+                <option>中午 11點</option>
+                <option>下午 4點</option>
+            </select>
+
+            <select>
+                <option>深澳港</option>
+                <option>梧棲港</option>
+                <option>高雄港</option>
+            </select>
+
+            <input type="number" value="2" max="10">
+
+            <pre class="bar02">菜色          數量          刪除          小計</pre>
+
+            <div class="meal">
+                <img src="https://realfood.tesco.com/media/images/RFO-1400x919-SeafoodLinguine-d1ae9818-c4bf-4066-8adb-acfd6c0ed088-0-1400x919.jpg">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

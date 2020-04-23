@@ -292,6 +292,10 @@ table {
   }
 }
 
+.pu_logo_a > img {
+  width: 40%;
+}
+
 #screen,
 #touch-layer,
 #waves,
