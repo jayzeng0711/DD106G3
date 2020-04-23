@@ -470,24 +470,30 @@
   display: none;
 }
 
+.wrapperBg {
+  display: none;
+}
+
 .section2 {
-  background: url(../images/shortbg.png) center top;
   height: 100vh;
-  position: relative;
   overflow: hidden;
+  background-color: #A3D9FD;
+  position: relative;
 }
 
 .section2 .title {
-  width: 80%;
-  height: 50%;
+  height: 30%;
   background: url(../images/cloud.svg) center no-repeat;
-  background-size: cover;
+  background-size: contain;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 .section2 .title h2 {
@@ -497,62 +503,38 @@
   font-size: 26px;
 }
 
-.section2 .row1 {
-  height: 70vh;
-}
-
-.section2 .row1 .calendar {
-  margin: 0 auto;
-}
-
-.section2 .row1 .calendar .datetable {
-  float: right;
-  margin: 20px auto;
-  display: inline-block;
-  border-collapse: collapse;
-  background-color: #d8ecf9;
-  border-radius: 5px;
-}
-
-.section2 .row1 .calendar .datetable th,
-.section2 .row1 .calendar .datetable td {
-  text-align: center;
-  font-size: 20px;
-  width: 60px;
-  padding: 5px 10px;
-  display: inline-block;
-}
-
-.section2 .row1 .reservation {
-  z-index: 1;
+.section2 .reservation {
   width: 300px;
   height: 320px;
   color: #fff;
   background-color: #318DD6;
   border: 3px solid #fff;
   border-radius: 10px;
+  margin-top: 30px;
   position: relative;
   left: 50%;
-  top: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: 0;
+  -webkit-transition: all 1s 0.5s;
+  transition: all 1s 0.5s;
 }
 
-.section2 .row1 .reservation p {
+.section2 .reservation p {
   text-align: center;
   margin: 20px;
 }
 
-.section2 .row1 .reservation .choice {
+.section2 .reservation .choice {
   margin: 20px 0 0 30px;
 }
 
-.section2 .row1 .reservation .choice span {
+.section2 .reservation .choice span {
   display: inline-block;
   margin-right: 10px;
 }
 
-.section2 .row1 .reservation .button {
+.section2 .reservation .button {
   width: 100px;
   margin: 20px auto;
   padding: 5px 10px;
@@ -561,36 +543,39 @@
   border-radius: 10px;
 }
 
-.section2 .row1 .island {
-  position: absolute;
-  bottom: 0;
+.section2 .datetable {
+  height: 100vh;
+  opacity: 0;
+  -webkit-transition: all 1s 1s;
+  transition: all 1s 1s;
+  z-index: 1;
 }
 
-.section2 .row1 .island img {
-  width: 100%;
-}
-
-.ocean {
-  background: url(../images/ocean.png) bottom;
-  width: 100%;
-  height: 30vh;
-  position: absolute;
-}
-
-.boat2 {
-  width: 200px;
+.section2 .datetable table {
+  border-collapse: collapse;
+  background-color: #d8ecf9;
+  border-radius: 5px;
   position: relative;
-  display: none;
-  top: -100px;
-  z-index: 2;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
 }
 
-.boat2 img {
-  width: 80%;
-  position: relative;
-  left: 0;
-  -webkit-transition: all .5s;
-  transition: all .5s;
+.section2 .datetable table th,
+.section2 .datetable table td {
+  text-align: center;
+  font-size: 14px;
+  width: 60px;
+  padding: 5px 5px;
+}
+
+.section2 .map img {
+  width: 100vw;
+  position: absolute;
+  right: 0;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 .wrapperBg {
