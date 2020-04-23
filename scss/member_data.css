@@ -63,11 +63,6 @@ a {
           transform: translate(170px, -40px);
 }
 
-.Memall_tabble ul li {
-  display: inline-block;
-  margin: 30px 50px 30px 15px;
-}
-
 .Memall_style {
   padding-top: 80px;
 }
