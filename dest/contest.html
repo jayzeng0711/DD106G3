@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>美食大賽</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="./css/contest.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/animate.css">
+</head>
+<body>
+    <header>
+        <div class="aaa" style="display: flex;">
+            <a href="" style="width: 20%;text-align: center;padding-top: 1%;">
+                <img src="/images/logo.png" alt="">
+            </a >
+            <ul style="display: flex;width: 100%;align-items: center;text-align: center;letter-spacing: 1px;">
+                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
+                    <div class="opacity_div" style="opacity: 0;">
+                        <a href="">
+                            <img src="./images/cruise.png" width="40" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
+                            訂位點餐
+                        </a>
+                    </div> 
+                </li>
+                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
+                    <div class="opacity_div" style="opacity: 0;">
+                        <a href="">
+                            <img src="./images/cruise.png" width="40" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
+                            現撈海鮮
+                        </a>
+                    </div>
+                </li>
+                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
+                    <div class="opacity_div" style="opacity: 0;">
+                        <a href="">
+                            <img src="./images/cruise.png" width="40" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
+                            客製化料理
+                        </a>
+                    </div>
+                </li>
+                <li class="ship_img_div" style="width: 22%;display: flex;align-items: center;justify-content: center;cursor: pointer;">
+                    <div class="opacity_div" style="opacity: 0;">
+                        <a href="">
+                            <img src="./images/cruise.png" width="40" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="text_a" href="" style="color: #01355D;text-decoration: none;">
+                            美食大賽
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <div style="display: flex;width: 15%;align-items: center;justify-content: center;cursor: pointer;">
+                <div style="font-size: 14px;margin-right: 5%;white-space: nowrap;letter-spacing: 1px;">
+                    會員登入
+                </div>
+                <div style="width: 30px;">
+                    <img src="./images/login.png" alt="" style="max-width: 100%;">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="ranking">
+
+        <div class="wrap">
+
+            <div class="ranking_title">
+                <h1>美食大賽排行榜</h1>
+            </div>
+            <div class="contain">
+                
+                <div class="ranking_item">
+
+                    <div class="cookList_img animated swing">
+                        <figure class="cookList_cook">
+                            <figcaption>
+                                <p id="name_1">料理名稱3</p>
+                                <p>票數:1111</p>
+                                <p>參賽日期:2020.05.03</p>
+                            </figcaption>
+                            <img id="cook_1" src="./images/cook1.png" alt="">
+                            
+                        </figure>
+                        <figure class="barrel">
+                            <img src="./images/barrel_03.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="ranking_bg">
+
+                        <div class="cookList_infoPanel">
+                            <div>投票</div>
+                            <div id="detail_1" class="look_detail">查看詳情</div>
+                        </div>
+                        <div class="icon">
+                            <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
+                            <span>留言</span>
+                            <img src="./images/red-heart-icon.png" alt="" class="favorite">
+                            <span>收藏</span>
+                        </div>
+                        <div class="msg">
+                            <P class="big">留言板</p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                會員A:好吃
+                            </p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                會員B:很好吃
+                            </p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                會員C:超級好吃
+                            </p>
+                            <div class="more">
+                                <a href=""><span>查看更多</span></a>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+
+                </div>
+                <div class="ranking_item">
+
+                    <div class="cookList_img animated swing">
+                        <figure class="cookList_cook">
+                            <figcaption>
+                                <p id="name_2">料理名稱1</p>
+                                <p>票數:8888</p>
+                                <p>參賽日期:2020.05.03</p>
+                            </figcaption>
+                            <img id="cook_2" src="./images/cook2.png" alt="">
+                            
+                        </figure>
+                        <figure class="barrel">
+                            <img src="./images/barrel_01.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="ranking_bg">
+
+                        <div class="cookList_infoPanel">
+                            <div>投票</div>
+                            <div id="detail_2" class="look_detail">查看詳情</div>
+                        </div>
+                        <div class="icon">
+                            <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
+                            <span>留言</span>
+                            <img src="./images/red-heart-icon.png" alt="" class="favorite">
+                            <span>收藏</span>
+                        </div>
+                        <div class="msg">
+                            <P class="big">留言板</p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                會員A:好吃
+                            </p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                會員B:很好吃
+                            </p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                會員C:超級好吃
+                            </p>
+                            <div class="more">
+                                <a href=""><span>查看更多</span></a>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+
+                </div>
+                <div class="ranking_item">
+
+                    <div class="cookList_img animated swing">
+                        <figure class="cookList_cook">
+                            <figcaption>
+                                <p id="name_3">料理名稱3</p>
+                                <p>票數:2222</p>
+                                <p>參賽日期:2020.05.03</p>
+                            </figcaption>
+                            <img id="cook_3" src="./images/cook3.png" alt="">
+                            
+                        </figure>
+                        <figure class="barrel">
+                            <img src="./images/barrel_02.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="ranking_bg">
+
+                        <div class="cookList_infoPanel">
+                            <div>投票</div>
+                            <div id="detail_3" class="look_detail">查看詳情</div>
+                        </div>
+                        <div class="icon">
+                            <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
+                            <span>留言</span>
+                            <img src="./images/red-heart-icon.png" alt="" class="favorite">
+                            <span>收藏</span>
+                        </div>
+                        <div class="msg">
+                            <P class="big">留言板</p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                會員A:好吃
+                            </p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                會員B:很好吃
+                            </p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                會員C:超級好吃
+                            </p>
+                            <div class="more">
+                                <a href=""><span>查看更多</span></a>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    
+    <section class="aboutContest">
+
+        <div class="wrap">
+
+            <div class="contain">
+
+                <div class="event">
+
+                    <div class="aboutContest_title">
+                        <p>美食大賽活動說明</p>
+                    </div>
+                    <div class="description">
+                        <div class="text">
+                            <img src="./images/Icon map-boating.png" alt="">
+                            <span>活動期間</span>
+                            <p>2020.05.01 ~ 2020.06.01</p>
+                        </div>
+                        <div class="text">
+                            <img src="./images/Icon map-boating.png" alt="">
+                            <span>規則說明</span>
+                            <p>會員每人每日最多可投3票</p>
+                        </div>
+                        <div class="text">
+                            <img src="./images/Icon map-boating.png" alt="">
+                            <span>排名獎勵</span>
+                            <p>結算日排行前三名之會員可獲得與得票數相同的會員點數。(點數可用於訂餐消費折抵使用)</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="eventImg animated pulse infinite">
+                    <div class="board">
+                        <a href=""><p>立即前往小遊戲參加活動!</p></a>
+                    </div>
+                    <div class="character">
+                        <img src="./images/Life_saver.png">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="cookList">
+
+        <div class="wrap">
+
+            <div class="cookList_title">
+                <h1>參賽料理列表</h1>
+            </div>
+            <div class="contain">
+
+                <div class="filter">
+                    <span>排序篩選：</span>
+                    <select name="" id="order">
+                        <option value="date">參賽日期(新→舊)</option>
+                        <option value="vote">得票數(高→低)</option>
+                    </select>
+                </div>
+                <div class="cookList_item">
+
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img id="cook_4" src="./images/cook4.png" alt="">
+                            <figcaption>
+                                <p id="name_4">料理名稱1</p>
+                                <p>票數:1111</p>
+                                <p>參賽日期:2020.05.03</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_infoPanel">
+                        <div>投票</div>
+                        <div id="detail_4" class="look_detail">查看詳情</div>
+                    </div>
+                    <div class="icon">
+                        <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
+                        <span>留言</span>
+                        <img src="./images/red-heart-icon.png" alt="" class="favorite">
+                        <span>收藏</span>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員A:好吃
+                        </p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員B:很好吃
+                        </p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員C:超級好吃
+                        </p>
+                        <div class="more">
+                            <a href=""><span>查看更多</span></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="cookList_item">
+
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img id="cook_5" src="./images/cook5.png" alt="">
+                            <figcaption>
+                                <p id="name_5">料理名稱1</p>
+                                <p>票數:1111</p>
+                                <p>參賽日期:2020.05.03</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_infoPanel">
+                        <div>投票</div>
+                        <div id="detail_5" class="look_detail">查看詳情</div>
+                    </div>
+                    <div class="icon">
+                        <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
+                        <span>留言</span>
+                        <img src="./images/red-heart-icon.png" alt="" class="favorite">
+                        <span>收藏</span>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員A:好吃
+                        </p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員B:很好吃
+                        </p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員C:超級好吃
+                        </p>
+                        <div class="more">
+                            <a href=""><span>查看更多</span></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="cookList_item">
+
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img id="cook_6" src="./images/cook6.png" alt="">
+                            <figcaption>
+                                <p id="name_6">料理名稱1</p>
+                                <p>票數:1111</p>
+                                <p>參賽日期:2020.05.03</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_infoPanel">
+                        <div>投票</div>
+                        <div id="detail_6" class="look_detail">查看詳情</div>
+                    </div>
+                    <div class="icon">
+                        <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
+                        <span>留言</span>
+                        <img src="./images/red-heart-icon.png" alt="" class="favorite">
+                        <span>收藏</span>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員A:好吃
+                        </p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員B:很好吃
+                        </p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員C:超級好吃
+                        </p>
+                        <div class="more">
+                            <a href=""><span>查看更多</span></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="cookList_item">
+
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img id="cook_7" src="./images/cook7.png" alt="">
+                            <figcaption>
+                                <p id="name_7">料理名稱1</p>
+                                <p>票數:1111</p>
+                                <p>參賽日期:2020.05.03</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_infoPanel">
+                        <div>投票</div>
+                        <div id="detail_7" class="look_detail">查看詳情</div>
+                    </div>
+                    <div class="icon">
+                        <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
+                        <span>留言</span>
+                        <img src="./images/red-heart-icon.png" alt="" class="favorite">
+                        <span>收藏</span>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員A:好吃
+                        </p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員B:很好吃
+                        </p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員C:超級好吃
+                        </p>
+                        <div class="more">
+                            <a href=""><span>查看更多</span></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="cookList_item">
+
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img id="cook_8" src="./images/cook8.png" alt="">
+                            <figcaption>
+                                <p id="name_8">料理名稱1</p>
+                                <p>票數:1111</p>
+                                <p>參賽日期:2020.05.03</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_infoPanel">
+                        <div>投票</div>
+                        <div id="detail_8" class="look_detail">查看詳情</div>
+                    </div>
+                    <div class="icon">
+                        <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
+                        <span>留言</span>
+                        <img src="./images/red-heart-icon.png" alt="" class="favorite">
+                        <span>收藏</span>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員A:好吃
+                        </p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員B:很好吃
+                        </p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員C:超級好吃
+                        </p>
+                        <div class="more">
+                            <a href=""><span>查看更多</span></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="cookList_item">
+
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img id="cook_9" src="./images/cook1.png" alt="">
+                            <figcaption>
+                                <p id="name_9">料理名稱1</p>
+                                <p>票數:1111</p>
+                                <p>參賽日期:2020.05.03</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_infoPanel">
+                        <div>投票</div>
+                        <div id="detail_9" class="look_detail">查看詳情</div>
+                    </div>
+                    <div class="icon">
+                        <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
+                        <span>留言</span>
+                        <img src="./images/red-heart-icon.png" alt="" class="favorite">
+                        <span>收藏</span>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員A:好吃
+                        </p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員B:很好吃
+                        </p>
+                        <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            會員C:超級好吃
+                        </p>
+                        <div class="more">
+                            <a href=""><span>查看更多</span></a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div class="cookList_item">
+
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img src="./image/cook5.png" alt="">
+                            <figcaption>
+                                <p>料理名稱1</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_infoPanel">
+                        <p>票數:1111</p>
+                        <a href=""><span>投他一票</span></a>
+                        <a href=""><span>查看詳情</span></a>
+                        <a href=""><span>加入收藏</span></a>
+                        <p>更新日期:2020.05.03</p>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <p>會員A:好吃</p>
+                        <p>會員B:很好吃</p>
+                        <p>會員C:超級好吃</p>
+                        <a href=""><span>查看更多</span></a>
+                    </div>
+
+                </div>
+                <div class="cookList_item">
+
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img src="./image/cook6.png" alt="">
+                            <figcaption>
+                                <p>料理名稱1</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_infoPanel">
+                        <p>票數:1111</p>
+                        <a href=""><span>投他一票</span></a>
+                        <a href=""><span>查看詳情</span></a>
+                        <a href=""><span>加入收藏</span></a>
+                        <p>更新日期:2020.05.03</p>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <p>會員A:好吃</p>
+                        <p>會員B:很好吃</p>
+                        <p>會員C:超級好吃</p>
+                        <a href=""><span>查看更多</span></a>
+                    </div>
+
+                </div>
+                <div class="cookList_item">
+
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img src="./image/cook7.png" alt="">
+                            <figcaption>
+                                <p>料理名稱1</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_infoPanel">
+                        <p>票數:1111</p>
+                        <a href=""><span>投他一票</span></a>
+                        <a href=""><span>查看詳情</span></a>
+                        <a href=""><span>加入收藏</span></a>
+                        <p>更新日期:2020.05.03</p>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <p>會員A:好吃</p>
+                        <p>會員B:很好吃</p>
+                        <p>會員C:超級好吃</p>
+                        <a href=""><span>查看更多</span></a>
+                    </div>
+
+                </div>
+                <div class="cookList_item">
+
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img src="./image/cook8.png" alt="">
+                            <figcaption>
+                                <p>料理名稱1</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_infoPanel">
+                        <p>票數:1111</p>
+                        <a href=""><span>投他一票</span></a>
+                        <a href=""><span>查看詳情</span></a>
+                        <a href=""><span>加入收藏</span></a>
+                        <p>更新日期:2020.05.03</p>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <p>會員A:好吃</p>
+                        <p>會員B:很好吃</p>
+                        <p>會員C:超級好吃</p>
+                        <a href=""><span>查看更多</span></a>
+                    </div>
+
+                </div>
+                <div class="cookList_item">
+
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img src="./image/cook8.png" alt="">
+                            <figcaption>
+                                <p>料理名稱1</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_infoPanel">
+                        <p>票數:1111</p>
+                        <a href=""><span>投他一票</span></a>
+                        <a href=""><span>查看詳情</span></a>
+                        <a href=""><span>加入收藏</span></a>
+                        <p>更新日期:2020.05.03</p>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <p>會員A:好吃</p>
+                        <p>會員B:很好吃</p>
+                        <p>會員C:超級好吃</p>
+                        <a href=""><span>查看更多</span></a>
+                    </div>
+
+                </div> -->
+                
+                <div class="page-normal">
+                    <span class="page-prev">&lt;</span>
+                    
+                    <span class="page-current">1</span>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    <a href="#">8</a>
+
+                    <a href="#">&gt;</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- 查看詳情燈箱 -->
+    <div class="look_back" style="background-color: rgba(66, 66, 66, .6);width: 100%;height: 100vh;position: fixed;top: 0;z-index: 1;display: none;">
+
+    </div>
+    <section class="look" style="position: fixed;z-index: 2;display: none;">
+
+        <div class="wrap">
+            <div class="cross">
+                <img src="./images/blue-cross-icon.png" alt="">
+            </div>
+            <div class="look_img">
+                <figure>
+                    <figcaption>
+                        <p class="light_title">無敵海膽特特特餐</p>
+                    </figcaption>
+                    <img class="light_img" src="./images/cook4.png" alt="">
+                </figure>
+            </div>
+            <div class="food">
+                <span>使用食材</span>
+                <p>海膽</p>
+                <div class="pic">
+                    <img src="./images/uni.svg" alt="">
+                </div>
+            </div>
+            <div class="Ingredients">
+                <span>使用配料</span>
+                <p>檸檬片</p>
+                <div class="pic">
+                    <img src="./images/lemon.png" alt="">
+                </div>
+            </div>
+            <div class="Ingredients">
+                <span>使用配料</span>
+                <p>迷迭香</p>
+                <div class="pic">
+                    <img src="./images/rosemary.png" alt="">
+                </div>
+            </div>
+            <div class="Ingredients_bottom">
+                <span>使用配料</span>
+                <p>辣椒</p>
+                <div class="pic">
+                    <img src="./images/chili.png" alt="">
+                </div>
+            </div>
+            <div class="cooking_way">
+                <span>烹調方式</span>
+                <p>生魚片</p>
+                <div class="pic">
+                    <img src="./images/cooking_1.png" alt="">
+                </div>
+            </div>
+            
+        </div>
+
+    </section>
+
+    <!-- 完成投票提示 -->
+    <section class="votese">
+        <div class="vote">
+            <p>您已投給<span>〔無敵海膽特特特餐〕</span>一票!</p>
+        </div>
+    </section>
+
+    <button type="button" id="go_top">
+        <img src="./images/waiter.png" alt="">
+    </button>
+    
+    <footer>footer</footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/script.js/vue.js"></script>
+    <script src="/script.js/header.js"></script>
+    <script src="/script.js/contest.js"></script>
+</body>
+</html>
+</body>
+</html>
