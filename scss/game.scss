@@ -22,13 +22,13 @@
   width: 90%;
   margin: 0 auto;
   align-items: center;
+  justify-content: space-around;
   .game_title{
     font-size: $fontSize;
     background-color: #e0f1fc;
     border-radius: 20px;
     letter-spacing: 1px;
-    padding: 1% 0;
-    // flex: auto;
+    padding: 2%;
     .game_rule_div{
       font-size: $fontSize*1.5;
       text-align: center;
@@ -40,6 +40,7 @@
       justify-content: center;
     }
     .game_rule_div_bot{
+      width: 50%;
       div{
         margin-bottom: 1%;
         span{
