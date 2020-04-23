@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/member_data.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <script src="./jquery/jquery.min.js"></script>
+    <script src="./script.js/vue.js"></script>
+</head>
+<body>
+    <div class="Mem">
+        <aside class="Mem_list">
+            <a href="#" style="background-color: #B3B3B3;" >個人資料</a>
+            <a href="#">訂單紀錄</a>
+            <a href="#">客製化料理</a>
+            <a href="#">喜歡的料理</a>
+        </aside>
+
+        <!-- 個人資料 -->
+        <div class="Memall" style="display: none;">
+            <div class="Memall_img">
+                <p>個人資料</p>
+                <img src="/images/10-2.png" alt="">
+                <p>小明 </p>
+                <button class="Memall_img_Btn">更新相片</button>
+            </div>
+            <div class="Memall_tabble">
+
+                <table>
+                    <tr>
+                        <td>會員信箱 &gt;</td>
+                        <td>asd@gmail.com</td>
+                        <td>會員等級 &gt</td>
+                        <td>初級</td>
+                    </tr>
+                    <tr>
+                        <td>會員密碼 &gt</td>
+                        <td>******</td>
+                        <td>會員積分 &gt</td>
+                        <td>52</td>
+                    </tr>
+                    <tr>
+                        <td>會員暱稱 &gt</td>
+                        <td>小明</td>
+                        <td>會員點數 &gt</td>
+                        <td>52</td>
+                    </tr>
+
+                </table>
+
+
+                <!-- 個人資料編輯燈箱 -->
+                <div class="EditBox Showbox" >
+                    <h2>編輯會員資料</h2>
+                    <form method="POST" action="">
+                        <div>
+                            信箱 asd@gmail.com
+                        </div>
+                        <div>
+                            <label for="oldPassword">舊的密碼</label>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <label for="newPassword"> 新的密碼</label>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <label for="checkPassword">確認密碼</label>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <label for="name">更改暱稱</label>
+                            <input type="text">
+                        </div>
+                    <button id="CancleBtn" class="Btn_style" type="button">取消</button>
+                    <button id="okBtn" class="Btn_style" type="button">儲存</button>
+                </form>
+                </div>
+                <div class="Memall_style">
+                    <button class="Memall_Btn">編輯</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 訂單紀錄 -->
+        <div class="Memall" style="display: none;">
+            <div class="Memall_img">
+                <p>訂單記錄</p>
+            </div>
+            <div class="Memall">
+           
+        
+                <div class="Memall_tabble">
+                    <table>
+                        <tr>
+                            <td>訂單編號</td>
+                            <td>日期</td>
+                            <td>時段</td>
+                            <td>港口</td>
+                            <td>人數</td>
+                            <td>狀態</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>0012</td>
+                            <td>2020/05/12</td>
+                            <td>中午</td>
+                            <td>高雄港</td>
+                            <td>10</td>
+                            <td>已付款</td>
+                            <td><button class="Btn_style"><a href="">查看明細</a></button> </td>
+                        </tr>
+                        <tr>
+                            <td>0012</td>
+                            <td>2020/05/12</td>
+                            <td>中午</td>
+                            <td>高雄港</td>
+                            <td>10</td>
+                            <td>已付款</td>
+                            <td><button class="Btn_style"><a href="">查看明細</a></button> </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+<!-- 訂單紀錄 查看明細 -->
+<div class="Memall" style="display: none;" >
+    <div class="Memall_img">
+        <p>客製化料理</p>
+        <div class="Memall_tabble">
+            <table>
+                <tr>
+                    <td>訂單編號</td>
+                    <td>0012</td>
+                    <td>套餐名稱</td>
+                    <td>數量</td>
+                    <td>單價</td>
+                    <td>小計</td>
+                </tr>
+                <tr>
+                    <td>日期</td>
+                    <td>2020/05/12</td>
+                    <td>套餐A</td>
+                    <td>5</td>
+                    <td>1000</td>
+                    <td>5000元</td>
+                </tr>
+                <tr>
+                    <td>時段</td>
+                    <td>中午</td>
+                    <td>客製化料理</td>
+                    <td>數量</td>
+                    <td>單價</td>
+                    <td>小計</td>
+                </tr>
+                <tr>
+                    <td>港口</td>
+                    <td>高雄港</td>
+                    <td>蛤蠣湯</td>
+                    <td>5</td>
+                    <td>200</td>
+                    <td>1000元</td>
+                </tr>
+                <tr>
+                    <td>人數</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td>使用點數</td>
+                    <td>100點</td>
+                </tr>
+                <tr>
+                    <td>狀態</td>
+                    <td>已付款</td>
+                    <td></td>
+                    <td></td>
+                    <td>總金額</td>
+                    <td>10900元</td>
+                </tr>
+            </table>
+
+        </div>
+        <button class="Btn_style"><a href="OrderRecord.html">回上一頁</a></button>
+        <button class="Btn_style">修改</button>
+        <button class="Btn_style">取消</button>
+    </div>
+
+</div>
+
+        <!-- 客製化料理 -->
+        <div class="Memall" style="display: none;" >
+            <div class="Memall_img">
+                <p>客製化料理</p>
+                <div class="Memall_tabble">
+                    <table>
+                        <tr>
+                            <td>客製化料理</td>
+                            <td>海鮮</td>
+                            <td>烹調方式</td>
+                            <td>配料</td>
+                            <td>金額(一人份)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        
+        </div>
+       
+
+        <!-- 喜歡的料理 -->
+        <div class="Memall"  >
+            <div class="Memall_img">
+                <p>客製化料理</p>
+                <div class="Memall_tabble">
+                    <table>
+                        <tr>
+                            <td>客製化料理</td>
+                            <td>海鮮</td>
+                            <td>烹調方式</td>
+                            <td>配料</td>
+                            <td>金額(一人份)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        
+        </div>
+
+
+    </div>
+    
+    <script>
+        $('.Memall_Btn').on('click', function(){ 
+            $('.EditBox').removeClass('Showbox');
+        })
+        $('#CancleBtn').on('click', function(){
+            $('.EditBox').addClass('Showbox');
+        })
+    </script>
+
+</body>
+</html>
