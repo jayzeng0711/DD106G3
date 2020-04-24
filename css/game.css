@@ -1,121 +1,3 @@
-@font-face {
-  font-family: "jf-openhuninn-1.0";
-  src: url(../font/jf-openhuninn-1.0.woff) format("woff");
-  src: url(../font/jf-openhuninn-1.0.ttf) format("truetype");
-}
-
-* {
-  font-family: "jf-openhuninn-1.0";
-}
-
-h1 {
-  font-size: 32px;
-}
-
-h2 {
-  font-size: 28px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-h4 {
-  font-size: 20px;
-}
-
-#touch-layer #asd .score_point_div .point_div #re_game_start {
-  border: none;
-  outline: none;
-  background-color: #5fa8d3;
-  color: #ffffff;
-  padding: 3% 5%;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-  -webkit-box-shadow: 2px 2px 2px #707070;
-          box-shadow: 2px 2px 2px #707070;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#touch-layer #asd .score_point_div .point_div #re_game_start:active {
-  -webkit-box-shadow: inset 2px 2px 2px #707070;
-          box-shadow: inset 2px 2px 2px #707070;
-  top: 1px;
-}
-
-#touch-layer #asd .score_point_div .point_div #re_game_start::before {
-  content: '';
-  position: absolute;
-  background-color: #eee;
-  padding: 50%;
-  border-radius: 50%;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(0);
-          transform: translate(-50%, -50%) scale(0);
-  opacity: .8;
-  -webkit-transition: opacity 1s, -webkit-transform .6s;
-  transition: opacity 1s, -webkit-transform .6s;
-  transition: transform .6s, opacity 1s;
-  transition: transform .6s, opacity 1s, -webkit-transform .6s;
-}
-
-#touch-layer #asd .score_point_div .point_div #re_game_start:hover::before {
-  -webkit-transition: 1s;
-  transition: 1s;
-  opacity: 0;
-  -webkit-transform: translate(-50%, -50%) scale(1);
-          transform: translate(-50%, -50%) scale(1);
-}
-
-#touch-layer #asd .score_point_div .score_div button {
-  border: none;
-  outline: none;
-  background-color: #021A71;
-  color: #ffffff;
-  padding: 3% 5%;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-  -webkit-box-shadow: 2px 2px 2px #707070;
-          box-shadow: 2px 2px 2px #707070;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#touch-layer #asd .score_point_div .score_div button:active {
-  -webkit-box-shadow: inset 2px 2px 2px #707070;
-          box-shadow: inset 2px 2px 2px #707070;
-  top: 1px;
-}
-
-#touch-layer #asd .score_point_div .score_div button::before {
-  content: '';
-  position: absolute;
-  background-color: #eee;
-  padding: 50%;
-  border-radius: 50%;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(0);
-          transform: translate(-50%, -50%) scale(0);
-  opacity: .8;
-  -webkit-transition: opacity 1s, -webkit-transform .6s;
-  transition: opacity 1s, -webkit-transform .6s;
-  transition: transform .6s, opacity 1s;
-  transition: transform .6s, opacity 1s, -webkit-transform .6s;
-}
-
-#touch-layer #asd .score_point_div .score_div button:hover::before {
-  -webkit-transition: 1s;
-  transition: 1s;
-  opacity: 0;
-  -webkit-transform: translate(-50%, -50%) scale(1);
-          transform: translate(-50%, -50%) scale(1);
-}
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -169,6 +51,124 @@ table {
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "jf-openhuninn-1.0";
+  src: url(../font/jf-openhuninn-1.0.woff) format("woff");
+  src: url(../font/jf-openhuninn-1.0.ttf) format("truetype");
+}
+
+* {
+  font-family: "jf-openhuninn-1.0";
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+#touch-layer #asd .score_point_div .point_div #re_game_start, #touch-layer #asd_fail #fail_re_game_start {
+  border: none;
+  outline: none;
+  background-color: #5fa8d3;
+  color: #ffffff;
+  padding: 3% 5%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  -webkit-box-shadow: 2px 2px 2px #707070;
+          box-shadow: 2px 2px 2px #707070;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#touch-layer #asd .score_point_div .point_div #re_game_start:active, #touch-layer #asd_fail #fail_re_game_start:active {
+  -webkit-box-shadow: inset 2px 2px 2px #707070;
+          box-shadow: inset 2px 2px 2px #707070;
+  top: 1px;
+}
+
+#touch-layer #asd .score_point_div .point_div #re_game_start::before, #touch-layer #asd_fail #fail_re_game_start::before {
+  content: '';
+  position: absolute;
+  background-color: #eee;
+  padding: 50%;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  opacity: .8;
+  -webkit-transition: opacity 1s, -webkit-transform .6s;
+  transition: opacity 1s, -webkit-transform .6s;
+  transition: transform .6s, opacity 1s;
+  transition: transform .6s, opacity 1s, -webkit-transform .6s;
+}
+
+#touch-layer #asd .score_point_div .point_div #re_game_start:hover::before, #touch-layer #asd_fail #fail_re_game_start:hover::before {
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+}
+
+#touch-layer #asd .score_point_div .score_div .go_cus {
+  border: none;
+  outline: none;
+  background-color: #021A71;
+  color: #ffffff;
+  padding: 3% 5%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  -webkit-box-shadow: 2px 2px 2px #707070;
+          box-shadow: 2px 2px 2px #707070;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#touch-layer #asd .score_point_div .score_div .go_cus:active {
+  -webkit-box-shadow: inset 2px 2px 2px #707070;
+          box-shadow: inset 2px 2px 2px #707070;
+  top: 1px;
+}
+
+#touch-layer #asd .score_point_div .score_div .go_cus::before {
+  content: '';
+  position: absolute;
+  background-color: #eee;
+  padding: 50%;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  opacity: .8;
+  -webkit-transition: opacity 1s, -webkit-transform .6s;
+  transition: opacity 1s, -webkit-transform .6s;
+  transition: transform .6s, opacity 1s;
+  transition: transform .6s, opacity 1s, -webkit-transform .6s;
+}
+
+#touch-layer #asd .score_point_div .score_div .go_cus:hover::before {
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
 }
 
 .pu_head_wrap_div {
@@ -302,7 +302,7 @@ table {
 }
 
 #wrapper {
-  padding: 10% 0;
+  padding: 7% 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #41B6E6), to(#001871));
   background: linear-gradient(to bottom, #41B6E6 0, #001871 100%);
 }
@@ -313,23 +313,64 @@ table {
   display: flex;
   width: 90%;
   margin: 0 auto;
-  padding-top: 3%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 3%;
 }
 
 .wrapper_bottom .game_title {
-  color: white;
-  font-size: 30px;
+  font-size: 16px;
+  background-color: #e0f1fc;
+  border-radius: 20px;
   letter-spacing: 1px;
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
+  width: 50%;
+  padding: 2% 0;
 }
 
-.wrapper_bottom .game_title div {
-  margin-bottom: 2%;
+.wrapper_bottom .game_title .game_rule_div {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 4%;
+}
+
+.wrapper_bottom .game_title .game_rule_div_bot_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  width: 100%;
+}
+
+.wrapper_bottom .game_title .game_rule_div_bot_wrap .game_rule_div_bot {
+  width: 100%;
+  text-align: center;
+}
+
+.wrapper_bottom .game_title .game_rule_div_bot_wrap .game_rule_div_bot .game_rule_div_bot_cen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 3%;
+}
+
+.wrapper_bottom .game_title .game_rule_div_bot_wrap .game_rule_div_bot .game_rule_div_bot_cen .intro_title {
+  color: #4669e6;
+  width: 16%;
+  text-align: right;
+}
+
+.wrapper_bottom .game_title .game_rule_div_bot_wrap .game_rule_div_bot .game_rule_div_bot_cen .intro_detail {
+  width: 100%;
 }
 
 .wrapper_bottom .show_seafood_wrap {
@@ -338,7 +379,7 @@ table {
 }
 
 .wrapper_bottom .show_seafood_wrap .show_seafood_text {
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 2%;
 }
 
@@ -363,47 +404,6 @@ table {
 
 .wrapper_bottom .show_seafood_wrap .show_seafood_img_div div div img {
   max-width: 100%;
-}
-
-.capture_div {
-  width: 90%;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.capture_div div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 70%;
-  color: white;
-  font-size: 18px;
-}
-
-.capture_div div .capture_poke {
-  width: 10%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.capture_div div .capture_poke img {
-  max-width: 100%;
-  margin: 0px 5px;
 }
 
 #touch-layer {
@@ -450,15 +450,17 @@ table {
 
 #touch-layer #asd {
   position: absolute;
-  width: 90%;
+  width: 60%;
   z-index: 90;
   text-align: center;
   background-color: white;
-  padding: 3%;
+  border-radius: 10px;
+  padding: 3% 0;
+  display: none;
 }
 
 #touch-layer #asd .suc_cap_div {
-  font-size: 30px;
+  font-size: 24px;
   color: #30B0E1;
   margin-bottom: 5%;
 }
@@ -471,7 +473,7 @@ table {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 10%;
+  width: 20%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -503,12 +505,8 @@ table {
   font-size: 20px;
 }
 
-#touch-layer #asd .score_point_div .point_div .point_text {
-  margin: 20px 0 80px 0;
-}
-
-#touch-layer #asd .score_point_div .point_div .no_like_seafood {
-  margin-bottom: 20px;
+#touch-layer #asd .score_point_div .point_div .light_div {
+  margin-bottom: 10%;
 }
 
 #touch-layer #asd .score_point_div .score_div {
@@ -520,26 +518,23 @@ table {
   font-size: 20px;
 }
 
-#touch-layer #asd .score_point_div .score_div .score_text {
-  margin: 20px 0 80px 0;
-}
-
-#touch-layer #asd .score_point_div .score_div .capture_seafood {
-  margin-bottom: 20px;
+#touch-layer #asd .score_point_div .score_div .light_div {
+  margin-bottom: 10%;
 }
 
 #touch-layer #asd_fail {
   position: absolute;
-  width: 90%;
+  width: 60%;
   z-index: 90;
   text-align: center;
   background-color: white;
-  padding: 3%;
+  border-radius: 10px;
+  padding: 3% 0;
   display: none;
 }
 
 #touch-layer #asd_fail .no_seafood_text {
-  font-size: 30px;
+  font-size: 24px;
   color: #30B0E1;
   margin-bottom: 5%;
 }
@@ -555,6 +550,7 @@ table {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 5%;
 }
 
 #touch-layer #asd_fail .fail_point_div .fail_score_div_small {
@@ -583,17 +579,6 @@ table {
   margin: 20px 0 80px 0;
 }
 
-#touch-layer #asd_fail #fail_re_game_start {
-  background-color: #FFBA59;
-  padding: 20px 40px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 30px;
-  color: white;
-}
-
 #touch-layer #screen {
   background-image: url("/images/seabottom.png");
   background-repeat: no-repeat;
@@ -605,32 +590,101 @@ table {
 #touch-layer #screen #time_up {
   position: absolute;
   z-index: 100;
-  top: 0px;
-  left: 5px;
-  font-size: 50px;
-  color: #707070;
+  top: 5px;
+  left: 0px;
+  font-size: 32px;
 }
 
 #touch-layer #screen .ball_num_div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: absolute;
-  top: 50px;
-  left: 5px;
-  font-size: 50px;
-  color: #707070;
+  top: 5px;
+  left: 10%;
+  font-size: 24px;
+}
+
+#touch-layer #screen .ball_num_div .ball_num_img_div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#touch-layer #screen .ball_num_div .ball_num_img_div div {
+  width: 5%;
+  margin: 0 .5%;
+}
+
+#touch-layer #screen .ball_num_div .ball_num_img_div div img {
+  max-width: 100%;
+}
+
+#touch-layer #screen .capture_div {
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 5px;
+  left: 30%;
+}
+
+#touch-layer #screen .capture_div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 70%;
+  font-size: 24px;
+}
+
+#touch-layer #screen .capture_div div .capture_poke {
+  width: 6%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#touch-layer #screen .capture_div div .capture_poke img {
+  max-width: 100%;
+  margin: 0px 5px;
 }
 
 #touch-layer #screen .mem_score_div {
   position: absolute;
-  right: 10px;
+  left: 60%;
   top: 5px;
-  font-size: 30px;
+  font-size: 24px;
 }
 
 #touch-layer #screen .mem_point_div {
   position: absolute;
-  right: 10px;
-  top: 50px;
-  font-size: 30px;
+  left: 72%;
+  top: 5px;
+  font-size: 24px;
+}
+
+#touch-layer #screen .mem_level_div {
+  position: absolute;
+  left: 85%;
+  top: 5px;
+  font-size: 24px;
 }
 
 #touch-layer #screen #target-container {

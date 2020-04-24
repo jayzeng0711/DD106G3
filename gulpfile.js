@@ -96,7 +96,7 @@ gulp.task('mini_img', function () {
 
 gulp.task('watch' , function(){
   gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['concatcss']);
-  gulp.watch('js/*.js', ['concatjs']);
+  gulp.watch('script.js/*.js', ['concatjs']);
   gulp.watch(['*.html' , '**/*.html'],  ['fileinclude']);
 });
 
