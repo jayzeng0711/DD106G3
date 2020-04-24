@@ -45,12 +45,12 @@ a {
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
+  text-align: center;
   padding-top: 60px;
 }
 
 .Memall_img {
   padding-top: 60px;
-  text-align: center;
 }
 
 .Memall_img img {
@@ -64,7 +64,6 @@ a {
 }
 
 .Memall_tabble ul li {
-  width: 100px;
   display: inline-block;
   margin: 30px 50px 30px 15px;
 }
