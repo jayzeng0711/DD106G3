@@ -1,3 +1,5 @@
+@import "reset";
+
 $fontFamily : 'jf-openhuninn-1.0';
 $fontSize: 16px;
 
@@ -137,5 +139,5 @@ h4{
 }
 // rwd
 
-@import "reset";
+
 @import "../layout/header";

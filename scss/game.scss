@@ -23,34 +23,48 @@
   margin: 0 auto;
   align-items: center;
   justify-content: space-around;
+  margin-bottom: 3%;
   .game_title{
     font-size: $fontSize;
     background-color: #e0f1fc;
     border-radius: 20px;
     letter-spacing: 1px;
     width: 50%;
-    padding: 1%;
+    padding: 2% 0;
     .game_rule_div{
       font-size: $fontSize*1.5;
       text-align: center;
-      margin-bottom: 2%;
+      margin-bottom: 4%;
     }
     .game_rule_div_bot_wrap{
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-wrap: nowrap;
+      width: 100%;
+      .game_rule_div_bot{
+        width: 100%;
+        text-align: center;
+            .game_rule_div_bot_cen{
+              display: flex;
+              margin-bottom: 3%;
+              .intro_title{
+                color: #4669e6;
+                width: 16%;
+                text-align: right;
+              }
+              .intro_detail{
+                width: 100%;
+              }
+            }
+          }
+       }
     }
-    .game_rule_div_bot{
-      .intro_title{
-        color: #4669e6;;
-      }
-    }
-  }
   .show_seafood_wrap{
     text-align: center;
     color: white;
     .show_seafood_text{
-      font-size: 20px;
+      font-size: $fontSize*1.5;
       margin-bottom: 2%;
     }
     .show_seafood_img_div{
@@ -71,32 +85,6 @@
   }
 }
 //吃美味海鮮跟出現海鮮的版面
-
-//捕獲到的海鮮
-.capture_div{
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  div{
-    display: flex;
-    align-items: center;
-    width: 70%;
-    color: white;
-    font-size: 18px;
-    .capture_poke{
-      width: 10%;
-      display: flex;
-      align-items: center;
-      img{
-        max-width: 100%;
-        margin: 0px 5px;
-      }
-    }
-  }
-}
-//捕獲到的海鮮
 
 //遊戲範圍
 #touch-layer{
@@ -136,14 +124,15 @@
   //有抓到海鮮遊戲結束視窗
   #asd{
     position: absolute;
-    width: 90%;
+    width: 60%;
     z-index: 90;
     text-align: center;
     background-color: white;
-    padding: 3%;
-    // display: none;
+    border-radius: 10px;
+    padding: 3% 0;
+    display: none;
     .suc_cap_div{
-      font-size: 30px;
+      font-size: $fontSize*1.5;
       color: #30B0E1;
       margin-bottom: 5%;
       div{
@@ -151,7 +140,7 @@
       }
       .capture_poke{
         display: flex;
-        width: 10%;
+        width: 20%;
         align-items: center;
         justify-content: center;
         margin: 0 auto;
@@ -169,11 +158,8 @@
           color: red;
           font-size: 20px;
         }
-        .point_text{
-          margin: 20px 0 80px 0;
-        }
-        .no_like_seafood{
-          margin-bottom: 20px;
+        .light_div{
+          margin-bottom: 10%;
         }
         #re_game_start{
           @extend %btn;
@@ -185,15 +171,12 @@
           color: red;
           font-size: 20px;
         }
-        .score_text{
-          margin: 20px 0 80px 0;
+        .light_div{
+          margin-bottom: 10%;
         }
-        .capture_seafood{
-          margin-bottom: 20px;
-        }
-        button{
+        .go_cus{
           @extend %btn_ano;
-        }
+        } 
       }
     }
   }
@@ -202,14 +185,15 @@
   //沒抓到海鮮遊戲結束視窗
   #asd_fail{
     position: absolute;
-    width: 90%;
+    width: 60%;
     z-index: 90;
     text-align: center;
     background-color: white;
-    padding: 3%;
+    border-radius: 10px;
+    padding: 3% 0;
     display: none;
     .no_seafood_text{
-      font-size: 30px;
+      font-size: $fontSize*1.5;
       color: #30B0E1;
       margin-bottom: 5%;
       div{
@@ -219,6 +203,7 @@
     .fail_point_div{
       display: flex;
       justify-content: center;
+      margin-bottom: 5%;
       .fail_score_div_small{
         width: 50%;
         #final_score{
@@ -241,14 +226,7 @@
       }
     }
     #fail_re_game_start{
-      background-color: #FFBA59;
-      padding: 20px 40px;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      font-size: 30px;
-      color: white;
+      @extend %btn;
     }
   }
   //沒抓到海鮮遊戲結束視窗
@@ -263,29 +241,72 @@
     #time_up{
       position: absolute;
       z-index: 100;
-      top: 0px;
-      left: 5px;
-      font-size: 50px;
-      color: #707070;
+      top: 5px;
+      left: 0px;
+      font-size: $fontSize*2;
     }
     .ball_num_div{
+      display: flex;
       position: absolute;
-      top: 50px;
-      left: 5px;
-      font-size: 50px;
-      color: #707070;
+      top: 5px;
+      left: 10%;
+      font-size: $fontSize*1.5;
+      .ball_num_img_div{
+        display: flex;
+        align-items: center;
+        div{
+          width: 5%;
+          margin: 0 .5%;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
     }
+    //捕獲到的海鮮
+    .capture_div{
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 5px;
+      left: 30%;
+      div{
+        display: flex;
+        align-items: center;
+        width: 70%;
+        font-size: $fontSize*1.5;
+        .capture_poke{
+          width: 6%;
+          display: flex;
+          align-items: center;
+          img{
+            max-width: 100%;
+            margin: 0px 5px;
+          }
+        }
+      }
+    }
+//捕獲到的海鮮
     .mem_score_div{
       position: absolute;
-      right: 10px;
+      left: 60%;
       top: 5px;
-      font-size: 30px;
+      font-size: $fontSize*1.5;
     }
     .mem_point_div{
       position: absolute;
-      right: 10px;
-      top: 50px;
-      font-size: 30px;
+      left: 72%;
+      top: 5px;
+      font-size: $fontSize*1.5;
+    }
+    .mem_level_div{
+      position: absolute;
+      left: 85%;
+      top: 5px;
+      font-size: $fontSize*1.5;
     }
     #target-container{
       @extend .flex-center;

@@ -63,17 +63,17 @@
                 </div>
                 <div class="game_rule_div_bot_wrap">
                     <div class="game_rule_div_bot">
-                        <div>
-                            <div class="intro_title">規則</div><div>一局時間一分鐘，五顆球，當時間到或球數用完，遊戲結束</div>
+                        <div class="game_rule_div_bot_cen">
+                            <div class="intro_title">規則</div><div class="intro_detail">一局時間一分鐘，五顆球，當時間到或球數用完，遊戲結束</div>
                         </div>
-                        <div>
-                            <div class="intro_title">玩法</div><div>瞄準好海鮮後，將球甩出，丟到目標物後，有機率成功捕捉</div>
+                        <div class="game_rule_div_bot_cen">
+                            <div class="intro_title">玩法</div><div class="intro_detail">瞄準好海鮮後，將球甩出，丟到目標物後，有機率成功捕捉</div>
                         </div>
-                        <div>
-                            <div class="intro_title">積分</div><div>決定你的會員等級，等級高，球越高級，捉到海鮮機率越大</div>
+                        <div class="game_rule_div_bot_cen">
+                            <div class="intro_title">積分</div><div class="intro_detail">決定你的會員等級，等級高，球越高級，捉到海鮮機率越大</div>
                         </div>
-                        <div>
-                            <div class="intro_title">點數</div><div>在訂餐時可作折抵</div>
+                        <div class="game_rule_div_bot_cen">
+                            <div class="intro_title">點數</div><div class="intro_detail">在訂餐時可作折抵</div>
                         </div>
                     </div>
                 </div>
@@ -99,14 +99,6 @@
             </div>
         </div>
         
-        <div class="capture_div">
-          <div>
-              捕獲：
-              <div id="capture_poke" class="capture_poke">
-              </div>
-          </div>
-        </div>
-
         <div id="info-screen" class="hidden">
             <div id="info-shade"></div>
         </div>
@@ -138,32 +130,26 @@
                 </div>
                 <div class="score_point_div">
                     <div class="point_div">
-                        獲得積分：
-                        <span id="final_score">0</span>
-                        <div class="point_text">
-                            積分可用來提升會員等級
+                        <div class="light_div">
+                            獲得積分 <span id="final_score">0</span>
                         </div>
-                        <div class="no_like_seafood">
-                            沒有喜歡的海鮮嗎
+                        <div >
+                            <button id="re_game_start" class="re_game_start">
+                                再玩一次
+                            </button>
                         </div>
-                        <button id="re_game_start">
-                            再玩一次
-                        </button>
                     </div>
                     <div class="score_div">
-                        獲得點數：
-                        <span id="final_point">0</span>
-                        <div class="score_text">
-                            點數可用來折扣料理
+                        <div class="light_div">
+                            獲得點數 <span id="final_point">0</span>
                         </div>
-                        <div class="capture_seafood">
-                            捕捉到想吃的海鮮了
-                        </div>
-                        <a href="customized_cuisine.html">
-                            <button>客製化料理</button>  
-                        </a>
+                        <div class="light_div">
+                            <a href="customized_cuisine.html">
+                                <button class="go_cus">客製化料理</button>  
+                            </a>
+                        </div>       
                     </div>
-              </div>
+                </div>
             </div>
             <!-- 有抓到海鮮遊戲結束時的視窗 -->
 
@@ -177,15 +163,9 @@
                 <div class="fail_point_div">
                     <div class="fail_score_div_small">獲得積分：
                         <span id="final_score">0</span>
-                        <div>
-                            積分可用來提升會員等級
-                        </div>
                     </div>
                     <div class="fail_point_div_small">獲得點數：
                         <span id="final_point">0</span>
-                        <div>
-                            點數可用來折扣料理
-                        </div>
                     </div>
                 </div>
                 <button id="fail_re_game_start">
@@ -197,13 +177,43 @@
             <div id="screen">
                 <div id="time_up">60</div>
                 <div class="ball_num_div">
-                    球數:<span id="ball_num">5</span>
+                    <div>
+                        球數
+                    </div>
+                    <div class="ball_num_img_div">
+                        <div>
+                            <img src="./images/Group%2071.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./images/Group%2071.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./images/Group%2071.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./images/Group%2071.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./images/Group%2071.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 球數 <span id="ball_num">5</span> -->
                 </div>
+                <div class="capture_div">
+                    <div>
+                        捕獲
+                        <div id="capture_poke" class="capture_poke">
+                        </div>
+                    </div>
+                  </div>
                 <div class="mem_score_div">
-                    積分：<span id="mem_score">0</span>
+                    積分 <span id="mem_score">0</span>
                 </div>
                 <div class="mem_point_div">
-                    點數：<span id="mem_point">0</span>
+                    點數 <span id="mem_point">0</span>
+                </div>
+                <div class="mem_level_div">
+                    會員等級 <span id="mem_point">金鷗</span>
                 </div>
                 <div id="target-container">
                     <!-- 海鮮本人 -->
@@ -224,7 +234,6 @@
             </div>
         </div>
         </div>
-
         <!-- <div id="screen" class="gradient-background">
         <div id="target-container"> -->
             <!-- 海鮮本人 -->
