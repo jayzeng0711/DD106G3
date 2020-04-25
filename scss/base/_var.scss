@@ -1,6 +1,7 @@
 @import "reset";
 
 $fontFamily : 'jf-openhuninn-1.0';
+$h1_fontFamily : 'NaikaiFont-Regular.ttf';
 $fontSize: 16px;
 
 $btn_bg_color : #5fa8d3;
@@ -18,6 +19,7 @@ $mobile : 576px;
     font-family: $fontFamily;
     src: url(../font/jf-openhuninn-1.0.woff) format("woff");
     src: url(../font/jf-openhuninn-1.0.ttf) format("truetype");
+    src: url(../font/NaikaiFont-Regular.ttf);
 }
 *{
     font-family: $fontFamily;
@@ -27,6 +29,8 @@ $mobile : 576px;
 // font-size
 h1{
     font-size: $fontSize*2;
+    font-family: $h1_fontFamily;
+    text-align: center;
 }
 h2{
     font-size: $fontSize*1.75;
