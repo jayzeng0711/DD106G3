@@ -1,4 +1,7 @@
-// header
+// desktop header
+.mobile_header{
+    display: none;
+}
 .pu_head_wrap_div{
     display: flex;
     position: relative;
@@ -7,6 +10,7 @@
         width: 20%;
         text-align: center;
         padding-top: 1%;
+        display: block;
     }
     .pu_head_ul{
         display: flex;
@@ -78,8 +82,199 @@
     from { background-position-x: -10px, 0; }
     to { background-position-x: -30px, -20px; }
 }
+<<<<<<< HEAD
 
 .pu_logo_a > img{
     width: 40%;
 }
 // header
+=======
+// desktop header
+
+
+
+// h1
+.pu_h1_div{
+    position: relative;
+    width: 100%;
+    margin: 5% auto;
+    .pu_h1_img{
+        max-width: 100%;
+    }
+    .pu_div_text{
+        position: absolute;
+        bottom: 25%;
+        right: 0;
+        left: 0;
+        letter-spacing: 1px;
+    }
+}
+// h1
+
+@include rwd(desktop){
+    .pu_h1_div{
+        position: relative;
+        margin: 5% auto;
+        width: 80%;
+        font-size: $fontSize*1.5;
+        .pu_h1_img{
+            max-width: 100%;
+        }
+        .pu_div_text{
+            position: absolute;
+            bottom: 25%;
+            right: 0;
+            left: 0;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+@include rwd(medium){
+    .pu_h1_div{
+        position: relative;
+        margin: 5% auto;
+        width: 80%;
+        font-size: $fontSize*1.5;
+        .pu_h1_img{
+            max-width: 100%;
+        }
+        .pu_div_text{
+            position: absolute;
+            bottom: 25%;
+            right: 0;
+            left: 0;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+@include rwd(small){
+    //mobile_header
+    .desktop_header{
+        display: none;
+    }
+    .mobile_header{
+        display: block;
+        position: relative;
+        // overflow: hidden;
+        .pu_mb_logo_a{
+            position: relative;
+            z-index: 5;
+            display: block;
+            width: 10%;
+            margin: 5px 0 0 5px;
+            img{
+                max-width: 100%;
+            }
+        }
+        .mb_sma_cloud{
+            .mb_sma_cloud_img{
+                position: absolute;
+                right: -5px;
+                top: -10px;
+                z-index: 2;
+            }
+            .mb_big_cloud_img_div{
+                position: absolute;
+                right: -770px;
+                top: -5px;
+                z-index: 1;
+                display: none;
+                .mb_big_cloud_text{
+                    position: absolute;
+                    z-index: 5;
+                    top: 10%;
+                    left: 50%;
+                    .pu_mb_text_a{
+                        color: #01355D;
+                        text-decoration: none;
+                        line-height: 5;
+                        letter-spacing: 1px;
+                        padding: 5px 0;
+                        font-size: $fontSize*1.2;
+                    }
+                }
+            }
+            .burger {
+                position: absolute;
+                z-index: 10;
+                right: 10px;
+                top: 5px;
+                cursor: pointer;
+                transform: rotateY(0);
+                transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+                span {
+                    display: block;
+                    width: 33px;
+                    height: 3px;
+                    margin-bottom: 7px;
+                    position: relative;
+                    background: #01355D; 
+                    z-index: 1;
+                    transform-origin: 4px 0px;
+                    transition: transform 0.2s cubic-bezier(0.77,0.2,0.05,1.0),
+                                background 0.2s cubic-bezier(0.77,0.2,0.05,1.0),
+                                opacity 0.25s ease;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        .burger--close span:nth-child(1) {
+            opacity: 1;
+            transform: rotate(45deg) translate(5px, 0px);
+        }
+        .burger--close span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(10px) scale(0, 0);
+        }
+        .burger--close span:nth-child(3) {
+            opacity: 1;
+            transform: rotate(-45deg) translate(0px, 2px);
+        }
+        .burger--close {
+            transform: rotate(180deg);
+        }
+    }
+    //mobile_header
+    .pu_h1_div{
+        position: relative;
+        margin: 5% auto;
+        width: 80%;
+        font-size: $fontSize*1.25;
+        z-index: -1;
+        .pu_h1_img{
+            max-width: 100%;
+        }
+        .pu_div_text{
+            position: absolute;
+            bottom: 25%;
+            right: 0;
+            left: 0;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+@include rwd(mobile){
+    .pu_h1_div{
+        position: relative;
+        margin: 5% auto;
+        width: 80%;
+        font-size: $fontSize;
+        z-index: -1;
+        .pu_h1_img{
+            max-width: 100%;
+        }
+        .pu_div_text{
+            position: absolute;
+            bottom: 25%;
+            right: 0;
+            left: 0;
+            letter-spacing: 1px;
+        }
+    }
+}
+>>>>>>> 6384660207427820b16b4ed45f82cfdee3d45ca7

@@ -1,3 +1,4 @@
+@import "base/var";
 @font-face {
     font-family: 'jf-openhuninn-1.0';
     src: url(../font/jf-openhuninn-1.0.woff) format("woff");
@@ -6,226 +7,311 @@
 
 * {
     font-family: 'jf-openhuninn-1.0';
+    // overflow: hidden;
 }
 
-main {
+header {
+    font-family: $fontFamily;
+}
+
+section {
     background: url(../images/longbg.jpg) center top;
     width: 100%;
+    position: relative;
+    overflow: hidden;
+    .step {
+        margin: 100px auto 0;
+        background: url(../images/bubble.svg) no-repeat;
+        background-size: contain;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        .text {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        p {
+            color: #fff;
+            margin: 0;
+        }
+    }
+    .wave {
+        width: 100%;
+        height: 15vh;
+        bottom: -5vh;
+        background-image: url(../images/wave1.png);
+        background-size: 50vh 15vh;
+        position: absolute;
+        animation: wave 20s linear infinite;
+        z-index: 0;
+    }
+    @keyframes wave {
+        0% {
+            background-position: 0
+        }
+        100% {
+            background-position: 100%
+        }
+    }
 }
 
 .section1 {
-    padding-top: 50px;
-    h2 {
-        text-align: center;
-        color: #035;
-    }
-    img {
-        width: 100%;
-    }
-    .reservation {
-        width: 300px;
-        height: 320px;
-        color: #fff;
-        background-color: #318DD6;
-        border: 3px solid #fff;
-        border-radius: 10px;
-        p {
+    min-height: 100vh;
+    .title {
+        position: relative;
+        .pu_div_text {
+            font-size: $fontSize*2;
+            color: #034;
+            line-height: $fontSize;
             text-align: center;
-            margin: 20px;
         }
-        .choice {
-            margin: 20px 0 0 30px;
-            span {
-                display: inline-block;
-                margin-right: 10px;
+    }
+    .row2 {
+        align-items: center;
+        #map {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .datetable {
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            table {
+                border-collapse: collapse;
+                background-color: #d8ecf9;
+                border-radius: 5px;
+                th,
+                td {
+                    text-align: center;
+                    font-size: 14px;
+                    width: 60px;
+                    padding: 5px 5px;
+                }
             }
         }
-        .button {
-            width: 100px;
-            margin: 20px auto;
-            padding: 5px 10px;
-            background-color: #130B6E;
-            text-align: center;
+        .reservation {
+            width: 300px;
+            color: #034;
+            background-color: #fff;
+            border: 3px solid #318DD6;
             border-radius: 10px;
+            margin-top: 30px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 15vh;
+            p {
+                text-align: center;
+                margin: 20px;
+            }
+            .choice {
+                margin: 20px 0 0 30px;
+                label {
+                    background-color: #fff;
+                    border: 1px solid #4EB6E6;
+                    border-radius: 10px;
+                    padding: 3px 5px;
+                    cursor: pointer;
+                }
+                span {
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+            }
+            .port {
+                input {
+                    display: none;
+                }
+            }
+            .button {
+                @extend %btn_ano;
+                width: 100px;
+                margin: 20px auto;
+                text-align: center;
+            }
         }
     }
 }
 
 .section2 {
-    h2 {
-        margin-top: 20px;
-        text-align: center;
-        color: #035;
-    }
-    h4 {
-        margin-top: 20px;
-        text-align: center;
-        color: #035;
-    }
-    .category {
-        color: #035;
-        margin-top: 5%;
-        display: flex;
-        text-align: center;
-    }
-    .menu {
-        margin-top: 20px;
-        background-color: #e0f1fc;
-        border-radius: 5px;
-        text-align: center;
-        width: 300px;
-        padding: 30px;
-        display: inline-block;
-        img {
+    min-height: 100vh;
+    .row2 {
+        min-height: 60vh;
+        align-items: center;
+        .menu {
             width: 80%;
-        }
-        p {
-            margin: 3px;
+            position: relative;
+            border-radius: 5px;
+            background-color: rgb(245, 235, 220);
+            margin: 20px 0;
+            padding: 20px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            img {
+                margin: 0px auto 10px;
+                display: block;
+                width: 50%;
+            }
+            .text {
+                display: inline-block;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                h4 {
+                    font-size: $fontSize*1.2;
+                }
+                p {
+                    font-size: $fontSize;
+                    margin: 0;
+                }
+            }
         }
         .button {
-            margin: 0px auto;
-            width: 80px;
+            @extend %btn_ano;
+            width: 100px;
             text-align: center;
-            background-color: #ef915b;
+            margin: 20px auto;
+        }
+        .reservation2 {
+            width: 300px;
+            color: #034;
+            background-color: #fff;
+            border: 3px solid #318DD6;
             border-radius: 10px;
-            padding: 5px 0;
-            color: #fff;
-            cursor: pointer;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 15vh;
+            p {
+                text-align: center;
+                margin: 20px;
+            }
+            .choice {
+                margin: 20px 0 0 30px;
+                table {
+                    width: 100%;
+                    th {
+                        font-size: $fontSize*1.2;
+                        padding-bottom: 5px;
+                    }
+                }
+                .meal {
+                    display: inline-block;
+                    width: 40px;
+                }
+            }
+            .port {
+                input {
+                    display: none;
+                }
+            }
+            .wrapper {
+                text-align: center;
+                .button.previous {
+                    @extend %btn;
+                    display: inline-block;
+                    width: 100px;
+                    margin: 20px auto;
+                    margin-right: 20px;
+                }
+                .button.next {
+                    @extend %btn_ano;
+                    display: inline-block;
+                    width: 100px;
+                    margin: 20px auto;
+                }
+            }
         }
     }
 }
 
-.img1 {
-    width: 70%;
+.section3 {
+    min-height: 100vh;
+    .text {
+        text-align: center;
+        .button {
+            @extend %btn;
+            display: inline-block;
+            width: 150px;
+            padding: 10px;
+            margin: 20px auto;
+        }
+    }
+    .row2 {
+        min-height: 60vh;
+        align-items: center;
+        .reservation3 {
+            width: 300px;
+            color: #034;
+            background-color: #fff;
+            border: 3px solid #318DD6;
+            border-radius: 10px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 15vh;
+            p {
+                text-align: center;
+                margin: 20px;
+            }
+            .choice {
+                margin: 20px 5px;
+                table {
+                    width: 100%;
+                    th {
+                        font-size: $fontSize*1.2;
+                        padding-bottom: 5px;
+                    }
+                    .delete {
+                        display: inline-block;
+                        margin-left: 10px;
+                        cursor: pointer;
+                    }
+                }
+                .meal {
+                    display: inline-block;
+                    width: 40px;
+                }
+            }
+            .port {
+                input {
+                    display: none;
+                }
+            }
+            .wrapper {
+                text-align: center;
+                .button.previous {
+                    @extend %btn;
+                    display: inline-block;
+                    width: 100px;
+                    margin: 20px auto;
+                    margin-right: 20px;
+                }
+                .button.next {
+                    @extend %btn_ano;
+                    display: inline-block;
+                    width: 100px;
+                    margin: 20px auto;
+                }
+            }
+        }
+    }
 }
 
-.menu {
-    margin-top: 40px;
-}
+// $desktop : 1200px;
+// $medium : 991px;
+// $small : 767px;
+// $mobile : 576px;
+@include rwd(desktop) {}
 
+@include rwd(medium) {}
 
-/*換頁簽*/
+@include rwd(small) {}
 
-div.pagination_block {
-    display: inline-block;
-}
-
-div.pagination_block>ul.pagination {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 0;
-}
-
-div.pagination_block>ul.pagination>li {
-    display: inline-block;
-}
-
-div.pagination_block>ul.pagination>li>a {
-    display: inline-block;
-    text-decoration: none;
-    border: 1px solid #dee2e6;
-    /* 留意 */
-    border-right: 0;
-    /* 留意：將全部的右邊框都移除 */
-    text-align: center;
-    padding: 5px 10px;
-    font-size: 1rem;
-    color: #007bff;
-}
-
-
-/* 留意: 將最後一個 li 裡的 a，右邊框加回來 */
-
-
-/* 留意: 將最後一個 li 裡的 a，加上圓角 */
-
-div.pagination_block>ul.pagination>li:last-child>a {
-    border-right: 1px solid #dee2e6;
-    border-radius: 0 5px 5px 0;
-}
-
-
-/* 留意: 將第一個 li 裡的 a，加上圓角 */
-
-div.pagination_block>ul.pagination>li:first-child>a {
-    display: inline-block;
-    border-radius: 5px 0 0 5px;
-}
-
-div.pagination_block>ul.pagination>li>a.-on {
-    background-color: #e9ecef;
-    color: #0056b3;
-}
-
-div.pagination_block>ul.pagination>li>a:hover {
-    background-color: #e9ecef;
-    color: #0056b3;
-}
-
-
-/**/
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-.left-cust {
-    width: 400px;
-}
-
-.parent {
-    width: 50%;
-    display: flex;
-    border: 1px solid red;
-}
-
-.wrap {
-    display: flex;
-    flex-wrap: wrap
-}
-
-.box {
-    flex: 0 0 50%;
-    height: 50px;
-    border: 1px solid blue;
-}
-
-.left {
-    display: flex;
-}
-
-.parent1 {
-    width: 50%;
-    height: 100%;
-    border: 1px solid green;
-    position: relative;
-}
-
-.img2 {
-    max-width: 100%;
-    max-height: 100px;
-    overflow: hidden;
-    position: absolute;
-}
-
-.anima {
-    width: calc(( 100% - 500px)/2);
-    height: 70vh;
-    border: 1px solid black;
-}
-
-.biganima {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-/**/
-
-.img3 {
-    width: 150px;
-}
+@include rwd(mobile) {}

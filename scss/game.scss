@@ -8,11 +8,13 @@
   height: 100%;
   width: 100%;
 }
+body{
+  background: linear-gradient(to bottom, #41B6E6 0, #001871 100%);
+}
 
 //section的css
 #wrapper{
-  padding: 10% 0;
-  background: linear-gradient(to bottom, #41B6E6 0, #001871 100%);
+  padding: 5% 0;
 }
 //section的css
 
@@ -21,26 +23,54 @@
   display: flex;
   width: 90%;
   margin: 0 auto;
-  padding-top: 3%;
   align-items: center;
+  justify-content: space-around;
+  margin-bottom: 3%;
   .game_title{
-    color: white;
-    font-size: 30px;
+    font-size: $fontSize;
+    background-color: #e0f1fc;
+    border-radius: 20px;
     letter-spacing: 1px;
-    flex: auto;
-    div{
-      margin-bottom: 2%;
+    width: 50%;
+    padding: 2% 0;
+    .game_rule_div{
+      font-size: $fontSize*1.5;
+      text-align: center;
+      margin-bottom: 4%;
     }
-  }
+    .game_rule_div_bot_wrap{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      width: 100%;
+      .game_rule_div_bot{
+        width: 100%;
+        text-align: center;
+            .game_rule_div_bot_cen{
+              display: flex;
+              margin-bottom: 3%;
+              .intro_title{
+                color: #4669e6;
+                width: 16%;
+                text-align: right;
+              }
+              .intro_detail{
+                width: 100%;
+              }
+            }
+          }
+       }
+    }
   .show_seafood_wrap{
     text-align: center;
-    color: white;
     .show_seafood_text{
-      font-size: 20px;
+      font-size: $fontSize*1.5;
       margin-bottom: 2%;
     }
     .show_seafood_img_div{
       background-color: #CCE6F4;
+      border-radius: 20px;
       div{
         display: flex;
         padding-top: 2%;
@@ -57,32 +87,6 @@
   }
 }
 //吃美味海鮮跟出現海鮮的版面
-
-//捕獲到的海鮮
-.capture_div{
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  div{
-    display: flex;
-    align-items: center;
-    width: 70%;
-    color: white;
-    font-size: 18px;
-    .capture_poke{
-      width: 10%;
-      display: flex;
-      align-items: center;
-      img{
-        max-width: 100%;
-        margin: 0px 5px;
-      }
-    }
-  }
-}
-//捕獲到的海鮮
 
 //遊戲範圍
 #touch-layer{
@@ -114,7 +118,7 @@
     z-index: 1000;
     text-align: center;
     bottom: 35%;
-    font-size: 25px;
+    font-size: $fontSize*1.5;
     color: #404040;
     cursor: pointer;
   }
@@ -122,14 +126,15 @@
   //有抓到海鮮遊戲結束視窗
   #asd{
     position: absolute;
-    width: 90%;
+    width: 60%;
     z-index: 90;
     text-align: center;
     background-color: white;
-    padding: 3%;
-    // display: none;
+    border-radius: 10px;
+    padding: 3% 0;
+    display: none;
     .suc_cap_div{
-      font-size: 30px;
+      font-size: $fontSize*1.5;
       color: #30B0E1;
       margin-bottom: 5%;
       div{
@@ -137,7 +142,7 @@
       }
       .capture_poke{
         display: flex;
-        width: 10%;
+        width: 15%;
         align-items: center;
         justify-content: center;
         margin: 0 auto;
@@ -153,13 +158,10 @@
         width: 50%;
         #final_score{
           color: red;
-          font-size: 20px;
+          font-size: $fontSize*1.25;
         }
-        .point_text{
-          margin: 20px 0 80px 0;
-        }
-        .no_like_seafood{
-          margin-bottom: 20px;
+        .light_div{
+          margin-bottom: 10%;
         }
         #re_game_start{
           @extend %btn;
@@ -169,17 +171,14 @@
         width: 50%;
         #final_point{
           color: red;
-          font-size: 20px;
+          font-size: $fontSize*1.25;
         }
-        .score_text{
-          margin: 20px 0 80px 0;
+        .light_div{
+          margin-bottom: 10%;
         }
-        .capture_seafood{
-          margin-bottom: 20px;
-        }
-        button{
+        .go_cus{
           @extend %btn_ano;
-        }
+        } 
       }
     }
   }
@@ -188,14 +187,15 @@
   //沒抓到海鮮遊戲結束視窗
   #asd_fail{
     position: absolute;
-    width: 90%;
+    width: 60%;
     z-index: 90;
     text-align: center;
     background-color: white;
-    padding: 3%;
+    border-radius: 10px;
+    padding: 3% 0;
     display: none;
     .no_seafood_text{
-      font-size: 30px;
+      font-size: $fontSize*1.5;
       color: #30B0E1;
       margin-bottom: 5%;
       div{
@@ -205,11 +205,12 @@
     .fail_point_div{
       display: flex;
       justify-content: center;
+      margin-bottom: 5%;
       .fail_score_div_small{
         width: 50%;
         #final_score{
           color: red;
-          font-size: 20px;
+          font-size: $fontSize*1.25;
         }
         div{
           margin: 20px 0 80px 0;
@@ -219,7 +220,7 @@
         width: 50%;
         #final_point{
           color: red;
-          font-size: 20px;
+          font-size: $fontSize*1.25;
         }
         div{
           margin: 20px 0 80px 0;
@@ -227,14 +228,7 @@
       }
     }
     #fail_re_game_start{
-      background-color: #FFBA59;
-      padding: 20px 40px;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      font-size: 30px;
-      color: white;
+      @extend %btn;
     }
   }
   //沒抓到海鮮遊戲結束視窗
@@ -249,29 +243,72 @@
     #time_up{
       position: absolute;
       z-index: 100;
-      top: 0px;
-      left: 5px;
-      font-size: 50px;
-      color: #707070;
+      top: 5px;
+      left: 0px;
+      font-size: $fontSize*2;
     }
     .ball_num_div{
+      display: flex;
       position: absolute;
-      top: 50px;
-      left: 5px;
-      font-size: 50px;
-      color: #707070;
+      top: 5px;
+      left: 10%;
+      font-size: $fontSize*1.5;
+      .ball_num_img_div{
+        display: flex;
+        align-items: center;
+        div{
+          width: 5%;
+          margin: 0 .5%;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
     }
+    //捕獲到的海鮮
+    .capture_div{
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 5px;
+      left: 30%;
+      div{
+        display: flex;
+        align-items: center;
+        width: 70%;
+        font-size: $fontSize*1.5;
+        .capture_poke{
+          width: 6%;
+          display: flex;
+          align-items: center;
+          img{
+            max-width: 100%;
+            margin: 0px 5px;
+          }
+        }
+      }
+    }
+//捕獲到的海鮮
     .mem_score_div{
       position: absolute;
-      right: 10px;
+      left: 60%;
       top: 5px;
-      font-size: 30px;
+      font-size: $fontSize*1.5;
     }
     .mem_point_div{
       position: absolute;
-      right: 10px;
-      top: 50px;
-      font-size: 30px;
+      left: 72%;
+      top: 5px;
+      font-size: $fontSize*1.5;
+    }
+    .mem_level_div{
+      position: absolute;
+      left: 85%;
+      top: 5px;
+      font-size: $fontSize*1.5;
     }
     #target-container{
       @extend .flex-center;
@@ -297,6 +334,7 @@
       background-position: center center;
       background-size: cover;
       z-index: 3;
+      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
     }
     .fake_ball{
       position: absolute;
@@ -309,6 +347,7 @@
       background-position: center center;
       background-size: cover;
       z-index: 3;
+      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
     }
   }
   //時間球數積分點數的位置
@@ -421,7 +460,7 @@
 
 #capture-status {
   position: absolute;
-  font-size: 1.5em;
+  font-size: $fontSize*1.5;
   top: 0;
   left: 0;
   width: 100%;
@@ -467,7 +506,6 @@
   top: 5px;
   right: 5px;
   z-index: 15;
-  color: button;
   width: 30px;
   height: 30px;
   color: #FFF;
@@ -513,19 +551,1368 @@
 .hidden {
   display: none !important;
 }
-@include rwd(small) {
-  .wrapper_bottom{
-    display: block;
-    .game_title{
+@include rwd(desktop){
+  //吃美味海鮮跟出現海鮮的版面
+.wrapper_bottom{
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 3%;
+  .game_title{
+    font-size: $fontSize;
+    background-color: #e0f1fc;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    width: 50%;
+    padding: 2% 1%;
+    .game_rule_div{
+      font-size: $fontSize*1.5;
       text-align: center;
-      font-size: 20px;
+      margin-bottom: 4%;
+    }
+    .game_rule_div_bot_wrap{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      width: 100%;
+      .game_rule_div_bot{
+        width: 100%;
+        text-align: center;
+            .game_rule_div_bot_cen{
+              display: flex;
+              margin-bottom: 3%;
+              .intro_title{
+                color: #4669e6;
+                width: 16%;
+                text-align: center;
+              }
+              .intro_detail{
+                width: 100%;
+                text-align: left;
+              }
+            }
+          }
+       }
+    }
+  .show_seafood_wrap{
+    text-align: center;
+    .show_seafood_text{
+      font-size: $fontSize*1.5;
+      margin-bottom: 2%;
     }
     .show_seafood_img_div{
-      width: 60%;
-      margin: 0 auto;
+      background-color: #CCE6F4;
+      border-radius: 20px;
+      div{
+        display: flex;
+        padding-top: 2%;
+        div{
+          width: 100px;
+          padding: 2%;
+          align-self: center;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
     }
   }
-  #touch-layer{
-    width: 96%;
+}
+//吃美味海鮮跟出現海鮮的版面
+
+//遊戲範圍
+#touch-layer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  margin: 0 auto;
+  width: 90%;
+  border: 1px solid black;
+  z-index: 1;
+  overflow: hidden;
+  //遊戲開始圖片
+  #game_start{
+    animation: start 2s ease 0s infinite alternate;
+    position: absolute;
+    z-index: 1000;
+    text-align: center;
+    width: 30%;
+    cursor: pointer;
+    img{
+      max-width: 100%;
+    }
   }
+  //遊戲開始圖片
+  //click的文字
+  #click_text{
+    position: absolute;
+    z-index: 1000;
+    text-align: center;
+    bottom: 35%;
+    font-size: $fontSize*1.25;
+    color: #404040;
+    cursor: pointer;
+  }
+  //click的文字
+  //有抓到海鮮遊戲結束視窗
+  #asd{
+    position: absolute;
+    width: 60%;
+    z-index: 90;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3% 0;
+    display: none;
+    .suc_cap_div{
+      font-size: $fontSize*1.25;
+      color: #30B0E1;
+      margin-bottom: 5%;
+      div{
+        margin-bottom: 3%;
+      }
+      .capture_poke{
+        display: flex;
+        width: 15%;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        img{
+          max-width: 100%;
+        }
+      }
+    }
+    .score_point_div{
+      display: flex;
+      justify-content: center;
+      .point_div{
+        width: 50%;
+        #final_score{
+          color: red;
+          font-size: $fontSize*1.25;
+        }
+        .light_div{
+          margin-bottom: 10%;
+        }
+        #re_game_start{
+          // @extend %btn;
+        }
+      }
+      .score_div{
+        width: 50%;
+        #final_point{
+          color: red;
+          font-size: $fontSize*1.25;
+        }
+        .light_div{
+          margin-bottom: 10%;
+        }
+        .go_cus{
+          // @extend %btn_ano;
+        } 
+      }
+    }
+  }
+  //有抓到海鮮遊戲結束視窗
+
+  //沒抓到海鮮遊戲結束視窗
+  #asd_fail{
+    position: absolute;
+    width: 60%;
+    z-index: 90;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3% 0;
+    display: none;
+    .no_seafood_text{
+      font-size: $fontSize*1.25;
+      color: #30B0E1;
+      margin-bottom: 5%;
+      div{
+        margin-bottom: 3%;
+      }
+    }
+    .fail_point_div{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5%;
+      .fail_score_div_small{
+        width: 50%;
+        #final_score{
+          color: red;
+          font-size: $fontSize*1.25;
+        }
+        div{
+          margin: 20px 0 80px 0;
+        }
+      }
+      .fail_point_div_small{
+        width: 50%;
+        #final_point{
+          color: red;
+          font-size: $fontSize*1.25;
+        }
+        div{
+          margin: 20px 0 80px 0;
+        }
+      }
+    }
+    #fail_re_game_start{
+      // @extend %btn;
+    }
+  }
+  //沒抓到海鮮遊戲結束視窗
+
+  //時間球數積分點數的位置
+  #screen{
+    background-image: url("/images/seabottom.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    #time_up{
+      position: absolute;
+      z-index: 100;
+      top: 0px;
+      left: 0px;
+      font-size: $fontSize*2;
+    }
+    .ball_num_div{
+      display: flex;
+      position: absolute;
+      top: 5px;
+      left: 10%;
+      font-size: $fontSize*1.25;
+      .ball_num_img_div{
+        display: flex;
+        align-items: center;
+        div{
+          width: 4%;
+          margin: 0 .5%;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
+    }
+    //捕獲到的海鮮
+    .capture_div{
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 5px;
+      left: 30%;
+      div{
+        display: flex;
+        align-items: center;
+        width: 70%;
+        font-size: $fontSize*1.25;
+        .capture_poke{
+          width: 5%;
+          display: flex;
+          align-items: center;
+          img{
+            max-width: 100%;
+            margin: 0px 5px;
+          }
+        }
+      }
+    }
+//捕獲到的海鮮
+    .mem_score_div{
+      position: absolute;
+      left: 60%;
+      top: 5px;
+      font-size: $fontSize*1.25;
+    }
+    .mem_point_div{
+      position: absolute;
+      left: 72%;
+      top: 5px;
+      font-size: $fontSize*1.25;
+    }
+    .mem_level_div{
+      position: absolute;
+      left: 85%;
+      top: 5px;
+      font-size: $fontSize*1.25;
+    }
+    #target-container{
+      // @extend .flex-center;
+      position: relative;
+      #target{
+        width: 120px;
+        height: 120px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        z-index: 2;
+        filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+      }
+    }
+    #ball{
+      display: none;
+      position: fixed;
+      height: 50px;
+      width: 50px;
+      border-radius: 25px;
+      background-image: url('/images/Group%2071.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      z-index: 3;
+      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+    }
+    .fake_ball{
+      position: absolute;
+      bottom: 10px;
+      height: 50px;
+      width: 50px;
+      border-radius: 25px;
+      background-image: url('/images/Group%2071.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      z-index: 3;
+      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+    }
+  }
+  //時間球數積分點數的位置
+}
+//遊戲範圍
+}
+@include rwd(medium){
+  //吃美味海鮮跟出現海鮮的版面
+.wrapper_bottom{
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 3%;
+  .game_title{
+    font-size: $fontSize;
+    background-color: #e0f1fc;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    width: 50%;
+    padding: 2% 1%;
+    .game_rule_div{
+      font-size: $fontSize*1.25;
+      text-align: center;
+      margin-bottom: 4%;
+    }
+    .game_rule_div_bot_wrap{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      width: 100%;
+      font-size: $fontSize*0.9;
+      .game_rule_div_bot{
+        width: 100%;
+        text-align: center;
+            .game_rule_div_bot_cen{
+              display: flex;
+              margin-bottom: 3%;
+              .intro_title{
+                color: #4669e6;
+                width: 16%;
+                text-align: center;
+              }
+              .intro_detail{
+                width: 100%;
+                text-align: left;
+              }
+            }
+          }
+       }
+    }
+  .show_seafood_wrap{
+    text-align: center;
+    .show_seafood_text{
+      font-size: $fontSize*1.25;
+      margin-bottom: 2%;
+    }
+    .show_seafood_img_div{
+      background-color: #CCE6F4;
+      border-radius: 20px;
+      div{
+        display: flex;
+        padding-top: 2%;
+        div{
+          width: 80px;
+          padding: 2%;
+          align-self: center;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+//吃美味海鮮跟出現海鮮的版面
+#touch-layer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  margin: 0 auto;
+  width: 90%;
+  border: 1px solid black;
+  z-index: 1;
+  overflow: hidden;
+  //遊戲開始圖片
+  #game_start{
+    animation: start 2s ease 0s infinite alternate;
+    position: absolute;
+    z-index: 1000;
+    text-align: center;
+    width: 30%;
+    cursor: pointer;
+    img{
+      max-width: 100%;
+    }
+  }
+  //遊戲開始圖片
+  //click的文字
+  #click_text{
+    position: absolute;
+    z-index: 1000;
+    text-align: center;
+    bottom: 35%;
+    font-size: $fontSize*1.25;
+    color: #404040;
+    cursor: pointer;
+  }
+  //click的文字
+  //有抓到海鮮遊戲結束視窗
+  #asd{
+    position: absolute;
+    width: 60%;
+    z-index: 90;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3% 0;
+    display: none;
+    .suc_cap_div{
+      font-size: $fontSize*1.25;
+      color: #30B0E1;
+      margin-bottom: 5%;
+      div{
+        margin-bottom: 3%;
+      }
+      .capture_poke{
+        display: flex;
+        width: 15%;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        img{
+          max-width: 100%;
+        }
+      }
+    }
+    .score_point_div{
+      display: flex;
+      justify-content: center;
+      .point_div{
+        width: 50%;
+        #final_score{
+          color: red;
+          font-size: $fontSize*1.25;
+        }
+        .light_div{
+          margin-bottom: 10%;
+        }
+        #re_game_start{
+          // @extend %btn;
+        }
+      }
+      .score_div{
+        width: 50%;
+        #final_point{
+          color: red;
+          font-size: $fontSize*1.25;
+        }
+        .light_div{
+          margin-bottom: 10%;
+        }
+        .go_cus{
+          // @extend %btn_ano;
+        } 
+      }
+    }
+  }
+  //有抓到海鮮遊戲結束視窗
+
+  //沒抓到海鮮遊戲結束視窗
+  #asd_fail{
+    position: absolute;
+    width: 60%;
+    z-index: 90;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3% 0;
+    display: none;
+    .no_seafood_text{
+      font-size: $fontSize*1.25;
+      color: #30B0E1;
+      margin-bottom: 5%;
+      div{
+        margin-bottom: 3%;
+      }
+    }
+    .fail_point_div{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5%;
+      .fail_score_div_small{
+        width: 50%;
+        #final_score{
+          color: red;
+          font-size: $fontSize*1.25;
+        }
+        div{
+          margin: 20px 0 80px 0;
+        }
+      }
+      .fail_point_div_small{
+        width: 50%;
+        #final_point{
+          color: red;
+          font-size: $fontSize*1.25;
+        }
+        div{
+          margin: 20px 0 80px 0;
+        }
+      }
+    }
+    #fail_re_game_start{
+      // @extend %btn;
+    }
+  }
+  //沒抓到海鮮遊戲結束視窗
+
+  //時間球數積分點數的位置
+  #screen{
+    background-image: url("/images/seabottom.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    #time_up{
+      position: absolute;
+      z-index: 100;
+      top: 0px;
+      left: 0px;
+      font-size: $fontSize*2;
+    }
+    .ball_num_div{
+      display: flex;
+      position: absolute;
+      top: 5px;
+      left: 10%;
+      font-size: $fontSize*1.25;
+      .ball_num_img_div{
+        display: flex;
+        align-items: center;
+        div{
+          width: 4%;
+          margin: 0 .5%;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
+    }
+    //捕獲到的海鮮
+    .capture_div{
+      width: 90%;
+      margin: 0 auto;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 5px;
+      left: 30%;
+      div{
+        display: flex;
+        align-items: center;
+        width: 70%;
+        font-size: $fontSize*1.25;
+        .capture_poke{
+          width: 5%;
+          display: flex;
+          align-items: center;
+          img{
+            max-width: 100%;
+            margin: 0px 5px;
+          }
+        }
+      }
+    }
+//捕獲到的海鮮
+    .mem_score_div{
+      position: absolute;
+      left: 40%;
+      top: 5px;
+      font-size: $fontSize*1.25;
+    }
+    .mem_point_div{
+      position: absolute;
+      left: 60%;
+      top: 5px;
+      font-size: $fontSize*1.25;
+    }
+    .mem_level_div{
+      position: absolute;
+      left: 80%;
+      top: 5px;
+      font-size: $fontSize*1.25;
+    }
+    #target-container{
+      // @extend .flex-center;
+      position: relative;
+      #target{
+        width: 120px;
+        height: 120px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        z-index: 2;
+        filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+      }
+    }
+    #ball{
+      display: none;
+      position: fixed;
+      height: 50px;
+      width: 50px;
+      border-radius: 25px;
+      background-image: url('/images/Group%2071.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      z-index: 3;
+      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+    }
+    .fake_ball{
+      position: absolute;
+      bottom: 10px;
+      height: 50px;
+      width: 50px;
+      border-radius: 25px;
+      background-image: url('/images/Group%2071.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      z-index: 3;
+      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+    }
+  }
+  //時間球數積分點數的位置
+}
+//遊戲範圍
+}
+@include rwd(small) {
+//section的css
+#wrapper{
+  padding: 0 0 5% 0;
+}
+//section的css
+  //吃美味海鮮跟出現海鮮的版面
+.wrapper_bottom{
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 3%;
+  .game_title{
+    font-size: $fontSize;
+    background-color: #e0f1fc;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 2% 1%;
+    margin-bottom: 2%;
+    .game_rule_div{
+      font-size: $fontSize*1.25;
+      text-align: center;
+      margin-bottom: 4%;
+    }
+    .game_rule_div_bot_wrap{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      width: 100%;
+      font-size: $fontSize*0.9;
+      .game_rule_div_bot{
+        width: 100%;
+        text-align: center;
+            .game_rule_div_bot_cen{
+              display: flex;
+              margin-bottom: 3%;
+              .intro_title{
+                color: #4669e6;
+                width: 20%;
+                text-align: center;
+              }
+              .intro_detail{
+                width: auto;
+                text-align: center;
+              }
+            }
+          }
+       }
+    }
+  .show_seafood_wrap{
+    text-align: center;
+    .show_seafood_text{
+      font-size: $fontSize*1.25;
+      margin-bottom: 1%;
+    }
+    .show_seafood_img_div{
+      background-color: #CCE6F4;
+      border-radius: 20px;
+      width: 50%;
+      margin: 0 auto;
+      div{
+        display: flex;
+        justify-content: center;
+        padding-top: 2%;
+        div{
+          width: 80px;
+          padding: 2%;
+          align-self: center;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+//吃美味海鮮跟出現海鮮的版面
+
+#touch-layer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  margin: 0 auto;
+  width: 90%;
+  border: 1px solid black;
+  z-index: 1;
+  overflow: hidden;
+  //遊戲開始圖片
+  #game_start{
+    animation: start 2s ease 0s infinite alternate;
+    position: absolute;
+    z-index: 1000;
+    text-align: center;
+    width: 30%;
+    cursor: pointer;
+    img{
+      max-width: 100%;
+    }
+  }
+  //遊戲開始圖片
+  //click的文字
+  #click_text{
+    position: absolute;
+    z-index: 1000;
+    text-align: center;
+    bottom: 40%;
+    font-size: $fontSize*1.25;
+    color: #404040;
+    cursor: pointer;
+  }
+  //click的文字
+  //有抓到海鮮遊戲結束視窗
+  #asd{
+    position: absolute;
+    width: 60%;
+    z-index: 90;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3% 0;
+    display: none;
+    .suc_cap_div{
+      font-size: $fontSize*1.1;
+      color: #30B0E1;
+      margin-bottom: 5%;
+      div{
+        margin-bottom: 3%;
+      }
+      .capture_poke{
+        display: flex;
+        width: 15%;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        img{
+          max-width: 100%;
+        }
+      }
+    }
+    .score_point_div{
+      display: flex;
+      justify-content: center;
+      .point_div{
+        width: 50%;
+        #final_score{
+          color: red;
+          font-size: $fontSize*1.1;
+        }
+        .light_div{
+          margin-bottom: 10%;
+        }
+        #re_game_start{
+          // @extend %btn;
+        }
+      }
+      .score_div{
+        width: 50%;
+        #final_point{
+          color: red;
+          font-size: $fontSize*1.1;
+        }
+        .light_div{
+          margin-bottom: 10%;
+        }
+        .go_cus{
+          // @extend %btn_ano;
+        } 
+      }
+    }
+  }
+  //有抓到海鮮遊戲結束視窗
+
+  //沒抓到海鮮遊戲結束視窗
+  #asd_fail{
+    position: absolute;
+    width: 60%;
+    z-index: 90;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3% 0;
+    display: none;
+    .no_seafood_text{
+      font-size: $fontSize*1.1;
+      color: #30B0E1;
+      margin-bottom: 5%;
+      div{
+        margin-bottom: 3%;
+      }
+    }
+    .fail_point_div{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5%;
+      .fail_score_div_small{
+        width: 50%;
+        #final_score{
+          color: red;
+          font-size: $fontSize*1.1;
+        }
+        div{
+          margin: 20px 0 80px 0;
+        }
+      }
+      .fail_point_div_small{
+        width: 50%;
+        #final_point{
+          color: red;
+          font-size: $fontSize*1.1;
+        }
+        div{
+          margin: 20px 0 80px 0;
+        }
+      }
+    }
+    #fail_re_game_start{
+      // @extend %btn;
+    }
+  }
+  //沒抓到海鮮遊戲結束視窗
+
+  //時間球數積分點數的位置
+  #screen{
+    background-image: url("/images/seabottom.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    #time_up{
+      position: absolute;
+      z-index: 100;
+      top: 0px;
+      left: 0px;
+      font-size: $fontSize*2;
+    }
+    .ball_num_div{
+      display: flex;
+      position: absolute;
+      top: 5px;
+      left: 10%;
+      white-space: nowrap;
+      font-size: $fontSize*1.1;
+      .ball_num_img_div{
+        display: flex;
+        align-items: center;
+        div{
+          width: 3.5%;
+          margin: 0 .5%;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
+    }
+    //捕獲到的海鮮
+    .capture_div{
+      width: 90%;
+      margin: 0 auto;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 5px;
+      left: 30%;
+      div{
+        display: flex;
+        align-items: center;
+        width: 70%;
+        font-size: $fontSize*1.1;
+        .capture_poke{
+          width: 5%;
+          display: flex;
+          align-items: center;
+          img{
+            max-width: 100%;
+            margin: 0px 5px;
+          }
+        }
+      }
+    }
+//捕獲到的海鮮
+    .mem_score_div{
+      position: absolute;
+      left: 40%;
+      top: 5px;
+      font-size: $fontSize*1.1;
+    }
+    .mem_point_div{
+      position: absolute;
+      left: 60%;
+      top: 5px;
+      font-size: $fontSize*1.1;
+    }
+    .mem_level_div{
+      position: absolute;
+      left: 75%;
+      top: 5px;
+      font-size: $fontSize*1.1;
+    }
+    #target-container{
+      // @extend .flex-center;
+      position: relative;
+      #target{
+        width: 100px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        z-index: 2;
+        filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+      }
+    }
+    #ball{
+      display: none;
+      position: fixed;
+      height: 40px;
+      width: 40px;
+      border-radius: 25px;
+      background-image: url('/images/Group%2071.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      z-index: 3;
+      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+    }
+    .fake_ball{
+      position: absolute;
+      bottom: 10px;
+      height: 40px;
+      width: 40px;
+      border-radius: 25px;
+      background-image: url('/images/Group%2071.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      z-index: 3;
+      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+    }
+  }
+  //時間球數積分點數的位置
+}
+//遊戲範圍
+}
+@include rwd(mobile){
+  //吃美味海鮮跟出現海鮮的版面
+.wrapper_bottom{
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 3%;
+  .game_title{
+    font-size: $fontSize;
+    background-color: #e0f1fc;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 2% 1%;
+    margin-bottom: 2%;
+    .game_rule_div{
+      font-size: $fontSize;
+      text-align: center;
+      margin-bottom: 4%;
+    }
+    .game_rule_div_bot_wrap{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      width: 100%;
+      font-size: $fontSize*0.9;
+      .game_rule_div_bot{
+        width: 100%;
+        text-align: center;
+            .game_rule_div_bot_cen{
+              display: flex;
+              margin-bottom: 3%;
+              .intro_title{
+                color: #4669e6;
+                width: 15%;
+                text-align: center;
+              }
+              .intro_detail{
+                width: auto;
+                text-align: left;
+              }
+            }
+          }
+       }
+    }
+  .show_seafood_wrap{
+    text-align: center;
+    .show_seafood_text{
+      font-size: $fontSize;
+      margin-bottom: 1%;
+    }
+    .show_seafood_img_div{
+      background-color: #CCE6F4;
+      border-radius: 20px;
+      width: 90%;
+      margin: 0 auto;
+      div{
+        display: flex;
+        justify-content: center;
+        padding-top: 2%;
+        div{
+          width: 100px;
+          padding: 2%;
+          align-self: center;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+//吃美味海鮮跟出現海鮮的版面
+#touch-layer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  margin: 0 auto;
+  width: 100%;
+  border: 1px solid black;
+  z-index: 1;
+  overflow: hidden;
+  //遊戲開始圖片
+  #game_start{
+    animation: start 2s ease 0s infinite alternate;
+    position: absolute;
+    z-index: 1000;
+    text-align: center;
+    width: 30%;
+    cursor: pointer;
+    img{
+      max-width: 100%;
+    }
+  }
+  //遊戲開始圖片
+  //click的文字
+  #click_text{
+    position: absolute;
+    z-index: 1000;
+    text-align: center;
+    bottom: 40%;
+    font-size: $fontSize*1.25;
+    color: #404040;
+    cursor: pointer;
+  }
+  //click的文字
+  //有抓到海鮮遊戲結束視窗
+  #asd{
+    position: absolute;
+    width: 60%;
+    z-index: 90;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3% 0;
+    display: none;
+    .suc_cap_div{
+      font-size: $fontSize;
+      color: #30B0E1;
+      margin-bottom: 5%;
+      div{
+        margin-bottom: 3%;
+      }
+      .capture_poke{
+        display: flex;
+        width: 15%;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        img{
+          max-width: 100%;
+        }
+      }
+    }
+    .score_point_div{
+      display: flex;
+      justify-content: center;
+      .point_div{
+        width: 50%;
+        #final_score{
+          color: red;
+          font-size: $fontSize;
+        }
+        .light_div{
+          margin-bottom: 10%;
+        }
+        #re_game_start{
+          // @extend %btn;
+        }
+      }
+      .score_div{
+        width: 50%;
+        #final_point{
+          color: red;
+          font-size: $fontSize;
+        }
+        .light_div{
+          margin-bottom: 10%;
+        }
+        .go_cus{
+          // @extend %btn_ano;
+        } 
+      }
+    }
+  }
+  //有抓到海鮮遊戲結束視窗
+
+  //沒抓到海鮮遊戲結束視窗
+  #asd_fail{
+    position: absolute;
+    width: 60%;
+    z-index: 90;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3% 0;
+    display: none;
+    .no_seafood_text{
+      font-size: $fontSize;
+      color: #30B0E1;
+      margin-bottom: 5%;
+      div{
+        margin-bottom: 3%;
+      }
+    }
+    .fail_point_div{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5%;
+      .fail_score_div_small{
+        width: 50%;
+        #final_score{
+          color: red;
+          font-size: $fontSize;
+        }
+        div{
+          margin: 20px 0 80px 0;
+        }
+      }
+      .fail_point_div_small{
+        width: 50%;
+        #final_point{
+          color: red;
+          font-size: $fontSize;
+        }
+        div{
+          margin: 20px 0 80px 0;
+        }
+      }
+    }
+    #fail_re_game_start{
+      // @extend %btn;
+    }
+  }
+  //沒抓到海鮮遊戲結束視窗
+
+  //時間球數積分點數的位置
+  #screen{
+    background-image: url("/images/seabottom.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    #time_up{
+      position: absolute;
+      z-index: 100;
+      top: 0px;
+      left: 0px;
+      font-size: $fontSize*1.8;
+    }
+    .ball_num_div{
+      display: flex;
+      position: absolute;
+      top: 5px;
+      left: 10%;
+      white-space: nowrap;
+      font-size: $fontSize;
+      .ball_num_img_div{
+        display: flex;
+        align-items: center;
+        div{
+          width: 3.5%;
+          margin: 0 .5%;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
+    }
+    //捕獲到的海鮮
+    .capture_div{
+      width: 90%;
+      margin: 0 auto;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 5px;
+      left: 30%;
+      div{
+        display: flex;
+        align-items: center;
+        width: 70%;
+        font-size: $fontSize;
+        .capture_poke{
+          width: 5%;
+          display: flex;
+          align-items: center;
+          img{
+            max-width: 100%;
+            margin: 0px 5px;
+          }
+        }
+      }
+    }
+//捕獲到的海鮮
+    .mem_score_div{
+      position: absolute;
+      left: 40%;
+      top: 5px;
+      font-size: $fontSize
+    }
+    .mem_point_div{
+      position: absolute;
+      left: 60%;
+      top: 5px;
+      font-size: $fontSize;
+    }
+    .mem_level_div{
+      position: absolute;
+      left: 75%;
+      top: 5px;
+      font-size: $fontSize;
+    }
+    #target-container{
+      // @extend .flex-center;
+      position: relative;
+      #target{
+        width: 100px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        z-index: 2;
+        filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+      }
+    }
+    #ball{
+      display: none;
+      position: fixed;
+      height: 40px;
+      width: 40px;
+      border-radius: 25px;
+      background-image: url('/images/Group%2071.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      z-index: 3;
+      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+    }
+    .fake_ball{
+      position: absolute;
+      bottom: 10px;
+      height: 40px;
+      width: 40px;
+      border-radius: 25px;
+      background-image: url('/images/Group%2071.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      z-index: 3;
+      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+    }
+  }
+  //時間球數積分點數的位置
+}
+//遊戲範圍
 }
