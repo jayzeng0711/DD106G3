@@ -2,6 +2,20 @@ window.addEventListener('load', function() {
 
     AOS.init();
 
+    // 第一屏高度
+    // console.log($('header').height());
+
+    // let headerH = $('header').height();
+    // let winH = $(window).height();
+    // $('.section1').height((winH - headerH));
+
+    // $(window).resize(function() {
+    //     let headerH = $('header').height();
+    //     let winH = $(window).height();
+    //     $('.section1').height((winH - headerH));
+    // });
+
+
     // 進入首頁，第一屏島嶼移動，背景圖改變位置
     let islandMoveTime = setInterval(islandMove, 30);
 
@@ -41,23 +55,26 @@ window.addEventListener('load', function() {
     function move() {
 
         if ($('.wrapperWheel').css('display') == "none") {
-            let divLeft = parseInt($('.boat img').css('left'));
+            let divLeft = parseInt($('.boat').css('left'));
 
             if (divLeft < $(window).width()) {
-                $('.boat img').css('left', '+=300');
+                $('.boat').css('left', '+=300');
             } else {
-
-                setTimeout(function() {
-                    $('.captain').css('opacity', '1');
-                    $('.section1 .text').css('opacity', '0');
-
-                }, 500);
+                $('.wrapperWheel').css('display', 'block');
                 window.removeEventListener('wheel', move);
+
+
+                // 視窗滑到地圖頂端，地圖變小
+                window.addEventListener("wheel", function() {
+                    timeMap = setInterval(check, 10)
+
+
+                });
 
             }
 
-            let boatWid = $('.boat img').width();
-            let boatLeft = $('.boat img').offset().left;
+            let boatWid = $('.boat').width();
+            let boatLeft = $('.boat').offset().left;
             let layer3Left = $('.layer3').offset().left;
 
             // 船碰到港口
@@ -69,7 +86,7 @@ window.addEventListener('load', function() {
 
             // 船經過，海鮮飛起來
             let fishFlyTime = setInterval(function() {
-                    let divLeft = parseInt($('.boat img').css('left'));
+                    let divLeft = parseInt($('.boat').css('left'));
                     if (divLeft > 100) {
                         $('img.flyfish1').addClass('fly1');
                     }
@@ -86,62 +103,53 @@ window.addEventListener('load', function() {
         }
     };
 
-    let timeMap
-        // 出發按鈕，船長和公告消失
-    $('.buttonGo').click(function() {
 
-        $('.captain').css('opacity', '0');
-        $('.section1 .text').css('opacity', '1');
-        $('.wrapperWheel').css('display', 'block');
+    // 視窗滑到地圖頂端，地圖變小
+    function check() {
+        if ($(window).scrollTop() >= ($('.map').offset().top - 100)) {
+            small();
+            clearInterval(timeMap);
 
-        // 視窗滑到地圖頂端，地圖變小
-        window.addEventListener("wheel", function() {
-            timeMap = setInterval(check, 100)
-        });
-
-        function check() {
-            if ($(window).scrollTop() >= $('.map img').offset().top) {
-                small();
-
-            }
         }
+    };
 
+
+
+    // 測試用
+    window.addEventListener("wheel", function() {
+        setInterval(check, 100)
     });
-
-    // 開發測試用
-    // window.addEventListener("wheel", function() {
-    //     setInterval(check, 100)
-    // });
-
-    // function check() {
-    //     if ($(window).scrollTop() >= $('.map img').offset().top) {
-    //         small();
-
-    //     }
-    // }
-
-
 
     // 地圖變小
     function small() {
-        let imgWid = $('.map img').width();
+        let imgWid = $('.map').width();
         let winWid = $(window).width();
 
         if (imgWid > winWid / 2) {
             imgWid = imgWid * 0.8;
-            $('.map img').width(imgWid);
+            $('.map').width(imgWid);
         } else {
             $('.wrapperBg').css('display', 'block');
-            $('.title').css('opacity', '1');
-            $('.reservation ').css('opacity', '1');
-            $('.datetable').css('opacity', '1');
-            $('.map').addClass('small');
-            clearInterval(timeMap);
+            $('.section2').css('background', '#2E4581 url(../images/mainbg2.svg) bottom');
+            $('.section2 .title ').css('opacity', '1');
+            $('.section2 .text').css('opacity', '1');
+            $('.section2 .boat').css('opacity', '1');
+            $('.section2 .reservation ').css('opacity', '1');
+            $('.section2 .smallwave ').css('opacity', '1');
 
         }
         window.removeEventListener('wheel', small);
     }
 
+
+    // 訂位頁面，選不同港口
+    $('.port label').click(function() {
+        $(this).css('background', '#4EB6E6');
+        $(this).css('color', '#fff');
+
+        $('.port label').not(this).css('background', '#fff');
+        $('.port label').not(this).css('color', '#034');
+    });
 
 
     // 點餐卡片會動
@@ -160,37 +168,37 @@ window.addEventListener('load', function() {
 
     var controller = new ScrollMagic.Controller();
 
-    function boat() {
-        let boatmove = new TimelineLite();
-        boatmove.add(
-            TweenLite.to('.boat2', 5, {
-                bezier: {
-                    curviness: 2,
-                    autoRotate: false,
-                    values: [
-                        { x: 50, y: 100 },
-                        { x: 100, y: 200 },
-                        { x: 50, y: 400 },
-                        { x: 100, y: 500 }
-                    ]
-                },
-                ease: Power1.eaeInOut,
-            })
-        );
+    // function boat() {
+    //     let boatmove = new TimelineLite();
+    //     boatmove.add(
+    //         TweenLite.to('.boat2', 5, {
+    //             bezier: {
+    //                 curviness: 2,
+    //                 autoRotate: false,
+    //                 values: [
+    //                     { x: 50, y: 100 },
+    //                     { x: 100, y: 200 },
+    //                     { x: 50, y: 400 },
+    //                     { x: 100, y: 500 }
+    //                 ]
+    //             },
+    //             ease: Power1.eaeInOut,
+    //         })
+    //     );
 
-        var ourScene = new ScrollMagic.Scene({
-                triggerElement: '.ocean',
-                triggerHook: 0.3,
+    //     var ourScene = new ScrollMagic.Scene({
+    //             triggerElement: '.ocean',
+    //             triggerHook: 0.3,
 
-            }).setTween(boatmove)
-            // .addIndicators({
-            //     name: 'boat',
-            //     colorTrigger: '#f00',
-            // })
-            .addTo(controller);
+    //         }).setTween(boatmove)
+    //         // .addIndicators({
+    //         //     name: 'boat',
+    //         //     colorTrigger: '#f00',
+    //         // })
+    //         .addTo(controller);
 
 
-    };
+    // };
 
 
 
@@ -237,7 +245,7 @@ window.addEventListener('load', function() {
 
     var ourScene3 = new ScrollMagic.Scene({
             triggerElement: '#cookPin',
-            duration: '100%',
+            duration: '300%',
             triggerHook: 0,
             // offset: '200'
 
@@ -266,7 +274,7 @@ window.addEventListener('load', function() {
 
 
         }, .3);
-        console.log(1);
+
     }
 
     function bubblePop1() {
