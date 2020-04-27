@@ -442,8 +442,111 @@ main::before {
   margin-bottom: 30px;
 }
 
+@-webkit-keyframes note_move1 {
+  0% {
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    left: -18.75%;
+    top: -45px;
+  }
+  33% {
+    left: 6.625%;
+    top: -17px;
+    -webkit-transform: rotate(8deg);
+    transform: rotate(8deg);
+  }
+  66% {
+    left: 40.62%;
+    top: -10px;
+  }
+  99% {
+    top: -110px;
+  }
+  100% {
+    left: 98%;
+    top: -110px;
+  }
+}
+
+@keyframes note_move1 {
+  0% {
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    left: -18.75%;
+    top: -45px;
+  }
+  33% {
+    left: 6.625%;
+    top: -17px;
+    -webkit-transform: rotate(8deg);
+    transform: rotate(8deg);
+  }
+  66% {
+    left: 40.62%;
+    top: -10px;
+  }
+  99% {
+    top: -110px;
+  }
+  100% {
+    left: 98%;
+    top: -110px;
+  }
+}
+
+@-webkit-keyframes note_move2 {
+  0% {
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    left: -18.75%;
+    top: -45px;
+  }
+  33% {
+    left: 6.625%;
+    top: -17px;
+    -webkit-transform: rotate(8deg);
+    transform: rotate(8deg);
+  }
+  66% {
+    left: 40.62%;
+    top: -10px;
+  }
+  99% {
+    top: -110px;
+  }
+  100% {
+    left: 98%;
+    top: -110px;
+  }
+}
+
+@keyframes note_move2 {
+  0% {
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    left: -18.75%;
+    top: -45px;
+  }
+  33% {
+    left: 6.625%;
+    top: -17px;
+    -webkit-transform: rotate(8deg);
+    transform: rotate(8deg);
+  }
+  66% {
+    left: 40.62%;
+    top: -10px;
+  }
+  99% {
+    top: -110px;
+  }
+  100% {
+    left: 98%;
+    top: -110px;
+  }
+}
+
 .upper h3 {
-  font-size: 24px;
   text-align: center;
 }
 
@@ -453,6 +556,23 @@ main::before {
   margin: 100px 0 50px;
   background: url(../images/list.png) no-repeat top/contain;
   position: relative;
+}
+
+.upper section.choose-fish:hover .note {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.upper section.choose-fish .selected-fish::before {
+  content: '';
+  top: 220px;
+  left: 110px;
+  width: 200px;
+  height: 200px;
+  border: 5px solid red;
+  border-radius: 100px;
+  position: absolute;
+  z-index: 3;
 }
 
 .upper section.choose-fish .note {
@@ -468,6 +588,7 @@ main::before {
   position: absolute;
   top: 190px;
   left: 122px;
+  cursor: pointer;
 }
 
 .upper section.choose-fish .note .note-content span:nth-child(2) {
@@ -477,12 +598,21 @@ main::before {
 
 .upper section.choose-fish .note .fish-pic {
   border: 2px solid aqua;
-  width: 70%;
+  width: 60%;
   height: 200px;
   top: 240px;
-  left: 80px;
+  left: 102px;
   position: absolute;
-  background: url(../images/seafood3.png) no-repeat center/contain;
+  cursor: pointer;
+}
+
+.upper section.choose-fish .note .fish-pic img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .upper section.choose-fish .note:nth-child(2) {
@@ -490,16 +620,8 @@ main::before {
   background-image: url(../images/note02.png);
 }
 
-.upper section.choose-fish .note:nth-child(2) .fish-pic {
-  background: url(../images/seafood8.png) no-repeat center/contain;
-}
-
 .upper section.choose-fish .note:nth-child(3) {
   right: 50px;
-}
-
-.upper section.choose-fish .note:nth-child(3) .fish-pic {
-  background: url(../images/seafood4.png) no-repeat center/contain;
 }
 
 section.paper {
@@ -583,11 +705,13 @@ section.paper .center {
 }
 
 .side-right .choose-cook {
+  display: block;
   width: 95%;
   margin: auto;
   margin-bottom: 50px;
   font-size: 24px;
   text-align: center;
+  cursor: pointer;
 }
 
 .side-right .choose-cook h3 {
@@ -616,10 +740,6 @@ form {
   padding: 20px 10px;
   margin: 0 auto;
   text-align: center;
-}
-
-form h3 {
-  font-size: 24px;
 }
 
 form .food-info {
@@ -770,6 +890,7 @@ form .form-control input:first-child {
   .center .for-phone .tab-contents .tab {
     padding: 10px;
     display: none;
+    background-color: bisque;
   }
   .center .for-phone .tab-contents .tab.-on {
     display: block;
@@ -778,7 +899,6 @@ form .form-control input:first-child {
   .center .for-phone .tab-contents .tab.-on .cabinet-bottom {
     width: 100%;
     height: 150px;
-    background-color: bisque;
     position: relative;
   }
   .center .for-phone .tab-contents .tab.-on .cabinet-top ul,
