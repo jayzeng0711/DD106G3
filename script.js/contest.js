@@ -39,3 +39,25 @@ $(function(){
     });
     
   });
+
+
+
+  //燈箱
+$(function () {
+
+    // 開啟 Modal 彈跳視窗
+    $("#msg_btn9").on("click", function () {
+        $("div.msg_overlay").addClass("-on");
+    });
+
+    // 關閉 Modal
+    $("img.msg_close").on("click", function () {
+        $("div.msg_overlay").addClass("-opacity-zero");
+
+        // 設定隔一秒後，移除相關 class
+        setTimeout(function () {
+            $("div.msg_overlay").removeClass("-on -opacity-zero");
+        }, 1000);
+    });
+
+});
