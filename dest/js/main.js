@@ -2,9 +2,7 @@ window.addEventListener('load', function() {
 
     AOS.init();
 
-
     // 進入首頁，第一屏島嶼移動，背景圖改變位置
-
     let islandMoveTime = setInterval(islandMove, 30);
 
     function islandMove() {
@@ -38,44 +36,38 @@ window.addEventListener('load', function() {
     }
 
     // 滾動滑鼠船前進
-
-    window.onmousewheel = move;
+    window.addEventListener('wheel', move);
 
     function move() {
 
         if ($('.wrapperWheel').css('display') == "none") {
             let divLeft = parseInt($('.boat img').css('left'));
 
-            // if (divLeft < $(window).width()) {
-            //     $('.boat img').css('left', '+=300');
-            // } else {
-
-            //     $('.captain').css('opacity', '1');
-            //     $('.section1 .text').css('opacity', '0');
-
-            // }
-
-            let boatWid = $('.boat img').width();
-            let boatLeft = $('.boat img').offset().left;
-            let layer3Left = $('.layer3').offset().left;
-            // console.log(divLeft);
-            // console.log($(window).width());
-
-            // 船碰到港口
-            console.log($('.boat img').offset().left + $('.boat img').width());
-            if ((boatWid / 2) + boatLeft > layer3Left) {
-                $('.port').css('opacity', 1);
+            if (divLeft < $(window).width()) {
+                $('.boat img').css('left', '+=300');
+            } else {
 
                 setTimeout(function() {
                     $('.captain').css('opacity', '1');
                     $('.section1 .text').css('opacity', '0');
 
-                }, 1000);
+                }, 500);
+                window.removeEventListener('wheel', move);
 
-            } else {
-                $('.boat img').css('left', '+=300');
             }
 
+            let boatWid = $('.boat img').width();
+            let boatLeft = $('.boat img').offset().left;
+            let layer3Left = $('.layer3').offset().left;
+
+            // 船碰到港口
+            if ((boatWid / 2) + boatLeft > layer3Left) {
+                $('.port').css('opacity', 1);
+
+            }
+
+
+            // 船經過，海鮮飛起來
             let fishFlyTime = setInterval(function() {
                     let divLeft = parseInt($('.boat img').css('left'));
                     if (divLeft > 100) {
@@ -91,27 +83,65 @@ window.addEventListener('load', function() {
                     }
                 },
                 10);
-
         }
-
-
-
     };
 
-
-    // 出發按鈕，船長和公告消失
-
+    let timeMap
+        // 出發按鈕，船長和公告消失
     $('.buttonGo').click(function() {
 
         $('.captain').css('opacity', '0');
         $('.section1 .text').css('opacity', '1');
-        setTimeout(function() {
-            $('.captain').css('display', 'none');
-            $('.wrapperWheel').css('display', 'block');
+        $('.wrapperWheel').css('display', 'block');
 
-        }, 500);
+        // 視窗滑到地圖頂端，地圖變小
+        window.addEventListener("wheel", function() {
+            timeMap = setInterval(check, 100)
+        });
+
+        function check() {
+            if ($(window).scrollTop() >= $('.map img').offset().top) {
+                small();
+
+            }
+        }
 
     });
+
+    // 開發測試用
+    // window.addEventListener("wheel", function() {
+    //     setInterval(check, 100)
+    // });
+
+    // function check() {
+    //     if ($(window).scrollTop() >= $('.map img').offset().top) {
+    //         small();
+
+    //     }
+    // }
+
+
+
+    // 地圖變小
+    function small() {
+        let imgWid = $('.map img').width();
+        let winWid = $(window).width();
+
+        if (imgWid > winWid / 2) {
+            imgWid = imgWid * 0.8;
+            $('.map img').width(imgWid);
+        } else {
+            $('.wrapperBg').css('display', 'block');
+            $('.title').css('opacity', '1');
+            $('.reservation ').css('opacity', '1');
+            $('.datetable').css('opacity', '1');
+            $('.map').addClass('small');
+            clearInterval(timeMap);
+
+        }
+        window.removeEventListener('wheel', small);
+    }
+
 
 
     // 點餐卡片會動
@@ -121,92 +151,6 @@ window.addEventListener('load', function() {
         speed: 1000,
         scale: 1.2
     });
-
-
-
-
-    // 泡泡動畫
-    bubblePop();
-    bubblePop1();
-    setInterval(bubblePop, 5000);
-    setInterval(bubblePop1, 4000);
-
-    function bubblePop() {
-        TweenMax.staggerFrom(['.seafood .bubble1', '.seafood .bubble2', '.seafood .bubble3'], 1, {
-            x: 0,
-            y: 50,
-            opacity: 0,
-            scale: 0.5,
-
-
-        }, .3);
-        console.log(1);
-    }
-
-    function bubblePop1() {
-        TweenMax.staggerFrom(['.seafood .bubble4', '.seafood .bubble5', '.seafood .bubble6'], 1, {
-            x: -50,
-            y: 50,
-            opacity: 0,
-            scale: 0.5,
-            delay: 1,
-
-
-        }, .3);
-    }
-
-    // 變換料理
-
-    // setInterval(changeCookImg, 1000);
-    // setInterval(changeCookImg, 1500);
-
-    function changeCookImg() {
-        let cookNum = Math.floor(Math.random() * 7);
-        let cookImg = document.getElementsByClassName('cookImg')[cookNum];
-        let cookImgSrc = Math.floor(Math.random() * 8) + 1;
-        cookImg.src = "./images/cook" + cookImgSrc + ".png";
-
-    };
-
-
-
-    // 雲和島嶼消失
-
-    function ocean() {
-
-        function oceanmove() {
-
-            oceanTween1 = new TweenMax('.cloud', 3, {
-                x: -1000,
-                delay: 1,
-            });
-            oceanTween2 = new TweenMax('.island', 4, {
-                x: -3000,
-                delay: 1,
-            });
-            setTimeout(captain, 2500);
-
-            function captain() {
-                $('.captain img').css('opacity', '1');
-                $('.section2 .text').css('opacity', '1');
-
-            };
-        };
-
-        var ourScene2 = new ScrollMagic.Scene({
-                triggerElement: '.cloud',
-                triggerHook: 0.3,
-
-            }).setTween(oceanmove)
-            // .addIndicators({
-            //     name: 'cloud',
-            //     colorTrigger: '#f00',
-            // })
-            .addTo(controller);
-
-
-    }
-
 
 
 
@@ -234,7 +178,6 @@ window.addEventListener('load', function() {
             })
         );
 
-
         var ourScene = new ScrollMagic.Scene({
                 triggerElement: '.ocean',
                 triggerHook: 0.3,
@@ -246,7 +189,10 @@ window.addEventListener('load', function() {
             // })
             .addTo(controller);
 
-    }
+
+    };
+
+
 
     // 客製化料理
     let timeCook = new TimelineMax();
@@ -302,6 +248,38 @@ window.addEventListener('load', function() {
         //     colorTrigger: '#f00',
         // })
         .addTo(controller);
+
+
+
+    // 泡泡動畫
+    bubblePop();
+    bubblePop1();
+    setInterval(bubblePop, 5000);
+    setInterval(bubblePop1, 4000);
+
+    function bubblePop() {
+        TweenMax.staggerFrom(['.seafood .bubble1', '.seafood .bubble2', '.seafood .bubble3'], 1, {
+            x: 0,
+            y: 50,
+            opacity: 0,
+            scale: 0.5,
+
+
+        }, .3);
+        console.log(1);
+    }
+
+    function bubblePop1() {
+        TweenMax.staggerFrom(['.seafood .bubble4', '.seafood .bubble5', '.seafood .bubble6'], 1, {
+            x: -50,
+            y: 50,
+            opacity: 0,
+            scale: 0.5,
+            delay: 1,
+
+
+        }, .3);
+    }
 
 
 

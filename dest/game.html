@@ -4,58 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="./images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/game.css">
-    <title>title</title>
+    <title>現撈海鮮</title>
 </head>
 <body>
-    
-    <header>
-        <div class="pu_head_wrap_div">
-            <a class="pu_logo_a" href="main.html">
-                <img src="/images/logo.png" alt="">
-            </a>
-            <ul class="pu_head_ul">
-                <li class="pu_head_li">
-                    <div>
-                        <a class="pu_text_a" href="">
-                            訂位點餐
-                        </a>
-                    </div> 
-                </li>
-                <li class="pu_head_li">
-                    <div>
-                        <a class="pu_text_a" href="">
-                            現撈海鮮
-                        </a>
-                    </div>
-                </li>
-                <li class="pu_head_li">
-                    <div>
-                        <a class="pu_text_a" href="">
-                            客製化料理
-                        </a>
-                    </div>
-                </li>
-                <li class="pu_head_li">
-                    <div>
-                        <a class="pu_text_a" href="">
-                            美食大賽
-                        </a>
-                    </div>
-                </li>
-            </ul>
-            <div class="pu_mem_login_div_wrap">
-                <div class="pu_mem_login_div">
-                    會員登入
+    <header class="desktop_header">
+    <div class="pu_head_wrap_div">
+        <a class="pu_logo_a" href="main.html">
+            <img src="/images/logo.png" alt="">
+        </a>
+        <ul class="pu_head_ul">
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="order.html">
+                        訂位點餐
+                    </a>
+                </div> 
+            </li>
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="game.html">
+                        現撈海鮮
+                    </a>
                 </div>
-                <div class="pu_icon_div">
-                    <img src="./images/login.png" alt="">
+            </li>
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="customized_cuisine.html">
+                        客製化料理
+                    </a>
                 </div>
+            </li>
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="contest.html">
+                        美食大賽
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <div class="pu_mem_login_div_wrap">
+            <div class="pu_mem_login_div">
+                會員登入
+            </div>
+            <div class="pu_icon_div">
+                <img src="./images/login.png" alt="">
             </div>
         </div>
-    </header>
-    <section id="wrapper">
+    </div>
+</header>
 
+<header class="mobile_header">
+    <a class="pu_mb_logo_a" href="main.html">
+        <img src="/images/logo.png" alt="">
+    </a>
+    <div class="mb_sma_cloud">
+        <div>
+            <img class="mb_sma_cloud_img" src="/images/mobile_small_cloud.png" alt="">
+        </div>
+        <div class="mb_big_cloud_img_div">
+            <img class="mb_big_cloud_img" src="/images/mobile_big_cloud.png" alt="">
+            <div class="mb_big_cloud_text">
+                <div>
+                    <a class="pu_mb_text_a" href="order.html">
+                        訂位點餐
+                    </a>
+                </div> 
+                <div>
+                    <a class="pu_mb_text_a" href="game.html">
+                        現撈海鮮
+                    </a>
+                </div>
+                <div>
+                    <a class="pu_mb_text_a" href="customized_cuisine.html">
+                        客製化料理
+                    </a>
+                </div>
+                <div>
+                    <a class="pu_mb_text_a" href="contest.html">
+                        美食大賽
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+    </div>
+</header>
+    <section id="wrapper">
+        <h1>
+            <div class="pu_h1_div">
+                <img class="pu_h1_img" src="./images/ribbon.png" alt="">
+                <div class="pu_div_text">
+                    現撈海鮮
+                </div>
+            </div>
+        </h1>
         <div class="wrapper_bottom">
             <div class="game_title">
                 <div class="game_rule_div">
@@ -63,17 +112,17 @@
                 </div>
                 <div class="game_rule_div_bot_wrap">
                     <div class="game_rule_div_bot">
-                        <div>
-                            <span>規則</span><span>一局時間一分鐘，五顆球，當時間到或球數用完，遊戲結束</span>
+                        <div class="game_rule_div_bot_cen">
+                            <div class="intro_title">規則</div><div class="intro_detail">一局時間一分鐘，五顆球，當時間到或球數用完，遊戲結束</div>
                         </div>
-                        <div>
-                            <span>玩法</span><span>將滑鼠點擊球不放開，瞄準好海鮮後，順勢將球甩出，丟到目標物後，有機率成功捕捉</span>
+                        <div class="game_rule_div_bot_cen">
+                            <div class="intro_title">玩法</div><div class="intro_detail">瞄準好海鮮後，將球甩出，丟到目標物後，有機率成功捕捉</div>
                         </div>
-                        <div>
-                            <span>積分</span><span>決定你的會員等級，等級高，球越高級，捉到海鮮機率越大</span>
+                        <div class="game_rule_div_bot_cen">
+                            <div class="intro_title">積分</div><div class="intro_detail">決定你的會員等級，等級高，球越高級，捉到海鮮機率越大</div>
                         </div>
-                        <div>
-                            <span>點數</span><span>在訂餐時可作折抵</span>
+                        <div class="game_rule_div_bot_cen">
+                            <div class="intro_title">點數</div><div class="intro_detail">在訂餐時可作折抵</div>
                         </div>
                     </div>
                 </div>
@@ -99,14 +148,6 @@
             </div>
         </div>
         
-        <div class="capture_div">
-          <div>
-              捕獲：
-              <div id="capture_poke" class="capture_poke">
-              </div>
-          </div>
-        </div>
-
         <div id="info-screen" class="hidden">
             <div id="info-shade"></div>
         </div>
@@ -134,36 +175,31 @@
                     <div>
                         恭喜您，成功捕獲
                     </div>
-                    <span id="capture_poke" class="capture_poke"></span>
+                    <span id="capture_poke" class="capture_poke">
+                    </span>
                 </div>
                 <div class="score_point_div">
                     <div class="point_div">
-                        獲得積分：
-                        <span id="final_score">0</span>
-                        <div class="point_text">
-                            積分可用來提升會員等級
+                        <div class="light_div">
+                            獲得積分 <span id="final_score">0</span>
                         </div>
-                        <div class="no_like_seafood">
-                            沒有喜歡的海鮮嗎
+                        <div >
+                            <button id="re_game_start" class="re_game_start">
+                                再玩一次
+                            </button>
                         </div>
-                        <button id="re_game_start">
-                            再玩一次
-                        </button>
                     </div>
                     <div class="score_div">
-                        獲得點數：
-                        <span id="final_point">0</span>
-                        <div class="score_text">
-                            點數可用來折扣料理
+                        <div class="light_div">
+                            獲得點數 <span id="final_point">0</span>
                         </div>
-                        <div class="capture_seafood">
-                            捕捉到想吃的海鮮了
-                        </div>
-                        <a href="customized_cuisine.html">
-                            <button>客製化料理</button>  
-                        </a>
+                        <div class="light_div">
+                            <a href="customized_cuisine.html">
+                                <button class="go_cus">客製化料理</button>  
+                            </a>
+                        </div>       
                     </div>
-              </div>
+                </div>
             </div>
             <!-- 有抓到海鮮遊戲結束時的視窗 -->
 
@@ -177,15 +213,9 @@
                 <div class="fail_point_div">
                     <div class="fail_score_div_small">獲得積分：
                         <span id="final_score">0</span>
-                        <div>
-                            積分可用來提升會員等級
-                        </div>
                     </div>
                     <div class="fail_point_div_small">獲得點數：
                         <span id="final_point">0</span>
-                        <div>
-                            點數可用來折扣料理
-                        </div>
                     </div>
                 </div>
                 <button id="fail_re_game_start">
@@ -194,16 +224,46 @@
             </div>
             <!-- 沒抓到海鮮遊戲結束時的視窗 -->
 
-            <div id="screen">
-                <div id="time_up">60</div>
+            <div id="screen" class="screen">
+                <div id="time_up" class="time_up">60</div>
                 <div class="ball_num_div">
-                    球數:<span id="ball_num">5</span>
+                    <div>
+                        球數
+                    </div>
+                    <div class="ball_num_img_div">
+                        <div>
+                            <img src="./images/Group%2071.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./images/Group%2071.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./images/Group%2071.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./images/Group%2071.png" alt="">
+                        </div>
+                        <div>
+                            <img src="./images/Group%2071.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 球數 <span id="ball_num">5</span> -->
                 </div>
+                <div class="capture_div">
+                    <div>
+                        捕獲
+                        <div id="capture_poke" class="capture_poke">
+                        </div>
+                    </div>
+                  </div>
                 <div class="mem_score_div">
-                    積分：<span id="mem_score">0</span>
+                    積分 <span id="mem_score">0</span>
                 </div>
                 <div class="mem_point_div">
-                    點數：<span id="mem_point">0</span>
+                    點數 <span id="mem_point">0</span>
+                </div>
+                <div class="mem_level_div">
+                    會員等級 <span>金鷗</span>
                 </div>
                 <div id="target-container">
                     <!-- 海鮮本人 -->
@@ -224,7 +284,6 @@
             </div>
         </div>
         </div>
-
         <!-- <div id="screen" class="gradient-background">
         <div id="target-container"> -->
             <!-- 海鮮本人 -->
@@ -248,13 +307,12 @@
             <div id="capture-ball-button"></div>
         </div>
         </div>
-    </section>
+    </section>   
     <script src="/jquery/jquery.min.js"></script>
-    <script src="/script.js/vue.js"></script>
-    <script src="/script.js/header.js"></script>
-    
+<script src="/js/vue.js"></script>
+<script src="/js/header.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/1.0.0/anime.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/zingtouch.min.js"></script>
-    <script src="/script.js/game.js"></script>
+    <script src="/js/game.js"></script>
   </body>
 </html>

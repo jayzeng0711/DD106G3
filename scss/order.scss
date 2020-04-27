@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "base/var";
 @font-face {
     font-family: 'jf-openhuninn-1.0';
@@ -12,6 +13,15 @@
 
 header {
     font-family: $fontFamily;
+=======
+@import "base/var" ;
+body{
+    background: url(../images/longbg.jpg) center top;
+}
+main {
+    // background: url(../images/longbg.jpg) center top;
+    width: 100%;
+>>>>>>> myself
 }
 
 section {

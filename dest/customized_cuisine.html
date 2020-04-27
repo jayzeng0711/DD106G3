@@ -5,52 +5,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="icon" href="./images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/customized_cuisine.css">
-    <title>Document</title>
+    <title>客製化料理</title>
 </head>
 
 <body>
-    <header></header>
-
-    <div class="container">
-        <main>
-            <div class="intro">
-                <p>
-                    只能選擇菜單上的菜色讓您感到了無新意？<br>
-                    這裡歡迎您盡情發揮想像，來創造獨一無二的客製化料理吧！
-                </p>
-                <div class="steps">
-                    <p>
-                        STEP 1： 選擇一個喜歡的海鮮
-                    </p>
-                    <p>
-                        STEP 2： 選擇一個海鮮的烹調方式
-                    </p>
-                    <p>
-                        STEP 3： 選擇想要配料，依喜好擺成自己喜歡的樣子
-                    </p>
-                    <p>
-                        STEP 4： 為你的料理取個名字並加入菜單，<br>你就可以在預約時點到這個專屬料理囉~
-                    </p>
-                    <p>
-                        STEP 5：只有自己吃到沒意思？就是要炫料理？<br>快快參加美食大賽秀一波YO
-                    </p>
+    <header class="desktop_header">
+    <div class="pu_head_wrap_div">
+        <a class="pu_logo_a" href="main.html">
+            <img src="/images/logo.png" alt="">
+        </a>
+        <ul class="pu_head_ul">
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="order.html">
+                        訂位點餐
+                    </a>
+                </div> 
+            </li>
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="game.html">
+                        現撈海鮮
+                    </a>
                 </div>
-                <div class="to-game">
-                    <p>沒有食材可以製作料理嗎？<br>
-                        趕快去GET到尚青ㄟ海鮮吧！
-                    </p>
-                    <a href="">
-                        <button>抓海鮮去囉~</button>
+            </li>
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="customized_cuisine.html">
+                        客製化料理
+                    </a>
+                </div>
+            </li>
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="contest.html">
+                        美食大賽
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <div class="pu_mem_login_div_wrap">
+            <div class="pu_mem_login_div">
+                會員登入
+            </div>
+            <div class="pu_icon_div">
+                <img src="./images/login.png" alt="">
+            </div>
+        </div>
+    </div>
+</header>
+
+<header class="mobile_header">
+    <a class="pu_mb_logo_a" href="main.html">
+        <img src="/images/logo.png" alt="">
+    </a>
+    <div class="mb_sma_cloud">
+        <div>
+            <img class="mb_sma_cloud_img" src="/images/mobile_small_cloud.png" alt="">
+        </div>
+        <div class="mb_big_cloud_img_div">
+            <img class="mb_big_cloud_img" src="/images/mobile_big_cloud.png" alt="">
+            <div class="mb_big_cloud_text">
+                <div>
+                    <a class="pu_mb_text_a" href="order.html">
+                        訂位點餐
+                    </a>
+                </div> 
+                <div>
+                    <a class="pu_mb_text_a" href="game.html">
+                        現撈海鮮
+                    </a>
+                </div>
+                <div>
+                    <a class="pu_mb_text_a" href="customized_cuisine.html">
+                        客製化料理
+                    </a>
+                </div>
+                <div>
+                    <a class="pu_mb_text_a" href="contest.html">
+                        美食大賽
                     </a>
                 </div>
             </div>
 
-            <section>
-                <div class="upper">
+        </div>
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+    </div>
+</header>
+    <div class="container">
+        <h1>
+            <div class="pu_h1_div">
+                <img class="pu_h1_img" src="./images/ribbon.png" alt="">
+                <div class="pu_div_text">
+                    客製化料理
+                </div>
+            </div>
+        </h1>
+        <main>
+            <div class="intro">
+                <p>
+                    修旦幾勒，已經登入了嗎？沒有登入的話就沒辦法記錄料理囉
+                </p>
+                <p>
+                    只能選擇菜單上的菜色讓您感到了無新意？<br>
+                    這裡歡迎您盡情發揮想像，來創造獨一無二的客製化料理吧！
+                </p>
+                <p>沒有食材可以製作料理嗎？<br>
+                    趕快去GET到尚青ㄟ海鮮吧！
+                </p>
+                <a href="./game.html">
+                    <button>抓海鮮去囉~</button>
+                </a>
+            </div>
+
+            <div class="upper">
+                <h3>
+                    STEP 1： 選擇一個喜歡的海鮮
+                </h3>
+                <section class="choose-fish">
+
+                    <div class="note">
+                        <div class="note-content">
+                            <span>章魚</span>
+                            <span>價格：NT$800元</span>
+                        </div>
+
+                        <div class="fish-pic"></div>
+                    </div>
+                    <div class="note">
+                        <div class="note-content">
+                            <span>胭脂蝦</span>
+                            <span>價格：NT$800元</span>
+                        </div>
+                        <div class="fish-pic"></div>
+                    </div>
+                    <div class="note">
+                        <div class="note-content">
+                            <span>鰈魚</span>
+                            <span>價格：NT$800元</span>
+                        </div>
+                        <div class="fish-pic"></div>
+                    </div>
+                </section>
+            </div>
+
+            <section class="paper">
+                <div class="center">
                     <div class="side-left">
-                        <div class="food-display"></div>
+                        <div class="food-display">
+                            <img src="./images/cook1.png" alt="" srcset="">
+                        </div>
                     </div>
 
                     <div class="side-right">
@@ -225,7 +335,7 @@
                             </div>
                         </div>
 
-                        <div class="choose-fish">
+                        <!-- <div class="choose-fish">
                             <h3>捕獲食材(擇一)</h3>
                             <ul>
                                 <li>
@@ -261,10 +371,10 @@
                                     </figure>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
 
                         <div class="choose-cook">
-                            <h3>烹調方式(擇一)</h3>
+                            <h3>STEP 2： 選擇一個海鮮的烹調方式</h3>
                             <div class="choose-cook">
                                 <ul>
                                     <li>煮湯</li>
@@ -275,7 +385,7 @@
                         </div>
 
                         <div class="choose-element">
-                            <h3>配料選擇(最多擇三)</h3>
+                            <h3>STEP 3： 選擇想要配料，依喜好擺成自己喜歡的樣子<br>最多選三樣</h3>
                             <div class="choose-ingredient">
                                 <ul>
                                     <li>
@@ -320,19 +430,23 @@
 
 
                 <form action="">
+                    <h3>STEP 4： 為您的料理取個名字並加入菜單，你就可以在預約時點到這個專屬料理囉~</h3>
                     <div class="food-info">
                         <label for="">這道菜的名字是</label>
                         <span>此項必填</span>
-                        <input type="text" placeholder="輸入文字吧">
+                        <input type="text" placeholder="名字最長十個字~" maxlength="10">
 
                     </div>
                     <div class="food-info">
                         <label for="">關於這道菜，我想說...</label>
-                        <textarea name="" id="" cols="30" rows="3" placeholder="輸入文字吧~"></textarea>
+                        <textarea name="" id="" cols="30" rows="1" placeholder="輸入文字吧~"></textarea>
                     </div>
                     <div class="form-control">
-                        <input type="submit" value="加入菜單">
-                        <input type="submit" value="加入菜單並參加比賽">
+                        <h3>
+                            STEP 5：只有自己吃到沒意思？就是要炫料理？快快參加美食大賽秀一波YO
+                        </h3>
+                        <input type="submit" value="完成料理">
+                        <input type="submit" value="立即點餐">
                     </div>
                 </form>
             </section>
@@ -341,7 +455,9 @@
     </div>
 
     <footer></footer>
-    <script src="./jquery/jquery.min.js"></script>
+    <script src="/jquery/jquery.min.js"></script>
+<script src="/js/vue.js"></script>
+<script src="/js/header.js"></script>
     <script>
         $(function () {
             $("a.tab").on("click", function (e) {
