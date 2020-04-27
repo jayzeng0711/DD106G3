@@ -83,6 +83,98 @@ h4 {
   font-size: 20px;
 }
 
+.ranking_contain .cookList_item .list_bg .msg .msg_btn button, .cookList_contain .cookList_item .msg .msg_btn button, .msg_overlay .msg_board .msg_input .msginput_btn {
+  border: none;
+  outline: none;
+  background-color: #5fa8d3;
+  color: #ffffff;
+  padding: 3% 5%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  -webkit-box-shadow: 2px 2px 2px #707070;
+          box-shadow: 2px 2px 2px #707070;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.ranking_contain .cookList_item .list_bg .msg .msg_btn button:active, .cookList_contain .cookList_item .msg .msg_btn button:active, .msg_overlay .msg_board .msg_input .msginput_btn:active {
+  -webkit-box-shadow: inset 2px 2px 2px #707070;
+          box-shadow: inset 2px 2px 2px #707070;
+  top: 1px;
+}
+
+.ranking_contain .cookList_item .list_bg .msg .msg_btn button::before, .cookList_contain .cookList_item .msg .msg_btn button::before, .msg_overlay .msg_board .msg_input .msginput_btn::before {
+  content: '';
+  position: absolute;
+  background-color: #eee;
+  padding: 50%;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  opacity: .8;
+  -webkit-transition: opacity 1s, -webkit-transform .6s;
+  transition: opacity 1s, -webkit-transform .6s;
+  transition: transform .6s, opacity 1s;
+  transition: transform .6s, opacity 1s, -webkit-transform .6s;
+}
+
+.ranking_contain .cookList_item .list_bg .msg .msg_btn button:hover::before, .cookList_contain .cookList_item .msg .msg_btn button:hover::before, .msg_overlay .msg_board .msg_input .msginput_btn:hover::before {
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+}
+
+.ranking_contain .cookList_item .list_bg .cookList_vote button, .cookList_contain .cookList_item .cookList_vote button, .msg_overlay .msg_board .msg_wrap .mem_contain .flex_wrap .report .report_btn {
+  border: none;
+  outline: none;
+  background-color: #021A71;
+  color: #ffffff;
+  padding: 3% 5%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  -webkit-box-shadow: 2px 2px 2px #707070;
+          box-shadow: 2px 2px 2px #707070;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.ranking_contain .cookList_item .list_bg .cookList_vote button:active, .cookList_contain .cookList_item .cookList_vote button:active, .msg_overlay .msg_board .msg_wrap .mem_contain .flex_wrap .report .report_btn:active {
+  -webkit-box-shadow: inset 2px 2px 2px #707070;
+          box-shadow: inset 2px 2px 2px #707070;
+  top: 1px;
+}
+
+.ranking_contain .cookList_item .list_bg .cookList_vote button::before, .cookList_contain .cookList_item .cookList_vote button::before, .msg_overlay .msg_board .msg_wrap .mem_contain .flex_wrap .report .report_btn::before {
+  content: '';
+  position: absolute;
+  background-color: #eee;
+  padding: 50%;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  opacity: .8;
+  -webkit-transition: opacity 1s, -webkit-transform .6s;
+  transition: opacity 1s, -webkit-transform .6s;
+  transition: transform .6s, opacity 1s;
+  transition: transform .6s, opacity 1s, -webkit-transform .6s;
+}
+
+.ranking_contain .cookList_item .list_bg .cookList_vote button:hover::before, .cookList_contain .cookList_item .cookList_vote button:hover::before, .msg_overlay .msg_board .msg_wrap .mem_contain .flex_wrap .report .report_btn:hover::before {
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+}
+
 .mobile_header {
   display: none;
 }
@@ -399,8 +491,9 @@ h4 {
 
 body {
   font-family: 'jf-openhuninn-1.0';
-  background-image: url(../images/ocean_bg2.png);
-  background-size: contain;
+  background-image: url(../images/色塊-4-01.jpg);
+  background-size: cover;
+  overflow-x: hidden;
 }
 
 footer {
@@ -414,7 +507,7 @@ footer {
 
 /* ------------ ranking 開始 ---------------*/
 .ranking {
-  margin-bottom: 70px;
+  margin-bottom: 8%;
 }
 
 .wrap {
@@ -427,169 +520,166 @@ footer {
   padding-top: 60px;
 }
 
-.ranking_title h1 {
-  font-family: 'HonyaJi-Re';
-  font-size: 36px;
-  text-align: center;
+@-webkit-keyframes lightmove {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
-.contain .ranking_item {
-  display: inline-block;
-  width: 340px;
-  margin: 0 20px 0px 20px;
+@keyframes lightmove {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
-.contain .ranking_item .ranking_bg {
-  background-image: url(../images/cookList_item_bg.png);
-  border-radius: 10px;
-  padding-top: 10px;
-  padding-bottom: 20px;
-}
-
-.contain .ranking_item:nth-child(1), .contain .ranking_item:nth-child(3) {
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
-  margin-bottom: 200px;
-}
-
-.contain .ranking_item .cookList_img .cookList_cook {
-  margin: 0px auto 0px auto;
-  width: 300px;
-  -webkit-transform: translateY(70px);
-          transform: translateY(70px);
-}
-
-.contain .ranking_item .cookList_img .cookList_cook img {
-  width: 100%;
-}
-
-.contain .ranking_item .cookList_img .cookList_cook figcaption {
-  margin-bottom: 20px;
-}
-
-.contain .ranking_item .cookList_img .cookList_cook p {
-  font-size: 28px;
-  color: #000000;
-  text-align: center;
-}
-
-.contain .ranking_item .cookList_img .cookList_cook p:nth-child(2) {
-  font-size: 20px;
-  color: #4669e6;
-}
-
-.contain .ranking_item .cookList_img .cookList_cook p:nth-child(3) {
-  font-size: 14px;
-  color: #4e4e4e;
-  margin-top: 10px;
-}
-
-.contain .ranking_item .cookList_img .barrel {
-  width: 180px;
-  margin: auto;
-  margin-bottom: 20px;
-}
-
-.contain .ranking_item .cookList_img .barrel img {
-  width: 100%;
-}
-
-.contain .ranking_item .ranking_bg .cookList_infoPanel {
-  width: 300px;
-  margin: auto;
+.ranking_contain {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
 }
 
-.contain .ranking_item .ranking_bg .cookList_infoPanel div {
-  display: inline-block;
-  background-color: #001871;
+.ranking_contain .cookList_item {
+  width: 340px;
+}
+
+.ranking_contain .cookList_item .cookList_pic {
+  position: relative;
+  top: 70px;
+}
+
+.ranking_contain .cookList_item .cookList_pic .food_img {
+  margin: 0px auto 0px auto;
+  width: 280px;
+  -webkit-transform: translateY(57px);
+          transform: translateY(57px);
+}
+
+.ranking_contain .cookList_item .cookList_pic .food_img img {
+  width: 100%;
+}
+
+.ranking_contain .cookList_item .cookList_pic .barrel {
+  width: 135px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.ranking_contain .cookList_item .cookList_pic .barrel img {
+  width: 100%;
+}
+
+.ranking_contain .cookList_item .list_bg {
+  background-image: url(../images/cookList_item_bg.png);
   border-radius: 10px;
-  margin: 10px 0;
-  font-size: 16px;
-  width: 130px;
-  padding: 10px;
-  color: #ffffff;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  -webkit-box-shadow: 0px 2px 5px #f7c029;
+          box-shadow: 0px 2px 5px #f7c029;
+}
+
+.ranking_contain .cookList_item .list_bg .food_title {
+  margin: 20px auto 20px auto;
+  width: 300px;
   text-align: center;
 }
 
-.contain .ranking_item .ranking_bg .cookList_infoPanel div:nth-child(2) {
-  background-color: #4EB6E6;
+.ranking_contain .cookList_item .list_bg .food_title p:nth-child(1) {
+  font-size: 24px;
+  color: #000000;
 }
 
-.contain .ranking_item .ranking_bg .icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 10px;
+.ranking_contain .cookList_item .list_bg .food_title p:nth-child(2) {
+  font-size: 20px;
+  color: #4669e6;
+  margin-top: 2%;
 }
 
-.contain .ranking_item .ranking_bg .icon .message {
-  width: 35px;
-  cursor: pointer;
+.ranking_contain .cookList_item .list_bg .cookList_vote {
+  text-align: center;
+  margin-bottom: 5%;
 }
 
-.contain .ranking_item .ranking_bg .icon span {
-  font-size: 16px;
-  margin: 0 20px 0px 5px;
+.ranking_contain .cookList_item .list_bg .cookList_vote button {
+  padding: 4% 16%;
 }
 
-.contain .ranking_item .ranking_bg .msg {
+.ranking_contain .cookList_item .list_bg .msg {
   background-color: #ffffff;
   border-radius: 0 0 10px 10px;
   width: 300px;
-  margin: 0 auto 0px auto;
-  border: 1px solid lightskyblue;
-  -webkit-box-shadow: 1px 1px 1px #b7e3ff;
-          box-shadow: 1px 1px 1px #b7e3ff;
+  margin: 0 auto 30px auto;
+  border: 1px solid #f7c029;
+  -webkit-box-shadow: 6px 6px 0px #f7c029;
+          box-shadow: 6px 6px 0px #f7c029;
 }
 
-.contain .ranking_item .ranking_bg .msg .big {
+.ranking_contain .cookList_item .list_bg .msg .big {
   font-size: 20px;
   text-align: center;
-  color: #ffffff;
+  color: #1d1d1d;
   padding: 10px;
-  background-color: #001871;
+  background-color: #FBD672;
 }
 
-.contain .ranking_item .ranking_bg .msg img {
+.ranking_contain .cookList_item .list_bg .msg .msg_text {
+  width: 100%;
+  height: 70px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.ranking_contain .cookList_item .list_bg .msg .msg_text img {
   width: 50px;
   vertical-align: middle;
 }
 
-.contain .ranking_item .ranking_bg .msg p {
-  font-size: 16px;
+.ranking_contain .cookList_item .list_bg .msg .msg_text p {
   padding: 10px;
 }
 
-.contain .ranking_item .ranking_bg .msg .more {
+.ranking_contain .cookList_item .list_bg .msg .msg_btn {
   text-align: center;
-  padding-bottom: 15px;
+  margin-bottom: 3%;
 }
 
-.contain .ranking_item .ranking_bg .msg .more a {
-  display: inline-block;
-  background-color: #4EB6E6;
-  border-radius: 10px;
+.ranking_contain .cookList_item:nth-child(2) {
+  -webkit-transform: translateY(-15%);
+          transform: translateY(-15%);
 }
 
-.contain .ranking_item .ranking_bg .msg .more span {
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  color: #ffffff;
-  width: 130px;
-  padding: 10px 10px;
+.ranking_contain:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -13%;
+  width: 1158px;
+  height: 744px;
+  background-image: url(../images/light_move.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  -webkit-animation-name: lightmove;
+          animation-name: lightmove;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
 
 /* ------------ ranking 結束 ---------------*/
@@ -598,56 +688,54 @@ footer {
   margin-bottom: 70px;
 }
 
-.event {
+.aboutContest .event {
   display: inline-block;
-  width: 630px;
+  width: 55%;
   background-color: #e0f1fc;
   border-radius: 50px;
   padding: 40px;
-  /* border: 1px solid blue; */
 }
 
-.event .aboutContest_title {
+.aboutContest .event .aboutContest_title {
   margin-bottom: 30px;
 }
 
-.event .aboutContest_title p {
-  font-size: 40px;
+.aboutContest .event .aboutContest_title p {
+  font-size: 28px;
   text-align: center;
 }
 
-.event .description .text {
+.aboutContest .event .text {
   margin-bottom: 10px;
 }
 
-.event .description .text img {
+.aboutContest .event .text img {
   width: 60px;
   margin-right: 30px;
   vertical-align: top;
 }
 
-.event .description .text span {
+.aboutContest .event .text span {
   font-size: 20px;
   color: #4669e6;
-  margin-right: 30px;
+  margin-right: 22px;
   vertical-align: top;
 }
 
-.event .description .text p {
+.aboutContest .event .text p {
   display: inline-block;
   width: 340px;
   font-size: 20px;
   vertical-align: top;
 }
 
-.eventImg {
+.aboutContest .eventImg {
   display: inline-block;
-  width: 520px;
-  /* border: 1px solid red; */
+  width: 43%;
   vertical-align: top;
 }
 
-.eventImg .board {
+.aboutContest .eventImg .board {
   display: inline-block;
   width: 250px;
   height: 80px;
@@ -660,24 +748,25 @@ footer {
   vertical-align: top;
 }
 
-.eventImg .board a {
+.aboutContest .eventImg .board a {
   display: inline-block;
 }
 
-.eventImg .board p {
+.aboutContest .eventImg .board p {
   width: 185px;
   padding: 15px 15px 15px 20px;
   font-size: 20px;
   color: #001871;
 }
 
-.eventImg .character {
+.aboutContest .eventImg .character {
   display: inline-block;
-}
-
-.eventImg .character img {
   width: 230px;
   cursor: pointer;
+}
+
+.aboutContest .eventImg .character img {
+  width: 100%;
 }
 
 /* ------------ aboutContest 結束 ---------------*/
@@ -687,25 +776,20 @@ footer {
 }
 
 .cookList .cookList_title {
-  padding-top: 60px;
-}
-
-.cookList .cookList_title h1 {
-  font-size: 50px;
   text-align: center;
+  font-size: 28px;
 }
 
-.filter {
+.cookList .filter {
   margin-top: 60px;
   margin-bottom: 40px;
 }
 
-.filter span {
+.cookList .filter span {
   font-size: 20px;
-  color: #fff;
 }
 
-.filter select {
+.cookList .filter select {
   font-family: 'jf-openhuninn-1.0';
   font-size: 20px;
   color: #ffffff;
@@ -717,30 +801,40 @@ footer {
 
 @-webkit-keyframes move {
   0% {
-    -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
   }
   100% {
-    -webkit-transform: translateY(20px);
-            transform: translateY(20px);
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
   }
 }
 
 @keyframes move {
   0% {
-    -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
   }
   100% {
-    -webkit-transform: translateY(20px);
-            transform: translateY(20px);
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
   }
 }
 
-.contain .cookList_item {
-  display: inline-block;
+.cookList_contain {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 5%;
+}
+
+.cookList_contain .cookList_item {
   width: 340px;
-  margin: 0 20px 70px 20px;
   background-image: url(../images/cookList_item_bg.png);
   border-radius: 10px;
   -webkit-animation-name: move;
@@ -750,145 +844,104 @@ footer {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   animation-direction: alternate-reverse;
+  -webkit-box-shadow: 0px 2px 5px #f7c029;
+          box-shadow: 0px 2px 5px #f7c029;
 }
 
-.contain .cookList_item .cookList_img .cookList_cook {
-  margin: 20px auto 0 auto;
+.cookList_contain .cookList_item .cookList_img {
+  text-align: center;
+}
+
+.cookList_contain .cookList_item .cookList_img .cookList_cook {
+  margin: 20px auto 20px auto;
   width: 300px;
 }
 
-.contain .cookList_item .cookList_img .cookList_cook img {
-  width: 100%;
+.cookList_contain .cookList_item .cookList_img .cookList_cook img {
+  width: 85%;
 }
 
-.contain .cookList_item .cookList_img .cookList_cook figcaption {
+.cookList_contain .cookList_item .cookList_img .cookList_cook figcaption {
   margin-top: 20px;
 }
 
-.contain .cookList_item .cookList_img .cookList_cook p {
-  font-size: 28px;
-  color: #000000;
+.cookList_contain .cookList_item .cookList_img .cookList_cook figcaption p {
   text-align: center;
 }
 
-.contain .cookList_item .cookList_img .cookList_cook p:nth-child(2) {
+.cookList_contain .cookList_item .cookList_img .cookList_cook figcaption p:nth-child(1) {
+  font-size: 24px;
+  color: #000000;
+}
+
+.cookList_contain .cookList_item .cookList_img .cookList_cook figcaption p:nth-child(2) {
   font-size: 20px;
   color: #4669e6;
+  margin-top: 2%;
 }
 
-.contain .cookList_item .cookList_img .cookList_cook p:nth-child(3) {
-  font-size: 14px;
-  color: #4e4e4e;
-  margin-top: 10px;
-}
-
-.contain .cookList_item .cookList_infoPanel {
-  width: 300px;
-  margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.contain .cookList_item .cookList_infoPanel div {
-  display: inline-block;
-  background-color: #001871;
-  border-radius: 10px;
-  margin: 10px 0;
-  font-size: 16px;
-  width: 130px;
-  padding: 10px;
-  color: #ffffff;
+.cookList_contain .cookList_item .cookList_vote {
   text-align: center;
-  cursor: pointer;
+  margin-bottom: 5%;
 }
 
-.contain .cookList_item .cookList_infoPanel div:nth-child(2) {
-  background-color: #4EB6E6;
+.cookList_contain .cookList_item .cookList_vote button {
+  padding: 4% 16%;
 }
 
-.contain .cookList_item .icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 10px;
-}
-
-.contain .cookList_item .icon .message, .contain .cookList_item .icon .favorite {
-  width: 35px;
-  cursor: pointer;
-}
-
-.contain .cookList_item .icon span {
-  font-size: 16px;
-  margin: 0 20px 0px 5px;
-}
-
-.contain .cookList_item .msg {
+.cookList_contain .cookList_item .msg {
   background-color: #ffffff;
   border-radius: 0 0 10px 10px;
   width: 300px;
   margin: 0 auto 30px auto;
-  border: 1px solid lightskyblue;
-  -webkit-box-shadow: 1px 1px 1px #b7e3ff;
-          box-shadow: 1px 1px 1px #b7e3ff;
+  border: 1px solid #f7c029;
+  -webkit-box-shadow: 6px 6px 0px #f7c029;
+          box-shadow: 6px 6px 0px #f7c029;
 }
 
-.contain .cookList_item .msg .big {
+.cookList_contain .cookList_item .msg .big {
   font-size: 20px;
   text-align: center;
-  color: #ffffff;
+  color: #1d1d1d;
   padding: 10px;
-  background-color: #001871;
+  background-color: #FBD672;
 }
 
-.contain .cookList_item .msg img {
+.cookList_contain .cookList_item .msg .msg_text {
+  width: 100%;
+  height: 70px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.cookList_contain .cookList_item .msg .msg_text img {
   width: 50px;
   vertical-align: middle;
 }
 
-.contain .cookList_item .msg p {
-  font-size: 16px;
+.cookList_contain .cookList_item .msg .msg_text p {
   padding: 10px;
 }
 
-.contain .cookList_item .msg .more {
+.cookList_contain .cookList_item .msg .msg_btn {
   text-align: center;
-  padding-bottom: 15px;
+  margin-bottom: 3%;
 }
 
-.contain .cookList_item .msg .more a {
-  display: inline-block;
-  background-color: #4EB6E6;
-  border-radius: 10px;
+.cookList_contain .cookList_item:nth-child(1), .cookList_contain .cookList_item:nth-child(2), .cookList_contain .cookList_item:nth-child(3) {
+  margin-bottom: 5%;
 }
 
-.contain .cookList_item .msg .more span {
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  color: #ffffff;
-  width: 130px;
-  padding: 10px 10px;
+.cookList_contain .cookList_item:nth-child(1),
+.cookList_contain .cookList_item:nth-child(4) {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
 }
 
-.contain .cookList_item:nth-child(2), .contain .cookList_item:nth-child(5) {
+.cookList_contain .cookList_item:nth-child(2),
+.cookList_contain .cookList_item:nth-child(5) {
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
-}
-
-.contain .cookList_item:nth-child(3), .contain .cookList_item:nth-child(6) {
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
 }
 
 /* ------------ cookList 結束 ---------------*/
@@ -931,159 +984,127 @@ footer {
 }
 
 /*------------------ 頁碼結束 ----------------*/
-/*------------------ 查看詳情 ----------------*/
-.look {
-  margin-bottom: 100px;
+/*------------------ 留言板燈箱開始 ----------------*/
+.msg_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
 }
 
-.look .wrap {
+.msg_overlay .msg_board {
+  background-color: #ffffff;
+  border-radius: 0 0 10px 10px;
   width: 500px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  margin: auto;
-  border-radius: 10px;
-  background-image: url(../images/look_bg.jpg);
+  margin: 0 auto 30px auto;
+  border: 1px solid #f7c029;
+  -webkit-box-shadow: 6px 6px 0px #f7c029;
+          box-shadow: 6px 6px 0px #f7c029;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.msg_overlay .msg_board .msg_title {
+  font-size: 24px;
+  text-align: center;
+  color: #1d1d1d;
+  padding: 10px;
+  background-color: #FBD672;
   position: relative;
 }
 
-.look .wrap .cross {
-  display: inline-block;
-  width: 40px;
+.msg_overlay .msg_board .msg_title img {
+  width: 7%;
   position: absolute;
+  top: 4px;
   right: 10px;
-  top: 10px;
+  cursor: pointer;
 }
 
-.look .wrap .cross img {
+.msg_overlay .msg_board .msg_wrap {
   width: 100%;
+  height: 500px;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
-.look .wrap .look_img {
-  width: 400px;
-  margin: 0 auto 20px auto;
+.msg_overlay .msg_board .msg_wrap .mem_contain {
+  border: 1px solid #f1b91e;
+  border-radius: 10px;
+  padding: 3% 3% 2% 2%;
+  margin: 3%;
 }
 
-.look .wrap .look_img p {
+.msg_overlay .msg_board .msg_wrap .mem_contain .flex_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.msg_overlay .msg_board .msg_wrap .mem_contain .flex_wrap .mem_name {
   text-align: center;
-  font-size: 35px;
-  margin-bottom: 10px;
+  width: 20%;
 }
 
-.look .wrap .look_img img {
-  width: 100%;
+.msg_overlay .msg_board .msg_wrap .mem_contain .flex_wrap .mem_name img {
+  width: 80%;
 }
 
-.look .wrap .food {
-  width: 400px;
-  margin: auto;
-  padding-bottom: 20px;
-  border-bottom: 1px dashed #585858;
+.msg_overlay .msg_board .msg_wrap .mem_contain .flex_wrap .mem_msg {
+  width: 60%;
+  padding: 5%;
 }
 
-.look .wrap .food span {
-  font-size: 20px;
-  margin-right: 93px;
+.msg_overlay .msg_board .msg_wrap .mem_contain .flex_wrap .report {
+  width: 20%;
+  text-align: right;
 }
 
-.look .wrap .food p {
-  display: inline-block;
-  width: 120px;
-  font-size: 20px;
+.msg_overlay .msg_board .msg_wrap .mem_contain .flex_wrap .report .report_btn {
+  padding: 10px;
 }
 
-.look .wrap .food .pic {
-  display: inline-block;
-  width: 70px;
-  vertical-align: middle;
+.msg_overlay .msg_board .msg_wrap .mem_contain .msg_date {
+  text-align: right;
 }
 
-.look .wrap .food .pic img {
-  width: 100%;
+.msg_overlay .msg_board .msg_input {
+  background-color: #FBD672;
+  padding: 3%;
+  border-radius: 0 0 10px 10px;
 }
 
-.look .wrap .Ingredients {
-  width: 400px;
-  margin: auto;
-  padding-top: 20px;
+.msg_overlay .msg_board .msg_input input {
+  width: 80%;
+  height: 40px;
+  border: 2px solid #eeb414;
 }
 
-.look .wrap .Ingredients span {
-  font-size: 20px;
-  margin-right: 93px;
+.msg_overlay .msg_board .msg_input .msginput_btn {
+  height: 38px;
+  padding: 10px 20px;
 }
 
-.look .wrap .Ingredients p {
-  display: inline-block;
-  width: 120px;
-  font-size: 20px;
+.msg_overlay.-on {
+  opacity: 1;
+  z-index: 100;
 }
 
-.look .wrap .Ingredients .pic {
-  display: inline-block;
-  width: 70px;
-  vertical-align: middle;
+.msg_overlay.-opacity-zero {
+  opacity: 0;
 }
 
-.look .wrap .Ingredients .pic img {
-  width: 100%;
-}
-
-.look .wrap .Ingredients_bottom {
-  width: 400px;
-  margin: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.look .wrap .Ingredients_bottom span {
-  font-size: 20px;
-  margin-right: 93px;
-}
-
-.look .wrap .Ingredients_bottom p {
-  display: inline-block;
-  width: 120px;
-  font-size: 20px;
-}
-
-.look .wrap .Ingredients_bottom .pic {
-  display: inline-block;
-  width: 70px;
-  vertical-align: middle;
-}
-
-.look .wrap .Ingredients_bottom .pic img {
-  width: 100%;
-}
-
-.look .wrap .cooking_way {
-  width: 400px;
-  margin: auto;
-  padding-top: 20px;
-  border-top: 1px dashed #585858;
-}
-
-.look .wrap .cooking_way span {
-  font-size: 20px;
-  margin-right: 93px;
-}
-
-.look .wrap .cooking_way p {
-  display: inline-block;
-  width: 120px;
-  font-size: 20px;
-}
-
-.look .wrap .cooking_way .pic {
-  display: inline-block;
-  width: 70px;
-  vertical-align: middle;
-}
-
-.look .wrap .cooking_way .pic img {
-  width: 100%;
-}
-
+/*------------------ 留言板燈箱結束 ----------------*/
+/*------------------ 查看詳情 ----------------*/
 /*------------------ 查看詳情結束 ----------------*/
 /*------------------ 完成投票提示 ----------------*/
 .vote {
@@ -1154,4 +1175,273 @@ footer {
 }
 
 /*--------置頂按鈕結束---------*/
+/*-------- RWD(max-width:1200px) ---------*/
+@media all and (max-width: 1200px) {
+  /* ------------ ranking 開始 ---------------*/
+  .wrap {
+    padding: 0 5%;
+    width: 100%;
+  }
+  .ranking_title {
+    padding-top: unset;
+  }
+  .ranking_contain .cookList_item {
+    width: 30%;
+  }
+  .ranking_contain .cookList_item .cookList_pic .food_img {
+    width: 95%;
+    -webkit-transform: translateY(49px);
+            transform: translateY(49px);
+  }
+  .ranking_contain .cookList_item .cookList_pic .barrel {
+    width: 45%;
+  }
+  .ranking_contain .cookList_item .list_bg .food_title {
+    width: 100%;
+  }
+  .ranking_contain .cookList_item .list_bg .msg {
+    width: 92%;
+    margin: auto;
+    -webkit-box-shadow: 3px 3px 0px #f7c029;
+            box-shadow: 3px 3px 0px #f7c029;
+  }
+  .ranking_contain .cookList_item .list_bg .msg .msg_text img {
+    width: 40px;
+  }
+  .ranking_contain .cookList_item .list_bg .msg .msg_text p {
+    font-size: 14px;
+  }
+  .ranking_contain:after {
+    width: 100%;
+    height: 100%;
+  }
+  /* ------------ ranking 結束 ---------------*/
+  /* ------------ aboutContest 開始 ---------------*/
+  .aboutContest {
+    margin-bottom: 8%;
+  }
+  .aboutContest .event {
+    width: 55%;
+    padding: 4%;
+  }
+  .aboutContest .event .aboutContest_title {
+    margin-bottom: 6%;
+  }
+  .aboutContest .event .text {
+    margin-bottom: 2%;
+  }
+  .aboutContest .event .text img {
+    width: 10%;
+    margin-right: 3%;
+  }
+  .aboutContest .event .text span {
+    font-size: 18px;
+  }
+  .aboutContest .event .text p {
+    width: 58%;
+    font-size: 18px;
+  }
+  .aboutContest .eventImg .board {
+    width: 200px;
+    height: 70px;
+    left: 34px;
+  }
+  .aboutContest .eventImg .character {
+    width: 43%;
+  }
+  .aboutContest .eventImg .character img {
+    width: 100%;
+  }
+  /* ------------ aboutContest 結束 ---------------*/
+  /* ------------ cookList 開始 ---------------*/
+  .cookList {
+    margin-bottom: 8%;
+  }
+  .cookList_contain .cookList_item {
+    width: 30%;
+  }
+  .cookList_contain .cookList_item .cookList_img .cookList_cook {
+    width: 90%;
+  }
+  .cookList_contain .cookList_item .msg {
+    width: 92%;
+    margin: 0 auto 4% auto;
+    -webkit-box-shadow: 3px 3px 0px #f7c029;
+            box-shadow: 3px 3px 0px #f7c029;
+  }
+  .cookList_contain .cookList_item .msg .msg_text img {
+    width: 40px;
+  }
+  .cookList_contain .cookList_item .msg .msg_text p {
+    font-size: 14px;
+  }
+  /* ------------ cookList 結束 ---------------*/
+}
+
+/*-------- RWD(max-width:991px) ---------*/
+@media all and (max-width: 991px) {
+  /* ------------ ranking 開始 ---------------*/
+  .ranking_contain {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .ranking_contain .cookList_item {
+    width: 43%;
+  }
+  .ranking_contain .cookList_item:nth-child(2) {
+    -webkit-transform: unset;
+            transform: unset;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;
+  }
+  .ranking_contain .cookList_item:nth-child(2) .cookList_pic .food_img {
+    width: 85%;
+  }
+  .ranking_contain .cookList_item:nth-child(2) .cookList_pic .barrel {
+    width: 35%;
+  }
+  /* ------------ ranking 結束 ---------------*/
+  /* ------------ aboutContest 開始 ---------------*/
+  .aboutContest .event {
+    display: block;
+    width: 90%;
+    padding: 4%;
+    margin: auto;
+  }
+  .aboutContest .event .text img {
+    width: 7%;
+  }
+  .aboutContest .event .text p {
+    width: 70%;
+  }
+  .aboutContest .eventImg {
+    display: block;
+    margin: 1% auto;
+  }
+  .aboutContest .eventImg .board {
+    display: block;
+    width: unset;
+    height: unset;
+    background-image: unset;
+    position: unset;
+    text-align: center;
+  }
+  .aboutContest .eventImg .board a {
+    display: unset;
+  }
+  .aboutContest .eventImg .board p {
+    width: unset;
+    padding: unset;
+  }
+  .aboutContest .eventImg .character {
+    display: none;
+  }
+  /* ------------ aboutContest 結束 ---------------*/
+  /* ------------ cookList 開始 ---------------*/
+  .cookList .filter {
+    margin: 5% auto;
+    text-align: center;
+  }
+  .cookList_contain .cookList_item {
+    width: 43%;
+    -webkit-animation-name: none;
+            animation-name: none;
+  }
+  .cookList_contain .cookList_item:nth-child(4), .cookList_contain .cookList_item:nth-child(5), .cookList_contain .cookList_item:nth-child(6) {
+    margin-bottom: 5%;
+  }
+  /* ------------ cookList 結束 ---------------*/
+  #go_top {
+    width: 20%;
+    height: unset;
+    right: 5%;
+    bottom: 5%;
+  }
+}
+
+/*-------- RWD(max-width:767px) ---------*/
+@media all and (max-width: 767px) {
+  /* ------------ ranking 開始 ---------------*/
+  .ranking_contain .cookList_item {
+    width: 60%;
+  }
+  .ranking_contain .cookList_item .cookList_pic .food_img {
+    width: 85%;
+  }
+  .ranking_contain .cookList_item .cookList_pic .barrel {
+    width: 35%;
+  }
+  .ranking_contain .cookList_item:nth-child(2) {
+    -ms-flex-preferred-size: unset;
+        flex-basis: unset;
+  }
+  .ranking_contain .cookList_item:nth-child(2) .cookList_pic .food_img {
+    width: 85%;
+  }
+  .ranking_contain .cookList_item:nth-child(2) .cookList_pic .barrel {
+    width: 35%;
+  }
+  .ranking_contain:after {
+    display: none;
+  }
+  /* ------------ ranking 結束 ---------------*/
+  /* ------------ aboutContest 開始 ---------------*/
+  .aboutContest .event .text span {
+    font-size: 16px;
+    margin-right: 2%;
+  }
+  .aboutContest .event .text p {
+    font-size: 16px;
+    width: 65%;
+  }
+  .aboutContest .eventImg {
+    width: 45%;
+  }
+  .aboutContest .eventImg .board p {
+    font-size: 18px;
+  }
+  /* ------------ aboutContest 結束 ---------------*/
+  /* ------------ cookList 開始 ---------------*/
+  .cookList_contain {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .cookList_contain .cookList_item {
+    width: 60%;
+  }
+  .cookList_contain .cookList_item:nth-child(1), .cookList_contain .cookList_item:nth-child(2), .cookList_contain .cookList_item:nth-child(3), .cookList_contain .cookList_item:nth-child(4), .cookList_contain .cookList_item:nth-child(5), .cookList_contain .cookList_item:nth-child(6) {
+    margin-bottom: 8%;
+  }
+  /* ------------ cookList 結束 ---------------*/
+}
+
+/*-------- RWD(max-width:576px) ---------*/
+@media all and (max-width: 576px) {
+  /* ------------ ranking 開始 ---------------*/
+  .ranking_contain .cookList_item {
+    width: 80%;
+  }
+  /* ------------ ranking 結束 ---------------*/
+  /* ------------ aboutContest 開始 ---------------*/
+  .aboutContest .event .aboutContest_title p {
+    font-size: 24px;
+  }
+  .aboutContest .event .text p {
+    width: 55%;
+  }
+  .aboutContest .eventImg {
+    width: 70%;
+  }
+  /* ------------ aboutContest 結束 ---------------*/
+  /* ------------ cookList 開始 ---------------*/
+  .cookList_contain .cookList_item {
+    width: 80%;
+  }
+  /* ------------ cookList 結束 ---------------*/
+}
 /*# sourceMappingURL=contest.css.map */
