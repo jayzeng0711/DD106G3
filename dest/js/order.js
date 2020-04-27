@@ -1,42 +1,201 @@
-$(function() {
+window.addEventListener('load', function() {
 
     // 按步驟切換頁面位置
 
-    // $('.section2').css('display', 'none');
-    // $('.section3').css('display', 'none');
+    $('.section2').css('display', 'none');
+    $('.section3').css('display', 'none');
 
     $('.section1 .next').click(function() {
         $('html').animate({
             scrollTop: $('.section2').offset().top
         }, 600);
-        // $('.section1').css('display', 'none');
-        // $('.section2').css('display', 'block');
+        $('.section1').css('display', 'none');
+        $('.section2').css('display', 'block');
 
     });
     $('.section2 .next').click(function() {
         $('html').animate({
             scrollTop: $('.section3').offset().top
         }, 600);
-        // $('.section2').css('display', 'none');
-        // $('.section3').css('display', 'block');
+        $('.section2').css('display', 'none');
+        $('.section3').css('display', 'block');
 
     });
     $('.section2 .previous').click(function() {
         $('html').animate({
             scrollTop: $('.section1').offset().top
         }, 600);
-        // $('.section1').css('display', 'block');
-        // $('.section2').css('display', 'none');
+        $('.section1').css('display', 'block');
+        $('.section2').css('display', 'none');
 
     });
     $('.section3 .previous').click(function() {
         $('html').animate({
             scrollTop: $('.section2').offset().top
         }, 600);
-        // $('.section2').css('display', 'block');
-        // $('.section3').css('display', 'none');
+        $('.section2').css('display', 'block');
+        $('.section3').css('display', 'none');
 
     });
+
+    // 訂位頁面，選不同港口
+    $('.section1 .port label').click(function() {
+        $(this).css('background', '#4EB6E6');
+        $(this).css('color', '#fff');
+
+        $('.port label').not(this).css('background', '#fff');
+        $('.port label').not(this).css('color', '#034');
+    });
+
+
+
+    // 訂位頁面，人數不小於0、不是空值
+
+    $('#people').change(function() {
+
+        let inputVal = $(this).val();
+
+        if (inputVal == "") {
+            $(this).val(0);
+        }
+        if (parseInt(inputVal) < 0) {
+            $(this).val(0);
+        }
+        console.log($(this).val());
+
+    });
+
+
+    // 月曆
+
+    let now = new Date(), //今天日期
+        days = document.getElementsByClassName('day'); //每一格td
+
+    // 顯示年份
+    let nowyear = document.getElementById('nowyear');
+    for (let i = 1900; i <= 2100; i++) {
+        option = new Option(i, i);
+        nowyear.add(option);
+    }
+    nowyear.selectedIndex = now.getFullYear() - 1900;
+
+
+    // 顯示月份
+    let nowmonth = document.getElementById('nowmonth');
+    for (let i = 1; i <= 12; i++) {
+        option = new Option(i, i);
+        nowmonth.add(option);
+    }
+    nowmonth.selectedIndex = now.getMonth();
+
+
+
+
+
+    //下載完就執行
+    showCalender();
+
+
+    function showCalender() {
+        let year = nowyear.value, //現在選的年份
+            month = nowmonth.value, //現在選的月份
+            first = new Date(year, month - 1, 1).getDay(), //現在選的月份的第一天是禮拜幾?
+            week5 = document.getElementById('week5'),
+            week6 = document.getElementById('week6');
+
+
+        // 歸零：清空月曆、清除顏色、顯示第5和第6星期
+        for (i in days) {
+            days[i].innerText = "";
+            // days[i].style.backgroundColor = "white";
+
+        }
+
+        for (let i = 0; i < days.length; i++) {
+            days[i].style.backgroundColor = "white";
+        };
+
+        week5.style.display = '';
+        week6.style.display = '';
+
+
+        // Month陣列存放有31天的月份
+        let Month = [1, 3, 5, 7, 8, 10, 12];
+
+
+        // 先判斷2月(400的倍數閏年 > 100的倍數平年 > 4的倍數閏年)
+        // 再判斷有31天的月份
+        // 其他就是30天
+
+
+        if (month == 2) {
+
+            if (year % 400 == 0) {
+                for (let i = 0; i <= 28; i++) {
+                    days[first + i].innerText = i + 1;
+                }
+
+            } else if (year % 100 == 0) {
+                for (let i = 0; i <= 27; i++) {
+                    days[first + i].innerText = i + 1;
+                }
+
+            } else if (year % 4 == 0) {
+                for (let i = 0; i <= 28; i++) {
+                    days[first + i].innerText = i + 1;
+                }
+
+            } else {
+                for (let i = 0; i <= 27; i++) {
+                    days[first + i].innerText = i + 1;
+                }
+
+            }
+
+        } else if (Month.indexOf(parseInt(month)) != -1) {
+            for (let i = 0; i <= 30; i++) {
+                days[first + i].innerText = i + 1;
+            }
+
+        } else {
+            for (let i = 0; i <= 29; i++) {
+                days[first + i].innerText = i + 1;
+            }
+
+        }
+
+
+        // 確認有沒有第5和第6個星期
+
+        if (days[28].innerText == "") {
+            week5.style.display = 'none';
+            week6.style.display = 'none';
+        } else if (days[35].innerText == "") {
+            week6.style.display = 'none';
+        }
+
+
+        // 今天的那一格變色
+        if (year == now.getFullYear() && month == now.getMonth() + 1) {
+            days[first + now.getDate() - 1].style.backgroundColor = 'yellow';
+
+        }
+
+
+    }
+
+    // 改變年份
+    nowyear.addEventListener('change', function() {
+        showCalender();
+    });
+
+
+    // 改變月份
+    nowmonth.addEventListener('change', function() {
+        showCalender();
+    });
+
+
 
     // 地圖
 
@@ -88,5 +247,4 @@ $(function() {
         console.log($(this).val());
 
     });
-
 });

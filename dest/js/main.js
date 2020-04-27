@@ -2,19 +2,6 @@ window.addEventListener('load', function() {
 
     AOS.init();
 
-    // 第一屏高度
-    // console.log($('header').height());
-
-    // let headerH = $('header').height();
-    // let winH = $(window).height();
-    // $('.section1').height((winH - headerH));
-
-    // $(window).resize(function() {
-    //     let headerH = $('header').height();
-    //     let winH = $(window).height();
-    //     $('.section1').height((winH - headerH));
-    // });
-
 
     // 進入首頁，第一屏島嶼移動，背景圖改變位置
     let islandMoveTime = setInterval(islandMove, 30);
@@ -103,10 +90,34 @@ window.addEventListener('load', function() {
         }
     };
 
+    // 變換港口的文字
+    setInterval(changePort, 2000)
+    let port = 1;
+
+    function changePort() {
+
+        let portName = $('.section1 .port p')
+        if (port % 3 == 0) {
+            portName.text('深澳港');
+
+        } else if (port % 3 == 1) {
+            $('.section1 .port p').text('梧棲港');
+
+        } else {
+            $('.section1 .port p').text('高雄港');
+        }
+
+        port++;
+
+    }
+
+
+
+
 
     // 視窗滑到地圖頂端，地圖變小
     function check() {
-        if ($(window).scrollTop() >= ($('.map').offset().top - 100)) {
+        if ($(window).scrollTop() >= ($('.map').offset().top - 200)) {
             small();
             clearInterval(timeMap);
 
@@ -116,9 +127,9 @@ window.addEventListener('load', function() {
 
 
     // 測試用
-    window.addEventListener("wheel", function() {
-        setInterval(check, 100)
-    });
+    // window.addEventListener("wheel", function() {
+    //     setInterval(check, 100)
+    // });
 
     // 地圖變小
     function small() {
@@ -143,7 +154,7 @@ window.addEventListener('load', function() {
 
 
     // 訂位頁面，選不同港口
-    $('.port label').click(function() {
+    $('.section2 .port label').click(function() {
         $(this).css('background', '#4EB6E6');
         $(this).css('color', '#fff');
 
@@ -152,12 +163,29 @@ window.addEventListener('load', function() {
     });
 
 
+
+    // 訂位頁面，人數不小於0、不是空值
+
+    $('#people').change(function() {
+
+        let inputVal = $(this).val();
+
+        if (inputVal == "") {
+            $(this).val(0);
+        }
+        if (parseInt(inputVal) < 0) {
+            $(this).val(0);
+        }
+        console.log($(this).val());
+
+    });
+
     // 點餐卡片會動
 
     VanillaTilt.init(document.querySelectorAll(".menu"), {
         max: 25,
         speed: 1000,
-        scale: 1.2
+        // scale: 1.2
     });
 
 
