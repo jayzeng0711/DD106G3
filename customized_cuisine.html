@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/customized_cuisine.css">
     <title>Document</title>
+
+    <script src="./jquery/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+
 </head>
 
 <body>
@@ -14,6 +19,7 @@
 
     <div class="container">
         <main>
+            <h1>客製化料理</h1>
             <div class="intro">
                 <p>
                     修旦幾勒，已經登入了嗎？沒有登入的話就沒辦法記錄料理囉
@@ -36,36 +42,42 @@
                 </h3>
                 <section class="choose-fish">
 
-                    <div class="note">
+                    <div class="note selected-fish">
                         <div class="note-content">
                             <span>章魚</span>
                             <span>價格：NT$800元</span>
                         </div>
 
-                        <div class="fish-pic"></div>
+                        <div class="fish-pic">
+                            <img src="./images/seafood3.png" alt="octopus">
+                        </div>
                     </div>
                     <div class="note">
                         <div class="note-content">
                             <span>胭脂蝦</span>
                             <span>價格：NT$800元</span>
                         </div>
-                        <div class="fish-pic"></div>
+                        <div class="fish-pic">
+                            <img src="./images/seafood8.png" alt="shrimp">
+                        </div>
                     </div>
                     <div class="note">
                         <div class="note-content">
                             <span>鰈魚</span>
                             <span>價格：NT$800元</span>
                         </div>
-                        <div class="fish-pic"></div>
+                        <div class="fish-pic">
+                            <img src="./images/seafood4.png" alt="flounder">
+                        </div>
                     </div>
                 </section>
             </div>
 
             <section class="paper">
-                <div class="center">
+                <div class="center" id="center">
                     <div class="side-left">
-                        <div class="food-display">
-                            <img src="./images/cook1.png" alt="" srcset="">
+                        <div class="food-display" id="pin">
+                            <img src="./images/seafood3.png" alt="" srcset="">
                         </div>
                     </div>
 
@@ -94,7 +106,7 @@
                                                     <figcaption>
                                                         <p>奶油</p>
                                                     </figcaption>
-                                                    <img src="./images/butter.png" alt="">
+                                                    <img src="./images/seafood3.png" alt="">
                                                 </figure>
                                             </li>
                                             <li>
@@ -102,7 +114,7 @@
                                                     <figcaption>
                                                         <p>奶油</p>
                                                     </figcaption>
-                                                    <img src="./images/butter.png" alt="">
+                                                    <img src="./images/seafood8.png" alt="">
                                                 </figure>
                                             </li>
                                         </ul>
@@ -114,7 +126,7 @@
                                                     <figcaption>
                                                         <p>奶油</p>
                                                     </figcaption>
-                                                    <img src="./images/butter.png" alt="">
+                                                    <img src="./images/seafood4.png" alt="">
                                                 </figure>
                                             </li>
                                             <li>
@@ -122,7 +134,7 @@
                                                     <figcaption>
                                                         <p>奶油</p>
                                                     </figcaption>
-                                                    <img src="./images/butter.png" alt="">
+                                                    <img src="./images/seafood8.png" alt="">
                                                 </figure>
                                             </li>
                                             <li>
@@ -130,7 +142,7 @@
                                                     <figcaption>
                                                         <p>奶油</p>
                                                     </figcaption>
-                                                    <img src="./images/butter.png" alt="">
+                                                    <img src="./images/seafood3.png" alt="">
                                                 </figure>
                                             </li>
                                         </ul>
@@ -241,51 +253,23 @@
                             </div>
                         </div>
 
-                        <!-- <div class="choose-fish">
-                            <h3>捕獲食材(擇一)</h3>
-                            <ul>
-                                <li>
-                                    <figure>
-                                        <figcaption>
-                                            <p>毛蟹</p>
-                                        </figcaption>
-                                        <img src="./images/seafood2.png" alt="">
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure>
-                                        <figcaption>
-                                            <p>鮭魚</p>
-                                        </figcaption>
-                                        <img src="./images/seafood1.png" alt="">
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure>
-                                        <figcaption>
-                                            <p>鮪魚</p>
-                                        </figcaption>
-                                        <img src="./images/seafood5.png" alt="">
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure>
-                                        <figcaption>
-                                            <p>鰈魚</p>
-                                        </figcaption>
-                                        <img src="./images/seafood4.png" alt="">
-                                    </figure>
-                                </li>
-                            </ul>
-                        </div> -->
-
                         <div class="choose-cook">
                             <h3>STEP 2： 選擇一個海鮮的烹調方式</h3>
                             <div class="choose-cook">
-                                <ul>
-                                    <li>煮湯</li>
-                                    <li>蒸</li>
-                                    <li>烤</li>
+                                <ul class="list-of-cook">
+                                    <li class="cook-type type-for-oct oct">煮湯</li>
+                                    <li class="cook-type type-for-oct oct">蒸</li>
+                                    <li class="cook-type type-for-oct oct">烤</li>
+                                </ul>
+                                <ul class="list-of-cook" style="display: none;">
+                                    <li class="cook-type type-for-shr shr1">炒</li>
+                                    <li class="cook-type type-for-shr shr2">炸</li>
+                                    <li class="cook-type type-for-shr shr3">涼拌</li>
+                                </ul>
+                                <ul class="list-of-cook" style="display: none;">
+                                    <li class="cook-type type-for-flo flo1">煮清湯</li>
+                                    <li class="cook-type type-for-flo flo2">生吃</li>
+                                    <li class="cook-type type-for-flo flo3">烤</li>
                                 </ul>
                             </div>
                         </div>
@@ -363,6 +347,7 @@
     <footer></footer>
     <script src="./jquery/jquery.min.js"></script>
     <script>
+        // 手機用版面
         $(function () {
             $("a.tab").on("click", function (e) {
                 e.preventDefault();
@@ -375,6 +360,100 @@
                 $(".tab-contents div.tab").removeClass("-on");
                 $(".tab-contents div.tab." + $(this).attr("data-target")).addClass("-on");
             });
+        });
+    </script>
+    <script>
+        // =================海鮮和烹調的切換
+        // 選海鮮，被選擇的海鮮會有紅圈
+        $(".fish-pic, .note-content").on("click", function () {
+            $(".note").removeClass("selected-fish");
+            $(this.parentNode).addClass("selected-fish");
+        });
+
+        // 選了海鮮後會更換烹調
+        let s_note = document.getElementsByClassName("note");
+        let cookList = document.getElementsByClassName("list-of-cook");
+        // alert(s_note.length);
+        // alert(cookList.length);
+        for (let i = 0; i < s_note.length; i++) {
+            s_note[i].addEventListener('click', function () {
+                for (let j = 0; j < cookList.length; j++) {
+                    if (j == i) {
+                        cookList[j].style.display = "flex";
+                    } else {
+                        cookList[j].style.display = "none";
+                    }
+                }
+            })
+        };
+
+        // 選擇任一海鮮時預覽區的圖片更改  點選範圍僅限圖片
+        for (var i = 0; i < s_note.length; i++) {
+            s_note[i].addEventListener("click", function (e) {
+                let c_fish = e.target; //這裡的target是海鮮圖片本身 
+                let fish_pic = document.getElementById("pin");
+                let fish_src = $("#pin img").attr("src");
+
+                if (c_fish.alt == "octopus") {
+                    var fish_name = $("#pin img").attr("src").substr(16, 1);
+                    let fish_new_name = fish_src.replace(fish_name, '3');
+                    $("#pin img").attr("src", fish_new_name);
+                } else if (c_fish.alt == "shrimp") {
+                    var fish_name = $("#pin img").attr("src").substr(16, 1);
+                    let fish_new_name = fish_src.replace(fish_name, '8');
+                    $("#pin img").attr("src", fish_new_name);
+                } else if (c_fish.alt == "flounder") {
+                    var fish_name = $("#pin img").attr("src").substr(16, 1);
+                    let fish_new_name = fish_src.replace(fish_name, '4');
+                    $("#pin img").attr("src", fish_new_name);
+                }
+            }, false);
+        }
+    </script>
+
+    <script>
+        // 點烹調換圖片 判斷有問題
+        alert($("#pin").hasClass("move"));
+            let type_flo = document.getElementsByClassName("type-for-flo");
+            for (var i = 0; i < type_flo.length; i++) {
+               
+                type_flo[i].addEventListener("click", function (e) {
+                    let d_fish = e.target;
+                    let dish_pic = document.getElementById("pin");
+                    let dish_src = $("#pin img").attr("src");
+                    alert(d_fish.classList);
+                    if (d_fish.hasClass("flo1") == true) {
+                        var dish_name = $("#pin img").attr("src").substr(9, 8);
+                        let dish_new_name = fish_src.replace(fish_name, 'cook1');
+                        $("#pin img").attr("src", dish_new_name);
+                    } else if (d_fish.hasClass("flo2") == true) {
+                        var fish_name = $("#pin img").attr("src").substr(9, 8);
+                        let fish_new_name = fish_src.replace(fish_name, 'cook2');
+                        $("#pin img").attr("src", fish_new_name);
+                    } else if (d_fish.hasClass("flo3") == true ) {
+                        var fish_name = $("#pin img").attr("src").substr(16, 1);
+                        let fish_new_name = fish_src.replace(fish_name, 'cook3');
+                        $("#pin img").attr("src", fish_new_name);
+                    }
+                }, false);
+            }
+
+    </script>
+
+    <script>
+        // 食物預覽圖跟著移動
+        var controller = new ScrollMagic.Controller();
+
+        $(function () {
+            var scene = new ScrollMagic.Scene({
+                    triggerElement: "#center",
+                    triggerHook: 0, //觸發點位置 瀏覽器
+                    duration: 150,
+                })
+                .setPin("#pin")
+                .addIndicators({
+                    name: "1 (duration: 170)"
+                }).addTo(controller);
         });
     </script>
 </body>
