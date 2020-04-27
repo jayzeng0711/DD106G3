@@ -1,10 +1,9 @@
-@import "base/var" ;
-
-
+@import "base/var";
 body {
     // background: linear-gradient(#abdcfa,#11408c);
-    background-image: url(../images/ocean_bg2.png);
-    background-size: contain;
+    background-image: url(../images/色塊-4-01.jpg);
+    background-size: cover;
+    overflow-x: hidden;
 }
 
 footer {
@@ -18,286 +17,438 @@ footer {
 
 /* ------------ ranking 開始 ---------------*/
 .ranking {
-    margin-bottom: 70px;
+    margin-bottom: 8%;
 }
 
 .wrap {
+    // padding: 0 20px;
+    margin: auto;
+    max-width: 1200px;
+    // border: 1px solid red;
     // padding: 0 20px;
     margin: 0 auto;
     width: 1200px;
 }
 
-.ranking_title{
+.ranking_title {
     padding-top: 60px;
+}
 
-    h1 {
-        font-family: 'HonyaJi-Re';
-        font-size: 36px;
-        text-align: center;
+@keyframes lightmove {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }
 
-.contain .ranking_item {
-    display: inline-block;
-    width: 340px;
-    margin: 0 20px 0px 20px;
-    // border: 1px solid rgb(0, 0, 0);
-
-    .ranking_bg{
-        // background-image: url(../image/cookList_item_bg.png);
-        background-image: url(../images/cookList_item_bg.png);
-        border-radius: 10px;
-        padding-top: 10px;
-        padding-bottom: 20px;
-        // border: 1px solid red;
-    }
-}
-.contain .ranking_item:nth-child(1),.contain .ranking_item:nth-child(3){
-    // position: relative;
-    // top: 100px;
-    transform: translateY(100px);
-    margin-bottom: 200px;
-}
-
-.contain .ranking_item .cookList_img{
-    // border: 1px solid red;
-
-    .cookList_cook{
-        margin: 0px auto 0px auto;
-        width: 300px;
-        // position: relative;
-        // top: 70px;
-        transform: translateY(70px);
-        // border: 1px solid rgb(243, 243, 13);
-    
-        img {
-            width: 100%;
-            // border: 1px solid red;
-        }
-    
-        figcaption {
-            margin-bottom: 20px;
-            // border: 1px solid red;
-        }
-    
-        p {
-            font-size: 28px;
-            color: #000000;
-            text-align: center;
-        }
-    
-        p:nth-child(2){
-            font-size: 20px;
-            color: #4669e6;
-        }
-    
-        p:nth-child(3){
-            font-size: 14px;
-            color: #4e4e4e;
-            margin-top: 10px;
-        }
-    }
-
-    .barrel{
-        width: 180px;
-        margin: auto;
-        margin-bottom: 20px;
-
-        img{
-            width: 100%;
-        }
-    }
-}
-
-.contain .ranking_item .ranking_bg .cookList_infoPanel{
-    // text-align: center;
-    // border: 1px solid red;
-    width: 300px;
-    margin: auto;
+.ranking_contain {
     display: flex;
     justify-content: space-between;
+    position: relative;
 
-    div{
-        display: inline-block;
-        background-color: #001871;
-        border-radius: 10px;
-        margin: 10px 0;
-        font-size: 16px;
-        width: 130px;
-        padding: 10px;
-        color: #ffffff;
-        text-align: center;
-        // border: 1px solid yellow;
-    }
+    .cookList_item {
+        width: 340px;
 
-    div:nth-child(2){
-        background-color: #4EB6E6;
-    }
+        .cookList_pic {
+            position: relative;
+            top: 70px;
 
-    // span{
-    //     text-align: center;
-    //     display: inline-block;
-    //     font-size: 16px;
-    //     color: #ffffff;
-    //     width: 130px;
-    //     padding: 10px;
-    // }
-}
-
-.contain .ranking_item .ranking_bg .icon{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-bottom: 10px;
-    // border: 1px solid rgb(253, 34, 34);
-
-    .message{
-        width: 35px;
-        cursor: pointer;
-    }
-    span{
-        font-size: 16px;
-        margin: 0 20px 0px 5px;
-    }
-}
-
-.contain .ranking_item .ranking_bg .msg{
-    background-color: #ffffff;
-    border-radius: 0 0 10px 10px;
-    width: 300px;
-    margin: 0 auto 0px auto;
-    border: 1px solid lightskyblue;
-    box-shadow: 1px 1px 1px  rgb(183, 227, 255);
-
-    .big{
-        font-size: 20px;
-        text-align: center;
-        color: #ffffff;
-        padding: 10px;
-        background-color: #001871;
-    }
-
-    img{
-        width: 50px;
-        vertical-align: middle;
-    }
-
-    p{
-        font-size: 16px;
-        padding: 10px;
-        
-    }
-
-    .more{
-        text-align: center;
-        padding-bottom: 15px;
-        // border: 1px solid red;
-
-        a{
-            display: inline-block;
-            background-color: #4EB6E6;
-            border-radius: 10px;
             // border: 1px solid red;
+            .food_img {
+                margin: 0px auto 0px auto;
+                width: 280px;
+                transform: translateY(57px);
+                // border: 1px solid rgb(243, 243, 13);
+
+                img {
+                    width: 100%;
+                    // border: 1px solid red;
+                }
+            }
+
+            .barrel {
+                width: 135px;
+                margin: auto;
+                margin-bottom: 20px;
+
+                img {
+                    width: 100%;
+                }
+            }
         }
-    
-        span{
-            text-align: center;
-            display: inline-block;
-            font-size: 16px;
-            color: #ffffff;
-            width: 130px;
-            padding: 10px 10px;
+
+        .list_bg {
+            background-image: url(../images/cookList_item_bg.png);
+            border-radius: 10px;
+            padding-top: 50px;
+            padding-bottom: 20px;
+            box-shadow: 0px 2px 5px #f7c029;
+
+            .food_title {
+                margin: 20px auto 20px auto;
+                width: 300px;
+                text-align: center;
+
+                p:nth-child(1) {
+                    font-size: 24px;
+                    color: #000000;
+                }
+
+                p:nth-child(2) {
+                    font-size: 20px;
+                    color: #4669e6;
+                    margin-top: 2%;
+                }
+            }
+
+            .cookList_vote {
+                text-align: center;
+                margin-bottom: 5%;
+
+                button {
+                    @extend %btn_ano;
+                    padding: 4% 16%;
+                }
+            }
+
+            .msg {
+                background-color: #ffffff;
+                border-radius: 0 0 10px 10px;
+                width: 300px;
+                margin: 0 auto 30px auto;
+                border: 1px solid #f7c029;
+                box-shadow: 6px 6px 0px rgb(247, 192, 41);
+
+                .big {
+                    font-size: 20px;
+                    text-align: center;
+                    color: #1d1d1d;
+                    padding: 10px;
+                    background-color: #FBD672;
+                }
+
+                .msg_text {
+                    width: 100%;
+                    height: 70px;
+                    overflow: scroll;
+                    overflow-x: hidden;
+
+                    img {
+                        width: 50px;
+                        vertical-align: middle;
+                    }
+
+                    p {
+                        padding: 10px;
+                    }
+                }
+
+                .msg_btn {
+                    text-align: center;
+                    margin-bottom: 3%;
+
+                    button {
+                        @extend %btn;
+                    }
+                }
+
+            }
         }
+
+
+
     }
 
+    .cookList_item:nth-child(2) {
+        transform: translateY(-15%);
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: -13%;
+        width: 1158px;
+        height: 744px;
+        background-image: url(../images/light_move.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        animation-name: lightmove;
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
 }
+
+
+// 舊的排行榜版面
+
+// .contain .ranking_item {
+//     display: inline-block;
+//     width: 340px;
+//     margin: 0 20px 0px 20px;
+//     // border: 1px solid rgb(0, 0, 0);
+
+//     .ranking_bg{
+//         // background-image: url(../image/cookList_item_bg.png);
+//         background-image: url(../images/cookList_item_bg.png);
+//         border-radius: 10px;
+//         padding-top: 10px;
+//         padding-bottom: 20px;
+//         // border: 1px solid red;
+//     }
+// }
+// .contain .ranking_item:nth-child(1),.contain .ranking_item:nth-child(3){
+//     // position: relative;
+//     // top: 100px;
+//     transform: translateY(100px);
+//     margin-bottom: 200px;
+// }
+
+// .contain .ranking_item .cookList_img{
+//     // border: 1px solid red;
+
+//     .cookList_cook{
+//         margin: 0px auto 0px auto;
+//         width: 300px;
+//         // position: relative;
+//         // top: 70px;
+//         transform: translateY(70px);
+//         // border: 1px solid rgb(243, 243, 13);
+
+//         img {
+//             width: 100%;
+//             // border: 1px solid red;
+//         }
+
+//         figcaption {
+//             margin-bottom: 20px;
+//             // border: 1px solid red;
+//         }
+
+//         p {
+//             font-size: 28px;
+//             color: #000000;
+//             text-align: center;
+//         }
+
+//         p:nth-child(2){
+//             font-size: 20px;
+//             color: #4669e6;
+//         }
+
+//         p:nth-child(3){
+//             font-size: 14px;
+//             color: #4e4e4e;
+//             margin-top: 10px;
+//         }
+//     }
+
+//     .barrel{
+//         width: 180px;
+//         margin: auto;
+//         margin-bottom: 20px;
+
+//         img{
+//             width: 100%;
+//         }
+//     }
+// }
+
+// .contain .ranking_item .ranking_bg .cookList_infoPanel{
+//     // text-align: center;
+//     // border: 1px solid red;
+//     width: 300px;
+//     margin: auto;
+//     display: flex;
+//     justify-content: space-between;
+
+//     div{
+//         display: inline-block;
+//         background-color: #001871;
+//         border-radius: 10px;
+//         margin: 10px 0;
+//         font-size: 16px;
+//         width: 130px;
+//         padding: 10px;
+//         color: #ffffff;
+//         text-align: center;
+//         // border: 1px solid yellow;
+//     }
+
+//     div:nth-child(2){
+//         background-color: #4EB6E6;
+//     }
+
+//     // span{
+//     //     text-align: center;
+//     //     display: inline-block;
+//     //     font-size: 16px;
+//     //     color: #ffffff;
+//     //     width: 130px;
+//     //     padding: 10px;
+//     // }
+// }
+
+// .contain .ranking_item .ranking_bg .icon{
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: center;
+//     margin-bottom: 10px;
+//     // border: 1px solid rgb(253, 34, 34);
+
+//     .message{
+//         width: 35px;
+//         cursor: pointer;
+//     }
+//     span{
+//         font-size: 16px;
+//         margin: 0 20px 0px 5px;
+//     }
+// }
+
+// .contain .ranking_item .ranking_bg .msg{
+//     background-color: #ffffff;
+//     border-radius: 0 0 10px 10px;
+//     width: 300px;
+//     margin: 0 auto 0px auto;
+//     border: 1px solid lightskyblue;
+//     box-shadow: 1px 1px 1px  rgb(183, 227, 255);
+
+//     .big{
+//         font-size: 20px;
+//         text-align: center;
+//         color: #ffffff;
+//         padding: 10px;
+//         background-color: #001871;
+//     }
+
+//     img{
+//         width: 50px;
+//         vertical-align: middle;
+//     }
+
+//     p{
+//         font-size: 16px;
+//         padding: 10px;
+
+//     }
+
+//     .more{
+//         text-align: center;
+//         padding-bottom: 15px;
+//         // border: 1px solid red;
+
+//         a{
+//             display: inline-block;
+//             background-color: #4EB6E6;
+//             border-radius: 10px;
+//             // border: 1px solid red;
+//         }
+
+//         span{
+//             text-align: center;
+//             display: inline-block;
+//             font-size: 16px;
+//             color: #ffffff;
+//             width: 130px;
+//             padding: 10px 10px;
+//         }
+//     }
+
+// }
 
 /* ------------ ranking 結束 ---------------*/
 
 
 /* ------------ aboutContest 開始 ---------------*/
-.aboutContest{
+.aboutContest {
     margin-bottom: 70px;
-}
 
-.event{
-    display: inline-block;
-    width: 630px;
-    background-color: #e0f1fc;
-    border-radius: 50px;
-    padding: 40px;
-    /* border: 1px solid blue; */
-
-}
-
-.event .aboutContest_title{
-    margin-bottom: 30px;
-
-    p{
-        font-size: 40px;
-        text-align: center;
-    }
-}
-
-.event .description .text{
-    margin-bottom: 10px;
-    img{
-        width: 60px;
-        margin-right: 30px;
-        vertical-align: top;
-    }
-    span{
-        font-size: 20px;
-        color: #4669e6;
-        margin-right: 30px;
-        vertical-align: top;
-    }
-    p{
+    .event {
         display: inline-block;
-        width: 340px;
-        font-size: 20px;
-        vertical-align: top;
+        width: 55%;
+        background-color: #e0f1fc;
+        border-radius: 50px;
+        padding: 40px;
+
+        .aboutContest_title {
+            margin-bottom: 30px;
+
+            p {
+                font-size: 28px;
+                text-align: center;
+            }
+        }
+
+        .text {
+            margin-bottom: 10px;
+
+            img {
+                width: 60px;
+                margin-right: 30px;
+                vertical-align: top;
+            }
+
+            span {
+                font-size: 20px;
+                color: #4669e6;
+                margin-right: 22px;
+                vertical-align: top;
+            }
+
+            p {
+                display: inline-block;
+                width: 340px;
+                font-size: 20px;
+                vertical-align: top;
+            }
+        }
     }
-}
 
-.eventImg{
-    display: inline-block;
-    width: 520px;
-    /* border: 1px solid red; */
-    vertical-align: top;
-}
+    .eventImg {
+        display: inline-block;
+        width: 43%;
+        vertical-align: top;
 
-.eventImg .board{
-    display: inline-block;
-    width: 250px;
-    height: 80px;
-    background-image: url(../images/Path315.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: relative;
-    top: 30px;
-    left: 85px;
-    vertical-align: top;
-}
+        .board {
+            display: inline-block;
+            width: 250px;
+            height: 80px;
+            background-image: url(../images/Path315.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: relative;
+            top: 30px;
+            left: 85px;
+            vertical-align: top;
 
-.eventImg .board a{
-    display: inline-block;
-}
+            a {
+                display: inline-block;
+            }
 
-.eventImg .board p{
-    width: 185px;
-    padding: 15px 15px 15px 20px;
-    font-size: 20px;
-    color: #001871;
-}
+            p {
+                width: 185px;
+                padding: 15px 15px 15px 20px;
+                font-size: 20px;
+                color: #001871;
+            }
+        }
 
-.eventImg .character{
-    display: inline-block;
-}
+        .character {
+            display: inline-block;
+            width: 230px;
+            cursor: pointer;
 
-.eventImg .character img{
-    width: 230px;
-    cursor: pointer;
+            img {
+                width: 100%;
+            }
+        }
+    }
 }
 
 /* ------------ aboutContest 結束 ---------------*/
@@ -305,205 +456,169 @@ footer {
 
 /* ------------ cookList 開始 ---------------*/
 
-.cookList{
+.cookList {
     margin-bottom: 70px;
-    .cookList_title{
-        padding-top: 60px;
-    
-        h1 {
-            font-size: 50px;
-            text-align: center;
+
+    .cookList_title {
+        text-align: center;
+        font-size: 28px;
+    }
+
+    .filter {
+        margin-top: 60px;
+        margin-bottom: 40px;
+
+        span {
+            font-size: 20px;
+        }
+
+        select {
+            font-family: 'jf-openhuninn-1.0';
+            font-size: 20px;
+            color: #ffffff;
+            background-color: #4EB6E6;
+            padding: 10px;
+            border-radius: 10px;
+            border: transparent;
         }
     }
 }
 
-.filter{
-    margin-top: 60px;
-    margin-bottom: 40px;
 
-    span{
-        font-size: 20px;
-        color: #fff;
-    }
-    select{
-        font-family: 'jf-openhuninn-1.0';
-        font-size: 20px;
-        color: #ffffff;
-        background-color: #4EB6E6;
-        padding: 10px;
-        border-radius: 10px;
-        border: transparent;
-    }
-}
 
 @keyframes move {
     0% {
-        transform: translateY(-20px);
+        transform: translateY(-15px);
     }
-    100%{
-        transform: translateY(20px);
+
+    100% {
+        transform: translateY(15px);
     }
 }
 
-.contain .cookList_item {
-    display: inline-block;
-    width: 340px;
-    margin: 0 20px 70px 20px;
-    background-image: url(../images/cookList_item_bg.png);
-    border-radius: 10px;
-    animation-name: move;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-direction:alternate-reverse;
-    // animation-timing-function:linear;
-    // border: 2px solid rgb(3, 129, 41);
+.cookList_contain {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 5%;
 
-    .cookList_img{
-        .cookList_cook{
-            margin: 20px auto 0 auto;
+    .cookList_item {
+        width: 340px;
+        background-image: url(../images/cookList_item_bg.png);
+        border-radius: 10px;
+        animation-name: move;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse;
+        box-shadow: 0px 2px 5px #f7c029;
+        // animation-timing-function:linear;
+        // border: 2px solid rgb(3, 129, 41);
+
+        .cookList_img {
+            text-align: center;
+
+            .cookList_cook {
+                margin: 20px auto 20px auto;
+                width: 300px;
+
+                img {
+                    width: 85%;
+                    // border: 1px solid red;
+                }
+
+                figcaption {
+                    margin-top: 20px;
+
+                    // border: 1px solid red;
+                    p {
+                        text-align: center;
+                    }
+
+                    p:nth-child(1) {
+                        font-size: 24px;
+                        color: #000000;
+                    }
+
+                    p:nth-child(2) {
+                        font-size: 20px;
+                        color: #4669e6;
+                        margin-top: 2%;
+                    }
+
+                }
+            }
+        }
+
+        .cookList_vote {
+            text-align: center;
+            margin-bottom: 5%;
+
+            button {
+                @extend %btn_ano;
+                padding: 4% 16%;
+            }
+        }
+
+        .msg {
+            background-color: #ffffff;
+            border-radius: 0 0 10px 10px;
             width: 300px;
-        
-            img {
-                width: 100%;
-                // border: 1px solid red;
-            }
-        
-            figcaption {
-                margin-top: 20px;
-                // border: 1px solid red;
-            }
-        
-            p {
-                font-size: 28px;
-                color: #000000;
-                text-align: center;
-            }
-        
-            p:nth-child(2){
+            margin: 0 auto 30px auto;
+            border: 1px solid #f7c029;
+            box-shadow: 6px 6px 0px rgb(247, 192, 41);
+
+            .big {
                 font-size: 20px;
-                color: #4669e6;
-            }
-        
-            p:nth-child(3){
-                font-size: 14px;
-                color: #4e4e4e;
-                margin-top: 10px;
-            }
-        }
-    }
-
-    .cookList_infoPanel{
-        // text-align: center;
-        // border: 1px solid red;
-        width: 300px;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-    
-        div{
-            display: inline-block;
-            background-color: #001871;
-            border-radius: 10px;
-            margin: 10px 0;
-            font-size: 16px;
-            width: 130px;
-            padding: 10px;
-            color: #ffffff;
-            text-align: center;
-            cursor: pointer;
-            // border: 1px solid yellow;
-        }
-    
-        div:nth-child(2){
-            background-color: #4EB6E6;
-        }
-    
-        // span{
-        //     text-align: center;
-        //     display: inline-block;
-        //     font-size: 16px;
-        //     color: #ffffff;
-        //     width: 130px;
-        //     padding: 10px;
-        // }
-    }
-
-    .icon{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin-bottom: 10px;
-        // border: 1px solid rgb(253, 34, 34);
-    
-        .message, .favorite{
-            width: 35px;
-            cursor: pointer;
-        }
-        span{
-            font-size: 16px;
-            margin: 0 20px 0px 5px;
-        }
-    }
-
-    .msg{
-        background-color: #ffffff;
-        border-radius: 0 0 10px 10px;
-        width: 300px;
-        margin: 0 auto 30px auto;
-        border: 1px solid lightskyblue;
-        box-shadow: 1px 1px 1px  rgb(183, 227, 255);
-    
-        .big{
-            font-size: 20px;
-            text-align: center;
-            color: #ffffff;
-            padding: 10px;
-            background-color: #001871;
-        }
-    
-        img{
-            width: 50px;
-            vertical-align: middle;
-        }
-    
-        p{
-            font-size: 16px;
-            padding: 10px;
-            
-        }
-    
-        .more{
-            text-align: center;
-            padding-bottom: 15px;
-            // border: 1px solid red;
-    
-            a{
-                display: inline-block;
-                background-color: #4EB6E6;
-                border-radius: 10px;
-                // border: 1px solid red;
-            }
-        
-            span{
                 text-align: center;
-                display: inline-block;
-                font-size: 16px;
-                color: #ffffff;
-                width: 130px;
-                padding: 10px 10px;
+                color: #1d1d1d;
+                padding: 10px;
+                background-color: #FBD672;
+            }
+
+            .msg_text {
+                width: 100%;
+                height: 70px;
+                overflow: scroll;
+                overflow-x: hidden;
+
+                img {
+                    width: 50px;
+                    vertical-align: middle;
+                }
+
+                p {
+                    padding: 10px;
+                }
+            }
+
+            .msg_btn {
+                text-align: center;
+                margin-bottom: 3%;
+
+                button {
+                    @extend %btn;
+                }
             }
         }
-    
+    }
+
+    .cookList_item:nth-child(1),.cookList_item:nth-child(2),.cookList_item:nth-child(3){
+        margin-bottom: 5%;
+    }
+
+    .cookList_item:nth-child(1),
+    .cookList_item:nth-child(4) {
+        animation-delay: 2s;
+    }
+
+    .cookList_item:nth-child(2),
+    .cookList_item:nth-child(5) {
+        animation-delay: 1s;
     }
 }
 
-.contain .cookList_item:nth-child(2),.contain .cookList_item:nth-child(5){
-    animation-delay: 1s;
-}
 
-.contain .cookList_item:nth-child(3),.contain .cookList_item:nth-child(6){
-    animation-delay: 0.8s;
-}
+
 
 
 /* ------------ cookList 結束 ---------------*/
@@ -512,17 +627,17 @@ footer {
 /*------------------ 頁碼開始 ----------------*/
 
 .page-normal {
-	
-	margin: 50px auto 50px auto;
-	text-align: center;
+
+    margin: 50px auto 50px auto;
+    text-align: center;
 }
 
 .page-normal a {
-	/* border: 1px solid rgb(201, 1, 75); */
-	padding: 5px 7px;
-	font-size: 16px;
-	color: #4EB6E6;
-	text-decoration: none;
+    /* border: 1px solid rgb(201, 1, 75); */
+    padding: 5px 7px;
+    font-size: 16px;
+    color: #4EB6E6;
+    text-decoration: none;
 }
 
 .page-normal a:hover {
@@ -532,188 +647,316 @@ footer {
 
 
 .page-normal .page-current {
-	font-size: 16px;
-	color: #ffffff;
-	background-color: #4EB6E6;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #4EB6E6;
 }
 
 .page-normal .page-prev {
-	font-size: 16px;
-	color: #4EB6E6;
+    font-size: 16px;
+    color: #4EB6E6;
 }
 
 .page-normal a,
 .page-normal a:hover,
 .page-normal .page-prev,
 .page-normal .page-current {
-	border: 1px solid #4EB6E6;
-	padding: 5px 7px;
+    border: 1px solid #4EB6E6;
+    padding: 5px 7px;
 }
 
 /*------------------ 頁碼結束 ----------------*/
 
+/*------------------ 留言板燈箱開始 ----------------*/
 
-
-/*------------------ 查看詳情 ----------------*/
-.look{
-    margin-bottom: 100px;
-    .wrap{
+.msg_overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, .5);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 1s;
+    .msg_board {
+        background-color: #ffffff;
+        border-radius: 0 0 10px 10px;
         width: 500px;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        margin: auto;
-        border-radius: 10px;
-        background-image: url(../images/look_bg.jpg);
-        position: relative;
+        margin: 0 auto 30px auto;
+        border: 1px solid #f7c029;
+        box-shadow: 6px 6px 0px rgb(247, 192, 41);
 
-        .cross{
-            display: inline-block;
-            width: 40px;
-            position: absolute;
-            right: 10px;
-            top: 10px;
-
-            img{
-                width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+        .msg_title {
+            font-size: 24px;
+            text-align: center;
+            color: #1d1d1d;
+            padding: 10px;
+            background-color: #FBD672;
+            position: relative;
+    
+            img {
+                width: 7%;
+                position: absolute;
+                top: 4px;
+                right: 10px;
+                cursor: pointer;
             }
-
         }
-
-        .look_img{
-            width: 400px;
-            margin: 0 auto 20px auto;
+    
+        .msg_wrap {
+            width: 100%;
+            height: 500px;
+            overflow: scroll;
+            overflow-x: hidden;
+            // border: 1px solid black;
+    
+            .mem_contain {
+                border: 1px solid rgb(241, 185, 30);
+                border-radius: 10px;
+                padding: 3% 3% 2% 2%;
+                margin: 3%;
+    
+                .flex_wrap {
+                    display: flex;
+    
+                    .mem_name {
+                        text-align: center;
+                        width: 20%;
+    
+                        // border: 1px solid blue;
+                        img {
+                            width: 80%;
+                        }
+                    }
+    
+                    .mem_msg {
+                        width: 60%;
+                        // border: 1px solid rgb(4, 158, 37);
+                        padding: 5%;
+                    }
+    
+                    .report {
+                        width: 20%;
+                        // border: 1px solid rgb(255, 251, 0);
+                        text-align: right;
+    
+                        .report_btn {
+                            @extend %btn_ano;
+                            padding: 10px;
+                        }
+                    }
+                }
+    
+                .msg_date {
+                    text-align: right;
+                }
+    
+            }
+    
+    
+        }
+    
+        .msg_input {
+            // margin: 3%;
             // border: 1px solid red;
-
-            p{
-                text-align: center;
-                font-size: 35px;
-                margin-bottom: 10px;
+            background-color: #FBD672;
+            padding: 3%;
+            border-radius: 0 0 10px 10px;
+    
+            input {
+                width: 80%;
+                height: 40px;
+                border: 2px solid rgb(238, 180, 20);
             }
-            img{
-                width: 100%;
-            }
-        }
-
-        .food{
-            width: 400px;
-            margin: auto;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed rgb(88, 88, 88);
-
-            span{
-                font-size: 20px;
-                margin-right: 93px;
-            }
-
-            p{
-                display: inline-block;
-                width: 120px;
-                font-size: 20px;
-            }
-
-            .pic{
-                display: inline-block;
-                width: 70px;
-                vertical-align: middle;
-
-                img{
-                    width: 100%;
-                }
-            }
-        }
-
-        .Ingredients{
-            width: 400px;
-            margin: auto;
-            padding-top: 20px;
-
-            span{
-                font-size: 20px;
-                margin-right: 93px;
-            }
-
-            p{
-                display: inline-block;
-                width: 120px;
-                font-size: 20px;
-            }
-
-            .pic{
-                display: inline-block;
-                width: 70px;
-                vertical-align: middle;
-
-                img{
-                    width: 100%;
-                }
-            }
-        }
-
-        .Ingredients_bottom{
-            width: 400px;
-            margin: auto;
-            padding-top: 20px;
-            padding-bottom: 20px;
-
-            span{
-                font-size: 20px;
-                margin-right: 93px;
-            }
-
-            p{
-                display: inline-block;
-                width: 120px;
-                font-size: 20px;
-            }
-
-            .pic{
-                display: inline-block;
-                width: 70px;
-                vertical-align: middle;
-
-                img{
-                    width: 100%;
-                }
-            }
-        }
-
-        
-
-        .cooking_way{
-            width: 400px;
-            margin: auto;
-            padding-top: 20px;
-            border-top: 1px dashed rgb(88, 88, 88);
-
-            span{
-                font-size: 20px;
-                margin-right: 93px;
-            }
-
-            p{
-                display: inline-block;
-                width: 120px;
-                font-size: 20px;
-            }
-
-            .pic{
-                display: inline-block;
-                width: 70px;
-                vertical-align: middle;
-
-                img{
-                    width: 100%;
-                }
+    
+            .msginput_btn {
+                @extend %btn;
+                height: 38px;
+                padding: 10px 20px;
             }
         }
     }
 }
 
+.msg_overlay.-on {
+    opacity: 1;
+    z-index: 100;
+}
+
+.msg_overlay.-opacity-zero {
+    opacity: 0;
+}
+
+
+
+
+/*------------------ 留言板燈箱結束 ----------------*/
+
+/*------------------ 查看詳情 ----------------*/
+// .look{
+//     margin-bottom: 100px;
+//     .wrap{
+//         width: 500px;
+//         padding-top: 40px;
+//         padding-bottom: 40px;
+//         margin: auto;
+//         border-radius: 10px;
+//         background-image: url(../images/look_bg.jpg);
+//         position: relative;
+
+//         .cross{
+//             display: inline-block;
+//             width: 40px;
+//             position: absolute;
+//             right: 10px;
+//             top: 10px;
+
+//             img{
+//                 width: 100%;
+//             }
+
+//         }
+
+//         .look_img{
+//             width: 400px;
+//             margin: 0 auto 20px auto;
+
+//             p{
+//                 text-align: center;
+//                 font-size: 35px;
+//                 margin-bottom: 10px;
+//             }
+//             img{
+//                 width: 100%;
+//             }
+//         }
+
+//         .food{
+//             width: 400px;
+//             margin: auto;
+//             padding-bottom: 20px;
+//             border-bottom: 1px dashed rgb(88, 88, 88);
+
+//             span{
+//                 font-size: 20px;
+//                 margin-right: 93px;
+//             }
+
+//             p{
+//                 display: inline-block;
+//                 width: 120px;
+//                 font-size: 20px;
+//             }
+
+//             .pic{
+//                 display: inline-block;
+//                 width: 70px;
+//                 vertical-align: middle;
+
+//                 img{
+//                     width: 100%;
+//                 }
+//             }
+//         }
+
+//         .Ingredients{
+//             width: 400px;
+//             margin: auto;
+//             padding-top: 20px;
+
+//             span{
+//                 font-size: 20px;
+//                 margin-right: 93px;
+//             }
+
+//             p{
+//                 display: inline-block;
+//                 width: 120px;
+//                 font-size: 20px;
+//             }
+
+//             .pic{
+//                 display: inline-block;
+//                 width: 70px;
+//                 vertical-align: middle;
+
+//                 img{
+//                     width: 100%;
+//                 }
+//             }
+//         }
+
+//         .Ingredients_bottom{
+//             width: 400px;
+//             margin: auto;
+//             padding-top: 20px;
+//             padding-bottom: 20px;
+
+//             span{
+//                 font-size: 20px;
+//                 margin-right: 93px;
+//             }
+
+//             p{
+//                 display: inline-block;
+//                 width: 120px;
+//                 font-size: 20px;
+//             }
+
+//             .pic{
+//                 display: inline-block;
+//                 width: 70px;
+//                 vertical-align: middle;
+
+//                 img{
+//                     width: 100%;
+//                 }
+//             }
+//         }
+
+
+
+//         .cooking_way{
+//             width: 400px;
+//             margin: auto;
+//             padding-top: 20px;
+//             border-top: 1px dashed rgb(88, 88, 88);
+
+//             span{
+//                 font-size: 20px;
+//                 margin-right: 93px;
+//             }
+
+//             p{
+//                 display: inline-block;
+//                 width: 120px;
+//                 font-size: 20px;
+//             }
+
+//             .pic{
+//                 display: inline-block;
+//                 width: 70px;
+//                 vertical-align: middle;
+
+//                 img{
+//                     width: 100%;
+//                 }
+//             }
+//         }
+//     }
+// }
+
 /*------------------ 查看詳情結束 ----------------*/
 
 /*------------------ 完成投票提示 ----------------*/
 
-.vote{
+.vote {
     display: inline-block;
     width: 630px;
     background-color: #e0f1fc;
@@ -721,15 +964,17 @@ footer {
     padding: 40px;
     text-align: center;
     margin: 0 auto 100px 400px;
-    p{
+
+    p {
         font-size: 16px;
 
-        span{
+        span {
             font-size: 18px;
             color: rgb(255, 102, 0);
         }
     }
 }
+
 /*------------------ 完成投票提示結束 ----------------*/
 
 /*--------置頂按鈕---------*/
@@ -737,14 +982,15 @@ footer {
     0% {
         transform: translateY(-15px);
     }
-    100%{
+
+    100% {
         transform: translateY(15px);
     }
 }
 
 #go_top {
     width: 150px;
-    height:150px;
+    height: 150px;
     background: none;
     position: fixed;
     right: 50px;
@@ -755,10 +1001,380 @@ footer {
     animation-name: to_top;
     animation-duration: 2s;
     animation-iteration-count: infinite;
-    animation-direction:alternate-reverse;
-    animation-timing-function:linear;
+    animation-direction: alternate-reverse;
+    animation-timing-function: linear;
 }
-#go_top img{
+
+#go_top img {
     width: 100%;
 }
+
 /*--------置頂按鈕結束---------*/
+
+
+/*-------- RWD(max-width:1200px) ---------*/
+@include rwd(desktop){
+/* ------------ ranking 開始 ---------------*/
+    .wrap {
+        padding: 0 5%;
+        width: 100%;
+    }
+
+    .ranking_title {
+        padding-top: unset;
+    }
+
+    .ranking_contain {
+        .cookList_item {
+            width: 30%;
+
+            .cookList_pic {
+                .food_img {
+                    width: 95%;
+                    transform: translateY(49px);
+                }
+
+                .barrel {
+                    width: 45%;
+                }
+            }
+
+            .list_bg {
+                .food_title {
+                    width: 100%;
+                }
+
+                .msg {
+                    width: 92%;
+                    margin: auto;
+                    box-shadow: 3px 3px 0px rgb(247, 192, 41);
+
+                    .msg_text {
+                        img {
+                            width: 40px;
+                        }
+
+                        p {
+                            font-size: 14px;
+                        }
+                    }
+
+                }
+            }
+
+
+
+        }
+
+        &:after {
+            width: 100%;
+            height: 100%;
+        }
+    }
+/* ------------ ranking 結束 ---------------*/
+/* ------------ aboutContest 開始 ---------------*/
+.aboutContest {
+    margin-bottom: 8%;
+
+    .event {
+        width: 55%;
+        padding: 4%;
+
+        .aboutContest_title {
+            margin-bottom: 6%;
+        }
+
+        .text {
+            margin-bottom: 2%;
+
+            img {
+                width: 10%;
+                margin-right: 3%;
+            }
+
+            span {
+                font-size: 18px;
+            }
+
+            p {
+                width: 58%;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .eventImg {
+        .board {
+            width: 200px;
+            height: 70px;
+            left: 34px;
+        }
+
+        .character {
+            width: 43%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+/* ------------ aboutContest 結束 ---------------*/
+/* ------------ cookList 開始 ---------------*/
+.cookList {
+    margin-bottom: 8%;
+}
+
+.cookList_contain {
+    .cookList_item {
+        width: 30%;
+
+        .cookList_img {
+
+            .cookList_cook {
+                width: 90%;
+            }
+        }
+
+        .msg {
+            width: 92%;
+            margin: 0 auto 4% auto;
+            box-shadow: 3px 3px 0px rgb(247, 192, 41);
+
+            .msg_text {
+
+                img {
+                    width: 40px;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+/* ------------ cookList 結束 ---------------*/
+}
+
+/*-------- RWD(max-width:991px) ---------*/
+@include rwd(medium){
+/* ------------ ranking 開始 ---------------*/
+    .ranking_contain {
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        .cookList_item {
+            width: 43%;
+        }
+
+        .cookList_item:nth-child(2){
+            transform: unset;
+            order: -1;
+            flex-basis: 60%;
+
+            .cookList_pic {
+                .food_img {
+                    width: 85%;
+                }
+
+                .barrel {
+                    width: 35%;
+                }
+            }
+        }
+    }
+
+/* ------------ ranking 結束 ---------------*/
+/* ------------ aboutContest 開始 ---------------*/
+.aboutContest {
+    .event {
+        display: block;
+        width: 90%;
+        padding: 4%;
+        margin: auto;
+
+        .text {
+            img {
+                width: 7%;
+            }
+
+            p {
+                width: 70%;
+            }
+        }
+    }
+
+    .eventImg {
+        display: block;
+        margin: 1% auto;
+
+        .board {
+            display: block;
+            width: unset;
+            height: unset;
+            background-image: unset;
+            position: unset;
+            text-align: center;
+
+            a {
+                display: unset;
+            }
+
+            p {
+                width: unset;
+                padding: unset;
+            }
+        }
+
+        .character {
+            display: none;
+        }
+    }
+}
+/* ------------ aboutContest 結束 ---------------*/
+/* ------------ cookList 開始 ---------------*/
+.cookList {
+    .filter {
+        margin: 5% auto;
+        text-align: center;
+}
+}
+.cookList_contain {
+    .cookList_item {
+        width: 43%;
+        animation-name: none;
+    }
+
+    .cookList_item:nth-child(4),.cookList_item:nth-child(5),.cookList_item:nth-child(6){
+        margin-bottom: 5%;
+    }
+}
+/* ------------ cookList 結束 ---------------*/
+
+    #go_top{
+        width: 20%;
+        height: unset;
+        right: 5%;
+        bottom: 5%;
+    }
+}
+
+/*-------- RWD(max-width:767px) ---------*/
+@include rwd(small){
+/* ------------ ranking 開始 ---------------*/
+    .ranking_contain {
+        .cookList_item {
+            width: 60%;
+
+            .cookList_pic {
+                .food_img {
+                    width: 85%;
+                }
+
+                .barrel {
+                    width: 35%;
+                }
+            }
+        }
+
+        .cookList_item:nth-child(2){
+            flex-basis: unset;
+
+            .cookList_pic {
+                .food_img {
+                    width: 85%;
+                }
+
+                .barrel {
+                    width: 35%;
+                }
+            }
+        }
+
+        &:after{
+            display: none;
+        }
+    }
+
+/* ------------ ranking 結束 ---------------*/
+/* ------------ aboutContest 開始 ---------------*/
+.aboutContest {
+    .event {
+
+        .text {
+            
+            span{
+                font-size: 16px;
+                margin-right: 2%;
+            }
+            p {
+                font-size: 16px;
+                width: 65%;
+            }
+        }
+    }
+
+    .eventImg {
+        width: 45%;
+
+        .board {
+
+            p {
+                font-size: 18px;
+
+            }
+        }
+    }
+}
+/* ------------ aboutContest 結束 ---------------*/
+/* ------------ cookList 開始 ---------------*/
+.cookList_contain {
+    justify-content: space-around;
+    .cookList_item {
+        width: 60%;
+    }
+    .cookList_item:nth-child(1),.cookList_item:nth-child(2),.cookList_item:nth-child(3),.cookList_item:nth-child(4),.cookList_item:nth-child(5),.cookList_item:nth-child(6){
+        margin-bottom: 8%;
+    }
+}
+/* ------------ cookList 結束 ---------------*/
+}
+
+/*-------- RWD(max-width:576px) ---------*/
+@include rwd(mobile){
+/* ------------ ranking 開始 ---------------*/
+    .ranking_contain {
+        .cookList_item {
+            width: 80%;
+        }
+    }
+/* ------------ ranking 結束 ---------------*/
+/* ------------ aboutContest 開始 ---------------*/
+.aboutContest {
+    .event {
+        .aboutContest_title{
+            p{
+                font-size: 24px;
+            }
+        }
+        .text {
+            p {
+                width: 55%;
+            }
+        }
+    }
+
+    .eventImg {
+        width: 70%;
+    }
+}
+/* ------------ aboutContest 結束 ---------------*/
+/* ------------ cookList 開始 ---------------*/
+.cookList_contain {
+    .cookList_item {
+        width: 80%;
+    }
+}
+/* ------------ cookList 結束 ---------------*/
+}

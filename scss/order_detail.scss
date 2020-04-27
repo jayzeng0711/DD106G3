@@ -1,0 +1,83 @@
+@import "base/var";
+
+body{
+    width: 1280px;
+    /*background: radial-gradient(ellipse at top, #FEFFDB,#9cd6ff, #48c6e4);*/
+    background-image: url(../images/色塊-4-01.jpg);
+    background-size: cover;
+}
+
+#header{
+    border: 1px solid maroon;
+    margin: 0 auto;
+}
+
+div.theForm{
+    border: 1px solid red;
+    display: inline-block;
+    width: 1000px;
+    background-color: rgba($color: #fff, $alpha: 0.75);
+    margin-left: 10%;
+}
+
+ul > li{
+    border: 1px solid goldenrod;
+}
+
+li > pre.bar{
+    background-color: #001871;
+    color: white;
+    padding: 10px;
+}
+
+div.DT{
+    padding: 30px;
+}
+
+select{
+    margin-right: 150px;
+}
+
+div.DT > input{
+    width: 100px;
+}
+
+div.meal{
+    padding: 30px;
+}
+
+div.meal > img{
+    width: 150px;
+}
+
+div.meal > span{
+    vertical-align: top;
+}
+
+div.meal > div{
+    transform: translate(17%, -300%);
+}
+
+div.num > input{
+    width: 50px;
+    transform: translate(1000%, -430%);
+}
+
+div.deleteBTN01{
+    border: 1px solid red;
+    color: maroon;
+    display: inline-block;
+    font-size: 30px;
+    float: right;
+    margin-top: -120px;
+    margin-right: 280px;
+}
+
+div.clear{
+    clear: both;
+}
+
+div.price{
+    border: 1px solid red;
+    display: inline-block;
+}

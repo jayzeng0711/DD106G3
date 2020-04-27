@@ -9,6 +9,16 @@
     font-family: 'jf-openhuninn-1.0';
 }
 
+// .wrapperWheel {
+//     display: none;
+// }
+// .wrapperBg {
+//     display: none;
+// }
+header {
+    font-family: $fontFamily;
+}
+
 .section1.bg {
     background: url(../images/shortbg.png) left top;
 }
@@ -16,10 +26,18 @@
 .section1 {
     background: url(../images/shortbg.png) right top;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
     position: relative;
     transition: all 5s ease-in-out;
+    // 標題
+    h1 {
+        font-family: $fontFamily;
+        font-size: $fontSize*5;
+        line-height: 50vh;
+        text-align: center;
+    }
+    // 島嶼
     .layer1 {
         width: 60%;
         position: absolute;
@@ -87,59 +105,58 @@
             top: 0,
         }
     }
-    .wave {
-        width: 100%;
-        background-size: 50vh 15vh;
-        position: absolute;
-        animation: wave 20s linear infinite;
-    }
-    .wave1 {
-        background-image: url(../images/wave2.png);
-        height: 15vh;
-        bottom: 17vh;
-        animation-direction: reverse;
-        z-index: 0;
-    }
-    .wave2 {
-        background-image: url(../images/wave3.png);
-        height: 15vh;
-        bottom: 15vh;
-        z-index: 10;
-    }
-    .wave3 {
-        background-image: url(../images/wave2.png);
-        height: 15vh;
-        bottom: 10vh;
-        animation-direction: reverse;
-        z-index: 20;
-    }
-    .wave4 {
-        height: 20vh;
-        background-image: url(../images/wave1.png);
-        background-size: 50vh 20vh;
-        bottom: 0;
-        z-index: 30;
-    }
-    @keyframes wave {
-        0% {
-            background-position: 0
+    // 海浪
+    .wrapper {
+        .wave {
+            width: 100%;
+            background-size: 50vh 15vh;
+            position: absolute;
+            animation: wave 20s linear infinite;
         }
-        100% {
-            background-position: 100%
+        .wave1 {
+            background-image: url(../images/wave2.png);
+            height: 15vh;
+            bottom: 17vh;
+            animation-direction: reverse;
+            z-index: 0;
+        }
+        .wave2 {
+            background-image: url(../images/wave3.png);
+            height: 15vh;
+            bottom: 15vh;
+            z-index: 10;
+        }
+        .wave3 {
+            background-image: url(../images/wave2.png);
+            height: 15vh;
+            bottom: 10vh;
+            animation-direction: reverse;
+            z-index: 20;
+        }
+        .wave4 {
+            height: 20vh;
+            background-image: url(../images/wave1.png);
+            background-size: 50vh 20vh;
+            bottom: 0;
+            z-index: 30;
+        }
+        @keyframes wave {
+            0% {
+                background-position: 0
+            }
+            100% {
+                background-position: 100%
+            }
         }
     }
     .boat {
         position: absolute;
         bottom: 10vh;
         z-index: 50;
-        img {
-            width: 300px;
-            position: relative;
-            left: 0;
-            transition: all .5s;
-            transform: rotateZ(-2deg);
-            animation: boatfloat 3s infinite;
-        }
+        width: 300px;
+        transition: all .5s;
+        transform: rotateZ(-2deg);
+        animation: boatfloat 3s infinite;
     }
     @keyframes boatfloat {
         0% {
@@ -242,217 +259,187 @@
             transform: rotateZ(360deg);
         }
     }
-    // img.bubble1 {
-    //     width: 35px;
-    //     position: relative;
-    //     left: -20px;
-    //     top: 5px;
-    // }
-    // img.bubble2 {
-    //     width: 30px;
-    //     position: relative;
-    //     left: 30px;
-    //     top: -5px;
-    // }
-    // img.bubble3 {
-    //     width: 25px;
-    //     position: relative;
-    //     left: -5px;
-    // }
-    // img.bubble4 {
-    //     width: 35px;
-    //     position: relative;
-    //     right: -10px;
-    //     top: 5px;
-    // }
-    // img.bubble5 {
-    //     width: 30px;
-    //     position: relative;
-    //     right: 20px;
-    //     top: 0px;
-    // }
-    // img.bubble6 {
-    //     width: 25px;
-    //     position: relative;
-    //     right: 50px;
-    // }
-    .captain {
-        opacity: 0;
-        transition: all 1s;
-        img {
-            width: 30%;
-            position: absolute;
-            top: 10vh;
-            left: 50%;
-        }
-        .item {
-            position: absolute;
-            top: 25%;
-            left: 20%;
-            z-index: 2;
-            color: #035;
-            background-color: #eaf1f6;
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 500;
-            h3 {
-                padding-bottom: 30px;
-            }
-            .buttonGo {
-                display: inline-block;
-                padding: 5px 20px;
-                background-color: #86d1ef;
-                border-radius: 10px;
-                cursor: pointer;
-            }
-        }
-    }
-}
-
-.wrapperWheel {
-    display: none;
-}
-
-.wrapperBg {
-    display: none;
 }
 
 .section2 {
     height: 100vh;
-    overflow: hidden;
-    background-color: #A3D9FD;
+    // overflow: hidden;
     position: relative;
-    .title {
-        height: 30%;
-        background: url(../images/cloud.svg) center no-repeat;
-        background-size: contain;
-        display: flex;
-        justify-content: center;
-        opacity: 0;
-        transition: all 1s;
-        h2 {
-            align-self: center;
-            font-size: 26px;
-        }
-    }
-    .reservation {
-        width: 300px;
-        height: 320px;
-        color: #fff;
-        background-color: #318DD6;
-        border: 3px solid #fff;
-        border-radius: 10px;
-        margin-top: 30px;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0;
-        transition: all 1s 0.5s;
-        p {
-            text-align: center;
-            margin: 20px;
-        }
-        .choice {
-            margin: 20px 0 0 30px;
-            span {
-                display: inline-block;
-                margin-right: 10px;
-            }
-        }
-        .button {
-            width: 100px;
-            margin: 20px auto;
-            padding: 5px 10px;
-            background-color: #130B6E;
-            text-align: center;
-            border-radius: 10px;
-        }
-    }
-    .datetable {
-        height: 100vh;
-        opacity: 0;
-        transition: all 1s 1s;
-        z-index: 1;
-        table {
-            border-collapse: collapse;
-            background-color: #d8ecf9;
-            border-radius: 5px;
+    background: url(../images/mainbg2.svg) bottom;
+    background-color: #A3D9FD;
+    // background-color: #2E4581;
+    transition: all 0.5s linear;
+    .row1 {
+        height: 85vh;
+        .title {
+            width: 70%;
+            margin: 0 auto;
+            opacity: 0;
             position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-50%);
-            th,
-            td {
+            z-index: 1;
+            .pu_div_text {
+                font-size: $fontSize*2;
+                color: #034;
+                line-height: $fontSize;
                 text-align: center;
-                font-size: 14px;
-                width: 60px;
-                padding: 5px 5px;
+            }
+        }
+        .text {
+            opacity: 0;
+            text-align: center;
+            p {
+                color: #fff;
+                margin: 0;
+            }
+        }
+        .reservation {
+            width: 300px;
+            color: #034;
+            background-color: #fff;
+            border: 3px solid #318DD6;
+            border-radius: 10px;
+            margin-top: 30px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: all 1s 0.5s;
+            p {
+                text-align: center;
+                margin: 20px;
+            }
+            .choice {
+                margin: 20px 0 0 30px;
+                label {
+                    background-color: #fff;
+                    border: 1px solid #4EB6E6;
+                    border-radius: 10px;
+                    padding: 3px 5px;
+                    cursor: pointer;
+                }
+                span {
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+            }
+            .port {
+                input {
+                    display: none;
+                }
+            }
+            .button {
+                @extend %btn_ano;
+                width: 100px;
+                margin: 20px auto;
+            }
+        }
+        .mappic {
+            position: relative;
+            .boat {
+                position: absolute;
+                top: 20vh;
+                left: 20vh;
+                z-index: 50;
+                width: 100px;
+                opacity: 0;
+                transition: all .5s;
+                transform: rotateZ(-2deg);
+                animation: boatfloat 3s infinite;
+            }
+            .smallwave {
+                width: 100px;
+                position: absolute;
+                z-index: 1;
+                opacity: 0;
+            }
+            .smallwave1 {
+                top: 10vh;
+                left: 5vh;
+            }
+            .smallwave2 {
+                top: 50vh;
+                left: 20vh;
+            }
+            .smallwave3 {
+                top: 20vh;
+                right: 10vh;
+            }
+            .smallwave4 {
+                top: 60vh;
+                right: 5vh;
+            }
+            .map {
+                // width: 100vw;
+                position: relative;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                transition: all 0.2s linear;
             }
         }
     }
-    .map {
-        img {
-            width: 100vw;
-            position: absolute;
-            right: 0;
-            transition: all 0.2s linear;
+    .wave {
+        width: 100%;
+        height: 15vh;
+        bottom: 0;
+        background-image: url(../images/wave1.png);
+        background-size: 50vh 15vh;
+        position: absolute;
+        animation: wave 20s linear infinite;
+    }
+    @keyframes wave {
+        0% {
+            background-position: 0
+        }
+        100% {
+            background-position: 100%
         }
     }
 }
 
 .wrapperBg {
-    background: url(../images/oceanbottom.jpg) center top;
-    background-size: cover;
+    background: #A6D4F2;
     height: 100%;
 }
 
 .section3 {
-    overflow: hidden;
-    height: 100vh;
+    background: url(../images/section3bg.svg) no-repeat;
+    background-size: contain;
+    background-position: 0 -10px;
+    min-height: 100vh;
     .title {
-        margin-top: 30px;
-        height: 80px;
-        background: url(../images/titlebg.svg) center no-repeat;
-        background-size: contain;
-        display: flex;
-        justify-content: center;
-        h2 {
-            align-self: center;
-            color: rgb(243, 240, 240);
-            font-size: 22px;
+        position: relative;
+        z-index: 1;
+        .pu_div_text {
+            font-size: $fontSize*2;
+            color: #034;
+            line-height: $fontSize;
+            text-align: center;
         }
     }
     .row2 {
-        height: 80vh;
-    }
-    .menucontainer {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        transform-style: preserve-3d;
+        min-height: 70vh;
+        margin-top: 30px;
+        margin-bottom: 30px;
         .menu {
+            margin-bottom: 30px;
             position: relative;
             transform-style: preserve-3d;
-            margin-right: 30px;
             border-radius: 5px;
-            background-color: #4EB6E6;
-            padding-top: 10px;
-            .imgbox {
-                position: relative;
-                h4 {
-                    text-align: center;
-                    font-size: 20px;
-                    margin: 20px;
-                    color: #034;
-                }
-                img {
-                    margin: 0 auto;
-                    display: block;
-                    width: 70%;
-                }
+            // background-color: rgb(245, 235, 220);
+            .menubg {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                border-radius: 10px;
+                z-index: -1;
+            }
+            img {
+                margin: 0px auto 10px;
+                display: block;
+                width: 50%;
             }
             .text {
-                margin: 10px auto;
                 display: inline-block;
                 position: relative;
                 left: 50%;
@@ -485,13 +472,10 @@
             display: none;
         }
         .button {
+            @extend %btn_ano;
             width: 100px;
-            margin: 20px auto;
-            padding: 5px 10px;
-            background-color: #130B6E;
-            color: #fff;
             text-align: center;
-            border-radius: 10px;
+            margin: 20px auto;
         }
         @keyframes menufloat1 {
             0%,
@@ -512,28 +496,21 @@
             }
         }
     }
-    .waiter img {
-        width: 80%;
-        right: 30%;
-        transition: all 1s;
-    }
 }
 
 .section4 {
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    // overflow: hidden;
+    position: relative;
     .row1 {
         .title {
-            margin-top: 30px;
-            height: 80px;
-            background: url(../images/titlebg.svg) center no-repeat;
-            background-size: contain;
-            display: flex;
-            justify-content: center;
-            h2 {
-                font-size: 22px;
-                align-self: center;
-                color: rgb(243, 240, 240);
+            position: relative;
+            z-index: 1;
+            .pu_div_text {
+                font-size: $fontSize*2;
+                color: #034;
+                line-height: $fontSize;
+                text-align: center;
             }
         }
         .text {
@@ -546,8 +523,7 @@
             }
         }
     }
-    .row2,
-    .row3 {
+    .row2 {
         .step {
             margin: 0 auto;
             background-color: #318DD6;
@@ -561,33 +537,27 @@
                 margin: 5px;
             }
         }
-        .game {
+        .text {
             margin-top: 20px;
-            height: 400px;
-            background-color: #e0f1fc;
-            border: 1px solid #000;
+            text-align: center;
+            p {
+                font-size: $fontSize;
+                color: #034;
+                margin: 0;
+            }
+            .button {
+                @extend %btn_ano;
+                width: 100px;
+                text-align: center;
+                margin: 30px auto;
+            }
+        }
+        .game {
+            position: relative;
+            z-index: 1;
             img {
                 width: 100%;
             }
-        }
-        .text {
-            margin-top: 50px;
-            color: #fff;
-            display: inline-block;
-            p {
-                margin: 0;
-                padding: 5px;
-            }
-        }
-        .button {
-            margin: 20px auto;
-            width: 80px;
-            text-align: center;
-            background-color: #ef915b;
-            border-radius: 10px;
-            padding: 5px 0;
-            color: #fff;
-            cursor: pointer;
         }
     }
 }
@@ -597,10 +567,10 @@
 }
 
 .section5 {
+    min-height: 90vh;
+    // overflow: hidden;
     margin-top: 10vh;
     margin-bottom: 10vh;
-    height: 90vh;
-    overflow: hidden;
     .step {
         margin: 0 auto;
         background-color: #318DD6;
@@ -615,27 +585,24 @@
         }
     }
     .text {
-        margin-top: 50px;
-        color: #fff;
-        display: inline-block;
-        p {
-            margin: 0;
-            padding: 5px;
-        }
-    }
-    .button {
-        margin: 20px auto;
-        width: 80px;
+        margin-top: 20px;
         text-align: center;
-        background-color: #ef915b;
-        border-radius: 10px;
-        padding: 5px 0;
-        color: #fff;
-        cursor: pointer;
+        p {
+            font-size: $fontSize;
+            color: #034;
+            margin: 0;
+        }
+        .button {
+            @extend %btn_ano;
+            width: 100px;
+            text-align: center;
+            margin: 30px auto;
+        }
     }
     .cookWrapper {
         position: relative;
         height: 80vh;
+        z-index: 100;
         .cookPic1 {
             position: absolute;
             top: 0vh;
@@ -678,42 +645,50 @@
             width: 100px;
         }
     }
-    .half img {
-        height: 80vh;
+    .half {
+        .halfpic {
+            height: 80vh;
+            position: relative;
+            z-index: 100;
+        }
+        .cookpic {
+            display: none;
+        }
     }
 }
 
 .section6 {
-    overflow: hidden;
+    min-height: 100vh;
+    // overflow: hidden;
+    position: relative;
+    .bgbottom {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+    }
     .title {
-        margin-top: 30px;
-        height: 80px;
-        background: url(../images/titlebg.svg) center no-repeat;
-        background-size: contain;
-        display: flex;
-        justify-content: center;
-        h2 {
-            font-size: 22px;
-            align-self: center;
-            color: rgb(243, 240, 240);
+        position: relative;
+        z-index: 1;
+        .pu_div_text {
+            font-size: $fontSize*2;
+            color: #034;
+            line-height: $fontSize;
+            text-align: center;
         }
     }
     .text {
-        color: #fff;
-        p {
-            margin: 0;
-            padding: 5px;
-        }
-    }
-    .button {
-        margin: 20px auto;
-        width: 80px;
         text-align: center;
-        background-color: #ef915b;
-        border-radius: 10px;
-        padding: 5px 0;
-        color: #fff;
-        cursor: pointer;
+        p {
+            font-size: $fontSize;
+            color: #fff;
+            margin: 0;
+        }
+        .button {
+            @extend %btn_ano;
+            width: 120px;
+            text-align: center;
+            margin: 30px auto;
+        }
     }
     .contest {
         .cook {
@@ -723,21 +698,118 @@
                 width: 100%;
             }
             .button {
-                background-color: #a7d4eb;
-                color: #333;
+                @extend %btn;
+                width: 100px;
             }
         }
-        .cook1 {
-            position: relative;
-            bottom: -80px;
+        // .cook1 {
+        //     position: relative;
+        //     bottom: -80px;
+        // }
+        // .cook3 {
+        //     position: relative;
+        //     bottom: -120px;
+        // }
+        // .box {
+        //     width: 60%;
+        //     margin: 0 auto;
+        // }
+    }
+}
+
+// $desktop : 1200px;
+// $medium : 991px;
+// $small : 767px;
+// $mobile : 576px;
+@include rwd(desktop) {}
+
+@include rwd(medium) {}
+
+@include rwd(small) {
+    .section1 {
+        // 標題
+        h1 {
+            line-height: 20vh;
+            text-align: center;
         }
-        .cook3 {
-            position: relative;
-            bottom: -120px;
+    }
+    .section2 {
+        .row1 {
+            .text {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                p {
+                    color: #034;
+                }
+            }
+            .reservation {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
-        .box {
-            width: 60%;
-            margin: 0 auto;
+        .wave {
+            animation: wave 5s linear infinite;
+        }
+    }
+    .section5 {
+        .text {
+            .button {
+                width: 120px;
+                text-align: center;
+                margin: 30px auto;
+            }
+        }
+        .half {
+            .halfpic {
+                display: none;
+            }
+            .cookpic {
+                width: 80%;
+                display: inline-block;
+                margin: 0 auto;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
     }
 }
+
+@include rwd(mobile) {}
+
+// img.bubble1 {
+//     width: 35px;
+//     position: relative;
+//     left: -20px;
+//     top: 5px;
+// }
+// img.bubble2 {
+//     width: 30px;
+//     position: relative;
+//     left: 30px;
+//     top: -5px;
+// }
+// img.bubble3 {
+//     width: 25px;
+//     position: relative;
+//     left: -5px;
+// }
+// img.bubble4 {
+//     width: 35px;
+//     position: relative;
+//     right: -10px;
+//     top: 5px;
+// }
+// img.bubble5 {
+//     width: 30px;
+//     position: relative;
+//     right: 20px;
+//     top: 0px;
+// }
+// img.bubble6 {
+//     width: 25px;
+//     position: relative;
+//     right: 50px;
+// }
