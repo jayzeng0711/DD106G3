@@ -15,7 +15,93 @@
 
 <body>
     <main>
-        
+        <header class="desktop_header">
+    <div class="pu_head_wrap_div">
+        <a class="pu_logo_a" href="main.html">
+            <img src="/images/LOGO-0421.png" alt="">
+        </a>
+        <ul class="pu_head_ul">
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="order.html">
+                        訂位點餐
+                    </a>
+                </div> 
+            </li>
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="game.html">
+                        現撈海鮮
+                    </a>
+                </div>
+            </li>
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="customized_cuisine.html">
+                        客製化料理
+                    </a>
+                </div>
+            </li>
+            <li class="pu_head_li">
+                <div>
+                    <a class="pu_text_a" href="contest.html">
+                        美食大賽
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <div class="pu_mem_login_div_wrap">
+            <div class="pu_mem_login_div">
+                會員登入
+            </div>
+            <div class="pu_icon_div">
+                <img src="./images/login.png" alt="">
+            </div>
+        </div>
+    </div>
+</header>
+
+<header class="mobile_header">
+    <a class="pu_mb_logo_a" href="main.html">
+        <img src="/images/logo.png" alt="">
+    </a>
+    <div class="mb_sma_cloud">
+        <div>
+            <img class="mb_sma_cloud_img" src="/images/mobile_small_cloud.png" alt="">
+        </div>
+        <div class="mb_big_cloud_img_div">
+            <img class="mb_big_cloud_img" src="/images/mobile_big_cloud.png" alt="">
+            <div class="mb_big_cloud_text">
+                <div>
+                    <a class="pu_mb_text_a" href="order.html">
+                        訂位點餐
+                    </a>
+                </div> 
+                <div>
+                    <a class="pu_mb_text_a" href="game.html">
+                        現撈海鮮
+                    </a>
+                </div>
+                <div>
+                    <a class="pu_mb_text_a" href="customized_cuisine.html">
+                        客製化料理
+                    </a>
+                </div>
+                <div>
+                    <a class="pu_mb_text_a" href="contest.html">
+                        美食大賽
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+    </div>
+</header>
         <div class="section1">
             <div class="captain">
                 <div class="item">
@@ -27,53 +113,60 @@
                     <p>準備好了嗎 ?</p>
                     <div class="buttonGo">出發</div>
                 </div>
-                <img src="../images/captain.png" alt="船長">
             </div>
+        </div>
+    </header> -->
 
-
+    <main>
+        <section class="section1">
+            <h1>Ocean Food</h1>
+            <img src="../images/boat.svg" alt="船" class="boat">
+            <img src="./images/seafood5.png" class="flyfish1">
+            <img src="./images/seafood3.png" class="flyfish2">
+            <img src="./images/seafood2.png" class="flyfish3">
+            <div class="port">
+                <p>深澳港</p>
+            </div>
+            <img src="./images/island.png" alt="" class="layer3">
+            <img src="./images/island.png" alt="" class="layer1">
+            <img src="./images/island.png" alt="" class="layer2">
             <div class="wrapper">
                 <div class="wave wave1"></div>
                 <div class="wave wave2"></div>
                 <div class="wave wave3"></div>
                 <div class="wave wave4"></div>
             </div>
-            <div class="boat">
-                <img src="../images/boat.svg" alt="船">
-            </div>
-            <img src="./images/seafood5.png" class="flyfish1">
-            <img src="./images/seafood3.png" class="flyfish2">
-            <img src="./images/seafood2.png" class="flyfish3">
-            <div class="container-fluid seafood">
-                <h1 class="text">Ocean Food</h1>
-                <div class="port">
-                    <p>深澳港</p>
-                </div>
-                <img src="./images/island.png" alt="" class="layer3">
-                <img src="./images/island.png" alt="" class="layer1">
-                <img src="./images/island.png" alt="" class="layer2">
-
-            </div>
-
-        </div>
+        </section>
 
         <div class="wrapperWheel">
 
             <section class="section2">
                 <div class="container-fluid">
                     <div class="row row1 justify-content-center">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-8 col-md-5">
                             <div class="title">
-                                <h2>訂位</h2>
+                                <div class="pu_h1_div">
+                                    <img class="pu_h1_img" src="./images/ribbon.png" alt="">
+                                    <div class="pu_div_text">
+                                        訂位
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <p>歡迎來到 Ocean food 海上餐廳！</p>
+                                <p>Ocean food輪流停泊三個港口，</p>
+                                <p>請選擇訂位日期、人數，</p>
+                                <p>享受最美味的海鮮料理吧！</p>
                             </div>
                             <div class="reservation">
-                                <p>請選擇用餐時間和人數</p>
-                                <div class="choice">
+                                <div class="choice port">
                                     <span>港口</span>
-                                    <span><select name="port" id="port">
-                                            <option value="">深澳港</option>
-                                            <option value="">梧棲港</option>
-                                            <option value="">高雄港</option>
-                                        </select></span>
+                                    <input type="radio" name="port" id="port1">
+                                    <label for="port1">深澳港</label>
+                                    <input type="radio" name="port" id="port2">
+                                    <label for="port2">梧棲港</label>
+                                    <input type="radio" name="port" id="port3">
+                                    <label for="port3">高雄港</label>
                                 </div>
                                 <div class="choice">
                                     <span>日期</span>
@@ -84,92 +177,25 @@
                                         </select></span>
                                 </div>
                                 <div class="choice">
-                                    <span>時段</span>
-                                    <select name="time" id="time">
-                                        <option value="lunch">午餐</option>
-                                        <option value="dinner">晚餐</option>
-                                    </select>
-                                </div>
-                                <div class="choice">
                                     <span>人數</span>
-                                    <input type="number" name="people" id="people">
+                                    <input type="number" name="people" id="people" min="1">
                                 </div>
                                 <div class="button">立即訂位</div>
                             </div>
 
                         </div>
-                        <div class="col-4 datetable">
-                            <table>
-                                <tr>
-                                    <td colspan="7 ">5月</td>
-                                </tr>
-                                <tr>
-                                    <th>日</th>
-                                    <th>一</th>
-                                    <th>二</th>
-                                    <th>三</th>
-                                    <th>四</th>
-                                    <th>五</th>
-                                    <th>六</th>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
 
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>7</td>
-                                    <td>8</td>
-                                    <td>9</td>
-                                    <td>10</td>
-                                    <td>11</td>
-
-                                </tr>
-                                <tr>
-                                    <td>12</td>
-                                    <td>13</td>
-                                    <td>14</td>
-                                    <td>15</td>
-                                    <td>16</td>
-                                    <td>17</td>
-                                    <td>18</td>
-                                </tr>
-                                <tr>
-                                    <td>19</td>
-                                    <td>20</td>
-                                    <td>21</td>
-                                    <td>22</td>
-                                    <td>23</td>
-                                    <td>24</td>
-                                    <td>25</td>
-                                </tr>
-                                <tr>
-                                    <td>26</td>
-                                    <td>27</td>
-                                    <td>28</td>
-                                    <td>29</td>
-                                    <td>30</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-
-                            </table>
+                        <div class="d-none d-md-block col-md-7 mappic">
+                            <img src="../images/boat.svg" alt="船" class="boat">
+                            <img src="./images/smallwave.svg" alt="" class="smallwave smallwave1">
+                            <img src="./images/smallwave.svg" alt="" class="smallwave smallwave2">
+                            <img src="./images/taiwanisland.jpg " alt=" " class="map">
+                            <img src="./images/smallwave.svg" alt="" class="smallwave smallwave3">
+                            <img src="./images/smallwave.svg" alt="" class="smallwave smallwave4">
                         </div>
-
-                        <div class="col-4 ">
-                            <div class="map ">
-                                <img src="./images/taiwanisland.jpg " alt=" ">
-                            </div>
-
-                        </div>
-
+                    </div>
+                    <div class="row wave">
+                        <div class="wave wave1"></div>
                     </div>
                 </div>
             </section>
@@ -177,57 +203,59 @@
         <div class="wrapperBg ">
             <section class="section3 ">
                 <div class="container-fluid ">
-                    <div class="row ">
-                        <div class="col ">
-                            <div class="title ">
-                                <h2>點餐</h2>
+                    <div class="row row1 justify-content-center">
+                        <div class="col-12 col-sm-8 col-md-5">
+                            <div class="title">
+                                <div class="pu_h1_div">
+                                    <img class="pu_h1_img" src="./images/ribbon.png" alt="">
+                                    <div class="pu_div_text">
+                                        主廚推薦海鮮套餐
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row row2 justify-content-end ">
-                        <div class="col-8 menucontainer align-self-center ">
+                    <div class="row row2 justify-content-center">
+                        <div class="col-8   col-md-3">
                             <div class="menu menu1 ">
-                                <div class="imgbox ">
-                                    <img src="./images/cook4.png " alt="A套餐 ">
-                                </div>
+                                <img src="./images/menubg.png" alt="" class="menubg">
+                                <img src="./images/menupic1.png " alt="A套餐 ">
                                 <div class="text ">
-                                    <h4>鷗小廚龍蝦特餐</h4>
+                                    <h4>A套餐：龍蝦特餐</h4>
                                     <p>主菜：海陸龍蝦重擊</p>
                                     <p>湯品：七彩活龍蝦鍋</p>
                                     <p>金額：1000元</p>
-                                    <div class="button ">立即點餐</div>
+                                    <div class="button ">點餐</div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-8  col-md-3">
                             <div class="menu menu2 ">
-                                <div class="imgbox ">
-                                    <img src="./images/cook5.png " alt="A套餐 ">
-                                </div>
+                                <img src="./images/menubg.png" alt="" class="menubg">
+                                <img src="./images/menupic3.png" alt="B套餐 ">
                                 <div class="text ">
-                                    <h4>鷗主廚龍蝦特餐</h4>
+                                    <h4>B套餐：龍蝦特餐</h4>
                                     <p>主菜：海陸龍蝦重擊</p>
                                     <p>湯品：七彩活龍蝦鍋</p>
-                                    <p>飲料：夏布利白酒</p>
                                     <p>金額：1400元</p>
-                                    <div class="button ">立即點餐</div>
+                                    <div class="button ">點餐</div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-8  col-md-3">
                             <div class="menu menu3 ">
-                                <div class="imgbox ">
-                                    <img src="./images/cook6.png " alt="A套餐 ">
-                                </div>
+                                <img src="./images/menubg.png" alt="" class="menubg">
+                                <img src="./images/menupic2.png" alt="C套餐 ">
                                 <div class="text ">
-                                    <h4>鷗大廚龍蝦特餐</h4>
+                                    <h4>C套餐：龍蝦特餐</h4>
                                     <p>主菜：海陸龍蝦重擊</p>
                                     <p>湯品：七彩活龍蝦鍋</p>
-                                    <p>飲料：夏布利白酒</p>
                                     <p>金額：1200元</p>
-                                    <div class="button ">立即點餐</div>
+                                    <div class="button ">點餐</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3 waiter align-self-end " data-aos="fade-left " data-aos-duration="1000 ">
-                            <img src="../images/waiter.png " alt="服務生 ">
-                        </div>
+
                     </div>
 
                 </div>
@@ -235,31 +263,25 @@
             </section>
             <section class="section4 ">
                 <div class="container-fluid ">
+
                     <div class="row row1 justify-content-center ">
-                        <div class="col-4 ">
-                            <div class="title ">
-                                <h2>客製化料理</h2>
-                            </div>
-                            <div class="text ">
-                                <p>想品嚐菜單上沒有的私房美味嗎？</p>
-                                <p>只要動動手指，</p>
-                                <p>就能解鎖獨一無二的客製化料理！</p>
+                        <div class="col-12 col-sm-8 col-md-5">
+                            <div class="title">
+                                <div class="pu_h1_div">
+                                    <img class="pu_h1_img" src="./images/ribbon.png" alt="">
+                                    <div class="pu_div_text">
+                                        客製化料理
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row row2 justify-content-center ">
-                        <div class="col-3 ">
+                        <div class="col-12 col-md-3">
                             <div class="step " data-aos="fade-up-right " data-aos-duration="1000 ">
                                 <p>Step 1</p>
                                 <p>現撈海鮮</p>
                             </div>
-                        </div>
-                        <div class="col-6 ">
-                            <div class="game ">
-                                <img src="./images/game.png " alt="遊戲畫面 ">
-                            </div>
-                        </div>
-                        <div class="col-3 ">
                             <div class="text ">
                                 <p> 享受親手抓魚的樂趣，</p>
                                 <p>還有點數回饋送給你，</p>
@@ -267,23 +289,38 @@
                                 <div class="button ">去抓魚</div>
                             </div>
                         </div>
+                        <div class="col-12 col-md-6 ">
+                            <div class="game ">
+                                <img src="./images/game.png " alt="遊戲畫面 ">
+                            </div>
 
+                        </div>
                     </div>
+
                 </div>
             </section>
             <div id="cookPin"></div>
             <section class="section5 cookPinWrapper ">
                 <div class="container-fluid ">
                     <div class="row justify-content-center ">
-                        <div class="col-3 ">
+                        <div class="col-12 col-md-3 ">
                             <div class="step step2 " data-aos="fade-up-left " data-aos-duration="1000 ">
                                 <p>Step 2</p>
                                 <p>客製化</p>
                                 <p>料理</p>
                             </div>
+                            <div class="text ">
+                                <p>選擇喜歡的烹調方式和配料，</p>
+                                <p>創造獨一無二的料理！</p>
+                                <p>只要你做得出來，</p>
+                                <p>我們都會煮給你吃！</p>
+                                <div class="button ">去料理</div>
+
+                            </div>
+
                         </div>
 
-                        <div class="col-3 ">
+                        <div class="d-none d-md-block col-md-3">
                             <div class="cookWrapper ">
                                 <div class="cookPic cookPic1 ">
                                     <img src="./images/custo1.png " alt=" ">
@@ -308,35 +345,31 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3 half ">
-                            <img src="../images/halfdishes.png " alt=" ">
-                        </div>
-                        <div class="col-3 ">
-                            <div class="text ">
-                                <p>選擇喜歡的烹調方式和配料，</p>
-                                <p>創造獨一無二的料理！</p>
-                                <p>只要你做得出來，</p>
-                                <p>我們都會煮給你吃！</p>
-                                <div class="button ">去料理</div>
-
-                            </div>
-
+                        <div class="col-12 col-md-3 half ">
+                            <img src="../images/halfdishes.png " alt=" " class="halfpic">
+                            <img src="./images/cook2.png" alt="" class="cookpic">
                         </div>
 
                     </div>
                 </div>
             </section>
             <section class="section6 ">
+                <img src="./images/bgbottom.svg" alt="" class="bgbottom">
                 <div class="container-fluid ">
-                    <div class="row ">
-                        <div class="col ">
-                            <div class="title ">
-                                <h2>美食大賽</h2>
+                    <div class="row justify-content-center ">
+                        <div class="col-12 col-sm-8 col-md-5">
+                            <div class="title">
+                                <div class="pu_h1_div">
+                                    <img class="pu_h1_img" src="./images/ribbon.png" alt="">
+                                    <div class="pu_div_text">
+                                        美食大賽
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row justify-content-center ">
-                        <div class="col-3 align-self-center ">
+                        <div class="col-12 col-md-3 align-self-center ">
                             <div class="text ">
                                 <p>把你的料理分享給更多人，</p>
                                 <p>每週獲得前三名的選手</p>
@@ -347,19 +380,19 @@
                         <div class="col-7 contest ">
                             <div class="row ">
                                 <div class="col-4 cook cook1 ">
-                                    <div class="top ">Top 2</div>
+
                                     <div class="name ">無敵毛蟹濃湯</div>
                                     <div class="button ">投票</div>
                                     <img src="../images/cook1.png " alt="料理 ">
                                 </div>
                                 <div class="col-4 cook cook2 ">
-                                    <div class="top ">本週 Top 1</div>
+
                                     <div class="name ">好吃鮭魚生魚片</div>
                                     <div class="button ">投票</div>
                                     <img src="../images/cook8.png " alt="料理 ">
                                 </div>
                                 <div class="col-4 cook cook3 ">
-                                    <div class="top ">Top 3</div>
+
                                     <div class="name ">超新鮮海膽</div>
                                     <div class="button ">投票</div>
                                     <img src="../images/cook3.png " alt="料理 ">
@@ -367,14 +400,16 @@
 
 
                             </div>
-                            <div class="row ">
+                            <!-- <div class="row ">
                                 <img src="../images/box.svg " alt="排行榜 " class="box ">
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>
                 </div>
+
             </section>
+
 
         </div>
 

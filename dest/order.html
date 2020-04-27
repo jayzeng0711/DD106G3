@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/order.css">
     <link rel="icon" href="./images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/order.css">
@@ -15,7 +16,7 @@
     <header class="desktop_header">
     <div class="pu_head_wrap_div">
         <a class="pu_logo_a" href="main.html">
-            <img src="/images/logo.png" alt="">
+            <img src="/images/LOGO-0421.png" alt="">
         </a>
         <ul class="pu_head_ul">
             <li class="pu_head_li">
@@ -111,19 +112,112 @@
         <section class="section1">
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-4">
-                        <img src="./images/taiwan.png" alt="">
+                    <div class="col-12  col-md-3">
+                        <div class="step">
+                            <div class="text">
+                                <p>Step 1</p>
+                                <p>選擇日期</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-3">
+                    <div class="d-none d-md-block col-md-3">
+                        <div class="step">
+                            <div class="text">
+                                <p>Step 2</p>
+                                <p>選擇套餐</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-none d-md-block col-md-3">
+                        <div class="step">
+                            <div class="text">
+                                <p>Step 3</p>
+                                <p>選擇客製料理</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row2 justify-content-center">
+                    <div class="col-12 col-md-5">
+                        <div id="map"></div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="datetable">
+                            <table>
+                                <tr>
+                                    <td colspan="7 ">5月</td>
+                                </tr>
+                                <tr>
+                                    <th>日</th>
+                                    <th>一</th>
+                                    <th>二</th>
+                                    <th>三</th>
+                                    <th>四</th>
+                                    <th>五</th>
+                                    <th>六</th>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                    <td>10</td>
+                                    <td>11</td>
+
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>13</td>
+                                    <td>14</td>
+                                    <td>15</td>
+                                    <td>16</td>
+                                    <td>17</td>
+                                    <td>18</td>
+                                </tr>
+                                <tr>
+                                    <td>19</td>
+                                    <td>20</td>
+                                    <td>21</td>
+                                    <td>22</td>
+                                    <td>23</td>
+                                    <td>24</td>
+                                    <td>25</td>
+                                </tr>
+                                <tr>
+                                    <td>26</td>
+                                    <td>27</td>
+                                    <td>28</td>
+                                    <td>29</td>
+                                    <td>30</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="col-12  col-lg-3">
                         <div class="reservation">
-                            <p>請選擇用餐時間和人數</p>
-                            <div class="choice">
+                            <div class="choice port">
                                 <span>港口</span>
-                                <span><select name="port" id="port">
-                                        <option value="">深澳港</option>
-                                        <option value="">梧棲港</option>
-                                        <option value="">高雄港</option>
-                                    </select></span>
+                                <input type="radio" name="port" id="port1">
+                                <label for="port1">深澳港</label>
+                                <input type="radio" name="port" id="port2">
+                                <label for="port2">梧棲港</label>
+                                <input type="radio" name="port" id="port3">
+                                <label for="port3">高雄港</label>
                             </div>
                             <div class="choice">
                                 <span>日期</span>
@@ -134,86 +228,267 @@
                                     </select></span>
                             </div>
                             <div class="choice">
-                                <span>時段</span>
-                                <select name="time" id="time">
-                                    <option value="lunch">午餐</option>
-                                    <option value="dinner">晚餐</option>
-                                </select>
-                            </div>
-                            <div class="choice">
                                 <span>人數</span>
-                                <input type="number" name="people" id="people">
+                                <input type="number" name="people" id="people" min="1">
                             </div>
-                            <div class="button">立即訂位</div>
+                            <div class="button next">下一步</div>
                         </div>
+
                     </div>
+
+                </div>
+                <div class="row wave">
+                    <div class="wave wave1"></div>
                 </div>
             </div>
 
         </section>
         <section class="section2">
             <div class="container-fluid">
-                <h2>4月菜色</h2>
-                <h4>蔬食，肉肉，以及好吃的甜點都在這</h4>
                 <div class="row justify-content-center">
-                    <div class="col-3 category">
-                        <div class="thai">
-                            <div class="menu">
-                                <img src="https://realfood.tesco.com/media/images/RFO-1400x919-SeafoodLinguine-d1ae9818-c4bf-4066-8adb-acfd6c0ed088-0-1400x919.jpg" alt="" class="img1">
-                                <h4>海鮮霸王餐</h4>
-
-                                <p>前菜</p>
-                                <p>主菜</p>
-                                <p>副菜</p>
-                                <p>湯品</p>
-                                <p>飲料</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-3 category">
-                        <div class="thai">
-                            <div class="menu">
-                                <img src="https://realfood.tesco.com/media/images/RFO-1400x919-SeafoodLinguine-d1ae9818-c4bf-4066-8adb-acfd6c0ed088-0-1400x919.jpg" alt="" class="img1">
-                                <h4>海鮮霸王餐</h4>
-
-                                <p>前菜</p>
-                                <p>主菜</p>
-                                <p>副菜</p>
-                                <p>湯品</p>
-                                <p>飲料</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-3 category">
-                        <div class="thai">
-                            <div class="menu">
-                                <img src="https://realfood.tesco.com/media/images/RFO-1400x919-SeafoodLinguine-d1ae9818-c4bf-4066-8adb-acfd6c0ed088-0-1400x919.jpg" alt="" class="img1">
-                                <h4>海鮮霸王餐</h4>
-                                <p>前菜</p>
-                                <p>主菜</p>
-                                <p>副菜</p>
-                                <p>湯品</p>
-                                <p>飲料</p>
+                    <div class="d-none d-md-block col-3">
+                        <div class="step">
+                            <div class="text">
+                                <p>Step 1</p>
+                                <p>選擇日期</p>
                             </div>
                         </div>
                     </div>
+                    <div class="col-12  col-md-3">
+                        <div class="step">
+                            <div class="text">
+                                <p>Step 2</p>
+                                <p>選擇套餐</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-none d-md-block col-3">
+                        <div class="step">
+                            <div class="text">
+                                <p>Step 3</p>
+                                <p>選擇客製料理</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row row2 ">
+                    <div class="col-12  col-md-6 col-lg-3">
+                        <div class="menu menu1 ">
+                            <img src="./images/menupic1.png " alt="A套餐 ">
+                            <div class="text ">
+                                <h4>A套餐：龍蝦特餐</h4>
+                                <p>主菜：海陸龍蝦重擊</p>
+                                <p>湯品：七彩活龍蝦鍋</p>
+                                <p>金額：1000元</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-3">
+                        <div class="menu menu2 ">
+                            <img src="./images/menupic3.png" alt="B套餐 ">
+                            <div class="text ">
+                                <h4>B套餐：龍蝦特餐</h4>
+                                <p>主菜：海陸龍蝦重擊</p>
+                                <p>湯品：七彩活龍蝦鍋</p>
+                                <p>金額：1400元</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-3">
+                        <div class="menu menu3 ">
+                            <img src="./images/menupic2.png" alt="C套餐 ">
+                            <div class="text ">
+                                <h4>C套餐：龍蝦特餐</h4>
+                                <p>主菜：海陸龍蝦重擊</p>
+                                <p>湯品：七彩活龍蝦鍋</p>
+                                <p>金額：1200元</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12  col-lg-3">
+                        <div class="reservation2">
+                            <div class="choice">
+                                <table>
+                                    <tr>
+                                        <th>套餐</th>
+                                        <th>價格</th>
+                                        <th>數量</th>
+                                    </tr>
+                                    <tr>
+                                        <td>A</td>
+                                        <td>1000元</td>
+                                        <td><input type="number" name="meal" id="count" min="0" class="meal" value="1">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>B</td>
+                                        <td>1400元</td>
+                                        <td><input type="number" name="meal" id="count" min="0" class="meal" value="1">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C</td>
+                                        <td>1200元</td>
+                                        <td><input type="number" name="meal" id="count" min="0" class="meal" value="1">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="wrapper">
+                                <div class="button previous">上一步</div>
+                                <div class="button next">下一步</div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row wave">
+                    <div class="wave wave1"></div>
                 </div>
             </div>
         </section>
         <section class="section3">
-            <div class="container">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="d-none d-md-block col-3">
+                        <div class="step">
+                            <div class="text">
+                                <p>Step 1</p>
+                                <p>選擇日期</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-none d-md-block col-3">
+                        <div class="step">
+                            <div class="text">
+                                <p>Step 2</p>
+                                <p>選擇套餐</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12  col-md-3">
+                        <div class="step">
+                            <div class="text">
+                                <p>Step 3</p>
+                                <p>選擇客製料理</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row2 justify-content-center">
+
+                    <div class="col-12 col-md-9 text">
+                        <p>目前沒有客製化料理喔!</p>
+                        <div class="button next">去客製料理</div>
+                    </div>
+
+                    <div class="col-12  col-lg-3">
+                        <div class="reservation3">
+                            <div class="choice">
+                                <table>
+                                    <tr>
+                                        <th>名稱</th>
+                                        <th>價格</th>
+                                        <th>數量</th>
+                                        <th>刪除</th>
+                                    </tr>
+                                    <tr>
+                                        <td>生魚片</td>
+                                        <td>600元</td>
+                                        <td><input type="number" name="meal" id="count" min="0" class="meal" value="1">
+                                        </td>
+                                        <td>
+                                            <div class="delete">X</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>毛蟹湯</td>
+                                        <td>500元</td>
+                                        <td><input type="number" name="meal" id="count" min="0" class="meal" value="1">
+                                        </td>
+                                        <td>
+                                            <div class="delete">X</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>海鮮大餐</td>
+                                        <td>700元</td>
+                                        <td><input type="number" name="meal" id="count" min="0" class="meal" value="1">
+                                        </td>
+                                        <td>
+                                            <div class="delete">X</div>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="wrapper">
+                                <div class="button previous">上一步</div>
+                                <div class="button next">前往付款</div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row wave">
+                    <div class="wave wave1"></div>
+                </div>
+
+            </div>
 
             </div>
         </section>
     </main>
     <footer></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_wUBc4tgNQJ4VWqlmASpbCMC9wbWth7s&callback=initMap">
+    </script>
+    <script>
+        function initMap() {
+            var port1 = {
+                lat: 25.132219,
+                lng: 121.819155
+            };
+            var port2 = {
+                lat: 24.2922424,
+                lng: 120.5136367
+            };
+            var port3 = {
+                lat: 22.6266234,
+                lng: 120.2747798
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: port2
+            });
+            var marker1 = new google.maps.Marker({
+                position: port1,
+                map: map
+            });
+            var marker2 = new google.maps.Marker({
+                position: port2,
+                map: map
+            });
+            var marker3 = new google.maps.Marker({
+                position: port3,
+                map: map
+            });
+        }
+    </script>
+    <script src="./script.js/order.js"></script>
     <script src="/jquery/jquery.min.js"></script>
 <script src="/js/vue.js"></script>
 <script src="/js/header.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script> -->
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
 
