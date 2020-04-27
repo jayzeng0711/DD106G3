@@ -16,15 +16,19 @@
 </head>
 <body>
     <div id="header"></div>
-    <div class="title">
-        <img src="images/ribb0n-remake.png">
-        訂位
-    </div>
+    <h1 style="text-align: center;">
+        <div style="position: relative;margin-bottom: 3%;">
+            <img src="./images/ribbon.png" alt="" style="max-width: 100%;">
+            <div style="position: absolute;bottom: 55px;right: 0;left: 0;letter-spacing: 1px;">
+                定位
+            </div>
+        </div>
+    </h1>
 
     <div class="theForm">
         <ul>
             <li>
-                <pre class="bar01">日期          時段          港口          人數</pre>
+                <pre class="bar">        日期                       時段                       港口                       人數</pre>
             </li>
             <li>
                 <div class="DT">
@@ -48,18 +52,54 @@
                 </div>
             </li>
             <li>
-                <pre class="bar02">菜色          數量          刪除          小計</pre>
+                <pre class="bar">        菜色                       數量                       刪除                       小計</pre>
             </li>
             <li>
                 <div class="meal">
                     <img src="https://realfood.tesco.com/media/images/RFO-1400x919-SeafoodLinguine-d1ae9818-c4bf-4066-8adb-acfd6c0ed088-0-1400x919.jpg">
                     <span>套餐</span>
                     <div>鮭魚、鮮蚵、蝦類、干貝、魚類、透抽</div>
-                
-                    <input type="number" value="1">
-                    <div class="deleteBTN">X</div>
-                    <div class="price">5000元</div>
                 </div>
+                <div class="num">
+                    <input type="number" value="1">
+                </div>
+            
+                    <div class="deleteBTN01">X</div>
+          
+                    <div class="price">5000元</div>
+                
+            </li>
+            <li>
+                <pre class="bar">客製化料理          數量          刪除          小記</pre>
+            </li>
+            <li>
+                <div class="custom">
+                    <img src="images/cook4.png">
+                    <span>奶油蒜香蝦</span>
+
+                    <input type="number" value="3">
+                    <div class="deleteBTN">X</div>
+                    <div class="price">600元</div>
+                    <div class="BTN">前往客製化</div>
+                </div>
+            </li>
+            <li class="bar"></li>
+            <li>
+                使用點數<select>
+                    <option>100點</option>
+                    <option>200點</option>
+                    <option>300點</option>
+                 </select>
+                 總金額 <span>5500</span>元
+            </li>
+            <li>
+                <span>訂購人姓名</span>
+                <div class="orderName"></div>
+                <span>訂購人電話</span>
+                <div class="orderTel"></div>
+                <span>訂購人信箱</span>
+                <div class="orderEmail"></div>
+                <div class="BTN">立即訂位</div>
             </li>
         </ul>
         
