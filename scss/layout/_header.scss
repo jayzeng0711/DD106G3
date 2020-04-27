@@ -89,14 +89,14 @@
 // h1
 .pu_h1_div{
     position: relative;
-    width: 100%;
+    width: 40%;
     margin: 5% auto;
     .pu_h1_img{
         max-width: 100%;
     }
     .pu_div_text{
         position: absolute;
-        bottom: 25%;
+        bottom: 22%;
         right: 0;
         left: 0;
         letter-spacing: 1px;
@@ -108,14 +108,14 @@
     .pu_h1_div{
         position: relative;
         margin: 5% auto;
-        width: 80%;
-        font-size: $fontSize*1.5;
+        width: 40%;
+        font-size: $fontSize*2;
         .pu_h1_img{
             max-width: 100%;
         }
         .pu_div_text{
             position: absolute;
-            bottom: 25%;
+            bottom: 20%;
             right: 0;
             left: 0;
             letter-spacing: 1px;
@@ -127,14 +127,14 @@
     .pu_h1_div{
         position: relative;
         margin: 5% auto;
-        width: 80%;
+        width: 50%;
         font-size: $fontSize*1.5;
         .pu_h1_img{
             max-width: 100%;
         }
         .pu_div_text{
             position: absolute;
-            bottom: 25%;
+            bottom: 23%;
             right: 0;
             left: 0;
             letter-spacing: 1px;
@@ -235,15 +235,15 @@
     .pu_h1_div{
         position: relative;
         margin: 5% auto;
-        width: 80%;
-        font-size: $fontSize*1.25;
+        width: 50%;
+        font-size: $fontSize*1.5;
         z-index: -1;
         .pu_h1_img{
             max-width: 100%;
         }
         .pu_div_text{
             position: absolute;
-            bottom: 25%;
+            bottom: 20%;
             right: 0;
             left: 0;
             letter-spacing: 1px;
@@ -255,15 +255,15 @@
     .pu_h1_div{
         position: relative;
         margin: 5% auto;
-        width: 80%;
-        font-size: $fontSize;
+        width: 60%;
+        font-size: $fontSize*1.25;
         z-index: -1;
         .pu_h1_img{
             max-width: 100%;
         }
         .pu_div_text{
             position: absolute;
-            bottom: 25%;
+            bottom: 20%;
             right: 0;
             left: 0;
             letter-spacing: 1px;
