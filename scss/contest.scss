@@ -2,7 +2,6 @@
 
 
 body {
-    font-family: 'jf-openhuninn-1.0';
     // background: linear-gradient(#abdcfa,#11408c);
     background-image: url(../images/ocean_bg2.png);
     background-size: contain;
@@ -23,9 +22,9 @@ footer {
 }
 
 .wrap {
-    padding: 0 20px;
-    margin: auto;
-    max-width: 1200px;
+    // padding: 0 20px;
+    margin: 0 auto;
+    width: 1200px;
 }
 
 .ranking_title{

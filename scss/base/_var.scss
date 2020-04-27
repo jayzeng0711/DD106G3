@@ -1,5 +1,4 @@
 @import "reset";
-
 $fontFamily : 'jf-openhuninn-1.0';
 $h1_fontFamily : 'NaikaiFont-Regular.ttf';
 $fontSize: 16px;
@@ -17,11 +16,12 @@ $mobile : 576px;
 // fontFamily
 @font-face {
     font-family: $fontFamily;
+    font-family: $h1_fontFamily;
     src: url(../font/jf-openhuninn-1.0.woff) format("woff");
     src: url(../font/jf-openhuninn-1.0.ttf) format("truetype");
     src: url(../font/NaikaiFont-Regular.ttf);
 }
-*{
+body{
     font-family: $fontFamily;
 }
 // fontFamily

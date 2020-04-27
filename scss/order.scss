@@ -1,15 +1,9 @@
-@font-face {
-    font-family: 'jf-openhuninn-1.0';
-    src: url(../font/jf-openhuninn-1.0.woff) format("woff");
-    src: url(../font/jf-openhuninn-1.0.ttf) format("truetype");
-}
-
-* {
-    font-family: 'jf-openhuninn-1.0';
-}
-
-main {
+@import "base/var" ;
+body{
     background: url(../images/longbg.jpg) center top;
+}
+main {
+    // background: url(../images/longbg.jpg) center top;
     width: 100%;
 }
 

@@ -39,7 +39,7 @@ gulp.task('concatjs', function () {
 });
 
 gulp.task('img', function () {
-    gulp.src(web.img).pipe(gulp.dest('dest/img'));
+    gulp.src(web.img).pipe(gulp.dest('dest/images'));
 });
 
 gulp.task('font', function () {
@@ -103,10 +103,16 @@ gulp.task('watch' , function(){
 gulp.task('default', function () {
     browserSync.init({
         server: {
-            files: ['**'],
-            proxy: 'http://localhost:3000',
-            baseDir: "./",
-            index: "game.html"
+            // files: ['**'],
+            // proxy: 'http://localhost:3000',
+            baseDir: "./dest/",
+            index: "index.html",
+            // index: "main.html",
+            // index: "game.html",
+            // index: "member_data.html",
+            // index: "order.html",
+            // index: "contest.html",
+            // index: "customized_cuisine.html",
         }
     });
     gulp.watch(web.html, ['fileinclude']).on('change', reload);
