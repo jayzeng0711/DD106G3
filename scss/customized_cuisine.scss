@@ -40,9 +40,139 @@ main::before {
     }
 }
 
+@keyframes note_move1{
+    0% {
+        -webkit-transform-origin: top;
+                transform-origin: top;
+        left: -18.75%;
+        top: -45px;
+    }
+    33% {
+        left: 6.625%;
+        top: -17px;
+        -webkit-transform: rotate(8deg);
+        transform: rotate(8deg);
+    }
+    // 31%{
+     
+    //     -webkit-transform: rotate(-5deg);
+    //     transform: rotate(-5deg);
+    // }
+    // 32%{
+    //     -webkit-transform: rotate(3deg);
+    //     transform: rotate(3deg);
+    // }
+    // 33%{
+    //     left: 6.625%;
+    //     -webkit-transform: rotate(0deg);
+    //     transform: rotate(0deg);
+    // }
+
+    // 63% {
+    //     left: 30.62%;
+    //     top: -10px;
+    //     -webkit-transform: rotate(8deg);
+    //             transform: rotate(8deg);
+    // }
+    // 64%{
+    //     -webkit-transform: rotate(-5deg);
+    //     transform: rotate(-5deg);
+    // }
+    // 65%{
+    //     -webkit-transform: rotate(3deg);
+    //     transform: rotate(3deg);
+    // }
+    66% {
+        left: 40.62%;
+        top: -10px;
+
+    }
+    // 70%{
+    //     top: -18px;
+    // }
+    // 80% {
+    //     left: 65.625%;
+    //     top: -50px;
+    // }
+
+    99%{
+        top: -110px;
+    }
+    100% {
+        left: 98%;
+        top: -110px;
+    }
+
+}
+
+@keyframes note_move2{
+    0% {
+        -webkit-transform-origin: top;
+                transform-origin: top;
+        left: -18.75%;
+        top: -45px;
+    }
+    33% {
+        left: 6.625%;
+        top: -17px;
+        -webkit-transform: rotate(8deg);
+        transform: rotate(8deg);
+    }
+    // 31%{
+     
+    //     -webkit-transform: rotate(-5deg);
+    //     transform: rotate(-5deg);
+    // }
+    // 32%{
+    //     -webkit-transform: rotate(3deg);
+    //     transform: rotate(3deg);
+    // }
+    // 33%{
+    //     left: 6.625%;
+    //     -webkit-transform: rotate(0deg);
+    //     transform: rotate(0deg);
+    // }
+
+    // 63% {
+    //     left: 30.62%;
+    //     top: -10px;
+    //     -webkit-transform: rotate(8deg);
+    //             transform: rotate(8deg);
+    // }
+    // 64%{
+    //     -webkit-transform: rotate(-5deg);
+    //     transform: rotate(-5deg);
+    // }
+    // 65%{
+    //     -webkit-transform: rotate(3deg);
+    //     transform: rotate(3deg);
+    // }
+    66% {
+        left: 40.62%;
+        top: -10px;
+
+    }
+    // 70%{
+    //     top: -18px;
+    // }
+    // 80% {
+    //     left: 65.625%;
+    //     top: -50px;
+    // }
+
+    99%{
+        top: -110px;
+    }
+    100% {
+        left: 98%;
+        top: -110px;
+    }
+
+}
+
+
 .upper {
     h3 {
-        font-size: 24px;
         text-align: center;
     }
 
@@ -52,19 +182,34 @@ main::before {
         margin: 100px 0 50px;
         background: url(../images/list.png) no-repeat top/contain;
         position: relative;
-
+        &:hover .note{
+            animation-play-state: paused;
+        }
+        .selected-fish::before{
+            content: '';
+            top: 220px;
+            left: 110px;
+            width: 200px;
+            height: 200px;
+            border: 5px solid red;
+            border-radius: 100px;
+            position: absolute;
+            z-index: 3;
+        }
         .note {
             width: 400px;
             height: 500px;
             background: url(../images/note.png) no-repeat top/contain;
             position: absolute;
             top: -50px;
+            // animation: note_move1 10s -5s linear infinite forwards;
 
             .note-content {
                 font-size: 20px;
                 position: absolute;
                 top: 190px;
                 left: 122px;
+                cursor: pointer;
 
                 span:nth-child(2) {
                     font-size: 16px;
@@ -74,30 +219,30 @@ main::before {
 
             .fish-pic {
                 border: 2px solid aqua;
-                width: 70%;
+                width: 60%;
                 height: 200px;
                 top: 240px;
-                left: 80px;
+                left: 102px;
                 position: absolute;
-                background: url(../images/seafood3.png) no-repeat center/contain;
+                cursor: pointer;
+
+                img{
+                    width: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
             }
         }
 
         .note:nth-child(2) {
             right: 500px;
             background-image: url(../images/note02.png);
-
-            .fish-pic {
-                background: url(../images/seafood8.png) no-repeat center/contain;
-            }
         }
 
         .note:nth-child(3) {
             right: 50px;
-
-            .fish-pic {
-                background: url(../images/seafood4.png) no-repeat center/contain;
-            }
         }
     }
 }
@@ -173,11 +318,13 @@ section.paper {
     }
 
     .choose-cook {
+        display: block;
         width: 95%;
         margin: auto;
         margin-bottom: 50px;
         font-size: 24px;
         text-align: center;
+        cursor: pointer;
         h3 {
             margin: 30px 0;
         }
@@ -203,9 +350,7 @@ form {
     padding: 20px 10px;
     margin: 0 auto;
     text-align: center;
-    h3{
-        font-size: 24px;
-    }
+
     .food-info {
         margin: 30px 0 20px;
         text-align: left;
@@ -377,6 +522,7 @@ form {
                 .tab {
                     padding: 10px;
                     display: none;
+                    background-color: bisque;
                 }
 
                 .tab.-on {
@@ -386,7 +532,7 @@ form {
                     .cabinet-bottom {
                         width: 100%;
                         height: 150px;
-                        background-color: bisque;
+                        // background-color: bisque;
                         position: relative;
 
                         ul {
