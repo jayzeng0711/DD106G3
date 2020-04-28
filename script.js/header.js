@@ -40,9 +40,16 @@ $(document).ready(function(){
 //h1標題抓網頁標題
 
 //機器人移動
+pu_bot_num = 0;
 $(document).ready(function(){
     $('.reboot_div').click(function(){
-        $(this).animate({bottom:"0"},1000);
+        if(pu_bot_num == 0){
+            $(this).animate({bottom:"0px"},1000);
+            pu_bot_num = 1;
+        }else{
+            $(this).animate({bottom:"-150px"},1000);
+            pu_bot_num = 0;
+        }
     })
 })
 //機器人移動
