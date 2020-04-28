@@ -182,6 +182,7 @@ main::before {
         margin: 100px 0 50px;
         background: url(../images/list.png) no-repeat top/contain;
         position: relative;
+        display: flex;
         &:hover .note{
             animation-play-state: paused;
         }
@@ -200,8 +201,7 @@ main::before {
             width: 400px;
             height: 500px;
             background: url(../images/note.png) no-repeat top/contain;
-            position: absolute;
-            top: -50px;
+            position: relative;
             // animation: note_move1 10s -5s linear infinite forwards;
 
             .note-content {
@@ -237,13 +237,12 @@ main::before {
         }
 
         .note:nth-child(2) {
-            right: 500px;
             background-image: url(../images/note02.png);
         }
 
-        .note:nth-child(3) {
-            right: 50px;
-        }
+        // .note:nth-child(3) {
+        //     right: 50px;
+        // }
     }
 }
 
@@ -264,13 +263,27 @@ section.paper {
     height: 520px;
     border: 1px solid black;
     display: inline-block;
-    padding: 50px 0 0 10px;
+    padding: 0 0 0 10px;
     .food-display{
         position: relative;
         width: 100%;
         img{
             width: 100%;
         }
+    }
+    .ingret{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        border: 1px solid blue;
+        cursor: move;
+        z-index: 3;
+    }
+    .ingret:nth-child(2){
+        z-index: 2;
+    }
+    .ingret:nth-child(3){
+        z-index: 1;
     }
 }
 
@@ -301,7 +314,7 @@ section.paper {
                 width: 23%;
                 font-size: 18px;
                 border: 1px solid white;
-
+                cursor: pointer;
                 figure img {
                     width: 100%;
                     object-fit: fill;
@@ -311,7 +324,6 @@ section.paper {
                 figure figcaption {
                     font-size: 18px;
                     text-align: center;
-                    margin-bottom: 20px;
                 }
             }
         }
@@ -459,7 +471,7 @@ form {
         flex-wrap: wrap;
 
         .side-left {
-            padding: 50px;
+            padding: 0 10px;
             width: 100%;
             height: auto;
             .food-display{
@@ -467,6 +479,7 @@ form {
             width: 100%;
                 img{
                     width: 100%;
+                    position: absolute;
                 }
             }
         }
@@ -540,7 +553,7 @@ form {
                             justify-content: space-evenly;
 
                             li {
-                                width: 23%;
+                                width: 33%;
                                 font-size: 18px;
                                 border: 1px solid white;
 
@@ -553,7 +566,6 @@ form {
                                 figure figcaption {
                                     font-size: 18px;
                                     text-align: center;
-                                    margin-bottom: 20px;
                                 }
                             }
                         }
