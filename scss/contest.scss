@@ -25,23 +25,9 @@ footer {
     margin: auto;
     max-width: 1200px;
     // border: 1px solid red;
-    // padding: 0 20px;
+    padding: 0 20px;
     margin: 0 auto;
     width: 1200px;
-}
-
-.ranking_title {
-    padding-top: 60px;
-}
-
-@keyframes lightmove {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
 }
 
 .ranking_contain {
@@ -166,6 +152,30 @@ footer {
         transform: translateY(-15%);
     }
 
+    @keyframes lightmove {
+        0% {
+            transform: rotate(0deg);
+        }
+    
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes popup {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+        }
+    
+        100% {
+            opacity: 1;
+        }
+    }
+
     &:after {
         content: "";
         position: absolute;
@@ -178,11 +188,14 @@ footer {
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center center;
-        animation-name: lightmove;
-        animation-duration: 20s;
-        animation-iteration-count: infinite;
+        animation-name: popup,lightmove;
+        animation-duration: 5s,20s;
+        animation-delay: 0,10s;
+        animation-iteration-count: 1,infinite;
         animation-timing-function: linear;
     }
+
+
 }
 
 
@@ -994,16 +1007,16 @@ footer {
     height: 150px;
     background: none;
     position: fixed;
-    right: 50px;
+    left: 20px;
     bottom: 100px;
     border: transparent;
     outline: none;
     cursor: pointer;
-    animation-name: to_top;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
-    animation-timing-function: linear;
+    // animation-name: to_top;
+    // animation-duration: 2s;
+    // animation-iteration-count: infinite;
+    // animation-direction: alternate-reverse;
+    // animation-timing-function: linear;
 }
 
 #go_top img {
