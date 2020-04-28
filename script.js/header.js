@@ -32,3 +32,17 @@ $(window).resize(function(){
     $('.mb_big_cloud_img').css('width',`${window_w}`);
 })
 //mobile
+
+//h1標題抓網頁標題
+$(document).ready(function(){
+    $('.pu_div_text').text(document.title);
+})
+//h1標題抓網頁標題
+
+//機器人移動
+$(document).ready(function(){
+    $('.reboot_div').click(function(){
+        $(this).animate({bottom:"0"},1000);
+    })
+})
+//機器人移動

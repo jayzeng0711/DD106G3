@@ -11,14 +11,7 @@
 <body>
     @@include('./layout/header.html')
     <section id="wrapper">
-        <h1>
-            <div class="pu_h1_div">
-                <img class="pu_h1_img" src="./images/ribbon.png" alt="">
-                <div class="pu_div_text">
-                    現撈海鮮
-                </div>
-            </div>
-        </h1>
+        @@include('./layout/h1_title.html')
         <div class="wrapper_bottom">
             <div class="game_title">
                 <div class="game_rule_div">
@@ -221,6 +214,7 @@
             <div id="capture-ball-button"></div>
         </div>
         </div>
+        @@include('./layout/reboot.html')
     </section>   
     @@include('./all_js.html')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/1.0.0/anime.min.js"></script>

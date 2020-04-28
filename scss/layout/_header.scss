@@ -3,8 +3,10 @@
     display: none;
 }
 .pu_head_wrap_div{
+    width: 100%;
+    position: fixed;
+    top: 0;
     display: flex;
-    position: relative;
     z-index: 1;
     .pu_logo_a{
         width: 20%;
@@ -90,7 +92,7 @@
 .pu_h1_div{
     position: relative;
     width: 40%;
-    margin: 5% auto;
+    margin: 12% auto 5% auto;
     .pu_h1_img{
         max-width: 100%;
     }
@@ -107,7 +109,7 @@
 @include rwd(desktop){
     .pu_h1_div{
         position: relative;
-        margin: 5% auto;
+        margin: 15% auto 5% auto;
         width: 40%;
         font-size: $fontSize*2;
         .pu_h1_img{
@@ -126,7 +128,7 @@
 @include rwd(medium){
     .pu_h1_div{
         position: relative;
-        margin: 5% auto;
+        margin: 17% auto 5% auto;
         width: 50%;
         font-size: $fontSize*1.5;
         .pu_h1_img{
@@ -234,7 +236,7 @@
     //mobile_header
     .pu_h1_div{
         position: relative;
-        margin: 5% auto;
+        margin: 5% auto 5% auto;
         width: 50%;
         font-size: $fontSize*1.5;
         z-index: -1;
@@ -254,7 +256,7 @@
 @include rwd(mobile){
     .pu_h1_div{
         position: relative;
-        margin: 5% auto;
+        margin: 5% auto 5% auto;
         width: 60%;
         font-size: $fontSize*1.25;
         z-index: -1;

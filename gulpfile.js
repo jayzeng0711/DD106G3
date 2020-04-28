@@ -108,10 +108,10 @@ gulp.task('default', function () {
             baseDir: "./dest/",
             // index: "index.html",
             // index: "main.html",
-            // index: "game.html",
+            index: "game.html", 
             // index: "member_data.html",
             // index: "order.html",
-            index: "contest.html",
+            // index: "contest.html",
             // index: "customized_cuisine.html",
         }
     });
