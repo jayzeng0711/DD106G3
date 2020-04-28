@@ -40,15 +40,20 @@ $(document).ready(function(){
 //h1標題抓網頁標題
 
 //機器人移動
-pu_bot_num = 0;
 $(document).ready(function(){
+    var window_open = $('.pu_big_content_wrap').css('display');
+    $('.reboot_btn_div').click(function(){
+        $('.pu_big_content_wrap').css('display','block');
+    })
+    $('.pu_big_content_cancel').click(function(){
+        $('.pu_big_content_wrap').css('display','none');
+        $('.reboot_div').animate({bottom:"-150px"},1000);
+    })
     $('.reboot_div').click(function(){
-        if(pu_bot_num == 0){
-            $(this).animate({bottom:"0px"},1000);
-            pu_bot_num = 1;
-        }else{
+        if(window_open == 'block'){
             $(this).animate({bottom:"-150px"},1000);
-            pu_bot_num = 0;
+        }else{
+            $(this).animate({bottom:"0px"},1000);
         }
     })
 })
