@@ -1,7 +1,8 @@
-@import "base/var" ;
-body{
+@import "base/var";
+body {
     background: url(../images/longbg.jpg) center top;
 }
+
 main {
     // background: url(../images/longbg.jpg) center top;
     width: 100%;
@@ -10,6 +11,7 @@ main {
 section {
     background: url(../images/longbg.jpg) center top;
     width: 100%;
+    // height: 100vh;
     position: relative;
     overflow: hidden;
     .step {
@@ -62,12 +64,17 @@ section {
     }
     .row2 {
         align-items: center;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
         #map {
-            width: 500px;
-            height: 500px;
+            width: 100%;
+            height: 400px;
             position: relative;
             left: 50%;
             transform: translateX(-50%);
+            // margin: 30px;
+            border-radius: 10px;
         }
         .datetable {
             display: inline-block;
@@ -115,8 +122,23 @@ section {
                     display: inline-block;
                     margin-right: 10px;
                 }
+                #people {
+                    width: 100px;
+                    margin-right: 5px;
+                }
+                p {
+                    margin-top: 3px;
+                    margin-left: 0;
+                    span {
+                        margin: 0;
+                    }
+                }
             }
             .port {
+                .port1 {
+                    background-color: #4EB6E6;
+                    color: #fff;
+                }
                 input {
                     display: none;
                 }
@@ -305,6 +327,12 @@ section {
 
 @include rwd(medium) {}
 
-@include rwd(small) {}
+@include rwd(small) {
+    .section1 {
+        .datetable {
+            margin-top: 30px;
+        }
+    }
+}
 
 @include rwd(mobile) {}
