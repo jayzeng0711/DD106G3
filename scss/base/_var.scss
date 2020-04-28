@@ -16,21 +16,25 @@ $mobile : 576px;
 // fontFamily
 @font-face {
     font-family: $fontFamily;
-    font-family: $h1_fontFamily;
     src: url(../font/jf-openhuninn-1.0.woff) format("woff");
     src: url(../font/jf-openhuninn-1.0.ttf) format("truetype");
+}
+// $h1_fontFamily
+@font-face {
+    font-family: $h1_fontFamily;
     src: url(../font/NaikaiFont-Regular.ttf);
 }
+
 body{
     font-family: $fontFamily;
 }
-// fontFamily
 
 // font-size
 h1{
     font-size: $fontSize*2;
-    font-family: $h1_fontFamily;
     text-align: center;
+    font-family:  $h1_fontFamily;
+    
 }
 h2{
     font-size: $fontSize*1.75;
