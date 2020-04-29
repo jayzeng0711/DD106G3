@@ -1,0 +1,152 @@
+@import "reset";
+$fontFamily : 'jf-openhuninn-1.0';
+$h1_fontFamily : 'NaikaiFont-Regular.ttf';
+$fontSize: 16px;
+
+$btn_bg_color : #5fa8d3;
+$btn_color : #ffffff;
+
+// rwd breakpoint
+$desktop : 1200px;
+$medium : 991px;
+$small : 767px;
+$mobile : 576px;
+// rwd breakpoint
+
+// fontFamily
+@font-face {
+    font-family: $fontFamily;
+    src: url(../font/jf-openhuninn-1.0.woff) format("woff");
+    src: url(../font/jf-openhuninn-1.0.ttf) format("truetype");
+}
+// $h1_fontFamily
+@font-face {
+    font-family: $h1_fontFamily;
+    src: url(../font/NaikaiFont-Regular.ttf);
+}
+
+body{
+    font-family: $fontFamily;
+}
+
+// font-size
+h1{
+    font-size: $fontSize*2;
+    text-align: center;
+    font-family:  $h1_fontFamily;
+    
+}
+h2{
+    font-size: $fontSize*1.75;
+}
+h3{
+    font-size: $fontSize*1.5;
+}
+h4{
+    font-size: $fontSize*1.25;
+}
+// font-size
+
+//button
+%btn{
+    border: none;
+    outline: none;
+    background-color: $btn_bg_color;
+    color: $btn_color;
+    padding: 3% 5%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px #707070;
+    font-size: $fontSize;
+    cursor: pointer;
+    &:active{
+        box-shadow: inset 2px 2px 2px #707070;
+        top: 1px;
+    }
+    &::before {
+        content:'';
+        position: absolute;
+        background-color: #eee;
+        padding: 50%;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        opacity: .8;
+        transition: transform .6s, opacity 1s;
+    }
+    &:hover::before {
+        transition: 1s;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  %btn_ano{
+    border: none;
+    outline: none;
+    background-color: #021A71;
+    color: $btn_color;
+    padding: 3% 5%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px #707070;
+    font-size: $fontSize;
+    cursor: pointer;
+    &:active{
+        box-shadow: inset 2px 2px 2px #707070;
+        top: 1px;
+    }
+    &::before {
+        content:'';
+        position: absolute;
+        background-color: #eee;
+        padding: 50%;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        opacity: .8;
+        transition: transform .6s, opacity 1s;
+    }
+    &:hover::before {
+        transition: 1s;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+  }
+//button
+
+// rwd
+@mixin rwd($breakpoint) {
+    @if $breakpoint == desktop {
+        @media all and (max-width: $desktop) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint == medium {
+        @media all and (max-width: $medium) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint == small {
+        @media all and (max-width: $small) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint == mobile {
+        @media all and (max-width: $mobile) {
+            @content;
+        }
+    }
+}
+// rwd
+
+
+@import "../layout/header";
+@import "../layout/reboot";

@@ -1,0 +1,231 @@
+@import 'base/var';
+
+
+div.forALL {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: radial-gradient(ellipse at top, #FEFFDB, #9cd6ff, #48c6e4);
+
+    div.sky {
+        height: 50vh;
+        background: url("../images/clouds.png");
+        background-size: cover;
+        animation: cloud 180s infinite;
+        padding-top: 10vh;
+
+        div.logo {
+            width: 15%;
+            min-width: 200px;
+            margin: 0 auto;
+
+            img {
+                width: 100%;
+            }
+
+        }
+
+
+    }
+
+
+    div.ocean {
+        height: 50vh;
+        background: url("../images/Ocean_top.png");
+        animation: waves_calm 5s infinite alternate ease-in-out;
+
+        div.wrap {
+            display: flex;
+            justify-content: space-around;
+
+            div.item {
+                a {
+                    display: block;
+                    width: 40vw;
+                    min-width: 300px;
+                    position: relative;
+                    animation: sailing 2s infinite cubic-bezier(.17, .67, .58, .56);
+                    text-decoration: none;
+
+                    h1 {
+                        color: #363636;
+                        font-size: $fontSize*3;
+                        font-family: $fontFamily;
+                        margin-bottom: 5%;
+                    }
+
+                    div.cruise {
+
+                        img {
+                            width: 100%;
+
+                        }
+
+                    }
+                }
+
+
+                a:hover{
+                    animation: sailing 0.5s infinite cubic-bezier(.17, .67, .58, .56)
+                    
+                }
+                a.front {
+                    div.waves {
+                        img {
+                            position: absolute;
+                            bottom: -20%;
+                            width: 100%;
+                            animation: waves 1s infinite ease-in-out;
+                        }
+                    }
+                }
+
+                a.back {
+                    div.ripples {
+                        img {
+                            width: 100%;
+                            animation: ripples 3s infinite ease-in-out;
+                        }
+                    }
+
+
+
+                }
+            }
+        }
+
+    }
+
+
+
+}
+
+
+
+@keyframes waves {
+
+    /*波浪*/
+    0% {
+        background-image: url("../images/wave_keyframes01.png");
+    }
+
+    50% {
+        background-image: url("../images/wave_keyframes02.png");
+    }
+
+    100% {
+        background-image: url("../images/wave_keyframes03.png");
+    }
+}
+
+@keyframes waves_calm {
+
+    /*海面*/
+    0% {
+        background-position: 50px 25px;
+    }
+
+    25% {
+        background-position: 25px 50px;
+    }
+
+    50% {
+        background-position: 50px 25px;
+    }
+
+    75% {
+        background-position: -25px -50px;
+    }
+
+    100% {
+        background-position: -50px -25px;
+    }
+}
+
+@keyframes ripples {
+
+    /*漣漪*/
+    0% {
+        background-image: url("../images/ripple_keyframes01.png");
+    }
+
+    50% {
+        background-image: url("../images/ripple_keyframes02.png");
+    }
+
+    100% {
+        background-image: url("../images/ripple_keyframes03.png");
+    }
+}
+
+@keyframes sailing {
+
+    /*船行*/
+    0% {
+        transform: rotate(-1deg);
+    }
+
+    25% {
+        transform: rotate(0deg);
+    }
+
+    37% {
+        top: -5px;
+        transform: rotate(2deg);
+    }
+
+    50% {
+        top: -2px;
+        transform: rotate(3deg);
+    }
+
+    62% {
+        transform: rotate(3deg);
+    }
+
+    75% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-2deg);
+    }
+}
+
+@keyframes wabble {
+    0% {
+        top: 0px;
+    }
+
+    50% {
+        top: -2px;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+@keyframes cloud {
+
+    /*雲在飄*/
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 5760px 0;
+    }
+}
+
+@include rwd(mobile) {
+
+
+    div.itemback {
+        display: none;
+
+    }
+
+
+}

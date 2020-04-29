@@ -1,0 +1,1182 @@
+@import 'base/var';
+.mem_data_wrap{
+    display: flex;
+    .mem_data_left_div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 250px;
+        height: 100vh;
+        background-color: #D9E8EC;
+        div{
+            margin: 20px 0;
+            cursor: pointer;
+            padding: 5%;
+            letter-spacing: 1px;
+            &:hover{
+                background-color: #777;
+                border-radius: 10px;
+                color: #fff;
+            }
+        }
+    }
+    //個人資料
+    .mem_data_right_div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        letter-spacing: 1px;
+        div{
+            margin: 1.5% 0; 
+        }
+        .mem_img_div{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 1px solid #999;
+            cursor: pointer;
+            img{
+                padding: 10%;
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+            }
+        }
+        .mem_data_name_update_div{
+            width: 30%;
+            text-align: center;
+            position: relative;
+            .mem_data_name_update_button{
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                button{
+                    display: block;
+                    white-space: nowrap;
+                    @extend %btn;
+                }
+            }
+        }
+        .mem_data_input_div{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            .mem_data_input{
+                margin: 1% 5%;
+                div{
+                    margin-bottom: 3%;
+                    input{
+                        font-size: $fontSize;
+                        line-height: 1.5;
+                        outline: none;
+                        border-radius: 5px;
+                        border: 1px solid #777;
+                        letter-spacing: 1px;
+                    }
+                }      
+            }
+        }
+        .mem_modify_btn{
+            @extend %btn;
+            padding: 1% 2%;
+        }
+    }
+    //個人資料
+
+    //訂單細節
+    .order_detail_wrap{
+        text-align: center;
+        width: 100%;
+        letter-spacing: 1px;
+        display: flex;
+        flex-direction: column;
+        .order_detail_title{
+            margin-bottom: 6%;
+            font-size: $fontSize*1.25;
+            font-weight: bold;
+            margin-top: 8%;
+        }
+        .order_detail_div_wrap{
+            display: flex;
+            width: 70%;
+            margin: 3% auto;
+            .order_detail_div_in_wrap{
+                width: 30%;
+                margin-right: 5%;
+                .order_detail_left_div{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 100%;
+                    justify-content: space-between;
+                    white-space: nowrap;
+                    .order_detail_left_div_item{
+                        display: flex;
+                        align-items: center;
+                        .order_detail_left_div_item_title{
+                            flex: 1;
+                            .input_not_modify{
+                                text-align: center;
+                                font-size: $fontSize;
+                                outline: none;
+                                border: 0;
+                            }
+                            .input_modify{
+                                text-align: center;
+                                font-size: $fontSize;
+                            }
+                        }
+                    }
+                }
+            }
+            .order_detail_right_div{
+                width: 70%;
+                .order_detail_right_div_title{
+                    display: flex;
+                    margin-bottom: 4%;
+                    align-items: center;
+                    div{
+                        flex: 1;
+                    }
+                }
+                .order_detail_right_div_item{
+                    display: flex;
+                    margin-bottom: 1%;
+                    align-items: center;
+                    div{
+                        flex: 1;
+                        .input_modify{
+                            text-align: center;
+                            font-size: $fontSize;
+                        }
+                        .input_not_modify{
+                            text-align: center;
+                            font-size: $fontSize;
+                            outline: none;
+                            border: 0;
+                        }
+                    }
+                }
+                .order_detail_right_div_item_1{
+                    display: flex;
+                    margin-bottom: 4%;
+                    align-items: center;
+                    div{
+                        flex: 1;
+                        .input_modify{
+                            text-align: center;
+                            font-size: $fontSize;
+                        }
+                        .input_not_modify{
+                            text-align: center;
+                            font-size: $fontSize;
+                            outline: none;
+                            border: 0;
+                        }
+                    }
+                }
+                .order_detail_right_div_custom_wrap{
+                    .order_detail_right_div_custom{
+                        display: flex;
+                        margin-bottom: 4%;
+                        div{
+                            flex: 1;
+                        }
+                    }
+                    .order_detail_right_div_custom_item{
+                        display: flex;
+                        margin-bottom: 6%;
+                        div{
+                            flex: 1;
+                            .input_modify{
+                                text-align: center;
+                                font-size: $fontSize;
+                            }
+                            .input_not_modify{
+                                text-align: center;
+                                font-size: $fontSize;
+                                outline: none;
+                                border: 0;
+                            }
+                        }
+                    }
+                }
+                .order_detail_right_div_point_wrap{
+                    .order_detail_right_div_point{
+                        display: flex;
+                        justify-content: flex-end;
+                        width: 90%;
+                        margin-bottom: 2%;
+                        align-items: center;
+                        .order_detail_right_div_point_text{
+                            width: 100%;
+                            text-align: right;
+                            margin-right: 1%;
+                        }
+                        .input_modify{
+                            text-align: center;
+                            font-size: $fontSize;
+                        }
+                        .order_detail_right_div_total{
+                            width: 100%;
+                            text-align: right;
+                            margin-right: 5%;
+                        }
+                    }
+                }
+            }
+        }
+        .order_detail_btn{
+            @extend %btn;
+            padding: 1% 2%;
+        }
+        .order_detail_cancel_btn{
+            @extend %btn_ano;
+            padding: 1% 2%;
+        }
+    }
+    //訂單細節
+
+    //客製化料理
+    .curisine_wrap{
+        display: none;
+        text-align: center;
+        width: 100%;
+        letter-spacing: 1px;
+        .curisine_div_title{
+            margin-bottom: 6%;
+            margin-top: 8%;
+            font-size: $fontSize*.1.25;
+            font-weight: bold;
+        }
+        .curisine_desktop{
+            display: block;
+            .curisine_div_title_item{
+                display: flex;
+                justify-content: center;
+                width: 70%;
+                margin: 3% auto;
+                div{
+                    flex: 1;
+                }
+            }
+            .curisine_div_title_item_bot{
+                display: flex;
+                justify-content: center;
+                width: 70%;
+                margin: 1% auto;
+                align-items: center;
+                div{
+                    flex: 1;
+                }
+                .curisine_div_title_item_bot_img{
+                    flex: 1;
+                    width: 80px;
+                    img{
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+        .curisine_mobile{
+            display: none;
+        }
+    }
+    //客製化料理
+}
+
+@include rwd(desktop){
+
+}
+
+@include rwd(medium){
+    .mem_data_wrap{
+        display: flex;
+        //個人資料
+        .mem_data_left_div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+            height: 100vh;
+            background-color: #D9E8EC;
+            div{
+                margin: 20px 0;
+                cursor: pointer;
+                padding: 5%;
+                letter-spacing: 1px;
+                &:hover{
+                    background-color: #777;
+                    border-radius: 10px;
+                    color: #fff;
+                }
+            }
+        }
+        .mem_data_right_div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            letter-spacing: 1px;
+            div{
+                margin: 1.5% 0; 
+            }
+            .mem_img_div{
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                border: 1px solid #999;
+                cursor: pointer;
+                img{
+                    padding: 10%;
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                }
+            }
+            .mem_data_name_update_div{
+                width: 30%;
+                text-align: center;
+                position: relative;
+                .mem_data_name_update_button{
+                    position: absolute;
+                    right: -40px;
+                    bottom: 0;
+                    button{
+                        display: block;
+                        white-space: nowrap;
+                        // @extend %btn;
+                    }
+                }
+            }
+            .mem_data_input_div{
+                width: 100%;
+                display: block;
+                text-align: center;
+                .mem_data_input{
+                    margin: 1% 4%;
+                    div{
+                        margin-bottom: 3%;
+                        input{
+                            font-size: $fontSize;
+                            line-height: 1.5;
+                            outline: none;
+                            border-radius: 5px;
+                            border: 1px solid #777;
+                            letter-spacing: 1px;
+                        }
+                    }      
+                }
+            }
+            .mem_modify_btn{
+                // @extend %btn;
+                padding: 1% 2%;
+            }
+        }
+        //個人資料
+
+        //訂單細節
+        .order_detail_wrap{
+            text-align: center;
+            width: 100%;
+            letter-spacing: 1px;
+            display: flex;
+            flex-direction: column;
+            .order_detail_title{
+                margin-bottom: 6%;
+                font-size: $fontSize*1.25;
+                font-weight: bold;
+                margin-top: 8%;
+            }
+            .order_detail_div_wrap{
+                display: flex;
+                width: 96%;
+                margin: 3% auto;
+                .order_detail_div_in_wrap{
+                    width: 30%;
+                    margin-right: 5%;
+                    .order_detail_left_div{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        height: 100%;
+                        justify-content: space-between;
+                        white-space: nowrap;
+                        .order_detail_left_div_item{
+                            display: flex;
+                            align-items: center;
+                            .order_detail_left_div_item_title{
+                                flex: 1;
+                                .input_not_modify{
+                                    text-align: center;
+                                    font-size: $fontSize;
+                                    outline: none;
+                                    border: 0;
+                                }
+                                .input_modify{
+                                    text-align: center;
+                                    font-size: $fontSize;
+                                }
+                            }
+                        }
+                    }
+                }
+                .order_detail_right_div{
+                    width: 70%;
+                    .order_detail_right_div_title{
+                        display: flex;
+                        margin-bottom: 4%;
+                        align-items: center;
+                        div{
+                            flex: 1;
+                        }
+                    }
+                    .order_detail_right_div_item{
+                        display: flex;
+                        margin-bottom: 1%;
+                        align-items: center;
+                        div{
+                            flex: 1;
+                            .input_modify{
+                                text-align: center;
+                                font-size: $fontSize;
+                            }
+                            .input_not_modify{
+                                text-align: center;
+                                font-size: $fontSize;
+                                outline: none;
+                                border: 0;
+                            }
+                        }
+                    }
+                    .order_detail_right_div_item_1{
+                        display: flex;
+                        margin-bottom: 4%;
+                        align-items: center;
+                        div{
+                            flex: 1;
+                            .input_modify{
+                                text-align: center;
+                                font-size: $fontSize;
+                            }
+                            .input_not_modify{
+                                text-align: center;
+                                font-size: $fontSize;
+                                outline: none;
+                                border: 0;
+                            }
+                        }
+                    }
+                    .order_detail_right_div_custom_wrap{
+                        .order_detail_right_div_custom{
+                            display: flex;
+                            margin-bottom: 4%;
+                            div{
+                                flex: 1;
+                            }
+                        }
+                        .order_detail_right_div_custom_item{
+                            display: flex;
+                            margin-bottom: 6%;
+                            div{
+                                flex: 1;
+                                .input_modify{
+                                    text-align: center;
+                                    font-size: $fontSize;
+                                }
+                                .input_not_modify{
+                                    text-align: center;
+                                    font-size: $fontSize;
+                                    outline: none;
+                                    border: 0;
+                                }
+                            }
+                        }
+                    }
+                    .order_detail_right_div_point_wrap{
+                        .order_detail_right_div_point{
+                            display: flex;
+                            justify-content: flex-end;
+                            width: 90%;
+                            margin-bottom: 2%;
+                            align-items: center;
+                            .order_detail_right_div_point_text{
+                                width: 100%;
+                                text-align: right;
+                                margin-right: 1%;
+                            }
+                            .input_modify{
+                                text-align: center;
+                                font-size: $fontSize;
+                            }
+                            .order_detail_right_div_total{
+                                width: 100%;
+                                text-align: right;
+                                margin-right: 5%;
+                            }
+                        }
+                    }
+                }
+            }
+            .order_detail_btn{
+                padding: 1% 2%;
+            }
+            .order_detail_cancel_btn{
+                padding: 1% 2%;
+            }
+        }
+        //訂單細節
+        //客製化料理
+    .curisine_wrap{
+        text-align: center;
+        width: 100%;
+        letter-spacing: 1px;
+        .curisine_div_title{
+            margin-bottom: 6%;
+            margin-top: 8%;
+            font-size: $fontSize*.1.25;
+            font-weight: bold;
+        }
+        .curisine_desktop{
+            display: block;
+            .curisine_div_title_item{
+                display: flex;
+                justify-content: center;
+                width: 90%;
+                margin: 3% auto;
+                div{
+                    flex: 1;
+                }
+            }
+            .curisine_div_title_item_bot{
+                display: flex;
+                justify-content: center;
+                width: 90%;
+                margin: 1% auto;
+                align-items: center;
+                div{
+                    flex: 1;
+                }
+                .curisine_div_title_item_bot_img{
+                    flex: 1;
+                    width: 80px;
+                    img{
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+        .curisine_mobile{
+            display: none;
+        }
+    }
+    //客製化料理
+    }
+}
+@include rwd(small){
+    .mem_data_wrap{
+        //個人資料
+        display: flex;
+        .mem_data_left_div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 100vh;
+            background-color: #D9E8EC;
+            div{
+                margin: 20px 0;
+                cursor: pointer;
+                padding: 5%;
+                letter-spacing: 1px;
+                &:hover{
+                    background-color: #777;
+                    border-radius: 10px;
+                    color: #fff;
+                }
+            }
+        }
+        .mem_data_right_div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            letter-spacing: 1px;
+            div{
+                margin: 1.5% 0; 
+            }
+            .mem_img_div{
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                border: 1px solid #999;
+                cursor: pointer;
+                img{
+                    padding: 10%;
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                }
+            }
+            .mem_data_name_update_div{
+                width: 30%;
+                text-align: center;
+                position: relative;
+                .mem_data_name_update_button{
+                    position: absolute;
+                    right: -60px;
+                    bottom: 0;
+                    button{
+                        display: block;
+                        white-space: nowrap;
+                        // @extend %btn;
+                    }
+                }
+            }
+            .mem_data_input_div{
+                width: 100%;
+                display: block;
+                text-align: center;
+                .mem_data_input{
+                    margin: 1% 4%;
+                    div{
+                        margin-bottom: 3%;
+                        input{
+                            font-size: $fontSize;
+                            line-height: 1.5;
+                            outline: none;
+                            border-radius: 5px;
+                            border: 1px solid #777;
+                            letter-spacing: 1px;
+                        }
+                    }      
+                }
+            }
+            .mem_modify_btn{
+                // @extend %btn;
+                padding: 3% 5%;
+            }
+        }
+        //個人資料
+
+        //訂單細節
+        .order_detail_wrap{
+            text-align: center;
+            width: 100%;
+            letter-spacing: 1px;
+            display: flex;
+            flex-direction: column;
+            font-size: $fontSize*0.9;
+            .order_detail_title{
+                margin-bottom: 6%;
+                font-size: $fontSize*1.25;
+                font-weight: bold;
+                margin-top: 8%;
+            }
+            .order_detail_div_wrap{
+                display: flex;
+                width: 96%;
+                margin: 3% auto;
+                .order_detail_div_in_wrap{
+                    width: 30%;
+                    margin-right: 5%;
+                    .order_detail_left_div{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        height: 100%;
+                        justify-content: space-between;
+                        white-space: nowrap;
+                        .order_detail_left_div_item{
+                            display: flex;
+                            align-items: center;
+                            .order_detail_left_div_item_title{
+                                flex: 1;
+                                .input_not_modify{
+                                    text-align: center;
+                                    font-size: $fontSize;
+                                    outline: none;
+                                    border: 0;
+                                }
+                                .input_modify{
+                                    text-align: center;
+                                    font-size: $fontSize;
+                                }
+                            }
+                        }
+                    }
+                }
+                .order_detail_right_div{
+                    width: 70%;
+                    .order_detail_right_div_title{
+                        display: flex;
+                        margin-bottom: 4%;
+                        align-items: center;
+                        div{
+                            flex: 1;
+                        }
+                    }
+                    .order_detail_right_div_item{
+                        display: flex;
+                        margin-bottom: 1%;
+                        align-items: center;
+                        div{
+                            flex: 1;
+                            .input_modify{
+                                text-align: center;
+                                font-size: $fontSize*0.9;
+                            }
+                            .input_not_modify{
+                                text-align: center;
+                                font-size: $fontSize*0.9;
+                                outline: none;
+                                border: 0;
+                            }
+                        }
+                    }
+                    .order_detail_right_div_item_1{
+                        display: flex;
+                        margin-bottom: 4%;
+                        align-items: center;
+                        div{
+                            flex: 1;
+                            .input_modify{
+                                text-align: center;
+                                font-size: $fontSize*0.9;
+                            }
+                            .input_not_modify{
+                                text-align: center;
+                                font-size: $fontSize*0.9;
+                                outline: none;
+                                border: 0;
+                            }
+                        }
+                    }
+                    .order_detail_right_div_custom_wrap{
+                        .order_detail_right_div_custom{
+                            display: flex;
+                            margin-bottom: 4%;
+                            div{
+                                flex: 1;
+                            }
+                        }
+                        .order_detail_right_div_custom_item{
+                            display: flex;
+                            margin-bottom: 6%;
+                            div{
+                                flex: 1;
+                                .input_modify{
+                                    text-align: center;
+                                    font-size: $fontSize*0.9;
+                                }
+                                .input_not_modify{
+                                    text-align: center;
+                                    font-size: $fontSize*0.9;
+                                    outline: none;
+                                    border: 0;
+                                }
+                            }
+                        }
+                    }
+                    .order_detail_right_div_point_wrap{
+                        .order_detail_right_div_point{
+                            display: flex;
+                            justify-content: flex-end;
+                            width: 90%;
+                            margin-bottom: 2%;
+                            align-items: center;
+                            .order_detail_right_div_point_text{
+                                width: 100%;
+                                text-align: right;
+                                margin-right: 1%;
+                            }
+                            .input_modify{
+                                text-align: center;
+                                font-size: $fontSize*0.9;
+                            }
+                            .order_detail_right_div_total{
+                                width: 100%;
+                                text-align: right;
+                                margin-right: 5%;
+                            }
+                        }
+                    }
+                }
+            }
+            .order_detail_btn{
+                padding: 3% 5%;
+            }
+            .order_detail_cancel_btn{
+                padding: 3% 5%;
+            }
+        }
+        //訂單細節
+
+        //客製化料理
+        .curisine_wrap{
+            text-align: center;
+            width: 100%;
+            letter-spacing: 1px;
+            .curisine_div_title{
+                margin-bottom: 6%;
+                margin-top: 8%;
+                font-size: $fontSize*.1.25;
+                font-weight: bold;
+            }
+            .curisine_desktop{
+                display: block;
+                .curisine_div_title_item{
+                display: flex;
+                justify-content: center;
+                width: 96%;
+                margin: 3% auto;
+                div{
+                    flex: 1;
+                }
+            }
+            .curisine_div_title_item_bot{
+                display: flex;
+                justify-content: center;
+                width: 96%;
+                margin: 1% auto;
+                align-items: center;
+                div{
+                    flex: 1;
+                }
+                .curisine_div_title_item_bot_img{
+                    flex: 1;
+                    width: 80px;
+                    img{
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+        .curisine_mobile{
+            display: none;
+        }
+    }
+    //客製化料理
+    }
+}
+@include rwd(mobile){
+    .mem_data_wrap{
+        display: block;
+        //個人資料
+        .mem_data_left_div{
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            background-color: #D9E8EC;
+            div{
+                margin: 20px 0;
+                cursor: pointer;
+                padding: 5%;
+                letter-spacing: 1px;
+                &:hover{
+                    background-color: #777;
+                    border-radius: 10px;
+                    color: #fff;
+                }
+            }
+        }
+        .mem_data_right_div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            letter-spacing: 1px;
+            
+            div{
+                margin-bottom: 3% 0; 
+            }
+            .mem_img_div{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                border: 1px solid #999;
+                cursor: pointer;
+                img{
+                    padding: 10%;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                }
+            }
+            .mem_data_name_update_div{
+                width: 30%;
+                text-align: center;
+                position: relative;
+                .mem_data_name_update_button{
+                    position: absolute;
+                    right: -60px;
+                    bottom: 0;
+                    button{
+                        display: block;
+                        white-space: nowrap;
+                        // @extend %btn;
+                    }
+                }
+            }
+            .mem_data_input_div{
+                width: 100%;
+                display: block;
+                text-align: center;
+                .mem_data_input{
+                    margin: 1% 4%;
+                    div{
+                        margin-bottom: 3%;
+                        input{
+                            font-size: $fontSize;
+                            line-height: 1.5;
+                            outline: none;
+                            border-radius: 5px;
+                            border: 1px solid #777;
+                            letter-spacing: 1px;
+                        }
+                    }      
+                }
+            }
+            .mem_modify_btn{
+                // @extend %btn;
+                padding: 2% 4%;
+            }
+        }
+        //個人資料
+
+        //訂單細節
+        .order_detail_wrap{
+            text-align: center;
+            width: 100%;
+            letter-spacing: 1px;
+            display: flex;
+            flex-direction: column;
+            font-size: $fontSize*0.9;
+            .order_detail_title{
+                margin-bottom: 6%;
+                font-size: $fontSize*1.25;
+                font-weight: bold;
+                margin-top: 8%;
+            }
+            .order_detail_div_wrap{
+                display: flex;
+                width: 96%;
+                margin: 3% auto;
+                flex-direction: column;
+                align-items: center;
+                .order_detail_div_in_wrap{
+                    width: 50%;
+                    margin-right: 0;
+                    margin-bottom: 5%;
+                    .order_detail_left_div{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        height: 100%;
+                        justify-content: space-between;
+                        white-space: nowrap;
+                        .order_detail_left_div_item{
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 5%;
+                            .order_detail_left_div_item_title{
+                                flex: 1;
+                                .input_not_modify{
+                                    text-align: center;
+                                    font-size: $fontSize;
+                                    outline: none;
+                                    border: 0;
+                                }
+                                .input_modify{
+                                    text-align: center;
+                                    font-size: $fontSize;
+                                }
+                            }
+                        }
+                    }
+                }
+                .order_detail_right_div{
+                    width: 90%;
+                    .order_detail_right_div_title{
+                        display: flex;
+                        margin-bottom: 4%;
+                        align-items: center;
+                        div{
+                            flex: 1;
+                        }
+                    }
+                    .order_detail_right_div_item{
+                        display: flex;
+                        margin-bottom: 1%;
+                        align-items: center;
+                        div{
+                            flex: 1;
+                            .input_modify{
+                                text-align: center;
+                                font-size: $fontSize*0.9;
+                            }
+                            .input_not_modify{
+                                text-align: center;
+                                font-size: $fontSize*0.9;
+                                outline: none;
+                                border: 0;
+                            }
+                        }
+                    }
+                    .order_detail_right_div_item_1{
+                        display: flex;
+                        margin-bottom: 4%;
+                        align-items: center;
+                        div{
+                            flex: 1;
+                            .input_modify{
+                                text-align: center;
+                                font-size: $fontSize*0.9;
+                            }
+                            .input_not_modify{
+                                text-align: center;
+                                font-size: $fontSize*0.9;
+                                outline: none;
+                                border: 0;
+                            }
+                        }
+                    }
+                    .order_detail_right_div_custom_wrap{
+                        .order_detail_right_div_custom{
+                            display: flex;
+                            margin-bottom: 4%;
+                            div{
+                                flex: 1;
+                            }
+                        }
+                        .order_detail_right_div_custom_item{
+                            display: flex;
+                            margin-bottom: 6%;
+                            div{
+                                flex: 1;
+                                .input_modify{
+                                    text-align: center;
+                                    font-size: $fontSize*0.9;
+                                }
+                                .input_not_modify{
+                                    text-align: center;
+                                    font-size: $fontSize*0.9;
+                                    outline: none;
+                                    border: 0;
+                                }
+                            }
+                        }
+                    }
+                    .order_detail_right_div_point_wrap{
+                        .order_detail_right_div_point{
+                            display: flex;
+                            justify-content: flex-end;
+                            width: 90%;
+                            margin-bottom: 2%;
+                            align-items: center;
+                            .order_detail_right_div_point_text{
+                                width: 100%;
+                                text-align: right;
+                                margin-right: 1%;
+                            }
+                            .input_modify{
+                                text-align: center;
+                                font-size: $fontSize*0.9;
+                            }
+                            .order_detail_right_div_total{
+                                width: 100%;
+                                text-align: right;
+                                margin-right: 5%;
+                            }
+                        }
+                    }
+                }
+            }
+            .order_detail_btn{
+                padding: 2% 4%;
+            }
+            .order_detail_cancel_btn{
+                padding: 2% 4%;
+            }
+        }
+        //訂單細節
+
+        //客製化料理
+        .curisine_wrap{
+            text-align: center;
+            width: 100%;
+            letter-spacing: 1px;
+            .curisine_div_title{
+                margin-bottom: 6%;
+                margin-top: 8%;
+                font-size: $fontSize*.1.25;
+                font-weight: bold;
+            }
+            .curisine_desktop{
+                display: none;
+                .curisine_div_title_item{
+                display: flex;
+                justify-content: center;
+                width: 96%;
+                margin: 3% auto;
+                div{
+                    flex: 1;
+                }
+            }
+            .curisine_div_title_item_bot{
+                display: flex;
+                justify-content: center;
+                width: 96%;
+                margin: 1% auto;
+                align-items: center;
+                div{
+                    flex: 1;
+                }
+                .curisine_div_title_item_bot_img{
+                    flex: 1;
+                    width: 80px;
+                    img{
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+        .curisine_mobile{
+            display: block;
+            .curisine_mobile_img_div{
+                width: 150px;
+                margin: 2% auto;
+                img{
+                    max-width: 100%;
+                }
+            }
+            .curisine_mobile_div{
+                width: 45%;
+                margin: 0 auto;
+                .curisine_mobile_div_item{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 10%;
+                    div{
+                        flex: 1;
+                    }
+                }
+            }
+        }
+    }
+    //客製化料理
+    }
+}

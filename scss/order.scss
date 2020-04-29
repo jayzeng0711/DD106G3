@@ -1,0 +1,338 @@
+@import "base/var";
+body {
+    background: url(../images/longbg.jpg) center top;
+}
+
+main {
+    // background: url(../images/longbg.jpg) center top;
+    width: 100%;
+}
+
+section {
+    background: url(../images/longbg.jpg) center top;
+    width: 100%;
+    // height: 100vh;
+    position: relative;
+    overflow: hidden;
+    .step {
+        margin: 100px auto 0;
+        background: url(../images/bubble.svg) no-repeat;
+        background-size: contain;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        .text {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        p {
+            color: #fff;
+            margin: 0;
+        }
+    }
+    .wave {
+        width: 100%;
+        height: 15vh;
+        bottom: -5vh;
+        background-image: url(../images/wave1.png);
+        background-size: 50vh 15vh;
+        position: absolute;
+        animation: wave 20s linear infinite;
+        z-index: 0;
+    }
+    @keyframes wave {
+        0% {
+            background-position: 0
+        }
+        100% {
+            background-position: 100%
+        }
+    }
+}
+
+.section1 {
+    min-height: 100vh;
+    .title {
+        position: relative;
+        .pu_div_text {
+            font-size: $fontSize*2;
+            color: #034;
+            line-height: $fontSize;
+            text-align: center;
+        }
+    }
+    .row2 {
+        align-items: center;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+        #map {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            // margin: 30px;
+            border-radius: 10px;
+        }
+        .datetable {
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            table {
+                border-collapse: collapse;
+                background-color: #d8ecf9;
+                border-radius: 5px;
+                th,
+                td {
+                    text-align: center;
+                    font-size: 14px;
+                    width: 60px;
+                    padding: 5px 5px;
+                }
+            }
+        }
+        .reservation {
+            width: 300px;
+            color: #034;
+            background-color: #fff;
+            border: 3px solid #318DD6;
+            border-radius: 10px;
+            margin-top: 30px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 15vh;
+            p {
+                text-align: center;
+                margin: 20px;
+            }
+            .choice {
+                margin: 20px 0 0 30px;
+                label {
+                    background-color: #fff;
+                    border: 1px solid #4EB6E6;
+                    border-radius: 10px;
+                    padding: 3px 5px;
+                    cursor: pointer;
+                }
+                span {
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+                #people {
+                    width: 100px;
+                    margin-right: 5px;
+                }
+                p {
+                    margin-top: 3px;
+                    margin-left: 0;
+                    span {
+                        margin: 0;
+                    }
+                }
+            }
+            .port {
+                .port1 {
+                    background-color: #4EB6E6;
+                    color: #fff;
+                }
+                input {
+                    display: none;
+                }
+            }
+            .button {
+                @extend %btn_ano;
+                width: 100px;
+                margin: 20px auto;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.section2 {
+    min-height: 100vh;
+    .row2 {
+        min-height: 60vh;
+        align-items: center;
+        .menu {
+            width: 80%;
+            position: relative;
+            border-radius: 5px;
+            background-color: rgb(245, 235, 220);
+            margin: 20px 0;
+            padding: 20px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            img {
+                margin: 0px auto 10px;
+                display: block;
+                width: 50%;
+            }
+            .text {
+                display: inline-block;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                h4 {
+                    font-size: $fontSize*1.2;
+                }
+                p {
+                    font-size: $fontSize;
+                    margin: 0;
+                }
+            }
+        }
+        .button {
+            @extend %btn_ano;
+            width: 100px;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .reservation2 {
+            width: 300px;
+            color: #034;
+            background-color: #fff;
+            border: 3px solid #318DD6;
+            border-radius: 10px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 15vh;
+            p {
+                text-align: center;
+                margin: 20px;
+            }
+            .choice {
+                margin: 20px 0 0 30px;
+                table {
+                    width: 100%;
+                    th {
+                        font-size: $fontSize*1.2;
+                        padding-bottom: 5px;
+                    }
+                }
+                .meal {
+                    display: inline-block;
+                    width: 40px;
+                }
+            }
+            .port {
+                input {
+                    display: none;
+                }
+            }
+            .wrapper {
+                text-align: center;
+                .button.previous {
+                    @extend %btn;
+                    display: inline-block;
+                    width: 100px;
+                    margin: 20px auto;
+                    margin-right: 20px;
+                }
+                .button.next {
+                    @extend %btn_ano;
+                    display: inline-block;
+                    width: 100px;
+                    margin: 20px auto;
+                }
+            }
+        }
+    }
+}
+
+.section3 {
+    min-height: 100vh;
+    .text {
+        text-align: center;
+        .button {
+            @extend %btn;
+            display: inline-block;
+            width: 150px;
+            padding: 10px;
+            margin: 20px auto;
+        }
+    }
+    .row2 {
+        min-height: 60vh;
+        align-items: center;
+        .reservation3 {
+            width: 300px;
+            color: #034;
+            background-color: #fff;
+            border: 3px solid #318DD6;
+            border-radius: 10px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 15vh;
+            p {
+                text-align: center;
+                margin: 20px;
+            }
+            .choice {
+                margin: 20px 5px;
+                table {
+                    width: 100%;
+                    th {
+                        font-size: $fontSize*1.2;
+                        padding-bottom: 5px;
+                    }
+                    .delete {
+                        display: inline-block;
+                        margin-left: 10px;
+                        cursor: pointer;
+                    }
+                }
+                .meal {
+                    display: inline-block;
+                    width: 40px;
+                }
+            }
+            .port {
+                input {
+                    display: none;
+                }
+            }
+            .wrapper {
+                text-align: center;
+                .button.previous {
+                    @extend %btn;
+                    display: inline-block;
+                    width: 100px;
+                    margin: 20px auto;
+                    margin-right: 20px;
+                }
+                .button.next {
+                    @extend %btn_ano;
+                    display: inline-block;
+                    width: 100px;
+                    margin: 20px auto;
+                }
+            }
+        }
+    }
+}
+
+// $desktop : 1200px;
+// $medium : 991px;
+// $small : 767px;
+// $mobile : 576px;
+@include rwd(desktop) {}
+
+@include rwd(medium) {}
+
+@include rwd(small) {
+    .section1 {
+        .datetable {
+            margin-top: 30px;
+        }
+    }
+}
+
+@include rwd(mobile) {}

@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../scss/order.scss"
-    ],
-    "names": [],
-    "file": "order.css"
-}

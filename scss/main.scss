@@ -1,0 +1,1020 @@
+@import 'base/var';
+@font-face {
+    font-family: 'jf-openhuninn-1.0';
+    src: url(../font/jf-openhuninn-1.0.woff) format("woff");
+    src: url(../font/jf-openhuninn-1.0.ttf) format("truetype");
+}
+
+* {
+    font-family: 'jf-openhuninn-1.0';
+}
+
+.wrapperWheel {
+    display: none;
+}
+
+.wrapperBg {
+    display: none;
+}
+
+header {
+    font-family: $fontFamily;
+}
+
+.section1.bg {
+    background: url(../images/shortbg.png) left top;
+}
+
+.section1 {
+    background: url(../images/shortbg.png) right top;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    transition: all 5s ease-in-out;
+    // 標題
+    h1 {
+        font-family: $fontFamily;
+        font-size: $fontSize*5;
+        line-height: 50vh;
+        text-align: center;
+        position: relative;
+        color: #035;
+        transition: all 2s ease-out;
+        animation: textJump 2s cubic-bezier(0.68, -0.6, 0.32, 1.6) backwards;
+    }
+    @keyframes textJump {
+        0% {
+            top: 100vh,
+        }
+        100% {
+            top: 0,
+        }
+    }
+    // 島嶼
+    .layer1 {
+        width: 60%;
+        position: absolute;
+        bottom: 0;
+        left: 20%;
+        transform: translateX(-60%);
+        z-index: 500;
+        transition: all 0.5s linear;
+    }
+    .layer2 {
+        width: 40%;
+        position: absolute;
+        bottom: 0;
+        right: -10%;
+        z-index: 500;
+    }
+    .port {
+        border-radius: 20px;
+        background-color: #1B81C7;
+        display: inline-block;
+        position: absolute;
+        right: 20vh;
+        bottom: 55vh;
+        animation: portname 2s ease-in infinite;
+        opacity: 0;
+        transition: all 1s;
+        p {
+            color: #fff;
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px rgba(67, 232, 216, 1), 0 0 10px rgba(67, 232, 216, 1), 0 0 20px rgba(67, 232, 216, 1), 0 0 40px rgba(67, 232, 216, 1);
+            font-size: 24px;
+            margin: 0;
+            padding: 10px 20px;
+        }
+    }
+    @keyframes portname {
+        0%,
+        100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+    }
+    .layer3 {
+        width: 40%;
+        position: absolute;
+        bottom: 20vh;
+        right: -10%;
+        z-index: 15;
+    }
+    // 海浪
+    .wrapper {
+        .wave {
+            width: 100%;
+            background-size: 50vh 15vh;
+            position: absolute;
+            animation: wave 20s linear infinite;
+        }
+        .wave1 {
+            background-image: url(../images/wave2.png);
+            height: 15vh;
+            bottom: 17vh;
+            animation-direction: reverse;
+            z-index: 0;
+        }
+        .wave2 {
+            background-image: url(../images/wave3.png);
+            height: 15vh;
+            bottom: 15vh;
+            z-index: 10;
+        }
+        .wave3 {
+            background-image: url(../images/wave2.png);
+            height: 15vh;
+            bottom: 10vh;
+            animation-direction: reverse;
+            z-index: 20;
+        }
+        .wave4 {
+            height: 20vh;
+            background-image: url(../images/wave1.png);
+            background-size: 50vh 20vh;
+            bottom: 0;
+            z-index: 30;
+        }
+        @keyframes wave {
+            0% {
+                background-position: 0
+            }
+            100% {
+                background-position: 100%
+            }
+        }
+    }
+    .boat {
+        position: absolute;
+        bottom: 10vh;
+        z-index: 50;
+        width: 300px;
+        transition: all .5s;
+        transform: rotateZ(-2deg);
+        animation: boatfloat 3s infinite;
+    }
+    @keyframes boatfloat {
+        0% {
+            transform: rotateZ(-2deg);
+        }
+        50% {
+            transform: rotateZ(2deg);
+        }
+        100% {
+            transform: rotateZ(-2deg);
+        }
+    }
+    img.flyfish1 {
+        width: 100px;
+        position: relative;
+        bottom: -80vh;
+        left: 200px;
+        transform: rotateZ(60deg);
+    }
+    img.flyfish2 {
+        width: 100px;
+        position: relative;
+        bottom: -80vh;
+        left: 300px;
+        transform: rotateZ(20deg);
+    }
+    img.flyfish3 {
+        width: 100px;
+        position: relative;
+        bottom: -80vh;
+        left: 450px;
+        transform: rotateZ(180deg);
+    }
+    img.fly1 {
+        animation: fishfly1 2s ease-in-out;
+    }
+    img.fly2 {
+        animation: fishfly2 2s 0.3s ease-in-out;
+    }
+    img.fly3 {
+        animation: fishfly1 2s 0.5s ease-in-out;
+    }
+    @keyframes fishfly1 {
+        0% {
+            bottom: -100vh;
+            transform: rotateZ(60deg);
+        }
+        25% {
+            transform: rotateZ(100deg);
+        }
+        50% {
+            bottom: 30vh;
+            transform: rotateZ(230deg);
+        }
+        75% {
+            transform: rotateZ(250deg);
+        }
+        100% {
+            bottom: -100vh;
+            transform: rotateZ(270deg);
+        }
+    }
+    @keyframes fishfly2 {
+        0% {
+            bottom: -100vh;
+            transform: rotateZ(20deg);
+        }
+        25% {
+            transform: rotateZ(0deg);
+        }
+        50% {
+            bottom: 25vh;
+            transform: rotateZ(-20deg);
+        }
+        75% {
+            transform: rotateZ(0deg);
+        }
+        100% {
+            bottom: -100vh;
+            transform: rotateZ(15deg);
+        }
+    }
+    @keyframes fishfly3 {
+        0% {
+            bottom: -100vh;
+            transform: rotateZ(20deg);
+        }
+        25% {
+            transform: rotateZ(80deg);
+        }
+        50% {
+            bottom: 10vh;
+            transform: rotateZ(180deg);
+        }
+        75% {
+            transform: rotateZ(250deg);
+        }
+        100% {
+            bottom: -100vh;
+            transform: rotateZ(360deg);
+        }
+    }
+}
+
+.section2 {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: url(../images/mainbg2.svg) bottom;
+    // background-color: #A3D9FD;
+    background-color: #2E4581;
+    transition: all 0.5s linear;
+    .row1 {
+        height: 85vh;
+        .title {
+            width: 70%;
+            margin: 0 auto;
+            opacity: 0;
+            position: relative;
+            z-index: 1;
+            .pu_div_text {
+                font-size: $fontSize*2;
+                color: #034;
+                line-height: $fontSize;
+                text-align: center;
+            }
+        }
+        .text {
+            opacity: 0;
+            text-align: center;
+            p {
+                color: #fff;
+                margin: 0;
+            }
+        }
+        .reservation {
+            width: 300px;
+            color: #034;
+            background-color: #fff;
+            border: 3px solid #318DD6;
+            border-radius: 10px;
+            margin-top: 30px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: all 1s 0.5s;
+            p {
+                text-align: center;
+                margin: 20px;
+            }
+            .choice {
+                margin: 20px 0 0 30px;
+                label {
+                    background-color: #fff;
+                    border: 1px solid #4EB6E6;
+                    border-radius: 10px;
+                    padding: 3px 5px;
+                    cursor: pointer;
+                }
+                span {
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+                #people {
+                    width: 100px;
+                    margin-right: 5px;
+                }
+                p {
+                    margin-top: 3px;
+                    margin-left: 0;
+                    span {
+                        margin: 0;
+                    }
+                }
+            }
+            .port {
+                .port1 {
+                    background-color: #4EB6E6;
+                    color: #fff;
+                }
+                input {
+                    display: none;
+                }
+            }
+            .button {
+                @extend %btn_ano;
+                width: 100px;
+                margin: 20px auto;
+                text-align: center;
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+        }
+        .mappic {
+            position: relative;
+            .boat {
+                position: absolute;
+                top: 20vh;
+                left: 20vh;
+                z-index: 50;
+                width: 100px;
+                opacity: 0;
+                transition: all .5s;
+                transform: rotateZ(-2deg);
+                animation: boatfloat 3s infinite;
+            }
+            .smallwave {
+                width: 100px;
+                position: absolute;
+                z-index: 1;
+                opacity: 0;
+            }
+            .smallwave1 {
+                top: 10vh;
+                left: 5vh;
+            }
+            .smallwave2 {
+                top: 50vh;
+                left: 10vh;
+            }
+            .smallwave3 {
+                top: 20vh;
+                right: 5vh;
+            }
+            .smallwave4 {
+                top: 60vh;
+                right: 5vh;
+            }
+            .map {
+                // width: 100vw;
+                position: relative;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                transition: all 0.2s linear;
+            }
+        }
+    }
+    .wave {
+        width: 100%;
+        height: 15vh;
+        bottom: 0;
+        background-image: url(../images/wave1.png);
+        background-size: 50vh 15vh;
+        position: absolute;
+        animation: wave 20s linear infinite;
+    }
+    @keyframes wave {
+        0% {
+            background-position: 0
+        }
+        100% {
+            background-position: 100%
+        }
+    }
+}
+
+.wrapperBg {
+    background: #A6D4F2;
+    height: 100%;
+}
+
+.section3 {
+    background: url(../images/section3bg.svg) no-repeat;
+    background-size: contain;
+    background-position: 0 -10px;
+    min-height: 100vh;
+    .title {
+        position: relative;
+        z-index: 1;
+        .pu_div_text {
+            font-size: $fontSize*2;
+            color: #034;
+            line-height: $fontSize;
+            text-align: center;
+        }
+    }
+    .row2 {
+        min-height: 70vh;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        .menu {
+            margin-bottom: 30px;
+            position: relative;
+            transform-style: preserve-3d;
+            border-radius: 5px;
+            // background-color: rgb(245, 235, 220);
+            .menubg {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                border-radius: 10px;
+                z-index: -1;
+            }
+            img {
+                margin: 0px auto 10px;
+                display: block;
+                width: 50%;
+            }
+            .text {
+                display: inline-block;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                transform-origin: top;
+                transition: all 0.3s;
+                transform-style: preserve-3d;
+                h4 {
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 16px;
+                    margin: 0;
+                }
+            }
+        }
+        .menu1 {
+            animation: menufloat1 3s ease-in infinite;
+        }
+        .menu2 {
+            animation: menufloat2 2.5s ease-in infinite;
+        }
+        .menu3 {
+            animation: menufloat1 2.5s ease-in infinite;
+        }
+        .menu:hover .imgbox {
+            top: 0%;
+        }
+        .menu:hover .imgbox h4 {
+            display: none;
+        }
+        .button {
+            @extend %btn_ano;
+            width: 100px;
+            text-align: center;
+            margin: 20px auto;
+            a {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+        @keyframes menufloat1 {
+            0%,
+            100% {
+                top: 0px;
+            }
+            50% {
+                top: 10px;
+            }
+        }
+        @keyframes menufloat2 {
+            0%,
+            100% {
+                top: 0px;
+            }
+            50% {
+                top: -10px;
+            }
+        }
+    }
+    .row3 {
+        display: none;
+        #sliderBoard {
+            width: 300px;
+            height: 320px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        /* ul */
+        #sliderBoard ul {
+            width: 915px;
+            height: 320px;
+            position: relative;
+            animation: slider 8s infinite;
+        }
+        /* li */
+        #sliderBoard li {
+            width: 300px;
+            height: 320px;
+            text-align: center;
+            float: left;
+            margin-right: 5px;
+        }
+        .menu {
+            height: 300px;
+            position: relative;
+            border-radius: 5px;
+            .menubg {
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                border-radius: 10px;
+            }
+            img {
+                margin: 0px auto 10px;
+                display: block;
+                width: 50%;
+                position: relative;
+                z-index: 1;
+            }
+            .text {
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                h4 {
+                    font-size: 20px;
+                    margin: 0;
+                }
+                p {
+                    font-size: 16px;
+                    margin: 0;
+                }
+            }
+            .button {
+                @extend %btn_ano;
+                width: 100px;
+                text-align: center;
+                margin: 20px auto 0;
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+        }
+        img {
+            width: 100%;
+        }
+        @keyframes slider {
+            0%,
+            100% {
+                left: 0px
+            }
+            35% {
+                left: -300px
+            }
+            70% {
+                left: -600px
+            }
+        }
+    }
+}
+
+.section4 {
+    min-height: 100vh;
+    // overflow: hidden;
+    position: relative;
+    .row1 {
+        .title {
+            position: relative;
+            z-index: 1;
+            .pu_div_text {
+                font-size: $fontSize*2;
+                color: #034;
+                line-height: $fontSize;
+                text-align: center;
+            }
+        }
+        .text {
+            margin-top: 20px;
+            color: #fff;
+            display: inline-block;
+            p {
+                margin: 0;
+                padding: 5px;
+            }
+        }
+    }
+    .row2 {
+        .step {
+            margin: 0 auto;
+            background-color: #318DD6;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            padding: 12px;
+            p {
+                color: #fff;
+                margin: 5px;
+            }
+        }
+        .text {
+            margin-top: 20px;
+            text-align: center;
+            p {
+                font-size: $fontSize;
+                color: #034;
+                margin: 0;
+            }
+            .button {
+                @extend %btn_ano;
+                width: 100px;
+                text-align: center;
+                margin: 30px auto;
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+        }
+        .game {
+            position: relative;
+            z-index: 1;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+#cookPin {
+    margin-bottom: 2px;
+}
+
+.section5 {
+    min-height: 90vh;
+    // overflow: hidden;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    .step {
+        margin: 0 auto;
+        background-color: #318DD6;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        padding: 12px;
+        p {
+            color: #fff;
+            margin: 5px;
+        }
+    }
+    .text {
+        margin-top: 20px;
+        text-align: center;
+        p {
+            font-size: $fontSize;
+            color: #034;
+            margin: 0;
+        }
+        .button {
+            @extend %btn_ano;
+            width: 100px;
+            text-align: center;
+            margin: 30px auto;
+            a {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+    .cookWrapper {
+        position: relative;
+        height: 80vh;
+        z-index: 100;
+        .cookPic1 {
+            position: absolute;
+            top: 0vh;
+            right: 5vh;
+        }
+        .cookPic2 {
+            position: absolute;
+            top: 15vh;
+            right: 10vh;
+        }
+        .cookPic3 {
+            position: absolute;
+            top: 20vh;
+            right: 30vh;
+        }
+        .cookPic4 {
+            position: absolute;
+            top: 35vh;
+            right: 25vh;
+        }
+        .cookPic5 {
+            position: absolute;
+            top: 50vh;
+            right: 5vh;
+        }
+        .cookPic6 {
+            position: absolute;
+            top: 60vh;
+            right: 30vh;
+        }
+        .cookPic7 {
+            position: absolute;
+            top: 70vh;
+            right: 10vh;
+        }
+        img {
+            width: 100px;
+        }
+        .cookPic4 img {
+            width: 100px;
+        }
+    }
+    .half {
+        .halfpic {
+            height: 80vh;
+            position: relative;
+            z-index: 100;
+        }
+        .cookpic {
+            display: none;
+        }
+    }
+}
+
+.section6 {
+    min-height: 100vh;
+    // overflow: hidden;
+    position: relative;
+    .bgbottom {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+    }
+    .title {
+        position: relative;
+        z-index: 1;
+        .pu_div_text {
+            font-size: $fontSize*2;
+            color: #034;
+            line-height: $fontSize;
+            text-align: center;
+        }
+    }
+    .text {
+        text-align: center;
+        p {
+            font-size: $fontSize;
+            color: #fff;
+            margin: 0;
+        }
+        .button {
+            @extend %btn_ano;
+            width: 120px;
+            text-align: center;
+            margin: 30px auto;
+            a {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+    .contest {
+        .cook {
+            color: #fff;
+            text-align: center;
+            img {
+                width: 100%;
+            }
+            .button {
+                @extend %btn;
+                width: 100px;
+            }
+        }
+        // .cook1 {
+        //     position: relative;
+        //     bottom: -80px;
+        // }
+        // .cook3 {
+        //     position: relative;
+        //     bottom: -120px;
+        // }
+        // .box {
+        //     width: 60%;
+        //     margin: 0 auto;
+        // }
+    }
+}
+
+// $desktop : 1200px;
+// $medium : 991px;
+// $small : 767px;
+// $mobile : 576px;
+@include rwd(desktop) {}
+
+@include rwd(medium) {
+    .wave {
+        animation: wave 15s linear infinite;
+    }
+}
+
+@include rwd(small) {
+    .section1 {
+        // 標題
+        h1 {
+            line-height: 20vh;
+            text-align: center;
+        }
+        .port {
+            display: none;
+        }
+        .wrapper {
+            .wave {
+                width: 100%;
+                background-size: 50vh 15vh;
+                position: absolute;
+                animation: wave 5s linear infinite;
+            }
+            .wave1 {
+                height: 15vh;
+                bottom: 17vh;
+                animation-direction: reverse;
+            }
+            .wave2 {
+                height: 15vh;
+                bottom: 15vh;
+            }
+            .wave3 {
+                height: 15vh;
+                bottom: 10vh;
+                animation-direction: reverse;
+                z-index: 20;
+            }
+            .wave4 {
+                height: 20vh;
+                background-image: url(../images/wave1.png);
+                background-size: 50vh 20vh;
+                bottom: 0;
+                z-index: 30;
+            }
+        }
+    }
+    .section2 {
+        .row1 {
+            h1 {
+                font-size: 20px;
+            }
+            .text {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                p {
+                    color: #034;
+                }
+            }
+            .reservation {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        .wave {
+            animation: wave 5s linear infinite;
+        }
+    }
+    .section3 {
+        .row2 {
+            display: none;
+        }
+        .row3 {
+            display: block;
+        }
+    }
+    .section4 {
+        .row2 {
+            .text {
+                .button {
+                    width: 120px;
+                }
+            }
+        }
+    }
+    .section5 {
+        .text {
+            .button {
+                width: 120px;
+                text-align: center;
+                margin: 30px auto;
+            }
+        }
+        .half {
+            .halfpic {
+                display: none;
+            }
+            .cookpic {
+                width: 80%;
+                display: inline-block;
+                margin: 0 auto;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
+
+@include rwd(mobile) {
+    .section1 {
+        .wrapper {
+            .wave {
+                width: 100%;
+                background-size: 50vh 15vh;
+                position: absolute;
+                animation: wave 2s linear infinite;
+            }
+            .wave1 {
+                height: 15vh;
+                bottom: 17vh;
+                animation-direction: reverse;
+            }
+            .wave2 {
+                height: 15vh;
+                bottom: 15vh;
+            }
+            .wave3 {
+                height: 15vh;
+                bottom: 10vh;
+                animation-direction: reverse;
+                z-index: 20;
+            }
+            .wave4 {
+                height: 20vh;
+                background-image: url(../images/wave1.png);
+                background-size: 50vh 20vh;
+                bottom: 0;
+                z-index: 30;
+            }
+        }
+    }
+}
+
+// img.bubble1 {
+//     width: 35px;
+//     position: relative;
+//     left: -20px;
+//     top: 5px;
+// }
+// img.bubble2 {
+//     width: 30px;
+//     position: relative;
+//     left: 30px;
+//     top: -5px;
+// }
+// img.bubble3 {
+//     width: 25px;
+//     position: relative;
+//     left: -5px;
+// }
+// img.bubble4 {
+//     width: 35px;
+//     position: relative;
+//     right: -10px;
+//     top: 5px;
+// }
+// img.bubble5 {
+//     width: 30px;
+//     position: relative;
+//     right: 20px;
+//     top: 0px;
+// }
+// img.bubble6 {
+//     width: 25px;
+//     position: relative;
+//     right: 50px;
+// }

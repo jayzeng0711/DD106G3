@@ -1,0 +1,172 @@
+.reboot_div{
+    width: 350px;
+    height: 350px;
+    position: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    right: 20px;
+    bottom: -150px;
+    z-index: 18;
+    letter-spacing: 1px;
+    background-image: url('../images/reboot.png');
+    cursor: pointer;
+    .reboot_div_text{
+        text-align: center;
+        background-color: white;
+        border: 2px solid #042278;
+        display: inline-block;
+        position: absolute;
+        padding: 3%;
+        top: -50px;
+        right: 12%;
+        border-radius: 10px;
+        &::after{
+            content: "";
+            position: absolute;
+            top: auto;
+            right: 0;
+            bottom: -14px;
+            left: 0;
+            margin: auto;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 14px 8px 0 8px;
+            border-color: #042278 transparent transparent transparent;
+        }
+    }
+    .reboot_div_content{
+        position: absolute;
+        left: 35%;
+        bottom: 25%;
+        background-color: #999;
+        border-radius: 10px;
+        word-break: break-all;
+        padding: 10px;
+        max-width: 50%;
+        &::before{
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: auto;
+            bottom: auto;
+            left: -10px;
+            margin: auto;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 5px 15px 5px 0px;
+            border-color: transparent #999 transparent transparent;
+        }
+    }
+    .reboot_btn_div{
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        border-radius: 10px;
+        padding: 10px;
+        width: 250px;
+        button{
+            @extend %btn;
+            letter-spacing: 1px;
+        }
+    }
+}
+.pu_big_content_wrap{
+    width: 400px;
+    position: fixed;
+    right: 260px;
+    bottom: 10%;
+    background-color: #4F95C8;
+    z-index: 9999;
+    padding: 1% 2%;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+    .pu_big_content_title{
+        margin-bottom: 3%;
+        font-size: 24px;
+        position: relative;
+        .pu_big_content_cancel{
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+        }
+    }
+    .pu_big_content_center{
+        width: 100%;
+        height: 250px;
+        background-color: #fff;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        border-radius: 10px;
+        padding: 3%;
+        margin-bottom: 5%;
+        .pu_big_content_text{
+            max-width: 60%;
+            text-align: left;
+            padding: 4%;
+            background-color: #999;
+            border-radius: 10px;
+            letter-spacing: 1px;
+            position: relative;
+            &::before{
+            content: "";
+            position: absolute;
+            top: 30%;
+            right: auto;
+            bottom: auto;
+            left: -10px;
+            margin: auto;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 5px 15px 5px 0px;
+            border-color: transparent #999 transparent transparent;
+            }
+        }
+    }
+    .pu_reb_ul_div{
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        margin-bottom: 5%;
+        .pu_reb_ul{
+            overflow-x: scroll;
+            overflow-y: hidden;
+            li{
+                display: inline-block;
+                background-color: #EBC07A;
+                color: #fff;
+                padding: 3%;
+                border-radius: 10px;
+                letter-spacing: 1px;
+                cursor: pointer;
+            }
+        }
+    }
+    .pu_reb_textarea{
+        width: 100%;
+        margin-bottom: 1%;
+        textarea{
+            width: 100%;
+            height: 80px;
+            resize: none;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+        }
+    }
+    .pu_reb_btn{
+        width: 100%;
+        button{
+            @extend %btn;
+            letter-spacing: 1px;
+            padding: 2% 4%;
+        }
+    }
+}

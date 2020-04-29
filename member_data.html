@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/logo.png" type="image/x-icon">
+    <title>會員資料</title>
+    <link rel="stylesheet" href="./css/member_data.css">
+</head>
+
+<body>
+    <form action="member_data.php" method="POST">
+        <div class="mem_data_wrap">
+            <div class="mem_data_left_div">
+                <div id="preson_data">
+                    個人資料
+                </div>
+                <div id="order_record">
+                    訂單記錄
+                </div>
+                <div id="customized_curisine">
+                    客製化料理
+                </div>
+            </div>
+            <div class="mem_data_right_div">
+                <div>
+                    個人資料
+                </div>
+                <div class="mem_img_div">
+                    <img src="./images/10-2.png" alt="">
+                </div>
+                <div class="mem_data_name_update_div">
+                    <div>
+                    小明 
+                    </div>
+                    <div class="mem_data_name_update_button">
+                        <button>更新相片</button>
+                    </div>
+                </div>
+                <div class="mem_data_input_div">
+                    <div class="mem_data_input">
+                        <div>
+                            會員信箱> <input type="email" name="" id="" value="kobe830711@gmail.com">   
+                        </div>
+                        <div>
+                            會員密碼> <input class="input_cannoy_mod" type="password" value="0711" readonly>
+                        </div>
+                        <div>
+                            會員暱稱> <input type="text" value="小明">
+                        </div>
+                    </div>
+                    <div class="mem_data_input">
+                        <div>
+                            會員等級> <input class="input_cannoy_mod" type="text" name="" id="" value="銅鷗" readonly>
+                        </div>
+                        <div>
+                            會員積分> <input class="input_cannoy_mod" type="number" value="50" readonly>
+                        </div>
+                        <div>
+                            會員點數> <input class="input_cannoy_mod" type="number" value="50" readonly>
+                        </div>
+                    </div>
+                </div>
+                <button class="mem_modify_btn">
+                    修改
+                </button>
+            </div>
+
+
+            <div class="order_detail_wrap" style="display: none;">
+                <div class="order_detail_title">
+                    訂單明細
+                </div>     
+                <div class="order_detail_div_wrap">
+                    <div class="order_detail_div_in_wrap">
+                        <div class="order_detail_left_div">
+                            <div class="order_detail_left_div_item">
+                                <div class="order_detail_left_div_item_title">訂單編號</div>
+                                <div class="order_detail_left_div_item_title"><input class="input_not_modify" size="12" readonly type="text" value="0012"></div>
+                            </div>
+                            <div class="order_detail_left_div_item">
+                                <div class="order_detail_left_div_item_title">日期</div>
+                                <div class="order_detail_left_div_item_title"><input class="input_modify" type="text" size="12" value="2020/05/12"></div>
+                            </div>
+                            <div class="order_detail_left_div_item">
+                                <div class="order_detail_left_div_item_title">港口</div>
+                                <div class="order_detail_left_div_item_title"><input class="input_modify" type="text" size="12" value="高雄港"></div>
+                            </div>
+                            <div class="order_detail_left_div_item">
+                                <div class="order_detail_left_div_item_title">人數</div>
+                                <div class="order_detail_left_div_item_title"><input class="input_modify" type="text" size="12" value="10"></div>
+                            </div>
+                            <div class="order_detail_left_div_item">
+                                <div class="order_detail_left_div_item_title">狀態</div style="width: 40%;">
+                                <div class="order_detail_left_div_item_title"><input class="input_not_modify" size="12" readonly type="text" value="已付款"></div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="order_detail_right_div">
+                        <div>
+                            <div class="order_detail_right_div_title">
+                                <div>套餐名稱</div>
+                                <div>數量</div>
+                                <div>單價</div>
+                                <div>小計</div>
+                            </div>
+                            <div class="order_detail_right_div_item">
+                                <div>A套餐</div>
+                                <div><input class="input_modify" size="6" type="text" value="5"></div>
+                                <div><input class="input_not_modify" size="6" readonly type="text" value="1000"></div>
+                                <div>5000</div>
+                            </div>
+                            <div class="order_detail_right_div_item_1">
+                                <div>B套餐</div>
+                                <div><input class="input_modify" size="6" type="text" value="5"></div>
+                                <div><input class="input_not_modify" size="6" readonly type="text" value="1000"></div>
+                                <div>5000</div>
+                            </div>
+                        </div>
+                        <div class="order_detail_right_div_custom_wrap">
+                            <div class="order_detail_right_div_custom">
+                                <div>客製化料理</div>
+                                <div>數量</div>
+                                <div>單價</div>
+                                <div>小計</div>
+                            </div>
+                            <div class="order_detail_right_div_custom_item">
+                                <div>蛤蜊湯</div>
+                                <div><input class="input_modify" type="text" size="6" value="5"></div>
+                                <div><input class="input_not_modify" size="6" readonly type="text" value="200"></div>
+                                <div>1000</div>
+                            </div>
+                        </div>
+                        <div class="order_detail_right_div_point_wrap">
+                            <div class="order_detail_right_div_point">
+                                <div class="order_detail_right_div_point_text">使用點數</div>
+                                <div><input class="input_modify" size="6" type="text" value="100"></div>
+                            </div>
+                            <div class="order_detail_right_div_point">
+                                <div class="order_detail_right_div_total">總金額</div>
+                                <div>10900</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button class="order_detail_btn">    
+                        修改
+                    </button>
+                    <button class="order_detail_cancel_btn">
+                        取消訂單
+                    </button>
+                </div>
+            </div>
+
+            <div class="curisine_wrap">
+                <div class="curisine_div_title">
+                    客製化料理
+                </div>
+                <!-- 桌機版客製化料理 -->
+                <div class="curisine_desktop">
+                    <div class="curisine_div_title_item">
+                        <div>客製化料理</div>
+                        <div>海鮮</div>
+                        <div>烹調方式</div>
+                        <div>配料</div>
+                        <div>金額</div>
+                    </div>
+                    <div class="curisine_div_title_item_bot">
+                        <div class="curisine_div_title_item_bot_img"><img src="./images/cook1.png" alt=""></div>
+                        <div>鮭魚</div>
+                        <div>煎</div>
+                        <div>胡椒</div>
+                        <div>200</div>
+                    </div>
+                </div>
+                <!-- 桌機版客製化料理 -->
+
+                <!-- 手機版客製化料理 -->
+                <div class="curisine_mobile">
+                    <div class="curisine_mobile_img_div">
+                        <img src="./images/cook1.png" alt="">
+                    </div>
+                    <div class="curisine_mobile_div">
+                        <div class="curisine_mobile_div_item">
+                            <div>海鮮</div>
+                            <div>鮭魚</div>
+                        </div>
+                        <div class="curisine_mobile_div_item">
+                            <div>烹調方式</div>
+                            <div>煎</div>
+                        </div>
+                        <div class="curisine_mobile_div_item">
+                            <div>配料</div>
+                            <div>胡椒</div>
+                        </div>
+                        <div class="curisine_mobile_div_item">
+                            <div>金額</div>
+                            <div>200</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 手機版客製化料理 -->
+                
+            </div>
+    </form>
+    
+    <script src="./jquery/jquery.min.js"></script>
+    <script src="./script.js/vue.js"></script>
+
+    <script src="./script.js/member_data.js"></script>
+</body>
+
+</html>
