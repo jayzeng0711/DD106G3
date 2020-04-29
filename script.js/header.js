@@ -63,9 +63,27 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#mem_lohin_btn").click(function(){
         $('#Login,#Login_back').css('display','block');
+        $('#pu_mem_resist_wrap').css('display','none');
+        $('#pu_mem_forget_wrap').css('display','none');
+        $('#pu_mem_login_wrap').css('display','block');
     })
     $('#cancel').click(function(){
         $('#Login,#Login_back').css('display','none');
+    })
+    $('.showRegister').click(function(){
+        $('#pu_mem_resist_wrap').css('display','block');
+        $('#pu_mem_forget_wrap').css('display','none');
+        $('#pu_mem_login_wrap').css('display','none');
+    })
+    $('.showForget').click(function(){
+        $('#pu_mem_resist_wrap').css('display','none');
+        $('#pu_mem_forget_wrap').css('display','block');
+        $('#pu_mem_login_wrap').css('display','none');
+    })
+    $('.return_login').click(function(){
+        $('#pu_mem_resist_wrap').css('display','none');
+        $('#pu_mem_forget_wrap').css('display','none');
+        $('#pu_mem_login_wrap').css('display','block');
     })
 })
 //會員登入燈箱
