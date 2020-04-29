@@ -58,3 +58,14 @@ $(document).ready(function(){
     })
 })
 //機器人移動
+
+//會員登入燈箱
+$(document).ready(function(){
+    $("#mem_lohin_btn").click(function(){
+        $('#Login,#Login_back').css('display','block');
+    })
+    $('#cancel').click(function(){
+        $('#Login,#Login_back').css('display','none');
+    })
+})
+//會員登入燈箱
