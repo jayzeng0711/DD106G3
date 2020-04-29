@@ -7,7 +7,7 @@
     background-position: right;
     right: 20px;
     bottom: -150px;
-    z-index: 999;
+    z-index: 18;
     letter-spacing: 1px;
     background-image: url('../images/reboot.png');
     cursor: pointer;
@@ -104,7 +104,7 @@
         overflow-y: scroll;
         overflow-x: hidden;
         border-radius: 10px;
-        padding: 5%;
+        padding: 3%;
         margin-bottom: 5%;
         .pu_big_content_text{
             max-width: 60%;
@@ -119,7 +119,7 @@
             top: 20%;
             right: auto;
             bottom: auto;
-            left: 32px;
+            left: 33px;
             margin: auto;
             width: 0;
             height: 0;
