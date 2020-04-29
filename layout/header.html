@@ -33,7 +33,7 @@
                 </div>
             </li>
         </ul>
-        <div class="pu_mem_login_div_wrap">
+        <div class="pu_mem_login_div_wrap" id="mem_lohin_btn">
             <div class="pu_mem_login_div">
                 會員登入
             </div>
@@ -85,3 +85,36 @@
           </div>
     </div>
 </header>
+
+<!-- 會員登入 -->
+<div id="Login">
+    <div id="cancel">
+        &#10005
+    </div>
+    <div class="mem_login">會員登入</div>
+    <form method="POST" action="" class="formSignIn">
+        <div class="pu_email_div">
+            <label for="Email">
+                信箱   
+            </label>
+            <input type="text" id="Email">
+        </div>
+        <div class="pu_psw_div">
+            <label for="Password">
+                    密碼
+            </label>
+            <input type="password" id="Password">
+        </div>
+        <!-- 登入按鈕 -->
+        <button id="signInBtn">
+            登入
+        </button>     
+        <div id="action">
+            <a id="id=showRegister" href="#" >立即註冊</a>
+            <a id="showForget" href="#">忘記密碼</a>
+        </div>
+    </form> 
+</div>
+<div id="Login_back"></div>
+<!-- 會員登入 -->
+    
