@@ -3,6 +3,9 @@
 * {
     box-sizing: border-box;
 }
+body{
+    background: url(../images/色塊-3-01.jpg) no-repeat top/cover;
+}
 
 .container {
     width: 100%;
@@ -16,19 +19,19 @@ main {
     margin: 0 auto;
 }
 
-main::before {
-    top: -500px;
-    right: -100px;
-    background-color: rgba(250, 208, 91, 0.863);
-    transform: rotate(35deg);
-    transform-origin: center;
-    position: absolute;
-    z-index: -1;
-    content: '';
-    width: 100%;
-    height: 1000px;
-    box-sizing: border-box;
-}
+// main::before {
+//     top: -500px;
+//     right: -100px;
+//     background-color: rgba(250, 208, 91, 0.863);
+//     transform: rotate(35deg);
+//     transform-origin: center;
+//     position: absolute;
+//     z-index: -1;
+//     content: '';
+//     width: 100%;
+//     height: 1000px;
+//     box-sizing: border-box;
+// }
 
 .intro {
     font-size: 20px;
@@ -183,6 +186,7 @@ main::before {
         background: url(../images/list.png) no-repeat top/contain;
         position: relative;
         display: flex;
+        justify-content: space-around;
         &:hover .note{
             animation-play-state: paused;
         }
@@ -196,6 +200,7 @@ main::before {
             border-radius: 100px;
             position: absolute;
             z-index: 3;
+            cursor: pointer;
         }
         .note {
             width: 400px;
@@ -264,6 +269,7 @@ section.paper {
     border: 1px solid black;
     display: inline-block;
     padding: 0 0 0 10px;
+    overflow: hidden;    
     .food-display{
         position: relative;
         width: 100%;
@@ -271,7 +277,7 @@ section.paper {
             width: 100%;
         }
     }
-    .ingret{
+    .ingret_pos{
         width: 100px;
         height: 100px;
         position: absolute;
@@ -279,10 +285,10 @@ section.paper {
         cursor: move;
         z-index: 3;
     }
-    .ingret:nth-child(2){
+    .ingret_pos:nth-child(2){
         z-index: 2;
     }
-    .ingret:nth-child(3){
+    .ingret_pos:nth-child(3){
         z-index: 1;
     }
 }
@@ -413,7 +419,7 @@ form {
         h3{
             margin: 50px 0 20px;
         }
-        input {
+        button {
             border: transparent;
             background-color: #40B5E5;
             color: aliceblue;
@@ -422,13 +428,55 @@ form {
             border-radius: 10px;
             cursor: pointer;
         }
-
-        input:first-child {
-            background-color: #021A71;
-        }
     }
 
 }
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, .5);
+    
+    /* 預設：完全透明；設定 z-index: -1 會在整個頁面的後方，看不到，才不會擋到頁面元素。 */
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 1s;
+    article{
+        background-color: white;
+        width: 90%;
+        max-width: 800px;
+        border-radius: 10px;
+        padding: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .close{
+        background: url(../images/blue-cross-icon.png) no-repeat top/cover;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+    }
+}
+.overlay.-on{
+    
+    /* 加上 -on 之後，Modal 漸漸出現，因為有設定 transition */
+    opacity: 1;
+    z-index: 1;
+}
+  
+.overlay.-opacity-zero{
+    /* 關閉 Modal 時，先讓 opacity設定0，就會慢慢變成完全透明，但這時會擋到後面的元素，所以要再移除 -on 及 -opacity-zero 這兩個 class */
+    opacity: 0;
+}
+  
 
 @media screen and (max-width:1200px) {
     .side-right {
@@ -479,7 +527,7 @@ form {
             width: 100%;
                 img{
                     width: 100%;
-                    position: absolute;
+                    // position: absolute;
                 }
             }
         }
@@ -556,7 +604,9 @@ form {
                                 width: 33%;
                                 font-size: 18px;
                                 border: 1px solid white;
-
+                                position: relative;
+                                text-align: center;
+                                cursor: pointer;
                                 figure img {
                                     width: 100%;
                                     object-fit: fill;
@@ -568,9 +618,22 @@ form {
                                     text-align: center;
                                 }
                             }
+
+                            // 選擇魚
+                            li.tab_fish.selected::before{
+                                content: "";
+                                width: 90%;
+                                height: 75%;
+                                border-radius: 50%;
+                                border:3px solid red;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%,-50%);
+                            }
                         }
                     }
-
+            
                     .cabinet-top::before,
                     .cabinet-bottom::before {
                         bottom: 0px;
@@ -582,6 +645,9 @@ form {
                         width: 100%;
                         height: 20px;
                     }
+                }
+                .tab2 ul li{
+                    padding: 45px;
                 }
             }
         }

@@ -86,14 +86,14 @@
                 <div class="center" id="center">
                     <div class="side-left">
                         <div class="food-display" id="pin">
-                            <div class="ingret pos1">
-                                <img class="in_show" src="" alt="">
+                            <div class="ingret_pos">
+                                <img class="in_pic" src="" alt="">
                             </div>
-                            <div class="ingret pos2">
-                                <img src="" class="in_show" alt="">
+                            <div class="ingret_pos">
+                                <img src="" class="in_pic" alt="">
                             </div>
-                            <div class="ingret pos3">
-                                <img src="" class="in_show" alt="">
+                            <div class="ingret_pos">
+                                <img src="" class="in_pic" alt="">
                             </div>
                             <img src="./images/seafood3.svg" class="base" alt="" srcset="">
                         </div>
@@ -119,7 +119,7 @@
                                 <div id="c-fish" class="tab tab1 -on">
                                     <div class="cabinet-top">
                                         <ul>
-                                            <li>
+                                            <li class="tab_fish selected">
                                                 <figure>
                                                     <figcaption>
                                                         <p>章魚</p>
@@ -127,7 +127,7 @@
                                                     <img src="./images/seafood3.svg" alt="">
                                                 </figure>
                                             </li>
-                                            <li>
+                                            <li class="tab_fish">
                                                 <figure>
                                                     <figcaption>
                                                         <p>胭脂蝦</p>
@@ -135,7 +135,7 @@
                                                     <img src="./images/seafood8.svg" alt="">
                                                 </figure>
                                             </li>
-                                            <li>
+                                            <li class="tab_fish">
                                                 <figure>
                                                     <figcaption>
                                                         <p>鰈魚</p>
@@ -166,33 +166,20 @@
                                         </ul>
                                     </div>
                                 </div>
-
+                                <script>
+                                    
+                                </script>
                                 <div id="c-cook" class="tab tab2">
                                     <div class="cabinet-top">
-                                        <ul>
+                                        <ul class="tab_cook">
                                             <li>
-                                                <figure>
-                                                    <figcaption>
-                                                        <p>奶油</p>
-                                                    </figcaption>
-                                                    <img src="./images/butter.png" alt="">
-                                                </figure>
+                                                煮湯
                                             </li>
                                             <li>
-                                                <figure>
-                                                    <figcaption>
-                                                        <p>奶油</p>
-                                                    </figcaption>
-                                                    <img src="./images/butter.png" alt="">
-                                                </figure>
+                                                蒸
                                             </li>
                                             <li>
-                                                <figure>
-                                                    <figcaption>
-                                                        <p>奶油</p>
-                                                    </figcaption>
-                                                    <img src="./images/butter.png" alt="">
-                                                </figure>
+                                               烤
                                             </li>
                                         </ul>
                                     </div>
@@ -304,7 +291,7 @@
                             <h3>STEP 3： 選擇想要配料，依喜好擺成自己喜歡的樣子<br>最多選三樣</h3>
                             <div class="choose-ingredient">
                                 <ul>
-                                    <li class="ins">
+                                    <li class="ingret">
                                         <figure>
                                             <figcaption>
                                                 <p>奶油</p>
@@ -312,7 +299,7 @@
                                             <img src="./images/butter.png" alt="">
                                         </figure>
                                     </li>
-                                    <li class="ins">
+                                    <li class="ingret">
                                         <figure>
                                             <figcaption>
                                                 <p>芥末</p>
@@ -320,7 +307,7 @@
                                             <img src="./images/wasabi.png" alt="">
                                         </figure>
                                     </li>
-                                    <li class="ins">
+                                    <li class="ingret">
                                         <figure>
                                             <figcaption>
                                                 <p>金箔</p>
@@ -328,7 +315,7 @@
                                             <img src="./images/gold.png" alt="">
                                         </figure>
                                     </li>
-                                    <li class="ins">
+                                    <li class="ingret">
                                         <figure>
                                             <figcaption>
                                                 <p>迷迭香</p>
@@ -343,53 +330,49 @@
                     </div>
                 </div>
                 <script>
-                    // $(".ins").click(function () {
+                    // $(".ingret").click(function () {
                     //     let src = $(this).children().children("img").attr('src');
                     //     alert(src);
-                    //     $(".ingret img").attr("src", src);
+                    //     $(".ingret_pos img").attr("src", src);
                     // });
 
                     var num = 0;
 
                     $(document).ready(function () {
-                        alert($(".in_show").length);
-                        for (let i = 0; i < $(".ins").length; i++) {
-                            $(".ins").click(function () {
-                                var ingret_src = $(this).children().children("img").attr('src');
-                                $(".in_show").attr("src", ingret_src);
-                                // num++;
-                                // if (num > 3) {
-                                //     alert("在三個配料的限制下做出最大的炫富吧");
-                                // }
-                                
+
+                        // alert($('.ingret').length);
+                        for (let i = 0; i < $('.ingret').length; i++) {
+                            $(".ingret").click(function () {
+                                var in_src = $(this).children().children("img").attr("src");
+                                // alert(in_src);
+                                $(".in_pic").attr("src", in_src);
+                                num++;
+
+                                if (num > 3) {
+                                    alert("最多只能選一個喔!!!");
+                                }
+
                             })
                         }
-                        var arr = [];
-                        let change = document.querySelectorAll(".in_show");
-                        alert(chnage.length);
-                        for (let i = 0; i < change.length; i++) {
-                        change[i].addEventListener("click", function (e) {
-                            if (arr.indexOf(this) == -1) {
-                                arr.push(this);
-                            }
-                        })
-                    }
-
                     });
 
 
-                    $(".ingret").draggable({
+
+                    $(".ingret_pos").draggable({
                         containment: "parent",
                         scroll: false
                     });
-   
+
                     var arr = [];
-                    // let change = document.querySelectorAll(".in_show");
+                    var change = $("in-pic");
                     for (let i = 0; i < change.length; i++) {
+                        alert(change.length);
                         change[i].addEventListener("click", function (e) {
+                            alert(arr.indexOf(this));
                             if (arr.indexOf(this) == -1) {
                                 arr.push(this);
                             }
+
                         })
                     }
                 </script>
@@ -411,10 +394,22 @@
                         <h3>
                             STEP 5：只有自己吃到沒意思？就是要炫料理？快快參加美食大賽秀一波YO
                         </h3>
-                        <input type="submit" value="完成料理">
+                        <button type="button" class="to_lightbox">完成料理</button>
                     </div>
                 </form>
             </section>
+
+            <div class="overlay">
+                <article>
+                    <h1>這是 Modal 裡的標題</h1>
+                    <p>這是 Modal 段落</p>
+                    <div class="close"></div>
+                    <a href="">
+                        <input type="submit" value="前往美食大賽">
+                    </a>
+
+                </article>
+            </div>
 
         </main>
     </div>
@@ -444,6 +439,34 @@
             $(".note").removeClass("selected-fish");
             $(this.parentNode).addClass("selected-fish");
         });
+        $(".tab_fish").on("click", function () {
+            $(".tab_fish").removeClass("selected");
+            $(this).addClass("selected");
+        });
+        //桌機版的海鮮與手機版連動
+        for (let i = 0; i < $(".fish-pic").length; i++) {
+            $(".fish-pic")[i].addEventListener('click', function () {
+                for (let j = 0; j < $(".tab_fish").length; j++) {
+                    if (j == i) {
+                        $(".tab_fish")[j].classList.add("selected");
+                    } else {
+                        $(".tab_fish")[j].classList.remove("selected");
+                    }
+                }
+            });
+        }
+        for (let i = 0; i < $(".tab_fish").length; i++) {
+            $(".tab_fish")[i].addEventListener('click', function () {
+                for (let j = 0; j < $(".note").length; j++) {
+                    if (j == i) {
+                        $(".note")[j].classList.add("selected-fish");
+                    } else {
+                        $(".note")[j].classList.remove("selected-fish");
+                    }
+                }
+            });
+        }
+
         //點海鮮圖改預覽圖
         $(".note img").click(function () {
             let src = $(this).attr('src');
@@ -452,6 +475,11 @@
         //點海鮮文字改預覽圖
         $(".note-content").click(function () {
             let src = $(this).next().children().attr('src');
+            $("#pin img.base").attr("src", src);
+        });
+        //點手機海鮮可以改預覽圖
+        $(".tab_fish").click(function () {
+            let src = $(this).children().children("img").attr('src');
             $("#pin img.base").attr("src", src);
         });
 
@@ -491,65 +519,116 @@
             $("#pin img.base").attr("src", src);
         });
     </script>
-
-
     <script>
-        // 食物預覽圖跟著移動
-        // var controller = new ScrollMagic.Controller();
-
         // $(function () {
+
+        //     // 食物預覽圖跟著移動
+        //     var controller = new ScrollMagic.Controller();
         //     var scene = new ScrollMagic.Scene({
         //             triggerElement: "#center",
-        //             triggerHook: 0.2, //觸發點位置 瀏覽器
+        //             triggerHook: 0,
         //             duration: 150,
         //         })
         //         .setPin("#pin")
-        //         .addTo(controller);
-        // });
-        // $(document).ready(function () {
+        //         .addIndicators({
+        //             name: "1 (duration: 170)"
+        //         }).addTo(controller);
+
+        //     // 載入完先判斷
         //     if ($(window).width() < 768) {
         //         controller.removeScene(scene);
-        //     } else {
-        //         controller.addScene(scene);
-        //     }
-        // });
-        // $(window).resize(function () {
-        //     if ($(window).width() < 768) {
-        //         controller.removeScene(scene);
-        //     } else {
-        //         controller.addScene(scene);
         //     }
 
+        //     // resize的時候判斷
+        //     $(window).resize(function () {
+
+        //         if ($(window).width() < 768) {
+        //             controller.removeScene(scene);
+        //         } else {
+        //             controller.addScene(scene);
+        //         }
+
+        //     });
         // });
-        $(function () {
 
-            // 食物預覽圖跟著移動
-            var controller = new ScrollMagic.Controller();
-            var scene = new ScrollMagic.Scene({
-                    triggerElement: "#center",
-                    triggerHook: 0,
-                    duration: 150,
-                })
-                .setPin("#pin")
-                .addIndicators({
-                    name: "1 (duration: 170)"
-                }).addTo(controller);
+        $(document).ready(function () {
 
-            // 載入完先判斷
-            if ($(window).width() < 768) {
-                controller.removeScene(scene);
+            var tooSmall = false;
+            var controller = null;
+            var maxWidth = 767; // or whatever your max width is
+
+            if ($(window).width() > maxWidth) {
+                tooSmall = true;
             }
 
-            // resize的時候判斷
+            function initScrollMagic() {
+                $('body').scrollTop(0);
+                controller = new ScrollMagic.Controller();
+                // add your ScrollMagic scene goodness here
+                // var controller = new ScrollMagic.Controller();
+                var scene = new ScrollMagic.Scene({
+                        triggerElement: "#center",
+                        triggerHook: 0,
+                        duration: 150,
+                    })
+                    .setPin("#pin")
+                    .addIndicators({
+                        name: "1 (duration: 170)"
+                    }).addTo(controller);
+            }
+
+            if (!tooSmall) {
+                initScrollMagic();
+            }
+
+            // part of the problem is that window resizes can trigger multiple times as the events fire rapidly
+            // this solution prevents the controller from being initialized/destroyed more than once
             $(window).resize(function () {
-
-                if ($(window).width() < 768) {
-                    controller.removeScene(scene);
-                } else {
-                    controller.addScene(scene);
+                var wWidth = $(window).width();
+                if (wWidth < maxWidth) {
+                    if (controller !== null && controller !== undefined) {
+                        // completely destroy the controller
+                        controller = controller.destroy(true);
+                        // if needed, use jQuery to manually remove styles added to DOM elements by GSAP etc. here
+                    }
+                } else if (wWidth >= maxWidth) {
+                    if (controller === null || controller === undefined) {
+                        // reinitialize ScrollMagic only if it is not already initialized
+                        initScrollMagic();
+                    }
                 }
-
             });
+
+            var wWidth = $(window).width();
+            if (wWidth < maxWidth) {
+                if (controller !== null && controller !== undefined) {
+                    controller = controller.destroy(true);
+                }
+            } else if (wWidth >= maxWidth) {
+                if (controller === null || controller === undefined) {
+                    initScrollMagic();
+                }
+            }
+
+        });
+    </script>
+    <script>
+        $(function () {
+
+            // 開啟彈跳視窗
+            $("button.to_lightbox").on("click", function () {
+                $(".overlay").addClass("-on");
+            });
+            $(".close").on("click", function () {
+                $(".overlay").addClass("-opacity-zero");
+
+                // 設定隔一秒後，移除相關 class
+                setTimeout(function () {
+                    $(".overlay").removeClass("-on -opacity-zero");
+                }, 1000);
+            });
+
+
         });
     </script>
 </body>
