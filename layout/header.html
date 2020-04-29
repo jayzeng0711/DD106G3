@@ -1,3 +1,4 @@
+<!-- 電腦版 -->
 <header class="desktop_header">
     <div class="pu_head_wrap_div">
         <a class="pu_logo_a" href="main.html">
@@ -43,7 +44,9 @@
         </div>
     </div>
 </header>
+<!-- 電腦版 -->
 
+<!-- 手機版 -->
 <header class="mobile_header">
     <a class="pu_mb_logo_a" href="main.html">
         <img src="./images/logo.png" alt="">
@@ -85,35 +88,99 @@
           </div>
     </div>
 </header>
+<!-- 手機版 -->
 
 <!-- 會員登入 -->
 <div id="Login">
     <div id="cancel">
         &#10005
     </div>
-    <div class="mem_login">會員登入</div>
-    <form method="POST" action="" class="formSignIn">
-        <div class="pu_email_div">
-            <label for="Email">
-                信箱   
-            </label>
-            <input type="text" id="Email">
-        </div>
-        <div class="pu_psw_div">
-            <label for="Password">
-                    密碼
-            </label>
-            <input type="password" id="Password">
-        </div>
-        <!-- 登入按鈕 -->
-        <button id="signInBtn">
-            登入
-        </button>     
-        <div id="action">
-            <a id="id=showRegister" href="#" >立即註冊</a>
-            <a id="showForget" href="#">忘記密碼</a>
-        </div>
-    </form> 
+
+    <!-- 會員登入 -->
+    <div class="pu_mem_login_wrap" id="pu_mem_login_wrap">
+        <div class="mem_login">會員登入</div>
+        <form method="POST" action="" class="formSignIn">
+            <div class="pu_email_div">
+                <label for="Email">
+                    信箱   
+                </label>
+                <input type="text" id="Email">
+            </div>
+            <div class="pu_psw_div">
+                <label for="Password">
+                        密碼
+                </label>
+                <input type="password" id="Password">
+            </div>
+            <button id="signInBtn">
+                登入
+            </button>     
+            <div id="action">
+                <a class="showRegister" id="showRegister" href="#" >立即註冊</a>
+                <a class="showForget" id="showForget" href="#">忘記密碼</a>
+            </div>
+        </form>
+    </div>
+    <!-- 會員登入 -->
+
+    <!-- 忘記密碼 -->
+    <div class="pu_mem_login_wrap" id="pu_mem_forget_wrap">
+        <div class="mem_login">忘記密碼</div>
+        <form method="POST" action="" class="formSignIn">
+            <div class="pu_email_div">
+                <label for="Email">
+                    信箱   
+                </label>
+                <input type="text" id="Email">
+            </div>
+            <button id="signInBtn">
+                確認
+            </button>     
+            <div id="action">
+                <a class="return_login" href="#" >返回登入</a>
+                <a class="showRegister" href="#">立即註冊</a>
+            </div>
+        </form>
+    </div>
+    <!-- 忘記密碼 -->
+
+    <!-- 立即註冊 -->
+    <div class="pu_mem_login_wrap" id="pu_mem_resist_wrap">
+        <div class="mem_login">會員註冊</div>
+        <form method="POST" action="" class="formSignIn">
+            <div class="pu_email_div">
+                <label for="Email">
+                    會員名稱   
+                </label>
+                <input type="text" id="Email">
+            </div>
+            <div class="pu_email_div">
+                <label for="Email">
+                    會員信箱   
+                </label>
+                <input type="text" id="Email">
+            </div>
+            <div class="pu_email_div">
+                <label for="Email">
+                    會員密碼   
+                </label>
+                <input type="text" id="Email">
+            </div>
+            <div class="pu_email_div">
+                <label for="Email">
+                    確認密碼   
+                </label>
+                <input type="text" id="Email">
+            </div>
+               
+            <div id="action">
+                <a  href="#" >註冊完成</a>
+                <a class="return_login" href="#">返回登入</a>
+            </div>
+        </form>
+    </div>
+    <!-- 立即註冊 -->
+
 </div>
 <div id="Login_back"></div>
 <!-- 會員登入 -->
