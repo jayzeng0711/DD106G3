@@ -13,7 +13,7 @@
     <section id="wrapper">
         @@include('./layout/h1_title.html')
         <div class="wrapper_bottom">
-            <div class="game_title">
+            <!-- <div class="game_title">
                 <div class="game_rule_div">
                     現撈海鮮活動說明
                 </div>
@@ -33,8 +33,16 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="smallwave_div">
+                <div class="smallwave">
+                    <img src="./images/smallwave.svg" alt="">
+                </div>
+                <div class="smallwave">
+                    <img src="./images/smallwave.svg" alt="">
+                </div>
             </div>
-            <div class="show_seafood_wrap">
+            <!-- <div class="show_seafood_wrap">
                 <div class="show_seafood_text">
                     可能出現的海鮮
                 </div>
@@ -52,6 +60,64 @@
                         <div><img src="./images/9-2.png"></div>
                     </div>
                 </div>
+            </div> -->
+        </div>
+        <div class="show_seafood_wrap">
+            <div>
+                <div class="show_seafood_img_div">
+                    <img id="show_seafood_img_1" class="show_seafood_img" src="./images/seafood1.png">
+                    <div id="show_seafood_price_1" class="show_seafood_price">50元</div>
+                </div>
+                <div class="show_seafood_point">鯨魚 50點</div>
+            </div>
+            <div>
+                <div class="show_seafood_img_div">
+                    <img id="show_seafood_img_2" class="show_seafood_img" src="./images/seafood2.png">
+                    <div id="show_seafood_price_2" class="show_seafood_price">100元</div>
+                </div>
+                <div class="show_seafood_point">鯨魚 100點</div>
+            </div>
+            <div>
+                <div class="show_seafood_img_div">
+                    <img id="show_seafood_img_3" class="show_seafood_img" src="./images/seafood3.png">
+                    <div id="show_seafood_price_3" class="show_seafood_price">150元</div>
+                </div>
+                <div class="show_seafood_point">鯨魚 150點</div>
+            </div>
+            <div>
+                <div class="show_seafood_img_div">
+                    <img id="show_seafood_img_4" class="show_seafood_img" src="./images/seafood4.png">
+                    <div id="show_seafood_price_4" class="show_seafood_price">200元</div>
+                </div>
+                <div class="show_seafood_point">鯨魚 100點</div>
+            </div>
+            <div>
+                <div class="show_seafood_img_div">
+                    <img id="show_seafood_img_5" class="show_seafood_img" src="./images/seafood5.png">
+                    <div id="show_seafood_price_5" class="show_seafood_price">250元</div>
+                </div>
+                <div class="show_seafood_point">鯨魚 250點</div>
+            </div>
+            <div>
+                <div class="show_seafood_img_div">
+                    <img id="show_seafood_img_6" class="show_seafood_img" src="./images/seafood6.png">
+                    <div id="show_seafood_price_6" class="show_seafood_price">300元</div>
+                </div>
+                <div class="show_seafood_point">鯨魚 300點</div>
+            </div>
+            <div>
+                <div class="show_seafood_img_div">
+                    <img id="show_seafood_img_7" class="show_seafood_img" src="./images/seafood7.png">
+                    <div id="show_seafood_price_7" class="show_seafood_price">350元</div>
+                </div>
+                <div class="show_seafood_point">鯨魚 350點</div>
+            </div>
+            <div>
+                <div class="show_seafood_img_div">
+                    <img id="show_seafood_img_8" class="show_seafood_img" src="./images/seafood8.png">
+                    <div id="show_seafood_price_8" class="show_seafood_price">400元</div>
+                </div>
+                <div class="show_seafood_point">鯨魚 400點</div>
             </div>
         </div>
         
@@ -73,63 +139,93 @@
             <div id="game_start">
                 <img src="./images/Game_star.png">
             </div>
-            <div id="click_text">
-                click
-            </div>
             <!-- 有抓到海鮮遊戲結束時的視窗 -->
             <div id="asd">
-                <div class="suc_cap_div"> 
-                    <div>
+                <div class="asd_div">
+                    <div class="asd_div_end">
+                        <img src="./images/game_end.png" alt="" style="max-width: 100%;">
+                    </div>      
+                    <div class="suc_cap_div_text">
                         恭喜您，成功捕獲
                     </div>
-                    <span id="capture_poke" class="capture_poke">
-                    </span>
-                </div>
-                <div class="score_point_div">
-                    <div class="point_div">
-                        <div class="light_div">
-                            獲得積分 <span id="final_score">0</span>
-                        </div>
-                        <div >
-                            <button id="re_game_start" class="re_game_start">
-                                再玩一次
-                            </button>
+                    <div class="suc_cap_div_img_div">
+                        <div id="capture_poke" class="capture_poke">
                         </div>
                     </div>
-                    <div class="score_div">
-                        <div class="light_div">
-                            獲得點數 <span id="final_point">0</span>
+                    <div class="score_point_div">
+                        <div class="point_div">
+                            <div class="light_div">
+                                獲得積分 <span id="final_score">0</span>
+                            </div>
                         </div>
-                        <div class="light_div">
-                            <a href="customized_cuisine.html">
-                                <button class="go_cus">客製化料理</button>  
-                            </a>
-                        </div>       
+                        <div class="score_div">
+                            <div class="light_div">
+                                獲得點數 <span id="final_point">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="again_goto_div">
+                        <div class="point_div">
+                            <div>
+                                <button id="re_game_start" class="re_game_start">
+                                    再玩一次
+                                </button>
+                            </div>
+                        </div>
+                        <div class="score_div">
+                            <div class="light_div">
+                                <a href="customized_cuisine.html">
+                                    <button class="go_cus">客製化料理</button>  
+                                </a>
+                            </div>       
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- 有抓到海鮮遊戲結束時的視窗 -->
 
             <!-- 沒抓到海鮮遊戲結束時的視窗 -->
-            <div id="asd_fail">
+            <div id="asd_fail" style="display: block;">
+                <div>
+                    <img src="./images/game_end.png" alt="" style="max-width: 100%;">
+                </div>
                 <div class="no_seafood_text"> 
                     <div>
                         好可惜呢～一隻海鮮都沒抓到
                     </div>
                 </div>
-                <div class="fail_point_div">
-                    <div class="fail_score_div_small">獲得積分：
-                        <span id="final_score">0</span>
-                    </div>
-                    <div class="fail_point_div_small">獲得點數：
-                        <span id="final_point">0</span>
-                    </div>
+                <div class="fail_re_game_start_div">
+                    <button id="fail_re_game_start">
+                        再玩一次
+                    </button>
                 </div>
-                <button id="fail_re_game_start">
-                    再玩一次
-                </button>
             </div>
             <!-- 沒抓到海鮮遊戲結束時的視窗 -->
+
+            <!-- 遊戲說明 -->
+            <div class="game_statement" style="display: none;">
+                <div class="game_statement_title">
+                    遊戲說明
+                </div>
+                <div class="game_statement_content">
+                    <div>
+                        瞄準海鮮，甩出球抓海鮮
+                    </div>
+                    <div class="game_statement_over">
+                        每局有五顆球，當時間到或球數用完，遊戲結束。
+                    </div>
+                    <div>
+                        成功捕撈海鮮，將獲得點數和積分，點數可折抵消費金額，
+                    </div>
+                    <div class="game_statement_last">
+                        累積積分越高，會員等級越高，就能解鎖更多高級海鮮。
+                    </div>
+                </div>
+                <div class="click_text" id="click_text">
+                    click
+                </div>
+            </div>
+            <!-- 遊戲說明 -->
 
             <div id="screen" class="screen">
                 <div id="time_up" class="time_up">60</div>
@@ -162,16 +258,16 @@
                         <div id="capture_poke" class="capture_poke">
                         </div>
                     </div>
-                  </div>
+                </div>
                 <div class="mem_score_div">
                     積分 <span id="mem_score">0</span>
                 </div>
                 <div class="mem_point_div">
                     點數 <span id="mem_point">0</span>
                 </div>
-                <div class="mem_level_div">
+                <!-- <div class="mem_level_div">
                     會員等級 <span>金鷗</span>
-                </div>
+                </div> -->
                 <div id="target-container">
                     <!-- 海鮮本人 -->
                     <div id="target"></div>
@@ -180,6 +276,16 @@
                 <div id="ball"></div>
                 <div class="fake_ball" id="fake_ball"></div>       
                 <div id="output"></div>
+            </div>
+
+        </div>
+
+        <div class="smallwave_div_bot">
+            <div class="smallwave">
+                <img src="./images/smallwave.svg" alt="">
+            </div>
+            <div class="smallwave_1">
+                <img src="./images/smallwave.svg" alt="">
             </div>
         </div>
 

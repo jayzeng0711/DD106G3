@@ -1,3 +1,17 @@
+//魚的價格hover
+$(document).ready(function(){
+    $('.show_seafood_img_div').hover(function(e){
+        var last_num = e.target.id.substr(e.target.id.length-1,1);
+        $(`#show_seafood_img_${last_num}`).css('opacity','0');
+        $(`#show_seafood_price_${last_num}`).css('opacity','1');
+    },function(e){
+        var last_num = e.target.id.substr(e.target.id.length-1,1);
+        $(`#show_seafood_img_${last_num}`).css('opacity','1');
+        $(`#show_seafood_price_${last_num}`).css('opacity','0');
+    })
+})
+
+
 // 畫面的寶貝球圖片
 Resources = {
     pokeball: './images/Group%2071.png',
@@ -36,10 +50,8 @@ score = 0
 //遊戲開始按鈕
 $(document).ready(function(){
     $('#game_start,#click_text').click(function(){
-        $('#game_start,#click_text').css('display','none');
-        $('#click_text').css('display','none');
-        $('#asd').css('display','none');
-        $('#asd_fail').css('display','none');
+        $('#game_start').css('display','none');
+        $('#asd,#asd_fail,.game_statement').css('display','none');
         $(document).ready(function(){
             //隨機出現的八種海鮮
             var seafood_img = anime.random(1,8);
@@ -501,7 +513,7 @@ $(document).ready(function(){
                                 target_img= target_img.replace('url(','').replace(')','').replace(/\"/gi, "");
                                 //找是第幾個海鮮
                                 target_img = target_img.substr(-5,1)
-                                $('.capture_poke').append(`<img src="./images/seafood${target_img}.png">`)
+                                $('.capture_poke').append(`<div><img src="./images/seafood${target_img}.png"></div>`)
                                 switch(target_img){
                                     case '1':
                                         score += 10;
