@@ -7,19 +7,25 @@ body{
 
 div.forALL{
     width: 100%;
+    div.header{
+        font-family: $fontFamily;
+    }
 }
 
 div.theForm{
     border: 1px solid red;
+    border: none;
     width: 100%;
     display: inline-block;
     ul.row{
         background-color: rgba($color: #fff , $alpha: 0.75);
         border: 1px solid darkgoldenrod;
+        border: none;
         width: 80%;
         margin: 0 auto;
         li{
             border: 1px solid goldenrod;
+            border: none;
             div.bar{
                 color: white;
                 padding: 10px;
@@ -35,6 +41,7 @@ div.theForm{
         div.DT{
             padding: 10px;
             select{
+                font-family: $fontFamily;
                 margin-right: 5%;
                 margin-left: 5%;
             }
@@ -45,6 +52,7 @@ div.theForm{
         }
     }
     li{
+        font-family: $fontFamily;
         ul.dishes{
             display: flex;
             li{
@@ -74,9 +82,11 @@ div.theForm{
             li.deleteBTN{
                 margin-top: 7%;
                 margin-right: 11%;
-                div{
+                button{
                     border: 1px solid red;
+                    border: none;
                     color: maroon;
+                    background: none;
                 }
             }
             li.price{
@@ -87,12 +97,16 @@ div.theForm{
     li{
         ul.custom{
             li{
+                font-family: $fontFamily;
                 display: inline-block;
                 margin-right: 5%;
                 vertical-align: top;
                 img{
                     width: 150px;
                     margin-bottom: 10px;
+                }
+                span{
+                    margin-left: 12%;
                 }
             }
             li.num{
@@ -107,9 +121,11 @@ div.theForm{
             li.deleteBTN{
                 margin-top: 4%;
                 margin-right: 11%;
-                div{
+                button{
                     border: 1px solid red;
+                    border: none;
                     color: maroon;
+                    background: none;
                 }
             }
             li.price{
@@ -130,22 +146,22 @@ div.theForm{
     li{
         .select{
             border: 1px solid violet;
+            border: none;
             margin: 30px;
             height: 100px;
             float: right;
-            span{
-                border: 1px solid aqua;
-            }
         }
     }
     li.info{
         div{
             border: 1px solid red;
+            border: none;
             background-color: rgba(255, 166, 0, 0.5);
             margin: 0 auto;
             margin-bottom: -2px;
             input{
                 border: 1px solid orange;
+
                 height: 50px;
                 width: 55%;
                 margin-top: -40px;
@@ -158,6 +174,7 @@ div.theForm{
             margin-left: 42%;
             margin-top: 30px;
             margin-bottom: 30px;
+            font-size: 1.2rem;
         }
     }
 }}
@@ -224,12 +241,7 @@ div.clear{
                     }
                 }
             }
-           
-            li.info{
-                button{
-                    margin-left: 37%;
-                }
-            }
+   
         }
     
     }
