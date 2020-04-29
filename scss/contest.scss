@@ -6,18 +6,53 @@ body {
     overflow-x: hidden;
 }
 
-footer {
-    width: 100%;
-    height: 100px;
-    font-size: 40px;
-    text-align: center;
-    background-color: #000000;
-    color: #ffffff;
+/* ------------ ranking 開始 ---------------*/
+@keyframes fly{
+    0% {
+        right: -10%;
+    }
+    10% {
+        top: 0%;
+    }
+    20% {
+        // top: 80%;
+        top: 120%;
+    }
+    40% {
+        // top: 90%;
+        top: 50%;
+    }
+    60% {
+        // top: 110%;
+        top: 100%;
+    }
+    80% {
+        // top: 130%;
+        top: 30%;
+    }
+    100% {
+        right: 100%;
+        // top: 140%;
+        top: 100%;
+    }
 }
 
-/* ------------ ranking 開始 ---------------*/
 .ranking {
     margin-bottom: 8%;
+    h1{
+        position: relative;
+        #fly_boat {
+            font-size: $fontSize*1.25;
+            width: 30%;
+            position: absolute;
+            top: 120%;
+            z-index: 2;
+            animation: fly 10s linear infinite;
+            img{
+                width: 60%;
+            }
+        }
+    }
 }
 
 .wrap {
@@ -476,6 +511,20 @@ footer {
     .cookList_title {
         text-align: center;
         font-size: 28px;
+        position: relative;
+        color: #fff;
+        &:after{
+            content: "";
+            width: 289px;
+            height: 105px;
+            background: url(../images/titlebg.svg) no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% ,-50%);
+            z-index: -1;
+        }
     }
 
     .filter {
@@ -762,7 +811,9 @@ footer {
     
                         .report_btn {
                             @extend %btn_ano;
+                            color: rgb(65, 56, 56);
                             padding: 10px;
+                            background-color: rgb(207, 203, 196);
                         }
                     }
                 }
@@ -806,9 +857,6 @@ footer {
 .msg_overlay.-opacity-zero {
     opacity: 0;
 }
-
-
-
 
 /*------------------ 留言板燈箱結束 ----------------*/
 
@@ -1392,4 +1440,24 @@ footer {
     }
 }
 /* ------------ cookList 結束 ---------------*/
+/*------------------ 留言板燈箱開始 ----------------*/
+.msg_overlay{
+    .msg_board {
+        width: 80%;
+        height: 79%;
+        margin: auto;
+    
+        .msg_wrap {
+            width: 100%;
+            height: 81%;
+        }
+    
+        .msg_input {
+            input {
+                width: 70%;
+            }
+        }
+    }
+}
+/*------------------ 留言板燈箱結束 ----------------*/
 }
