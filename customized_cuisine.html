@@ -90,10 +90,10 @@
                                 <img class="in_pic" src="" alt="">
                             </div>
                             <div class="ingret_pos">
-                                <img src="" class="in_pic" alt="">
+                                <img class="in_pic" src="" alt="">
                             </div>
                             <div class="ingret_pos">
-                                <img src="" class="in_pic" alt="">
+                                <img class="in_pic" src="" alt="">
                             </div>
                             <img src="./images/seafood3.svg" class="base" alt="" srcset="">
                         </div>
@@ -342,14 +342,14 @@
 
                         // alert($('.ingret').length);
                         for (let i = 0; i < $('.ingret').length; i++) {
-                            $(".ingret").click(function () {
+                            $(".ingret").eq(i).click(function () {
                                 var in_src = $(this).children().children("img").attr("src");
                                 // alert(in_src);
-                                $(".in_pic").attr("src", in_src);
+                                $(".in_pic").eq(num).attr("src", in_src);
                                 num++;
 
                                 if (num > 3) {
-                                    alert("最多只能選一個喔!!!");
+                                    alert("最多只能選三個喔!!!");
                                 }
 
                             })
@@ -364,12 +364,12 @@
                     });
 
                     var arr = [];
-                    var change = $("in-pic");
+                    var change = document.querySelectorAll(".in_pic");
                     for (let i = 0; i < change.length; i++) {
                         alert(change.length);
                         change[i].addEventListener("click", function (e) {
-                            alert(arr.indexOf(this));
-                            if (arr.indexOf(this) == -1) {
+                            // alert(arr.indexOf(this));
+                            if (arr.indexOf(this)==-1) {
                                 arr.push(this);
                             }
 
