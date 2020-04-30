@@ -102,12 +102,12 @@ div.theForm{
                 display: inline-block;
                 margin-right: 5%;
                 vertical-align: top;
+                padding: 10px;
                 img{
                     width: 150px;
-                    margin-bottom: 10px;
                 }
                 span{
-                    margin-left: 12%;
+                    margin-left: 20%;
                 }
             }
             li.num{
@@ -303,9 +303,14 @@ div.clear{
                         }
                     }
                     li.btn{
-                        margin-left: 74%;
+                        margin-left: 72%;
                         margin-top: -5%;
                     }
+                }
+            }
+            li{
+                div.select{
+                    margin-right: 25%;
                 }
             }
            
