@@ -278,7 +278,7 @@ body{
         display: flex;
         align-items: center;
         div{
-          width: 5%;
+          width: 30px;
           margin: 0 .5%;
           img{
             max-width: 100%;
@@ -292,42 +292,35 @@ body{
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       position: absolute;
       top: 5px;
-      left: 30%;
+      left: 40%;
       div{
         display: flex;
-        align-items: center;
-        width: 70%;
+        align-items: flex-start;
         font-size: $fontSize*1.5;
         .capture_poke{
-          width: 5%;
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           img{
             max-width: 100%;
-            margin: 0px 5px;
+            margin: 0px 2px;
+            width: 70px;
           }
         }
       }
     }
-//捕獲到的海鮮
+    //捕獲到的海鮮
     .mem_score_div{
       position: absolute;
-      left: 60%;
+      right: 15%;
       top: 5px;
       font-size: $fontSize*1.5;
     }
     .mem_point_div{
       position: absolute;
-      left: 72%;
-      top: 5px;
-      font-size: $fontSize*1.5;
-    }
-    .mem_level_div{
-      position: absolute;
-      left: 85%;
+      right: 3%;
       top: 5px;
       font-size: $fontSize*1.5;
     }
@@ -853,7 +846,7 @@ body{
         display: flex;
         align-items: center;
         div{
-          width: 4%;
+          width: 30px;
           margin: 0 .5%;
           img{
             max-width: 100%;
@@ -867,44 +860,37 @@ body{
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       position: absolute;
       top: 5px;
-      left: 30%;
+      left: 40%;
       div{
         display: flex;
-        align-items: center;
-        width: 70%;
-        font-size: $fontSize*1.25;
+        align-items: flex-start;
+        font-size: $fontSize*1.5;
         .capture_poke{
-          width: 5%;
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           img{
             max-width: 100%;
-            margin: 0px 5px;
+            margin: 0px 2px;
+            width: 70px;
           }
         }
       }
     }
-//捕獲到的海鮮
+    //捕獲到的海鮮
     .mem_score_div{
       position: absolute;
-      left: 60%;
+      right: 15%;
       top: 5px;
-      font-size: $fontSize*1.25;
+      font-size: $fontSize*1.5;
     }
     .mem_point_div{
       position: absolute;
-      left: 72%;
+      right: 3%;
       top: 5px;
-      font-size: $fontSize*1.25;
-    }
-    .mem_level_div{
-      position: absolute;
-      left: 85%;
-      top: 5px;
-      font-size: $fontSize*1.25;
+      font-size: $fontSize*1.5;
     }
     #target-container{
       // @extend .flex-center;
@@ -1206,7 +1192,7 @@ body{
         display: flex;
         align-items: center;
         div{
-          width: 4%;
+          width: 25px;
           margin: 0 .5%;
           img{
             max-width: 100%;
@@ -1218,44 +1204,37 @@ body{
     .capture_div{
       width: 90%;
       margin: 0 auto;
-      display: none;
+      display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       position: absolute;
       top: 5px;
-      left: 30%;
+      left: 40%;
       div{
         display: flex;
-        align-items: center;
-        width: 70%;
+        align-items: flex-start;
         font-size: $fontSize*1.25;
         .capture_poke{
-          width: 5%;
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           img{
             max-width: 100%;
-            margin: 0px 5px;
+            margin: 0px 2px;
+            width: 70px;
           }
         }
       }
     }
-//捕獲到的海鮮
+    //捕獲到的海鮮
     .mem_score_div{
       position: absolute;
-      left: 40%;
+      right: 15%;
       top: 5px;
       font-size: $fontSize*1.25;
     }
     .mem_point_div{
       position: absolute;
-      left: 60%;
-      top: 5px;
-      font-size: $fontSize*1.25;
-    }
-    .mem_level_div{
-      position: absolute;
-      left: 80%;
+      right: 3%;
       top: 5px;
       font-size: $fontSize*1.25;
     }
@@ -1397,6 +1376,7 @@ body{
     text-align: center;
     width: 30%;
     cursor: pointer;
+    top: 25%;
     img{
       max-width: 100%;
     }
@@ -1569,7 +1549,7 @@ body{
         display: flex;
         align-items: center;
         div{
-          width: 3.5%;
+          width: 20px;
           margin: 0 .5%;
           img{
             max-width: 100%;
@@ -1581,44 +1561,37 @@ body{
     .capture_div{
       width: 90%;
       margin: 0 auto;
-      display: none;
+      display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       position: absolute;
       top: 5px;
-      left: 30%;
+      left: 37%;
       div{
         display: flex;
-        align-items: center;
-        width: 70%;
+        align-items: flex-start;
         font-size: $fontSize*1.1;
         .capture_poke{
-          width: 5%;
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           img{
             max-width: 100%;
-            margin: 0px 5px;
+            margin: 0px 2px;
+            width: 50px;
           }
         }
       }
     }
-//捕獲到的海鮮
+    //捕獲到的海鮮
     .mem_score_div{
       position: absolute;
-      left: 40%;
-      top: 5px;
+      right: 3%;
+      top: 25px;
       font-size: $fontSize*1.1;
     }
     .mem_point_div{
       position: absolute;
-      left: 60%;
-      top: 5px;
-      font-size: $fontSize*1.1;
-    }
-    .mem_level_div{
-      position: absolute;
-      left: 75%;
+      right: 3%;
       top: 5px;
       font-size: $fontSize*1.1;
     }
@@ -1775,7 +1748,7 @@ body{
         width: 100%;
         text-align: center;
         top: 15%;
-        font-size: $fontSize*1.5;
+        font-size: $fontSize*1.1;
         color: #30B0E1;
       }
       .suc_cap_div_img_div{
@@ -1850,7 +1823,7 @@ body{
       top: 15%;
       width: 100%;
       text-align: center;
-      font-size: $fontSize*1.5;
+      font-size: $fontSize*1.1;
       color: #30B0E1;
       margin-bottom: 5%;
     }
@@ -1918,7 +1891,7 @@ body{
       z-index: 100;
       top: 0px;
       left: 0px;
-      font-size: $fontSize*1.8;
+      font-size: $fontSize*1.6;
     }
     .ball_num_div{
       display: flex;
@@ -1931,8 +1904,8 @@ body{
         display: flex;
         align-items: center;
         div{
-          width: 3.5%;
-          margin: 0 .5%;
+          width: 15px;
+          margin: 0 1%;
           img{
             max-width: 100%;
           }
@@ -1943,44 +1916,37 @@ body{
     .capture_div{
       width: 90%;
       margin: 0 auto;
-      display: none;
+      display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       position: absolute;
       top: 5px;
-      left: 30%;
+      left: 45%;
       div{
         display: flex;
-        align-items: center;
-        width: 70%;
+        align-items: flex-start;
         font-size: $fontSize;
         .capture_poke{
-          width: 5%;
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           img{
             max-width: 100%;
-            margin: 0px 5px;
+            margin: 0px 2px;
+            width: 40px;
           }
         }
       }
     }
-//捕獲到的海鮮
+    //捕獲到的海鮮
     .mem_score_div{
       position: absolute;
-      left: 40%;
-      top: 5px;
-      font-size: $fontSize
+      right: 3%;
+      top: 25px;
+      font-size: $fontSize;
     }
     .mem_point_div{
       position: absolute;
-      left: 60%;
-      top: 5px;
-      font-size: $fontSize;
-    }
-    .mem_level_div{
-      position: absolute;
-      left: 75%;
+      right: 3%;
       top: 5px;
       font-size: $fontSize;
     }
