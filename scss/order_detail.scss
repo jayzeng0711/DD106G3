@@ -3,6 +3,7 @@
 body{
     background-image: url("../images/色塊-4-01.jpg");
     background-size: cover;
+    overflow-x: hidden;
 }
 
 div.forALL{
@@ -352,7 +353,7 @@ div.clear{
                         margin-right: -7%;
                         margin-left: -3%;
                         div{
-                            margin-left: 10%;
+                            margin-left: 15%;
                             img{
                                 width: 80%;
                             }
@@ -473,14 +474,14 @@ div.clear{
                 ul.custom{
                     li{
                         div{
-                            margin-left: 5%;
+                            
                             img{
                                 width: 80%;
                                 margin-top: 3%;
-                                margin-left: 7%;
+                                margin-left: 5%;
                             }
                             span{
-                                margin-left: 38%;
+                                margin-left: 35%;
                             }
                         }
                     }
@@ -488,7 +489,7 @@ div.clear{
                         margin-top: 3%;
                         margin-left: 0%;
                         input{
-                            margin-left: 42%;
+                            margin-left: 35%;
                         }
                     }
                     li.deleteBTN{
@@ -502,18 +503,18 @@ div.clear{
                     li.price{
                         text-align: center;
                         margin-top: 3%;
-                        margin-left: -2%;
+                        margin-left: -8%;
                     }
                     li.btn{
                         margin-top: 3%;
-                        margin-left: 0%;
+                        margin-left: -1%;
                         margin-bottom: 3%;
                     }
                 }
             }
             li{
                 div.select{
-                    margin-right: 15%;
+                    margin-right: 0%;
                 }
             }
             li.info{
@@ -525,40 +526,3 @@ div.clear{
     
     }
 }
-
-/*@include rwd(desktop){
-    div.forALL{
-        div.theForm{
-            ul.row{
-               
-                ul.dishes{
-                  
-                    li.num{
-                        
-                    }
-                    li.deleteBTN{
-                     
-                    }
-                    li.price{
-                      
-                    }
-                }
-            }
-        }
-        ul.custom{
-           
-            li.num{
-               
-            }
-            li.deleteBTN{
-                
-            }
-            li.price{
-                
-            }
-            li.btn{
-                
-            }
-        }
-    }
-}*/
