@@ -87,3 +87,34 @@ $(document).ready(function(){
     })
 })
 //會員登入燈箱
+
+
+
+        // init controller
+        var controller = new ScrollMagic.Controller();
+
+        let scroll = TweenMax.from('#go_top', 1, {
+            x: '-200%',
+            y: '100%',
+
+        });
+        new ScrollMagic.Scene({
+                triggerElement: '#keypoint',
+                triggerHook: 0.2,
+
+
+            }).setTween(scroll)
+            // .addIndicators({  //加上名稱
+            //     name: '#go_top',
+            // })
+            .addTo(controller);
+
+        $(window).scrollTop()
+
+        $('#go_top').click(function () {
+            $('html').animate({
+                scrollTop: 0
+            }, 600);
+
+        });
+    
