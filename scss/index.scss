@@ -2,13 +2,13 @@
 
 @keyframes waves{ /*波浪*/
     0%{
-       background-image: url("/images/wave_keyframes01.png");
+       background-image: url("../images/wave_keyframes01.png");
     }
     50%{
-       background-image: url("/images/wave_keyframes02.png");
+       background-image: url("../images/wave_keyframes02.png");
     }
     100%{
-       background-image: url("/images/wave_keyframes03.png");
+       background-image: url("../images/wave_keyframes03.png");
         }
 }
 
@@ -32,13 +32,13 @@
 
 @keyframes ripples{ /*漣漪*/
     0%{
-        background-image: url("/images/ripple_keyframes01.png");
+        background-image: url("../images/ripple_keyframes01.png");
     }
     50%{
-        background-image: url("/images/ripple_keyframes02.png");
+        background-image: url("../images/ripple_keyframes02.png");
     }
     100%{
-        background-image: url("/images/ripple_keyframes03.png");
+        background-image: url("../images/ripple_keyframes03.png");
     }
 }
 
@@ -117,7 +117,7 @@ div.forALL{
     }
     div.cloud{
         border: 1px solid red;
-        background-image: url("/images/clouds.png");
+        background-image: url("../images/clouds.png");
         height: 500px;
         margin-top: -500px;
         animation: cloud 180s infinite ;
@@ -140,7 +140,7 @@ div.forALL{
                     margin: 0% 0 0 8%;
                 }
                 a:nth-child(1) {
-                    background-image: url("/images/Cruise_landingPage_02.png");
+                    background-image: url("../images/Cruise_landingPage_02.png");
                     background-size: contain;
                     background-repeat: no-repeat;
                     max-width: 100%;
@@ -159,7 +159,7 @@ div.forALL{
                         font-size: $fontSize * 4;
                     }
                     div.waves{
-                        background-image: url("/images/wave_keyframes01.png");
+                        background-image: url("../images/wave_keyframes01.png");
                         background-repeat: no-repeat;
                         background-size: contain;
                         width: 100%;
@@ -174,7 +174,7 @@ div.forALL{
                     }
                 }
                 a:nth-child(2) {
-                    background-image: url("/images/Cruise_landingPage_01.png");
+                    background-image: url("../images/Cruise_landingPage_01.png");
                     background-size: contain;
                     background-repeat: no-repeat;
                     max-width: 100%;
@@ -192,7 +192,7 @@ div.forALL{
                         font-size: $fontSize * 4;
                     }
                     div.ripples{
-                        background-image: url("/images/ripple_keyframes01.png");
+                        background-image: url("../images/ripple_keyframes01.png");
                         background-repeat: no-repeat;
                         background-size: contain;
                         width: 100%;
@@ -210,7 +210,7 @@ div.forALL{
 
 
 div.ocean{
-    background-image: url("/images/Ocean_top.png");
+    background-image: url("../images/Ocean_top.png");
     background-size: contain;
     width: 100%;
     height: 25vh;
