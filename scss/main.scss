@@ -1,4 +1,5 @@
 @import 'base/var';
+
 .wrapperWheel {
     display: none;
 }
@@ -18,6 +19,7 @@
     overflow: hidden;
     position: relative;
     transition: all 5s ease-in-out;
+
     // 標題
     h1 {
         font-family: $fontFamily;
@@ -29,14 +31,17 @@
         transition: all 2s ease-out;
         animation: textJump 2s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
     }
+
     @keyframes textJump {
         0% {
             top: 100vh,
         }
+
         100% {
             top: 50px,
         }
     }
+
     // 島嶼
     .layer1 {
         width: 60%;
@@ -47,6 +52,7 @@
         z-index: 500;
         transition: all 0.5s linear;
     }
+
     .layer2 {
         width: 40%;
         position: absolute;
@@ -54,6 +60,7 @@
         right: -10%;
         z-index: 500;
     }
+
     .port {
         border-radius: 20px;
         background-color: #1B81C7;
@@ -64,6 +71,7 @@
         animation: portname 2s ease-in infinite;
         opacity: 0;
         transition: all 1s;
+
         p {
             color: #fff;
             letter-spacing: 2px;
@@ -73,15 +81,19 @@
             padding: 10px 20px;
         }
     }
+
     @keyframes portname {
+
         0%,
         100% {
             transform: scale(1);
         }
+
         50% {
             transform: scale(1.1);
         }
     }
+
     .layer3 {
         width: 40%;
         position: absolute;
@@ -89,6 +101,7 @@
         right: -10%;
         z-index: 15;
     }
+
     // 海浪
     .wrapper {
         .wave {
@@ -97,6 +110,7 @@
             position: absolute;
             animation: wave 20s linear infinite;
         }
+
         .wave1 {
             background-image: url(../images/wave2.png);
             height: 15vh;
@@ -104,12 +118,14 @@
             animation-direction: reverse;
             z-index: 0;
         }
+
         .wave2 {
             background-image: url(../images/wave3.png);
             height: 15vh;
             bottom: 15vh;
             z-index: 10;
         }
+
         .wave3 {
             background-image: url(../images/wave2.png);
             height: 15vh;
@@ -117,6 +133,7 @@
             animation-direction: reverse;
             z-index: 20;
         }
+
         .wave4 {
             height: 20vh;
             background-image: url(../images/wave1.png);
@@ -124,15 +141,18 @@
             bottom: 0;
             z-index: 30;
         }
+
         @keyframes wave {
             0% {
                 background-position: 0
             }
+
             100% {
                 background-position: 100%
             }
         }
     }
+
     .boat {
         position: absolute;
         bottom: 10vh;
@@ -142,17 +162,21 @@
         transform: rotateZ(-2deg);
         animation: boatfloat 3s infinite;
     }
+
     @keyframes boatfloat {
         0% {
             transform: rotateZ(-2deg);
         }
+
         50% {
             transform: rotateZ(2deg);
         }
+
         100% {
             transform: rotateZ(-2deg);
         }
     }
+
     img.flyfish1 {
         width: 100px;
         position: relative;
@@ -160,6 +184,7 @@
         left: 200px;
         transform: rotateZ(60deg);
     }
+
     img.flyfish2 {
         width: 100px;
         position: relative;
@@ -167,6 +192,7 @@
         left: 300px;
         transform: rotateZ(20deg);
     }
+
     img.flyfish3 {
         width: 100px;
         position: relative;
@@ -174,70 +200,88 @@
         left: 450px;
         transform: rotateZ(180deg);
     }
+
     img.fly1 {
         animation: fishfly1 2s ease-in-out;
     }
+
     img.fly2 {
         animation: fishfly2 2s 0.3s ease-in-out;
     }
+
     img.fly3 {
         animation: fishfly1 2s 0.5s ease-in-out;
     }
+
     @keyframes fishfly1 {
         0% {
             bottom: -100vh;
             transform: rotateZ(60deg);
         }
+
         25% {
             transform: rotateZ(100deg);
         }
+
         50% {
             bottom: 30vh;
             transform: rotateZ(230deg);
         }
+
         75% {
             transform: rotateZ(250deg);
         }
+
         100% {
             bottom: -100vh;
             transform: rotateZ(270deg);
         }
     }
+
     @keyframes fishfly2 {
         0% {
             bottom: -100vh;
             transform: rotateZ(20deg);
         }
+
         25% {
             transform: rotateZ(0deg);
         }
+
         50% {
             bottom: 25vh;
             transform: rotateZ(-20deg);
         }
+
         75% {
             transform: rotateZ(0deg);
         }
+
         100% {
             bottom: -100vh;
             transform: rotateZ(15deg);
         }
     }
+
     @keyframes fishfly3 {
         0% {
             bottom: -100vh;
             transform: rotateZ(20deg);
         }
+
         25% {
             transform: rotateZ(80deg);
         }
+
         50% {
             bottom: 10vh;
             transform: rotateZ(180deg);
         }
+
         75% {
             transform: rotateZ(250deg);
         }
+
         100% {
             bottom: -100vh;
             transform: rotateZ(360deg);
@@ -252,30 +296,37 @@
     background: url(../images/mainbg2.svg) bottom;
     background-color: #A3D9FD;
     transition: all 0.5s linear;
+
     .row0 {
         height: 150px;
     }
+
     .row1 {
         height: calc(100vh - 150px);
+
         .wrapper {
             position: relative;
             top: 50%;
             transform: translateY(-60%);
             z-index: 1;
         }
+
         .title {
             width: 80%;
             margin: 0 auto;
             position: relative;
             z-index: 1;
             opacity: 0;
+
             .pu_h1_div {
                 position: relative;
                 width: 80%;
                 margin: 0 auto 5% auto;
+
                 .pu_h1_img {
                     max-width: 100%;
                 }
+
                 .text {
                     font-size: $fontSize*2;
                     position: absolute;
@@ -286,13 +337,16 @@
                 }
             }
         }
+
         .text {
             text-align: center;
+
             p {
                 color: #034;
                 margin-bottom: 1%;
             }
         }
+
         .reservation {
             width: 60%;
             color: #fff;
@@ -306,21 +360,26 @@
             transition: all 1s 0.5s;
             z-index: 20;
             opacity: 0;
+
             h3 {
                 font-size: $fontSize * 1.2;
             }
+
             p {
                 font-size: $fontSize;
                 margin: 3% 0;
             }
+
             .question {
                 margin-bottom: 5%;
                 display: inline-block;
             }
+
             .answer {
                 margin-bottom: 5%;
                 display: inline-block;
             }
+
             .port {
                 label {
                     background-color: #fff;
@@ -330,14 +389,17 @@
                     margin: 5px 5px 5px 0;
                     cursor: pointer;
                 }
+
                 .port1 {
                     background-color: #4EB6E6;
                     color: #fff;
                 }
+
                 input {
                     display: none;
                 }
             }
+
             .people {
                 #people {
                     display: inline-block;
@@ -345,10 +407,12 @@
                     margin-right: 5px;
                     text-align: right;
                 }
+
                 input#people::-webkit-inner-spin-button {
                     -webkit-appearance: none !important;
                     margin: 0;
                 }
+
                 .minus,
                 .plus {
                     font-size: $fontSize*1.5;
@@ -358,6 +422,7 @@
                     top: 3px;
                 }
             }
+
             .button {
                 @extend %btn_ano;
                 width: 120px;
@@ -365,14 +430,16 @@
                 margin: 0 auto 3%;
                 text-align: center;
                 padding: 10px 20px;
-                a {
-                    text-decoration: none;
-                    color: #fff;
-                }
+                display: block;
+                text-decoration: none;
+                color: #fff;
+
             }
         }
+
         .mappic {
             position: relative;
+
             .boat {
                 position: absolute;
                 top: 20vh;
@@ -384,28 +451,34 @@
                 transform: rotateZ(-2deg);
                 animation: boatfloat 3s infinite;
             }
+
             .smallwave {
                 width: 100px;
                 position: absolute;
                 z-index: 1;
                 opacity: 0;
             }
+
             .smallwave1 {
                 top: 10vh;
                 left: 5vh;
             }
+
             .smallwave2 {
                 top: 50vh;
                 left: 10vh;
             }
+
             .smallwave3 {
                 top: 20vh;
                 right: 5vh;
             }
+
             .smallwave4 {
                 top: 60vh;
                 right: 5vh;
             }
+
             .map {
                 width: 100vw;
                 position: relative;
@@ -416,6 +489,7 @@
             }
         }
     }
+
     .wave {
         width: 100%;
         height: 15vh;
@@ -425,10 +499,12 @@
         position: absolute;
         animation: wave 20s linear infinite;
     }
+
     @keyframes wave {
         0% {
             background-position: 0
         }
+
         100% {
             background-position: 100%
         }
@@ -445,17 +521,21 @@
     background-size: contain;
     background-position: 0 -10px;
     height: 100vh;
+
     .row1 {
         .title {
             position: relative;
             z-index: 1;
+
             .pu_h1_div {
                 position: relative;
                 width: 80%;
                 margin: 12% auto 5%;
+
                 .pu_h1_img {
                     max-width: 100%;
                 }
+
                 .titletext {
                     text-align: center;
                     font-size: $fontSize*2;
@@ -467,13 +547,16 @@
                 }
             }
         }
+
         .text {
             text-align: center;
+
             p {
                 font-size: $fontSize;
                 margin: 3% 0;
             }
         }
+
         .button {
             @extend %btn_ano;
             width: 120px;
@@ -481,14 +564,16 @@
             margin: 0 auto 3%;
             text-align: center;
             padding: 10px 20px;
-            a {
-                text-decoration: none;
-                color: #fff;
-            }
+            display: block;
+            text-decoration: none;
+            color: #fff;
+
         }
     }
+
     .row2 {
         height: 50vh;
+
         .menu {
             position: relative;
             transform-style: preserve-3d;
@@ -496,17 +581,20 @@
             background-color: #F0EEE0;
             margin: 5% 0;
             padding: 3%;
+
             .wrapper {
                 border: 3PX solid #E3D6B3;
                 margin: 3%;
                 background: url(../images/mealname.svg) no-repeat;
                 background-size: 20%;
                 background-position: 3% 0;
+
                 img {
                     margin: 0px auto 10px;
                     display: block;
                     width: 50%;
                 }
+
                 .text {
                     color: #034;
                     display: inline-block;
@@ -517,10 +605,12 @@
                     transition: all 0.3s;
                     transform-style: preserve-3d;
                     margin: 3%;
+
                     h4 {
                         font-size: $fontSize*1.2;
                         margin-bottom: 10%;
                     }
+
                     p {
                         font-size: $fontSize;
                         margin-bottom: 10%;
@@ -528,34 +618,44 @@
                 }
             }
         }
+
         .menu1 {
             animation: menufloat1 3s ease-in infinite;
         }
+
         .menu2 {
             animation: menufloat2 2.5s ease-in infinite;
         }
+
         .menu3 {
             animation: menufloat1 2.5s ease-in infinite;
         }
+
         @keyframes menufloat1 {
+
             0%,
             100% {
                 top: 0px;
             }
+
             50% {
                 top: 10px;
             }
         }
+
         @keyframes menufloat2 {
+
             0%,
             100% {
                 top: 0px;
             }
+
             50% {
                 top: -10px;
             }
         }
     }
+
     .row3 {
         #sliderBoard {
             width: 300px;
@@ -563,6 +663,7 @@
             margin: 50px auto;
             overflow: hidden;
         }
+
         /* ul */
         #sliderBoard ul {
             width: 915px;
@@ -570,6 +671,7 @@
             position: relative;
             animation: slider 8s infinite;
         }
+
         /* li */
         #sliderBoard li {
             width: 300px;
@@ -578,30 +680,36 @@
             float: left;
             margin-right: 5px;
         }
+
         .menu {
             position: relative;
             border-radius: 5px;
             background-color: #F0EEE0;
             padding: 3%;
+
             .wrapper {
                 border: 3PX solid #E3D6B3;
                 margin: 3%;
                 background: url(../images/mealname.svg) no-repeat;
                 background-size: 20%;
                 background-position: 3% 0;
+
                 img {
                     margin: 0px auto 10px;
                     display: block;
                     width: 50%;
                 }
+
                 .text {
                     color: #034;
                     display: inline-block;
                     margin: 3%;
+
                     h4 {
                         font-size: $fontSize*1;
                         margin-bottom: 10%;
                     }
+
                     p {
                         font-size: $fontSize*0.9;
                         margin-bottom: 10%;
@@ -609,14 +717,18 @@
                 }
             }
         }
+
         @keyframes slider {
+
             0%,
             100% {
                 left: 0px
             }
+
             35% {
                 left: -300px
             }
+
             70% {
                 left: -600px
             }
@@ -626,17 +738,21 @@
 
 .section4 {
     height: 100vh;
+
     .row1 {
         .title {
             position: relative;
             z-index: 1;
+
             .pu_h1_div {
                 position: relative;
                 width: 80%;
                 margin: 12% auto 5% auto;
+
                 .pu_h1_img {
                     max-width: 100%;
                 }
+
                 .titletext {
                     text-align: center;
                     font-size: $fontSize*2;
@@ -648,16 +764,19 @@
                 }
             }
         }
+
         .text {
             margin-top: 20px;
             color: #fff;
             display: inline-block;
+
             p {
                 margin: 0;
                 padding: 5px;
             }
         }
     }
+
     .row2 {
         .step {
             margin: 0 auto;
@@ -666,19 +785,23 @@
             width: 100px;
             height: 100px;
             text-align: center;
+
             .text {
                 position: relative;
                 top: 50%;
                 transform: translateY(-50%);
+
                 p {
                     color: #fff;
                     margin: 5px;
                 }
             }
         }
+
         .text {
             margin-top: 20px;
             text-align: center;
+
             p {
                 font-size: $fontSize;
                 color: #034;
@@ -689,14 +812,16 @@
             @extend %btn_ano;
             width: 120px;
             height: 40px;
-            margin: 10% auto 3%;
+            margin: 0 auto 3%;
             text-align: center;
             padding: 10px 20px;
-            a {
-                text-decoration: none;
-                color: #fff;
-            }
+            display: block;
+            text-decoration: none;
+            color: #fff;
+
         }
+
+
         .game {
             img {
                 width: 80%;
@@ -713,10 +838,12 @@
     background: url(../images/custobg.png) no-repeat;
     background-size: contain;
     background-position: 50% 50%;
+
     .wrapper {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
+
         .step {
             margin: 0 auto;
             background-color: #2E4581;
@@ -724,37 +851,43 @@
             width: 100px;
             height: 100px;
             text-align: center;
+
             .text {
                 position: relative;
                 top: 50%;
                 transform: translateY(-50%);
+
                 p {
                     color: #fff;
                     margin: 5px;
                 }
             }
         }
+
         .text {
             margin-top: 20px;
             text-align: center;
+
             p {
                 font-size: $fontSize;
                 color: #034;
                 margin-bottom: 5%;
             }
         }
+
         .button {
             @extend %btn_ano;
             width: 120px;
             height: 40px;
-            margin: 10% auto 3%;
+            margin: 0 auto 3%;
             text-align: center;
             padding: 10px 20px;
-            a {
-                text-decoration: none;
-                color: #fff;
-            }
+            display: block;
+            text-decoration: none;
+            color: #fff;
+
         }
+
         .fishes {
             .fish1 img {
                 width: 80%;
@@ -762,6 +895,7 @@
                 top: 120%;
                 left: -22%;
             }
+
             .fish2 img {
                 width: 80%;
                 position: relative;
@@ -769,6 +903,7 @@
                 left: -23%;
                 transform: rotateZ(10deg);
             }
+
             .fish3 img {
                 width: 80%;
                 position: relative;
@@ -782,25 +917,31 @@
 .section6 {
     height: 100vh;
     position: relative;
+
     .bgbottom {
         width: 100%;
         position: absolute;
         bottom: 0;
     }
+
     .row {
         height: 100vh;
         overflow: hidden;
+
         .left {
             .title {
                 position: relative;
                 z-index: 1;
+
                 .pu_h1_div {
                     position: relative;
                     width: 80%;
                     margin: 0 auto 5% auto;
+
                     .pu_h1_img {
                         max-width: 100%;
                     }
+
                     .titletext {
                         text-align: center;
                         font-size: $fontSize*2;
@@ -812,8 +953,10 @@
                     }
                 }
             }
+
             .text {
                 text-align: center;
+
                 p {
                     font-size: $fontSize;
                     color: #fff;
@@ -823,31 +966,36 @@
                     @extend %btn_ano;
                     width: 120px;
                     height: 40px;
-                    margin: 10% auto 3%;
+                    margin: 0 auto 3%;
                     text-align: center;
                     padding: 10px 20px;
-                    a {
-                        color: #fff;
-                        text-decoration: none;
-                    }
+                    display: block;
+                    text-decoration: none;
+                    color: #fff;
+    
                 }
             }
         }
+
         .right {
             .contest {
                 position: relative;
+
                 .light {
                     position: absolute;
                     width: 70%;
                     animation: light 5s linear infinite;
                 }
+
                 .cook {
                     color: #fff;
                     text-align: center;
+
                     h4 {
                         font-size: $fontSize*1.4;
                         margin-bottom: 10%;
                     }
+
                     .dish {
                         width: 80%;
                         display: block;
@@ -855,12 +1003,15 @@
                         left: 10%;
                         top: 30px;
                     }
+
                     .barrel {
                         width: 50%;
                     }
+
                     .first {
                         width: 70%;
                     }
+
                     .button {
                         @extend %btn;
                         width: 80px;
@@ -869,13 +1020,16 @@
                 }
             }
         }
+
         @keyframes light {
             0% {
                 transform: rotateZ(0deg);
             }
+
             50% {
                 transform: rotateZ(180deg);
             }
+
             100% {
                 transform: rotateZ(360deg);
             }
@@ -893,10 +1047,12 @@
     .wave {
         animation: wave 15s linear infinite;
     }
+
     .section2 {
         .row0 {
             height: 0;
         }
+
         .row1 {
             .title {
                 .pu_h1_div {
@@ -908,27 +1064,33 @@
                     }
                 }
             }
+
             .text {
                 text-align: center;
+
                 p {
                     color: #034;
                     margin-bottom: 1%;
                 }
             }
+
             .reservation {
                 width: 80%;
+
                 .item {
                     display: inline-block;
                     position: relative;
                     left: 50%;
                     transform: translateX(-50%);
                 }
+
                 .question {
                     margin-bottom: 15%;
                 }
             }
         }
     }
+
     .section3 {
         .row2 {
             .menu {
@@ -938,6 +1100,7 @@
                             font-size: $fontSize;
                             margin-bottom: 10%;
                         }
+
                         p {
                             font-size: $fontSize*0.8;
                             margin-bottom: 10%;
@@ -951,14 +1114,17 @@
 
 @include rwd(small) {
     .section1 {
+
         // 標題
         h1 {
             line-height: 20vh;
             text-align: center;
         }
+
         .port {
             display: none;
         }
+
         .wrapper {
             .wave {
                 width: 100%;
@@ -966,21 +1132,25 @@
                 position: absolute;
                 animation: wave 5s linear infinite;
             }
+
             .wave1 {
                 height: 15vh;
                 bottom: 17vh;
                 animation-direction: reverse;
             }
+
             .wave2 {
                 height: 15vh;
                 bottom: 15vh;
             }
+
             .wave3 {
                 height: 15vh;
                 bottom: 10vh;
                 animation-direction: reverse;
                 z-index: 20;
             }
+
             .wave4 {
                 height: 20vh;
                 background-image: url(../images/wave1.png);
@@ -990,10 +1160,12 @@
             }
         }
     }
+
     .section2 {
         .row0 {
             height: 0;
         }
+
         .row1 {
             .title {
                 .pu_h1_div {
@@ -1003,18 +1175,22 @@
                 }
             }
         }
+
         .wave {
             animation: wave 5s linear infinite;
         }
     }
+
     .section3 {
         .row2 {
             display: none;
         }
+
         .row3 {
             display: block;
         }
     }
+
     .section4 {
         .row2 {
             .game {
@@ -1027,6 +1203,7 @@
             }
         }
     }
+
     .section5 {
         .text {
             .button {
@@ -1035,10 +1212,12 @@
                 margin: 30px auto;
             }
         }
+
         .half {
             .halfpic {
                 display: none;
             }
+
             .cookpic {
                 width: 80%;
                 display: inline-block;
@@ -1049,6 +1228,7 @@
             }
         }
     }
+
     .section6 {
         height: auto;
         overflow: visible;
@@ -1064,21 +1244,25 @@
                 position: absolute;
                 animation: wave 2s linear infinite;
             }
+
             .wave1 {
                 height: 15vh;
                 bottom: 17vh;
                 animation-direction: reverse;
             }
+
             .wave2 {
                 height: 15vh;
                 bottom: 15vh;
             }
+
             .wave3 {
                 height: 15vh;
                 bottom: 10vh;
                 animation-direction: reverse;
                 z-index: 20;
             }
+
             .wave4 {
                 height: 20vh;
                 background-image: url(../images/wave1.png);
