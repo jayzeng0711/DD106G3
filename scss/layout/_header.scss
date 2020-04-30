@@ -157,7 +157,10 @@
         #signInBtn{
             @extend %btn;
             width: 100px;
-            margin-bottom: 10%;
+            margin: 10% auto;
+            display: block;
+            text-align: center;
+            text-decoration: none;
         }
         #action{
             padding-bottom: 5%;
