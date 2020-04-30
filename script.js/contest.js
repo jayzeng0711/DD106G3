@@ -27,21 +27,6 @@ function aaa(id){
 }
 
 
-
-// 至頂按鈕，回到最上方
-$(function(){
-  
-    $("#go_top").on("click", function(e){
-      e.preventDefault();
-      $('html, body').animate({
-        scrollTop: 0
-      }, 750);
-    });
-    
-  });
-
-
-
   //燈箱
 $(function () {
 
