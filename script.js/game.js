@@ -10,6 +10,7 @@ $(document).ready(function(){
         $(`#show_seafood_price_${last_num}`).css('opacity','0');
     })
 })
+//魚的價格hover
 
 
 // 畫面的寶貝球圖片
@@ -46,6 +47,8 @@ Resources = {
 
 //分數初始化
 score = 0
+// 把海鮮存入session的key初值
+session_id = 0;
 
 //遊戲開始按鈕
 $(document).ready(function(){
@@ -55,7 +58,7 @@ $(document).ready(function(){
         $(document).ready(function(){
             //隨機出現的八種海鮮
             var seafood_img = anime.random(1,8);
-            $('#target').css('background-image',`url("./images/seafood${seafood_img}.png")`)
+            $('#target').css('background-image',`url("../images/seafood${seafood_img}.png")`)
         })
         $('#fake_ball').mousemove(function(){
             $(this).css('cursor','pointer');
@@ -89,7 +92,8 @@ $(document).ready(function(){
         };
     
         // 丟球的力量，決定球被丟多遠
-        var MAX_VELOCITY = Screen.height * 0.009;
+        // var MAX_VELOCITY = Screen.height * 0.009;
+        var MAX_VELOCITY = Screen.height * 0.01;
     
         var Ball = {
             id: 'ball',
@@ -139,8 +143,9 @@ $(document).ready(function(){
 
         //海鮮的動畫，利用anime.js套件
             // 使用方式 http://www.htmleaf.com/jQuery/jquery-tools/201607013672.html
-            path_num = anime.random(1,5);
-            path = anime.path(`.cls-${path_num}`);
+            // path_num = anime.random(1,5);
+            // path = anime.path(`.cls-${path_num}`);
+            path = anime.path(`.cls-1`);
             seafood_animate = anime({
                 targets: ['#target'],
                 rotate: 20,
@@ -514,6 +519,10 @@ $(document).ready(function(){
                                 //找是第幾個海鮮
                                 target_img = target_img.substr(-5,1)
                                 $('.capture_poke').append(`<div><img src="./images/seafood${target_img}.png"></div>`)
+                                //存到session裡面
+                                stroge = localStorage;
+                                stroge.setItem(session_id,`./images/seafood${target_img}.png`);
+                                session_id++;
                                 switch(target_img){
                                     case '1':
                                         score += 10;
@@ -569,7 +578,7 @@ $(document).ready(function(){
                             //抓到後換海鮮
                             $(document).ready(function(){
                                 var seafood_img = anime.random(1,8);
-                                $('#target').css('background-image',`url("./images/seafood${seafood_img}.png")`)
+                                $('#target').css('background-image',`url("../images/seafood${seafood_img}.png")`)
                             })
                             //如果球丟完了，遊戲結束
                             function end_game(){
@@ -698,6 +707,7 @@ $(document).ready(function(){
             })
             //每次重置球的時候，球數減少
             ball_num--;
+            $(`.ball_num_img_div_${ball_num+1}`).remove();
             if(ball_num<0){
                 $('#ball_num').html(0);
             } else{
@@ -710,6 +720,10 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('#re_game_start,#fail_re_game_start').click(function(){
         window.location.reload();
+    })
+    $('#re_game_start').click(function(){
+        var storge = localStorage;
+        storge.clear();
     })
 })
 
@@ -726,4 +740,3 @@ function getCenterCoords(elementId) {
 function getRandNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
-

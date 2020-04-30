@@ -170,3 +170,8 @@
         }
     }
 }
+@include rwd(small){
+    .reboot_div{
+        display: none;
+    }
+}
