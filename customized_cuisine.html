@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="./images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="/css/customized_cuisine.css">
+    <link rel="stylesheet" href="./css/customized_cuisine.css">
     <script src="./jquery/jquery.min.js"></script>
     <script src="./jquery/jquery-ui.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
@@ -20,14 +20,7 @@
     @@include('./layout/header.html')
 
     <div class="container">
-        <h1>
-            <div class="pu_h1_div">
-                <img class="pu_h1_img" src="./images/ribbon.png" alt="">
-                <div class="pu_div_text">
-                    客製化料理
-                </div>
-            </div>
-        </h1>
+        @@include('./layout/h1_title.html')
         <main>
             <div class="intro">
                 <p>
@@ -412,9 +405,10 @@
             </div>
 
         </main>
+        @@include('./layout/reboot.html')
     </div>
 
-    <footer></footer>
+    <footer>    @@include('./layout/foot.html')</footer>
     @@include('./all_js.html')
     <script>
         // 手機用版面
