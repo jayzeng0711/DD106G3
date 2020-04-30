@@ -6,21 +6,44 @@ window.addEventListener('load', function() {
     $('.section3').css('display', 'none');
 
     $('.section1 .next').click(function() {
-        $('html').animate({
-            scrollTop: $('.section2').offset().top
-        }, 600);
-        $('.section1').css('display', 'none');
-        $('.section2').css('display', 'block');
+
+        let people = parseInt($('#people').val());
+
+        // 訂位人數小於1，無法下一步
+        if (people < 1) {
+            alert('請先選擇訂位人數！');
+        } else {
+            $('html').animate({
+                scrollTop: $('.section2').offset().top
+            }, 600);
+            $('.section1').css('display', 'none');
+            $('.section2').css('display', 'block');
+
+        }
+
 
     });
+
     $('.section2 .next').click(function() {
-        $('html').animate({
-            scrollTop: $('.section3').offset().top
-        }, 600);
-        $('.section2').css('display', 'none');
-        $('.section3').css('display', 'block');
+
+        let people = parseInt($('#people').val());
+        let total = parseInt($('.amount').text());
+
+        // 套餐數量小於訂位人數，無法下一步
+        if (total < people) {
+            alert('每人低消一份套餐喔！');
+        } else {
+            $('html').animate({
+                scrollTop: $('.section3').offset().top
+            }, 600);
+            $('.section2').css('display', 'none');
+            $('.section3').css('display', 'block');
+
+        }
 
     });
+
+
     $('.section2 .previous').click(function() {
         $('html').animate({
             scrollTop: $('.section1').offset().top
@@ -48,23 +71,90 @@ window.addEventListener('load', function() {
     });
 
 
-
     // 訂位頁面，人數不小於0、不是空值
 
     $('#people').change(function() {
 
         let inputVal = $(this).val();
-
-        if (inputVal == "") {
-            $(this).val(0);
+        if (inputVal == "" || parseInt(inputVal) < 0) {
+            $(this).val(1);
         }
-        if (parseInt(inputVal) < 0) {
-            $(this).val(0);
-        }
-        console.log($(this).val());
 
     });
 
+    // 套餐、客製化料理數量，不小於0、不是空值
+
+    $('.meal').change(function() {
+
+        let inputVal = $(this).val();
+        if (inputVal == "" || parseInt(inputVal) < 0) {
+            $(this).val(0);
+        }
+
+    });
+
+    // 套餐、客製化料理、人數，按加改變數字
+    $('.plus').click(function() {
+        let val = parseInt($(this).prev().val());
+        $(this).prev().val(val + 1);
+    });
+
+    // 套餐、客製化料理、人數，按減改變數字
+    $('.minus').click(function() {
+        let val = parseInt($(this).next().val());
+
+        if ($(this).next().attr('id') == 'people') {
+            if (val >= 2) {
+                $(this).next().val(val - 1);
+                console.log('1');
+            }
+        } else {
+            if (val >= 1) {
+                $(this).next().val(val - 1);
+            }
+        }
+
+    });
+
+    // 計算套餐數量
+
+    $('#mealAAmount').change(function() {
+        mealAmount();
+    });
+    $('#mealBAmount').change(function() {
+        mealAmount();
+    });
+    $('#mealCAmount').change(function() {
+        mealAmount();
+    });
+
+    $('.section2 .minus').click(function() {
+        mealAmount();
+    });
+    $('.section2 .plus').click(function() {
+        mealAmount();
+    });
+
+    function mealAmount() {
+        let mealA = parseInt($('#mealAAmount').val());
+        let mealB = parseInt($('#mealBAmount').val());
+        let mealC = parseInt($('#mealCAmount').val());
+
+        total = mealA + mealB + mealC;
+        $('.amount').text(total);
+    };
+
+    // 客製化料理按刪除，清單中消失，表格列數不變
+
+    $('.delete').click(function() {
+
+        $(this).parent().parent().remove();
+        $('.section3 table').append('<tr><td></td><td></td><td></td><td></td></tr>');
+        let firsttd = $('.section3 table tr:nth-child(2) td:first-child');
+        if (firsttd.text() == "") {
+            firsttd.parent().html('<td colspan = "4"> 目前沒有客製化料理 </td>');
+        }
+    });
 
     // 月曆
 
@@ -247,4 +337,6 @@ window.addEventListener('load', function() {
         console.log($(this).val());
 
     });
+
+
 });

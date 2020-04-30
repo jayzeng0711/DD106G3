@@ -1,83 +1,533 @@
 @import "base/var";
 
 body{
-    width: 1280px;
-    /*background: radial-gradient(ellipse at top, #FEFFDB,#9cd6ff, #48c6e4);*/
-    background-image: url(../images/色塊-4-01.jpg);
+    background-image: url("../images/色塊-4-01.jpg");
     background-size: cover;
+    overflow-x: hidden;
 }
 
-#header{
-    border: 1px solid maroon;
-    margin: 0 auto;
+div.forALL{
+    width: 100%;
+    div.header{
+        font-family: $fontFamily;
+    }
 }
 
 div.theForm{
     border: 1px solid red;
+    border: none;
+    width: 100%;
     display: inline-block;
-    width: 1000px;
-    background-color: rgba($color: #fff, $alpha: 0.75);
-    margin-left: 10%;
-}
+    ul.row{
+        background-color: rgba($color: #fff , $alpha: 0.75);
+        border: 1px solid darkgoldenrod;
+        border: none;
+        width: 80%;
+        margin: 0 auto;
+        li{
+            border: 1px solid goldenrod;
+            border: none;
+            div.bar{
+                color: white;
+                padding: 10px;
+                div{
+                    font-family: $fontFamily;
+                    display: inline-block;
+                    font-size: 1.2rem;
+                    text-align: center;
+                }
+        }
+    }
+    li{
+        div.DT{
+            padding: 10px;
+            select{
+                font-family: $fontFamily;
+                margin-right: 5%;
+                margin-left: 5%;
+            }
+            input{
+                margin-left: 6%;
+                width: 80px;
+            }
+        }
+    }
+    li{
+        font-family: $fontFamily;
+        ul.dishes{
+            display: flex;
+            li{
+                vertical-align: top;
+            }
+            li.meal{
+                padding: 10px;
+                div{
+                    img{
+                        width: 150px;
+                    }
+                    div.detail{
+                        width: 300px;
+                    }
+                }
+            }
+            li.num{
+                margin-top: 7%;
+                margin-left: -3%;
+                margin-right: 10%;
+                div{
+                    input{
+                        width: 50px;
+                    }
+                }
+            }
+            li.deleteBTN{
+                margin-top: 7%;
+                margin-right: 11%;
+                button{
+                    border: 1px solid red;
+                    border: none;
+                    color: maroon;
+                    background: none;
+                }
+            }
+            li.price{
+                margin-top: 7%;
+            }
+        }
+    }
+    li{
+        ul.custom{
+            li{
+                font-family: $fontFamily;
+                display: inline-block;
+                margin-right: 5%;
+                vertical-align: top;
+                padding: 10px;
+                img{
+                    width: 150px;
+                }
+                span{
+                    margin-left: 20%;
+                }
+            }
+            li.num{
+                margin-top: 4%;
+                margin-right: 10%;
+                div{
+                    input{
+                        width: 50px;
+                    }
+                }
+            }
+            li.deleteBTN{
+                margin-top: 4%;
+                margin-right: 11%;
+                button{
+                    border: 1px solid red;
+                    border: none;
+                    color: maroon;
+                    background: none;
+                }
+            }
+            li.price{
+                margin-top: 4%;
+            }
+            li.btn{
+                margin-top: 2%;
+                button{
+                    @extend %btn;
+                    font-size: 20px;
+                    padding: 2% 4%;
+                    width: 150px;
+                    height: 50px;
+                }
+            }
+        }
+    }
+    li{
+        .select{
+            border: 1px solid violet;
+            border: none;
+            margin: 30px;
+            height: 100px;
+            float: right;
+        }
+    }
+    li.info{
+        div{
+            border: 1px solid red;
+            border: none;
+            background-color: rgba(255, 166, 0, 0.5);
+            margin: 0 auto;
+            margin-bottom: -2px;
+            input{
+                border: 1px solid orange;
 
-ul > li{
-    border: 1px solid goldenrod;
-}
+                height: 50px;
+                width: 55%;
+                margin-top: -40px;
+                margin-right: -15px;
+                float: right;
+            }
+        }
+        button{
+            @extend %btn;
+            margin-left: 42%;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+    }
+}}
 
-li > pre.bar{
-    background-color: #001871;
-    color: white;
-    padding: 10px;
-}
-
-div.DT{
+li > div.bar_empty{
     padding: 30px;
-}
-
-select{
-    margin-right: 150px;
-}
-
-div.DT > input{
-    width: 100px;
-}
-
-div.meal{
-    padding: 30px;
-}
-
-div.meal > img{
-    width: 150px;
-}
-
-div.meal > span{
-    vertical-align: top;
-}
-
-div.meal > div{
-    transform: translate(17%, -300%);
-}
-
-div.num > input{
-    width: 50px;
-    transform: translate(1000%, -430%);
-}
-
-div.deleteBTN01{
-    border: 1px solid red;
-    color: maroon;
-    display: inline-block;
-    font-size: 30px;
-    float: right;
-    margin-top: -120px;
-    margin-right: 280px;
 }
 
 div.clear{
     clear: both;
 }
 
-div.price{
-    border: 1px solid red;
-    display: inline-block;
+@include rwd(desktop){
+    div.forALL{
+        div.theForm{
+            ul.row{
+                width: 80%;
+                li{
+                    ul.dishes{
+                        li.num{
+                            margin-left: 0px;
+                            margin-right: 18%;
+                            vertical-align: top;
+                            margin-top: 10%;
+                        }
+                        li.deleteBTN{
+                            margin-left: 1%;
+                            margin-right: 11%;
+                            vertical-align: top;
+                            margin-top: 10%;
+                        }
+                        li.price{
+                            vertical-align: top;
+                            margin-top: 10%;
+                        }
+                    }
+                }
+            }
+            li{
+                ul.custom{
+                    li{
+                        margin-right: 8%;
+                    }
+                    li.num{
+                        margin-right: 17%;
+                        vertical-align: top;
+                        margin-top: 5%;
+                    }
+                    li.deleteBTN{
+                        margin-right: 6.5%;
+                        vertical-align: top;
+                        margin-top: 5%;
+                    }
+                    li.price{
+                        vertical-align: top;
+                        margin-top: 5%;
+                        div{
+                            text-align: center;
+                        }
+                    }
+                    li.btn{
+                        margin-left: 74%;
+                        margin-top: -5%;
+                    }
+                }
+            }
+   
+        }
+    
+    }
+}
+
+@include rwd(medium){
+    div.forALL{
+        div.theForm{
+            ul.row{
+                width: 100%;
+                li{
+                    ul.dishes{
+                        li.meal{
+                            div{
+                                div.detail{
+                                    width: 100%;
+                                }
+                            }
+                        }
+                        li.num{
+                            margin-right: 17%;
+                            vertical-align: top;
+                            margin-top: 10%;
+                        }
+                        li.deleteBTN{
+                            margin-left: 1%;
+                            margin-right: 10%;
+                            vertical-align: top;
+                            margin-top: 10%;
+                        }
+                        li.price{
+                            vertical-align: top;
+                            margin-top: 10%;
+                        }
+                    }
+                }
+            }
+            li{
+                ul.custom{
+                    li{
+                        margin-right: 8%;
+                    }
+                    li.num{
+                        margin-right: 17%;
+                        vertical-align: top;
+                        margin-top: 5%;
+                    }
+                    li.deleteBTN{
+                        margin-right: 6.5%;
+                        vertical-align: top;
+                        margin-top: 5%;
+                    }
+                    li.price{
+                        vertical-align: top;
+                        margin-top: 5%;
+                        div{
+                            text-align: center;
+                        }
+                    }
+                    li.btn{
+                        margin-left: 72%;
+                        margin-top: -5%;
+                    }
+                }
+            }
+            li{
+                div.select{
+                    margin-right: 25%;
+                }
+            }
+           
+            li.info{
+                button{
+                    margin-left: 37%;
+                }
+            }
+        }
+    
+    }
+}
+
+@include rwd(small){
+    div.forALL{
+        div.theForm{
+            li{
+                ul.dishes{
+                    li.meal{
+                        margin-left: -3%;
+                        margin-right: -5%;
+                        div{
+                            img{
+                                width: 80%;
+                            }
+                            span{
+                                margin-left: 35%;
+                            }
+                            div.detail{
+                                width: 200px;
+                                margin-left: 0%;
+                            }
+                        }
+                    }
+                    li.num{
+                        vertical-align: top;
+                        margin-top: 5%;
+                    }
+  
+                }
+            }
+            li{
+                ul.custom{
+                    li{
+                        margin-right: -7%;
+                        margin-left: -3%;
+                        div{
+                            margin-left: 15%;
+                            img{
+                                width: 80%;
+                            }
+                            span{
+                                margin-left: 20%;
+                            }
+                        }
+                    }
+                    li.num{
+                        margin-left: 0%;
+                        margin-right: 23%;
+                        vertical-align: top;
+                        margin-top: 7%;
+                    }
+                    li.deleteBTN{
+                        margin-left: -22%;
+                        vertical-align: top;
+                        margin-top: 7%;
+                    }
+                    li.price{
+                        margin-left: 0%;
+                        vertical-align: top;
+                        margin-top: 7%;
+                    }
+                    li.btn{
+                        margin-left: -17%;
+                        vertical-align: top;
+                        margin-top: 13%;
+                    }
+                }
+            }
+            li{
+                div.select{
+                    margin-right: 30%;
+                }
+            }
+
+            li.info{
+                button{
+                    margin-left: 38%;
+                }
+            }
+        }
+    
+    }
+}
+
+@include rwd(mobile){
+    div.forALL{
+        div.theForm{
+            ul.row{
+                li{
+                    div.bar{
+                        div:nth-child(2){
+                            display: none;
+                        }
+                        div:nth-child(3){
+                            display: none;
+                        }
+                        div:nth-child(4){
+                            display: none;
+                        }
+                    }
+                }
+                li{
+                    div.DT{
+                        select{
+                            display: block;
+                            margin-left: 35%;
+                            margin-bottom: 5%;
+                        }
+                        input{
+                            margin-left: 40%;
+                        }
+                    }
+                }
+            }
+            li{
+                ul.dishes{
+                    display: inline-block;
+                    li.meal{
+                        div{
+                            margin-left: 5%;
+                            margin-bottom: -7%;
+                            img{
+                                width: 100%;
+                            }
+                            span{
+                                margin-left: 45%;
+                            }
+                            div.detail{
+                                text-align: center;
+                            }
+                        }
+                    }
+                    li.num{
+                        margin-bottom: -7%;
+                        input{
+                            margin-left: 45%;
+                        }
+                    }
+                    li.deleteBTN{
+                        text-align: center;
+                        margin-bottom: -7%;
+                    }
+                    li.deleteBTN::before{
+                        content: "刪除";
+                    }
+                    li.price{
+                        text-align: center;
+                        margin-bottom: 3%;
+                        margin-top: 0%;
+                        margin-left: 0%;
+                    }
+                }
+            }
+            li{
+                ul.custom{
+                    li{
+                        div{
+                            
+                            img{
+                                width: 80%;
+                                margin-top: 3%;
+                                margin-left: 5%;
+                            }
+                            span{
+                                margin-left: 35%;
+                            }
+                        }
+                    }
+                    li.num{
+                        margin-top: 3%;
+                        margin-left: 0%;
+                        input{
+                            margin-left: 35%;
+                        }
+                    }
+                    li.deleteBTN{
+                        text-align: center;
+                        margin-top: 3%;
+                        margin-left: 0%;
+                    }
+                    li.deleteBTN::before{
+                        content: "刪除";
+                    }
+                    li.price{
+                        text-align: center;
+                        margin-top: 3%;
+                        margin-left: -8%;
+                    }
+                    li.btn{
+                        margin-top: 3%;
+                        margin-left: -1%;
+                        margin-bottom: 3%;
+                    }
+                }
+            }
+            li{
+                div.select{
+                    margin-right: 0%;
+                }
+            }
+            li.info{
+                button{
+                    margin-left: 0%;
+                }
+            }
+        }
+    
+    }
 }
