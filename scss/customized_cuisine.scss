@@ -691,12 +691,13 @@ form {
                     .cabinet-bottom::before {
                         bottom: 0px;
                         left: -0px;
-                        background-color: peru;
+                        background: url(../images/shelf.png) no-repeat center/cover;
                         position: absolute;
                         z-index: 1;
                         content: '';
                         width: 100%;
-                        height: 20px;
+                        height: 30px;
+                        z-index: 0;
                     }
                 }
                 .tab2 ul li{
