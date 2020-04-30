@@ -40,7 +40,7 @@ body {
 
 .ranking {
     margin-bottom: 8%;
-    h1{
+    .fly_area{
         position: relative;
         #fly_boat {
             font-size: $fontSize*1.25;
@@ -1051,26 +1051,7 @@ body {
     }
 }
 
-#go_top {
-    width: 150px;
-    height: 150px;
-    background: none;
-    position: fixed;
-    left: 20px;
-    bottom: 100px;
-    border: transparent;
-    outline: none;
-    cursor: pointer;
-    // animation-name: to_top;
-    // animation-duration: 2s;
-    // animation-iteration-count: infinite;
-    // animation-direction: alternate-reverse;
-    // animation-timing-function: linear;
-}
 
-#go_top img {
-    width: 100%;
-}
 
 /*--------置頂按鈕結束---------*/
 
