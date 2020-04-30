@@ -491,8 +491,61 @@ form {
 }
 
 @media screen and (max-width:991px) {
-    .intro {
-
+    .upper {
+        section.choose-fish {
+            .selected-fish::before{
+                top: 220px;
+                left: 110px;
+                width: 80%;
+                height: 80%;
+                border: 5px solid red;
+                border-radius: 100px;
+                position: absolute;
+                z-index: 3;
+                cursor: pointer;
+            }
+            .note {
+                width: 400px;
+                height: 500px;
+                background: url(../images/note.png) no-repeat top/contain;
+                position: relative;
+                // animation: note_move1 10s -5s linear infinite forwards;
+    
+                .note-content {
+                    font-size: 20px;
+                    position: absolute;
+                    top: 190px;
+                    left: 122px;
+                    cursor: pointer;
+    
+                    span:nth-child(2) {
+                        font-size: 16px;
+                        margin-left: 30px;
+                    }
+                }
+    
+                .fish-pic {
+                    top: 50%;
+                    left: 54%;
+                    transform: translate(-50%, -50%);
+                    img{
+                        width: 100%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+    
+            .note:nth-child(2) {
+                background-image: url(../images/note02.png);
+            }
+    
+            // .note:nth-child(3) {
+            //     right: 50px;
+            // }
+        }
     }
 
     .side-right {
