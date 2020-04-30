@@ -28,27 +28,27 @@ var web = {
         'images/**/*.*',
     ],
     font: [
-        'font/*.*', 
-         'font/**/*.*'
+        'font/*.*',
+        'font/**/*.*'
     ]
 }
 
 //流程
-gulp.task('concatjs', function () {
+gulp.task('concatjs', function() {
     gulp.src('script.js/*.js').pipe(gulp.dest('dest/js'));
 });
 
-gulp.task('img', function () {
+gulp.task('img', function() {
     gulp.src(web.img).pipe(gulp.dest('dest/images'));
 });
 
-gulp.task('font', function () {
+gulp.task('font', function() {
     gulp.src(web.font).pipe(gulp.dest('dest/font'));
 });
 
 
 //任務串連
-gulp.task('concatcss', ['sass'], function () {
+gulp.task('concatcss', ['sass'], function() {
     return gulp.src('css/*.css')
         .pipe(cleanCSS({
             compatibility: 'ie9'
@@ -59,14 +59,14 @@ gulp.task('concatcss', ['sass'], function () {
 
 gulp.task('lint', function() {
     return gulp.src('script.js/*.js')
-      .pipe(jshint())
-      .pipe(jshint.reporter('default'));
-  });
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+});
 
 
-gulp.task('sass', function () {
+gulp.task('sass', function() {
     return gulp.src('scss/*.scss')
-       .pipe(sourcemaps.init())
+        .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         // .pipe(cleanCSS({compatibility: 'ie9'}))
         .pipe(sourcemaps.write())
@@ -77,7 +77,7 @@ gulp.task('sass', function () {
 //打包html
 
 
-gulp.task('fileinclude', function () {
+gulp.task('fileinclude', function() {
     gulp.src(['*.html'])
         .pipe(fileinclude({
             prefix: '@@',
@@ -88,19 +88,19 @@ gulp.task('fileinclude', function () {
 
 
 //壓縮圖片
-gulp.task('mini_img', function () {
-    return  gulp.src('images/*.*')
-      .pipe(imagemin())
-      .pipe(gulp.dest('dest/mini_img/'))
-  });
-
-gulp.task('watch' , function(){
-  gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['concatcss']);
-  gulp.watch('script.js/*.js', ['concatjs']);
-  gulp.watch(['*.html' , '**/*.html'],  ['fileinclude']);
+gulp.task('mini_img', function() {
+    return gulp.src('images/*.*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dest/mini_img/'))
 });
 
-gulp.task('default', function () {
+gulp.task('watch', function() {
+    gulp.watch(['sass/*.scss', 'sass/**/*.scss'], ['concatcss']);
+    gulp.watch('script.js/*.js', ['concatjs']);
+    gulp.watch(['*.html', '**/*.html'], ['fileinclude']);
+});
+
+gulp.task('default', function() {
     browserSync.init({
         server: {
             // files: ['**'],
@@ -108,7 +108,7 @@ gulp.task('default', function () {
             baseDir: "./dest/",
             // index: "index.html",
             // index: "main.html",
-            index: "game.html", 
+            index: "game.html",
             // index: "member_data.html",
             // index: "order.html",
             // index: "contest.html",
