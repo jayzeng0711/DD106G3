@@ -48,6 +48,7 @@ window.addEventListener('load', function() {
                 $('.boat').css('left', '+=300');
             } else {
                 $('.wrapperWheel').css('display', 'block');
+                $('.wrapperBg').css('display', 'block');
                 window.removeEventListener('wheel', move);
 
 
@@ -141,7 +142,7 @@ window.addEventListener('load', function() {
             $('.map').width(imgWid);
         } else {
             $('.wrapperBg').css('display', 'block');
-            $('.section2').css('background', '#2E4581 url(../images/mainbg2.svg) bottom');
+            // $('.section2').css('background', '#2E4581 url(../images/mainbg2.svg) bottom');
             $('.section2 .title ').css('opacity', '1');
             $('.section2 .text').css('opacity', '1');
             $('.section2 .boat').css('opacity', '1');
@@ -231,91 +232,91 @@ window.addEventListener('load', function() {
 
 
     // 客製化料理
-    let timeCook = new TimelineMax();
+    // let timeCook = new TimelineMax();
 
-    timeCook.from('.cookPic1', 3, {
-        x: -150,
-        y: 0,
-        ease: Power3.easeInOut
+    // timeCook.from('.cookPic1', 3, {
+    //     x: -150,
+    //     y: 0,
+    //     ease: Power3.easeInOut
 
-    }).from('.cookPic2', 3, {
-        x: -200,
-        y: 30,
-        ease: Power3.easeInOut
+    // }).from('.cookPic2', 3, {
+    //     x: -200,
+    //     y: 30,
+    //     ease: Power3.easeInOut
 
-    }).from('.cookPic3', 3, {
-        x: -200,
-        y: 20,
-        ease: Power3.easeInOut
+    // }).from('.cookPic3', 3, {
+    //     x: -200,
+    //     y: 20,
+    //     ease: Power3.easeInOut
 
-    }).from('.cookPic4', 3, {
-        x: -200,
-        y: 50,
-        ease: Power3.easeInOut
+    // }).from('.cookPic4', 3, {
+    //     x: -200,
+    //     y: 50,
+    //     ease: Power3.easeInOut
 
-    }).from('.cookPic5', 3, {
-        x: -250,
-        y: 20,
-        ease: Power3.easeInOut
+    // }).from('.cookPic5', 3, {
+    //     x: -250,
+    //     y: 20,
+    //     ease: Power3.easeInOut
 
-    }).from('.cookPic6', 3, {
-        x: -100,
-        y: 20,
-        ease: Power3.easeInOut
+    // }).from('.cookPic6', 3, {
+    //     x: -100,
+    //     y: 20,
+    //     ease: Power3.easeInOut
 
-    }).from('.cookPic7', 3, {
-        x: -100,
-        y: 20,
-        ease: Power3.easeInOut
+    // }).from('.cookPic7', 3, {
+    //     x: -100,
+    //     y: 20,
+    //     ease: Power3.easeInOut
 
-    })
-
-
-    var ourScene3 = new ScrollMagic.Scene({
-            triggerElement: '#cookPin',
-            duration: '300%',
-            triggerHook: 0,
-            // offset: '200'
-
-        }).setTween(timeCook)
-        .setPin('.cookPinWrapper')
-        // .addIndicators({
-        //     name: 'boat',
-        //     colorTrigger: '#f00',
-        // })
-        .addTo(controller);
+    // })
 
 
+    // var ourScene3 = new ScrollMagic.Scene({
+    //         triggerElement: '#cookPin',
+    //         duration: '300%',
+    //         triggerHook: 0,
+    //         // offset: '200'
 
-    // 泡泡動畫
-    bubblePop();
-    bubblePop1();
-    setInterval(bubblePop, 5000);
-    setInterval(bubblePop1, 4000);
-
-    function bubblePop() {
-        TweenMax.staggerFrom(['.seafood .bubble1', '.seafood .bubble2', '.seafood .bubble3'], 1, {
-            x: 0,
-            y: 50,
-            opacity: 0,
-            scale: 0.5,
-
-
-        }, .3);
-
-    }
-
-    function bubblePop1() {
-        TweenMax.staggerFrom(['.seafood .bubble4', '.seafood .bubble5', '.seafood .bubble6'], 1, {
-            x: -50,
-            y: 50,
-            opacity: 0,
-            scale: 0.5,
-            delay: 1,
+    //     }).setTween(timeCook)
+    //     .setPin('.cookPinWrapper')
+    //     // .addIndicators({
+    //     //     name: 'boat',
+    //     //     colorTrigger: '#f00',
+    //     // })
+    //     .addTo(controller);
 
 
-        }, .3);
-    }
+
+    // // 泡泡動畫
+    // bubblePop();
+    // bubblePop1();
+    // setInterval(bubblePop, 5000);
+    // setInterval(bubblePop1, 4000);
+
+    // function bubblePop() {
+    //     TweenMax.staggerFrom(['.seafood .bubble1', '.seafood .bubble2', '.seafood .bubble3'], 1, {
+    //         x: 0,
+    //         y: 50,
+    //         opacity: 0,
+    //         scale: 0.5,
+
+
+    //     }, .3);
+
+    // }
+
+    // function bubblePop1() {
+    //     TweenMax.staggerFrom(['.seafood .bubble4', '.seafood .bubble5', '.seafood .bubble6'], 1, {
+    //         x: -50,
+    //         y: 50,
+    //         opacity: 0,
+    //         scale: 0.5,
+    //         delay: 1,
+
+
+    //     }, .3);
+    // }
 
 
 
