@@ -3,20 +3,21 @@
     display: none;
 }
 
-.wrapperWheel {
-    display: none;
+// .wrapperWheel {
+//     display: none;
+// }
+// .wrapperBg {
+//     display: none;
+// }
+body {
+    background: url(../images/shortbg.png) left top no-repeat;
 }
 
-.wrapperBg {
-    display: none;
-}
-
-.section1.bg {
-    background: url(../images/shortbg.png) left top;
-}
-
+// .section1.bg {
+//     background: url(../images/shortbg.png) left top;
+// }
 .section1 {
-    background: url(../images/shortbg.png) right top;
+    // background: url(../images/shortbg.png) right top;
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -272,7 +273,7 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            opacity: 0;
+            // opacity: 0;
             .pu_h1_div {
                 position: relative;
                 width: 80%;
@@ -309,7 +310,7 @@
             transform: translateX(-50%);
             transition: all 1s 0.5s;
             z-index: 20;
-            opacity: 0;
+            // opacity: 0;
             h3 {
                 font-size: $fontSize * 1.2;
             }
@@ -410,7 +411,7 @@
                 right: 5vh;
             }
             .map {
-                width: 100vw;
+                // width: 100vw;
                 position: relative;
                 left: 50%;
                 top: 50%;
@@ -711,9 +712,6 @@
     height: 100vh;
     position: relative;
     z-index: 1;
-    background: url(../images/custobg.png) no-repeat;
-    background-size: contain;
-    background-position: 50% 50%;
     .wrapper {
         position: relative;
         top: 50%;
@@ -756,24 +754,22 @@
             color: #fff;
         }
         .fishes {
+            border: 1px solid #000;
+            background: url(../images/list.png) no-repeat;
+            background-size: contain;
+            background-position: 0 0%;
             .fish1 img {
-                width: 80%;
-                position: relative;
-                top: 120%;
-                left: -22%;
+                width: 100%;
             }
             .fish2 img {
-                width: 80%;
-                position: relative;
-                top: 130%;
-                left: -23%;
-                transform: rotateZ(10deg);
+                width: 100%;
             }
             .fish3 img {
-                width: 80%;
-                position: relative;
-                top: 110%;
-                left: 40%;
+                width: 100%;
+            }
+            .cook {
+                position: absolute;
+                z-index: 1;
             }
         }
     }
@@ -900,10 +896,7 @@
             .title {
                 .pu_h1_div {
                     .text {
-                        text-align: center;
-                        font-size: $fontSize*2;
-                        position: absolute;
-                        left: 50%;
+                        font-size: $fontSize*1.5;
                     }
                 }
             }
@@ -929,6 +922,15 @@
         }
     }
     .section3 {
+        .row1 {
+            .title {
+                .pu_h1_div {
+                    .titletext {
+                        font-size: $fontSize*1.5;
+                    }
+                }
+            }
+        }
         .row2 {
             .menu {
                 .wrapper {
@@ -940,6 +942,72 @@
                         p {
                             font-size: $fontSize*0.8;
                             margin-bottom: 10%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .section4 {
+        .row1 {
+            .title {
+                .pu_h1_div {
+                    .titletext {
+                        font-size: $fontSize*1.5;
+                    }
+                }
+            }
+        }
+    }
+    .section5 {}
+    .section6 {
+        height: auto;
+        .row {
+            height: auto;
+            .left {
+                .title {
+                    .pu_h1_div {
+                        .titletext {
+                            font-size: $fontSize*1.5;
+                        }
+                    }
+                }
+                .text {
+                    text-align: center;
+                    p {
+                        font-size: $fontSize;
+                        color: #fff;
+                        margin: 3% 0;
+                    }
+                }
+            }
+            .right {
+                .contest {
+                    position: relative;
+                    .light {
+                        position: absolute;
+                        width: 70%;
+                        animation: light 5s linear infinite;
+                    }
+                    .cook {
+                        color: #fff;
+                        text-align: center;
+                        h4 {
+                            font-size: $fontSize*1.4;
+                            margin-bottom: 10%;
+                        }
+                        .dish {
+                            width: 80%;
+                            display: block;
+                            position: relative;
+                            left: 10%;
+                            top: 30px;
+                        }
+                        .barrel {
+                            width: 50%;
+                        }
+                        .first {
+                            width: 70%;
                         }
                     }
                 }
@@ -994,10 +1062,11 @@
             height: 0;
         }
         .row1 {
+            margin: 5%;
             .title {
                 .pu_h1_div {
-                    .text {
-                        left: 0%;
+                    .titletext {
+                        font-size: $fontSize*1.5;
                     }
                 }
             }
@@ -1007,6 +1076,15 @@
         }
     }
     .section3 {
+        .row1 {
+            .title {
+                .pu_h1_div {
+                    .titletext {
+                        font-size: $fontSize*1.5;
+                    }
+                }
+            }
+        }
         .row2 {
             display: none;
         }
@@ -1015,7 +1093,23 @@
         }
     }
     .section4 {
+        .row1 {
+            .title {
+                .pu_h1_div {
+                    .titletext {
+                        font-size: $fontSize*1.5;
+                    }
+                }
+            }
+        }
         .row2 {
+            .text {
+                margin-top: 20px;
+                text-align: center;
+                p {
+                    margin-bottom: 2%;
+                }
+            }
             .game {
                 img {
                     margin: 0 auto;
@@ -1026,31 +1120,27 @@
             }
         }
     }
-    .section5 {
-        .text {
-            .button {
-                width: 120px;
-                text-align: center;
-                margin: 30px auto;
-            }
-        }
-        .half {
-            .halfpic {
-                display: none;
-            }
-            .cookpic {
-                width: 80%;
-                display: inline-block;
-                margin: 0 auto;
-                position: relative;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-    }
+    .section5 {}
     .section6 {
         height: auto;
-        overflow: visible;
+        .row {
+            height: auto;
+            .left {
+                .title {
+                    .pu_h1_div {
+                        .titletext {
+                            font-size: $fontSize*1.5;
+                        }
+                    }
+                }
+                .text {
+                    text-align: center;
+                    p {
+                        color: #034;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -1084,6 +1174,26 @@
                 background-size: 50vh 20vh;
                 bottom: 0;
                 z-index: 30;
+            }
+        }
+    }
+    .section6 {
+        height: auto;
+        .row {
+            height: auto;
+            .left {
+                .title {
+                    .pu_h1_div {
+                        .titletext {
+                            font-size: $fontSize*1.5;
+                        }
+                    }
+                }
+                .text {
+                    p {
+                        color: #034;
+                    }
+                }
             }
         }
     }
