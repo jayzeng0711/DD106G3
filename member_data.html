@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    @@include('./layout/header.html')
     <form action="member_data.php" method="POST">
         <div class="mem_data_wrap">
             <div class="mem_data_left_div">
@@ -40,7 +41,7 @@
                 <div class="mem_data_input_div">
                     <div class="mem_data_input">
                         <div>
-                            會員信箱> <input type="email" name="" id="" value="kobe830711@gmail.com">   
+                            會員信箱> <input style="border: none;" type="email" name="" id="" value="kobe830711@gmail.com">   
                         </div>
                         <div>
                             會員密碼> <input class="input_cannoy_mod" type="password" value="0711" readonly>
@@ -51,13 +52,13 @@
                     </div>
                     <div class="mem_data_input">
                         <div>
-                            會員等級> <input class="input_cannoy_mod" type="text" name="" id="" value="銅鷗" readonly>
+                            會員等級> <input style="border: none;" class="input_cannoy_mod" type="text" name="" id="" value="銅鷗" readonly>
                         </div>
                         <div>
-                            會員積分> <input class="input_cannoy_mod" type="number" value="50" readonly>
+                            會員積分> <input style="border: none;" class="input_cannoy_mod" type="number" value="50" readonly>
                         </div>
                         <div>
-                            會員點數> <input class="input_cannoy_mod" type="number" value="50" readonly>
+                            會員點數> <input style="border: none;" class="input_cannoy_mod" type="number" value="50" readonly>
                         </div>
                     </div>
                 </div>
@@ -68,10 +69,33 @@
 
 
             <div class="order_detail_wrap" style="display: none;">
+                
+                <!-- 點查看細節再出現訂單詳細資訊 -->
                 <div class="order_detail_title">
                     訂單明細
                 </div>     
-                <div class="order_detail_div_wrap">
+                <div class="order_history">
+                    <div class="order_history_list">
+                        <div>訂單編號</div>
+                        <div>0012</div>
+                    </div>
+                    <div class="order_history_list">
+                        <div>日期</div>
+                        <div>2020/05/12</div>
+                    </div>
+                    <div class="order_history_list">
+                        <div>人數</div>
+                        <div>10</div>
+                    </div>
+                    <div class="order_history_list">
+                        <div>狀態</div>
+                        <div>已付款</div>
+                    </div>
+                    <div class="order_history_btn">
+                        查看明細
+                    </div>
+                </div>
+                <div class="order_detail_div_wrap" style="display: none;">
                     <div class="order_detail_div_in_wrap">
                         <div class="order_detail_left_div">
                             <div class="order_detail_left_div_item">
@@ -142,16 +166,18 @@
                                 <div>10900</div>
                             </div>
                         </div>
+                        <div>
+                            <button class="order_detail_btn">    
+                                修改
+                            </button>
+                            <button class="order_detail_cancel_btn">
+                                取消訂單
+                            </button>
+                        </div>
                     </div>
+                   
                 </div>
-                <div>
-                    <button class="order_detail_btn">    
-                        修改
-                    </button>
-                    <button class="order_detail_cancel_btn">
-                        取消訂單
-                    </button>
-                </div>
+               
             </div>
 
             <div class="curisine_wrap">
