@@ -3,6 +3,10 @@
     display: none;
 }
 
+body {
+    background-color: #F0EEE0;
+}
+
 section {
     width: 100%;
     // height: 100vh;
@@ -469,120 +473,122 @@ section {
             }
         }
     }
-    // $desktop : 1200px;
-    // $medium : 991px;
-    // $small : 767px;
-    // $mobile : 576px;
-    @include rwd(small) {
-        section {
-            .row0 {
-                height: 0px;
-                .right {
-                    display: none;
-                }
-            }
-        }
-        .section1 {
-            .row0 {
-                height: 0px;
+}
+
+// $desktop : 1200px;
+// $medium : 991px;
+// $small : 767px;
+// $mobile : 576px;
+@include rwd(small) {
+    section {
+        .row0 {
+            height: 0px;
+            .right {
                 display: none;
-            }
-            .row1 {
-                .left {
-                    #map {
-                        margin: 5% 0;
-                    }
-                }
-                .right {
-                    padding: 5% 0 20%;
-                }
-            }
-        }
-        .section2 {
-            .row0 {
-                height: 0px;
-            }
-            .row1 {
-                height: auto;
-                .left {
-                    margin: 5% 0;
-                }
-                .right {
-                    padding: 5% 0 20%;
-                }
-            }
-        }
-        .section3 {
-            .row0 {
-                height: 0px;
-            }
-            .row1 {
-                height: auto;
-                .left {
-                    margin: 5% 0;
-                }
-                .right {
-                    padding: 5% 0 50%;
-                }
             }
         }
     }
-    @include rwd(mobile) {
-        section {
-            .row0 {
-                height: 0px;
+    .section1 {
+        .row0 {
+            height: 0px;
+            display: none;
+        }
+        .row1 {
+            .left {
+                #map {
+                    margin: 5% 0;
+                }
+            }
+            .right {
+                padding: 5% 0 20%;
             }
         }
-        .section1 {
-            .row0 {
-                height: 0px;
+    }
+    .section2 {
+        .row0 {
+            height: 0px;
+        }
+        .row1 {
+            height: auto;
+            .left {
+                margin: 5% 0;
             }
-            .row1 {
-                .left {
-                    #map {
-                        height: 300px;
-                        margin: 5% 0 5%;
-                    }
+            .right {
+                padding: 5% 0 20%;
+            }
+        }
+    }
+    .section3 {
+        .row0 {
+            height: 0px;
+        }
+        .row1 {
+            height: auto;
+            .left {
+                margin: 5% 0;
+            }
+            .right {
+                padding: 5% 0 50%;
+            }
+        }
+    }
+}
+
+@include rwd(mobile) {
+    section {
+        .row0 {
+            height: 0px;
+        }
+    }
+    .section1 {
+        .row0 {
+            height: 0px;
+        }
+        .row1 {
+            .left {
+                #map {
+                    height: 300px;
+                    margin: 5% 0 5%;
                 }
-                .right {
-                    padding: 5% 0;
-                    .righttext {
-                        .port {
-                            label {
-                                padding: 3% 3%;
-                                margin: 5px 0;
-                            }
+            }
+            .right {
+                padding: 5% 0;
+                .righttext {
+                    .port {
+                        label {
+                            padding: 3% 3%;
+                            margin: 5px 0;
                         }
                     }
                 }
             }
         }
-        .section2 {
-            .row0 {
-                height: 0px;
+    }
+    .section2 {
+        .row0 {
+            height: 0px;
+        }
+        .row1 {
+            height: auto;
+            .left {
+                margin: 5% 0;
             }
-            .row1 {
-                height: auto;
-                .left {
-                    margin: 5% 0;
-                }
-                .right {
-                    padding: 5% 0 20%;
-                }
+            .right {
+                padding: 5% 0 20%;
             }
         }
-        .section3 {
-            .row0 {
-                height: 0px;
+    }
+    .section3 {
+        .row0 {
+            height: 0px;
+        }
+        .row1 {
+            height: auto;
+            .left {
+                margin: 5% 0;
             }
-            .row1 {
-                height: auto;
-                .left {
-                    margin: 5% 0;
-                }
-                .right {
-                    padding: 5% 0 50%;
-                }
+            .right {
+                padding: 5% 0 50%;
             }
         }
     }
