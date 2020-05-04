@@ -32,10 +32,11 @@ $(function () {
 
     // 開啟 Modal 彈跳視窗
     $("#msg_btn9").on("click", function () {
+        event.stopPropagation();
         $("div.msg_overlay").addClass("-on");
     });
 
-    // 關閉 Modal
+    // 點叉叉圖示關閉燈箱
     $("img.msg_close").on("click", function () {
         $("div.msg_overlay").addClass("-opacity-zero");
 
@@ -43,6 +44,18 @@ $(function () {
         setTimeout(function () {
             $("div.msg_overlay").removeClass("-on -opacity-zero");
         }, 1000);
+    });
+
+    //點選空白處關閉燈箱
+    $(document).click(function (e) {
+        var _con = $('div.msg_board'); // 設定目標區域
+        if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
+            $("div.msg_overlay").addClass("-opacity-zero");
+
+            setTimeout(function () {
+                $("div.msg_overlay").removeClass("-on -opacity-zero");
+            }, 1000);
+        }
     });
 
 });

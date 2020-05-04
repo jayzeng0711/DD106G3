@@ -1,4 +1,7 @@
 @import 'base/var';
+#go_top{
+    display: none;
+  }
 .mem_data_wrap{
     display: flex;
     .mem_data_left_div{
@@ -85,6 +88,23 @@
         }
     }
     //個人資料
+
+    //訂單紀錄
+    .order_history{
+        margin: auto;
+        display: flex;
+        width: 80%;
+    }
+    .order_history_list{
+        flex: 1;
+    }
+    .order_history_btn{
+        width: 95px;
+        border: solid 1px black;
+        cursor: pointer;
+        padding: 1% 0;
+    }
+
 
     //訂單細節
     .order_detail_wrap{
