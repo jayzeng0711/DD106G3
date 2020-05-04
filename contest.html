@@ -20,17 +20,18 @@
             @@include('./layout/header.html')
             @@include('./layout/h1_title.html')
             <div id="fly_boat">
-                <a href="customized_cuisine.html">還沒有自己的料理嗎?來去DIY海鮮囉~~~<img src="./images/boat.svg"></a>
+                <a href="customized_cuisine.html">還沒有自己的料理嗎?來去DIY海鮮囉~~~<img src="./images/Cruise_landingPage_01.png"></a>
             </div>
         </div>
+        <div id="theDiv"></div> <!--hover參賽留言顯示區塊-->
         <div class="wrap">
 
             <div class="ranking_contain">
-
                 <div class="cookList_item">
+                    
                     <div class="cookList_pic animated bounceInLeft delay-1s">
-                        <figure class="food_img">
-                            <img id="cook_1" src="./images/cook2.png" alt="">
+                        <figure class="food_img textHover" hovertext="作品留言放在這~作品留言放在這~作品留言放在這~">
+                            <img id="cook_1" src="./images/cook2.png" >
                         </figure>
                         <figure class="barrel">
                             <img src="./images/barrel_r02.png" alt="">
@@ -69,7 +70,7 @@
                 </div>
                 <div class="cookList_item">
                     <div class="cookList_pic animated bounceInDown delay-2s">
-                        <figure class="food_img">
+                        <figure class="food_img textHover" hovertext="作品留言放在這~作品留言放在這~作品留言放在這~">
                             <img id="cook_1" src="./images/cook1.png" alt="">
                         </figure>
                         <figure class="barrel">
@@ -109,7 +110,7 @@
                 </div>
                 <div class="cookList_item">
                     <div class="cookList_pic animated bounceInRight delay-.5s">
-                        <figure class="food_img">
+                        <figure class="food_img textHover" hovertext="作品留言放在這~作品留言放在這~作品留言放在這~">
                             <img id="cook_1" src="./images/cook3.png" alt="">
                         </figure>
                         <figure class="barrel">
@@ -766,7 +767,29 @@
 		
     <script src="./jquery/jquery.min.js"></script>
 
-    
+    <script>
+        $(document).ready(function(){
+            // 動態偵測螢幕的X和Y座標
+            /*===
+            $('.textHover').mousemove(function(e){
+                $('#theDiv').show().text(`X: ${e.pageX} | Y: ${e.pageY}`);
+            });
+            ===*/
+
+            // $('.textHover').mousemove().mouseout();
+            $('.textHover').mousemove(function(e){
+                let theText = $(this).attr('hovertext');
+
+                $('#theDiv').text(theText).show().css({
+                    left: e.pageX+10,
+                    top: e.pageY+10,
+                });
+            }).mouseout(function(){
+                $('#theDiv').hide();
+            });
+
+        });
+    </script>
      
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -774,7 +797,7 @@
         AOS.init();
     </script>
     @@include('./all_js.html')
-    <script src="/js/contest.js"></script>
+    <script src="./js/contest.js"></script>
     
 </body>
 

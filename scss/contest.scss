@@ -7,33 +7,56 @@ body {
 }
 
 /* ------------ ranking 開始 ---------------*/
+// @keyframes fly{
+//     0% {
+//         right: -10%;
+//         top: 0%;
+//     }
+//     10% {
+//         top: 20%;
+//     }
+//     20% {
+//         top: 100%;
+//     }
+//     40% {
+//         top: 130%;
+//     }
+//     60% {
+//         top: 100%;
+//     }
+//     80% {
+//         top: 30%;
+//     }
+//     100% {
+//         right: 100%;
+//         top: 0%;
+//     }
+// }
 @keyframes fly{
     0% {
-        right: -10%;
+        left: -30%;
         top: 0%;
     }
-    10% {
+    // 10% {
+    //     top: 20%;
+    // }
+    20% {
         top: 20%;
     }
-    20% {
-        // top: 80%;
+    40% {
         top: 100%;
     }
-    40% {
-        // top: 90%;
-        top: 130%;
+    50% {
+        top: 120%;
     }
     60% {
-        // top: 110%;
         top: 100%;
     }
     80% {
-        // top: 130%;
-        top: 30%;
+        top: 20%;
     }
     100% {
-        right: 100%;
-        // top: 140%;
+        left: 100%;
         top: 0%;
     }
 }
@@ -44,13 +67,18 @@ body {
         position: relative;
         #fly_boat {
             font-size: $fontSize*1.25;
+            text-align: center;
             width: 30%;
             position: absolute;
             top: 120%;
             z-index: 2;
-            animation: fly 10s linear infinite;
+            animation: fly 20s linear infinite;
+            a{
+                text-decoration: none;
+                color: #4669e6;
+            }
             img{
-                width: 60%;
+                width: 40%;
             }
         }
     }
@@ -64,6 +92,17 @@ body {
     padding: 0 20px;
     margin: 0 auto;
     width: 1200px;
+}
+
+#theDiv{
+    // font: 12px Tahoma;
+    border-radius: 10px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 1px 1px 2px #000;
+    position: absolute;
+    display: none;
+    z-index: 1;
 }
 
 .ranking_contain {
@@ -83,7 +122,7 @@ body {
                 margin: 0px auto 0px auto;
                 width: 280px;
                 transform: translateY(57px);
-                // border: 1px solid rgb(243, 243, 13);
+                // border: 1px solid rgb(243, 13, 13);
 
                 img {
                     width: 100%;
@@ -752,7 +791,7 @@ body {
         box-shadow: 6px 6px 0px rgb(247, 192, 41);
 
         position: absolute;
-        top: 50%;
+        top: 56%;
         left: 50%;
         transform: translate(-50%, -50%);
     
@@ -775,7 +814,7 @@ body {
     
         .msg_wrap {
             width: 100%;
-            height: 500px;
+            height: 400px;
             overflow: scroll;
             overflow-x: hidden;
             // border: 1px solid black;

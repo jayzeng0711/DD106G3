@@ -58,7 +58,7 @@ $(document).ready(function(){
         $(document).ready(function(){
             //隨機出現的八種海鮮
             var seafood_img = anime.random(1,8);
-            $('#target').css('background-image',`url("../images/seafood${seafood_img}.png")`)
+            $('#target').css('background-image',`url("./images/seafood${seafood_img}.png")`)
         })
         $('#fake_ball').mousemove(function(){
             $(this).css('cursor','pointer');
@@ -578,7 +578,7 @@ $(document).ready(function(){
                             //抓到後換海鮮
                             $(document).ready(function(){
                                 var seafood_img = anime.random(1,8);
-                                $('#target').css('background-image',`url("../images/seafood${seafood_img}.png")`)
+                                $('#target').css('background-image',`url("./images/seafood${seafood_img}.png")`)
                             })
                             //如果球丟完了，遊戲結束
                             function end_game(){
