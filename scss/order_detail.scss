@@ -41,13 +41,14 @@ div.theForm{
     li{
         div.DT{
             padding: 10px;
-            select{
+            div{
                 font-family: $fontFamily;
-                margin-right: 5%;
-                margin-left: 5%;
+                margin-right: 2%;
+                margin-left: 8%;
+                display: inline-block;
             }
-            input{
-                margin-left: 6%;
+            span.people{
+                margin-left: 8%;
                 width: 80px;
             }
         }
@@ -64,6 +65,7 @@ div.theForm{
                 div{
                     img{
                         width: 150px;
+                        margin-left: 5%;
                     }
                     div.detail{
                         width: 300px;
@@ -144,12 +146,22 @@ div.theForm{
             }
         }
     }
-    li{
+    li.total{
+        padding: 10px;
+        margin-bottom: 2%;
+        h4{
+            display: inline-block;
+            margin-left: 2%;        
+        }
+        span{
+            float: right;
+            margin-right: 26%;
+        }
         .select{
             border: 1px solid violet;
+            width: 170px;
             border: none;
-            margin: 30px;
-            height: 100px;
+            margin-right: 24%;
             float: right;
         }
     }
@@ -240,6 +252,16 @@ div.clear{
                         margin-left: 74%;
                         margin-top: -5%;
                     }
+                }
+            }
+            li.total{
+                span{
+                    margin-right: 14%;
+                }
+                .select{
+                    width: 170px;
+                    margin-right: 11%;
+                    float: right;
                 }
             }
    
@@ -425,13 +447,16 @@ div.clear{
                 }
                 li{
                     div.DT{
-                        select{
+                        div{
                             display: block;
-                            margin-left: 35%;
+                            margin-left: 38%;
                             margin-bottom: 5%;
                         }
-                        input{
-                            margin-left: 40%;
+                        div.dock{
+                            margin-left: 42%;
+                        }
+                        span{
+                            margin-left: 48%;
                         }
                     }
                 }
@@ -517,9 +542,9 @@ div.clear{
                     }
                 }
             }
-            li{
+            li.total{
                 div.select{
-                    margin-right: 0%;
+                    margin-right: 10%;
                 }
             }
             li.info{
