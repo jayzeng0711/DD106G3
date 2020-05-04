@@ -1,4 +1,13 @@
 @import "base/var" ;
+//標題波浪
+.pu_game{
+  background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x,
+        radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
+    background-size: 20px 20px;
+    background-position: -10px calc(100% + 16px), 0 calc(100% - 4px);
+    animation: pu_waveFlow 1s infinite linear;
+}
+//標題波浪
 #go_top{
   display: none;
 }
@@ -21,26 +30,57 @@ body{
 }
 //section的css
 
-// 兩座山
+// 規則跟球並排
 .wrapper_bottom{
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   margin-bottom: 3%;
-  .smallwave_div{
+  display: flex;
+  align-items: center;
+  .game_statement{
+    width: 500px;
+    background-color: #4EB6E6;
+    border: 10px solid #FFFFFF;
+    border-radius: 50px;
+    color: #fff;
+    flex: 1;
+    .game_statement_title{
+      padding: 2%;
+      margin-bottom: 5%;
+      font-size: $fontSize*1.25;
+      text-align: center;
+    }
+    .game_statement_content{
+      width: 85%;
+      margin: 0 auto;
+      white-space: nowrap;
+      div{
+        margin-bottom: 2%;
+      }
+      .game_statement_over{
+        margin-bottom: 5%;
+      }
+      .game_statement_last{
+        margin-bottom: 7%;
+      }
+    }
+  }
+  .ball_cate_div{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
-    .smallwave{
-      width: 150px;
-      img{
-        max-width: 100%;
+    flex: 1;
+    justify-content: space-evenly;
+    letter-spacing: 1px;
+    .singke_ball_div{
+      text-align: center;
+      .singke_ball_div_img{
+        margin: 5px 0;
+        filter: drop-shadow(-5px 5px 3px rgba(0,0,0,0.5));
       }
     }
   }
 }
-// 兩座山
+// 規則跟球並排
 
 //海鮮種類
 .show_seafood_wrap{
@@ -230,7 +270,7 @@ body{
     border-radius: 50px;
     color: #fff;
     .game_statement_title{
-      padding: 14% 5% 0 5%;
+      padding: 7% 5% 0 5%;
       margin-bottom: 5%;
       font-size: $fontSize*1.25;
       text-align: center;
@@ -592,26 +632,57 @@ body{
   display: none !important;
 }
 @include rwd(desktop){
-  // 兩座山
+// 規則跟球並排
 .wrapper_bottom{
   width: 90%;
   margin: 0 auto;
   margin-bottom: 3%;
-  .smallwave_div{
+  display: flex;
+  align-items: center;
+  .game_statement{
+    width: 500px;
+    background-color: #4EB6E6;
+    border: 10px solid #FFFFFF;
+    border-radius: 50px;
+    color: #fff;
+    flex: 1;
+    .game_statement_title{
+      padding: 2%;
+      margin-bottom: 5%;
+      font-size: $fontSize*1.25;
+      text-align: center;
+    }
+    .game_statement_content{
+      width: 85%;
+      margin: 0 auto;
+      white-space: initial;
+      div{
+        margin-bottom: 2%;
+      }
+      .game_statement_over{
+        margin-bottom: 5%;
+      }
+      .game_statement_last{
+        margin-bottom: 7%;
+      }
+    }
+  }
+  .ball_cate_div{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
-    .smallwave{
-      width: 150px;
-      img{
-        max-width: 100%;
+    flex: 1;
+    justify-content: space-evenly;
+    letter-spacing: 1px;
+    .singke_ball_div{
+      text-align: center;
+      .singke_ball_div_img{
+        margin: 5px 0;
+        filter: drop-shadow(-5px 5px 3px rgba(0,0,0,0.5));
       }
     }
   }
 }
-// 兩座山
+// 規則跟球並排
 
 //海鮮種類
 .show_seafood_wrap{
@@ -798,7 +869,7 @@ body{
     border-radius: 50px;
     color: #fff;
     .game_statement_title{
-      padding: 14% 5% 0 5%;
+      padding: 7% 5% 0 5%;
       margin-bottom: 5%;
       font-size: $fontSize*1.25;
       text-align: center;
@@ -940,26 +1011,61 @@ body{
 //遊戲範圍
 }
 @include rwd(medium){
-  // 兩座山
+// 規則跟球並排
 .wrapper_bottom{
   width: 90%;
   margin: 0 auto;
   margin-bottom: 3%;
-  .smallwave_div{
+  display: flex;
+  align-items: center;
+  .game_statement{
+    width: 500px;
+    background-color: #4EB6E6;
+    border: 10px solid #FFFFFF;
+    border-radius: 50px;
+    color: #fff;
+    flex: 1;
+    .game_statement_title{
+      padding: 2%;
+      margin-bottom: 5%;
+      font-size: $fontSize*1.25;
+      text-align: center;
+    }
+    .game_statement_content{
+      width: 85%;
+      margin: 0 auto;
+      white-space: initial;
+      div{
+        margin-bottom: 2%;
+      }
+      .game_statement_over{
+        margin-bottom: 5%;
+      }
+      .game_statement_last{
+        margin-bottom: 7%;
+      }
+    }
+  }
+  .ball_cate_div{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
-    .smallwave{
-      width: 120px;
-      img{
-        max-width: 100%;
+    flex: 1;
+    justify-content: space-evenly;
+    letter-spacing: 1px;
+    .singke_ball_div{
+      text-align: center;
+      .singke_ball_div_img{
+        margin: 5px auto;
+        filter: drop-shadow(-5px 5px 3px rgba(0,0,0,0.5));
+        width: 80px;
+        img{
+          max-width: 100%;
+        }
       }
     }
   }
 }
-// 兩座山
+// 規則跟球並排
 
 //海鮮種類
 .show_seafood_wrap{
@@ -1144,7 +1250,7 @@ body{
     border-radius: 50px;
     color: #fff;
     .game_statement_title{
-      padding: 14% 5% 0 5%;
+      padding: 7% 5% 0 5%;
       margin-bottom: 5%;
       font-size: $fontSize*1.25;
       text-align: center;
@@ -1292,26 +1398,65 @@ body{
 }
 //section的css
 
-// 兩座山
+// 規則跟球並排
 .wrapper_bottom{
   width: 90%;
   margin: 0 auto;
   margin-bottom: 3%;
-  .smallwave_div{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .game_statement{
+    width: 500px;
+    background-color: #4EB6E6;
+    border: 10px solid #FFFFFF;
+    border-radius: 50px;
+    color: #fff;
+    flex: 1;
+    margin-bottom: 3%;
+    .game_statement_title{
+      padding: 2%;
+      margin-bottom: 5%;
+      font-size: $fontSize*1.25;
+      text-align: center;
+    }
+    .game_statement_content{
+      width: 85%;
+      margin: 0 auto;
+      white-space: initial;
+      div{
+        margin-bottom: 2%;
+      }
+      .game_statement_over{
+        margin-bottom: 5%;
+      }
+      .game_statement_last{
+        margin-bottom: 7%;
+      }
+    }
+  }
+  .ball_cate_div{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    flex: 1;
+    justify-content: space-evenly;
+    letter-spacing: 1px;
     width: 90%;
-    margin: 0 auto;
-    .smallwave{
-      width: 150px;
-      img{
-        max-width: 100%;
+    .singke_ball_div{
+      text-align: center;
+      .singke_ball_div_img{
+        margin: 5px auto;
+        filter: drop-shadow(-5px 5px 3px rgba(0,0,0,0.5));
+        width: 80px;
+        img{
+          max-width: 100%;
+        }
       }
     }
   }
 }
-// 兩座山
+// 規則跟球並排
+
 
 //海鮮種類
 .show_seafood_wrap{
@@ -1500,7 +1645,7 @@ body{
     border-radius: 50px;
     color: #fff;
     .game_statement_title{
-      padding: 14% 5% 0 5%;
+      padding: 7% 5% 0 5%;
       margin-bottom: 5%;
       font-size: $fontSize*1.25;
       text-align: center;
@@ -1643,26 +1788,65 @@ body{
 //遊戲範圍
 }
 @include rwd(mobile){
-  // 兩座山
+// 規則跟球並排
 .wrapper_bottom{
   width: 90%;
   margin: 0 auto;
   margin-bottom: 3%;
-  .smallwave_div{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .game_statement{
+    width: 100%;
+    background-color: #4EB6E6;
+    border: 10px solid #FFFFFF;
+    border-radius: 50px;
+    color: #fff;
+    flex: 1;
+    margin-bottom: 3%;
+    .game_statement_title{
+      padding: 2%;
+      margin-bottom: 5%;
+      font-size: $fontSize*1.25;
+      text-align: center;
+    }
+    .game_statement_content{
+      width: 85%;
+      margin: 0 auto;
+      white-space: initial;
+      div{
+        margin-bottom: 2%;
+      }
+      .game_statement_over{
+        margin-bottom: 5%;
+      }
+      .game_statement_last{
+        margin-bottom: 7%;
+      }
+    }
+  }
+  .ball_cate_div{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
-    .smallwave{
-      width: 150px;
-      img{
-        max-width: 100%;
+    flex: 1;
+    justify-content: space-evenly;
+    letter-spacing: 1px;
+    width: 100%;
+    font-size: $fontSize*0.8;
+    .singke_ball_div{
+      text-align: center;
+      .singke_ball_div_img{
+        margin: 5px auto;
+        filter: drop-shadow(-5px 5px 3px rgba(0,0,0,0.5));
+        width: 80px;
+        img{
+          max-width: 100%;
+        }
       }
     }
   }
 }
-// 兩座山
+// 規則跟球並排
 
 //海鮮種類
 .show_seafood_wrap{
@@ -1854,7 +2038,7 @@ body{
     border-radius: 50px;
     color: #fff;
     .game_statement_title{
-      padding: 14% 5% 0 5%;
+      padding: 7% 5% 0 5%;
       margin-bottom: 5%;
       font-size: $fontSize*1.25;
       text-align: center;

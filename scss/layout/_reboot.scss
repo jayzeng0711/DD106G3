@@ -1,12 +1,12 @@
 .reboot_div{
-    width: 350px;
-    height: 350px;
+    width: 200px;
+    height: 300px;
     position: fixed;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right;
-    right: 20px;
-    bottom: -150px;
+    right: 0px;
+    bottom: -160px;
     z-index: 1000;
     letter-spacing: 1px;
     background-image: url('../images/reboot.png');
@@ -18,7 +18,7 @@
         display: inline-block;
         position: absolute;
         padding: 3%;
-        top: -50px;
+        top: -35px;
         right: 12%;
         border-radius: 10px;
         &::after{
@@ -38,13 +38,13 @@
     }
     .reboot_div_content{
         position: absolute;
-        left: 35%;
-        bottom: 25%;
+        left: 10%;
+        bottom: 22%;
         background-color: #999;
         border-radius: 10px;
         word-break: break-all;
         padding: 10px;
-        max-width: 50%;
+        max-width: 70%;
         &::before{
             content: "";
             position: absolute;
@@ -62,8 +62,8 @@
     }
     .reboot_btn_div{
         position: absolute;
-        left: 50%;
-        bottom: 5%;
+        left: 25%;
+        bottom: 3%;
         border-radius: 10px;
         padding: 10px;
         width: 250px;
@@ -76,7 +76,7 @@
 .pu_big_content_wrap{
     width: 400px;
     position: fixed;
-    right: 260px;
+    right: 200px;
     bottom: 10%;
     background-color: #4F95C8;
     z-index: 9999;
@@ -172,6 +172,9 @@
 }
 @include rwd(small){
     .reboot_div{
+        display: none;
+    }
+    .pu_big_content_wrap{
         display: none;
     }
 }

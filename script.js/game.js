@@ -53,6 +53,8 @@ session_id = 0;
 //遊戲開始按鈕
 $(document).ready(function(){
     $('#game_start,#click_text').click(function(){
+        var storge = localStorage;
+        storge.clear();
         $('#game_start').css('display','none');
         $('#asd,#asd_fail,.game_statement').css('display','none');
         $(document).ready(function(){
