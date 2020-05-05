@@ -90,6 +90,7 @@
     //個人資料
 
     //訂單紀錄
+
     .order_history{
         margin: auto;
         display: flex;
@@ -100,9 +101,13 @@
     }
     .order_history_btn{
         width: 95px;
-        border: solid 1px black;
+        color: #fff;
+        background-color: #5fa8d3;
+        // border: solid 1px black;
         cursor: pointer;
-        padding: 1% 0;
+        box-shadow: 2px 2px 2px 707070;
+        border-radius: 5px;
+        padding:1% 0;
     }
 
 
