@@ -12,7 +12,7 @@ $(document).ready(function() {
     $('.pu_mb_text_a').hover(function() {
         $(this).toggleClass('pu_flow-wave');
     }, )
-    $('.burger').click(function() {
+    $('.burger').click(function(e) {
         if (this.classList[1] == 'burger--close') {
             $(this).removeClass('burger--close');
             $('.mb_sma_cloud_img').css('display', 'block');
@@ -42,18 +42,22 @@ $(document).ready(function() {
 //機器人移動
 $(document).ready(function() {
         var window_open = $('.pu_big_content_wrap').css('display');
-        $('.reboot_btn_div').click(function() {
+        $('.reboot_btn_div').click(function(e) {
             $('.pu_big_content_wrap').css('display', 'block');
+            e.stopPropagation();
         })
         $('.pu_big_content_cancel').click(function() {
             $('.pu_big_content_wrap').css('display', 'none');
-            $('.reboot_div').animate({ bottom: "-150px" }, 1000);
+            $('.reboot_div').animate({ bottom: "-160px" }, 1000);
         })
         $('.reboot_div').click(function() {
-            if (window_open == 'block') {
-                $(this).animate({ bottom: "-150px" }, 1000);
-            } else {
-                $(this).animate({ bottom: "0px" }, 1000);
+            if (window_open == 'none') {
+                if($('.reboot_div').css('bottom') == "-10px"){
+                    $('.reboot_div').animate({ bottom: "-160px" }, 1000);
+                    $('.pu_big_content_wrap').css('display', 'none');
+                }else{
+                    $(this).animate({ bottom: "-10px" }, 1000);
+                }
             }
         })
     })
@@ -61,7 +65,8 @@ $(document).ready(function() {
 
 //會員登入燈箱
 $(document).ready(function() {
-        $("#mem_lohin_btn").click(function() {
+        $("#mem_lohin_btn,#mem_lohin_btn_mobile").click(function(e) {
+            e.preventDefault();
             $('#Login,#Login_back').css('display', 'block');
             $('#pu_mem_resist_wrap').css('display', 'none');
             $('#pu_mem_forget_wrap').css('display', 'none');

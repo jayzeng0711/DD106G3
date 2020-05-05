@@ -310,6 +310,13 @@ section.paper {
         text-align: center;
         h3 {
             margin-bottom: 30px;
+            span{
+                border: 1px solid black;
+                width: 20px;
+                height: 20px; 
+                display: inline-block;
+                cursor: pointer;
+            }
         }
 
         ul {
@@ -350,6 +357,7 @@ section.paper {
         ul {
             display: flex;
             justify-content: space-evenly;
+            position: relative;
 
             li {
                 width: 30%;
@@ -357,7 +365,20 @@ section.paper {
                 text-align: center;
                 padding: 55px;
                 border: 1px solid azure;
+                position: relative;
             }
+            li.selected::before{
+                content: "";
+                border: 3px solid red;
+                width: 70%;
+                height: 100%;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+
         }
     }
 
@@ -646,7 +667,7 @@ form {
                     .cabinet-bottom {
                         width: 100%;
                         height: 150px;
-                        // background-color: bisque;
+                        display: block;
                         position: relative;
 
                         ul {
@@ -684,6 +705,22 @@ form {
                                 left: 50%;
                                 transform: translate(-50%,-50%);
                             }
+
+                            li.selected::before{
+                                content: "";
+                                width: 65%;
+                                height: 75%;
+                                border-radius: 50%;
+                                border:3px solid red;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%,-50%);
+                            }
+                        }
+                        > p{
+                            margin: auto;
+                            padding: 10px;
                         }
                     }
             
