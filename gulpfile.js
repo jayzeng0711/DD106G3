@@ -14,11 +14,11 @@ var reload = browserSync.reload;
 var web = {
     html: [
         '*.html',
-        '**/*.html'
+        'layout/*.html'
     ],
     sass: [
         'scss/*.scss',
-        'scss/**/*.scss',
+        // 'scss/**/*.scss',
     ],
     js: [
         'script.js/*.js'
@@ -30,6 +30,10 @@ var web = {
     font: [
         'font/*.*',
         'font/**/*.*'
+    ],
+    php:[
+        "php/*.*",
+        "php/**/*.*"
     ]
 }
 
@@ -44,6 +48,9 @@ gulp.task('img', function() {
 
 gulp.task('font', function() {
     gulp.src(web.font).pipe(gulp.dest('dest/font'));
+});
+gulp.task('php', function() {
+    gulp.src(web.php).pipe(gulp.dest('dest/php'));
 });
 
 
@@ -95,7 +102,8 @@ gulp.task('mini_img', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(['sass/*.scss', 'sass/**/*.scss'], ['concatcss']);
+    // gulp.watch(['sass/*.scss', 'sass/**/*.scss'], ['concatcss']);
+    gulp.watch(['sass/*.scss'], ['concatcss']);
     gulp.watch('script.js/*.js', ['concatjs']);
     gulp.watch(['*.html', '**/*.html'], ['fileinclude']);
 });
@@ -108,17 +116,18 @@ gulp.task('default', function() {
             baseDir: "./dest/",
             // index: "index.html",
             // index: "main.html",
-            index: "game.html",
+            // index: "game.html",
             // index: "member_data.html",
             // index: "order.html",
-            // index: "contest.html",
+            index: "contest.html",
             // index: "customized_cuisine.html",
         }
     });
     gulp.watch(web.html, ['fileinclude']).on('change', reload);
     gulp.watch(web.sass, ['sass']).on('change', reload);
     gulp.watch(web.js, ['concatjs']).on('change', reload);
-    gulp.watch(web.js, ['lint']).on('change', reload);
+    // gulp.watch(web.js, ['lint']).on('change', reload);
     gulp.watch(web.img, ['img']).on('change', reload);
     gulp.watch(web.font, ['font']).on('change', reload);
+    gulp.watch(web.php, ['php']).on('change', reload);
 });
