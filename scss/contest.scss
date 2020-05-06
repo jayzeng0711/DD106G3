@@ -37,9 +37,6 @@ body {
         left: -30%;
         top: 0%;
     }
-    // 10% {
-    //     top: 20%;
-    // }
     20% {
         top: 20%;
     }
@@ -94,7 +91,7 @@ body {
     width: 1200px;
 }
 
-#theDiv{
+#contestant_msg{
     // font: 12px Tahoma;
     border-radius: 10px;
     padding: 8px;
@@ -464,6 +461,7 @@ body {
         background-color: #e0f1fc;
         border-radius: 50px;
         padding: 40px;
+        box-shadow: 1px 1px 5px #4bb0f3;
 
         .aboutContest_title {
             margin-bottom: 30px;
@@ -1098,6 +1096,10 @@ body {
 /*-------- RWD(max-width:1200px) ---------*/
 @include rwd(desktop){
 /* ------------ ranking 開始 ---------------*/
+    .ranking .fly_area #fly_boat{
+        font-size: $fontSize*1;
+    }    
+
     .wrap {
         // padding: 0 5%;
         width: 100%;
@@ -1320,7 +1322,7 @@ body {
 /* ------------ cookList 開始 ---------------*/
 .cookList {
     .filter {
-        margin: 5% auto;
+        margin: 8% auto;
         text-align: center;
 }
 }
@@ -1428,6 +1430,35 @@ body {
 /*-------- RWD(max-width:576px) ---------*/
 @include rwd(mobile){
 /* ------------ ranking 開始 ---------------*/
+    @keyframes fly{
+        0% {
+            left: -30%;
+            top: 100%;
+        }
+        20% {
+            top: 120%;
+        }
+        40% {
+            top: 140%;
+        }
+        50% {
+            top: 150%;
+        }
+        60% {
+            top: 140%;
+        }
+        80% {
+            top: 120%;
+        }
+        100% {
+            left: 100%;
+            top: 100%;
+        }
+    }
+    .ranking .fly_area #fly_boat{
+        font-size: $fontSize*0.8;
+    }
+
     .ranking_contain {
         .cookList_item {
             width: 80%;
@@ -1451,10 +1482,28 @@ body {
 
     .eventImg {
         width: 70%;
+        margin-bottom: 20%;
     }
 }
 /* ------------ aboutContest 結束 ---------------*/
 /* ------------ cookList 開始 ---------------*/
+.cookList .filter {
+    span{
+        font-size: 18px;
+    }
+    select{
+        font-size: 18px;
+    }
+}
+
+.cookList .cookList_title{
+    font-size: 24px;
+    &:after {
+        width: 194px;
+        height: 72px;
+    }
+}
+
 .cookList_contain {
     .cookList_item {
         width: 80%;
