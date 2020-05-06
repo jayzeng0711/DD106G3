@@ -53,10 +53,14 @@ session_id = 0;
 //遊戲開始按鈕
 $(document).ready(function(){
     $('#game_start,#click_text').click(function(){
+
+        //清除storage
         var storge = localStorage;
         storge.clear();
+        //清除storage
+
         $('#game_start').css('display','none');
-        $('#asd,#asd_fail,.game_statement').css('display','none');
+        $('#asd,#asd_fail,.game_statement_bottom').css('display','none');
         $(document).ready(function(){
             //隨機出現的八種海鮮
             var seafood_img = anime.random(1,8);
@@ -145,19 +149,18 @@ $(document).ready(function(){
 
         //海鮮的動畫，利用anime.js套件
             // 使用方式 http://www.htmleaf.com/jQuery/jquery-tools/201607013672.html
-            // path_num = anime.random(1,5);
-            // path = anime.path(`.cls-${path_num}`);
-            path = anime.path(`.cls-1`);
-            seafood_animate = anime({
-                targets: ['#target'],
-                rotate: 20,
-                duration: 10000,
-                loop: true,
-                translateX: path,
-                translateY: path,
-                easing: 'linear',
-                direction: 'alternate'
-            });
+                path_random = anime.random(1,4);
+                path = anime.path(`.cls-${path_random}`);
+                seafood_animate = anime({
+                    targets: ['#target'],
+                    rotate: 20,
+                    duration: 18000,
+                    loop: true,
+                    translateX: path,
+                    translateY: path,
+                    easing: 'linear',
+                    direction: 'alternate'
+                });            
     
     
         //隨著螢幕變化，rwd球的位置
