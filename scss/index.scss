@@ -104,6 +104,7 @@ div.forALL{
     background: radial-gradient(ellipse at top, #FEFFDB,#9cd6ff, #48c6e4);
     div.cloud{
         border: 1px solid red;
+        border: none;
         background-image: url("/images/clouds_alter.png");
         background-size: cover;
         height: 50vh;
@@ -111,6 +112,7 @@ div.forALL{
         position: relative;
         div.logo{
             border: 1px solid red;
+            border: none;
             width: 20%;
             position: absolute;
             left: 50%;
@@ -135,19 +137,22 @@ div.forALL{
         animation: waves_calm 5s infinite alternate ease-in-out;
         div.warp{
             border: 1px solid gold;
-    
+            border: none;
             div.cruises{
                 border: 1px solid firebrick;
+                border: none;
                 // margin: 0 auto;
                 display: flex;
                 justify-content: space-around;
                 div.pack{
                     border: 1px solid purple;
+                    border: none;
                     width: 100%;
                     display: flex;
                     justify-content: space-around;
                     a{
                         border: 1px solid red;
+                        border: none;
                         display: inline-block;
                         position: relative;
                     }
