@@ -14,7 +14,7 @@ var reload = browserSync.reload;
 var web = {
     html: [
         '*.html',
-        '**/*.html'
+        'layout/**/*.html'
     ],
     sass: [
         'scss/*.scss',
