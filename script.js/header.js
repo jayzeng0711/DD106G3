@@ -28,10 +28,31 @@ $(document).ready(function() {
     })
 })
 $(window).resize(function() {
-        window_w = $(window).width();
-        $('.mb_big_cloud_img').css('width', `${window_w}`);
-    })
-    //mobile
+    window_w = $(window).width();
+    $('.mb_big_cloud_img').css('width', `${window_w}`);
+})
+//mobile
+
+//判斷滾輪方向
+$(window).scroll(function(){
+    // 一開始滾先記住原本的位置
+    var before = $(window).scrollTop();
+    //再一次滾的時候，判斷第二次滾的位置
+    $(window).scroll(function() {
+        var after = $(window).scrollTop();
+        //如果第二次滾的時候大於之前滾的位置，代表滾輪往下
+        if (before<after) {
+        $('.pu_head_wrap_div').css('transform','translateY(-150%)');
+        //把第一次滾的位置改成現在滾的位置
+        before = after;
+    };
+    if (before>after) {
+        $('.pu_head_wrap_div').css('transform','translateY(0%)');
+        before = after;
+        };
+    });
+});
+//判斷滾輪方向
 
 //h1標題抓網頁標題
 $(document).ready(function() {
