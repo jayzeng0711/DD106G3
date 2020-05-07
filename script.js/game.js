@@ -3,10 +3,11 @@ $(document).ready(function(){
     var xhr = new XMLHttpRequest();
     xhr.onload = function(){
         if(xhr.status == 200){
-            console.log(xhr.responseText)
+            var aaa = JSON.parse(xhr.responseText);
+            console.log(aaa.memId)
         }
     }
-    xhr.open('get','http://localhost:8080/game_member_score.php',true);
+    xhr.open('post','http://localhost:8080/game_member_score.php',true);
     xhr.send(null);
 })
 //一進入網頁ajax會員的積分
