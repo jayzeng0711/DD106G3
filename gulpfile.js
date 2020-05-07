@@ -31,7 +31,7 @@ var web = {
         'font/*.*',
         'font/**/*.*'
     ],
-    php:[
+    php: [
         "php/*.*",
         "php/**/*.*"
     ]

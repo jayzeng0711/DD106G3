@@ -23,7 +23,7 @@
                 <a href="customized_cuisine.html">還沒有自己的料理嗎?來去DIY海鮮囉~~~<img src="./images/Cruise_landingPage_01.png"></a>
             </div>
         </div>
-        <div id="theDiv"></div> <!--hover參賽留言顯示區塊-->
+        <div id="contestant_msg"></div> <!--hover參賽留言顯示區塊-->
         <div class="wrap">
 
             <div class="ranking_contain">
@@ -365,7 +365,7 @@
 
             <div class="cookList_contain">
 
-                <div class="cookList_item">
+                <!-- <div class="cookList_item">
                     <div class="cookList_img">
                         <figure class="cookList_cook">
                             <img id="cook_4" src="./images/cook4.png" alt="">
@@ -568,7 +568,7 @@
                             <button id="msg_btn9">留言9</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -769,6 +769,52 @@
 
     <script>
         $(document).ready(function(){
+            for(i=1; i<7; i++){
+                $(".cookList_contain").append(`
+                <div class="cookList_item">
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img id="cook_6" src="./images/cook1.png" alt="">
+                            <figcaption>
+                                <p id="name_6">料理名稱1</p>
+                                <p>票數:1111</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_vote">
+                        <button id="vote">投票</button>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <div class="msg_text">
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                AAAA:好吃
+                            </p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                BBBB:好吃
+                            </p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                CCCC:好吃
+                            </p>
+                        </div>
+                        <div class="msg_btn">
+                            <button id="msg_btn9">留言9</button>
+                        </div>
+                    </div>
+                </div>
+                `);
+            }
+            
+        });
+    </script>
+
+
+
+    <script>
+        $(document).ready(function(){
             // 動態偵測螢幕的X和Y座標
             /*===
             $('.textHover').mousemove(function(e){
@@ -780,12 +826,12 @@
             $('.textHover').mousemove(function(e){
                 let theText = $(this).attr('hovertext');
 
-                $('#theDiv').text(theText).show().css({
+                $('#contestant_msg').text(theText).show().css({
                     left: e.pageX+10,
                     top: e.pageY+10,
                 });
             }).mouseout(function(){
-                $('#theDiv').hide();
+                $('#contestant_msg').hide();
             });
 
         });
