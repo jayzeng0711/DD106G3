@@ -20,3 +20,8 @@ $(function(){
         $('.order_detail_div_wrap').slideToggle(600);
     });
 });
+$(function(){
+    $('.order_history_btn').click(function(){
+        $('#checkbtn').toggleClass('showbtn');
+    });
+});
