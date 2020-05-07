@@ -1,29 +1,31 @@
 window.addEventListener('load', function() {
 
     // 按步驟切換頁面位置
+    // $('.section2').css('display', 'none');
+    // $('.section3').css('display', 'none');
 
-    $('.section2').css('display', 'none');
-    $('.section3').css('display', 'none');
 
+    // 第一屏按下一步，確認訂位人數
     $('.section1 .next').click(function() {
 
-        let people = parseInt($('#people').val());
+        let inputVal = parseInt($('#people').val());
 
         // 訂位人數小於1，無法下一步
-        if (people < 1) {
+        if (inputVal < 0) {
             alert('請先選擇訂位人數！');
+
         } else {
-            $('html').animate({
-                scrollTop: $('.section2').offset().top
-            }, 600);
+            // $('html').animate({
+            //     scrollTop: $('.section2').offset().top
+            // }, 600);
             $('.section1').css('display', 'none');
             $('.section2').css('display', 'block');
 
         }
 
-
     });
 
+    // 第二屏按下一步，確認訂位人數
     $('.section2 .next').click(function() {
 
         let people = parseInt($('#people').val());
@@ -43,7 +45,7 @@ window.addEventListener('load', function() {
 
     });
 
-
+    // 第二屏按上一步
     $('.section2 .previous').click(function() {
         $('html').animate({
             scrollTop: $('.section1').offset().top
@@ -52,6 +54,8 @@ window.addEventListener('load', function() {
         $('.section2').css('display', 'none');
 
     });
+
+    // 第三屏按上一步
     $('.section3 .previous').click(function() {
         $('html').animate({
             scrollTop: $('.section2').offset().top
@@ -61,29 +65,57 @@ window.addEventListener('load', function() {
 
     });
 
+    // localStorage.clear();
+
+    // 第三屏按下一步，訂位點餐資訊存進Storage
+    $('.section3 .next').click(function() {
+
+        portNow = $('.port label.on').prev().attr('id');
+        localStorage['port'] = portNow;
+
+        peopleNow = $('#people').val();
+        localStorage['people'] = peopleNow;
+
+        dateNow = document.getElementById("date").value;
+        localStorage['date'] = dateNow;
+
+        mealA = $('#mealAAmount').val();
+        mealB = $('#mealBAmount').val();
+        mealC = $('#mealCAmount').val();
+        localStorage['mealA'] = mealA;
+        localStorage['mealB'] = mealB;
+        localStorage['mealC'] = mealC;
+
+
+        custoLength = $('.section3 table').find('td.custo').length;
+        custo = "";
+        for (i = 2; i <= (custoLength + 1); i++) {
+            custo += $(`.section3 table tr:nth-child(${i}) td.custo`).text() + "|";
+        }
+        localStorage['custo'] = custo;
+
+
+    });
+
+
     // 訂位頁面，選不同港口
     $('.section1 .port label').click(function() {
-        $(this).css('background', '#4EB6E6');
-        $(this).css('color', '#fff');
 
-        $('.port label').not(this).css('background', '#fff');
-        $('.port label').not(this).css('color', '#034');
+        $(this).addClass('on');
+        $('.port label').not(this).removeClass('on');
     });
 
 
     // 訂位頁面，人數不小於0、不是空值
-
-    $('#people').change(function() {
-
-        let inputVal = $(this).val();
+    $('#people').change(function people() {
+        let inputVal = $('#people').val();
         if (inputVal == "" || parseInt(inputVal) < 0) {
-            $(this).val(1);
+            // $('#people').val(1);
+            alert('請先選擇訂位人數！');
         }
-
     });
 
     // 套餐、客製化料理數量，不小於0、不是空值
-
     $('.meal').change(function() {
 
         let inputVal = $(this).val();
@@ -91,7 +123,11 @@ window.addEventListener('load', function() {
             $(this).val(0);
         }
 
+
     });
+
+
+
 
     // 套餐、客製化料理、人數，按加改變數字
     $('.plus').click(function() {
@@ -163,27 +199,27 @@ window.addEventListener('load', function() {
 
     // 顯示年份
     let nowyear = document.getElementById('nowyear');
-    for (let i = 1900; i <= 2100; i++) {
-        option = new Option(i, i);
-        nowyear.add(option);
-    }
-    nowyear.selectedIndex = now.getFullYear() - 1900;
+    // for (let i = 1900; i <= 2100; i++) {
+    //     option = new Option(i, i);
+    //     nowyear.add(option);
+    // }
+    // nowyear.selectedIndex = now.getFullYear() - 1900;
 
 
     // 顯示月份
     let nowmonth = document.getElementById('nowmonth');
-    for (let i = 1; i <= 12; i++) {
-        option = new Option(i, i);
-        nowmonth.add(option);
-    }
-    nowmonth.selectedIndex = now.getMonth();
+    // for (let i = 1; i <= 12; i++) {
+    //     option = new Option(i, i);
+    //     nowmonth.add(option);
+    // }
+    // nowmonth.selectedIndex = now.getMonth();
 
 
 
 
 
     //下載完就執行
-    showCalender();
+    // showCalender();
 
 
     function showCalender() {
@@ -275,15 +311,15 @@ window.addEventListener('load', function() {
     }
 
     // 改變年份
-    nowyear.addEventListener('change', function() {
-        showCalender();
-    });
+    // nowyear.addEventListener('change', function() {
+    //     showCalender();
+    // });
 
 
-    // 改變月份
-    nowmonth.addEventListener('change', function() {
-        showCalender();
-    });
+    // // 改變月份
+    // nowmonth.addEventListener('change', function() {
+    //     showCalender();
+    // });
 
 
 
