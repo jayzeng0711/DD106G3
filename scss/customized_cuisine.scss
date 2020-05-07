@@ -1,13 +1,22 @@
 @import "base/var";
-
 * {
     box-sizing: border-box;
 }
-body{
+
+body {
     background: url(../images/色塊-3-01.jpg) no-repeat top/cover;
     overflow-x: hidden;
 }
-button#go_top{
+
+//標題波浪
+.pu_customized {
+    background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x, radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
+    background-size: 20px 20px;
+    background-position: -10px calc(100% + 16px), 0 calc(100% - 4px);
+    animation: pu_waveFlow 1s infinite linear;
+}
+
+button#go_top {
     display: none;
 }
 
@@ -19,37 +28,42 @@ button#go_top{
 
 @keyframes fade-in {
     from {
-      opacity: 0;
+        opacity: 0;
     }
     to {
-      opacity: 1;
+        opacity: 1;
     }
 }
+
 @keyframes typing {
-    from { width: 0; opacity: 1;}
-    to{ opacity: 1;}
+    from {
+        width: 0;
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-.attn.on{
+.attn.on {
     width: 100%;
     height: 100vh;
     display: block;
     margin: auto;
     position: absolute;
     z-index: 10;
-    
-    &:before{
+    &:before {
         content: "";
         width: 100%;
         height: 100vh;
         position: absolute;
         top: 0;
         left: 0;
-        background: url(../images/bar.jpg) no-repeat top/cover ;
+        background: url(../images/bar.jpg) no-repeat top/cover;
         -webkit-filter: blur(2px);
-        filter: blur(2px);  
+        filter: blur(2px);
     }
-    .people{
+    .people {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -60,9 +74,8 @@ button#go_top{
         width: 500px;
         height: 80vh;
         animation: fade-in 2s;
-    
     }
-    .talking-here{
+    .talking-here {
         background-color: rgba(255, 245, 238, 0.753);
         width: 90%;
         height: 35vh;
@@ -79,7 +92,7 @@ button#go_top{
         animation-delay: 1s;
         animation-fill-mode: forwards;
         cursor: pointer;
-        .talk{
+        .talk {
             text-align: center;
             font-size: 30px;
             display: none;
@@ -90,10 +103,11 @@ button#go_top{
             line-height: 1.6;
             // opacity: 0;
         }
-        .talk.on{
+        .talk.on {
             display: block;
             opacity: 1;
-            .yes, .no{
+            .yes,
+            .no {
                 @extend %btn;
                 display: inline-block;
                 padding: 10px 30px;
@@ -104,10 +118,10 @@ button#go_top{
                 animation-delay: .5s;
                 animation-fill-mode: forwards;
             }
-            .no{
+            .no {
                 @extend %btn_ano;
                 animation-delay: 1.3s;
-            }  
+            }
         }
         // .act1{
         //     width: 22.72ch;
@@ -116,23 +130,23 @@ button#go_top{
         //     white-space: nowrap;
         // }
         // .act2{
-
         // }
         // .talk.act3{
         //     cursor: default;
         // }
-
     }
-    
 }
 
+
 /* main區域 */
+
 main {
     position: relative;
     margin: 0 auto;
     display: none;
 }
-main.on{
+
+main.on {
     display: block;
 }
 
@@ -149,7 +163,6 @@ main.on{
 //     height: 1000px;
 //     box-sizing: border-box;
 // }
-
 .intro {
     font-size: 20px;
     text-align: center;
@@ -158,7 +171,7 @@ main.on{
     >p {
         margin-bottom: 30px;
     }
-    a button{
+    a button {
         @extend %btn_ano;
         padding: 10px;
     }
@@ -168,7 +181,6 @@ main.on{
     h3 {
         text-align: center;
     }
-
     section.choose-fish {
         width: 100%;
         height: 500px;
@@ -177,10 +189,10 @@ main.on{
         position: relative;
         display: flex;
         justify-content: space-around;
-        &:hover .note{
+        &:hover .note {
             animation-play-state: paused;
         }
-        .selected-fish::before{
+        .selected-fish::before {
             content: '';
             top: 220px;
             left: 110px;
@@ -198,20 +210,17 @@ main.on{
             background: url(../images/note.png) no-repeat top/contain;
             position: relative;
             // animation: note_move1 10s -5s linear infinite forwards;
-
             .note-content {
                 font-size: 20px;
                 position: absolute;
                 top: 190px;
                 left: 122px;
                 cursor: pointer;
-
                 span:nth-child(2) {
                     font-size: 16px;
                     margin-left: 30px;
                 }
             }
-
             .fish-pic {
                 border: 2px solid aqua;
                 width: 60%;
@@ -220,8 +229,7 @@ main.on{
                 left: 102px;
                 position: absolute;
                 cursor: pointer;
-
-                img{
+                img {
                     width: 100%;
                     position: absolute;
                     top: 50%;
@@ -230,24 +238,20 @@ main.on{
                 }
             }
         }
-
         .note:nth-child(2) {
             background-image: url(../images/note02.png);
         }
-
         // .note:nth-child(3) {
         //     right: 50px;
         // }
     }
 }
 
-
 section.paper {
     background-color: #E3D6B3;
     width: 90%;
     display: block;
     margin: 0 auto;
-
     .center {
         display: flex;
     }
@@ -259,15 +263,15 @@ section.paper {
     border: 1px solid black;
     display: inline-block;
     padding: 0 0 0 10px;
-    overflow: hidden;    
-    .food-display{
+    overflow: hidden;
+    .food-display {
         position: relative;
         width: 100%;
-        img{
+        img {
             width: 100%;
         }
     }
-    .ingret_pos{
+    .ingret_pos {
         width: 100px;
         height: 100px;
         position: absolute;
@@ -275,10 +279,10 @@ section.paper {
         cursor: move;
         z-index: 3;
     }
-    .ingret_pos:nth-child(2){
+    .ingret_pos:nth-child(2) {
         z-index: 2;
     }
-    .ingret_pos:nth-child(3){
+    .ingret_pos:nth-child(3) {
         z-index: 1;
     }
 }
@@ -287,11 +291,9 @@ section.paper {
     width: 60%;
     padding: 50px 10px 0;
     display: inline-block;
-
     .for-phone {
         display: none;
     }
-
     .choose-element {
         width: 95%;
         margin: auto;
@@ -300,15 +302,14 @@ section.paper {
         text-align: center;
         h3 {
             margin-bottom: 30px;
-            span{
+            span {
                 border: 1px solid black;
                 width: 20px;
-                height: 20px; 
+                height: 20px;
                 display: inline-block;
                 cursor: pointer;
             }
         }
-
         ul {
             display: flex;
             justify-content: space-around;
@@ -324,20 +325,19 @@ section.paper {
                     object-fit: fill;
                     object-position: center;
                 }
-
                 figure figcaption {
                     font-size: 18px;
                     text-align: center;
                 }
             }
         }
-        .choose-ingredient{
+        .choose-ingredient {
             overflow: hidden;
             width: 100%;
-            .left-right{
+            .left-right {
                 display: flex;
                 justify-content: center;
-                div{
+                div {
                     width: 5%;
                     padding: 5px;
                     display: inline-block;
@@ -347,13 +347,11 @@ section.paper {
                     color: antiquewhite;
                     font-size: 20px;
                     margin: 10px;
-                    cursor: pointer;  
+                    cursor: pointer;
                 }
-                
             }
         }
     }
-
     .choose-cook {
         display: block;
         width: 95%;
@@ -365,12 +363,10 @@ section.paper {
         h3 {
             margin: 30px 0;
         }
-
         ul {
             display: flex;
             justify-content: space-evenly;
             position: relative;
-
             li {
                 width: 30%;
                 font-size: 18px;
@@ -379,7 +375,7 @@ section.paper {
                 border: 1px solid azure;
                 position: relative;
             }
-            li.selected::before{
+            li.selected::before {
                 content: "";
                 border: 3px solid red;
                 width: 70%;
@@ -388,12 +384,10 @@ section.paper {
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%,-50%);
+                transform: translate(-50%, -50%);
             }
-
         }
     }
-
 }
 
 form {
@@ -401,12 +395,10 @@ form {
     padding: 20px 10px;
     margin: 0 auto;
     text-align: center;
-
     .food-info {
         margin: 30px 0 20px;
         text-align: left;
         width: 100%;
-
         span {
             display: inline-block;
             margin-left: 20px;
@@ -414,11 +406,9 @@ form {
             color: whitesmoke;
             padding: 10px;
         }
-
         label {
             width: 20%;
         }
-
         input {
             line-height: normal;
             display: block;
@@ -431,7 +421,6 @@ form {
             height: 25px;
             padding: 25px 50px;
         }
-
         textarea {
             -webkit-font-smoothing: subpixel-antialiased;
             box-sizing: border-box;
@@ -447,9 +436,8 @@ form {
             font-size: 100%;
         }
     }
-
     .form-control {
-        h3{
+        h3 {
             margin: 50px 0 20px;
         }
         button {
@@ -463,22 +451,20 @@ form {
             // cursor: pointer;
         }
     }
-
 }
 
-.overlay{
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     background-color: hsla(0, 0%, 0%, .5);
-    
     /* 預設：完全透明；設定 z-index: -1 會在整個頁面的後方，看不到，才不會擋到頁面元素。 */
     opacity: 0;
     z-index: -1;
     transition: opacity 1s;
-    article{
+    article {
         background-color: white;
         width: 30%;
         border-radius: 10px;
@@ -488,17 +474,17 @@ form {
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
-        h2{
+        h2 {
             margin-bottom: 20px;
         }
-        p{
+        p {
             margin-bottom: 20px;
         }
-        input{
+        input {
             @extend %btn;
         }
     }
-    .close{
+    .close {
         background: url(../images/blue-cross-icon.png) no-repeat top/cover;
         width: 50px;
         height: 50px;
@@ -508,18 +494,17 @@ form {
         cursor: pointer;
     }
 }
-.overlay.-on{
-    
+
+.overlay.-on {
     /* 加上 -on 之後，Modal 漸漸出現，因為有設定 transition */
     opacity: 1;
     z-index: 1;
 }
-  
-.overlay.-opacity-zero{
+
+.overlay.-opacity-zero {
     /* 關閉 Modal 時，先讓 opacity設定0，就會慢慢變成完全透明，但這時會擋到後面的元素，所以要再移除 -on 及 -opacity-zero 這兩個 class */
     opacity: 0;
 }
-  
 
 @media screen and (max-width:1200px) {
     .side-right {
@@ -536,7 +521,7 @@ form {
 @media screen and (max-width:991px) {
     .upper {
         section.choose-fish {
-            .selected-fish::before{
+            .selected-fish::before {
                 top: 220px;
                 left: 110px;
                 width: 80%;
@@ -553,25 +538,22 @@ form {
                 background: url(../images/note.png) no-repeat top/contain;
                 position: relative;
                 // animation: note_move1 10s -5s linear infinite forwards;
-    
                 .note-content {
                     font-size: 20px;
                     position: absolute;
                     top: 190px;
                     left: 122px;
                     cursor: pointer;
-    
                     span:nth-child(2) {
                         font-size: 16px;
                         margin-left: 30px;
                     }
                 }
-    
                 .fish-pic {
                     top: 50%;
                     left: 54%;
                     transform: translate(-50%, -50%);
-                    img{
+                    img {
                         width: 100%;
                         position: absolute;
                         top: 50%;
@@ -580,17 +562,14 @@ form {
                     }
                 }
             }
-    
             .note:nth-child(2) {
                 background-image: url(../images/note02.png);
             }
-    
             // .note:nth-child(3) {
             //     right: 50px;
             // }
         }
     }
-
     .side-right {
         .choose-cook {
             ul {
@@ -606,45 +585,37 @@ form {
     .intro {
         font-size: 16px;
     }
-    
-    .upper{
+    .upper {
         display: none;
     }
-    
     .center {
         flex-wrap: wrap;
-
         .side-left {
             padding: 0 10px;
             width: 100%;
             height: auto;
-            .food-display{
-            position: relative;
-            width: 100%;
-                img{
+            .food-display {
+                position: relative;
+                width: 100%;
+                img {
                     width: 100%;
                     // position: absolute;
                 }
             }
         }
-
         .side-right {
             width: 100%;
         }
-
         .for-phone {
             display: block;
             width: 100%;
-
             .list-block {
                 ul.tab-list {
                     display: flex;
                     justify-content: space-around;
-
                     li {
                         display: inline-block;
                         width: 100%;
-
                         >a {
                             display: inline-block;
                             padding: 2% 33%;
@@ -657,12 +628,10 @@ form {
                             position: relative;
                             top: 2px;
                         }
-
                         >a.-on {
                             color: black;
                             background-color: crimson;
                         }
-
                         /* 將底部黑線改成白色 */
                         >a.-on::after {
                             width: 100%;
@@ -671,31 +640,25 @@ form {
                     }
                 }
             }
-
             /* 頁籤內容區塊 */
             .tab-contents {
                 border: 1px solid black;
-
                 .tab {
                     padding: 10px;
                     display: none;
                     background-color: bisque;
                 }
-
                 .tab.-on {
                     display: block;
-
                     .cabinet-top,
                     .cabinet-bottom {
                         width: 100%;
                         height: 150px;
                         display: block;
                         position: relative;
-
                         ul {
                             display: flex;
                             justify-content: space-evenly;
-
                             li {
                                 width: 33%;
                                 font-size: 18px;
@@ -708,44 +671,40 @@ form {
                                     object-fit: fill;
                                     object-position: center;
                                 }
-
                                 figure figcaption {
                                     font-size: 18px;
                                     text-align: center;
                                 }
                             }
-
                             // 選擇魚
-                            li.tab_fish.selected::before{
+                            li.tab_fish.selected::before {
                                 content: "";
                                 width: 90%;
                                 height: 75%;
                                 border-radius: 50%;
-                                border:3px solid red;
+                                border: 3px solid red;
                                 position: absolute;
                                 top: 50%;
                                 left: 50%;
-                                transform: translate(-50%,-50%);
+                                transform: translate(-50%, -50%);
                             }
-
-                            li.selected::before{
+                            li.selected::before {
                                 content: "";
                                 width: 65%;
                                 height: 75%;
                                 border-radius: 50%;
-                                border:3px solid red;
+                                border: 3px solid red;
                                 position: absolute;
                                 top: 50%;
                                 left: 50%;
-                                transform: translate(-50%,-50%);
+                                transform: translate(-50%, -50%);
                             }
                         }
-                        > p{
+                        >p {
                             margin: auto;
                             padding: 10px;
                         }
                     }
-            
                     .cabinet-top::before,
                     .cabinet-bottom::before {
                         bottom: 0px;
@@ -759,31 +718,26 @@ form {
                         z-index: 0;
                     }
                 }
-                .tab2 ul li{
+                .tab2 ul li {
                     padding: 45px;
                 }
             }
         }
-
         .choose-cook,
         .choose-element {
             display: none;
         }
-
     }
-
     form {
         .food-info {
             span {
                 padding: 5px;
             }
-
             input,
             textarea {
                 padding: 2px;
             }
         }
-
     }
 }
 
