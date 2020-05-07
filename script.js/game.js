@@ -1,3 +1,17 @@
+//一進入網頁ajax會員的積分
+$(document).ready(function(){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            console.log(xhr.responseText)
+        }
+    }
+    xhr.open('get','http://localhost:8080/game_member_score.php',true);
+    xhr.send(null);
+})
+//一進入網頁ajax會員的積分
+
+
 //魚的價格hover
 $(document).ready(function(){
     $('.show_seafood_img_div').hover(function(e){

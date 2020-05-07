@@ -246,8 +246,9 @@
         display: none;
     }
     .mobile_header{
-        display: block;
-        position: relative;
+        display: flex;
+        position: sticky;
+        top: 0;
         // overflow: hidden;
         .pu_mb_logo_a{
             position: relative;
