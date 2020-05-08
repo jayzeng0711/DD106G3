@@ -372,19 +372,19 @@
                             <h3>STEP 2： 選擇一個海鮮的烹調方式</h3>
                             <div class="choose-cook">
                                 <ul class="list-of-cook">
-                                    <li class="cook-type oct aaa" id="cook1">煮湯</li>
-                                    <li class="cook-type oct aaa" id="cook2">蒸</li>
-                                    <li class="cook-type oct aaa" id="cook3">烤</li>
+                                    <li class="cook-type oct" id="cook1">煮湯</li>
+                                    <li class="cook-type oct" id="cook2">蒸</li>
+                                    <li class="cook-type oct" id="cook3">烤</li>
                                 </ul>
                                 <ul class="list-of-cook" style="display: none;">
-                                    <li class="cook-type shr1 aaa" id="cook4">炒</li>
-                                    <li class="cook-type shr2 aaa" id="cook5">炸</li>
-                                    <li class="cook-type shr3 aaa" id="cook6">涼拌</li>
+                                    <li class="cook-type shr1" id="cook4">炒</li>
+                                    <li class="cook-type shr2" id="cook5">炸</li>
+                                    <li class="cook-type shr3" id="cook6">涼拌</li>
                                 </ul>
                                 <ul class="list-of-cook" style="display: none;">
-                                    <li class="cook-type flo1 aaa" id="cook7">煮清湯</li>
-                                    <li class="cook-type flo2 aaa" id="cook8">生吃</li>
-                                    <li class="cook-type flo3 aaa" id="cook9">烤</li>
+                                    <li class="cook-type flo1" id="cook7">煮清湯</li>
+                                    <li class="cook-type flo2" id="cook8">生吃</li>
+                                    <li class="cook-type flo3" id="cook9">烤</li>
                                 </ul>
                             </div>
                         </div>
@@ -463,7 +463,7 @@
                                 // alert(in_src);
                                 $(".in_pic").eq(num).attr("src", in_src);
                                 num++;
-
+                                $(".ingret_pos").css("cursor", "move");
                                 if (num > 3) {
                                     alert("最多只能選三個喔!!!");
                                 }
@@ -486,7 +486,7 @@
 
                     $(".ingret_pos").draggable({
                         containment: "parent",
-                        scroll: false
+                        scroll: false,
                     });
 
                     var arr = [];
@@ -514,7 +514,7 @@
                     <h3>STEP 4： 為您的料理取個名字並加入菜單，你就可以在預約時點到這個專屬料理囉~</h3>
                     <div class="food-info">
                         <label for="">這道菜的名字是</label>
-                        <span>此項必填</span>
+                        <span>◎此項必填</span>
                         <input type="text" placeholder="名字最長十個字~" maxlength="10">
 
                     </div>
@@ -534,10 +534,11 @@
             <div class="overlay">
                 <article>
                     <h2>您已完成料理囉～</h2>
-                    <p>料理也同時報名了美食大賽，趕快去看一看吧！</p>
+                    <p>按下確定後也會同時報名美食大賽，趕快去看一看吧！</p>
                     <div class="close"></div>
+                    <div class="cancel">取消</div>
                     <a href="">
-                        <input type="submit" value="前往美食大賽GO">
+                        <input type="submit" value="確定">
                     </a>
 
                 </article>
@@ -721,7 +722,7 @@
             }
         }
     </script>
-    <script>
+    <!-- <script>
         // 取消srollmagic
         $(document).ready(function () {
 
@@ -781,7 +782,7 @@
             }
 
         });
-    </script>
+    </script> -->
     <script>
         $(function () {
 
@@ -789,7 +790,7 @@
             $("button.to_lightbox").on("click", function () {
                 $(".overlay").addClass("-on");
             });
-            $(".close").on("click", function () {
+            $(".close, .cancel").on("click", function () {
                 $(".overlay").addClass("-opacity-zero");
 
                 // 設定隔一秒後，移除相關 class

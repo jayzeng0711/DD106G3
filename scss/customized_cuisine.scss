@@ -8,6 +8,7 @@ body {
     overflow-x: hidden;
 }
 
+<<<<<<< HEAD
 //標題波浪
 .pu_customized {
     background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x, radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
@@ -16,6 +17,8 @@ body {
     animation: pu_waveFlow 1s infinite linear;
 }
 
+=======
+>>>>>>> MYSELF
 button#go_top {
     display: none;
 }
@@ -30,6 +33,7 @@ button#go_top {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -40,6 +44,10 @@ button#go_top {
         width: 0;
         opacity: 1;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
     to {
         opacity: 1;
     }
@@ -52,6 +60,10 @@ button#go_top {
     margin: auto;
     position: absolute;
     z-index: 10;
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
     &:before {
         content: "";
         width: 100%;
@@ -63,6 +75,10 @@ button#go_top {
         -webkit-filter: blur(2px);
         filter: blur(2px);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
     .people {
         position: absolute;
         bottom: 0;
@@ -74,7 +90,13 @@ button#go_top {
         width: 500px;
         height: 80vh;
         animation: fade-in 2s;
+<<<<<<< HEAD
     }
+=======
+
+    }
+
+>>>>>>> MYSELF
     .talking-here {
         background-color: rgba(255, 245, 238, 0.753);
         width: 90%;
@@ -92,6 +114,10 @@ button#go_top {
         animation-delay: 1s;
         animation-fill-mode: forwards;
         cursor: pointer;
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
         .talk {
             text-align: center;
             font-size: 30px;
@@ -103,9 +129,17 @@ button#go_top {
             line-height: 1.6;
             // opacity: 0;
         }
+<<<<<<< HEAD
         .talk.on {
             display: block;
             opacity: 1;
+=======
+
+        .talk.on {
+            display: block;
+            opacity: 1;
+
+>>>>>>> MYSELF
             .yes,
             .no {
                 @extend %btn;
@@ -118,11 +152,16 @@ button#go_top {
                 animation-delay: .5s;
                 animation-fill-mode: forwards;
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
             .no {
                 @extend %btn_ano;
                 animation-delay: 1.3s;
             }
         }
+
         // .act1{
         //     width: 22.72ch;
         //     animation: typing 3.5s 5s steps(14, end) forwards;
@@ -135,6 +174,10 @@ button#go_top {
         //     cursor: default;
         // }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
 }
 
 
@@ -168,9 +211,14 @@ main.on {
     text-align: center;
     padding: 50px 0;
     margin-bottom: 50px;
+
     >p {
         margin-bottom: 30px;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
     a button {
         @extend %btn_ano;
         padding: 10px;
@@ -189,9 +237,11 @@ main.on {
         position: relative;
         display: flex;
         justify-content: space-around;
+
         &:hover .note {
             animation-play-state: paused;
         }
+
         .selected-fish::before {
             content: '';
             top: 220px;
@@ -204,6 +254,7 @@ main.on {
             z-index: 3;
             cursor: pointer;
         }
+
         .note {
             width: 400px;
             height: 500px;
@@ -229,6 +280,10 @@ main.on {
                 left: 102px;
                 position: absolute;
                 cursor: pointer;
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
                 img {
                     width: 100%;
                     position: absolute;
@@ -259,29 +314,50 @@ section.paper {
 
 .side-left {
     width: 40%;
-    height: 520px;
+    margin: auto;
     border: 1px solid black;
     display: inline-block;
     padding: 0 0 0 10px;
+<<<<<<< HEAD
     overflow: hidden;
     .food-display {
         position: relative;
         width: 100%;
+=======
+    // overflow: hidden;
+
+    .food-display {
+        position: relative;
+        width: 100%;
+
+>>>>>>> MYSELF
         img {
             width: 100%;
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
     .ingret_pos {
         width: 100px;
         height: 100px;
         position: absolute;
         border: 1px solid blue;
-        cursor: move;
+        cursor: normal;
         z-index: 3;
     }
+<<<<<<< HEAD
     .ingret_pos:nth-child(2) {
         z-index: 2;
     }
+=======
+
+    .ingret_pos:nth-child(2) {
+        z-index: 2;
+    }
+
+>>>>>>> MYSELF
     .ingret_pos:nth-child(3) {
         z-index: 1;
     }
@@ -300,8 +376,13 @@ section.paper {
         margin-bottom: 50px;
         font-size: 24px;
         text-align: center;
+
         h3 {
             margin-bottom: 30px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
             span {
                 border: 1px solid black;
                 width: 20px;
@@ -315,11 +396,13 @@ section.paper {
             justify-content: space-around;
             width: 150%;
             transition: transform .5s ease-in-out;
+
             li {
                 width: 23%;
                 font-size: 18px;
                 border: 1px solid white;
                 cursor: pointer;
+
                 figure img {
                     width: 100%;
                     object-fit: fill;
@@ -331,12 +414,24 @@ section.paper {
                 }
             }
         }
+<<<<<<< HEAD
         .choose-ingredient {
             overflow: hidden;
             width: 100%;
             .left-right {
                 display: flex;
                 justify-content: center;
+=======
+
+        .choose-ingredient {
+            overflow: hidden;
+            width: 100%;
+
+            .left-right {
+                display: flex;
+                justify-content: center;
+
+>>>>>>> MYSELF
                 div {
                     width: 5%;
                     padding: 5px;
@@ -349,6 +444,10 @@ section.paper {
                     margin: 10px;
                     cursor: pointer;
                 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
             }
         }
     }
@@ -360,6 +459,7 @@ section.paper {
         font-size: 24px;
         text-align: center;
         cursor: pointer;
+
         h3 {
             margin: 30px 0;
         }
@@ -375,6 +475,10 @@ section.paper {
                 border: 1px solid azure;
                 position: relative;
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
             li.selected::before {
                 content: "";
                 border: 3px solid red;
@@ -402,9 +506,8 @@ form {
         span {
             display: inline-block;
             margin-left: 20px;
-            background-color: rgb(77, 77, 77);
-            color: whitesmoke;
-            padding: 10px;
+            color: red;
+            font-size: 90%;
         }
         label {
             width: 20%;
@@ -417,7 +520,7 @@ form {
             border-radius: 4px;
             background: #f9f9f9;
             flex: 1;
-            font-size: 100%;
+            font-size: 90%;
             height: 25px;
             padding: 25px 50px;
         }
@@ -433,13 +536,14 @@ form {
             height: 150px;
             padding: 25px 50px;
             resize: vertical;
-            font-size: 100%;
+            font-size: 14.4px;
         }
     }
     .form-control {
         h3 {
             margin: 50px 0 20px;
         }
+
         button {
             @extend %btn_ano;
             // border: transparent;
@@ -460,10 +564,18 @@ form {
     width: 100%;
     height: 100vh;
     background-color: hsla(0, 0%, 0%, .5);
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
     /* 預設：完全透明；設定 z-index: -1 會在整個頁面的後方，看不到，才不會擋到頁面元素。 */
     opacity: 0;
     z-index: -1;
     transition: opacity 1s;
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
     article {
         background-color: white;
         width: 30%;
@@ -474,16 +586,34 @@ form {
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
+<<<<<<< HEAD
         h2 {
             margin-bottom: 20px;
         }
         p {
             margin-bottom: 20px;
         }
+=======
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+        .cancel{
+            @extend %btn_ano;
+        }
+>>>>>>> MYSELF
         input {
             @extend %btn;
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
     .close {
         background: url(../images/blue-cross-icon.png) no-repeat top/cover;
         width: 50px;
@@ -496,6 +626,10 @@ form {
 }
 
 .overlay.-on {
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
     /* 加上 -on 之後，Modal 漸漸出現，因為有設定 transition */
     opacity: 1;
     z-index: 1;
@@ -505,6 +639,10 @@ form {
     /* 關閉 Modal 時，先讓 opacity設定0，就會慢慢變成完全透明，但這時會擋到後面的元素，所以要再移除 -on 及 -opacity-zero 這兩個 class */
     opacity: 0;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
 
 @media screen and (max-width:1200px) {
     .side-right {
@@ -532,27 +670,44 @@ form {
                 z-index: 3;
                 cursor: pointer;
             }
+
             .note {
                 width: 400px;
                 height: 500px;
                 background: url(../images/note.png) no-repeat top/contain;
                 position: relative;
                 // animation: note_move1 10s -5s linear infinite forwards;
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
                 .note-content {
                     font-size: 20px;
                     position: absolute;
                     top: 190px;
                     left: 122px;
                     cursor: pointer;
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
                     span:nth-child(2) {
                         font-size: 16px;
                         margin-left: 30px;
                     }
                 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
                 .fish-pic {
                     top: 50%;
                     left: 54%;
                     transform: translate(-50%, -50%);
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
                     img {
                         width: 100%;
                         position: absolute;
@@ -562,9 +717,17 @@ form {
                     }
                 }
             }
+<<<<<<< HEAD
             .note:nth-child(2) {
                 background-image: url(../images/note02.png);
             }
+=======
+
+            .note:nth-child(2) {
+                background-image: url(../images/note02.png);
+            }
+
+>>>>>>> MYSELF
             // .note:nth-child(3) {
             //     right: 50px;
             // }
@@ -585,18 +748,34 @@ form {
     .intro {
         font-size: 16px;
     }
+<<<<<<< HEAD
     .upper {
         display: none;
     }
+=======
+
+    .upper {
+        display: none;
+    }
+
+>>>>>>> MYSELF
     .center {
         flex-wrap: wrap;
         .side-left {
             padding: 0 10px;
             width: 100%;
             height: auto;
+<<<<<<< HEAD
             .food-display {
                 position: relative;
                 width: 100%;
+=======
+
+            .food-display {
+                position: relative;
+                width: 100%;
+
+>>>>>>> MYSELF
                 img {
                     width: 100%;
                     // position: absolute;
@@ -617,6 +796,7 @@ form {
                         display: inline-block;
                         width: 100%;
                         >a {
+                            width: 100%;
                             display: inline-block;
                             padding: 2% 33%;
                             border-radius: 5px 5px 0 0;
@@ -660,12 +840,13 @@ form {
                             display: flex;
                             justify-content: space-evenly;
                             li {
-                                width: 33%;
+                                width: 22%;
                                 font-size: 18px;
                                 border: 1px solid white;
                                 position: relative;
                                 text-align: center;
                                 cursor: pointer;
+
                                 figure img {
                                     width: 100%;
                                     object-fit: fill;
@@ -688,6 +869,10 @@ form {
                                 left: 50%;
                                 transform: translate(-50%, -50%);
                             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
                             li.selected::before {
                                 content: "";
                                 width: 65%;
@@ -700,11 +885,19 @@ form {
                                 transform: translate(-50%, -50%);
                             }
                         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
                         >p {
                             margin: auto;
                             padding: 10px;
                         }
                     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> MYSELF
                     .cabinet-top::before,
                     .cabinet-bottom::before {
                         bottom: 0px;
@@ -718,8 +911,14 @@ form {
                         z-index: 0;
                     }
                 }
+<<<<<<< HEAD
                 .tab2 ul li {
                     padding: 45px;
+=======
+
+                .tab2 ul li {
+                    padding: 45px 38px;
+>>>>>>> MYSELF
                 }
             }
         }
@@ -741,6 +940,22 @@ form {
     }
 }
 
+@media screen and (max-width:640px) {
+    .center .for-phone .tab-contents {
+        .tab.-on {
+            .cabinet-top,
+            .cabinet-bottom {
+                ul li {
+                    width: 25%;
+                }
+            }
+        }
+        .tab2 ul li {
+            padding: 45px 34px;
+        }
+    }
+}
+
 @media screen and (max-width:576px) {
     form {
         .form-control {
@@ -752,7 +967,34 @@ form {
     }
 }
 
+@media screen and (max-width:540px) {
+    .center .for-phone .tab-contents {
+        .tab.-on {
+            .cabinet-top,
+            .cabinet-bottom {
+                ul li {
+                    width: 29%;
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width:500px) {
+    .center .for-phone .tab-contents {
+        .tab.-on {
+            .cabinet-top,
+            .cabinet-bottom {
+                ul li {
+                    width: 33%;
+                }
+            }
+        }
+        .tab2 ul li {
+            padding: 45px;
+        }
+    }
+    
     form {
         .form-control {
             input {
