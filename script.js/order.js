@@ -70,22 +70,17 @@ window.addEventListener('load', function() {
     // 第三屏按下一步，訂位點餐資訊存進Storage
     $('.section3 .next').click(function() {
 
-        portNow = $('.port label.on').prev().attr('id');
-        localStorage['port'] = portNow;
 
-        peopleNow = $('#people').val();
-        localStorage['people'] = peopleNow;
-
-        dateNow = document.getElementById("date").value;
+        localStorage['port'] = $('.port label.on').prev().attr('id');
+        localStorage['people'] = $('#people').val();
+        dateNow = document.getElementById('date').value;
         localStorage['date'] = dateNow;
-
-        mealA = $('#mealAAmount').val();
-        mealB = $('#mealBAmount').val();
-        mealC = $('#mealCAmount').val();
-        localStorage['mealA'] = mealA;
-        localStorage['mealB'] = mealB;
-        localStorage['mealC'] = mealC;
-
+        localStorage['meal1amount'] = $('#mealAamount').val();
+        localStorage['meal2amount'] = $('#mealBamount').val();
+        localStorage['meal3amount'] = $('#mealCamount').val();
+        localStorage['meal1price'] = $('.mealAprice').text();
+        localStorage['meal2price'] = $('.mealBprice').text();
+        localStorage['meal3price'] = $('.mealCprice').text();
 
         custoLength = $('.section3 table').find('td.custo').length;
         custo = "";
@@ -154,13 +149,13 @@ window.addEventListener('load', function() {
 
     // 計算套餐數量
 
-    $('#mealAAmount').change(function() {
+    $('#mealAamount').change(function() {
         mealAmount();
     });
-    $('#mealBAmount').change(function() {
+    $('#mealBamount').change(function() {
         mealAmount();
     });
-    $('#mealCAmount').change(function() {
+    $('#mealCamount').change(function() {
         mealAmount();
     });
 
@@ -172,9 +167,9 @@ window.addEventListener('load', function() {
     });
 
     function mealAmount() {
-        let mealA = parseInt($('#mealAAmount').val());
-        let mealB = parseInt($('#mealBAmount').val());
-        let mealC = parseInt($('#mealCAmount').val());
+        let mealA = parseInt($('#mealAamount').val());
+        let mealB = parseInt($('#mealBamount').val());
+        let mealC = parseInt($('#mealCamount').val());
 
         total = mealA + mealB + mealC;
         $('.amount').text(total);
