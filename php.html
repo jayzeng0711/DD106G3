@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    會員姓名：<span id="memName"></span>
+    <br>
+    <br>
+    <button onclick="check()">查詢</button>
+
+    <script>
+        function check() {
+
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                if (xhr.status == 200) {
+                    let member = JSON.parse(xhr.responseText);
+                    document.getElementById('memName').innerText = member.memId;
+
+                } else {
+                    alert(xhr.status);
+                }
+            }
+
+
+            // FTP
+            // xhr.open('post', './php/test.php', true);
+
+            // Mac
+            // xhr.open('post', 'http://localhost:8080/test.php', true);
+
+            // windows
+            xhr.open('post', 'http://localhost/dd106g3/test.php', true);
+
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            xhr.send(null);
+
+        }
+    </script>
+
+</body>
+
+</html>
