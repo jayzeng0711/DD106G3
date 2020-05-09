@@ -1,6 +1,6 @@
 <?php
     require_once("connectdd106g3.php");
-    $sql = "select * from member where `memId` = :memId";
+    $sql = "select * from `member` where `memId` = :memId";
     $memId = json_decode(file_get_contents('php://input'));
     $mem_email = $pdo->prepare($sql);
     $mem_email -> bindValue(":memId", $memId->memId);
