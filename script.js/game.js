@@ -1,15 +1,15 @@
 //一進入網頁ajax會員的積分
-$(document).ready(function(){
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-        if(xhr.status == 200){
-            var aaa = JSON.parse(xhr.responseText);
-            console.log(aaa.memId)
-        }
-    }
-    xhr.open('post','http://localhost:8080/game_member_score.php',true);
-    xhr.send(null);
-})
+// $(document).ready(function(){
+//     var xhr = new XMLHttpRequest();
+//     xhr.onload = function(){
+//         if(xhr.status == 200){
+//             var aaa = JSON.parse(xhr.responseText);
+//             console.log(aaa)
+//         }
+//     }
+//     xhr.open('post','http://localhost:8080/game_member_score.php',true);
+//     xhr.send(null);
+// })
 //一進入網頁ajax會員的積分
 
 
