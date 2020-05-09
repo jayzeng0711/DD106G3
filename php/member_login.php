@@ -8,17 +8,21 @@
     $memlogin->execute();
 
     if($memlogin->rowCount() == 0){
-        echo `{"memNo" : "無此帳號" }`;
+        echo ``;
     } else {
         $memRow = $memlogin->fetch(PDO::FETCH_ASSOC);
 
         // 寫入 session
+        session_id(SID);
         session_start();
         $_SESSION["memId"] =  $memRow["memId"];
         $_SESSION["memName"] =  $memRow["memName"];
         $_SESSION["levelNo"] =  $memRow["levelNo"];
         $_SESSION["memScore"] =  $memRow["memScore"];
         $_SESSION["memPoints"] =  $memRow["memPoints"];
+        $_SESSION["memPic"] =  $memRow["memPic"];
+        $_SESSION["memVote"] =  $memRow["memVote"];
+        $_SESSION["memState"] =  $memRow["memState"];
 
         echo json_encode($memRow);
         }

@@ -181,14 +181,12 @@ $('#signInBtn').click(function(){
     var xhr = new XMLHttpRequest();
     xhr.onload = function(){
         if(xhr.status == 200){
-            var mem_login = JSON.parse(xhr.responseText);
-            if( mem_login == null){
+            var mem_login = xhr.responseText;
+            if(!mem_login){
                 alert('查無此帳號');
+                return false;
             }else{
-                // window.location.reload();
-                $('.pu_mem_login_suc_div').text('登出');
-                $('.pu_mem_login_div_wrap').css('display','none');
-                $('.pu_mem_login_div_suc_wrap').css('display','flex');
+                window.location.reload();
             }
         }
     }
@@ -209,8 +207,16 @@ $(document).ready(function(){
     if(xhr.status ==200){
         var member = JSON.parse(xhr.responseText);
         console.log(member);
+        if(member.memName){
+            $('.pu_mem_login_suc_div').text(`hi~${member.memName}`);
+            $('.pu_mem_login_div_wrap').css('display','none');
+            $('.pu_mem_login_div_suc_wrap').css('display','flex');
+        }else{
+            $('.pu_mem_login_div_wrap').css('display','flex');
+            $('.pu_mem_login_div_suc_wrap').css('display','none');
         }
     }
+}
     xhr.open('GET', "http://localhost:8080/getlogininfo.php");
     xhr.send(null);
 })
