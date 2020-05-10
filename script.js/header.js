@@ -202,10 +202,10 @@ $('#signInBtn').click(function() {
         // xhr.open('post', './php/member_login.php', true);
 
         // windows
-        xhr.open('post',  'http://localhost/dd106g3/member_login.php',  true);
+        // xhr.open('post',  'http://localhost/dd106g3/member_login.php',  true);
 
         // Mac
-        // xhr.open('POST', 'http://localhost:8080/member_login.php', true);
+        xhr.open('POST', 'http://localhost:8080/member_login.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         var member_login = {};
         member_login.mem_email = loginEmail;
@@ -221,7 +221,7 @@ $(document).ready(function() {
         xhr.onload = function() {
             if (xhr.status == 200) {
                 var member = JSON.parse(xhr.responseText);
-                console.log(member);
+                // console.log(member);
                 if (member.memName) {
                     $('.pu_mem_login_suc_div').text(`hi~${member.memName}`);
                     $('.pu_mem_login_div_wrap').css('display', 'none');
@@ -281,9 +281,8 @@ $('.pu_reb_btn').click(function(e) {
         $('.pu_big_content_center').append(
                 ` <div class="pu_big_content_text_ans">
         ${text}
-    </div>`
-            )
-            //先找到輸入什麼文字塞進對話框
+    </div>`)
+        //先找到輸入什麼文字塞進對話框
 
         //把對話框清空
         $('#textarea').val("");
@@ -295,23 +294,24 @@ $('.pu_reb_btn').click(function(e) {
                 if (xhr.status == 200) {
                     var reboot_ans_str = JSON.parse(xhr.responseText);
                     if (reboot_ans_str.messageQueConrent === undefined) {
-                        $('.pu_big_content_center').append(
-                                ` <div class="pu_big_content_text">
-                    不好意思我不知道
-                </div>`
-                            )
-                            //讓滾動條保持最下方
+                        setTimeout(function(){
+                            $('.pu_big_content_center').append(
+                                `<div class="pu_big_content_text">
+                                客服人員會再聯繫您</div>`)
+                        //讓滾動條保持最下方
                         $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
                         //讓滾動條保持最下方
+                        },500)
                     } else {
-                        $('.pu_big_content_center').append(
+                        setTimeout(function(){
+                            $('.pu_big_content_center').append(
                                 ` <div class="pu_big_content_text">
-                    ${reboot_ans_str.messageQueConrent}
-                </div>`
-                            )
+                                ${reboot_ans_str.messageQueConrent}
+                                </div>`)
                             //讓滾動條保持最下方
-                        $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
-                        //讓滾動條保持最下方
+                            $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
+                            //讓滾動條保持最下方
+                        },500)
                     }
                 }
             }
@@ -362,23 +362,24 @@ $('#textarea').keydown(function(e) {
                 if (xhr.status == 200) {
                     var reboot_ans_str = JSON.parse(xhr.responseText);
                     if (reboot_ans_str.messageQueConrent === undefined) {
-                        $('.pu_big_content_center').append(
-                                ` <div class="pu_big_content_text">
-                    不好意思我不知道
-                </div>`
-                            )
-                            //讓滾動條保持最下方
+                        setTimeout(function(){
+                            $('.pu_big_content_center').append(
+                                `<div class="pu_big_content_text">
+                                客服人員會再聯繫您</div>`)
+                        //讓滾動條保持最下方
                         $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
                         //讓滾動條保持最下方
+                        },500)
                     } else {
-                        $('.pu_big_content_center').append(
+                        setTimeout(function(){
+                            $('.pu_big_content_center').append(
                                 ` <div class="pu_big_content_text">
-                    ${reboot_ans_str.messageQueConrent}
-                </div>`
-                            )
+                                ${reboot_ans_str.messageQueConrent}
+                                </div>`)
                             //讓滾動條保持最下方
-                        $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
-                        //讓滾動條保持最下方
+                            $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
+                            //讓滾動條保持最下方
+                        },500)
                     }
                 }
             }
@@ -416,23 +417,23 @@ $('.pu_reb_li').click(function(e) {
                 if (xhr.status == 200) {
                     var reboot_ans_str = JSON.parse(xhr.responseText);
                     if (reboot_ans_str.messageQueConrent === undefined) {
+                        setTimeout(function(){
                         $('.pu_big_content_center').append(
-                                ` <div class="pu_big_content_text">
-                    不好意思我不知道
-                </div>`
-                            )
-                            //讓滾動條保持最下方
+                            ` <div class="pu_big_content_text">
+                            客服人員會再聯繫您</div>`)
+                        //讓滾動條保持最下方
                         $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
                         //讓滾動條保持最下方
+                        },500)
                     } else {
+                        setTimeout(function(){
                         $('.pu_big_content_center').append(
-                                ` <div class="pu_big_content_text">
-                    ${reboot_ans_str.messageQueConrent}
-                </div>`
-                            )
-                            //讓滾動條保持最下方
+                            ` <div class="pu_big_content_text">
+                        ${reboot_ans_str.messageQueConrent} </div>`)
+                        //讓滾動條保持最下方
                         $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
                         //讓滾動條保持最下方
+                        },500)
                     }
                 }
             }
