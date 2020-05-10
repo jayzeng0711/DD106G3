@@ -12,6 +12,7 @@
     "bootstrap-sass": "^3.4.1",
     "gsap": "^3.1.1",
     "gulp": "^3.9.1",
+    "gulp-dest": "^0.2.3",
     "hover.css": "^2.3.2",
     "jquery": "^3.4.1",
     "scrollmagic": "^2.0.7"
