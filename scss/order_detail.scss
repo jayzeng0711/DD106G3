@@ -41,7 +41,15 @@ body {
             padding: 5px 0;
         }
         .divorder {
+            padding: 3% 0;
+        }
+        .divinput {
             padding: 1% 0;
+            p {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
         }
         .mdmealA,
         .mdmealB,
@@ -64,20 +72,27 @@ body {
             display: none;
         }
         .date,
-        .member,
+        .people,
         .pay {
             border-radius: 10px;
             padding: 3%;
             margin-bottom: 5%;
             text-align: left;
             font-size: $fontSize;
+            input {
+                width: 90%;
+            }
+            #ordepoint {
+                width: 50%;
+                margin-right: 2%;
+            }
         }
         a {
             text-decoration: none;
         }
         .button {
             @extend %btn_ano;
-            margin: 10%;
+            margin: 10% 0;
             padding: 5% 10%;
             display: inline-block;
         }
@@ -94,13 +109,10 @@ footer {
     width: 100%;
 }
 
-// rwd breakpoint
 // $desktop: 1200px;
 // $medium: 991px;
 // $small: 767px;
 // $mobile: 576px;
-// @include rwd(medium) {}
-// }
 @include rwd(small) {
     .wrapper {
         margin: 3% 5%;
@@ -133,5 +145,3 @@ footer {
         }
     }
 }
-
-// @include rwd(mobile) {}
