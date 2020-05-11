@@ -1,145 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/back.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/backend.css">
+    <style>
+        .backend_Meal {
+            background-color: steelblue;
+        }
+        
+        .backend_Meal a {
+            color: #fff;
+        }
+        
+        .backend_Meal:hover {
+            background-color: steelblue;
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <div class="with-logo">
-            <div class="logo">
-                <div class="img">logo here</div>
-            </div>
+    @@include('./layout/backend.html')
+
+
+    <main>
+        <div class="nowpage">
+            <h3>套餐管理</h3>
         </div>
-        <div class="member-control">
-            管理員登出
+        <div class="content">
+            <button type="button" class="btn btn-info addbtn">新增套餐</button>
+            <table>
+                <tr>
+                    <th>編號</th>
+                    <th>名稱</th>
+                    <th>圖片</th>
+                    <th>前菜</th>
+                    <th>主菜</th>
+                    <th>副菜</th>
+                    <th>湯品</th>
+                    <th>價格</th>
+                    <th>套餐上下架狀態</th>
+                    <th>編輯</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>A餐</td>
+                    <td>
+                        <div class="bigimg">img</div>
+                    </td>
+                    <td>海鮮</td>
+                    <td>海鮮</td>
+                    <td>海鮮</td>
+                    <td>海鮮</td>
+                    <td>1000</td>
+                    <td class="yesNo">
+                        <div></div>
+                    </td>
+                    <td>
+                        <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>B餐</td>
+                    <td>
+                        <div class="bigimg">img</div>
+                    </td>
+                    <td>海鮮</td>
+                    <td>海鮮</td>
+                    <td>海鮮</td>
+                    <td>海鮮</td>
+                    <td>1200</td>
+                    <td class="yesNo">
+                        <div></div>
+                    </td>
+                    <td>
+                        <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>C餐</td>
+                    <td>
+                        <div class="bigimg">img</div>
+                    </td>
+                    <td>海鮮</td>
+                    <td>海鮮</td>
+                    <td>海鮮</td>
+                    <td>海鮮</td>
+                    <td>1400</td>
+                    <td class="yesNo">
+                        <div></div>
+                    </td>
+                    <td>
+                        <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            </table>
+
         </div>
-    </header>
+    </main>
 
-    <div id="Container" class="container">
-        <nav>
-            <ul>
-                <li>
-                    <a  href="backend_Admin.html">後台管理員管理</a>
-                </li>
-                <li>
-                    <a   href="backend_Member.html">會員</a>
-                </li>
-                <li>
-                    <a   href="backend_Route.html">航線管理</a>
-                </li>
-                <li>
-                    <a  href="backend_MealList.html">訂單管理</a>
-
-                </li>
-                <li>
-                    <a  href="backend_Meal.html">套餐管理</a>
-                </li>
-                <li>
-                    <a href="backend_Seafood.html">海鮮種類管理</a>
-                </li>
-                <li>
-                    <a  href="backend_Cook.html">烹調方式管理</a>
-                </li>
-                <li>
-                    <a href="backend_Ingredient.html">配料管理</a>
-                </li>
-                <li>
-                    <a  href="backend_Report.html"> 留言檢舉管理</a>
-                </li>
-                <li>
-                    <a  href="backend_Message.html">聊天機器人管理</a>
-                </li>
-            </ul>
-        </nav>
-        <main id="Main">
-            <div class="now-page">
-                <ol>
-                    <li>
-                        <a href="#">首頁</a>
-                    </li>
-                    <li>
-                        <a href="#"> 套餐管理</a>
-                    </li>
-                </ol>
-            </div>
- <!-- 套餐管理 -->
- <div id="Meal" class="page-content" >
-    <div class="addBtn"><button  >新增套餐</button></div>
-    <table>
-        <tr>
-            <th>編號</th>
-            <th>名稱</th>
-            <th>圖片</th>
-            <th>前菜</th>
-            <th>主菜</th>
-            <th>副菜</th>
-            <th>湯品</th>
-            <th>價格</th>
-            <th>套餐上下架狀態</th>
-            <th>編輯</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>A餐</td>
-            <td>
-                <div class="bigimg">img</div>
-            </td>
-            <td>海鮮</td>
-            <td>海鮮</td>
-            <td>海鮮</td>
-            <td>海鮮</td>
-            <td>1000</td>
-            <td class="yesNo">
-                <div></div>
-            </td>
-            <td>
-                <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>B餐</td>
-            <td>
-                <div class="bigimg">img</div>
-            </td>
-            <td>海鮮</td>
-            <td>海鮮</td>
-            <td>海鮮</td>
-            <td>海鮮</td>
-            <td>1200</td>
-            <td class="yesNo">
-                <div></div>
-            </td>
-            <td>
-                <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>C餐</td>
-            <td>
-                <div class="bigimg">img</div>
-            </td>
-            <td>海鮮</td>
-            <td>海鮮</td>
-            <td>海鮮</td>
-            <td>海鮮</td>
-            <td>1400</td>
-            <td class="yesNo">
-                <div></div>
-            </td>
-            <td>
-                <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-            </td>
-        </tr>
-    </table>
-
-  
-</div>
 </body>
+
 </html>
