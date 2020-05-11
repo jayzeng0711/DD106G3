@@ -43,12 +43,32 @@
         cursor: pointer;
         .pu_mem_login_div{
             font-size: $fontSize;
-            margin-right: 5%;
             white-space: nowrap;
             letter-spacing: 1px;
         }
         .pu_icon_div{
             width: 30px;
+            margin-right: 3%;
+            img{
+                max-width: 100%;
+            }
+        }
+    }
+    .pu_mem_login_div_suc_wrap{
+        display: flex;
+        width: 15%;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        display: none;
+        .pu_mem_login_suc_div{
+            font-size: $fontSize;
+            white-space: nowrap;
+            letter-spacing: 1px;
+        }
+        .pu_icon_suc_div{
+            width: 30px;
+            margin-right: 3%;
             img{
                 max-width: 100%;
             }

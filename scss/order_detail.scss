@@ -1,10 +1,4 @@
 @import "base/var";
-body {
-    background-image: url("../images/色塊-4-01.jpg");
-    background-size: cover;
-    overflow-x: hidden;
-}
-
 //標題波浪
 .pu_order {
     background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x, radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
@@ -17,549 +11,135 @@ body {
     display: none;
 }
 
-div.forALL {
-    width: 100%;
-    div.header {
-        font-family: $fontFamily;
-        button {
+body {
+    background-color: #F0EEE0;
+    padding-bottom: 10%;
+    position: relative;
+}
+
+.wrapper {
+    border-radius: 20px;
+    margin: 3% 15%;
+    padding: 3%;
+    text-align: center;
+    background-color: #fff;
+    h3 {
+        font-size: $fontSize*1.5;
+        margin-bottom: 3%;
+        color: #034;
+    }
+    .line {
+        width: 100%;
+        margin: 1% auto;
+        height: 1px;
+        background-color: #78C1D8;
+    }
+    .order {
+        font-size: $fontSize*1.2;
+        color: #555;
+        .divtitle {
+            padding: 5px 0;
+        }
+        .divorder {
+            padding: 3% 0;
+        }
+        .divinput {
+            padding: 1% 0;
+            p {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        .mdmealA,
+        .mdmealB,
+        .mdmealC {
+            img {
+                width: 100%;
+            }
+        }
+        .smmealA,
+        .smmealB,
+        .smmealC {
             display: none;
         }
-    }
-}
-
-div.theForm {
-    border: 1px solid red;
-    border: none;
-    width: 100%;
-    display: inline-block;
-    ul.row {
-        background-color: rgba($color: #fff, $alpha: 0.75);
-        border: 1px solid darkgoldenrod;
-        border: none;
-        width: 80%;
-        margin: 0 auto;
-        li {
-            border: 1px solid goldenrod;
-            border: none;
-            div.bar {
-                color: white;
-                padding: 10px;
-                div {
-                    font-family: $fontFamily;
-                    display: inline-block;
-                    font-size: 1.2rem;
-                    text-align: center;
-                }
-            }
-        }
-        li {
-            div.DT {
-                padding: 10px;
-                div {
-                    font-family: $fontFamily;
-                    margin-right: 2%;
-                    margin-left: 8%;
-                    display: inline-block;
-                }
-                span.people {
-                    margin-left: 8%;
-                    width: 80px;
-                }
-            }
-        }
-        li {
-            font-family: $fontFamily;
-            ul.dishes {
-                display: flex;
-                li {
-                    vertical-align: top;
-                }
-                li.meal {
-                    padding: 10px;
-                    div {
-                        img {
-                            width: 150px;
-                            margin-left: 5%;
-                        }
-                        div.detail {
-                            width: 300px;
-                        }
-                    }
-                }
-                li.num {
-                    margin-top: 7%;
-                    margin-left: -3%;
-                    margin-right: 10%;
-                    div {
-                        input {
-                            width: 50px;
-                        }
-                    }
-                }
-                li.deleteBTN {
-                    margin-top: 7%;
-                    margin-right: 11%;
-                    button {
-                        border: 1px solid red;
-                        border: none;
-                        color: maroon;
-                        background: none;
-                    }
-                }
-                li.price {
-                    margin-top: 7%;
-                }
-            }
-        }
-        li {
-            ul.custom {
-                li {
-                    font-family: $fontFamily;
-                    display: inline-block;
-                    margin-right: 5%;
-                    vertical-align: top;
-                    padding: 10px;
-                    img {
-                        width: 150px;
-                    }
-                    span {
-                        margin-left: 20%;
-                    }
-                }
-                li.num {
-                    margin-top: 4%;
-                    margin-right: 10%;
-                    div {
-                        input {
-                            width: 50px;
-                        }
-                    }
-                }
-                li.deleteBTN {
-                    margin-top: 4%;
-                    margin-right: 11%;
-                    button {
-                        border: 1px solid red;
-                        border: none;
-                        color: maroon;
-                        background: none;
-                    }
-                }
-                li.price {
-                    margin-top: 4%;
-                }
-                li.btn {
-                    margin-top: 2%;
-                    button {
-                        @extend %btn;
-                        font-size: 20px;
-                        padding: 2% 4%;
-                        width: 150px;
-                        height: 50px;
-                    }
-                }
-            }
-        }
-        li.total {
-            padding: 10px;
-            margin-bottom: 2%;
-            h4 {
-                display: inline-block;
-                margin-left: 2%;
-            }
-            span {
-                float: right;
-                margin-right: 26%;
-            }
-            .select {
-                border: 1px solid violet;
-                width: 170px;
-                border: none;
-                margin-right: 24%;
-                float: right;
-            }
-        }
-        li.info {
-            div {
-                border: 1px solid red;
-                border: none;
-                background-color: rgba(255, 166, 0, 0.5);
-                margin: 0 auto;
-                margin-bottom: -2px;
-                input {
-                    border: 1px solid orange;
-                    height: 50px;
-                    width: 55%;
-                    margin-top: -40px;
-                    margin-right: -15px;
-                    float: right;
-                }
-            }
-            button {
-                @extend %btn;
-                margin-left: 42%;
-                margin-top: 30px;
-                margin-bottom: 30px;
-                font-size: 1.2rem;
-            }
-        }
-    }
-}
-
-li>div.bar_empty {
-    padding: 30px;
-}
-
-div.reboot_div {
-    font-family: $fontFamily;
-}
-
-div.clear {
-    clear: both;
-}
-
-@include rwd(desktop) {
-    div.forALL {
-        div.theForm {
-            ul.row {
-                width: 80%;
-                li {
-                    ul.dishes {
-                        li.num {
-                            margin-left: 0px;
-                            margin-right: 18%;
-                            vertical-align: top;
-                            margin-top: 10%;
-                        }
-                        li.deleteBTN {
-                            margin-left: 1%;
-                            margin-right: 11%;
-                            vertical-align: top;
-                            margin-top: 10%;
-                        }
-                        li.price {
-                            vertical-align: top;
-                            margin-top: 10%;
-                        }
-                    }
-                }
-            }
-            li {
-                ul.custom {
-                    li {
-                        margin-right: 8%;
-                    }
-                    li.num {
-                        margin-right: 17%;
-                        vertical-align: top;
-                        margin-top: 5%;
-                    }
-                    li.deleteBTN {
-                        margin-right: 6.5%;
-                        vertical-align: top;
-                        margin-top: 5%;
-                    }
-                    li.price {
-                        vertical-align: top;
-                        margin-top: 5%;
-                        div {
-                            text-align: center;
-                        }
-                    }
-                    li.btn {
-                        margin-left: 74%;
-                        margin-top: -5%;
-                    }
-                }
-            }
-            li.total {
-                span {
-                    margin-right: 14%;
-                }
-                .select {
-                    width: 170px;
-                    margin-right: 11%;
-                    float: right;
-                }
-            }
-        }
-    }
-}
-
-@include rwd(medium) {
-    div.forALL {
-        div.theForm {
-            ul.row {
+        .mdcusto {
+            img {
                 width: 100%;
-                li {
-                    ul.dishes {
-                        li.meal {
-                            div {
-                                div.detail {
-                                    width: 100%;
-                                }
-                            }
-                        }
-                        li.num {
-                            margin-right: 17%;
-                            vertical-align: top;
-                            margin-top: 10%;
-                        }
-                        li.deleteBTN {
-                            margin-left: 1%;
-                            margin-right: 10%;
-                            vertical-align: top;
-                            margin-top: 10%;
-                        }
-                        li.price {
-                            vertical-align: top;
-                            margin-top: 10%;
-                        }
-                    }
-                }
             }
-            li {
-                ul.custom {
-                    li {
-                        margin-right: 8%;
-                    }
-                    li.num {
-                        margin-right: 17%;
-                        vertical-align: top;
-                        margin-top: 5%;
-                    }
-                    li.deleteBTN {
-                        margin-right: 6.5%;
-                        vertical-align: top;
-                        margin-top: 5%;
-                    }
-                    li.price {
-                        vertical-align: top;
-                        margin-top: 5%;
-                        div {
-                            text-align: center;
-                        }
-                    }
-                    li.btn {
-                        margin-left: 72%;
-                        margin-top: -5%;
-                    }
-                }
+        }
+        .smcusto {
+            display: none;
+        }
+        .date,
+        .people,
+        .pay {
+            border-radius: 10px;
+            padding: 3%;
+            margin-bottom: 5%;
+            text-align: left;
+            font-size: $fontSize;
+            input {
+                width: 90%;
             }
-            li {
-                div.select {
-                    margin-right: 25%;
-                }
+            #ordepoint {
+                width: 50%;
+                margin-right: 2%;
             }
-            li.info {
-                button {
-                    margin-left: 37%;
-                }
-            }
+        }
+        a {
+            text-decoration: none;
+        }
+        .button {
+            @extend %btn_ano;
+            margin: 10% 0;
+            padding: 5% 10%;
+            display: inline-block;
+        }
+        .button.previous {
+            @extend %btn;
+            padding: 5% 10%;
         }
     }
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+// $desktop: 1200px;
+// $medium: 991px;
+// $small: 767px;
+// $mobile: 576px;
 @include rwd(small) {
-    div.forALL {
-        div.theForm {
-            li {
-                ul.dishes {
-                    li.meal {
-                        margin-left: -3%;
-                        margin-right: -5%;
-                        div {
-                            img {
-                                width: 80%;
-                            }
-                            span {
-                                margin-left: 35%;
-                            }
-                            div.detail {
-                                width: 200px;
-                                margin-left: 0%;
-                            }
-                        }
-                    }
-                    li.num {
-                        vertical-align: top;
-                        margin-top: 5%;
-                    }
-                }
-            }
-            li {
-                ul.custom {
-                    li {
-                        margin-right: -7%;
-                        margin-left: -3%;
-                        div {
-                            margin-left: 15%;
-                            img {
-                                width: 80%;
-                            }
-                            span {
-                                margin-left: 20%;
-                            }
-                        }
-                    }
-                    li.num {
-                        margin-left: 0%;
-                        margin-right: 23%;
-                        vertical-align: top;
-                        margin-top: 7%;
-                    }
-                    li.deleteBTN {
-                        margin-left: -22%;
-                        vertical-align: top;
-                        margin-top: 7%;
-                    }
-                    li.price {
-                        margin-left: 0%;
-                        vertical-align: top;
-                        margin-top: 7%;
-                    }
-                    li.btn {
-                        margin-left: -17%;
-                        vertical-align: top;
-                        margin-top: 13%;
-                    }
-                }
-            }
-            li {
-                div.select {
-                    margin-right: 30%;
-                }
-            }
-            li.info {
-                button {
-                    margin-left: 38%;
-                }
-            }
+    .wrapper {
+        margin: 3% 5%;
+        h3 {
+            font-size: $fontSize*1.2;
         }
-    }
-}
-
-@include rwd(mobile) {
-    div.forALL {
-        div.theForm {
-            ul.row {
-                li {
-                    div.bar {
-                        div:nth-child(2) {
-                            display: none;
-                        }
-                        div:nth-child(3) {
-                            display: none;
-                        }
-                        div:nth-child(4) {
-                            display: none;
-                        }
-                    }
-                }
-                li {
-                    div.DT {
-                        div {
-                            display: block;
-                            margin-left: 38%;
-                            margin-bottom: 5%;
-                        }
-                        div.dock {
-                            margin-left: 42%;
-                        }
-                        span {
-                            margin-left: 48%;
-                        }
-                    }
+        .order {
+            .mdmealA,
+            .mdmealB,
+            .mdmealC {
+                display: none;
+            }
+            .smmealA,
+            .smmealB,
+            .smmealC {
+                display: block;
+                img {
+                    width: 50%;
                 }
             }
-            li {
-                ul.dishes {
-                    display: inline-block;
-                    li.meal {
-                        div {
-                            margin-left: 5%;
-                            margin-bottom: -7%;
-                            img {
-                                width: 100%;
-                            }
-                            span {
-                                margin-left: 45%;
-                            }
-                            div.detail {
-                                text-align: center;
-                            }
-                        }
-                    }
-                    li.num {
-                        margin-bottom: -7%;
-                        input {
-                            margin-left: 45%;
-                        }
-                    }
-                    li.deleteBTN {
-                        text-align: center;
-                        margin-bottom: -7%;
-                    }
-                    li.deleteBTN::before {
-                        content: "刪除";
-                    }
-                    li.price {
-                        text-align: center;
-                        margin-bottom: 3%;
-                        margin-top: 0%;
-                        margin-left: 0%;
-                    }
-                }
+            .mdcusto {
+                display: none;
             }
-            li {
-                ul.custom {
-                    li {
-                        div {
-                            img {
-                                width: 80%;
-                                margin-top: 3%;
-                                margin-left: 5%;
-                            }
-                            span {
-                                margin-left: 35%;
-                            }
-                        }
-                    }
-                    li.num {
-                        margin-top: 3%;
-                        margin-left: 0%;
-                        input {
-                            margin-left: 35%;
-                        }
-                    }
-                    li.deleteBTN {
-                        text-align: center;
-                        margin-top: 3%;
-                        margin-left: 0%;
-                    }
-                    li.deleteBTN::before {
-                        content: "刪除";
-                    }
-                    li.price {
-                        text-align: center;
-                        margin-top: 3%;
-                        margin-left: -8%;
-                    }
-                    li.btn {
-                        margin-top: 3%;
-                        margin-left: -1%;
-                        margin-bottom: 3%;
-                    }
-                }
-            }
-            li.total {
-                div.select {
-                    margin-right: 10%;
-                }
-            }
-            li.info {
-                button {
-                    margin-left: 0%;
+            .smcusto {
+                display: block;
+                img {
+                    width: 50%;
                 }
             }
         }

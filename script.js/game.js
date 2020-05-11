@@ -1,32 +1,190 @@
-//一進入網頁ajax會員的積分
+//會員等級初始化，全域變數，想到到的地訪都可
+mem_level_no="";
+//會員等級初始化，全域變數，想到到的地訪都可
+
+//第一層ajax是撈出會員等級
+$(document).ready(function(){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+    if(xhr.status == 200){
+        memlevel = JSON.parse(xhr.responseText);
+        //第二層ajax是藉由第一層撈出的會員等級，找出memberLevel那張資料表的所有欄位
+        var xhr2 = new XMLHttpRequest();
+        xhr2.onload = function(){
+            if(xhr2.status == 200){
+                if(xhr2.responseText){
+                    console.log(JSON.parse(xhr2.responseText))
+                    //第三層ajax是如果前面兩層ajax有成功，代表有會員登入，就去把對應等級的海鮮顯示出來，如果沒成功代表沒會員，就顯示html的
+                    var xhr3 = new XMLHttpRequest();
+                    xhr3.onload = function(){
+                        if(xhr3.status == 200){
+                            var seafood_info = JSON.parse(xhr3.responseText);
+                            console.log(seafood_info)
+                            switch(mem_level_no){
+                                case '1':
+                                    $('.show_seafood_wrap').empty();
+                                    for(i=0;i<seafood_info.length;i++){
+                                        if(seafood_info[i].seafoodLevel == 1){
+                                            $('.show_seafood_wrap').append(`<div>
+                                            <div class="show_seafood_img_div">
+                                                <img id="show_seafood_img_${i}" class="show_seafood_img" src="./images/${seafood_info[i].seafoodPic}">
+                                                <div id="show_seafood_price_${i}" class="show_seafood_price">${seafood_info[i].seafoodPrice}元</div>
+                                            </div>
+                                            <div class="show_seafood_point">${seafood_info[i].seafoodName} ${seafood_info[i].seafoodPoint}點</div>
+                                        </div>`)
+                                        }else{
+                                            $('.show_seafood_wrap').append(`<div>
+                                            <div class="show_seafood_img_div">
+                                                <img id="show_seafood_img_${i}" class="show_seafood_img" src="./images/unknow.png">
+                                                <div id="show_seafood_price_${i}" class="show_seafood_price">???元</div>
+                                            </div>
+                                            <div class="show_seafood_point">??? ?點</div>
+                                        </div>`)
+                                        }
+                                    }
+                                    break;
+                                case '2':
+                                    $('.show_seafood_wrap').empty();
+                                    for(i=0;i<seafood_info.length;i++){
+                                        if(seafood_info[i].seafoodLevel <= 2){
+                                            $('.show_seafood_wrap').append(`<div>
+                                            <div class="show_seafood_img_div">
+                                                <img id="show_seafood_img_${i}" class="show_seafood_img" src="./images/${seafood_info[i].seafoodPic}">
+                                                <div id="show_seafood_price_${i}" class="show_seafood_price">${seafood_info[i].seafoodPrice}元</div>
+                                            </div>
+                                            <div class="show_seafood_point">${seafood_info[i].seafoodName} ${seafood_info[i].seafoodPoint}點</div>
+                                        </div>`)
+                                        }else{
+                                            $('.show_seafood_wrap').append(`<div>
+                                            <div class="show_seafood_img_div">
+                                                <img id="show_seafood_img_${i}" class="show_seafood_img" src="./images/unknow.png">
+                                                <div id="show_seafood_price_${i}" class="show_seafood_price">???元</div>
+                                            </div>
+                                            <div class="show_seafood_point">??? ?點</div>
+                                        </div>`)
+                                        }
+                                    }
+                                    break;
+                                case '3':
+                                    $('.show_seafood_wrap').empty();
+                                    for(i=0;i<seafood_info.length;i++){
+                                        $('.show_seafood_wrap').append(`<div>
+                                        <div class="show_seafood_img_div">
+                                            <img id="show_seafood_img_${i}" class="show_seafood_img" src="./images/${seafood_info[i].seafoodPic}">
+                                            <div id="show_seafood_price_${i}" class="show_seafood_price">${seafood_info[i].seafoodPrice}元</div>
+                                        </div>
+                                        <div class="show_seafood_point">${seafood_info[i].seafoodName} ${seafood_info[i].seafoodPoint}點</div>
+                                    </div>`)
+                                    }
+                                    break;
+                                default:
+                                }
+                                //魚的價格hover
+                                $('.show_seafood_img_div').hover(function(e){
+                                    var last_num = e.target.id.substr(e.target.id.length-1,1);
+                                    $(`#show_seafood_img_${last_num}`).css('opacity','0');
+                                    $(`#show_seafood_price_${last_num}`).css('opacity','1');
+                                },function(e){
+                                    var last_num = e.target.id.substr(e.target.id.length-1,1);
+                                    $(`#show_seafood_img_${last_num}`).css('opacity','1');
+                                    $(`#show_seafood_price_${last_num}`).css('opacity','0');
+                                })
+                                //魚的價格hover
+                                    }
+                                }
+                                xhr3.open('GET', "http://localhost:8080/seafood_info.php");
+                                xhr3.send(null);
+                            }
+                        }
+                    }
+            var mem = {};
+            mem.level = memlevel.levelNo;
+            mem_level_no = memlevel.levelNo;
+            var mem_str = JSON.stringify(mem);
+            // FTP
+            // xhr.open('post', './php/member_level.php', true);
+
+            // windows
+            // xhr.open('post',  'http://localhost/dd106g3/member_level.php',  true);
+
+            // Mac
+            xhr2.open('POST', "http://localhost:8080/member_level.php");
+            xhr2.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            xhr2.send(mem_str);
+            //第二層ajax是藉由第一層撈出的會員等級，找出memberLevel那張資料表的所有欄位
+        }
+    }
+    // FTP
+    // xhr.open('post', './php/member_login.php', true);
+
+    // windows
+    // xhr.open('post',  'http://localhost/dd106g3/getlogininfo.php',  true);
+
+    // Mac
+    xhr.open('GET', "http://localhost:8080/getlogininfo.php");
+    xhr.send(null);
+})
+//第一層ajax是撈出會員等級
+
+//一載入頁面，撈出所有的球種類及機率
 $(document).ready(function(){
     var xhr = new XMLHttpRequest();
     xhr.onload = function(){
         if(xhr.status == 200){
-            var aaa = JSON.parse(xhr.responseText);
-            console.log(aaa.memId)
+            var mem_info = JSON.parse(xhr.responseText);
+            console.log(mem_info);
+            for(i = 0; i<mem_info.length;i++){
+                $('.ball_cate_div').append(`<div class="singke_ball_div">
+            <div>
+                ${mem_info[i].levelBall}
+            </div>
+            <div class="singke_ball_div_img">
+                <img src="./images/Group 71.png" alt="">
+            </div>
+            <div>
+                捕捉率：${mem_info[i].levelBallValue*100}%
+            </div>
+        </div>`)
+            }
         }
     }
-    xhr.open('post','http://localhost:8080/game_member_score.php',true);
+    xhr.open('GET', "http://localhost:8080/getmember_level_info.php");
     xhr.send(null);
 })
-//一進入網頁ajax會員的積分
+//一載入頁面，撈出所有的球種類及機率
 
-
-//魚的價格hover
+//一載入頁面，如果沒有登入會員，顯示的海鮮
 $(document).ready(function(){
-    $('.show_seafood_img_div').hover(function(e){
-        var last_num = e.target.id.substr(e.target.id.length-1,1);
-        $(`#show_seafood_img_${last_num}`).css('opacity','0');
-        $(`#show_seafood_price_${last_num}`).css('opacity','1');
-    },function(e){
-        var last_num = e.target.id.substr(e.target.id.length-1,1);
-        $(`#show_seafood_img_${last_num}`).css('opacity','1');
-        $(`#show_seafood_price_${last_num}`).css('opacity','0');
-    })
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            var seafood_info = JSON.parse(xhr.responseText);
+            console.log(seafood_info)
+            for(i=0;i<seafood_info.length;i++){
+                if(seafood_info[i].seafoodLevel == 1){
+                    $('.show_seafood_wrap').append(`<div>
+                    <div class="show_seafood_img_div">
+                        <img id="show_seafood_img_${i}" class="show_seafood_img" src="./images/${seafood_info[i].seafoodPic}">
+                        <div id="show_seafood_price_${i}" class="show_seafood_price">${seafood_info[i].seafoodPrice}元</div>
+                    </div>
+                    <div class="show_seafood_point">${seafood_info[i].seafoodName} ${seafood_info[i].seafoodPoint}點</div>
+                </div>`)
+                }else{
+                    $('.show_seafood_wrap').append(`<div>
+                    <div class="show_seafood_img_div">
+                        <img id="show_seafood_img_${i}" class="show_seafood_img" src="./images/unknow.png">
+                        <div id="show_seafood_price_${i}" class="show_seafood_price">???元</div>
+                    </div>
+                    <div class="show_seafood_point">??? ?點</div>
+                </div>`)
+                }
+            }
+        }
+    }
+    xhr.open('GET', "http://localhost:8080/seafood_info.php");
+    xhr.send(null);
 })
-//魚的價格hover
-
+//一載入頁面，如果沒有登入會員，顯示的海鮮
 
 // 畫面的寶貝球圖片
 Resources = {

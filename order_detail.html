@@ -1,167 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>訂位詳情</title>
-
-    <link rel="stylesheet" href="./css/order_detail.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="./css/order_detail.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
+
 </head>
+
 <body>
-    <div class="forALL">
-        <div class="header">
-            @@include('./layout/header.html')
+    @@include('./layout/header.html')
+
+    <main>
+        <div class="title">
+            @@include('./layout/h1_title.html')
         </div>
 
-       <div class="title">
-            @@include('./layout/h1_title.html')
-       </div>
-      
-        <div class="theForm">
-            <ul class="row">
-                <li class="col-xl-12" style="background-color: #001871;" >
-                    <div class="bar col-xl-12"> 
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">日期</div> 
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">港口</div> 
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">人數</div>
-                    </div>
-                </li>
-                <li class="col-xl-12">
-                    <div class="DT col-xl-12">
-                        <div class="date col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
-                            2020/05/01
+        <div class="wrapper">
+            <h3>套餐訂單明細</h3>
+            <div class="container order">
+                <div class="row mealtitle">
+                    <div class="d-none d-md-block col-md-4">
+                        <div class="row">
+                            <div class="col-6 col-md-12 divtitle">
+                                <p>套餐</p>
+                            </div>
+
                         </div>
-
-                        <div class="dock col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
-                            深澳港</div>
-
-                        <span class="people">2</span>人
                     </div>
-                </li>
-
-                <li class="col-xl-12" style="background-color: #001871;">
-                    <div class="bar col-xl-12">
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">菜色</div> 
-                        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-3">數量</div> 
-                        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-3">刪除</div> 
-                        <div class="col-xl-3 col-lg-2 col-md-2 col-sm-2 col-2">小計</div>
-                    </div>
-                </li>
-
-                <li class="col-xl-12">
-                    <ul class="dishes">
-                        <li class="meal col-xl-4 col-lg-4 col-md-4 col-sm-5 col-12">
-                            <div>
-                            <img src="https://realfood.tesco.com/media/images/RFO-1400x919-SeafoodLinguine-d1ae9818-c4bf-4066-8adb-acfd6c0ed088-0-1400x919.jpg">
-                            <br>
-                            <span>套餐</span>
-                            <div class="detail">鮭魚、鮮蚵、蝦類、干貝、魚類、透抽</div>
-                            </div> 
-                        </li>
-                        <li class="num col-xl-1 col-lg-1 col-md-1 col-sm-1 col-12">
-                            <div>
-                            <input type="number" value="1">
+                    <div class="d-none d-md-block col-md-2 ">
+                        <div class="row b">
+                            <div class="col-6 col-md-12 divtitle">
+                                <p>數量</p>
                             </div>
-                        </li>
-                        <li class="deleteBTN col-xl-1 col-lg-1 col-md-1 col-sm-1 col-12">
-                            <button>X</button>
-                        </li>
-                        <li class="price col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
-                            <div>5000元</div>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="col-xl-12" style="background-color: #001871;">
-                    <div class="bar col-xl-12">
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">客製化料理</div> 
-                        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-3">數量</div> 
-                        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-3">刪除</div> 
-                        <div class="col-xl-3 col-lg-2 col-md-2 col-sm-2 col-2">小計</div></div>
-                </li>
-
-                <li class="col-xl-12">
-                    <ul class="custom">
-                        <li class="col-xl-3 col-lg-3 col-md-3 col-sm-5 col-12">
-                            <div>
-                            <img src="images/cook4.png">
-                            <br>
-                            <span>奶油蒜香蝦</span>
+                        </div>
+                    </div>
+                    <div class="d-none d-md-block col-md-3 ">
+                        <div class="row">
+                            <div class="col-6 col-md-12 divtitle ">
+                                <p>單價</p>
                             </div>
-                        </li>
-                        <li class="num col-xl-1 col-lg-1 col-md-1 col-sm-3 col-12">
-                            <div>
-                            <input type="number" value="3" min="0">
+                        </div>
+                    </div>
+                    <div class="d-none d-md-block col-md-3 ">
+                        <div class="row">
+                            <div class="col-6 col-md-12 divtitle ">
+                                <p>小計</p>
                             </div>
-                        </li>
-                        <li class="deleteBTN col-xl-1 col-lg-1 col-md-1 col-sm-1 col-12">
-                            <button>X</button>
-                        </li>
-                        <li class="price col-xl-1 col-lg-2 col-md-2 col-sm-2 col-12">
-                            <div>600元</div>
-                        </li>
-                        <li class="btn col-xl-1 col-lg-1 col-md-1 col-sm-1 col-12">
-                            <a href="game.html">
-                               <button>去撈海鮮</button> 
-                            </a>
-                            
-                        </li>
-                    </ul>  
-                </li>
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="row mdmeal mdmealA align-items-center">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-6 col-md-12 divorder">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <img src="./images/menupic1.png " alt="">
+                                    </div>
+                                    <div class="col-5">
+                                        <p class="mealnow">A套餐</p>
+                                    </div>
+                                </div>
 
-                <li class="col-xl-12" style="background-color: #001871;">
-                    <div class="bar_empty col-xl-12"></div>
-                </li>
-                <li class="total col-xl-12">
-                    <h4>總金額</h4><span>5500元</span>
-                    <div class="clear"></div>
-                    <div class="select col-sm-4 col-8">
-                         使用點數<select>
-                        <option>100點</option>
-                        <option>200點</option>
-                        <option>300點</option>
-                     </select>
+                            </div>
+                        </div>
                     </div>
-                    <div class="clear"></div>
-                </li>
-                <li class="info col-xl-12">
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <p>訂購人姓名</p>
-                        <input type="text" class="orderName">
-                        <div class="clear"></div>
+                    <div class="col-md-2">
+                        <span class="meal1amount"></span>
                     </div>
-                    
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <p>訂購人電話</p>
-                        <input type="text" class="orderTel">
-                        <div class="clear"></div>
+                    <div class="col-md-3">
+                        <span class="meal1price"></span>元
                     </div>
-                    
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <p>訂購人信箱</p>
-                        <input type="text" class="orderEmail">
-                        <div class="clear"></div>
+                    <div class="col-md-3">
+                        <span class="meal1subtotal"></span>元
                     </div>
-                    
-                    <button type="submit" class="order col-xl-2 col-lg-2 col-md-3 col-sm-3">
-                        立即訂位</button>
-                </li>
-                    
-                
-            </ul>
-         </div>    
-    </div>  
-   
-    @@include(.'./layout/reboot.html')
-    @@include('./layout/foot.html')
-    @@include('all_js.html')
+                </div>
+                <div class="row smmealA ">
+                    <div class="col-12">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <p>A套餐</p>
+                            </div>
+                            <div class="col-6">
+                                <img src="./images/menupic1.png " alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="row align-items-center divorder">
+                            <div class="col-6 d-md-none">
+                                <p>數量</p>
+                            </div>
+                            <div class="col-6 col-md-12">
+                                <div class="a">
+                                    <p class="meal1amount"></p>
+                                </div>
+                            </div>
 
-<!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="row divorder">
+                            <div class="col-6 d-md-none">
+                                <p>單價</p>
+                            </div>
+                            <div class="col-6 col-md-12">
+                                <span class="meal1price"></span>元
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="row divorder
+                        ">
+                            <div class="col-6 d-md-none">
+                                <p>小計</p>
+                            </div>
+                            <div class="col-6 col-md-12">
+                                <span class="meal1subtotal"></span>元
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line lineA"></div>
+                <div class="row mdmeal mdmealB align-items-center">
+                    <div class="col-md-4 ">
+                        <div class="row">
+                            <div class="col-6 col-md-12 divorder">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <img src="./images/menupic2.png " alt="">
+                                    </div>
+                                    <div class="col-5">
+                                        <p class="mealnow">B套餐</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="meal2amount"></p>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="meal2price"></span>元
+                    </div>
+                    <div class="col-md-3">
+                        <span class="meal2subtotal"></span>元
+                    </div>
+                </div>
+                <div class="row smmealB">
+                    <div class="col-12">
+                        <div class="row align-items-center divorder">
+                            <div class="col-6">
+                                <p>B套餐</p>
+                            </div>
+                            <div class="col-6">
+                                <img src="./images/menupic2.png " alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="row align-items-center divorder">
+                            <div class="col-6 d-md-none">
+                                <p>數量</p>
+                            </div>
+                            <div class="col-6 col-md-12">
+                                <p class="meal2amount"></p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="row divorder">
+                            <div class="col-6 d-md-none">
+                                <p>單價</p>
+                            </div>
+                            <div class="col-6 col-md-12">
+                                <span class="meal2price"></span>元
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="row divorder">
+                            <div class="col-6 d-md-none">
+                                <p>小計</p>
+                            </div>
+                            <div class="col-6 col-md-12">
+                                <span class="meal2subtotal"></span>元
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line lineB"></div>
+                <div class="row mdmeal mdmealC align-items-center">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-6 col-md-12 divorder">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <img src="./images/menupic3.png " alt="">
+                                    </div>
+                                    <div class="col-5 ">
+                                        <p class="mealnow">C套餐</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="meal3amount"></p>
+                    </div>
+                    <div class="col-md-3 ">
+                        <span class="meal3price"></span>元
+                    </div>
+                    <div class="col-md-3 ">
+                        <span class="meal3subtotal "></span>元
+                    </div>
+                </div>
+                <div class="row smmealC ">
+                    <div class="col-12 ">
+                        <div class="row align-items-center">
+                            <div class="col-6 ">
+                                <p>C套餐</p>
+                            </div>
+                            <div class="col-6 ">
+                                <img src="./images/menupic3.png " alt=" ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 ">
+                        <div class="row align-items-center divorder">
+                            <div class="col-6 d-md-none">
+                                <p>數量</p>
+                            </div>
+                            <div class="col-6 col-md-12 ">
+                                <p class="meal3amount "></p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 ">
+                        <div class="row divorder">
+                            <div class="col-6 d-md-none ">
+                                <p>單價</p>
+                            </div>
+                            <div class="col-6 col-md-12 ">
+                                <span class="meal3price"></span>元
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 ">
+                        <div class="row divorder">
+                            <div class="col-6 d-md-none">
+                                <p>小計</p>
+                            </div>
+                            <div class="col-6 col-md-12">
+                                <span class="meal3subtotal "></span>元
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line lineC"></div>
+                <div class="row justify-content-end ">
+                    <div class="col-6 col-md-3">
+                        <p>總計</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <span class="mealtotal"></span>元
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper ">
+            <h3>客製化料理訂單明細</h3>
+            <div class="container order ">
+                <div class="row custotitle ">
+                    <div class="d-none d-md-block col-md-4 ">
+                        <div class="row ">
+                            <div class="col-6 col-md-12 divtitle ">
+                                <p>客製化料理</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="d-none d-md-block col-md-2 ">
+                        <div class="row ">
+                            <div class="col-6 col-md-12 divtitle ">
+                                <p>數量</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-none d-md-block col-md-3 ">
+                        <div class="row ">
+                            <div class="col-6 col-md-12 divtitle ">
+                                <p>單價</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-none d-md-block col-md-3 ">
+                        <div class="row ">
+                            <div class="col-6 col-md-12 divtitle ">
+                                <p>小計</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="line "></div>
+                <div class="row mdcusto align-items-center ">
+                    <div class="col-md-4 ">
+                        <div class="row ">
+                            <div class="col-6 col-md-12 divorder ">
+                                <div class="row align-items-center ">
+                                    <div class="col-6 ">
+                                        <img src="./images/menupic1.png " alt=" ">
+                                    </div>
+                                    <div class="col-5 divorder ">
+                                        <p class="custonow ">海膽金箔</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 divorder ">
+                        <p class="custocount ">3</p>
+                    </div>
+                    <div class="col-md-3 divorder ">
+                        <p class="custoprice ">500元</p>
+                    </div>
+                    <div class="col-md-3 divorder ">
+                        <p class="custoamount ">1500元</p>
+                    </div>
+
+                </div>
+                <div class="row smcusto ">
+                    <div class="col-12 ">
+                        <div class="row align-items-center divorder ">
+                            <div class="col-6 ">
+                                <p>海膽金箔</p>
+                            </div>
+                            <div class="col-6 ">
+                                <img src="./images/menupic1.png " alt=" ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 ">
+                        <div class="row align-items-center ">
+                            <div class="col-6 d-md-none divtitle ">
+                                <p>數量</p>
+                            </div>
+                            <div class="col-6 col-md-12 divorder ">
+                                <p class="custocount ">3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 ">
+                        <div class="row ">
+                            <div class="col-6 d-md-none divtitle ">
+                                <p>單價</p>
+                            </div>
+                            <div class="col-6 col-md-12 divorder ">
+                                <p class="custoprice ">500元</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 ">
+                        <div class="row ">
+                            <div class="col-6 d-md-none divtitle ">
+                                <p>小計</p>
+                            </div>
+                            <div class="col-6 col-md-12 divorder ">
+                                <p class="custoamount ">1500元</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="line "></div>
+                <div class="row custoorder justify-content-end ">
+                    <div class="col-6 col-md-3 ">
+                        <p>總計</p>
+                    </div>
+                    <div class="col-6 col-md-3 ">
+                        <span class="custototal">1500</span>元
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="wrapper ">
+            <h3>訂位付款資訊</h3>
+            <div class="container order ">
+                <div class="row">
+                    <div class="col-12 col-md-4 ">
+                        <div class="row date ">
+                            <div class="col-12 ">
+                                <div class="row ">
+                                    <div class="col-3 divorder">
+                                        <p>日期</p>
+                                    </div>
+                                    <div class="col-9 divorder ">
+                                        <p class="datenow"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 ">
+                                <div class="row ">
+                                    <div class="col-3 divorder">
+                                        <p>港口</p>
+                                    </div>
+                                    <div class="col-9 divorder ">
+                                        <p class="portnow"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 ">
+                                <div class="row ">
+                                    <div class="col-3 divorder ">
+                                        <p>人數</p>
+                                    </div>
+                                    <div class="col-9 divorder ">
+                                        <p class="peoplenow"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 ">
+                        <div class="row people">
+                            <div class="col-12 ">
+                                <div class="row ">
+                                    <div class="col-3 divinput ">
+                                        <p>姓名</p>
+                                    </div>
+                                    <div class="col-9 divinput ">
+                                        <input type="text" name="ordername" id="ordername">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 ">
+                                <div class="row ">
+                                    <div class="col-3 divinput ">
+                                        <p>電話</p>
+                                    </div>
+                                    <div class="col-9 divinput ">
+                                        <input type="tel" name="ordertel" id="ordertel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 ">
+                                <div class="row ">
+                                    <div class="col-3 divinput ">
+                                        <p>信箱</p>
+                                    </div>
+                                    <div class="col-9 divinput">
+                                        <input type="email" name="orderemail" id="orderemail">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 ">
+                        <div class="row pay ">
+                            <div class="col-12 ">
+                                <div class="row ">
+                                    <div class="col-3 divorder ">
+                                        <p>小計</p>
+                                    </div>
+                                    <div class="col-9 divorder ">
+                                        <span class="subtotal"></span>元
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 ">
+                                <div class="row ">
+                                    <div class="col-3 divinput">
+                                        <p>點數</p>
+                                    </div>
+                                    <div class="col-9 divinput">
+                                        <input type="number " name="ordepoint" id="ordepoint">點
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 ">
+                                <div class="row ">
+                                    <div class="col-3 divorder ">
+                                        <p>總計</p>
+                                    </div>
+                                    <div class="col-9 divorder ">
+                                        <span class="total"></span>元
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center ">
+                    <div class="col-6 col-md-3">
+                        <a href="order.html " class="button previous ">上一步</a>
+                    </div>
+                    <div class="col-6 col-md-3 ">
+                        <!-- <a href="main.html " class="button ">送出訂單</a> -->
+                        <!-- <a href="" class="button next">送出訂單</a> -->
+                        <div class="button next">送出訂單</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </main>
+
+
+    @@include('./layout/reboot.html')
+    <footer>
+        @@include('./layout/foot.html')
+    </footer>
+    @@include('./all_js.html')
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous ">
+    </script>
+    <script src="./js/order_detail.js "></script>
+
+
 </body>
+
 </html>
