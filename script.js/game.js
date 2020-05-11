@@ -1,6 +1,21 @@
 //會員等級初始化，全域變數，想到到的地訪都可
-mem_level_no="";
-//會員等級初始化，全域變數，想到到的地訪都可
+mem_level_no=0;
+
+//成功率初始化
+successRate = 0;
+
+//分數初始化
+score = 0;
+
+//點數初始化
+point = 0;
+
+// 把海鮮存入session的key初值
+session_id = 0;
+
+// 把會員資料初始化，如果沒登入是空的物件
+memberLevel={};
+
 
 //第一層ajax是撈出會員等級
 $(document).ready(function(){
@@ -13,13 +28,26 @@ $(document).ready(function(){
         xhr2.onload = function(){
             if(xhr2.status == 200){
                 if(xhr2.responseText){
-                    console.log(JSON.parse(xhr2.responseText))
+                    memberLevel = JSON.parse(xhr2.responseText);
+                    //這邊要把遊戲頁面的資料都依照會員等級放進去
+                    Resources = {
+                        pokeball: `./images/${memberLevel.levelSrc}`,
+                        pokeballActive: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballactive.png',
+                        pokeballClosed: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballclosed.png'
+                    };
+                    $('.fake_ball').css('background-image',`url("./images/${memberLevel.levelSrc}")`);
+
+                    //設定捕捉機率
+                    successRate = memberLevel.levelBallValue*100;
+                    //設定捕捉機率
+
+                    //這邊要把遊戲頁面的資料都依照會員等級放進去
+
                     //第三層ajax是如果前面兩層ajax有成功，代表有會員登入，就去把對應等級的海鮮顯示出來，如果沒成功代表沒會員，就顯示html的
                     var xhr3 = new XMLHttpRequest();
                     xhr3.onload = function(){
                         if(xhr3.status == 200){
-                            var seafood_info = JSON.parse(xhr3.responseText);
-                            console.log(seafood_info)
+                            seafood_info = JSON.parse(xhr3.responseText);
                             switch(mem_level_no){
                                 case '1':
                                     $('.show_seafood_wrap').empty();
@@ -131,15 +159,14 @@ $(document).ready(function(){
     var xhr = new XMLHttpRequest();
     xhr.onload = function(){
         if(xhr.status == 200){
-            var mem_info = JSON.parse(xhr.responseText);
-            console.log(mem_info);
+            mem_info = JSON.parse(xhr.responseText);
             for(i = 0; i<mem_info.length;i++){
                 $('.ball_cate_div').append(`<div class="singke_ball_div">
             <div>
                 ${mem_info[i].levelBall}
             </div>
             <div class="singke_ball_div_img">
-                <img src="./images/Group 71.png" alt="">
+                <img src="./images/${mem_info[i].levelSrc}" alt="">
             </div>
             <div>
                 捕捉率：${mem_info[i].levelBallValue*100}%
@@ -158,8 +185,7 @@ $(document).ready(function(){
     var xhr = new XMLHttpRequest();
     xhr.onload = function(){
         if(xhr.status == 200){
-            var seafood_info = JSON.parse(xhr.responseText);
-            console.log(seafood_info)
+            seafood_info = JSON.parse(xhr.responseText);
             for(i=0;i<seafood_info.length;i++){
                 if(seafood_info[i].seafoodLevel == 1){
                     $('.show_seafood_wrap').append(`<div>
@@ -179,49 +205,29 @@ $(document).ready(function(){
                 </div>`)
                 }
             }
+            Resources = {
+                pokeball: './images/Group%2071.png',
+                pokeballActive: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballactive.png',
+                pokeballClosed: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballclosed.png'
+            };
+            successRate = 50;
+            //魚的價格hover
+            $('.show_seafood_img_div').hover(function(e){
+                var last_num = e.target.id.substr(e.target.id.length-1,1);
+                $(`#show_seafood_img_${last_num}`).css('opacity','0');
+                $(`#show_seafood_price_${last_num}`).css('opacity','1');
+            },function(e){
+                var last_num = e.target.id.substr(e.target.id.length-1,1);
+                $(`#show_seafood_img_${last_num}`).css('opacity','1');
+                $(`#show_seafood_price_${last_num}`).css('opacity','0');
+            })
+            //魚的價格hover
         }
     }
     xhr.open('GET', "http://localhost:8080/seafood_info.php");
     xhr.send(null);
 })
 //一載入頁面，如果沒有登入會員，顯示的海鮮
-
-// 畫面的寶貝球圖片
-Resources = {
-    pokeball: './images/Group%2071.png',
-    pokeballActive: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballactive.png',
-    pokeballClosed: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballclosed.png'
-};
-
-///////這邊要改成依照會員等級發球種
-//成功率調整
-// successRate = 0;
-// $(document).ready(function(){
-//     $('.ballimg').click(function(e){
-//         $('#ball').css('background-image',`url(${e.target.src})`)
-//         $('.fake_ball').css('background-image',`url(${e.target.src})`)
-//         $(this).css('opacity','1')
-//         $('.ballimg').not(this).css('opacity','0.5')
-//         //平民球
-//         if(e.target.src == 'http://127.0.0.1:5500/source/testimg/Group%2071.png'){
-//             successRate = 0;
-//             Resources.pokeball ='http://127.0.0.1:5500/source/testimg/Group%2071.png'
-//         //海鷗球
-//         }else if(e.target.src == 'http://127.0.0.1:5500/source/testimg/Group%2074.png'){
-//             successRate = 50;
-//             Resources.pokeball ='http://127.0.0.1:5500/source/testimg/Group%2074.png'
-//         //炫富球
-//         }else if(e.target.src == 'http://127.0.0.1:5500/source/testimg/Group%2075.png'){
-//             successRate = 100;
-//             Resources.pokeball ='http://127.0.0.1:5500/source/testimg/Group%2075.png'
-//         }
-//     })
-// })
-
-//分數初始化
-score = 0
-// 把海鮮存入session的key初值
-session_id = 0;
 
 //遊戲開始按鈕
 $(document).ready(function(){
@@ -234,11 +240,43 @@ $(document).ready(function(){
 
         $('#game_start').css('display','none');
         $('#asd,#asd_fail,.game_statement_bottom').css('display','none');
+
+        seafood_level_num = 0
         $(document).ready(function(){
-            //隨機出現的八種海鮮
-            var seafood_img = anime.random(1,8);
-            $('#target').css('background-image',`url("./images/seafood${seafood_img}.png")`)
+            //依照會員等級出現的海鮮
+            switch(mem_level_no){
+                case '1':
+                    for(i=0;i<seafood_info.length;i++){
+                        if(seafood_info[i].seafoodLevel == 1){
+                            seafood_level_num += 1;
+                        }
+                    }
+                    var seafood_img = anime.random(1,seafood_level_num);
+                    $('#target').css('background-image',`url("./images/seafood${seafood_img}.svg")`);
+                    seafood_level_num =0;
+                    break;
+                case '2':
+                    for(i=0;i<seafood_info.length;i++){
+                        if(seafood_info[i].seafoodLevel <= 2){
+                            seafood_level_num += 1;
+                        }
+                    }
+                    var seafood_img = anime.random(1,seafood_level_num);
+                    $('#target').css('background-image',`url("./images/seafood${seafood_img}.svg")`);
+                    seafood_level_num =0;
+                    break;
+                case '3':
+                    var seafood_img = anime.random(1,seafood_info.length);
+                    $('#target').css('background-image',`url("./images/seafood${seafood_img}.svg")`);
+                    break;
+                default:
+                    var seafood_img = anime.random(1,5);
+                    $('#target').css('background-image',`url("./images/seafood${seafood_img}.svg")`);
+                    break;
+            }
+            //依照會員等級出現的海鮮
         })
+
         $('#fake_ball').mousemove(function(){
             $(this).css('cursor','pointer');
         })
@@ -655,7 +693,7 @@ $(document).ready(function(){
             var ringRect = (document.getElementById('ring-active')).getBoundingClientRect();
         
             //成功率
-            var successRate = ((150 - ringRect.width) / 150) * 100;
+            // var successRate = ((150 - ringRect.width) / 150) * 100;
             var seed = getRandNum(0, 100);
             setTimeout(function(){
         
@@ -699,64 +737,169 @@ $(document).ready(function(){
                                 $('.capture_poke').append(`<div><img src="./images/seafood${target_img}.png"></div>`)
                                 //存到session裡面
                                 stroge = localStorage;
-                                stroge.setItem(session_id,`./images/seafood${target_img}.png`);
+                                stroge.setItem(session_id,`./images/seafood${target_img}.svg`);
                                 session_id++;
-                                switch(target_img){
-                                    case '1':
-                                        score += 10;
-                                        $('#mem_score,#mem_point').html(score)
-                                        $('#final_score,#final_point').html(score)
-                                        end_game();
-                                        break;
-                                    case '2':
-                                        score += 20;
-                                        $('#mem_score,#mem_point').html(score)
-                                        $('#final_score,#final_point').html(score)
-                                        end_game();
-                                        break;
-                                    case '3':
-                                        score += 30;
-                                        $('#mem_score,#mem_point').html(score)
-                                        $('#final_score,#final_point').html(score)
-                                        end_game();
-                                        break;
-                                    case '4':
-                                        score += 40;
-                                        $('#mem_score,#mem_point').html(score)
-                                        $('#final_score,#final_point').html(score)
-                                        end_game();
-                                        break;
-                                    case '5':
-                                        score += 50;
-                                        $('#mem_score,#mem_point').html(score)
-                                        $('#final_score,#final_point').html(score)
-                                        end_game();
-                                        break;
-                                    case '6':
-                                        score += 60;
-                                        $('#mem_score,#mem_point').html(score)
-                                        $('#final_score,#final_point').html(score)
-                                        end_game();
-                                        break;
-                                    case '7':
-                                        score += 70;
-                                        $('#mem_score,#mem_point').html(score)
-                                        $('#final_score,#final_point').html(score)
-                                        end_game();
-                                        break;
-                                    case '8':
-                                        score += 80;
-                                        $('#mem_score,#mem_point').html(score)
-                                        $('#final_score,#final_point').html(score)
-                                        end_game();
-                                        break;
-                                    default:
+                                if(memberLevel.memId){
+                                    switch(target_img){
+                                        case '1':
+                                            point += parseInt(seafood_info[0].seafoodPoint);
+                                            score += parseInt(seafood_info[0].seafoodScore) ;
+                                            $('#mem_score,#final_score').html(score);
+                                            $('#mem_point,#final_point').html(point);
+                                            update_mem_info()
+                                            end_game();
+                                            break;
+                                        case '2':
+                                            point += parseInt(seafood_info[1].seafoodPoint);
+                                            score += parseInt(seafood_info[1].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            update_mem_info()
+                                            end_game();
+                                            break;
+                                        case '3':
+                                            point += parseInt(seafood_info[2].seafoodPoint);
+                                            score += parseInt(seafood_info[2].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            update_mem_info()
+                                            end_game();
+                                            break;
+                                        case '4':
+                                            point += parseInt(seafood_info[3].seafoodPoint);
+                                            score += parseInt(seafood_info[3].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            update_mem_info()
+                                            end_game();
+                                            break;
+                                        case '5':
+                                            point += parseInt(seafood_info[4].seafoodPoint);
+                                            score += parseInt(seafood_info[4].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            update_mem_info()
+                                            end_game();
+                                            break;
+                                        case '6':
+                                            point += parseInt(seafood_info[5].seafoodPoint);
+                                            score += parseInt(seafood_info[5].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            update_mem_info()
+                                            end_game();
+                                            break;
+                                        case '7':
+                                            point += parseInt(seafood_info[6].seafoodPoint);
+                                            score += parseInt(seafood_info[6].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            update_mem_info()
+                                            end_game();
+                                            break;
+                                        case '8':
+                                            point += parseInt(seafood_info[7].seafoodPoint);
+                                            score += parseInt(seafood_info[7].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            update_mem_info()
+                                            end_game();
+                                            break;
+                                        default:
+                                    }
+                                }else{
+                                    switch(target_img){
+                                        case '1':
+                                            point += parseInt(seafood_info[0].seafoodPoint);
+                                            score += parseInt(seafood_info[0].seafoodScore) ;
+                                            $('#mem_score,#final_score').html(score);
+                                            $('#mem_point,#final_point').html(point);
+                                            end_game();
+                                            break;
+                                        case '2':
+                                            point += parseInt(seafood_info[1].seafoodPoint);
+                                            score += parseInt(seafood_info[1].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            end_game();
+                                            break;
+                                        case '3':
+                                            point += parseInt(seafood_info[2].seafoodPoint);
+                                            score += parseInt(seafood_info[2].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            end_game();
+                                            break;
+                                        case '4':
+                                            point += parseInt(seafood_info[3].seafoodPoint);
+                                            score += parseInt(seafood_info[3].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            end_game();
+                                            break;
+                                        case '5':
+                                            point += parseInt(seafood_info[4].seafoodPoint);
+                                            score += parseInt(seafood_info[4].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            end_game();
+                                            break;
+                                        case '6':
+                                            point += parseInt(seafood_info[5].seafoodPoint);
+                                            score += parseInt(seafood_info[5].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            end_game();
+                                            break;
+                                        case '7':
+                                            point += parseInt(seafood_info[6].seafoodPoint);
+                                            score += parseInt(seafood_info[6].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            end_game();
+                                            break;
+                                        case '8':
+                                            point += parseInt(seafood_info[7].seafoodPoint);
+                                            score += parseInt(seafood_info[7].seafoodScore);
+                                            $('#mem_score,#final_score').html(score)
+                                            $('#mem_point,#final_point').html(point)
+                                            end_game();
+                                            break;
+                                        default:
+                                    }
                                 }
                             })
                             //抓到後換海鮮
                             $(document).ready(function(){
-                                var seafood_img = anime.random(1,8);
-                                $('#target').css('background-image',`url("./images/seafood${seafood_img}.png")`)
+                                //依照會員等級出現的海鮮
+                                switch(mem_level_no){
+                                    case '1':
+                                        for(i=0;i<seafood_info.length;i++){
+                                            if(seafood_info[i].seafoodLevel == 1){
+                                                seafood_level_num += 1;
+                                            }
+                                        }
+                                        var seafood_img = anime.random(1,seafood_level_num);
+                                        $('#target').css('background-image',`url("./images/seafood${seafood_img}.svg")`);
+                                        seafood_level_num =0;
+                                        break;
+                                    case '2':
+                                        for(i=0;i<seafood_info.length;i++){
+                                            if(seafood_info[i].seafoodLevel <= 2){
+                                                seafood_level_num += 1;
+                                            }
+                                        }
+                                        var seafood_img = anime.random(1,seafood_level_num);
+                                        $('#target').css('background-image',`url("./images/seafood${seafood_img}.svg")`);
+                                        seafood_level_num =0;
+                                        break;
+                                    case '3':
+                                        var seafood_img = anime.random(1,seafood_info.length);
+                                        $('#target').css('background-image',`url("./images/seafood${seafood_img}.svg")`);
+                                        break;
+                                    default:
+                                }
+                                //依照會員等級出現的海鮮
                             })
                             //如果球丟完了，遊戲結束
                             function end_game(){
@@ -802,8 +945,35 @@ $(document).ready(function(){
                             captureStatus.classList.toggle('hidden');
                              //沒抓到後換海鮮
                              $(document).ready(function(){
-                                var seafood_img = anime.random(1,8);
-                                $('#target').css('background-image',`url("./images/seafood${seafood_img}.png")`)
+                                //依照會員等級出現的海鮮
+                                switch(mem_level_no){
+                                    case '1':
+                                        for(i=0;i<seafood_info.length;i++){
+                                            if(seafood_info[i].seafoodLevel == 1){
+                                                seafood_level_num += 1;
+                                            }
+                                        }
+                                        var seafood_img = anime.random(1,seafood_level_num);
+                                        $('#target').css('background-image',`url("./images/seafood${seafood_img}.svg")`);
+                                        seafood_level_num =0;
+                                        break;
+                                    case '2':
+                                        for(i=0;i<seafood_info.length;i++){
+                                            if(seafood_info[i].seafoodLevel <= 2){
+                                                seafood_level_num += 1;
+                                            }
+                                        }
+                                        var seafood_img = anime.random(1,seafood_level_num);
+                                        $('#target').css('background-image',`url("./images/seafood${seafood_img}.svg")`);
+                                        seafood_level_num =0;
+                                        break;
+                                    case '3':
+                                        var seafood_img = anime.random(1,seafood_info.length);
+                                        $('#target').css('background-image',`url("./images/seafood${seafood_img}.svg")`);
+                                        break;
+                                    default:
+                                }
+                                //依照會員等級出現的海鮮
                             })
                             seafood_animate.play();//球搖三下結束後，海鮮繼續跑
                             if(ball_num <= 0){
@@ -904,6 +1074,81 @@ $(document).ready(function(){
         storge.clear();
     })
 })
+//抓到海鮮後更新積分及點數
+function update_mem_info(){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            var mem_info_detail = JSON.parse(xhr.responseText);
+            //判斷是否到達了升級銀鷗積分
+            if(mem_info_detail.levelNo == 1){
+                if(mem_info_detail.memScore >= mem_info[1].levelScore && mem_info_detail.memScore < mem_info[2].levelScore){
+                    var xhr2 = new XMLHttpRequest();
+                    xhr2.onload = function(){
+                        if(xhr2.status == 200){
+                            var memlevel_score = JSON.parse(xhr2.responseText);
+                            alert(`恭喜升等為${memlevel_score.levelName}會員`);
+                            Resources = {
+                                pokeball: `./images/${memlevel_score.levelSrc}`,
+                                pokeballActive: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballactive.png',
+                                pokeballClosed: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballclosed.png'
+                            };
+                            $('.fake_ball').css('background-image',`url("./images/${memlevel_score.levelSrc}")`);
+    
+                            //設定捕捉機率
+                            successRate = memberLevel.levelBallValue*100;
+                            // 設定捕捉機率
+                        }
+                    }
+                    var mem_email = {};
+                    mem_email.email = mem_info_detail.memId;
+                    var mem_email_str = JSON.stringify(mem_email);
+                    xhr2.open('POST','http://localhost:8080/update_mem_levelno.php');
+                    xhr2.send(mem_email_str);
+                }
+            }
+            //判斷是否到達了升級銀鷗積分
+
+            //判斷是否到達了升級金鷗積分
+            if(mem_info_detail.levelNo == 2){
+                if(mem_info_detail.memScore >= mem_info[2].levelScore){
+                    var xhr2 = new XMLHttpRequest();
+                    xhr2.onload = function(){
+                        if(xhr2.status == 200){
+                            var memlevel_score = JSON.parse(xhr2.responseText);
+                            alert(`恭喜升等為${memlevel_score.levelName}會員`);
+                            Resources = {
+                                pokeball: `./images/${memlevel_score.levelSrc}`,
+                                pokeballActive: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballactive.png',
+                                pokeballClosed: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballclosed.png'
+                            };
+                            $('.fake_ball').css('background-image',`url("./images/${memlevel_score.levelSrc}")`);
+    
+                            //設定捕捉機率
+                            successRate = memberLevel.levelBallValue*100;
+                            // 設定捕捉機率
+                        }
+                    }
+                    var mem_email = {};
+                    mem_email.email = mem_info_detail.memId;
+                    var mem_email_str = JSON.stringify(mem_email);
+                    xhr2.open('POST','http://localhost:8080/update_mem_levelno2.php');
+                    xhr2.send(mem_email_str);
+                }
+            }
+            //判斷是否到達了升級金鷗積分
+        }
+    }
+    var point_score = {};
+    point_score.score = score;
+    point_score.point = point;
+    point_score.member = memberLevel.memId;
+    var point_score_str = JSON.stringify(point_score);
+    xhr.open('POST','http://localhost:8080/member_seafood_point_score.php')
+    xhr.send(point_score_str)
+}
+//抓到海鮮後更新積分及點數
+
 
 //找到物件的中心點
 function getCenterCoords(elementId) {
