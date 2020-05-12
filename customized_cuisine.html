@@ -7,13 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="./images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/customized_cuisine.css">
-    <script src="./jquery/jquery.min.js"></script>
-    <script src="./jquery/jquery-ui.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-
     <title>客製化料理</title>
-
 </head>
 
 <body>
@@ -24,105 +18,28 @@
         <div class="attn on">
             <div class="people"></div>
             <div class="talking-here">
-                <div class="talk act1 on">
-                    <!-- 這位客人，您似乎還沒進行登入 -->
-                </div>
-                <div class="talk act2">
-                    <!-- 提醒您，在沒有登入的情況下製作料理會無法儲存料理 -->
-                </div>
-                <div class="talk act3">
-                    <!-- 請問要進行登入嗎？ -->
-                </div>     
-                <div class="talk act4">
-                    <!-- 這樣呀...我明白了<br>
-                    祝您有段美好的時光 -->
-                </div>
-                <div class="click-to-next">click</div>
+                <!-- 有玩遊戲、沒有登入 -->
+                <div class="talk act1 on"></div>
+                <div class="talk act2"></div>
+                <div class="talk act3"></div>
+                <div class="talk act4"></div>
+
+                <!-- 沒有海鮮就進入頁面 -->
+                <div class="talk no-fish1"></div>
+                <div class="talk no-fish2"></div>
             </div>
-            
+
         </div>
 
-        <script>
-            // 打字效果
-            var str = "這位客人，您似乎還沒進行登入";
-            var str2 =" 提醒您，在沒有登入的情況下製作料理會無法儲存料理";
-            var str3 = "請問要進行登入嗎？";
-            var str4 = "這樣呀...我明白了。祝您有段美好的時光";
-            var btny = document.createElement('div');
-            btny.textContent = "是";
-            btny.setAttribute('class','yes');
-            var btnn = document.createElement('div');
-            btnn.textContent = "否";
-            btnn.setAttribute('class','no');
 
-            var i = 0, j = 0, k= 0, l = 0;
-            function typing(){
-                if (i <= str.length) {
-                    $(".talk")[0].innerHTML = str.slice(0, i++) ;
-                    setTimeout('typing()', 100);//遞歸調用
-                }
-            }
-            setTimeout('typing()', 2500);
-            
-            function typing2(){
-                if (j <= str2.length) {
-                    $(".talk")[1].innerHTML =str2.slice(0, j++) ;
-                        setTimeout('typing2()', 100);
-                    }
-            }
-            function typing3(){
-                if (k <= str3.length) {
-                    $(".talk")[2].innerHTML =str3.slice(0, k++);
-                    setTimeout('typing3()', 100);
-                    $(".talk")[2].appendChild(btny);
-                    $(".talk")[2].appendChild(btnn);     
-                }else{
-                    $(".no").click(function () {
-                    $(".act3").removeClass("on");
-                    $(".act4").addClass("on");
-                    setTimeout('typing4()', 100);
-                    }); 
-                }
-            }
-            function typing4(){
-                if (l <= str4.length) {
-                $(".talk")[3].innerHTML =str4.slice(0, l++);
-                    setTimeout('typing4()', 100);
-                }
-            }
-                
-            $(".talking-here").click(function () {
-                if ($(".act1").hasClass("on") == 1) {
-                    $(".act1").removeClass("on");
-                    $(".act2").addClass("on");
-                    setTimeout('typing2()', 300);
-                } else if ($(".act2").hasClass("on") == 1) {
-                    $(".act2").removeClass("on");
-                    $(".act3").addClass("on");
-                    setTimeout('typing3()', 300);
-                } else if ($(".act4").hasClass("on") == 1) {
-                    $(".attn").delay(3000).fadeOut(1000);
-                    $("main").addClass("on");
-                }
-            });
-        </script>
-        <script>
-            
-        </script>
         <main>
             @@include('./layout/h1_title.html')
-            <div class="intro">
+            <!-- <div class="intro">
                 <p>
                     只能選擇菜單上的菜色讓您感到了無新意？<br>
                     這裡歡迎您盡情發揮想像，來創造獨一無二的客製化料理吧！
                 </p>
-                <p>沒有食材可以製作料理嗎？<br>
-                    趕快去GET到尚青ㄟ海鮮吧！
-                </p>
-                <a href="./game.html">
-                    <button>抓海鮮去囉~</button>
-                </a>
-            </div>
+            </div> -->
 
             <div class="upper">
                 <h3>
@@ -186,19 +103,11 @@
             <section class="paper">
                 <div class="center" id="center">
                     <div class="side-left">
+                        <div class="pic"></div>
                         <div class="food-display" id="pin">
-                            <div class="ingret_pos">
-                                <img class="in_pic" src="" alt="">
-                            </div>
-                            <div class="ingret_pos">
-                                <img class="in_pic" src="" alt="">
-                            </div>
-                            <div class="ingret_pos">
-                                <img class="in_pic" src="" alt="">
-                            </div>
                             <img src="./images/seafood3.svg" class="base" alt="" srcset="">
                         </div>
-                        <div id="reset">清空配料</div>
+                        <div class="reset">清空配料</div>
                     </div>
 
                     <div class="side-right">
@@ -400,7 +309,7 @@
                         </div>
 
                         <div class="choose-element">
-                            <h3>STEP 3： 選擇想要配料，依喜好擺成自己喜歡的樣子<br>最多選三樣<span id="reset"></span></h3>
+                            <h3>STEP 3： 選擇想要配料，依喜好擺成自己喜歡的樣子<br>最多選三樣<span class="reset"></span></h3>
                             <div class="choose-ingredient">
                                 <ul class="ingre-wrap">
                                     <li class="ingret">
@@ -461,64 +370,6 @@
                         </div>
                     </div>
                 </div>
-                <script>
-                    var num = 0;
-
-                    $(document).ready(function () {
-
-                        // alert($('.ingret').length);
-                        for (let i = 0; i < $('.ingret').length; i++) {
-                            $(".ingret").eq(i).click(function () {
-                                var in_src = $(this).children().children("img").attr("src");
-                                // alert(in_src);
-                                $(".in_pic").eq(num).attr("src", in_src);
-                                num++;
-                                $(".ingret_pos").css("cursor", "move");
-                                if (num > 3) {
-                                    alert("最多只能選三個喔!!!");
-                                }
-                            })
-                        }
-
-                        for (let i = 0; i < $('.tab_in').length; i++) {
-                            $(".tab_in").eq(i).click(function () {
-                                var in_src = $(this).children().children("img").attr("src");
-
-                                $(".in_pic").eq(num).attr("src", in_src);
-                                num++;
-                                $(".ingret_pos").css("cursor", "move");
-                                if (num > 3) {
-                                    alert("最多只能選三個喔!!!");
-                                }
-                            })
-                        }
-                    });
-
-                    $(".ingret_pos").draggable({
-                        containment: "parent",
-                        scroll: false,
-                    });
-
-                    var arr = [];
-                    var change = document.querySelectorAll(".in_pic");
-                    for (let i = 0; i < change.length; i++) {
-                        // alert(change.length);
-                        //將配料加到圖上
-                        change[i].addEventListener("click", function (e) {
-                            // alert(arr.indexOf(this));
-                            if (arr.indexOf(this) == -1) {
-                                arr.push(this);
-                            }
-                        })
-
-                        // 配料重置
-                        $("#reset").click(function () {
-                            num = 0;
-                            $(".in_pic").attr("src", "");
-                        })
-                    }
-                </script>
-
 
                 <form action="">
                     <h3>STEP 4： 為您的料理取個名字並加入菜單，你就可以在預約時點到這個專屬料理囉~</h3>
@@ -563,6 +414,33 @@
 
     <footer> @@include('./layout/foot.html')</footer>
     @@include('./all_js.html')
+
+    <script src="./jquery/jquery.min.js"></script>
+    <script src="./jquery/jquery-ui.min.js"></script>
+    <script>
+        // 點擊配料圖片
+        $(".ingret").click(function () {
+            let num = $(".food-display .pic").length;
+            if (num < 3) {
+                var src = $(this).find("img").attr("src");
+                $(".food-display").append(
+                    `<div class="pic "><img class="in_pic" src="${src}" alt=""></div>`);
+                $(".pic").draggable({
+                    containment: "parent",
+                    scroll: false,
+                });
+
+            } else {
+                alert("最多只能選三個喔!!!");
+            }
+            // console.log(num);
+        });
+
+        // 清空配料
+        $(".reset").click(function () {
+            $(".food-display .pic").remove();
+        })
+    </script>
     <script>
         // 手機用版面
         $(function () {
@@ -715,41 +593,35 @@
             var w = $(window).width();
             if (w > 1200) {
                 fishRight.onclick = function () {
-                    if (fishPosition == 3) {
-                    } else {
+                    if (fishPosition == 3) {} else {
                         fishSlider.style.transform = "translateX(-" + fishPosition * 20 + "%)";
                         fishPosition += 1;
                     }
                 }
 
                 fishLeft.onclick = function () {
-                    if (fishPosition == 1) {
-                    } else {
+                    if (fishPosition == 1) {} else {
                         fishSlider.style.transform = "translateX(-" + ((fishPosition - 2) * 20) + "%)";
                         fishPosition -= 1;
                     }
                 }
             } else {
                 fishRight.onclick = function () {
-                    if (fishPosition == 4) {
-                    } else {
+                    if (fishPosition == 4) {} else {
                         fishSlider.style.transform = "translateX(-" + fishPosition * 20 + "%)";
                         fishPosition += 1;
                     }
                 }
 
                 fishLeft.onclick = function () {
-                    if (fishPosition == 1) {
-                    } else {
+                    if (fishPosition == 1) {} else {
                         fishSlider.style.transform = "translateX(-" + ((fishPosition - 2) * 20) + "%)";
                         fishPosition -= 1;
                     }
                 }
             }
 
-
             $(window).resize(function () {
-
                 var w = $(window).width();
                 if (w > 1200) {
                     //考慮當小視窗posi = 4時，換成大posi要等於3
@@ -773,26 +645,24 @@
                         }
                     }
                 } else {
-                        fishRight.onclick = function () {
-                            if (fishPosition == 4) {} else {
-                                fishSlider.style.transform = "translateX(-" + fishPosition * 20 +
-                                    "%)";
-                                fishPosition += 1;
-                            }
+                    fishRight.onclick = function () {
+                        if (fishPosition == 4) {} else {
+                            fishSlider.style.transform = "translateX(-" + fishPosition * 20 +
+                                "%)";
+                            fishPosition += 1;
                         }
-                        fishLeft.onclick = function () {
-                            if (fishPosition == 1) {} else {
-                                fishSlider.style.transform = "translateX(-" + ((fishPosition - 2) *
-                                    20) + "%)";
-                                fishPosition -= 1;
-                            }
+                    }
+                    fishLeft.onclick = function () {
+                        if (fishPosition == 1) {} else {
+                            fishSlider.style.transform = "translateX(-" + ((fishPosition - 2) *
+                                20) + "%)";
+                            fishPosition -= 1;
                         }
+                    }
                 }
-
             });
         });
     </script>
-
     <script>
         //配料slider
         var right = document.getElementById("arrowR"),
@@ -823,10 +693,8 @@
             }
         }
     </script>
-
     <script>
         $(function () {
-
             // 開啟彈跳視窗
             $("button.to_lightbox").on("click", function () {
                 $(".overlay").addClass("-on");
@@ -840,6 +708,121 @@
                 }, 1000);
             });
         });
+    </script>
+    <script>
+        // 打字效果
+        var str = "這位客人，您似乎還沒進行登入";
+        var str2 = " 提醒您，在沒有登入的情況下製作料理會無法儲存料理";
+        var str3 = "請問要進行登入嗎？";
+        var str4 = "這樣呀...我明白了。祝您有段美好的時光";
+        var btny = document.createElement('div');
+        btny.textContent = "是";
+        btny.setAttribute('class', 'yes');
+        var btnn = document.createElement('div');
+        btnn.textContent = "否";
+        btnn.setAttribute('class', 'no');
+        var click_next = document.createElement('div');
+        click_next.textContent = "click";
+        click_next.setAttribute('class', 'click_next');
+
+        var i = 0,
+            j = 0,
+            k = 0,
+            l = 0;
+
+        function typing() {
+            if (i <= str.length) {
+                $(".talk")[0].innerHTML = str.slice(0, i++);
+                setTimeout('typing()', 100); //遞歸調用
+            } else {
+                //文字輸入完成後再出現
+                $(".talk")[0].appendChild(click_next);
+            }
+        }
+        $(document).ready(function () {
+            if ($(".act1").hasClass("on") == 1) {
+                setTimeout('typing()', 2500);
+            } else if ($(".no-fish1").hasClass("on") == 1) {
+                setTimeout('goCatch()', 2500);
+            }
+        });
+
+        function typing2() {
+            if (j <= str2.length) {
+                $(".talk")[1].innerHTML = str2.slice(0, j++);
+                setTimeout('typing2()', 100);
+            } else {
+                $(".talk")[1].appendChild(click_next);
+            }
+        }
+
+        function typing3() {
+            if (k <= str3.length) {
+                $(".talk")[2].innerHTML = str3.slice(0, k++);
+                setTimeout('typing3()', 100);
+                $(".talk")[2].appendChild(btny);
+                $(".talk")[2].appendChild(btnn);
+            } else {
+                $(".no").click(function () {
+                    $(".act3").removeClass("on");
+                    $(".act4").addClass("on");
+                    setTimeout('typing4()', 100);
+                });
+            }
+        }
+
+        function typing4() {
+            if (l <= str4.length) {
+                $(".talk")[3].innerHTML = str4.slice(0, l++);
+                setTimeout('typing4()', 100);
+            }
+        }
+
+        $(".talking-here").click(function () {
+            if ($(".act1").hasClass("on") == 1) {
+                $(".act1").removeClass("on");
+                $(".act2").addClass("on");
+                setTimeout('typing2()', 300);
+            } else if ($(".act2").hasClass("on") == 1) {
+                $(".act2").removeClass("on");
+                $(".act3").addClass("on");
+                setTimeout('typing3()', 300);
+            } else if ($(".act4").hasClass("on") == 1) {
+                $(".attn").delay(3000).fadeOut(1000);
+                $("main").addClass("on");
+            } else if ($(".no-fish1").hasClass("on") == 1) {
+                $(".no-fish1").removeClass("on");
+                $(".no-fish2").addClass("on");
+                setTimeout('goCatch2()', 300);
+            }
+        });
+
+        // 沒有料理時的畫面
+        var con = "您目前的海鮮清單空空如也，請先抓取海鮮再來製作料理";
+        var con2 = "想抓取海鮮請往這邊";
+        var a = 0,
+            b = 0;
+        var goFish = document.createElement('a');
+        goFish.textContent = "前往現撈海鮮";
+        goFish.setAttribute('class', 'go-fish');
+        goFish.setAttribute('href', './game.html');
+
+        function goCatch() {
+            if (a <= con.length) {
+                $(".talk")[4].innerHTML = con.slice(0, a++);
+                setTimeout('goCatch()', 100);
+            } else {
+                $(".talk")[4].appendChild(click_next);
+            }
+        }
+
+        function goCatch2() {
+            if (b <= con2.length) {
+                $(".talk")[5].innerHTML = con2.slice(0, b++);
+                setTimeout('goCatch2()', 100);
+                $(".talk")[5].appendChild(goFish);
+            }
+        }
     </script>
     <script src="./js/customized_cuisine.js"></script>
 </body>
