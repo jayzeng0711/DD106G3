@@ -152,11 +152,11 @@ $('#mem_regisit_finish').click(function() {
             // xhr.open('post', './php/member_regisit.php', true);
 
         // windows
-        // xhr.open('post',  'http://localhost/dd106g3/member_regisit.php',  true);
+        xhr.open('post',  'http://localhost/dd106g3/member_regisit.php',  true);
 
         // Mac
-        xhr.open('POST', 'http://localhost:8080/member_regisit.php', true);
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        // xhr.open('POST', 'http://localhost:8080/member_regisit.php', true);
+        // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
         var member_rigist = {};
         member_rigist.memName = mem_name;
@@ -202,10 +202,10 @@ $('#signInBtn').click(function() {
         // xhr.open('post', './php/member_login.php', true);
 
         // windows
-        // xhr.open('post',  'http://localhost/dd106g3/member_login.php',  true);
+        xhr.open('post',  'http://localhost/dd106g3/member_login.php',  true);
 
         // Mac
-        xhr.open('POST', 'http://localhost:8080/member_login.php', true);
+        // xhr.open('POST', 'http://localhost:8080/member_login.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         var member_login = {};
         member_login.mem_email = loginEmail;
@@ -237,10 +237,10 @@ $(document).ready(function() {
         // xhr.open('post', './php/member_login.php', true);
 
         // windows
-        // xhr.open('post',  'http://localhost/dd106g3/getlogininfo.php',  true);
+        xhr.open('post',  'http://localhost/dd106g3/getlogininfo.php',  true);
 
         // Mac
-        xhr.open('GET', "http://localhost:8080/getlogininfo.php");
+        // xhr.open('GET', "http://localhost:8080/getlogininfo.php");
         xhr.send(null);
     })
     //檢查會員是否已登入
@@ -258,10 +258,10 @@ $('.pu_mem_login_suc_div').click(function() {
             // xhr.open('post', './php/member_logout.php', true);
 
         // windows
-        // xhr.open('post',  'http://localhost/dd106g3/member_logout.php',  true);
+        xhr.open('post',  'http://localhost/dd106g3/member_logout.php',  true);
 
         // Mac
-        xhr.open('POST', 'http://localhost:8080/member_logout.php', true);
+        // xhr.open('POST', 'http://localhost:8080/member_logout.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(null);
     })
@@ -319,10 +319,10 @@ $('.pu_reb_btn').click(function(e) {
             // xhr.open('post', './php/reboot_ans.php', true);
 
         // windows
-        // xhr.open('post',  'http://localhost/dd106g3/reboot_ans.php',  true);
+        xhr.open('post',  'http://localhost/dd106g3/reboot_ans.php',  true);
 
         // Mac
-        xhr.open('Post', 'http://localhost:8080/reboot_ans.php', true);
+        // xhr.open('Post', 'http://localhost:8080/reboot_ans.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         var ans = {};
         ans.text = text;
@@ -388,10 +388,10 @@ $('#textarea').keydown(function(e) {
             // xhr.open('post', './php/reboot_ans.php', true);
 
             // windows
-            // xhr.open('post',  'http://localhost/dd106g3/reboot_ans.php',  true);
+            xhr.open('post',  'http://localhost/dd106g3/reboot_ans.php',  true);
 
             // Mac
-            xhr.open('Post', 'http://localhost:8080/reboot_ans.php', true);
+            // xhr.open('Post', 'http://localhost:8080/reboot_ans.php', true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             var ans = {};
             ans.text = text;
@@ -441,10 +441,10 @@ $('.pu_reb_li').click(function(e) {
             // xhr.open('post', './php/select_reboot_ans.php', true);
 
         // windows
-        // xhr.open('post',  'http://localhost/dd106g3/select_reboot_ans.php',  true);
+        xhr.open('post',  'http://localhost/dd106g3/select_reboot_ans.php',  true);
 
         // Mac
-        xhr.open('Post', 'http://localhost:8080/select_reboot_ans.php', true);
+        // xhr.open('Post', 'http://localhost:8080/select_reboot_ans.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         var ans = {};
         ans.text = text;
