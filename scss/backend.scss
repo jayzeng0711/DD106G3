@@ -111,9 +111,9 @@ main {
             margin: 20px 0 50px 30px;
             text-align: center;
             width: 90%;
-            .insert {
-                display: none;
-            }
+            // .insert {
+            //     display: none;
+            // }
             th {
                 padding: 10px;
                 background-color: #2E4581;
@@ -121,12 +121,8 @@ main {
                 vertical-align: middle;
             }
             td {
-                padding: 10px;
+                padding: 10px 0;
                 min-width: 100px;
-                input {
-                    width: 100%;
-                    // max-width: 150px;
-                }
                 .btn.edit {
                     background-color: rgb(136, 193, 240);
                     border: none;

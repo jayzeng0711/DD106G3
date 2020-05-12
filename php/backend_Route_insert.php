@@ -16,9 +16,6 @@ try {
     $newRoute->bindValue(':routeSeat', $routenNow->routeSeat);
     $newRoute->execute();
 
-    // $routeRows = $route->fetchAll(PDO::FETCH_ASSOC);    
-    // echo json_encode($routeRows);
-
 } catch (PDOException $e) {
 
     $errMsg .= "錯誤訊息" . $e->getMessage() . "<br>";
@@ -26,10 +23,10 @@ try {
     echo $errMsg;
 }
 
+// 測試
 // INSERT INTO `route` (`routeNo`, `routeDate`, `routePort`, `routeSeat`, `routeCount`, `routeState`) VALUES (NULL, '2020-05-21', '高雄港', '2', '1', '0');
 // $newRoute->bindValue(':routeDate','2020-05-03');
 // $newRoute->bindValue(':routePort','高雄港');
 // $newRoute->bindValue(':routeSeat','2000');
-// $newRoute->bindValue(':routeCount','20');
 
 ?>

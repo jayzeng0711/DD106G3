@@ -14,6 +14,7 @@ window.addEventListener('load', function() {
 
                 let routeRows = JSON.parse(xhr.responseText);
                 let trLength = routeRows.length;
+                console.log("長度", trLength);
 
                 for (let i = 0; i < trLength; i++) {
 
@@ -50,25 +51,7 @@ window.addEventListener('load', function() {
         $(this).attr('disabled', 'disabled');
 
         // 顯示輸入新增資料的欄位
-        $('tr.insert').css("display", "table-row");
-        $('tr.eq(0)').append('');
-
-        // <tr class="insert">
-        //             <td></td>
-        //             <td><input type="date" name="routeDate" id="routeDate"></td>
-        //             <td><select name="routePort" id="routePort">
-        //                     <option value="1">深澳港</option>
-        //                     <option value="2">梧棲港</option>
-        //                     <option value="3">高雄港</option>
-        //                 </select></td>
-        //             <td><input type="number" name="routeSeat" id="routeSeat" min="1"></td>
-        //             <td>0</td>
-        //             <td>正常航行</td>
-        //             <td>
-        //                 <button type="submit" class="btn btn-info save">儲存</button>
-        //                 <button type="button" class="btn btn-info cancel">取消</button></td>
-
-        //         </tr>
+        $('tr.title').after('<tr class="insert"><td></td><td><input type="date" name="routeDate" id="routeDate"></td><td><select name="routePort" id="routePort"><option value="1">深澳港</option><option value="2">梧棲港</option><option value="3">高雄港</option></select></td><td><input type="number" name="routeSeat" id="routeSeat" min="1"></td><td>0</td><td>正常航行</td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
 
         // 儲存新增
         $('.save').click(function() {
@@ -78,9 +61,7 @@ window.addEventListener('load', function() {
             xhr.onload = function() {
 
                 if (xhr.status == 200) {
-
-                    // $('tr.insert').css("display", "none");
-                    $('tr.insert input').val('0');
+                    $('tr.insert').remove();
                     show();
 
                 } else {
@@ -123,8 +104,7 @@ window.addEventListener('load', function() {
 
         // 取消新增
         $('.cancel').click(function() {
-            $('tr.insert').css("display", "none");
-            $('tr.insert input').val('0');
+            $('tr.insert').remove();
             $('.addbtn').removeAttr('disabled');
 
         });
@@ -240,6 +220,7 @@ window.addEventListener('load', function() {
 
 
     };
+
 
 
 
