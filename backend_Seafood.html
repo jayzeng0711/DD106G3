@@ -23,132 +23,82 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="./images/logo.png" alt="logo">
+    @include('./layout/backend.html')
+
+    <main>
+        <div class="nowpage">
+            <h3>海鮮種類管理</h3>
         </div>
-        <div class="name">
-            <h2>Ocean Food</h2>
+        <div class="content">
+            <button type="button" class="btn btn-info addbtn">新增海鮮</button>
+            <table>
+                <tr>
+                    <th>編號</th>
+                    <th>名稱</th>
+                    <th>海鮮圖片</th>
+                    <th>價格</th>
+                    <th>積分/點數</th>
+                    <th>會員等級</th>
+                    <th>烹調方式</th>
+                    <th>圖片</th>
+                    <th>海鮮種類上下架狀態</th>
+                    <th>編輯</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>章魚</td>
+                    <td>
+                        <div class="bigimg">img</div>
+                    </td>
+                    <td>200</td>
+                    <td>50</td>
+                    <td>銅歐</td>
+                    <td>蒸</td>
+                    <td>
+                        <div class="bigimg">img</div>
+                    </td>
+                    <td class="yesNo">
+                        <div></div>
+                    </td>
+                    <td>
+                        <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>章魚</td>
+                    <td>
+                        <div class="bigimg">img</div>
+                    </td>
+                    <td>200</td>
+                    <td>50</td>
+                    <td>銅歐</td>
+                    <td>煮</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>毛蟹</td>
+                    <td>
+                        <div class="bigimg">img</div>
+                    </td>
+                    <td>300</td>
+                    <td>100</td>
+                    <td>銀歐</td>
+                    <td>炸</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+
+            </table>
+
+
         </div>
-        <div class="login">
-            <span class="membername">管理員</span>
-            <button type="button" class="btn btn-outline-dark">登出</button>
-        </div>
-    </header>
-    <div class="wrapper">
-
-
-        <aside>
-            <nav>
-                <ul>
-                    <li class="backend_Admin">
-                        <a href="backend_Admin.html">後台管理員管理</a>
-                    </li>
-                    <li class="backend_Member">
-                        <a href="backend_Member.html">會員</a>
-                    </li>
-                    <li class="backend_Route">
-                        <a href="backend_Route.html">航線管理</a>
-                    </li>
-                    <li class="backend_MealList">
-                        <a href="backend_MealList.html">訂單管理</a>
-                    </li>
-                    <li class="backend_Meal">
-                        <a href="backend_Meal.html">套餐管理</a>
-                    </li>
-                    <li class="backend_Seafood">
-                        <a href="backend_Seafood.html">海鮮種類管理</a>
-                    </li>
-                    <li class="backend_Cook">
-                        <a href="backend_Cook.html">烹調方式管理</a>
-                    </li>
-                    <li class="backend_Ingredient">
-                        <a href="backend_Ingredient.html">配料管理</a>
-                    </li>
-                    <li class="backend_Report">
-                        <a href="backend_Report.html"> 留言檢舉管理</a>
-                    </li>
-                    <li class="backend_Message">
-                        <a href="backend_Message.html">聊天機器人管理</a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-        <main>
-            <div class="nowpage">
-                <h3>海鮮種類管理</h3>
-            </div>
-            <div class="content">
-                <button type="button" class="btn btn-info addbtn">新增海鮮</button>
-                <table>
-                    <tr>
-                        <th>編號</th>
-                        <th>名稱</th>
-                        <th>海鮮圖片</th>
-                        <th>價格</th>
-                        <th>積分/點數</th>
-                        <th>會員等級</th>
-                        <th>烹調方式</th>
-                        <th>圖片</th>
-                        <th>海鮮種類上下架狀態</th>
-                        <th>編輯</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>章魚</td>
-                        <td>
-                            <div class="bigimg">img</div>
-                        </td>
-                        <td>200</td>
-                        <td>50</td>
-                        <td>銅歐</td>
-                        <td>蒸</td>
-                        <td>
-                            <div class="bigimg">img</div>
-                        </td>
-                        <td class="yesNo">
-                            <div></div>
-                        </td>
-                        <td>
-                            <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>章魚</td>
-                        <td>
-                            <div class="bigimg">img</div>
-                        </td>
-                        <td>200</td>
-                        <td>50</td>
-                        <td>銅歐</td>
-                        <td>煮</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>毛蟹</td>
-                        <td>
-                            <div class="bigimg">img</div>
-                        </td>
-                        <td>300</td>
-                        <td>100</td>
-                        <td>銀歐</td>
-                        <td>炸</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-                </table>
-
-
-            </div>
-        </main>
-    </div>
+    </main>
 
 </body>
 
