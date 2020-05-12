@@ -309,8 +309,8 @@ $(document).ready(function(){
         };
     
         // 丟球的力量，決定球被丟多遠
-        // var MAX_VELOCITY = Screen.height * 0.009;
-        var MAX_VELOCITY = Screen.height * 0.01;
+        var MAX_VELOCITY = Screen.height * 0.009;
+        // var MAX_VELOCITY = Screen.height * 0.01;
     
         var Ball = {
             id: 'ball',
@@ -375,12 +375,12 @@ $(document).ready(function(){
     
     
         //隨著螢幕變化，rwd球的位置
-        // window.onresize = function() {
-        //     Screen.height = window.innerHeight;
-        //     Screen.width = window.innerWidth;
-        //     MAX_VELOCITY = Screen.height * 0.009;
-        //     // resetState();
-        // }
+        window.onresize = function() {
+            Screen.height = window.innerHeight;
+            Screen.width = window.innerWidth;
+            MAX_VELOCITY = Screen.height * 0.009;
+            // resetState();
+        }
     
     
         // zingtouch套件，用來丟球的行為
@@ -420,17 +420,17 @@ $(document).ready(function(){
         //第三步：綁定行為，語法 第二部設的區域.bind("第一部的物件","六種行為的哪一種",行為)
         //滑鼠按著寶貝球跟著跑到滑鼠位置
         //這邊要處理一個bug，滑鼠點任一區塊，寶貝球都會移動
-        // touchRegion.bind(touchElement, CustomPan, function(e) {
-        //     $('#ball').show();
-        //     $('#fake_ball').hide();
-        //     Ball.moveBall(e.detail.events[0].x - Ball.size / 2, e.detail.events[0].y - Ball.size / 2);
-        //     //滑鼠按住球的時候，超出遊戲範圍時，球回歸位置
-        //     $('#screen').mouseleave(function(){
-        //         Ball.resetBall();
-        //         $('#ball').hide();
-        //         $('#fake_ball').show();
-        //     })
-        // });
+        touchRegion.bind(touchElement, CustomPan, function(e) {
+            $('#ball').show();
+            $('#fake_ball').hide();
+            Ball.moveBall(e.detail.events[0].x - Ball.size / 2, e.detail.events[0].y - Ball.size / 2);
+            //滑鼠按住球的時候，超出遊戲範圍時，球回歸位置
+            $('#screen').mouseleave(function(){
+                Ball.resetBall();
+                $('#ball').hide();
+                $('#fake_ball').show();
+            })
+        });
         
         touchRegion.bind(touchElement, CustomSwipe, function(e) {
 
@@ -438,11 +438,11 @@ $(document).ready(function(){
             $('#fake_ball').hide();
             Ball.moveBall(e.detail.events[0].x - Ball.size / 2, e.detail.events[0].y - Ball.size / 2);
             //滑鼠按住球的時候，超出遊戲範圍時，球回歸位置
-            // $('#screen').mouseleave(function(){
-            //     Ball.resetBall();
-            //     $('#ball').hide();
-            //     $('#fake_ball').show();
-            // })
+            $('#screen').mouseleave(function(){
+                Ball.resetBall();
+                $('#ball').hide();
+                $('#fake_ball').show();
+            })
             
             //當發生丟球事件，就成功甩出球，執行以下程式，如果發生丟球，但滑鼠卻沒放開，球就會跟著滑鼠，不會被甩出
             Ball.inMotion = true;
@@ -1027,12 +1027,12 @@ $(document).ready(function(){
         }
         
         //意義不明
-        // function toggleInfoScreen() {
-        //     var infoScreen = document.getElementById('info-screen');
-        //     var infoButton = document.getElementById('info-button');
-        //     infoScreen.classList.toggle('hidden');
-        //     infoButton.innerHTML = (infoScreen.className === 'hidden') ? "?" : 'X';
-        // }
+        function toggleInfoScreen() {
+            var infoScreen = document.getElementById('info-screen');
+            var infoButton = document.getElementById('info-button');
+            infoScreen.classList.toggle('hidden');
+            infoButton.innerHTML = (infoScreen.className === 'hidden') ? "?" : 'X';
+        }
         
         function resetState() {
             Ball.resetBall();
@@ -1094,9 +1094,8 @@ function update_mem_info(){
                                 pokeballClosed: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballclosed.png'
                             };
                             $('.fake_ball').css('background-image',`url("./images/${memlevel_score.levelSrc}")`);
-    
                             //設定捕捉機率
-                            successRate = memberLevel.levelBallValue*100;
+                            successRate = memlevel_score.levelBallValue*100;
                             // 設定捕捉機率
                         }
                     }
@@ -1125,7 +1124,7 @@ function update_mem_info(){
                             $('.fake_ball').css('background-image',`url("./images/${memlevel_score.levelSrc}")`);
     
                             //設定捕捉機率
-                            successRate = memberLevel.levelBallValue*100;
+                            successRate = memlevel_score.levelBallValue*100;
                             // 設定捕捉機率
                         }
                     }
