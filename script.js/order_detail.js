@@ -115,11 +115,9 @@ window.addEventListener('load', function() {
                 }
             };
 
-            // FTP
-            // xhr.open('post', './php/orderdetail_order.php', true);
 
             // windows
-            xhr.open('post',  'http://localhost/dd106g3/orderdetail_order.php',  true);
+            xhr.open('post',  './php/orderdetail_order.php',  true);
 
             // Mac
             // xhr.open('POST', 'http://localhost:8888/orderdetail_order.php', true);
