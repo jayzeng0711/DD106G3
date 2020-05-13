@@ -1,0 +1,144 @@
+@import "base/var";
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+body {
+    font-family: 'Noto Sans TC';
+}
+
+
+/* header */
+
+header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    background-color: #F8F9FA;
+    box-shadow: 0 5px 3px rgba(204, 204, 204, 0.555);
+    .logo {
+        width: 80px;
+        height: 80px;
+        margin-top: 10px;
+        margin-left: 50px;
+    }
+    .name {
+        margin-left: 20px;
+        h2 {
+            font-size: $fontSize*1.75;
+            line-height: 100px;
+            color: #034;
+        }
+    }
+    .login {
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        .membername {
+            position: relative;
+            top: 3px;
+            right: 5px;
+        }
+    }
+}
+
+
+/* 側邊選單 */
+
+aside {
+    margin-top: 105px;
+    position: fixed;
+    left: 0;
+    nav {
+        width: 280px;
+        height: calc(100vh - 105px);
+        background-color: #F8F9FA;
+        overflow-y: scroll;
+        li {
+            border-bottom: 1px solid steelblue;
+            a {
+                padding: 20px 50px;
+                display: block;
+                text-decoration: none;
+                color: #034;
+            }
+        }
+        li:hover {
+            background-color: rgba(70, 131, 180, 0.671);
+            a {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+
+/* 內頁 */
+
+main {
+    margin-top: 105px;
+    width: calc(100% - 280px);
+    float: right;
+    .nowpage {
+        h3 {
+            font-size: $fontSize*1.5;
+            margin: 20px 30px;
+            color: #034;
+        }
+    }
+    .nowpage::after {
+        content: "";
+        width: 98%;
+        height: 2px;
+        margin-left: 1%;
+        background-color: #ccc;
+        display: inline-block;
+    }
+    .content {
+        .addbtn {
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid rgb(31, 46, 85);
+        }
+        table {
+            margin: 20px 0 50px 30px;
+            text-align: center;
+            width: 90%;
+            // .insert {
+            //     display: none;
+            // }
+            th {
+                padding: 10px;
+                background-color: #2E4581;
+                color: #fff;
+                vertical-align: middle;
+            }
+            td {
+                padding: 10px 0;
+                min-width: 100px;
+                .btn.edit {
+                    background-color: rgb(136, 193, 240);
+                    border: none;
+                    color: rgb(8, 57, 90);
+                }
+                .btn.save {
+                    background-color: #021A71;
+                    border: none;
+                    margin: 5px;
+                }
+                .btn.cancel {
+                    background-color: #5FA8D3;
+                    border: none;
+                    margin: 5px;
+                }
+            }
+        }
+    }
+}

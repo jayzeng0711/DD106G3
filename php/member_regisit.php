@@ -7,7 +7,7 @@
     $mem_email->execute();
 
     if( $mem_email ->rowCount() == 0){
-        $mem_rig = "INSERT INTO `member` (`memNo`, `memId`, `memPsw`, `memName`, `levelNo`, `memScore`, `memPoints`, `memPic`, `memVote`, `memState`) VALUES (null, :memId, :memPsw, :memName, '3', '0', '0', null, null, '1')";
+        $mem_rig = "INSERT INTO `member` (`memNo`, `memId`, `memPsw`, `memName`, `levelNo`, `memScore`, `memPoints`, `memPic`, `memVote`, `memState`) VALUES (null, :memId, :memPsw, :memName, '1', '0', '0', null, null, '1')";
         $mem_str = json_decode(file_get_contents('php://input'));
         $member = $pdo->prepare($mem_rig);
         $member->bindValue(":memId", $mem_str->memId);

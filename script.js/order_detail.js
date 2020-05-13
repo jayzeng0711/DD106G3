@@ -122,7 +122,7 @@ window.addEventListener('load', function() {
             xhr.open('post',  'http://localhost/dd106g3/orderdetail_order.php',  true);
 
             // Mac
-            // xhr.open('POST', 'http://localhost:8080/orderdetail_order.php', true);
+            // xhr.open('POST', 'http://localhost:8888/orderdetail_order.php', true);
 
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 

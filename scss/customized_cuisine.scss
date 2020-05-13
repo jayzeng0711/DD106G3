@@ -104,6 +104,7 @@ button#go_top {
         animation-delay: 1s;
         animation-fill-mode: forwards;
         cursor: pointer;
+        text-align: center;
         .talk {
             text-align: center;
             font-size: 30px;
@@ -113,15 +114,15 @@ button#go_top {
             transform: translateY(-50%);
             margin: auto;
             line-height: 1.6;
-            // opacity: 0;
         }
 
         .talk.on {
-            display: block;
+            display: inline-block;
             opacity: 1;
 
-            .yes,.no {
+            .yes,.no, .go-fish {
                 @extend %btn;
+                text-decoration: none;
                 display: inline-block;
                 padding: 10px 30px;
                 vertical-align: middle;
@@ -135,13 +136,15 @@ button#go_top {
                 @extend %btn_ano;
                 animation-delay: 1.3s;
             } 
+            
         }
-        .click-to-next{
+        .click_next{
         
-        position: absolute;
-            display: block;
-            bottom: 25%;
-            left: 50%;
+        position: relative;
+            display: inline-block;
+            bottom: 27px;
+            left: 10px;
+            font-size: 20px;
             animation-name: move;
             animation-duration: 1s;
             animation-iteration-count: infinite;
@@ -155,7 +158,7 @@ button#go_top {
         left: 0;
         right: 0;
         margin: auto; 
-        bottom: -30px;
+        bottom: -24px;
         display: inline-block;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
@@ -277,7 +280,7 @@ main.on {
         #fishL,#fishR{
             border: transparent;
             border-radius: 10px;
-            background-color: rgba(2, 26, 113, 0.185);
+            background-color: rgb(255, 185, 22);
             position: absolute;
             left: 0;
             right: 0;
@@ -320,7 +323,7 @@ section.paper {
         position: relative;
         width: 100%;
 
-        img {
+        img.base {
             width: 100%;
         }
     }
@@ -341,8 +344,18 @@ section.paper {
         z-index: 1;
     }
 
-    #reset{
+    .reset{
         display: none;
+    }
+    .pic {
+        width: 40%;
+        position: absolute;
+        top: 0;
+        z-index: 3;
+        cursor: grab;
+        img{
+            width: 100%;
+        }
     }
 }
 

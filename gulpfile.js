@@ -18,7 +18,7 @@ var web = {
     ],
     sass: [
         'scss/*.scss',
-        // 'scss/**/*.scss',
+        'scss/**/*.scss',
     ],
     js: [
         'script.js/*.js'
@@ -102,7 +102,7 @@ gulp.task('mini_img', function() {
 });
 
 gulp.task('watch', function() {
-    // gulp.watch(['sass/*.scss', 'sass/**/*.scss'], ['concatcss']);
+    gulp.watch(['sass/*.scss', 'sass/**/*.scss'], ['concatcss']);
     gulp.watch(['sass/*.scss'], ['concatcss']);
     gulp.watch('script.js/*.js', ['concatjs']);
     gulp.watch(['*.html', '**/*.html'], ['fileinclude']);
@@ -119,8 +119,9 @@ gulp.task('default', function() {
             // index: "game.html",
             // index: "member_data.html",
             // index: "order.html",
-            index: "contest.html",
+            // index: "contest.html",
             // index: "customized_cuisine.html",
+            index: "backend_Message.html",
         }
     });
     gulp.watch(web.html, ['fileinclude']).on('change', reload);

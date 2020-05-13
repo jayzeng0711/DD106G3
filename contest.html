@@ -8,7 +8,6 @@
     <link rel="icon" href="./images/logo.png" type="image/x-icon">
     <title>美食大賽</title>
     <link rel="stylesheet" href="./css/contest.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     
 </head>
@@ -208,7 +207,7 @@
                 </select>
             </div>
 
-            
+
 
             <div class="cookList_contain">
 
@@ -553,8 +552,8 @@
                         <label for="reason3">與主題無關</label>
                     </div>
                     <div class="rep_btn">
-                        <button class="rep_submit">確定</button>
                         <button class="rep_cancel">取消</button>
+                        <button class="rep_submit">確定</button>
                     </div>
                 </form>
             </div>
@@ -694,14 +693,6 @@
 
     <script>
         $(document).ready(function(){
-            // 動態偵測螢幕的X和Y座標
-            /*===
-            $('.textHover').mousemove(function(e){
-                $('#theDiv').show().text(`X: ${e.pageX} | Y: ${e.pageY}`);
-            });
-            ===*/
-
-            // $('.textHover').mousemove().mouseout();
             $('.textHover').mousemove(function(e){
                 let theText = $(this).attr('hovertext');
 
@@ -712,15 +703,10 @@
             }).mouseout(function(){
                 $('#contestant_msg').hide();
             });
-
         });
     </script>
      
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
     @@include('./all_js.html')
     <script src="./js/contest.js"></script>
     
