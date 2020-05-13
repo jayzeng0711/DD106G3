@@ -16,3 +16,5 @@ try {
     $errMsg .= "錯誤行號" . $e->getMessage();
     echo $errMsg;
 }
+
+?>

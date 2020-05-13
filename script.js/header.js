@@ -152,11 +152,16 @@ $('#mem_regisit_finish').click(function() {
             // xhr.open('post', './php/member_regisit.php', true);
 
         // windows
-        // xhr.open('post',  'http://localhost/dd106g3/member_regisit.php',  true);
+        xhr.open('post',  'http://localhost/dd106g3/member_regisit.php',  true);
 
         // Mac
+<<<<<<< HEAD
         xhr.open('POST', 'http://localhost:8888/member_regisit.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+=======
+        // xhr.open('POST', 'http://localhost:8080/member_regisit.php', true);
+        // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+>>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
 
         var member_rigist = {};
         member_rigist.memName = mem_name;
@@ -202,10 +207,14 @@ $('#signInBtn').click(function() {
         // xhr.open('post', './php/member_login.php', true);
 
         // windows
-        // xhr.open('post',  'http://localhost/dd106g3/member_login.php',  true);
+        xhr.open('post',  'http://localhost/dd106g3/member_login.php',  true);
 
         // Mac
+<<<<<<< HEAD
         xhr.open('POST', 'http://localhost:8888/member_login.php', true);
+=======
+        // xhr.open('POST', 'http://localhost:8080/member_login.php', true);
+>>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         var member_login = {};
         member_login.mem_email = loginEmail;
@@ -237,10 +246,14 @@ $(document).ready(function() {
         // xhr.open('post', './php/member_login.php', true);
 
         // windows
-        // xhr.open('post',  'http://localhost/dd106g3/getlogininfo.php',  true);
+        xhr.open('post',  'http://localhost/dd106g3/getlogininfo.php',  true);
 
         // Mac
+<<<<<<< HEAD
         xhr.open('GET', "http://localhost:8888/getlogininfo.php");
+=======
+        // xhr.open('GET', "http://localhost:8080/getlogininfo.php");
+>>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
         xhr.send(null);
     })
     //檢查會員是否已登入
@@ -258,10 +271,14 @@ $('.pu_mem_login_suc_div').click(function() {
             // xhr.open('post', './php/member_logout.php', true);
 
         // windows
-        // xhr.open('post',  'http://localhost/dd106g3/member_logout.php',  true);
+        xhr.open('post',  'http://localhost/dd106g3/member_logout.php',  true);
 
         // Mac
+<<<<<<< HEAD
         xhr.open('POST', 'http://localhost:8888/member_logout.php', true);
+=======
+        // xhr.open('POST', 'http://localhost:8080/member_logout.php', true);
+>>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(null);
     })
@@ -319,10 +336,14 @@ $('.pu_reb_btn').click(function(e) {
             // xhr.open('post', './php/reboot_ans.php', true);
 
         // windows
-        // xhr.open('post',  'http://localhost/dd106g3/reboot_ans.php',  true);
+        xhr.open('post',  'http://localhost/dd106g3/reboot_ans.php',  true);
 
         // Mac
+<<<<<<< HEAD
         xhr.open('Post', 'http://localhost:8888/reboot_ans.php', true);
+=======
+        // xhr.open('Post', 'http://localhost:8080/reboot_ans.php', true);
+>>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         var ans = {};
         ans.text = text;
@@ -388,10 +409,14 @@ $('#textarea').keydown(function(e) {
             // xhr.open('post', './php/reboot_ans.php', true);
 
             // windows
-            // xhr.open('post',  'http://localhost/dd106g3/reboot_ans.php',  true);
+            xhr.open('post',  'http://localhost/dd106g3/reboot_ans.php',  true);
 
             // Mac
+<<<<<<< HEAD
             xhr.open('Post', 'http://localhost:8888/reboot_ans.php', true);
+=======
+            // xhr.open('Post', 'http://localhost:8080/reboot_ans.php', true);
+>>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             var ans = {};
             ans.text = text;
@@ -469,6 +494,7 @@ $(document).ready(function(){
     // FTP
     // xhr.open('post', './php/reboor_item.php', true);
 
+<<<<<<< HEAD
     // windows
     // xhr.open('post',  'http://localhost/dd106g3/reboor_item.php',  true);
 
@@ -477,6 +503,22 @@ $(document).ready(function(){
     xhr.send(null)
 })
 //機器人選項從資料庫撈出
+=======
+        // windows
+        xhr.open('post',  'http://localhost/dd106g3/select_reboot_ans.php',  true);
+
+        // Mac
+        // xhr.open('Post', 'http://localhost:8080/select_reboot_ans.php', true);
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        var ans = {};
+        ans.text = text;
+        var ans_str = JSON.stringify(ans);
+        console.log(ans_str)
+        xhr.send(ans_str);
+        //把找到的文字傳給後端
+    })
+    //機器人對話點選文字
+>>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
 
 // init controller
 var controller = new ScrollMagic.Controller();

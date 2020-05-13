@@ -19,6 +19,10 @@
         .backend_Route:hover {
             background-color: steelblue;
         }
+        
+        input.routeSeat {
+            max-width: 80px;
+        }
     </style>
 </head>
 
@@ -41,45 +45,12 @@
                     <th>狀態</th>
                     <th>編輯</th>
                 </tr>
-                <!-- <tr class="insert">
-                    <td></td>
-                    <td><input type="date" name="routeDate" id="routeDate"></td>
-                    <td><select name="routePort" id="routePort">
-                            <option value="1">深澳港</option>
-                            <option value="2">梧棲港</option>
-                            <option value="3">高雄港</option>
-                        </select></td>
-                    <td><input type="number" name="routeSeat" id="routeSeat" min="1"></td>
-                    <td>0</td>
-                    <td>正常航行</td>
-                    <td>
-                        <button type="submit" class="btn btn-info save">儲存</button>
-                        <button type="button" class="btn btn-info cancel">取消</button></td>
-
-                </tr> -->
-                <!-- 
-                <tr>
-                    <td>20</td>
-                    <td><input type="date" name="routeDate" value="2020-05-02"></td>
-                    <td>深澳港</td>
-                    <td>200</td>
-                    <td>150</td>
-                    <td>正常執行</td>
-                    <td>
-                        修改
-                    </td>
-                </tr> -->
-
             </table>
-
-
         </div>
     </main>
     @@include('all_js.html')
 
     <script src="./js/backend_Route.js"></script>
-
-
 </body>
 
 </html>
