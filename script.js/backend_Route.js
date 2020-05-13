@@ -26,6 +26,7 @@ window.addEventListener('load', function() {
                     $('table').append(`<tr><td>${routeRows[i].routeNo}</td><td>${routeRows[i].routeDate}</td><td>${routeRows[i].routePort}</td><td>${routeRows[i].routeSeat}</td><td>${routeRows[i].routeCount}</td><td>${routeState}</td><td><button type="button" class="btn btn-info edit">編輯</button></td></tr>`);
 
                 }
+                edit();
 
 
             } else {
@@ -109,108 +110,109 @@ window.addEventListener('load', function() {
 
     // 編輯資料
 
+    function edit() {
 
-    $('.edit').click(function() {
+        $('.edit').click(function() {
 
-        // 停用所有編輯按鈕
-        $('.edit').attr('disabled', 'disabled');
+            // 停用所有編輯按鈕
+            $('.edit').attr('disabled', 'disabled');
 
-        let tr = $(this).parent().parent();
+            let tr = $(this).parent().parent();
 
-        // 日期
-        let routeDate = tr.find('td:eq(1)').text();
-        tr.find('td:eq(1)').text("");
-        tr.find('td:eq(1)').append(`<input type="date" name="routeDate" class="routeDate" value="${routeDate}">`);
+            // 日期
+            let routeDate = tr.find('td:eq(1)').text();
+            tr.find('td:eq(1)').text("");
+            tr.find('td:eq(1)').append(`<input type="date" name="routeDate" class="routeDate" value="${routeDate}">`);
 
-        // 港口
-        let routePort = tr.find('td:eq(2)').text();
-        tr.find('td:eq(2)').text("");
-        tr.find('td:eq(2)').append(`<select name="routePort" class="routePort"><option value="1">深澳港</option>
+            // 港口
+            let routePort = tr.find('td:eq(2)').text();
+            tr.find('td:eq(2)').text("");
+            tr.find('td:eq(2)').append(`<select name="routePort" class="routePort"><option value="1">深澳港</option>
 <option value="2">梧棲港</option><option value="3">高雄港</option></select>`);
-        if (routePort == "深澳港") {
-            tr.find('td:eq(2) option:eq(0)').attr("selected", "selected");
-        } else if (routePort == "梧棲港") {
-            tr.find('td:eq(2) option:eq(1)').attr("selected", "selected");
-        } else {
-            tr.find('td:eq(2) option:eq(2)').attr("selected", "selected");
-        }
-
-
-        // 座位總數
-        let routeSeat = tr.find('td:eq(3)').text();
-        tr.find('td:eq(3)').text("");
-        tr.find('td:eq(3)').append(`<input type="number" name="routeSeat" class="routeSeat" value="${routeSeat}" min="1">`);
-
-        // 狀態
-        let routeState = tr.find('td:eq(5)').text();
-        tr.find('td:eq(5)').text("");
-        tr.find('td:eq(5)').append(`<select name="routeState" class="routeState"><option value="0">取消</option>
-            <option value="1">正常航行</option></select>`);
-        if (routeState == "取消") {
-            tr.find('td:eq(5) option:eq(0)').attr("selected", "selected");
-        } else {
-            tr.find('td:eq(5) option:eq(1)').attr("selected", "selected");
-        }
-
-        // 編輯
-        tr.find('td:eq(6)').text("");
-        tr.find('td:eq(6)').append(`<button type="submit" class="btn btn-info save">儲存</button>
-            <button type="button" class="btn btn-info cancel">取消</button>`);
-
-        // 儲存
-        $('.save').click(function() {
-            let xhr = new XMLHttpRequest;
-
-            xhr.onload = function() {
-
-                if (xhr.status == 200) {
-                    show();
-
-                } else {
-                    alert(xhr.status);
-                }
-
-            };
-
-
-            // windows
-            xhr.open('post',  './php/backend_Route_edit.php',  true);
-            // Mac
-            // xhr.open('POST', 'http://localhost:8888/backend_Route_edit.php', true);
-            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-
-            let editRoute = {};
-            routePort = tr.find('.routePort').val();
-            // alert(routePort);
-            if (routePort == 1) {
-                routePort = "深澳港";
-            } else if (routePort == 2) {
-                routePort = "梧棲港";
+            if (routePort == "深澳港") {
+                tr.find('td:eq(2) option:eq(0)').attr("selected", "selected");
+            } else if (routePort == "梧棲港") {
+                tr.find('td:eq(2) option:eq(1)').attr("selected", "selected");
             } else {
-                routePort = "高雄港";
+                tr.find('td:eq(2) option:eq(2)').attr("selected", "selected");
             }
 
-            editRoute.routeNo = tr.find('td:eq(0)').text();
-            editRoute.routeDate = tr.find('.routeDate').val();
-            editRoute.routePort = routePort;
-            editRoute.routeSeat = tr.find('.routeSeat').val();
-            editRoute.routeState = tr.find('.routeState').val();
 
-            let data_info = JSON.stringify(editRoute);
-            console.log(data_info);
-            xhr.send(data_info);
+            // 座位總數
+            let routeSeat = tr.find('td:eq(3)').text();
+            tr.find('td:eq(3)').text("");
+            tr.find('td:eq(3)').append(`<input type="number" name="routeSeat" class="routeSeat" value="${routeSeat}" min="1">`);
 
+            // 狀態
+            let routeState = tr.find('td:eq(5)').text();
+            tr.find('td:eq(5)').text("");
+            tr.find('td:eq(5)').append(`<select name="routeState" class="routeState"><option value="0">取消</option>
+            <option value="1">正常航行</option></select>`);
+            if (routeState == "取消") {
+                tr.find('td:eq(5) option:eq(0)').attr("selected", "selected");
+            } else {
+                tr.find('td:eq(5) option:eq(1)').attr("selected", "selected");
+            }
+
+            // 編輯
+            tr.find('td:eq(6)').text("");
+            tr.find('td:eq(6)').append(`<button type="submit" class="btn btn-info save">儲存</button>
+            <button type="button" class="btn btn-info cancel">取消</button>`);
+
+            // 儲存
+            $('.save').click(function() {
+                let xhr = new XMLHttpRequest;
+
+                xhr.onload = function() {
+
+                    if (xhr.status == 200) {
+                        show();
+
+                    } else {
+                        alert(xhr.status);
+                    }
+
+                };
+
+
+                // windows
+                xhr.open('post',  './php/backend_Route_edit.php',  true);
+                // Mac
+                // xhr.open('POST', 'http://localhost:8888/backend_Route_edit.php', true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+                let editRoute = {};
+                routePort = tr.find('.routePort').val();
+                // alert(routePort);
+                if (routePort == 1) {
+                    routePort = "深澳港";
+                } else if (routePort == 2) {
+                    routePort = "梧棲港";
+                } else {
+                    routePort = "高雄港";
+                }
+
+                editRoute.routeNo = tr.find('td:eq(0)').text();
+                editRoute.routeDate = tr.find('.routeDate').val();
+                editRoute.routePort = routePort;
+                editRoute.routeSeat = tr.find('.routeSeat').val();
+                editRoute.routeState = tr.find('.routeState').val();
+
+                let data_info = JSON.stringify(editRoute);
+                console.log(data_info);
+                xhr.send(data_info);
+
+
+            });
+
+            // 取消
+            tr.find('.cancel').click(function() {
+                show();
+            });
 
         });
 
-        // 取消
-        tr.find('.cancel').click(function() {
-            show();
-        });
 
-    });
-
-
-
+    };
 
 });
