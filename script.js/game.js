@@ -120,34 +120,14 @@ $(document).ready(function() {
                                                 //魚的價格hover
                                         }
                                     }
-<<<<<<< HEAD
-                                    break;
-                                default:
-                                }
-                                //魚的價格hover
-                                $('.show_seafood_img_div').hover(function(e){
-                                    var last_num = e.target.id.substr(e.target.id.length-1,1);
-                                    $(`#show_seafood_img_${last_num}`).css('opacity','0');
-                                    $(`#show_seafood_price_${last_num}`).css('opacity','1');
-                                },function(e){
-                                    var last_num = e.target.id.substr(e.target.id.length-1,1);
-                                    $(`#show_seafood_img_${last_num}`).css('opacity','1');
-                                    $(`#show_seafood_price_${last_num}`).css('opacity','0');
-                                })
-                                //魚的價格hover
-                                    }
-                                }
-                                xhr3.open('GET', "http://localhost:8888/seafood_info.php");
-=======
                                     // FTP
                                     // xhr3.open('post', './php/seafood_info.php', true);
 
                                 // windows
-                                xhr3.open('post',  'http://localhost/dd106g3/seafood_info.php',  true);
+                                // xhr3.open('post',  'http://localhost/dd106g3/seafood_info.php',  true);
 
                                 // Mac
-                                // xhr3.open('GET', "http://localhost:8080/seafood_info.php");
->>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
+                                xhr3.open('GET', "http://localhost:8888/seafood_info.php");
                                 xhr3.send(null);
                             }
                         }
@@ -160,22 +140,10 @@ $(document).ready(function() {
                     // xhr2.open('post', './php/member_level.php', true);
 
                     // windows
-                    xhr2.open('post',  'http://localhost/dd106g3/member_level.php',  true);
+                    // xhr2.open('post',  'http://localhost/dd106g3/member_level.php',  true);
 
-<<<<<<< HEAD
-            // Mac
-            xhr2.open('POST', "http://localhost:8888/member_level.php");
-            xhr2.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-            xhr2.send(mem_str);
-            //第二層ajax是藉由第一層撈出的會員等級，找出memberLevel那張資料表的所有欄位
-        }
-    }
-    // FTP
-    // xhr.open('post', './php/member_login.php', true);
-=======
                     // Mac
-                    // xhr2.open('POST', "http://localhost:8080/member_level.php");
->>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
+                    xhr2.open('POST', "http://localhost:8888/member_level.php");
 
                     xhr2.setRequestHeader("content-type", "application/x-www-form-urlencoded");
                     xhr2.send(mem_str);
@@ -185,22 +153,14 @@ $(document).ready(function() {
             // FTP
             // xhr.open('post', './php/getlogininfo.php', true);
 
-<<<<<<< HEAD
-    // Mac
-    xhr.open('GET', "http://localhost:8888/getlogininfo.php");
-    xhr.send(null);
-})
-//第一層ajax是撈出會員等級
-=======
         // windows
-        xhr.open('post', 'http://localhost/dd106g3/getlogininfo.php',  true);
+        // xhr.open('post', 'http://localhost/dd106g3/getlogininfo.php',  true);
 
         // Mac
-        // xhr.open('GET', "http://localhost:8080/getlogininfo.php");
+        xhr.open('GET', "http://localhost:8888/getlogininfo.php");
         xhr.send(null);
     })
     //第一層ajax是撈出會員等級
->>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
 
 //一載入頁面，撈出所有的球種類及機率
 $(document).ready(function() {
@@ -223,26 +183,17 @@ $(document).ready(function() {
                     }
                 }
             }
-<<<<<<< HEAD
-        }
-    }
-    xhr.open('GET', "http://localhost:8888/getmember_level_info.php");
-    xhr.send(null);
-})
-//一載入頁面，撈出所有的球種類及機率
-=======
             // FTP
             // xhr.GET('GET', './php/getmember_level_info.php', true);
 
         // windows
-        xhr.open('GET',  'http://localhost/dd106g3/getmember_level_info.php',  true);
+        // xhr.open('GET',  'http://localhost/dd106g3/getmember_level_info.php',  true);
 
         // Mac
-        // xhr.open('GET', "http://localhost:8080/getmember_level_info.php");
+        xhr.open('GET', "http://localhost:8888/getmember_level_info.php");
         xhr.send(null);
     })
     //一載入頁面，撈出所有的球種類及機率
->>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
 
 //一載入頁面，如果沒有登入會員，顯示的海鮮
 $(document).ready(function() {
@@ -288,26 +239,18 @@ $(document).ready(function() {
                     //魚的價格hover
             }
         }
-<<<<<<< HEAD
-    }
-    xhr.open('GET', "http://localhost:8888/seafood_info.php");
-    xhr.send(null);
-})
-//一載入頁面，如果沒有登入會員，顯示的海鮮
-=======
 
         // FTP
         // xhr.GET('GET', './php/seafood_info.php', true);
 
         // windows
-        xhr.open('GET',  'http://localhost/dd106g3/seafood_info.php',  true);
+        // xhr.open('GET',  'http://localhost/dd106g3/seafood_info.php',  true);
 
         // Mac
-        // xhr.open('GET', "http://localhost:8080/seafood_info.php");
+        xhr.open('GET', "http://localhost:8888/seafood_info.php");
         xhr.send(null);
     })
     //一載入頁面，如果沒有登入會員，顯示的海鮮
->>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
 
 //遊戲開始按鈕
 $(document).ready(function() {
@@ -1184,18 +1127,14 @@ function update_mem_info() {
                     var mem_email = {};
                     mem_email.email = mem_info_detail.memId;
                     var mem_email_str = JSON.stringify(mem_email);
-<<<<<<< HEAD
-                    xhr2.open('POST','http://localhost:8888/update_mem_levelno.php');
-=======
                     // FTP
                     // xhr2.GET('POST', './php/update_mem_levelno.php', true);
 
                     // windows
-                    xhr2.open('POST',  'http://localhost/dd106g3/update_mem_levelno.php',  true);
+                    // xhr2.open('POST',  'http://localhost/dd106g3/update_mem_levelno.php',  true);
 
                     // Mac
-                    // xhr2.open('POST', 'http://localhost:8080/update_mem_levelno.php');
->>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
+                    xhr2.open('POST', 'http://localhost:8888/update_mem_levelno.php');
                     xhr2.send(mem_email_str);
                 }
             }
@@ -1224,19 +1163,15 @@ function update_mem_info() {
                     var mem_email = {};
                     mem_email.email = mem_info_detail.memId;
                     var mem_email_str = JSON.stringify(mem_email);
-<<<<<<< HEAD
-                    xhr2.open('POST','http://localhost:8888/update_mem_levelno2.php');
-=======
 
                     // FTP
                     // xhr2.GET('POST', './php/update_mem_levelno.php', true);
 
                     // windows
-                    xhr2.open('POST',  'http://localhost/dd106g3/update_mem_levelno.php',  true);
+                    // xhr2.open('POST',  'http://localhost/dd106g3/update_mem_levelno.php',  true);
 
                     // Mac
-                    // xhr2.open('POST', 'http://localhost:8080/update_mem_levelno2.php');
->>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
+                    xhr2.open('POST', 'http://localhost:8888/update_mem_levelno2.php');
                     xhr2.send(mem_email_str);
                 }
             }
@@ -1248,18 +1183,14 @@ function update_mem_info() {
     point_score.point = point;
     point_score.member = memberLevel.memId;
     var point_score_str = JSON.stringify(point_score);
-<<<<<<< HEAD
-    xhr.open('POST','http://localhost:8888/member_seafood_point_score.php')
-=======
     // FTP
     //  xhr.open('POST', './php/member_seafood_point_score.php', true);
 
     // windows
-    xhr.open('POST',  'http://localhost/dd106g3/member_seafood_point_score.php',  true);
+    // xhr.open('POST',  'http://localhost/dd106g3/member_seafood_point_score.php',  true);
 
     // Mac
-    // xhr.open('POST', 'http://localhost:8080/member_seafood_point_score.php')
->>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
+    xhr.open('POST', 'http://localhost:8888/member_seafood_point_score.php')
     xhr.send(point_score_str)
 }
 //抓到海鮮後更新積分及點數
