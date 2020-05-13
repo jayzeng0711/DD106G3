@@ -6,7 +6,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/backend.css">
-
+    <style>
+        .backend_Admin {
+            background-color: steelblue;
+        }
+        
+        .backend_Admin a {
+            color: #fff;
+        }
+        
+        .backend_Admin:hover {
+            background-color: steelblue;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,35 +30,49 @@
         </div>
         <div class="content">
             <button type="button" class="btn btn-info addbtn">新增管理員</button>
-            <?php include ("admin.php");?>
-                <table>
-                    <tr>
-                        <th>編號</th>
-                        <th>帳號</th>
-                        <th>密碼</th>
-                        <th>名稱</th>
-                        <th>權限</th>
-                        <th>編輯</th>
-                       
-                    </tr>
-                        <?php
-                        foreach($adminRows as $adminRow){
-                        ?>
-                        <tr>
-                        <td><?=$adminRow["adminNo"]?></td>
-                        <td><?=$adminRow["adminId"]?></td>
-                        <td><?=$adminRow["adminPsw"]?></td>
-                        <td><?=$adminRow["adminName"]?></td>
-                        <td><?=$adminRow["adminAuthority"]?></td>
-                        <td>
-                            <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                        </td>
-                        </tr>
-                        <?php    
-                        }
-                        ?>
-                     
-                </table>
+            <table>
+                <tr>
+                    <th>編號</th>
+                    <th>帳號</th>
+                    <th>密碼</th>
+                    <th>名稱</th>
+                    <th>權限</th>
+                    <th>編輯</th>
+
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>xxx@gmail.com</td>
+                    <td>dd106</td>
+                    <td>歐歐</td>
+                    <td>一般</td>
+                    <td>
+                        <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>xxx@gmail.com</td>
+                    <td>123</td>
+                    <td>海鷗</td>
+                    <td>最高</td>
+                    <td>
+                        <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>xxx@gmail.com</td>
+                    <td>123</td>
+                    <td>海海</td>
+                    <td>一般</td>
+                    <td>
+                        <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </td>
+
+                </tr>
+            </table>
 
         </div>
     </main>
