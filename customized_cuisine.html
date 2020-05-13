@@ -347,17 +347,17 @@
                                     <li class="ingret">
                                         <figure>
                                             <figcaption>
-                                                <p>奶油</p>
+                                                <p>辣椒</p>
                                             </figcaption>
-                                            <img src="./images/butter.png" alt="">
+                                            <img src="./images/chili.png" alt="">
                                         </figure>
                                     </li>
                                     <li class="ingret">
                                         <figure>
                                             <figcaption>
-                                                <p>芥末</p>
+                                                <p>檸檬</p>
                                             </figcaption>
-                                            <img src="./images/wasabi.png" alt="">
+                                            <img src="./images/lemon.png" alt="">
                                         </figure>
                                     </li>
                                 </ul>
@@ -420,21 +420,56 @@
     <script>
         // 點擊配料圖片
         $(".ingret").click(function () {
-            let num = $(".food-display .pic").length;
-            if (num < 3) {
-                var src = $(this).find("img").attr("src");
-                $(".food-display").append(
-                    `<div class="pic "><img class="in_pic" src="${src}" alt=""></div>`);
-                $(".pic").draggable({
-                    containment: "parent",
-                    scroll: false,
-                });
+            let checkPicName = $(".food-display .base").attr("src");
+            var ok = checkPicName.indexOf("seafood");
+            //檢查目前圖片是否為海鮮
+            if (ok == -1) {
+                //更改顯示的圖片檔名
+                let num = $(".food-display .pic").length;
+                if (num < 3) {
+                    var src = $(this).find("img").attr("src");
+                    var plus = src.lastIndexOf(".");
+                    src = src.substring(0, plus) + "_in.png";
 
+                    $(".food-display").append(
+                        `<div class="pic "><img class="in_pic" src="${src}" alt=""></div>`);
+                    $(".pic").draggable({
+                        containment: "parent",
+                        scroll: false,
+                    });
+                } else {
+                    alert("最多只能選三個喔！！！");
+                }
+                // console.log(num);
             } else {
-                alert("最多只能選三個喔!!!");
+                alert("先選擇烹調方式才能選配料喔！！！");
             }
-            // console.log(num);
+
         });
+        $(".tab_in").click(function () {
+            let checkPicName = $(".food-display .base").attr("src");
+            var ok = checkPicName.indexOf("seafood");
+            if (ok == -1) {
+                let num = $(".food-display .pic").length;
+                if (num < 3) {
+                    var src = $(this).find("img").attr("src");
+                    var plus = src.lastIndexOf(".");
+                    src = src.substring(0, plus) + "_in.png";
+
+                    $(".food-display").append(
+                        `<div class="pic "><img class="in_pic" src="${src}" alt=""></div>`);
+                    $(".pic").draggable({
+                        containment: "parent",
+                        scroll: false,
+                    });
+                } else {
+                    alert("最多只能選三個喔!!!");
+                }
+            } else {
+                alert("先選擇烹調方式才能選配料喔！！！");
+            }
+        });
+
 
         // 清空配料
         $(".reset").click(function () {
@@ -465,12 +500,14 @@
             $(this.parentNode).addClass("selected-fish");
             $(".cook-type").removeClass("selected");
             $(".tab_cook li").removeClass("selected");
+            $(".food-display .pic").remove(); //點海鮮時配料會重置
         });
         $(".tab_fish").on("click", function () {
             $(".tab_fish").removeClass("selected");
             $(this).addClass("selected");
             $(".cook-type").removeClass("selected");
             $(".tab_cook li").removeClass("selected");
+            $(".food-display .pic").remove();
         });
         //桌機版的海鮮與手機版連動
         for (let i = 0; i < $(".fish-pic").length; i++) {
@@ -724,7 +761,7 @@
         var click_next = document.createElement('div');
         click_next.textContent = "click";
         click_next.setAttribute('class', 'click_next');
-
+        var br = document.createElement('br');
         var i = 0,
             j = 0,
             k = 0,
@@ -760,8 +797,15 @@
             if (k <= str3.length) {
                 $(".talk")[2].innerHTML = str3.slice(0, k++);
                 setTimeout('typing3()', 100);
-                $(".talk")[2].appendChild(btny);
+                if($(window).width() > 576){
+                    $(".talk")[2].appendChild(btny);
+                    $(".talk")[2].appendChild(btnn);
+                }else{
+                    $(".talk")[2].appendChild(br);
+                    $(".talk")[2].appendChild(btny);
                 $(".talk")[2].appendChild(btnn);
+                }
+                
             } else {
                 $(".no").click(function () {
                     $(".act3").removeClass("on");
