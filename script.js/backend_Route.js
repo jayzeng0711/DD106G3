@@ -35,9 +35,9 @@ window.addEventListener('load', function() {
         // FTP
         // xhr.open('GET', './php/backend_Route_show.php', true);
         // windows
-        xhr.open('GET', 'http://localhost/dd106g3/backend_Route_show.php', true);
+        // xhr.open('GET', 'http://localhost/dd106g3/backend_Route_show.php', true);
         // Mac
-        // xhr.open('GET', 'http://localhost:8080/backend_Route_show.php', true);
+        xhr.open('GET', 'http://localhost:8888/backend_Route_show.php', true);
         xhr.send(null);
 
     };
@@ -51,7 +51,7 @@ window.addEventListener('load', function() {
 
         // 顯示輸入新增資料的欄位
         $('tr.insert').css("display", "table-row");
-        $('tr.eq(0)').append('');
+        // $('tr.eq(0)').append('');
 
         // <tr class="insert">
         //             <td></td>
@@ -96,7 +96,7 @@ window.addEventListener('load', function() {
             xhr.open('post',  'http://localhost/dd106g3/backend_Route_insert.php',  true);
 
             // Mac
-            // xhr.open('POST', 'http://localhost:8080/backend_Route_insert.php', true);
+            // xhr.open('POST', 'http://localhost:8888/backend_Route_insert.php', true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
 
@@ -204,7 +204,7 @@ window.addEventListener('load', function() {
                 xhr.open('post',  'http://localhost/dd106g3/backend_Route_edit.php',  true);
 
                 // Mac
-                // xhr.open('POST', 'http://localhost:8080/backend_Route_edit.php', true);
+                // xhr.open('POST', 'http://localhost:8888/backend_Route_edit.php', true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
                 let editRoute = {};

@@ -155,7 +155,7 @@ $('#mem_regisit_finish').click(function() {
         // xhr.open('post',  'http://localhost/dd106g3/member_regisit.php',  true);
 
         // Mac
-        xhr.open('POST', 'http://localhost:8080/member_regisit.php', true);
+        xhr.open('POST', 'http://localhost:8888/member_regisit.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
         var member_rigist = {};
@@ -205,7 +205,7 @@ $('#signInBtn').click(function() {
         // xhr.open('post',  'http://localhost/dd106g3/member_login.php',  true);
 
         // Mac
-        xhr.open('POST', 'http://localhost:8080/member_login.php', true);
+        xhr.open('POST', 'http://localhost:8888/member_login.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         var member_login = {};
         member_login.mem_email = loginEmail;
@@ -240,7 +240,7 @@ $(document).ready(function() {
         // xhr.open('post',  'http://localhost/dd106g3/getlogininfo.php',  true);
 
         // Mac
-        xhr.open('GET', "http://localhost:8080/getlogininfo.php");
+        xhr.open('GET', "http://localhost:8888/getlogininfo.php");
         xhr.send(null);
     })
     //檢查會員是否已登入
@@ -261,7 +261,7 @@ $('.pu_mem_login_suc_div').click(function() {
         // xhr.open('post',  'http://localhost/dd106g3/member_logout.php',  true);
 
         // Mac
-        xhr.open('POST', 'http://localhost:8080/member_logout.php', true);
+        xhr.open('POST', 'http://localhost:8888/member_logout.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(null);
     })
@@ -322,7 +322,7 @@ $('.pu_reb_btn').click(function(e) {
         // xhr.open('post',  'http://localhost/dd106g3/reboot_ans.php',  true);
 
         // Mac
-        xhr.open('Post', 'http://localhost:8080/reboot_ans.php', true);
+        xhr.open('Post', 'http://localhost:8888/reboot_ans.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         var ans = {};
         ans.text = text;
@@ -391,7 +391,7 @@ $('#textarea').keydown(function(e) {
             // xhr.open('post',  'http://localhost/dd106g3/reboot_ans.php',  true);
 
             // Mac
-            xhr.open('Post', 'http://localhost:8080/reboot_ans.php', true);
+            xhr.open('Post', 'http://localhost:8888/reboot_ans.php', true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             var ans = {};
             ans.text = text;
@@ -403,57 +403,80 @@ $('#textarea').keydown(function(e) {
     })
     //機器人對話按下enter
 
-//機器人對話點選文字
-$('.pu_reb_li').click(function(e) {
-        var text = $(e.target).text();
-        $('.pu_big_content_center').append(
-                ` <div class="pu_big_content_text_ans">
-        ${text}
-    </div>`
-            )
-            //把找到的文字傳給後端
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function() {
-                if (xhr.status == 200) {
-                    var reboot_ans_str = JSON.parse(xhr.responseText);
-                    if (reboot_ans_str.messageQueConrent === undefined) {
-                        setTimeout(function() {
-                            $('.pu_big_content_center').append(
-                                    ` <div class="pu_big_content_text">
-                            客服人員會再聯繫您</div>`)
-                                //讓滾動條保持最下方
-                            $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
-                            //讓滾動條保持最下方
-                        }, 500)
-                    } else {
-                        setTimeout(function() {
-                            $('.pu_big_content_center').append(
-                                    ` <div class="pu_big_content_text">
-                        ${reboot_ans_str.messageQueConrent} </div>`)
-                                //讓滾動條保持最下方
-                            $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
-                            //讓滾動條保持最下方
-                        }, 500)
-                    }
-                }
+//機器人選項從資料庫撈出
+$(document).ready(function(){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            var message = JSON.parse(xhr.responseText);
+            for(i = 0;i<message.length;i++){
+                $('.pu_reb_ul').append(`<li class="pu_reb_li">${message[i].messageContent}</li> `)
             }
-            // FTP
-            // xhr.open('post', './php/select_reboot_ans.php', true);
+            $('.pu_reb_li').click(function(e) {
+                var text = $(e.target).text();
+                $('.pu_big_content_center').append(
+                        ` <div class="pu_big_content_text_ans">
+                ${text}
+            </div>`
+                    )
+                //把找到的文字傳給後端
+                //機器人對話點選文字
+                var xhr = new XMLHttpRequest();
+                xhr.onload = function() {
+                        if (xhr.status == 200) {
+                            var reboot_ans_str = JSON.parse(xhr.responseText);
+                            console.log(reboot_ans_str)
+                            if (reboot_ans_str.messageQueConrent === undefined) {
+                                setTimeout(function() {
+                                    $('.pu_big_content_center').append(
+                                            ` <div class="pu_big_content_text">
+                                    客服人員會再聯繫您</div>`)
+                                        //讓滾動條保持最下方
+                                    $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
+                                    //讓滾動條保持最下方
+                                }, 500)
+                            } else {
+                                setTimeout(function() {
+                                    $('.pu_big_content_center').append(
+                                            ` <div class="pu_big_content_text">
+                                ${reboot_ans_str.messageQueConrent} </div>`)
+                                        //讓滾動條保持最下方
+                                    $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
+                                    //讓滾動條保持最下方
+                                }, 500)
+                            }
+                        }
+                    }
+                    // FTP
+                    // xhr.open('post', './php/select_reboot_ans.php', true);
+        
+                // windows
+                // xhr.open('post',  'http://localhost/dd106g3/select_reboot_ans.php',  true);
+        
+                // Mac
+                xhr.open('Post', 'http://localhost:8888/select_reboot_ans.php', true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                var ans = {};
+                ans.text = text;
+                var ans_str = JSON.stringify(ans);
+                console.log(ans_str)
+                xhr.send(ans_str);
+                //把找到的文字傳給後端
+                //機器人對話點選文字
+            })
+        }
+    }
+    // FTP
+    // xhr.open('post', './php/reboor_item.php', true);
 
-        // windows
-        // xhr.open('post',  'http://localhost/dd106g3/select_reboot_ans.php',  true);
+    // windows
+    // xhr.open('post',  'http://localhost/dd106g3/reboor_item.php',  true);
 
-        // Mac
-        xhr.open('Post', 'http://localhost:8080/select_reboot_ans.php', true);
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-        var ans = {};
-        ans.text = text;
-        var ans_str = JSON.stringify(ans);
-        console.log(ans_str)
-        xhr.send(ans_str);
-        //把找到的文字傳給後端
-    })
-    //機器人對話點選文字
+    // Mac
+    xhr.open('GET','http://localhost:8888/reboor_item.php');
+    xhr.send(null)
+})
+//機器人選項從資料庫撈出
 
 // init controller
 var controller = new ScrollMagic.Controller();

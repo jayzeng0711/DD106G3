@@ -11,11 +11,9 @@
         .backend_Message {
             background-color: steelblue;
         }
-        
         .backend_Message a {
             color: #fff;
         }
-        
         .backend_Message:hover {
             background-color: steelblue;
         }
@@ -36,27 +34,32 @@
                     <th>關鍵字</th>
                     <th>問題內容</th>
                     <th>回答內容</th>
-                    <th>聊天關鍵字上下架狀態</th>
+                    <th>上下架狀態</th>
                     <th>編輯</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>訂位</td>
-                    <td>怎麼訂位</td>
-                    <td>選擇港口、日期...</td>
+                <!-- <tr>
+                    <td id="message_num_1">1</td>
+                    <td><input id="message_text_1" type="text" value="訂位" size="10"></td>
+                    <td><input id="message_quest_1" type="text" value="怎麼訂位"></td>
+                    <td><input id="message_input_1" type="text" value="選擇港口、日期..." size="30"></td>
                     <td class="yesNo">
-                        <div></div>
+                        <div><input id="message_status_1" type="text" value="1" size="10" style="text-align: center;"></div>
                     </td>
                     <td>
-                        <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <div>
+                            <button class="update" id="update_1">編輯</button>
+                        </div>
                     </td>
-                </tr>
-
+                    <td>
+                        <div>
+                            <button class="remove" id="remove_1">刪除</button>
+                        </div>
+                    </td>
+                </tr> -->
             </table>
-
         </div>
     </main>
-
+    @@include('all_js.html')
+    <script src="./js/backend_Message.js"></script>
 </body>
-
 </html>
