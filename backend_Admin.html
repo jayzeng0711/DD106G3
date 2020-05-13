@@ -30,6 +30,7 @@
         </div>
         <div class="content">
             <button type="button" class="btn btn-info addbtn">新增管理員</button>
+            <?php include ("./php/admin.php");?>
             <table>
                 <tr>
                     <th>編號</th>
@@ -40,7 +41,23 @@
                     <th>編輯</th>
 
                 </tr>
+                <?php
+                foreach($adminRows as $adminRow){
+                ?>
                 <tr>
+                <td><?=$adminRow["adminNo"]?></td>
+                <td><?=$adminRow["adminId"]?></td>
+                <td><?=$adminRow["adminPsw"]?></td>
+                <td><?=$adminRow["adminName"]?></td>
+                <td><?=$adminRow["adminAuthority"]?></td>
+                <td>
+                    <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                </td>
+                </tr>
+                <?php    
+                }
+                ?>
+                <!--<tr>
                     <td>1</td>
                     <td>xxx@gmail.com</td>
                     <td>dd106</td>
@@ -72,7 +89,7 @@
                     </td>
 
                 </tr>
-            </table>
+            </table>-->
 
         </div>
     </main>
