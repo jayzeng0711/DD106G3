@@ -137,13 +137,11 @@ $(document).ready(function() {
                 var mem_str = JSON.stringify(mem);
                 console.log(mem_str)
 
-                // windows
-                 
+                // windows 
                 xhr2.open('post',  './php/member_level.php',  true);
 
                 // Mac
                 // xhr2.open('POST', "http://localhost:8888/member_level.php");
-
                 xhr2.setRequestHeader("content-type", "application/x-www-form-urlencoded");
                 xhr2.send(mem_str);
                 //第二層ajax是藉由第一層撈出的會員等級，找出memberLevel那張資料表的所有欄位
