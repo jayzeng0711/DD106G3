@@ -92,24 +92,50 @@
     //訂單紀錄
 
     .order_history{
+        background-color: #5fa8d3;
+        padding: 0.5% 0;
+        margin: auto;
+        border: 1px solid #5fa8d3;;
+        display: flex;
+        font-size: $fontSize*1.15;
+        color: #01355D;
+        width: 80%;
+    }
+    .order_history_test{
+        // border: 1px solid black;
+ 
         margin: auto;
         display: flex;
         width: 80%;
     }
+
+    .test{
+        padding: 1% 0;
+        border: 1px solid #5fa8d3;;
+        background-color: #D9E8EC;
+    }
+
     .order_history_list{
+        
         flex: 1;
     }
+
     .order_history_btn{
-        width: 95px;
+        width: 15px;
         color: #fff;
         background-color: #5fa8d3;
+        margin-left: 10%;
         // border: solid 1px black;
         cursor: pointer;
         box-shadow: 2px 2px 2px 707070;
         border-radius: 5px;
-        padding:1% 0;
+        // padding:1% 0;
     }
-
+    hr{
+        width: 80%;
+        border: 1px dashed;
+        color:  rgb(128, 128, 128);
+    }
 
     //訂單細節
     .order_detail_wrap{
@@ -127,7 +153,9 @@
         .order_detail_div_wrap{
             display: flex;
             width: 70%;
-            margin: 3% auto;
+            margin: 0.5% auto;
+            border: 1px solid rgb(185, 185, 185);
+            padding: 1% 0;
             .order_detail_div_in_wrap{
                 width: 30%;
                 margin-right: 5%;
@@ -158,6 +186,7 @@
                 }
             }
             .order_detail_right_div{
+                margin: auto;
                 width: 70%;
                 .order_detail_right_div_title{
                     display: flex;

@@ -22,6 +22,7 @@ $(function(){
 });
 $(function(){
     $('.order_history_btn').click(function(){
-        $('#checkbtn').toggleClass('showbtn');
+        $('#checkbtn1').toggleClass('showbtn');
+        $('#checkbtn2').toggleClass('showbtn');
     });
 });
