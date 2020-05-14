@@ -19,6 +19,52 @@
         .backend_Member:hover {
             background-color: steelblue;
         }
+        .no_div{
+            width: 50px;
+            height: 28px;
+            background-color: #f0f3f5;
+            border-radius: 50em;
+            cursor: pointer;
+            border: 1px solid #c8ced3;
+            display: inline-block;
+            position: relative;
+            transition: .3s all;
+        }
+        .no_div::before{
+            content: "";
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border: 0;
+            border-radius: 50em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            background-color: #fff;
+            left: 0px;
+            transition: .3s all;
+        }
+        .yes_div{
+            width: 50px;
+            height: 28px;
+            background-color: #4dbd74;
+            border-radius: 50em;
+            cursor: pointer;
+            border: 1px solid #3a9d5d;
+            display: inline-block;
+            position: relative;
+            transition: .3s all;
+        }
+        .yes_div::before{
+            content: "";
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border: 0;
+            border-radius: 50em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            background-color: #fff;
+            transition: .3s all;
+            /* left: 0px; */
+        }
     </style>
 </head>
 
@@ -42,7 +88,7 @@
                     <th>大頭貼</th>
                     <th>狀態</th>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>1</td>
                     <td>xxx@gmail.com</td>
                     <td>123</td>
@@ -54,10 +100,10 @@
                         <div class="bigimg">img</div>
                     </td>
                     <td class="yesNo">
-                        <div></div>
+                        <div class="yesNo_div"></div>
                     </td>
-                </tr>
-                <tr>
+                </tr> -->
+                <!-- <tr>
                     <td>2</td>
                     <td>xxx@gmail.com</td>
                     <td>123</td>
@@ -87,13 +133,14 @@
                         <div></div>
 
                     </td>
-                </tr>
+                </tr> -->
             </table>
 
 
         </div>
     </main>
-
+    @@include('all_js.html')
+    <script src="./js/backend_Member.js"></script>
 </body>
 
 </html>

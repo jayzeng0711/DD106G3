@@ -215,17 +215,31 @@ $('#signInBtn').click(function() {
 
 //檢查會員是否已登入
 $(document).ready(function() {
-        aaa()
+    login_change()
     })
     //檢查會員是否已登入
 
+//點擊會員跑出會員中心及登出
+$('.pu_mem_login_div_suc_wrap').click(function() { 
+    if($('.pu_login_btn').css('display') == 'block'){
+        $('.pu_login_btn').css('display', 'none');
+    }else{
+        $('.pu_login_btn').css('display', 'block');
+    }
+    
+});
+$('.pu_login_member_center').click(function(){
+    window.location.href = "member_data.html";
+})
+//點擊會員跑出會員中心及登出
 //會員登出
-$('.pu_mem_login_suc_div').click(function() {
+$('.pu_login_logout').click(function() {
         var xhr = new XMLHttpRequest();
         xhr.onload = function() {
             if (xhr.status == 200) {
                 $('.pu_mem_login_div_wrap').css('display', 'flex');
                 $('.pu_mem_login_div_suc_wrap').css('display', 'none');
+                $('.pu_login_btn').css('display', 'none');
             }
         }
 
@@ -444,8 +458,8 @@ $(document).ready(function() {
     })
     //機器人選項從資料庫撈出
 
-
-    function aaa(){
+//會員登入改變
+    function login_change(){
         var xhr = new XMLHttpRequest();
         xhr.onload = function() {
             if (xhr.status == 200) {
@@ -455,6 +469,11 @@ $(document).ready(function() {
                     $('.pu_mem_login_suc_div').text(`hi~${member.memName}`);
                     $('.pu_mem_login_div_wrap').css('display', 'none');
                     $('.pu_mem_login_div_suc_wrap').css('display', 'flex');
+                    if(member.memPic){
+                        $('.pu_icon_suc_div').append(`<img style="border: 1px solid #ccc;border-radius: 50%;" src="./images/${member.memPic}" alt="">`)
+                    }else{
+                        $('.pu_icon_suc_div').append(`<img style="border: 1px solid #ccc;border-radius: 50%;" src="./images/login.png" alt="">`)
+                    }
                 } else {
                     $('.pu_mem_login_div_wrap').css('display', 'flex');
                     $('.pu_mem_login_div_suc_wrap').css('display', 'none');
@@ -470,6 +489,8 @@ $(document).ready(function() {
         // xhr.open('GET', "http://localhost:8888/getlogininfo.php");
         xhr.send(null);
     }
+//會員登入改變
+
 
 // init controller
 var controller = new ScrollMagic.Controller();
