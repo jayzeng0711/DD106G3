@@ -1,11 +1,12 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/backend.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         .backend_Admin {
             background-color: steelblue;
@@ -30,8 +31,8 @@
         </div>
         <div class="content">
             <button type="button" class="btn btn-info addbtn">新增管理員</button>
-            <?php include ("./php/admin.php");?>
-            <table>
+           
+            <table id="display">
                 <tr>
                     <th>編號</th>
                     <th>帳號</th>
@@ -41,28 +42,23 @@
                     <th>編輯</th>
 
                 </tr>
-                <?php
-                foreach($adminRows as $adminRow){
-                ?>
-                <tr>
-                <td><?=$adminRow["adminNo"]?></td>
-                <td><?=$adminRow["adminId"]?></td>
-                <td><?=$adminRow["adminPsw"]?></td>
-                <td><?=$adminRow["adminName"]?></td>
-                <td><?=$adminRow["adminAuthority"]?></td>
-                <td>
-                    <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                </td>
-                </tr>
-                <?php    
-                }
-                ?>
+                
         
             </table>
 
         </div>
     </main>
-
+    <script>
+        $.ajax({
+            type: "GET",
+            url: 'admin.php',
+            data: {"data":"check"},
+            
+            success: function(data){
+                $('#display').html(data);
+            }
+        });
+    </script>
 </body>
 
 </html>
