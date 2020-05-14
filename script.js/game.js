@@ -132,8 +132,11 @@ $(document).ready(function() {
                 }
                 var mem = {};
                 mem.level = memlevel.levelNo;
+                mem.memId = memlevel.memId;
                 mem_level_no = memlevel.levelNo;
+                
                 var mem_str = JSON.stringify(mem);
+                console.log(mem_str)
 
                 // windows
                  
@@ -1174,6 +1177,7 @@ function update_mem_info() {
     point_score.point = point;
     point_score.member = memberLevel.memId;
     var point_score_str = JSON.stringify(point_score);
+    console.log(point_score_str)
 
     // windows
     xhr.open('POST',  './php/member_seafood_point_score.php',  true);
