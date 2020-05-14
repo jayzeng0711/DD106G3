@@ -50,14 +50,14 @@
     </main>
     <script>
         $.ajax({
-            url: './php/admin.php',
-            data: "",
+            type: "GET",
+            url: 'admin.php',
+            data: {"data":"check"},
             
-            dataType: 'json',
             success: function(data){
-                $('#display').html();
+                $('#display').html(data);
             }
-        })
+        });
     </script>
 </body>
 
