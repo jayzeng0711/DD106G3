@@ -134,7 +134,6 @@ $(document).ready(function() {
                 mem.level = memlevel.levelNo;
                 mem.memId = memlevel.memId;
                 mem_level_no = memlevel.levelNo;
-                
                 var mem_str = JSON.stringify(mem);
                 console.log(mem_str)
 
@@ -1103,6 +1102,7 @@ function update_mem_info() {
     xhr.onload = function() {
         if (xhr.status == 200) {
             var mem_info_detail = JSON.parse(xhr.responseText);
+            console.log(mem_info_detail)
             //判斷是否到達了升級銀鷗積分
             if (mem_info_detail.levelNo == 1) {
                 if (mem_info_detail.memScore >= mem_info[1].levelScore && mem_info_detail.memScore < mem_info[2].levelScore) {
@@ -1162,7 +1162,7 @@ function update_mem_info() {
 
 
                     // windows
-                    xhr2.open('POST',  './php/update_mem_levelno.php',  true);
+                    xhr2.open('POST',  './php/update_mem_levelno2.php',  true);
 
                     // Mac
                     // xhr2.open('POST', 'http://localhost:8888/update_mem_levelno2.php');
