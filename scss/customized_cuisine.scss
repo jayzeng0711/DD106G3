@@ -31,24 +31,29 @@ button#go_top {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
 }
+
 @keyframes move {
     0% {
         transform: translateY(0px);
 
     }
+
     100% {
         transform: translateY(5px);
     }
 }
+
 @keyframes rotate {
     0% {
         transform: rotateY(0deg);
 
     }
+
     100% {
         transform: rotateY(360deg);
     }
@@ -73,6 +78,7 @@ button#go_top {
         -webkit-filter: blur(2px);
         filter: blur(2px);
     }
+
     .people {
         position: absolute;
         bottom: 0;
@@ -105,6 +111,7 @@ button#go_top {
         animation-fill-mode: forwards;
         cursor: pointer;
         text-align: center;
+
         .talk {
             text-align: center;
             font-size: 30px;
@@ -120,7 +127,9 @@ button#go_top {
             display: inline-block;
             opacity: 1;
 
-            .yes,.no, .go-fish {
+            .yes,
+            .no,
+            .go-fish {
                 @extend %btn;
                 text-decoration: none;
                 display: inline-block;
@@ -132,15 +141,17 @@ button#go_top {
                 animation-delay: .5s;
                 animation-fill-mode: forwards;
             }
+
             .no {
                 @extend %btn_ano;
                 animation-delay: 1.3s;
-            } 
-            
+            }
+
         }
-        .click_next{
-        
-        position: relative;
+
+        .click_next {
+
+            position: relative;
             display: inline-block;
             bottom: 27px;
             left: 10px;
@@ -148,32 +159,32 @@ button#go_top {
             animation-name: move;
             animation-duration: 1s;
             animation-iteration-count: infinite;
-        animation-direction: alternate-reverse;
- 
-        &:before{
-            content: ''; 
-            width: 0;
-        height: 0;
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: auto; 
-        bottom: -24px;
-        display: inline-block;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 27px solid #4EB6E6;
-        border-bottom: 0px solid black;
-        animation-name:  rotate;
-        animation-duration:  1s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate-reverse;
+            animation-direction: alternate-reverse;
+
+            &:before {
+                content: '';
+                width: 0;
+                height: 0;
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: auto;
+                bottom: -24px;
+                display: inline-block;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 27px solid #4EB6E6;
+                border-bottom: 0px solid black;
+                animation-name: rotate;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate-reverse;
+
+            }
 
         }
-        
-        }
     }
-    
+
 }
 
 
@@ -183,7 +194,7 @@ main {
     position: relative;
     margin: 0 auto;
     display: none;
-    transition:  ease-in-out;
+    transition: ease-in-out;
 }
 
 main.on {
@@ -195,9 +206,11 @@ main.on {
     text-align: center;
     padding: 50px 0;
     margin-bottom: 50px;
+
     >p {
         margin-bottom: 30px;
     }
+
     a button {
         @extend %btn_ano;
         padding: 10px;
@@ -207,12 +220,14 @@ main.on {
 .upper {
     h3 {
         text-align: center;
+        cursor: default;
     }
 
     section.choose-fish {
         width: 100%;
         background: url(../images/list.png) no-repeat top/contain;
         position: relative;
+
         .fish-select-wrap {
             width: 166.7%;
             height: 500px;
@@ -277,7 +292,9 @@ main.on {
                 background-image: url(../images/note02.png);
             }
         }
-        #fishL,#fishR{
+
+        #fishL,
+        #fishR {
             border: transparent;
             border-radius: 10px;
             background-color: rgb(255, 185, 22);
@@ -287,14 +304,16 @@ main.on {
             margin: auto;
             top: -15%;
             font-size: 30px;
-            padding:10px;
+            padding: 10px;
             color: #f9f9f9;
             cursor: pointer;
         }
-        #fishR{
+
+        #fishR {
             left: 15%;
         }
-        #fishL{
+
+        #fishL {
             right: 15%;
         }
 
@@ -327,33 +346,19 @@ section.paper {
             width: 100%;
         }
     }
-    .ingret_pos {
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        // border: 1px solid blue;
-        cursor: normal;
-        z-index: 3;
-    }
 
-    .ingret_pos:nth-child(2) {
-        z-index: 2;
-    }
-
-    .ingret_pos:nth-child(3) {
-        z-index: 1;
-    }
-
-    .reset{
+    .reset {
         display: none;
     }
+
     .pic {
-        width: 40%;
+        width: 25%;
         position: absolute;
         top: 0;
         z-index: 3;
         cursor: grab;
-        img{
+
+        img {
             width: 100%;
         }
     }
@@ -374,14 +379,28 @@ section.paper {
         margin-bottom: 50px;
         font-size: 24px;
         text-align: center;
+
         h3 {
             margin-bottom: 30px;
+            cursor: default;
+
             span {
-                border: 1px solid black;
-                width: 20px;
-                height: 20px;
+                width: 30px;
+                height: 25px;
+                margin: 5px 0 0 10px;
                 display: inline-block;
+                background: url(../images/trash.svg) no-repeat top/contain;
+                position: relative;
                 cursor: pointer;
+
+                &:after {
+                    content: "清空配料";
+                    font-size: 14px;
+                    position: absolute;
+                    width: max-content;
+                    left: 30px;
+                    top: 7px;
+                }
             }
         }
 
@@ -390,11 +409,13 @@ section.paper {
             justify-content: space-around;
             width: 150%;
             transition: transform .5s ease-in-out;
+
             li {
                 width: 23%;
                 font-size: 18px;
                 // border: 1px solid white;
                 cursor: pointer;
+
                 figure img {
                     width: 100%;
                     object-fit: fill;
@@ -407,15 +428,18 @@ section.paper {
                 }
             }
         }
+
         .choose-ingredient {
             overflow: hidden;
             width: 100%;
+
             .left-right {
                 display: flex;
                 justify-content: center;
+
                 div {
                     width: 5%;
-                    padding: 5px  0;
+                    padding: 5px 0;
                     display: inline-block;
                     background-color: saddlebrown;
                     border-radius: 10px;
@@ -437,6 +461,7 @@ section.paper {
         font-size: 24px;
         text-align: center;
         cursor: pointer;
+
         h3 {
             margin: 30px 0;
         }
@@ -454,6 +479,7 @@ section.paper {
                 // border: 1px solid azure;
                 position: relative;
             }
+
             li.selected::before {
                 content: "";
                 border: 3px solid red;
@@ -475,6 +501,10 @@ form {
     margin: 0 auto;
     text-align: center;
 
+    h3 {
+        cursor: default;
+    }
+
     .food-info {
         margin: 30px 0 20px;
         text-align: left;
@@ -485,6 +515,7 @@ form {
             margin-left: 20px;
             color: red;
             font-size: 90%;
+            cursor: default;
         }
 
         label {
@@ -523,7 +554,9 @@ form {
     .form-control {
         h3 {
             margin: 50px 0 20px;
+            cursor: default;
         }
+
         button {
             @extend %btn_ano;
             padding: 20px 50px;
@@ -542,6 +575,7 @@ form {
     opacity: 0;
     z-index: -1;
     transition: opacity 1s;
+
     article {
         background-color: white;
         border: 1px solid #f7c029;
@@ -561,14 +595,14 @@ form {
             padding: 10px;
             background-color: #FBD672;
             position: relative;
-            
-    img {
-        width: 7%;
-        position: absolute;
-        top: 4px;
-        right: 10px;
-        cursor: pointer;
-    }
+
+            img {
+                width: 7%;
+                position: absolute;
+                top: 4px;
+                right: 10px;
+                cursor: pointer;
+            }
         }
 
         p {
@@ -581,7 +615,7 @@ form {
             padding: 10px 15px;
         }
 
-        a  input {
+        a input {
             @extend %btn;
             padding: 10px 15px;
         }
@@ -600,9 +634,10 @@ form {
 }
 
 @media screen and (max-width:1200px) {
-    .upper section.choose-fish .fish-select-wrap{
+    .upper section.choose-fish .fish-select-wrap {
         width: 250%;
     }
+
     .side-right {
         .choose-cook {
             ul {
@@ -628,6 +663,22 @@ form {
 
 
 @media screen and (max-width:991px) {
+    .attn.on .talking-here {
+        .talk {
+            font-size: 26px;
+        }
+        .click_next {
+            font-size: 18px;
+            bottom: 25px;
+            &:before {
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 24px solid #4EB6E6;
+                bottom: -22px;
+            }
+        }
+    }
+
     .side-right {
         .choose-cook {
             ul {
@@ -640,30 +691,38 @@ form {
 }
 
 @media screen and (max-width:900px) {
-    section.paper{
-        .center{
+    section.paper {
+        .center {
             display: block;
         }
     }
+
     .side-left {
         width: 100%;
-        display: block;    
+        display: block;
         padding: 0;
-        .food-display{
+
+        .food-display {
             width: 80%;
             margin: auto;
             padding-top: 50px;
             margin-bottom: 30px;
             text-align: center;
-            img.base{
+
+            img.base {
                 width: 70%;
             }
         }
+
+        .pic {
+            width: 16%;
+        }
     }
+
     .side-right {
         width: 100%;
-        display: block; 
-        padding: 0;   
+        display: block;
+        padding: 0;
     }
 }
 
@@ -684,17 +743,28 @@ form {
             width: 100%;
             height: auto;
             text-align: right;
+
             .food-display {
                 position: relative;
                 width: 100%;
             }
 
-            #reset{
+            .reset {
                 display: inline-block;
                 position: relative;
                 cursor: pointer;
                 bottom: 50px;
                 right: 20px;
+
+                &:before {
+                    content: "";
+                    top: -5px;
+                    left: -25px;
+                    position: absolute;
+                    background: url(../images/trash.svg) no-repeat top/contain;
+                    width: 23px;
+                    height: 20px;
+                }
             }
         }
 
@@ -774,6 +844,7 @@ form {
                                 position: relative;
                                 text-align: center;
                                 cursor: pointer;
+
                                 figure img {
                                     width: 100%;
                                     object-fit: fill;
@@ -798,6 +869,7 @@ form {
                                 left: 50%;
                                 transform: translate(-50%, -50%);
                             }
+
                             li.selected::before {
                                 content: "";
                                 width: 65%;
@@ -810,11 +882,13 @@ form {
                                 transform: translate(-50%, -50%);
                             }
                         }
+
                         >p {
                             margin: auto;
                             padding: 10px;
                         }
                     }
+
                     .cabinet-top::before,
                     .cabinet-bottom::before {
                         bottom: 0px;
@@ -828,6 +902,7 @@ form {
                         z-index: 0;
                     }
                 }
+
                 .tab2 ul li {
                     padding: 45px 38px;
                 }
@@ -855,6 +930,22 @@ form {
 }
 
 @media screen and (max-width:640px) {
+    .attn.on .talking-here {
+        .talk {
+            font-size: 24px;
+        }
+        .click_next {
+            font-size: 16px;
+            bottom: 21px;
+            &:before {
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 20px solid #4EB6E6;
+                bottom: -18px;
+            }
+        }
+    }
+
     .center .for-phone .tab-contents {
         .tab.-on {
 
@@ -873,6 +964,9 @@ form {
 }
 
 @media screen and (max-width:576px) {
+    .talking-here .talk.on .yes, .no{
+        margin-top: 10px;
+    }
     form {
         .form-control {
             input {
@@ -895,6 +989,10 @@ form {
             }
         }
     }
+
+    .side-left .pic {
+        width: 14%;
+    }
 }
 
 @media screen and (max-width:500px) {
@@ -913,6 +1011,7 @@ form {
             padding: 45px;
         }
     }
+
     form {
         .form-control {
             input {

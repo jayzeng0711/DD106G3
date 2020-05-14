@@ -347,17 +347,17 @@
                                     <li class="ingret">
                                         <figure>
                                             <figcaption>
-                                                <p>奶油</p>
+                                                <p>辣椒</p>
                                             </figcaption>
-                                            <img src="./images/butter.png" alt="">
+                                            <img src="./images/chili.png" alt="">
                                         </figure>
                                     </li>
                                     <li class="ingret">
                                         <figure>
                                             <figcaption>
-                                                <p>芥末</p>
+                                                <p>檸檬</p>
                                             </figcaption>
-                                            <img src="./images/wasabi.png" alt="">
+                                            <img src="./images/lemon.png" alt="">
                                         </figure>
                                     </li>
                                 </ul>
@@ -419,32 +419,67 @@
     <script src="./jquery/jquery-ui.min.js"></script>
     <script>
         // 點擊配料圖片
-        $(".ingret").click(function () {
-            let num = $(".food-display .pic").length;
-            if (num < 3) {
-                var src = $(this).find("img").attr("src");
-                $(".food-display").append(
-                    `<div class="pic "><img class="in_pic" src="${src}" alt=""></div>`);
-                $(".pic").draggable({
-                    containment: "parent",
-                    scroll: false,
-                });
+        $(".ingret").click(function() {
+            let checkPicName = $(".food-display .base").attr("src");
+            var ok = checkPicName.indexOf("seafood");
+            //檢查目前圖片是否為海鮮
+            if (ok == -1) {
+                //更改顯示的圖片檔名
+                let num = $(".food-display .pic").length;
+                if (num < 3) {
+                    var src = $(this).find("img").attr("src");
+                    var plus = src.lastIndexOf(".");
+                    src = src.substring(0, plus) + "_in.png";
 
+                    $(".food-display").append(
+                        `<div class="pic "><img class="in_pic" src="${src}" alt=""></div>`);
+                    $(".pic").draggable({
+                        containment: "parent",
+                        scroll: false,
+                    });
+                } else {
+                    alert("最多只能選三個喔！！！");
+                }
+                // console.log(num);
             } else {
-                alert("最多只能選三個喔!!!");
+                alert("先選擇烹調方式才能選配料喔！！！");
             }
-            // console.log(num);
+
+        });
+        $(".tab_in").click(function() {
+            let checkPicName = $(".food-display .base").attr("src");
+            var ok = checkPicName.indexOf("seafood");
+            if (ok == -1) {
+                let num = $(".food-display .pic").length;
+                if (num < 3) {
+                    var src = $(this).find("img").attr("src");
+                    var plus = src.lastIndexOf(".");
+                    src = src.substring(0, plus) + "_in.png";
+
+                    $(".food-display").append(
+                        `<div class="pic "><img class="in_pic" src="${src}" alt=""></div>`);
+                    $(".pic").draggable({
+                        containment: "parent",
+                        scroll: false,
+                    });
+                } else {
+                    alert("最多只能選三個喔!!!");
+                }
+            } else {
+                alert("先選擇烹調方式才能選配料喔！！！");
+            }
         });
 
+
         // 清空配料
-        $(".reset").click(function () {
+        $(".reset").click(function() {
             $(".food-display .pic").remove();
         })
     </script>
     <script>
         // 手機用版面
-        $(function () {
-            $("a.tab").on("click", function (e) {
+        $(function() {
+            $("a.tab").on("click", function(e) {
                 e.preventDefault();
 
                 /* 將頁籤列表移除所有 -on，再將指定的加上 -on */
@@ -460,21 +495,23 @@
     <script>
         // =================海鮮和烹調的切換
         // 選海鮮，被選擇的海鮮會有紅圈，原本被選擇的烹調方式會恢復正常
-        $(".fish-pic, .note-content").on("click", function () {
+        $(".fish-pic, .note-content").on("click", function() {
             $(".note").removeClass("selected-fish");
             $(this.parentNode).addClass("selected-fish");
             $(".cook-type").removeClass("selected");
             $(".tab_cook li").removeClass("selected");
+            $(".food-display .pic").remove(); //點海鮮時配料會重置
         });
-        $(".tab_fish").on("click", function () {
+        $(".tab_fish").on("click", function() {
             $(".tab_fish").removeClass("selected");
             $(this).addClass("selected");
             $(".cook-type").removeClass("selected");
             $(".tab_cook li").removeClass("selected");
+            $(".food-display .pic").remove();
         });
         //桌機版的海鮮與手機版連動
         for (let i = 0; i < $(".fish-pic").length; i++) {
-            $(".fish-pic")[i].addEventListener('click', function () {
+            $(".fish-pic")[i].addEventListener('click', function() {
                 for (let j = 0; j < $(".tab_fish").length; j++) {
                     if (j == i) {
                         $(".tab_fish")[j].classList.add("selected");
@@ -485,7 +522,7 @@
             });
         }
         for (let i = 0; i < $(".tab_fish").length; i++) {
-            $(".tab_fish")[i].addEventListener('click', function () {
+            $(".tab_fish")[i].addEventListener('click', function() {
                 for (let j = 0; j < $(".note").length; j++) {
                     if (j == i) {
                         $(".note")[j].classList.add("selected-fish");
@@ -497,20 +534,20 @@
         }
 
         //點海鮮圖改預覽圖
-        $(".note img").click(function () {
+        $(".note img").click(function() {
             let src = $(this).attr('src');
             $("#pin img.base").attr("src", src);
             $(".cook-type").removeClass("selected");
         });
         //點海鮮文字改預覽圖
-        $(".note-content").click(function () {
+        $(".note-content").click(function() {
             let src = $(this).next().children().attr('src');
             $("#pin img.base").attr("src", src);
             $(".cook-type").removeClass("selected");
         });
 
         //點手機海鮮可以改預覽圖
-        $(".tab_fish").click(function () {
+        $(".tab_fish").click(function() {
             let src = $(this).children().children("img").attr('src');
             $("#pin img.base").attr("src", src);
         });
@@ -523,7 +560,7 @@
         // alert(s_note.length);
         // alert(cookList.length);
         for (let i = 0; i < s_note.length; i++) {
-            s_note[i].addEventListener('click', function () {
+            s_note[i].addEventListener('click', function() {
                 for (let j = 0; j < cookList.length; j++) {
                     if (j == i) {
                         cookList[j].style.display = "flex";
@@ -549,7 +586,7 @@
         };
 
         for (let i = 0; i < tf_select.length; i++) {
-            tf_select[i].addEventListener('click', function () {
+            tf_select[i].addEventListener('click', function() {
                 for (let j = 0; j < tc_select.length; j++) {
                     if (j == i) {
                         tc_select[j].style.display = "flex";
@@ -573,7 +610,7 @@
 
         // 點烹調方式改預覽圖
 
-        $(".cook-type").click(function (e) {
+        $(".cook-type").click(function(e) {
             var str = e.target.id;
             str = str.substr(str.length - 1, 1);
             src = `./images/cook${str}.png`;
@@ -585,35 +622,35 @@
     </script>
     <script>
         //海鮮slider
-        $(document).ready(function () {
+        $(document).ready(function() {
             var fishRight = document.getElementById("fishR"),
                 fishLeft = document.getElementById("fishL"),
                 fishSlider = document.querySelector(".fish-select-wrap"),
                 fishPosition = 1;
             var w = $(window).width();
             if (w > 1200) {
-                fishRight.onclick = function () {
+                fishRight.onclick = function() {
                     if (fishPosition == 3) {} else {
                         fishSlider.style.transform = "translateX(-" + fishPosition * 20 + "%)";
                         fishPosition += 1;
                     }
                 }
 
-                fishLeft.onclick = function () {
+                fishLeft.onclick = function() {
                     if (fishPosition == 1) {} else {
                         fishSlider.style.transform = "translateX(-" + ((fishPosition - 2) * 20) + "%)";
                         fishPosition -= 1;
                     }
                 }
             } else {
-                fishRight.onclick = function () {
+                fishRight.onclick = function() {
                     if (fishPosition == 4) {} else {
                         fishSlider.style.transform = "translateX(-" + fishPosition * 20 + "%)";
                         fishPosition += 1;
                     }
                 }
 
-                fishLeft.onclick = function () {
+                fishLeft.onclick = function() {
                     if (fishPosition == 1) {} else {
                         fishSlider.style.transform = "translateX(-" + ((fishPosition - 2) * 20) + "%)";
                         fishPosition -= 1;
@@ -621,7 +658,7 @@
                 }
             }
 
-            $(window).resize(function () {
+            $(window).resize(function() {
                 var w = $(window).width();
                 if (w > 1200) {
                     //考慮當小視窗posi = 4時，換成大posi要等於3
@@ -630,14 +667,14 @@
                         fishPosition = 3;
                     }
 
-                    fishRight.onclick = function () {
+                    fishRight.onclick = function() {
                         if (fishPosition == 3) {} else {
                             fishSlider.style.transform = "translateX(-" + fishPosition * 20 + "%)";
                             fishPosition += 1;
                         }
                     }
 
-                    fishLeft.onclick = function () {
+                    fishLeft.onclick = function() {
                         if (fishPosition == 1) {} else {
                             fishSlider.style.transform = "translateX(-" + ((fishPosition - 2) *
                                 20) + "%)";
@@ -645,14 +682,14 @@
                         }
                     }
                 } else {
-                    fishRight.onclick = function () {
+                    fishRight.onclick = function() {
                         if (fishPosition == 4) {} else {
                             fishSlider.style.transform = "translateX(-" + fishPosition * 20 +
                                 "%)";
                             fishPosition += 1;
                         }
                     }
-                    fishLeft.onclick = function () {
+                    fishLeft.onclick = function() {
                         if (fishPosition == 1) {} else {
                             fishSlider.style.transform = "translateX(-" + ((fishPosition - 2) *
                                 20) + "%)";
@@ -671,7 +708,7 @@
             position = 1,
             finalPosition = 3;
 
-        right.onclick = function () {
+        right.onclick = function() {
             if (position == 3) {
                 $('#arrowR').attr('disabled', true);
 
@@ -682,7 +719,7 @@
             }
         }
 
-        left.onclick = function () {
+        left.onclick = function() {
             if (position == 1) {
                 $('#arrowL').attr('disabled', true);
 
@@ -694,16 +731,16 @@
         }
     </script>
     <script>
-        $(function () {
+        $(function() {
             // 開啟彈跳視窗
-            $("button.to_lightbox").on("click", function () {
+            $("button.to_lightbox").on("click", function() {
                 $(".overlay").addClass("-on");
             });
-            $(".close, .cancel").on("click", function () {
+            $(".close, .cancel").on("click", function() {
                 $(".overlay").addClass("-opacity-zero");
 
                 // 設定隔一秒後，移除相關 class
-                setTimeout(function () {
+                setTimeout(function() {
                     $(".overlay").removeClass("-on -opacity-zero");
                 }, 1000);
             });
@@ -724,7 +761,7 @@
         var click_next = document.createElement('div');
         click_next.textContent = "click";
         click_next.setAttribute('class', 'click_next');
-
+        var br = document.createElement('br');
         var i = 0,
             j = 0,
             k = 0,
@@ -739,7 +776,7 @@
                 $(".talk")[0].appendChild(click_next);
             }
         }
-        $(document).ready(function () {
+        $(document).ready(function() {
             if ($(".act1").hasClass("on") == 1) {
                 setTimeout('typing()', 2500);
             } else if ($(".no-fish1").hasClass("on") == 1) {
@@ -760,10 +797,17 @@
             if (k <= str3.length) {
                 $(".talk")[2].innerHTML = str3.slice(0, k++);
                 setTimeout('typing3()', 100);
-                $(".talk")[2].appendChild(btny);
-                $(".talk")[2].appendChild(btnn);
+                if ($(window).width() > 576) {
+                    $(".talk")[2].appendChild(btny);
+                    $(".talk")[2].appendChild(btnn);
+                } else {
+                    $(".talk")[2].appendChild(br);
+                    $(".talk")[2].appendChild(btny);
+                    $(".talk")[2].appendChild(btnn);
+                }
+
             } else {
-                $(".no").click(function () {
+                $(".no").click(function() {
                     $(".act3").removeClass("on");
                     $(".act4").addClass("on");
                     setTimeout('typing4()', 100);
@@ -778,7 +822,7 @@
             }
         }
 
-        $(".talking-here").click(function () {
+        $(".talking-here").click(function() {
             if ($(".act1").hasClass("on") == 1) {
                 $(".act1").removeClass("on");
                 $(".act2").addClass("on");
@@ -824,7 +868,7 @@
             }
         }
     </script>
-    <script src="./js/customized_cuisine.js"></script>
+    <!-- <script src="./js/customized_cuisine.js"></script> -->
 </body>
 
 </html>

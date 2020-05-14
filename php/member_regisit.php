@@ -14,7 +14,11 @@
         $member->bindValue(":memPsw", $mem_str->memPsw);
         $member->bindValue(":memName", $mem_str->memName);
         $member->execute();
-        echo "註冊成功";
+        if($mem_email ->rowCount() == 0){
+            echo "註冊成功";
+        }else{
+            echo '註冊失敗';
+        }
     } else{
         echo '信箱已註冊過';
     }

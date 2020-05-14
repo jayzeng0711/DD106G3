@@ -13,7 +13,7 @@
         $memRow = $memlogin->fetch(PDO::FETCH_ASSOC);
 
         // 寫入 session
-        session_id(SID);
+        // session_id(SID);
         session_start();
         $_SESSION["memId"] =  $memRow["memId"];
         $_SESSION["memName"] =  $memRow["memName"];

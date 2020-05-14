@@ -28,17 +28,16 @@ window.addEventListener('load', function() {
                 }
                 edit();
 
+
             } else {
                 alert(xhr.status);
             }
         };
 
-        // FTP
-        // xhr.open('GET', './php/backend_Route_show.php', true);
         // windows
-        // xhr.open('GET', 'http://localhost/dd106g3/backend_Route_show.php', true);
+        xhr.open('GET',  './php/backend_Route_show.php',  true);
         // Mac
-        xhr.open('GET', 'http://localhost:8888/backend_Route_show.php', true);
+        // xhr.open('GET', 'http://localhost:8888/backend_Route_show.php', true);
         xhr.send(null);
 
     };
@@ -51,29 +50,7 @@ window.addEventListener('load', function() {
         $(this).attr('disabled', 'disabled');
 
         // 顯示輸入新增資料的欄位
-<<<<<<< HEAD
-        $('tr.insert').css("display", "table-row");
-        // $('tr.eq(0)').append('');
-
-        // <tr class="insert">
-        //             <td></td>
-        //             <td><input type="date" name="routeDate" id="routeDate"></td>
-        //             <td><select name="routePort" id="routePort">
-        //                     <option value="1">深澳港</option>
-        //                     <option value="2">梧棲港</option>
-        //                     <option value="3">高雄港</option>
-        //                 </select></td>
-        //             <td><input type="number" name="routeSeat" id="routeSeat" min="1"></td>
-        //             <td>0</td>
-        //             <td>正常航行</td>
-        //             <td>
-        //                 <button type="submit" class="btn btn-info save">儲存</button>
-        //                 <button type="button" class="btn btn-info cancel">取消</button></td>
-
-        //         </tr>
-=======
         $('tr.title').after('<tr class="insert"><td></td><td><input type="date" name="routeDate" id="routeDate"></td><td><select name="routePort" id="routePort"><option value="1">深澳港</option><option value="2">梧棲港</option><option value="3">高雄港</option></select></td><td><input type="number" name="routeSeat" id="routeSeat" min="1"></td><td>0</td><td>正常航行</td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
->>>>>>> 600a6e0d9c3262fceee32dc5ae1308977b56b49b
 
         // 儲存新增
         $('.save').click(function() {
@@ -92,12 +69,9 @@ window.addEventListener('load', function() {
 
             };
 
-            // FTP
-            // xhr.open('post', './php/backend_Route_insert.php', true);
 
             // windows
-            xhr.open('post',  'http://localhost/dd106g3/backend_Route_insert.php',  true);
-
+            xhr.open('post',  './php/backend_Route_insert.php',  true);
             // Mac
             // xhr.open('POST', 'http://localhost:8888/backend_Route_insert.php', true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -135,6 +109,7 @@ window.addEventListener('load', function() {
 
 
     // 編輯資料
+
     function edit() {
 
         $('.edit').click(function() {
@@ -199,12 +174,9 @@ window.addEventListener('load', function() {
 
                 };
 
-                // FTP
-                // xhr.open('post', './php/backend_Route_edit.php', true);
 
                 // windows
-                xhr.open('post',  'http://localhost/dd106g3/backend_Route_edit.php',  true);
-
+                xhr.open('post',  './php/backend_Route_edit.php',  true);
                 // Mac
                 // xhr.open('POST', 'http://localhost:8888/backend_Route_edit.php', true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -242,8 +214,5 @@ window.addEventListener('load', function() {
 
 
     };
-
-
-
 
 });
