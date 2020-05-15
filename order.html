@@ -65,8 +65,8 @@
                                     <option value="2020/05/02">2020/05/02</option>
                                     <option value="2020/05/03">2020/05/03</option>
                                 </select>
-                                <span class="icon"></span>
-                                <p>(目前剩餘<span>20</span>個座位)</p>
+                                <img src="./images/calendar.svg" alt="月曆" id="calimg">
+                                <p>尚餘<span class="remaining">200</span>個座位</p>
                             </div>
                             <div class="button next">下一步</div>
 
@@ -75,6 +75,95 @@
                 </div>
             </div>
         </section>
+        <!-- 月曆燈箱 -->
+        <div class="box">
+            <img class="boxclose" src="./images/blue-cross-icon.png" alt="">
+            <div class="wrapper">
+                <div class="now">
+                    <div class="prev"></div>
+                    <div class="time">
+                        <p class="month"></p>
+                        <p class="year"></p>
+                    </div>
+                    <div class="next"></div>
+                </div>
+                <table>
+
+                    <tr>
+                        <td>S</td>
+                        <td>M</td>
+                        <td>T</td>
+                        <td>W</td>
+                        <td>T</td>
+                        <td>F</td>
+                        <td>S</td>
+                    </tr>
+                    <tr>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                    </tr>
+                    <tr>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                    </tr>
+                    <tr>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                    </tr>
+                    <tr>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                    </tr>
+                    <tr class="week6">
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                    </tr>
+                    <tr class="week7">
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                    </tr>
+                </table>
+                <span>營業日</span>
+                <div class="btnport btnport1 on">深澳港</div>
+                <div class="btnport btnport2">梧棲港</div>
+                <div class="btnport btnport3">高雄港</div>
+                <p>尚餘<span class="remaining">0</span>個座位</p>
+
+
+            </div>
+
+        </div>
+
         <section class="section2">
             <div class="container-fluid">
                 <div class="row row0">
@@ -381,81 +470,7 @@
             });
         }
     </script>
-    <!-- 
-<div class="datetable">
-    <table>
-        <tr>
-            <td colspan="7">西元
-                <select name="nowyear" id="nowyear"></select>年
-                <select name="nowmonth" id="nowmonth"></select>月
-            </td>
-        </tr>
-        <tr>
-            <td>日</td>
-            <td>一</td>
-            <td>二</td>
-            <td>三</td>
-            <td>四</td>
-            <td>五</td>
-            <td>六</td>
-        </tr>
-        <tr>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-        </tr>
-        <tr>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-        </tr>
-        <tr>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-        </tr>
-        <tr>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-        </tr>
-        <tr id="week5">
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-        </tr>
-        <tr id="week6">
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-            <td class="day"></td>
-        </tr>
 
-    </table>
-</div> -->
     <!-- @@include('./layout/reboot.html') -->
 
 

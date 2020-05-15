@@ -134,6 +134,11 @@ section {
                         top: 3px;
                     }
                 }
+                #calimg {
+                    vertical-align: bottom;
+                    margin-left: 2%;
+                    cursor: pointer;
+                }
                 .button {
                     @extend %btn_ano;
                     width: 100px;
@@ -144,6 +149,130 @@ section {
                 }
             }
         }
+    }
+}
+
+// 月曆燈箱
+.box {
+    display: none;
+    padding: 2.5% 1% 1%;
+    background-color: #FBD672;
+    position: fixed;
+    top: calc(150px + 1%);
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 6px 6px 0px rgb(247, 192, 41);
+    border-radius: 0 0 10px 10px;
+    .boxclose {
+        width: 7%;
+        position: absolute;
+        top: 4px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .wrapper {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 2% 50px;
+    }
+    .now {
+        display: flex;
+        justify-content: space-around;
+        .prev {
+            width: 10%;
+            background: url(../images/left.svg) no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            cursor: pointer;
+        }
+        .next {
+            width: 10%;
+            background: url(../images/right.svg) no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            cursor: pointer;
+        }
+        .time .month {
+            font-family: Segoe UI;
+            font-size: $fontSize*3;
+            font-weight: 700;
+            margin: 0 auto;
+            margin-bottom: 5%;
+            text-align: center;
+            color: #204D77;
+        }
+        .time .year {
+            font-family: Segoe UI;
+            font-size: $fontSize*1.2;
+            font-weight: 700;
+            text-align: center;
+            color: #204D77;
+            margin: 0 auto 20%;
+        }
+    }
+    table {
+        font-family: Segoe UI;
+        margin: 0 auto 3%;
+        padding: 3px;
+        tr:first-child td {
+            border-radius: 3px;
+            background-color: #F5E8D8;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin: 2px;
+            display: inline-block;
+        }
+        td {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            vertical-align: top;
+            padding: 0;
+            margin: 2px;
+            display: inline-block;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        td.on1 {
+            background-color: #6597AC;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+        }
+        td.on2 {
+            background-color: #F7B54D;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+        }
+        td.on3 {
+            background-color: #B6A78E;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+    p {
+        margin-top: 5%;
+    }
+    .btnport {
+        display: inline-block;
+        padding: 1%;
+        color: #fff;
+        line-height: $fontSize*2;
+        border-radius: 10px;
+        background-color: #6597AC;
+        cursor: pointer;
+    }
+    .btnport2 {
+        background-color: #F7B54D;
+    }
+    .btnport3 {
+        background-color: #B6A78E;
+    }
+    .btnport.on {
+        padding: 3%;
     }
 }
 
