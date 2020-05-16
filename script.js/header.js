@@ -151,10 +151,10 @@ $('#mem_regisit_finish').click(function() {
 
 
         // windows
-        // xhr.open('post', './php/member_regisit.php',  true);
+        xhr.open('post', './php/member_regisit.php',  true);
 
         // Mac
-        xhr.open('POST', 'http://localhost:8888/member_regisit.php', true);
+        // xhr.open('POST', 'http://localhost:8888/member_regisit.php', true);
         // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
         var member_rigist = {};

@@ -77,50 +77,134 @@
                 <div class="order_history">
                     <div class="order_history_list">
                         <div>訂單編號</div>
-                        <div>0012</div>
                     </div>
                     <div class="order_history_list">
                         <div>日期</div>
-                        <div>2020/05/12</div>
+                    </div>
+                    <div class="order_history_list">
+                        <div>港口</div>
                     </div>
                     <div class="order_history_list">
                         <div>人數</div>
-                        <div>10</div>
                     </div>
                     <div class="order_history_list">
                         <div>狀態</div>
-                        <div>已付款</div>
-                    </div>
-                    <div class="order_history_btn">
-                        查看明細
                     </div>
                 </div>
+                <!-- 第一筆資料 -->
+                <div class="order_history_test">
+                    <div class="order_history_list test">
+                        <div>0012</div>
+                    </div>
+                    <div class="order_history_list test">
+                        <div><input size="6" type="text" value="2020/05/12">
+                            </div>
+                    </div>
+                    <div class="order_history_list test">
+                       <div>
+                        <input  size="6" type="text" value="高雄港">
+                       </div>
+                    </div>
+                    <div class="order_history_list test">
+                        <div><input  size="6" type="text" value="10">
+                            </div>
+                    </div>
+                    <div class="order_history_list test">
+                        <div>已付款</div>
+                    </div>
+                </div>
+                <div class="order_history_btn">
+                    +
+                
+                </div>
                 <div class="order_detail_div_wrap" style="display: none;">
-                    <div class="order_detail_div_in_wrap">
-                        <div class="order_detail_left_div">
-                            <div class="order_detail_left_div_item">
-                                <div class="order_detail_left_div_item_title">訂單編號</div>
-                                <div class="order_detail_left_div_item_title"><input class="input_not_modify" size="12" readonly type="text" value="0012"></div>
+                 
+                    <div class="order_detail_right_div">
+                        <div>
+                            <div class="order_detail_right_div_title">
+                                <div>套餐名稱</div>
+                                <div>數量</div>
+                                <div>單價</div>
+                                <div>小計</div>
                             </div>
-                            <div class="order_detail_left_div_item">
-                                <div class="order_detail_left_div_item_title">日期</div>
-                                <div class="order_detail_left_div_item_title"><input class="input_modify" type="text" size="12" value="2020/05/12"></div>
+                            <div class="order_detail_right_div_item">
+                                <div>A套餐</div>
+                                <div><input class="input_modify" size="6" type="text" value="5"></div>
+                                <div><input class="input_not_modify" size="6" readonly type="text" value="1000"></div>
+                                <div>5000</div>
                             </div>
-                            <div class="order_detail_left_div_item">
-                                <div class="order_detail_left_div_item_title">港口</div>
-                                <div class="order_detail_left_div_item_title"><input class="input_modify" type="text" size="12" value="高雄港"></div>
+                            <div class="order_detail_right_div_item_1">
+                                <div>B套餐</div>
+                                <div><input class="input_modify" size="6" type="text" value="5"></div>
+                                <div><input class="input_not_modify" size="6" readonly type="text" value="1000"></div>
+                                <div>5000</div>
                             </div>
-                            <div class="order_detail_left_div_item">
-                                <div class="order_detail_left_div_item_title">人數</div>
-                                <div class="order_detail_left_div_item_title"><input class="input_modify" type="text" size="12" value="10"></div>
+                        </div>
+                        <div class="order_detail_right_div_custom_wrap">
+                            <div class="order_detail_right_div_custom">
+                                <div>客製化料理</div>
+                                <div>數量</div>
+                                <div>單價</div>
+                                <div>小計</div>
                             </div>
-                            <div class="order_detail_left_div_item">
-                                <div class="order_detail_left_div_item_title">狀態</div style="width: 40%;">
-                                <div class="order_detail_left_div_item_title"><input class="input_not_modify" size="12" readonly type="text" value="已付款"></div>
+                            <div class="order_detail_right_div_custom_item">
+                                <div>蛤蜊湯</div>
+                                <div><input class="input_modify" type="text" size="6" value="5"></div>
+                                <div><input class="input_not_modify" size="6" readonly type="text" value="200"></div>
+                                <div>1000</div>
+                            </div>
+                        </div>
+                        <div class="order_detail_right_div_point_wrap">
+                            <div class="order_detail_right_div_point">
+                                <div class="order_detail_right_div_point_text">使用點數</div>
+                                <div><input class="input_modify" size="6" type="text" value="100"></div>
+                            </div>
+                            <div class="order_detail_right_div_point">
+                                <div class="order_detail_right_div_total">總金額</div>
+                                <div>10900</div>
                             </div>
                         </div>
                     </div>
-    
+                </div>
+                <div id="checkbtn1" class="showbtn">
+                    <button class="order_detail_btn">    
+                        修改
+                    </button>
+                    <button class="order_detail_cancel_btn">
+                        取消訂單
+                    </button>
+                </div>
+               
+                <hr>
+                <!-- 第一筆資料 end -->
+               
+                 <!-- 第二筆資料 star -->
+                 <div class="order_history_test">
+                    <div class="order_history_list test">
+                        <div>0012</div>
+                    </div>
+                    <div class="order_history_list test">
+                        <div><input size="6" type="text" value="2020/05/12">
+                            </div>
+                    </div>
+                    <div class="order_history_list test">
+                       <div>
+                        <input size="6" type="text" value="高雄港">
+                       </div>
+                    </div>
+                    <div class="order_history_list test">
+                        <div><input size="6" type="text" value="10">
+                            </div>
+                    </div>
+                    <div class="order_history_list test">
+                        <div>已付款</div>
+                    </div>
+                </div>
+                <div class="order_history_btn">
+                    +
+                </div>
+                <div class="order_detail_div_wrap" style="display: none;">
+                  
                     <div class="order_detail_right_div">
                         <div>
                             <div class="order_detail_right_div_title">
@@ -168,9 +252,8 @@
                         </div>
                         
                     </div>
-                   
                 </div>
-                <div id="checkbtn" class="showbtn">
+                <div id="checkbtn2" class="showbtn">
                     <button class="order_detail_btn">    
                         修改
                     </button>
@@ -178,7 +261,11 @@
                         取消訂單
                     </button>
                 </div>
+                <hr>
+               <!-- 第二筆資料 end -->
             </div>
+
+
 
             <div class="curisine_wrap">
                 <div class="curisine_div_title">

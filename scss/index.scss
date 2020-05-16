@@ -2,15 +2,17 @@
 @keyframes waves {
     /*波浪*/
     0% {
-        background-image: url("/images/wave_keyframes01.png");
+        background-image: url("../images/wave_keyframes01.png");
     }
     50% {
-        background-image: url("/images/wave_keyframes02.png");
+        background-image: url("../images/wave_keyframes02.png");
     }
     100% {
-        background-image: url("/images/wave_keyframes03.png");
+        background-image: url("../images/wave_keyframes03.png");
     }
 }
+
+
 
 @keyframes waves_calm {
     /*海面*/
@@ -34,13 +36,13 @@
 @keyframes ripples {
     /*漣漪*/
     0% {
-        background-image: url("/images/ripple_keyframes01.png");
+        background-image: url("../images/ripple_keyframes01.png");
     }
     50% {
-        background-image: url("/images/ripple_keyframes02.png");
+        background-image: url("../images/ripple_keyframes02.png");
     }
     100% {
-        background-image: url("/images/ripple_keyframes03.png");
+        background-image: url("../images/ripple_keyframes03.png");
     }
 }
 
@@ -99,6 +101,7 @@ body {
 }
 
 div.forALL {
+
     width: 100%;
     height: 100vh;
     margin: 0;
@@ -109,7 +112,7 @@ div.forALL {
     div.cloud {
         border: 1px solid red;
         border: none;
-        background-image: url("/images/clouds_alter.png");
+        background-image: url("../images/clouds_alter.png");
         background-size: cover;
         height: 50vh;
         animation: cloud 180s infinite;
@@ -133,7 +136,7 @@ div.forALL {
         height: 15vh;
     }
     div.ocean {
-        background-image: url("/images/Ocean_top_alter.png");
+        background-image: url("../images/Ocean_top_alter.png");
         height: 35vh;
         animation: waves_calm 5s infinite alternate ease-in-out;
         div.warp {
@@ -158,7 +161,7 @@ div.forALL {
                         position: relative;
                     }
                     a:nth-child(1) {
-                        background-image: url("/images/Cruise_landingPage_02.png");
+                        background-image: url("../images/Cruise_landingPage_02.png");
                         background-size: contain;
                         background-repeat: no-repeat;
                         width: 35%;
@@ -175,7 +178,7 @@ div.forALL {
                             font-size: $fontSize * 4;
                         }
                         div.waves {
-                            background-image: url("/images/wave_keyframes01.png");
+                            background-image: url("../images/wave_keyframes01.png");
                             background-repeat: no-repeat;
                             background-size: contain;
                             width: 100%;
@@ -190,7 +193,7 @@ div.forALL {
                         }
                     }
                     a:nth-child(2) {
-                        background-image: url("/images/Cruise_landingPage_01.png");
+                        background-image: url("../images/Cruise_landingPage_01.png");
                         background-size: contain;
                         background-repeat: no-repeat;
                         width: 35%;
@@ -207,7 +210,7 @@ div.forALL {
                             font-size: $fontSize * 4;
                         }
                         div.ripples {
-                            background-image: url("/images/ripple_keyframes01.png");
+                            background-image: url("../images/ripple_keyframes01.png");
                             background-repeat: no-repeat;
                             background-size: contain;
                             width: 100%;
