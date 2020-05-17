@@ -47,6 +47,15 @@
                                 <label for="port3">高雄港</label>
                             </div>
                             <div class="question">
+                                <h3>選擇日期</h3>
+                                <p>中午11點集合，下午四點原港口解散</p>
+                            </div>
+                            <div class="answer ">
+                                <select name="date" id="date"></select>
+                                <img src="./images/calendar.svg" alt="月曆" id="calimg">
+                                <p>尚餘<span class="remaining"></span>個座位</p>
+                            </div>
+                            <div class="question">
                                 <h3>選擇人數</h3>
                             </div>
                             <div class="answer people">
@@ -54,19 +63,6 @@
                                 <input type="number" name="people" id="people" min="1" value="1">
                                 <span class="plus">+</span>
                                 <span>人</span>
-                            </div>
-                            <div class="question">
-                                <h3>選擇日期</h3>
-                                <p>中午11點集合，下午四點原港口解散</p>
-                            </div>
-                            <div class="answer ">
-                                <select name="date" id="date">
-                                    <option value="2020/05/01">2020/05/01</option>
-                                    <option value="2020/05/02">2020/05/02</option>
-                                    <option value="2020/05/03">2020/05/03</option>
-                                </select>
-                                <img src="./images/calendar.svg" alt="月曆" id="calimg">
-                                <p>尚餘<span class="remaining">200</span>個座位</p>
                             </div>
                             <div class="button next">下一步</div>
 
@@ -80,12 +76,12 @@
             <img class="boxclose" src="./images/blue-cross-icon.png" alt="">
             <div class="wrapper">
                 <div class="now">
-                    <div class="prev"></div>
+                    <div class="boxprev"></div>
                     <div class="time">
                         <p class="month"></p>
                         <p class="year"></p>
                     </div>
-                    <div class="next"></div>
+                    <div class="boxnext"></div>
                 </div>
                 <table>
 
@@ -178,7 +174,7 @@
                             <div class="row leftrow1 justify-content-center">
                                 <div class="col-12 col-md-3">
                                     <div class="mealname">
-                                        <h3>A套餐</h3>
+                                        <h3></h3>
                                     </div>
                                 </div>
                             </div>
@@ -188,7 +184,7 @@
                                         <div class="img">
                                             <img src="./images/menupic1.png " alt="">
                                         </div>
-                                        <div class="name"> 香蒜奶油龍蝦</div>
+                                        <div class="name mealFirst"></div>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-3">
@@ -196,7 +192,7 @@
                                         <div class="img">
                                             <img src="./images/menupic2.png " alt="">
                                         </div>
-                                        <div class="name"> 香蒜奶油龍蝦</div>
+                                        <div class="name mealMain"></div>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-3">
@@ -204,7 +200,7 @@
                                         <div class="img">
                                             <img src="./images/menupic3.png " alt="">
                                         </div>
-                                        <div class="name"> 香蒜奶油龍蝦</div>
+                                        <div class="name  mealDishOne"></div>
                                     </div>
                                 </div>
                             </div>
@@ -214,7 +210,7 @@
                                         <div class="img">
                                             <img src="./images/menupic2.png " alt="">
                                         </div>
-                                        <div class="name"> 香蒜奶油龍蝦</div>
+                                        <div class="name mealDishTwo"></div>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-3">
@@ -222,24 +218,24 @@
                                         <div class="img">
                                             <img src="./images/menupic1.png " alt="">
                                         </div>
-                                        <div class="name"> 香蒜奶油龍蝦</div>
+                                        <div class="name mealSoup"></div>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-3">
                                     <div class="price">
                                         <div class="text">
                                             <p>每人份</p>
-                                            <p><span>1000</span>元</p>
+                                            <p><span class="mealPrice"></span>元</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row leftrow4 justify-content-center">
                                 <div class="col-2">
-                                    <div class="previouspage"></div>
+                                    <div id="previousmeal"></div>
                                 </div>
                                 <div class="col-2">
-                                    <div class="nextpage"></div>
+                                    <div id="nextmeal"></div>
                                 </div>
                             </div>
                         </div>
@@ -260,7 +256,7 @@
                                         </tr>
                                         <tr>
                                             <td>A</td>
-                                            <td><span class="mealAprice">1000</span>元</td>
+                                            <td><span class="mealAprice"></span>元</td>
                                             <td>
                                                 <span class="minus">-</span>
                                                 <input type="number" name="meal" id="mealAamount" min="0" class="meal" value="1">
@@ -269,7 +265,7 @@
                                         </tr>
                                         <tr>
                                             <td>B</td>
-                                            <td><span class="mealBprice">1400</span>元</td>
+                                            <td><span class="mealBprice"></span>元</td>
                                             <td>
                                                 <span class="minus">-</span>
                                                 <input type="number" name="meal" id="mealBamount" min="0" class="meal" value="1">
@@ -278,7 +274,7 @@
                                         </tr>
                                         <tr>
                                             <td>C</td>
-                                            <td><span class="mealCprice">1200</span>元</td>
+                                            <td><span class="mealCprice"></span>元</td>
                                             <td>
                                                 <span class="minus">-</span>
                                                 <input type="number" name="meal" id="mealCamount" min="0" class="meal" value="1">
@@ -322,37 +318,28 @@
                         <div class="leftbg">
                             <div class="row leftrow1 justify-content-center">
                                 <div class="col-12 col-md-3">
-                                    <div class="mealname">
+                                    <div class="custoname">
                                         <h3>我的</h3>
                                         <h3>客製料理</h3>
                                     </div>
                                 </div>
                             </div>
                             <div class="row leftrow2 justify-content-center">
-                                <div class="col-6 col-md-3">
+                                <div id="nologin">
+                                    <p>請先登入會員</p>
+                                </div>
+                                <div id="nocusto">
+                                    <p>此帳號沒有客製化料理</p>
+                                </div>
+                                <!-- <div class="col-6 col-md-3">
                                     <div class="dish">
                                         <div class="img">
                                             <img src="./images/menupic1.png " alt="">
                                         </div>
                                         <div class="name"> 香蒜奶油龍蝦</div>
                                     </div>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <div class="dish">
-                                        <div class="img">
-                                            <img src="./images/menupic2.png " alt="">
-                                        </div>
-                                        <div class="name"> 香蒜奶油龍蝦</div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-3">
-                                    <div class="dish">
-                                        <div class="img">
-                                            <img src="./images/menupic3.png " alt="">
-                                        </div>
-                                        <div class="name"> 香蒜奶油龍蝦</div>
-                                    </div>
-                                </div>
+                                </div> -->
+
                             </div>
 
                             <div class="row leftrow4 justify-content-center">

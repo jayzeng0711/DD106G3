@@ -178,14 +178,14 @@ section {
     .now {
         display: flex;
         justify-content: space-around;
-        .prev {
+        .boxprev {
             width: 10%;
             background: url(../images/left.svg) no-repeat;
             background-position: 50% 50%;
             background-size: contain;
             cursor: pointer;
         }
-        .next {
+        .boxnext {
             width: 10%;
             background: url(../images/right.svg) no-repeat;
             background-position: 50% 50%;
@@ -357,14 +357,14 @@ section {
             }
             .leftrow4 {
                 margin-bottom: 1%;
-                .previouspage {
+                #previousmeal {
                     border-top: 10px solid transparent;
                     border-bottom: 10px solid transparent;
                     border-right: 20px solid #7E4E4E;
                     border-left: 10px solid transparent;
                     cursor: pointer;
                 }
-                .nextpage {
+                #nextmeal {
                     border-top: 10px solid transparent;
                     border-bottom: 10px solid transparent;
                     border-right: 10px solid transparent;
@@ -468,7 +468,7 @@ section {
                 transform: translateY(-51%);
             }
             .leftrow1 {
-                .mealname {
+                .custoname {
                     background: url(../images/mealname.svg) no-repeat;
                     background-position: 50% 0;
                     background-size: contain;
@@ -501,8 +501,11 @@ section {
                     font-size: $fontSize;
                 }
             }
-            .leftrow3 {
-                margin-bottom: 3%;
+            .leftrow2 {
+                #nologin,
+                #nocusto {
+                    display: none;
+                }
             }
             .leftrow4 {
                 margin-bottom: 1%;
