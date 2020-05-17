@@ -10,8 +10,10 @@
 
 <body>
     @@include('./layout/header.html')
-    <form action="member_data.php" method="POST">
+    <form action="" method="POST">
         <div class="mem_data_wrap">
+
+            <!-- 側邊欄 -->
             <div class="mem_data_left_div">
                 <div id="preson_data">
                     個人資料
@@ -23,11 +25,13 @@
                     客製化料理
                 </div>
             </div>
+            <!-- 側邊欄 -->
+
             <div class="mem_data_right_div">
                 <div>
                     個人資料
                 </div>
-                <div class="mem_img_div">
+                <!-- <div class="mem_img_div">
                     <img src="./images/10-2.png" alt="">
                 </div>
                 <div class="mem_data_name_update_div">
@@ -61,10 +65,10 @@
                             會員點數> <input style="border: none;" class="input_cannoy_mod" type="number" value="50" readonly>
                         </div>
                     </div>
-                </div>
-                <button class="mem_modify_btn">
+                </div> -->
+                <!-- <button class="mem_modify_btn">
                     修改
-                </button>
+                </button> -->
             </div>
 
 
@@ -322,9 +326,8 @@
     
     <script src="./jquery/jquery.min.js"></script>
     <script src="./js/vue.js"></script>
-
-    <script src="./js/member_data.js"></script>
     <script src="./js/header.js"></script>
+    <script src="./js/member_data.js"></script>
 </body>
 
 </html>

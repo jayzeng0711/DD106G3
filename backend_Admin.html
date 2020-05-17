@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/backend.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         .backend_Admin {
             background-color: steelblue;
@@ -33,32 +32,27 @@
             <button type="button" class="btn btn-info addbtn">新增管理員</button>
            
             <table id="display">
-                <tr>
+                <tr class="title">
                     <th>編號</th>
                     <th>帳號</th>
                     <th>密碼</th>
                     <th>名稱</th>
                     <th>權限</th>
                     <th>編輯</th>
-
                 </tr>
-                
-        
+                <tr>
+                    <td>編號</td>
+                    <td>編號</td>
+                    <td>編號</td>
+                    <td>編號</td>
+                    <td>編號</td>
+                    <td>編號</td>
+                </tr>
             </table>
-
         </div>
     </main>
-    <script>
-        $.ajax({
-            type: "GET",
-            url: 'admin.php',
-            data: {"data":"check"},
-            
-            success: function(data){
-                $('#display').html(data);
-            }
-        });
-    </script>
+    @@include('all_js.html')
+    <script src="./js/backend_Admin.js"></script>
 </body>
 
 </html>

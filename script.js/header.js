@@ -240,6 +240,7 @@ $('.pu_login_logout').click(function() {
                 $('.pu_mem_login_div_wrap').css('display', 'flex');
                 $('.pu_mem_login_div_suc_wrap').css('display', 'none');
                 $('.pu_login_btn').css('display', 'none');
+                window.location.reload();
             }
         }
 
@@ -463,7 +464,7 @@ $(document).ready(function() {
         var xhr = new XMLHttpRequest();
         xhr.onload = function() {
             if (xhr.status == 200) {
-                var member = JSON.parse(xhr.responseText);
+                member = JSON.parse(xhr.responseText);
                 console.log(member);
                 if (member.memName) {
                     $('.pu_mem_login_suc_div').text(`hi~${member.memName}`);
