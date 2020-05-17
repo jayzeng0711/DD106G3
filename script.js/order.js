@@ -1,4 +1,5 @@
 window.addEventListener('load', function() {
+    // console.log(1);
 
     // 按步驟切換頁面位置
     // $('.section2').css('display', 'none');
@@ -187,136 +188,6 @@ window.addEventListener('load', function() {
         }
     });
 
-    // 月曆
-
-    let now = new Date(), //今天日期
-        days = document.getElementsByClassName('day'); //每一格td
-
-    // 顯示年份
-    let nowyear = document.getElementById('nowyear');
-    // for (let i = 1900; i <= 2100; i++) {
-    //     option = new Option(i, i);
-    //     nowyear.add(option);
-    // }
-    // nowyear.selectedIndex = now.getFullYear() - 1900;
-
-
-    // 顯示月份
-    let nowmonth = document.getElementById('nowmonth');
-    // for (let i = 1; i <= 12; i++) {
-    //     option = new Option(i, i);
-    //     nowmonth.add(option);
-    // }
-    // nowmonth.selectedIndex = now.getMonth();
-
-
-
-
-
-    //下載完就執行
-    // showCalender();
-
-
-    function showCalender() {
-        let year = nowyear.value, //現在選的年份
-            month = nowmonth.value, //現在選的月份
-            first = new Date(year, month - 1, 1).getDay(), //現在選的月份的第一天是禮拜幾?
-            week5 = document.getElementById('week5'),
-            week6 = document.getElementById('week6');
-
-
-        // 歸零：清空月曆、清除顏色、顯示第5和第6星期
-        for (i in days) {
-            days[i].innerText = "";
-            // days[i].style.backgroundColor = "white";
-
-        }
-
-        for (let i = 0; i < days.length; i++) {
-            days[i].style.backgroundColor = "white";
-        };
-
-        week5.style.display = '';
-        week6.style.display = '';
-
-
-        // Month陣列存放有31天的月份
-        let Month = [1, 3, 5, 7, 8, 10, 12];
-
-
-        // 先判斷2月(400的倍數閏年 > 100的倍數平年 > 4的倍數閏年)
-        // 再判斷有31天的月份
-        // 其他就是30天
-
-
-        if (month == 2) {
-
-            if (year % 400 == 0) {
-                for (let i = 0; i <= 28; i++) {
-                    days[first + i].innerText = i + 1;
-                }
-
-            } else if (year % 100 == 0) {
-                for (let i = 0; i <= 27; i++) {
-                    days[first + i].innerText = i + 1;
-                }
-
-            } else if (year % 4 == 0) {
-                for (let i = 0; i <= 28; i++) {
-                    days[first + i].innerText = i + 1;
-                }
-
-            } else {
-                for (let i = 0; i <= 27; i++) {
-                    days[first + i].innerText = i + 1;
-                }
-
-            }
-
-        } else if (Month.indexOf(parseInt(month)) != -1) {
-            for (let i = 0; i <= 30; i++) {
-                days[first + i].innerText = i + 1;
-            }
-
-        } else {
-            for (let i = 0; i <= 29; i++) {
-                days[first + i].innerText = i + 1;
-            }
-
-        }
-
-
-        // 確認有沒有第5和第6個星期
-
-        if (days[28].innerText == "") {
-            week5.style.display = 'none';
-            week6.style.display = 'none';
-        } else if (days[35].innerText == "") {
-            week6.style.display = 'none';
-        }
-
-
-        // 今天的那一格變色
-        if (year == now.getFullYear() && month == now.getMonth() + 1) {
-            days[first + now.getDate() - 1].style.backgroundColor = 'yellow';
-
-        }
-
-
-    }
-
-    // 改變年份
-    // nowyear.addEventListener('change', function() {
-    //     showCalender();
-    // });
-
-
-    // // 改變月份
-    // nowmonth.addEventListener('change', function() {
-    //     showCalender();
-    // });
-
-
 
     // 地圖
 
@@ -368,6 +239,211 @@ window.addEventListener('load', function() {
         console.log($(this).val());
 
     });
+
+    // 訂位月曆
+
+    // 顯示燈箱
+    $('#calimg').click(function() {
+        $('.box').css("display", "block");
+    });
+
+    $(".boxclose").click(function() {
+        $('.box').css("display", "none");
+    });
+
+
+    let now = new Date(), //今天日期
+        days = document.getElementsByClassName('day'), //每一格td
+        portnow; //現在點選的港口
+
+    // 現在年月
+    $('.year').text(now.getFullYear());
+    $('.month').text(now.getMonth() + 1);
+
+    // 按上個月
+    $('.prev').click(function() {
+        let month = $('.month').text();
+        if (month < 2) {
+            month = 13;
+            $('.year').text($('.year').text() - 1);
+        }
+        $('.month').text(month - 1);
+        showCalender();
+    });
+
+    // 按下個月
+    $('.next').click(function() {
+        let month = parseInt($('.month').text());
+        if (month > 11) {
+            month = 0;
+            year = parseInt($('.year').text());
+            $('.year').text(year + 1);
+        }
+        $('.month').text(month + 1);
+        showCalender();
+    });
+
+    // 按港口
+    portnow = "深澳港";
+    $(".btnport").click(function() {
+        $(this).addClass("on");
+        $(".btnport").not(this).removeClass("on");
+        portnow = $(this).text();
+        showCalender();
+
+        // console.log(portnow);
+    });
+
+
+
+    // 營業日被摸到會顯示剩餘座位數
+
+    function people() {
+        $('td').mouseover(function() {
+            if ($(this).attr("remaining")) {
+                $('.remaining').text($(this).attr("remaining"));
+            } else {
+                $('.remaining').text(0);
+
+            }
+
+        });
+
+    }
+
+    //下載完就執行
+    showCalender();
+
+    function showCalender() {
+        console.log(portnow);
+
+        let year = $('.year').text(), //現在選的年份
+            month = $('.month').text(), //現在選的月份
+            day = 0, //這個月有幾天
+            first = new Date(year, month - 1, 1).getDay(); //現在選的月份的第一天是禮拜幾?
+
+        // 歸零：清空月曆、清除顏色、顯示第5和第6星期
+        $('.day').text("");
+        $('.day').removeClass("on1").removeClass("on2").removeClass("on3").removeAttr("remaining");
+
+        // Month陣列存放有31天的月份
+        let Month = [1, 3, 5, 7, 8, 10, 12];
+
+        // 先判斷2月(400的倍數閏年 > 100的倍數平年 > 4的倍數閏年)
+        // 再判斷有31天的月份
+        // 其他就是30天
+        if (month == 2) {
+            if (year % 400 == 0) {
+                for (let i = 0; i <= 28; i++) {
+                    days[first + i].innerText = i + 1;
+
+                }
+                day = 29;
+            } else if (year % 100 == 0) {
+                for (let i = 0; i <= 27; i++) {
+                    days[first + i].innerText = i + 1;
+
+                }
+                day = 28;
+
+            } else if (year % 4 == 0) {
+                for (let i = 0; i <= 28; i++) {
+                    days[first + i].innerText = i + 1;
+
+                }
+                day = 29;
+
+            } else {
+                for (let i = 0; i <= 27; i++) {
+                    days[first + i].innerText = i + 1;
+
+                }
+                day = 28;
+            }
+
+        } else if (Month.indexOf(parseInt(month)) != -1) {
+            for (let i = 0; i <= 30; i++) {
+                days[first + i].innerText = i + 1;
+
+            }
+            day = 31;
+
+        } else {
+            for (let i = 0; i <= 29; i++) {
+                days[first + i].innerText = i + 1;
+            }
+            day = 30;
+
+        }
+
+
+        changeColor();
+
+        function changeColor() {
+            // 營業日變色
+
+            let xhr = new XMLHttpRequest;
+            xhr.onload = function() {
+                if (xhr.status == 200) {
+                    let routenow = JSON.parse(xhr.responseText);
+
+                    // 營業日期改成日
+                    // 計算剩餘座位
+                    for (i in routenow) {
+                        routenow[i].routeDate = routenow[i].routeDate.substr(8, 2);
+                        if (routenow[i].routeDate < 10) {
+                            routenow[i].routeDate = routenow[i].routeDate.substr(1, 1);
+                        }
+                        routenow[i].routeRemaining = routenow[i].routeSeat - routenow[i].routeCount;
+                    }
+                    // console.log(routenow);
+
+                    // 找出是營業日的標籤，改變顏色
+                    for (i = 0; i < $('.day').length; i++) {
+                        for (j = 0; j < routenow.length; j++) {
+                            if ($(`.day:eq(${i})`).text() == routenow[j].routeDate) {
+
+                                if (portnow == "深澳港") {
+                                    $(`.day:eq(${i})`).addClass("on1");
+                                } else if (portnow == "梧棲港") {
+                                    $(`.day:eq(${i})`).addClass("on2");
+                                } else {
+                                    $(`.day:eq(${i})`).addClass("on3");
+                                }
+
+                                $(`.day:eq(${i})`).attr("remaining", routenow[j].routeRemaining);
+                                people();
+
+                            }
+                        }
+                    }
+
+                } else {
+                    alert(xhr.status);
+                }
+
+
+            };
+
+
+            let data = {};
+            data.port = portnow;
+            data.form = `${year}-${month}-1`;
+            data.to = `${year}-${month}-${day}`;
+
+            data = JSON.stringify(data);
+            // console.log(data);
+            xhr.open("POST", "./php/order_calendar.php", true);
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            xhr.send(data);
+
+
+        };
+
+
+    };
+
+
 
 
 });
