@@ -19,7 +19,7 @@
             @@include('./layout/header.html')
             @@include('./layout/h1_title.html')
             <div id="fly_boat">
-                <a href="customized_cuisine.html">還沒有自己的料理嗎?來去DIY海鮮囉~~~<img src="./images/Cruise_landingPage_01.png"></a>
+                <a href="customized_cuisine.html"><img src="./images/flyboatflag.png"></a>
             </div>
         </div>
         <div id="contestant_msg"></div> <!--hover參賽留言顯示區塊-->
@@ -635,77 +635,9 @@
 
     @@include('./layout/reboot.html')
     
-
-    
     <footer>
         @@include('./layout/foot.html')
     </footer>
-    
-    
-		
-    <script src="./jquery/jquery.min.js"></script>
-
-    <script>
-        $(document).ready(function(){
-            for(i=1; i<7; i++){
-                $(".cookList_contain").append(`
-                <div class="cookList_item">
-                    <div class="cookList_img">
-                        <figure class="cookList_cook">
-                            <img id="cook_6" src="./images/cook1.png" alt="">
-                            <figcaption>
-                                <p id="name_6">料理名稱1</p>
-                                <p>票數:1111</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="cookList_vote">
-                        <button id="vote">投票</button>
-                    </div>
-                    <div class="msg">
-                        <P class="big">留言板</p>
-                        <div class="msg_text">
-                            <p>
-                                <img src="./images/unnamed.jpg" alt="">
-                                AAAA:好吃
-                            </p>
-                            <p>
-                                <img src="./images/unnamed.jpg" alt="">
-                                BBBB:好吃
-                            </p>
-                            <p>
-                                <img src="./images/unnamed.jpg" alt="">
-                                CCCC:好吃
-                            </p>
-                        </div>
-                        <div class="msg_btn">
-                            <button id="msg_btn9">留言9</button>
-                        </div>
-                    </div>
-                </div>
-                `);
-            }
-            
-        });
-    </script>
-
-
-
-    <script>
-        $(document).ready(function(){
-            $('.textHover').mousemove(function(e){
-                let theText = $(this).attr('hovertext');
-
-                $('#contestant_msg').text(theText).show().css({
-                    left: e.pageX+10,
-                    top: e.pageY+10,
-                });
-            }).mouseout(function(){
-                $('#contestant_msg').hide();
-            });
-        });
-    </script>
-     
 
     @@include('./all_js.html')
     <script src="./js/contest.js"></script>
