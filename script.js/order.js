@@ -5,6 +5,8 @@ window.addEventListener('load', function() {
     // $('.section3').css('display', 'none');
 
 
+    /////////////////////各頁面切換//////////////////////
+
     // 第一屏按下一步，確認訂位人數
     $('.section1 .next').click(function() {
 
@@ -24,10 +26,8 @@ window.addEventListener('load', function() {
         }
         // 檢查訂位人數是否超過剩餘人數
         people();
-        // 關掉燈箱
+        // 關掉月曆燈箱
         $('.box').css("display", "none");
-
-
     });
 
     // 第二屏按下一步，確認訂位人數
@@ -47,8 +47,6 @@ window.addEventListener('load', function() {
             $('.section3').css('display', 'block');
 
         }
-
-
 
     });
 
@@ -77,56 +75,56 @@ window.addEventListener('load', function() {
     // 第三屏按下一步，訂位點餐資訊存進Storage
     $('.section3 .next').click(function() {
 
+        if (member.memNo) {
+            // 存訂位港口、日期、人數
+            localStorage['port'] = $('.port label.on').prev().attr('id');
+            dateNow = document.getElementById('date').value;
+            localStorage['date'] = dateNow;
+            localStorage['people'] = $('#people').val();
 
-        localStorage['port'] = $('.port label.on').prev().attr('id');
-        localStorage['people'] = $('#people').val();
-        dateNow = document.getElementById('date').value;
-        localStorage['date'] = dateNow;
+            // 存套餐資料
+            localStorage['meal1amount'] = $('#mealAamount').val();
+            localStorage['meal2amount'] = $('#mealBamount').val();
+            localStorage['meal3amount'] = $('#mealCamount').val();
+            localStorage['meal1price'] = $('.mealAprice').text();
+            localStorage['meal2price'] = $('.mealBprice').text();
+            localStorage['meal3price'] = $('.mealCprice').text();
 
-        // 存套餐資料
-        localStorage['meal1amount'] = $('#mealAamount').val();
-        localStorage['meal2amount'] = $('#mealBamount').val();
-        localStorage['meal3amount'] = $('#mealCamount').val();
-        localStorage['meal1price'] = $('.mealAprice').text();
-        localStorage['meal2price'] = $('.mealBprice').text();
-        localStorage['meal3price'] = $('.mealCprice').text();
-
-        // 存會員資料
-        localStorage['memNo'] = member.memNo; //編號
-        localStorage['memName'] = member.memName; //姓名
-        localStorage['memId'] = member.memId; //信箱
-
-
-        // 存客製化料理資料
-        // 先存所有客製化料理名稱、再存個別商品
-        console.log($('.custo').length);
-        localStorage['custoLength'] = $('.custo').length;
-
-        let custoName = ""; //存所有客製化料理名稱
-        let custoStorage = [];
-
-        if ($('.custo').length != 0) {
-
-            for (let i = 0; i < $('.custo').length; i++) {
-
-                // custoName += $.trim($(`.custo:eq(${i})`).text()) + "|";
-                // custo = $.trim($(`.custo:eq(${i})`).text()) + "|";
-                // custo += $(`.custoPrice:eq(${i})`).text() + "|";
-                // custo += $(`.custoAmount:eq(${i})`).val();
-
-                let custo = {};
-                custo.name = $.trim($(`.custo:eq(${i})`).text());
-                custo.price = $(`.custoPrice:eq(${i})`).text();
-                custo.amount = $(`.custoAmount:eq(${i})`).val();
-
-                custoStorage.push(custo);
-            }
+            // 存會員資料
+            localStorage['memNo'] = member.memNo; //編號
+            localStorage['memName'] = member.memName; //姓名
+            localStorage['memId'] = member.memId; //信箱
 
 
-            console.log(custoName);
-            console.log(custoStorage);
-            localStorage['custo'] = JSON.stringify(custoStorage);
-        };
+            // 存客製化料理數量
+            localStorage['custoLength'] = $('.custo').length;
+
+            // 存客製化料理資料
+            let custoStorage = [];
+            if ($('.custo').length != 0) {
+
+                for (let i = 0; i < $('.custo').length; i++) {
+                    let custo = {};
+                    custo.name = $.trim($(`.custo:eq(${i})`).text());
+                    custo.price = $(`.custoPrice:eq(${i})`).text();
+                    custo.amount = $(`.custoAmount:eq(${i})`).val();
+                    custo.custoNo = $(`.dishname:eq(${i})`).attr("custono");
+                    custoStorage.push(custo);
+                }
+
+                localStorage['custo'] = JSON.stringify(custoStorage);
+            };
+
+            // 進入訂購資料頁
+            location.href = "order_detail.html";
+
+        } else {
+            alert("請先登入會員");
+            $('#Login,#Login_back').css('display', 'block');
+            $('#pu_mem_resist_wrap').css('display', 'none');
+            $('#pu_mem_forget_wrap').css('display', 'none');
+            $('#pu_mem_login_wrap').css('display', 'block');
+        }
 
     });
 
@@ -134,91 +132,30 @@ window.addEventListener('load', function() {
 
     // 套餐、人數，按加改變數字
 
-
     $('.plus').click(function() {
         let val = parseInt($(this).prev().val());
         $(this).prev().val(val + 1);
         people();
-        console.log(val);
     });
 
-    // 套餐、客製化料理、人數，按減改變數字
+    // 套餐、人數，按減改變數字
 
-    minus();
+    $('.minus').click(function() {
+        let val = parseInt($(this).next().val());
 
-    function minus() {
-
-        $('.minus').click(function() {
-            let val = parseInt($(this).next().val());
-
-            if ($(this).next().attr('id') == 'people') {
-                if (val >= 2) {
-                    $(this).next().val(val - 1);
-                }
-            } else {
-                if (val >= 1) {
-                    $(this).next().val(val - 1);
-                }
+        if ($(this).next().attr('id') == 'people') {
+            if (val >= 2) {
+                $(this).next().val(val - 1);
             }
-            people();
-
-        });
-
-    };
-
-
+        } else {
+            if (val >= 1) {
+                $(this).next().val(val - 1);
+            }
+        }
+        people();
+    });
 
     // 套餐、客製化料理數量，不小於0、不是空值
-
-    $('.meal').change(function() {
-
-        let inputVal = $(this).val();
-        if (inputVal == "" || parseInt(inputVal) < 0) {
-            $(this).val(0);
-        }
-
-    });
-
-
-
-
-
-    // 地圖
-
-    // function initMap() {
-    //     var port1 = {
-    //         lat: 25.132219,
-    //         lng: 121.819155
-    //     };
-    //     var port2 = {
-    //         lat: 24.2922424,
-    //         lng: 120.5136367
-    //     };
-    //     var port3 = {
-    //         lat: 22.6266234,
-    //         lng: 120.2747798
-    //     };
-    //     var map = new google.maps.Map(document.getElementById('map'), {
-    //         zoom: 7,
-    //         center: port2
-    //     });
-    //     var marker1 = new google.maps.Marker({
-    //         position: port1,
-    //         map: map
-    //     });
-    //     var marker2 = new google.maps.Marker({
-    //         position: port2,
-    //         map: map
-    //     });
-    //     var marker3 = new google.maps.Marker({
-    //         position: port3,
-    //         map: map
-    //     });
-    // }
-
-
-
-    // 餐點數量不小於0、不是空值
 
     $('.meal').change(function() {
 
@@ -240,8 +177,10 @@ window.addEventListener('load', function() {
     let selectdate = document.getElementById("date");
     let n = 1; //n = 1 改變日期下拉選單
     let routenow; //存放航程紀錄的陣列
+
+
     //選港口
-    // 外面選不同港口，燈箱裡的港口跟著改變
+    //外面選不同港口，燈箱裡的港口跟著改變
     let portnow = "深澳港"; // 現在點選的港口
     $('.section1 .port label').click(function() {
         $(this).addClass('on');
@@ -261,7 +200,7 @@ window.addEventListener('load', function() {
     });
 
     // 選日期
-    // 下拉選單只顯示目前選擇的港口，這個月的航程
+    // 下拉選單只顯示目前選擇的港口、這個月的航程
     function showDate() {
         $("#date").empty();
         for (let i = 0; i < routenow.length; i++) {
@@ -322,6 +261,7 @@ window.addEventListener('load', function() {
     //  燈箱裡按上個月
     $('.boxprev').click(function() {
         let month = $('.month').text();
+
         if (month < 2) {
             month = 13;
             $('.year').text($('.year').text() - 1);
@@ -403,10 +343,8 @@ window.addEventListener('load', function() {
         selectChange();
     };
 
-    //下載完就執行
+    //月曆上的資料
     showCalender();
-
-
 
     function showCalender() {
         n++;
@@ -469,19 +407,16 @@ window.addEventListener('load', function() {
 
         };
 
-
+        // 營業日變色
         changeColor();
 
         function changeColor() {
-            // 營業日變色
-
             let xhr = new XMLHttpRequest;
             xhr.onload = function() {
                 if (xhr.status == 200) {
                     routenow = JSON.parse(xhr.responseText);
                     // console.log(routenow);
-                    // 營業日期改成日
-                    // 計算剩餘座位
+
                     for (i in routenow) {
 
                         // 把營業日期存成斜線的格式
@@ -490,6 +425,7 @@ window.addEventListener('load', function() {
                         // 把營業日單獨存成一個陣列
                         routenow[i].routeDay = routenow[i].routeDate.substr(8, 2);
 
+                        // 10號以前，從01變成1
                         if (routenow[i].routeDay < 10) {
                             routenow[i].routeDay = routenow[i].routeDay.substr(1, 1);
                         }
@@ -523,6 +459,7 @@ window.addEventListener('load', function() {
                     if (n == 2) {
                         showDate();
                     } else if (n == 0) {
+                        // 燈箱裡的營業日被點擊，外面的資料也改變
                         showDate();
                         selectedBox();
                     };
@@ -815,6 +752,20 @@ window.addEventListener('load', function() {
                 console.log(val);
                 $(this).prev().val(val + 1);
 
+            });
+
+            $('.section3 .minus').click(function() {
+                let val = parseInt($(this).next().val());
+
+                if ($(this).next().attr('id') == 'people') {
+                    if (val >= 2) {
+                        $(this).next().val(val - 1);
+                    }
+                } else {
+                    if (val >= 1) {
+                        $(this).next().val(val - 1);
+                    }
+                }
             });
 
             // 減少客製化料理數量

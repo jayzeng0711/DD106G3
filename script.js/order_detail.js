@@ -62,7 +62,8 @@ window.addEventListener('load', function() {
         price = custos[i].price;
         // 小計
         total = parseInt(amount) * parseInt(price);
-
+        // 編號custo.custoNo
+        custoNo = custos[i].custoNo;
         // 桌機顯示
         $('.custoline').after(`
         <div class="row mdcusto align-items-center ">
@@ -74,7 +75,7 @@ window.addEventListener('load', function() {
                             <img src="./images/menupic1.png " alt=" ">
                         </div>
                         <div class="col-5 divorder ">
-                            <p class="custonow ">${name}</p>
+                            <p class="custonow " custono="${custoNo}">${name}</p>
                         </div>
                     </div>
                 </div>
@@ -100,7 +101,7 @@ window.addEventListener('load', function() {
         <div class="col-12 ">
             <div class="row align-items-center divorder ">
                 <div class="col-6 ">
-                    <p>${name}</p>
+                <p class="custonow " custono="${custoNo}">${name}</p>
                 </div>
                 <div class="col-6 ">
                     <img src="./images/menupic1.png " alt=" ">
@@ -228,7 +229,10 @@ window.addEventListener('load', function() {
             $('#ordepoint').val(0);
         };
         checkTotal();
+
     });
+
+
 
 
     // 送出訂單
@@ -283,7 +287,6 @@ window.addEventListener('load', function() {
             data.meals = $('main').find($('.mdmeal')).length;
 
             //套餐訂單明細：數量、價格
-
             data.mealListCount1 = $(`.meal1amount:eq(0)`).text();
             data.mealListCount1 = $(`.meal1amount:eq(0)`).text();
             data.mealListPrice1 = $(`.meal1price:eq(0)`).text();
@@ -292,19 +295,16 @@ window.addEventListener('load', function() {
             data.mealListCount3 = $(`.meal3amount:eq(0)`).text();
             data.mealListPrice3 = $(`.meal3price:eq(0)`).text();
 
-
-            //客製化料理訂單明細
-            c1 = ['A餐', 1, 1200];
-            c2 = ['B餐', 2, 1200];
-            c3 = ['C餐', 2, 1200];
-            data.custo = "[1, 1, 1200],[2, 2, 1200],[3, 2, 1200]";
-
-
-
-
-            // $(`.meal1amount:eq(0)`).text();
-            // data.mealListCount1 = $(`.meal1amount:eq(0)`).text();
-
+            //客製化料理訂單明細：料理編號、數量、單價
+            data.custo = [];
+            for (let i = 0; i < $('.custonow').length / 2; i++) {
+                let custo = {};
+                custo.custoNo = $(`.custonow:eq(${i})`).attr("custono");
+                custo.custoCount = $(`.custocount:eq(${i})`).text();
+                custo.custoPrice = parseInt($(`.custoprice:eq(${i})`).text());
+                data.custo.push(custo);
+                alert(parseInt($(`.custoprice:eq(${i})`).text()));
+            }
 
             let data_info = JSON.stringify(data);
             console.log(data_info);
