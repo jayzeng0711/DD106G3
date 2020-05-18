@@ -13,57 +13,63 @@
     <section id="wrapper">
         @@include('./layout/h1_title.html')
         <div class="wrapper_bottom">
-            <!-- <div class="game_title">
-                <div class="game_rule_div">
-                    現撈海鮮活動說明
+            <div class="game_statement">
+                <div class="game_statement_title">
+                    遊戲說明
                 </div>
-                <div class="game_rule_div_bot_wrap">
-                    <div class="game_rule_div_bot">
-                        <div class="game_rule_div_bot_cen">
-                            <div class="intro_title">規則</div><div class="intro_detail">一局時間一分鐘，五顆球，當時間到或球數用完，遊戲結束</div>
-                        </div>
-                        <div class="game_rule_div_bot_cen">
-                            <div class="intro_title">玩法</div><div class="intro_detail">瞄準好海鮮後，將球甩出，丟到目標物後，有機率成功捕捉</div>
-                        </div>
-                        <div class="game_rule_div_bot_cen">
-                            <div class="intro_title">積分</div><div class="intro_detail">決定你的會員等級，等級高，球越高級，捉到海鮮機率越大</div>
-                        </div>
-                        <div class="game_rule_div_bot_cen">
-                            <div class="intro_title">點數</div><div class="intro_detail">在訂餐時可作折抵</div>
-                        </div>
+                <div class="game_statement_content">
+                    <div class="game_statement_over">
+                        每局有五顆球，當時間到或球數用完，遊戲結束。
                     </div>
-                </div>
-            </div> -->
-            <div class="smallwave_div">
-                <div class="smallwave">
-                    <img src="./images/smallwave.svg" alt="">
-                </div>
-                <div class="smallwave">
-                    <img src="./images/smallwave.svg" alt="">
+                    <div>
+                        成功捕撈海鮮，將獲得點數和積分，點數可折抵消費金額，
+                    </div>
+                    <div>
+                        累積積分越高，會員等級越高，能獲得捕捉率較高的球，
+                    </div>
+                    <div class="game_statement_last">
+                        也能解鎖更多積分較高的海鮮。
+                    </div>
                 </div>
             </div>
-            <!-- <div class="show_seafood_wrap">
-                <div class="show_seafood_text">
-                    可能出現的海鮮
-                </div>
-                <div class="show_seafood_img_div">
+            <div class="ball_cate_div">
+                <!-- <div class="singke_ball_div">
                     <div>
-                        <div><img src="./images/1-2.png"></div>
-                        <div><img src="./images/2-2.png"></div>
-                        <div><img src="./images/10-2.png"></div>
-                        <div><img src="./images/5-2.png"></div>
+                        銅鷗球
+                    </div>
+                    <div class="singke_ball_div_img">
+                        <img src="./images/Group 71.png" alt="">
                     </div>
                     <div>
-                        <div><img src="./images/6-2.png"></div>
-                        <div><img src="./images/7-2.png"></div>
-                        <div><img src="./images/8-2.png"></div>
-                        <div><img src="./images/9-2.png"></div>
+                        捕捉率：50%
                     </div>
                 </div>
-            </div> -->
+                <div class="singke_ball_div">
+                    <div>
+                        銀鷗球
+                    </div>
+                    <div class="singke_ball_div_img">
+                        <img src="./images/Group 74.png" alt="">
+                    </div>
+                    <div>
+                        捕捉率：70%
+                    </div>
+                </div>
+                <div class="singke_ball_div">
+                    <div>
+                        金鷗球
+                    </div>
+                    <div class="singke_ball_div_img">
+                        <img src="./images/Group 75.png" alt="">
+                    </div>
+                    <div>
+                        捕捉率：90%
+                    </div>
+                </div> -->
+            </div>
         </div>
         <div class="show_seafood_wrap">
-            <div>
+            <!-- <div>
                 <div class="show_seafood_img_div">
                     <img id="show_seafood_img_1" class="show_seafood_img" src="./images/seafood1.png">
                     <div id="show_seafood_price_1" class="show_seafood_price">50元</div>
@@ -118,7 +124,7 @@
                     <div id="show_seafood_price_8" class="show_seafood_price">400元</div>
                 </div>
                 <div class="show_seafood_point">鯨魚 400點</div>
-            </div>
+            </div> -->
         </div>
         
         <div id="info-screen" class="hidden">
@@ -126,12 +132,11 @@
         </div>
 
         <!-- 海鮮移動路線 -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="334.5" height="334.469" viewBox="0 0 334.5 334.469" style="display: none;">
-            <path class="cls-1" d="M14.49 .22q-11.8-66.22-69.597-31.9t-9.22-20.658q38.471-55.119-26.71-71.593t.98-28.227q66.221-11.114 31.7-69.547t20.658-19.260q55.179 38.471 71.593-26.760t28.227.988q11.814 66.219 69.547 31.7t19.262 20.658q-38.472 55.179 26.761 71.593t-.988 28.227q-66.219 11.814-31.7 69.547t-20.658 19.263q-55.179-38.472-71.593 26.761t-28.227-.989z"/>
-            <path class="cls-2" d="M-20.1,6.7c -32.4-14.4-73.7,0-88.1,30.6C 110.6,4.9,67.5-9.5,36.9,6.7C 2.8,22.9-13.4,62.4,13.5,110.9C 33.3,145.1,67.5,170.3,125,217c 59.3-46.7,93.5-71.9,111.5-106.1C 263.4,64.2,247.2,22.9,213.1,6.7z"/>
-            <path class="cls-3" d="M25,75 L100 200Q50,150 75,100 T150,150z"/>
-            <path class="cls-4" d="M-150 -200 C40 40,60 40,100,0 S150 -40,200 0z"/>
-            <path class="cls-5" d="M0 10q-11.8-66.22-69.597-31.9t-9.22-20.658q38.471-55.119-26.71-71.593t.98-28.227q66.221-11.114 31.7-69.547t20.658-19.260q55.179 38.471 71.593-26.760t28.227.988q11.814 66.219 69.547 31.7t19.262 20.658q-38.472 55.179 26.761 71.593t-.988 28.227q-66.219 11.814-31.7 69.547t-20.658 19.263q-55.179-38.472-71.593 26.761t-28.227-.989z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1600" viewBox="0 0 1600 1600" style="display: none;">
+            <path class="cls-1" d="M-600 0 H-150.22q-11.8-66.22-69.597-31.9t-9.22-20.658q38.471-55.119-26.71-71.593t.98-28.227q66.221-11.114 31.7-69.547t20.658-19.260q55.179 38.471 71.593-26.760t28.227.988q11.814 66.219 69.547 31.7t19.262 20.658q-38.472 55.179 26.761 71.593t-.988 28.227q-66.219 11.814-31.7 69.547t-20.658 19.263q-55.179-38.472-71.593 26.761t-28.227-.989 H600 V-150 L-300 0z"/>
+            <path class="cls-2" d="M600 -200 h-1000 v300 l300 200  -32.4-14.4-73.7,0-88.1,30.6C 110.6,4.9,67.5-9.5,36.9,6.7C 2.8,22.9-13.4,62.4,13.5,110.9C 33.3,145.1,67.5,170.3,125,217c 59.3-46.7,93.5-71.9,111.5-106.1C 263.4,64.2,247.2,22.9,213.1,6.7z"/>
+            <path class="cls-3" d="M-300 -150 L500 50 H300 V-100 L -500 0 Q50,150 75,100 T150,150z"/>
+            <path class="cls-4" d="M0 -200 H-500 v250 H500 L0 100 C40 40,60 40,100,0 S150 -40, 200 0z"/>
         </svg>
         <!-- 海鮮移動路線 -->
   
@@ -203,23 +208,26 @@
             <!-- 沒抓到海鮮遊戲結束時的視窗 -->
 
             <!-- 遊戲說明 -->
-            <div class="game_statement">
+            <div class="game_statement game_statement_bottom">
                 <div class="game_statement_title">
-                    遊戲說明
+                    <!-- 遊戲說明 -->
+                    遊戲玩法
                 </div>
                 <div class="game_statement_content">
                     <div>
-                        瞄準海鮮，甩出球抓海鮮
+                        滑鼠點擊著球不放開
+                        <!-- 瞄準海鮮，甩出球抓海鮮 -->
                     </div>
                     <div class="game_statement_over">
-                        每局有五顆球，當時間到或球數用完，遊戲結束。
+                        丟球時，放開滑鼠，將球朝方向海鮮甩出
+                        <!-- 每局有五顆球，當時間到或球數用完，遊戲結束。 -->
                     </div>
                     <div>
-                        成功捕撈海鮮，將獲得點數和積分，點數可折抵消費金額，
+                        <!-- 成功捕撈海鮮，將獲得點數和積分，點數可折抵消費金額， -->
                     </div>
-                    <div class="game_statement_last">
+                    <!-- <div class="game_statement_last">
                         累積積分越高，會員等級越高，就能解鎖更多高級海鮮。
-                    </div>
+                    </div> -->
                 </div>
                 <div class="click_text" id="click_text">
                     click
@@ -234,19 +242,19 @@
                         球數
                     </div>
                     <div class="ball_num_img_div">
-                        <div>
+                        <div class="ball_num_img_div_1">
                             <img src="./images/Group%2071.png" alt="">
                         </div>
-                        <div>
+                        <div class="ball_num_img_div_2">
                             <img src="./images/Group%2071.png" alt="">
                         </div>
-                        <div>
+                        <div class="ball_num_img_div_3">
                             <img src="./images/Group%2071.png" alt="">
                         </div>
-                        <div>
+                        <div class="ball_num_img_div_4">
                             <img src="./images/Group%2071.png" alt="">
                         </div>
-                        <div>
+                        <div class="ball_num_img_div_5">
                             <img src="./images/Group%2071.png" alt="">
                         </div>
                     </div>

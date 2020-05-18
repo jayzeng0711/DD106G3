@@ -15,3 +15,13 @@ $(document).ready(function(){
         $('.curisine_wrap').css('display','block');
     })
 })
+$(function(){
+    $('.order_history_btn').click(function(){
+        $('.order_detail_div_wrap').slideToggle(600);
+    });
+});
+$(function(){
+    $('.order_history_btn').click(function(){
+        $('#checkbtn').toggleClass('showbtn');
+    });
+});

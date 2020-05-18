@@ -1,4 +1,7 @@
 @import 'base/var';
+#go_top{
+    display: none;
+  }
 .mem_data_wrap{
     display: flex;
     .mem_data_left_div{
@@ -85,6 +88,28 @@
         }
     }
     //個人資料
+
+    //訂單紀錄
+
+    .order_history{
+        margin: auto;
+        display: flex;
+        width: 80%;
+    }
+    .order_history_list{
+        flex: 1;
+    }
+    .order_history_btn{
+        width: 95px;
+        color: #fff;
+        background-color: #5fa8d3;
+        // border: solid 1px black;
+        cursor: pointer;
+        box-shadow: 2px 2px 2px 707070;
+        border-radius: 5px;
+        padding:1% 0;
+    }
+
 
     //訂單細節
     .order_detail_wrap{
@@ -237,6 +262,9 @@
             @extend %btn_ano;
             padding: 1% 2%;
         }
+    }
+    .showbtn{
+        display: none;
     }
     //訂單細節
 

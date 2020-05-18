@@ -7,41 +7,52 @@
         <ul class="pu_head_ul">
             <li class="pu_head_li">
                 <div>
-                    <a class="pu_text_a" href="order.html">
+                    <a class="pu_text_a pu_order" href="order.html">
                         訂位點餐
                     </a>
                 </div> 
             </li>
             <li class="pu_head_li">
                 <div>
-                    <a class="pu_text_a" href="game.html">
+                    <a class="pu_text_a pu_game" href="game.html">
                         現撈海鮮
                     </a>
                 </div>
             </li>
             <li class="pu_head_li">
                 <div>
-                    <a class="pu_text_a" href="customized_cuisine.html">
+                    <a class="pu_text_a pu_customized" href="customized_cuisine.html">
                         客製化料理
                     </a>
                 </div>
             </li>
             <li class="pu_head_li">
                 <div>
-                    <a class="pu_text_a" href="contest.html">
+                    <a class="pu_text_a pu_contest" href="contest.html">
                         美食大賽
                     </a>
                 </div>
             </li>
         </ul>
         <div class="pu_mem_login_div_wrap" id="mem_lohin_btn">
-            <div class="pu_mem_login_div">
-                會員登入
-            </div>
             <div class="pu_icon_div">
                 <img src="./images/login.png" alt="">
             </div>
+            <div class="pu_mem_login_div">
+                會員登入
+            </div>
         </div>
+
+        <!-- 登入後的頁面 -->
+        <div class="pu_mem_login_div_suc_wrap" id="mem_lohin_suc_btn">
+            <div class="pu_icon_suc_div">
+                <img src="./images/login.png" alt="">
+            </div>
+            <div class="pu_mem_login_suc_div">
+                
+            </div>
+        </div>
+        <!--  -->
     </div>
 </header>
 <!-- 電腦版 -->
@@ -59,23 +70,28 @@
             <img class="mb_big_cloud_img" src="./images/mobile_big_cloud.png" alt="">
             <div class="mb_big_cloud_text">
                 <div>
-                    <a class="pu_mb_text_a" href="order.html">
+                    <a class="pu_mb_text_a pu_order" href="order.html">
                         訂位點餐
                     </a>
                 </div> 
                 <div>
-                    <a class="pu_mb_text_a" href="game.html">
+                    <a class="pu_mb_text_a pu_game" href="game.html">
                         現撈海鮮
                     </a>
                 </div>
                 <div>
-                    <a class="pu_mb_text_a" href="customized_cuisine.html">
+                    <a class="pu_mb_text_a pu_customized" href="customized_cuisine.html">
                         客製化料理
                     </a>
                 </div>
                 <div>
-                    <a class="pu_mb_text_a" href="contest.html">
+                    <a class="pu_mb_text_a pu_contest" href="contest.html">
                         美食大賽
+                    </a>
+                </div>
+                <div>
+                    <a id="mem_lohin_btn_mobile" class="pu_mb_text_a" href="">
+                        會員登入
                     </a>
                 </div>
             </div>
@@ -101,18 +117,18 @@
         <div class="mem_login">會員登入</div>
         <form method="POST" action="" class="formSignIn">
             <div class="pu_email_div">
-                <label for="Email">
+                <label for="loginEmail">
                     信箱   
                 </label>
-                <input type="text" id="Email">
+                <input type="text" id="loginEmail">
             </div>
             <div class="pu_psw_div">
-                <label for="Password">
+                <label for="loginPassword">
                         密碼
                 </label>
-                <input type="password" id="Password">
+                <input type="password" id="loginPassword">
             </div>
-            <button id="signInBtn">
+            <button type="button" id="signInBtn">
                 登入
             </button>     
             <div id="action">
@@ -149,32 +165,32 @@
         <div class="mem_login">會員註冊</div>
         <form method="POST" action="" class="formSignIn">
             <div class="pu_email_div">
-                <label for="Email">
+                <label for="mem_name">
                     會員名稱   
                 </label>
-                <input type="text" id="Email">
+                <input type="text" id="mem_name" name="mem_name">
             </div>
             <div class="pu_email_div">
-                <label for="Email">
+                <label for="mem_email">
                     會員信箱   
                 </label>
-                <input type="text" id="Email">
+                <input type="email" id="mem_email" name="mem_email">
             </div>
             <div class="pu_email_div">
-                <label for="Email">
+                <label for="mem_psw">
                     會員密碼   
                 </label>
-                <input type="text" id="Email">
+                <input type="password" id="mem_psw" name="mem_psw">
             </div>
             <div class="pu_email_div">
-                <label for="Email">
+                <label for="mem_psw_confirm">
                     確認密碼   
                 </label>
-                <input type="text" id="Email">
+                <input type="password" id="mem_psw_confirm" name="mem_psw_confirm">
             </div>
                
             <div id="action">
-                <a  href="#" >註冊完成</a>
+                <a  href="#" id="mem_regisit_finish">註冊完成</a>
                 <a class="return_login" href="#">返回登入</a>
             </div>
         </form>
@@ -184,4 +200,9 @@
 </div>
 <div id="Login_back"></div>
 <!-- 會員登入 -->
+
+<!-- 回到最上方按鈕 -->
+<button type="button" id="go_top">
+    <img src="./images/GotoTop.png" alt="">
+</button>
     

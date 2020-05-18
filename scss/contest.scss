@@ -1,56 +1,65 @@
 @import "base/var";
 body {
-    // background: linear-gradient(#abdcfa,#11408c);
     background-image: url(../images/色塊-4-01.jpg);
     background-size: cover;
     overflow-x: hidden;
 }
 
+//標題波浪
+.pu_contest {
+    background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x, radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
+    background-size: 20px 20px;
+    background-position: -10px calc(100% + 16px), 0 calc(100% - 4px);
+    animation: pu_waveFlow 1s infinite linear;
+}
+
+
 /* ------------ ranking 開始 ---------------*/
-@keyframes fly{
+
+@keyframes fly {
     0% {
-        right: -10%;
+        left: -30%;
         top: 0%;
     }
-    10% {
+    20% {
         top: 20%;
     }
-    20% {
-        // top: 80%;
+    40% {
         top: 100%;
     }
-    40% {
-        // top: 90%;
-        top: 130%;
+    50% {
+        top: 120%;
     }
     60% {
-        // top: 110%;
         top: 100%;
     }
     80% {
-        // top: 130%;
-        top: 30%;
+        top: 20%;
     }
     100% {
-        right: 100%;
-        // top: 140%;
+        left: 100%;
         top: 0%;
     }
 }
 
 .ranking {
     margin-bottom: 8%;
-    h1{
+    .fly_area {
         position: relative;
         #fly_boat {
-            font-size: $fontSize*1.25;
+            text-align: center;
             width: 30%;
             position: absolute;
             top: 120%;
             z-index: 2;
-            animation: fly 10s linear infinite;
-            img{
-                width: 60%;
+            animation: fly 20s linear infinite;
+            a {
+                text-decoration: none;
+                color: #4669e6;
+                font-size: $fontSize*1.25;
+            }
+            img {
+                width: 40%;
             }
         }
     }
@@ -66,76 +75,73 @@ body {
     width: 1200px;
 }
 
+#contestant_msg {
+    border-radius: 10px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 1px 1px 2px #000;
+    position: absolute;
+    display: none;
+    z-index: 1;
+}
+
 .ranking_contain {
     display: flex;
     justify-content: space-between;
     position: relative;
-
     .cookList_item {
         width: 340px;
-
         .cookList_pic {
             position: relative;
             top: 70px;
-
             // border: 1px solid red;
             .food_img {
                 margin: 0px auto 0px auto;
                 width: 280px;
                 transform: translateY(57px);
-                // border: 1px solid rgb(243, 243, 13);
-
+                // border: 1px solid rgb(243, 13, 13);
                 img {
                     width: 100%;
                     // border: 1px solid red;
                 }
             }
-
             .barrel {
                 width: 135px;
                 margin: auto;
                 margin-bottom: 20px;
-
                 img {
                     width: 100%;
                 }
             }
         }
-
         .list_bg {
             background-image: url(../images/cookList_item_bg.png);
             border-radius: 10px;
             padding-top: 50px;
             padding-bottom: 20px;
             box-shadow: 0px 2px 5px #f7c029;
-
             .food_title {
                 margin: 20px auto 20px auto;
                 width: 300px;
                 text-align: center;
-
                 p:nth-child(1) {
-                    font-size: 24px;
+                    font-size: $fontSize*1.5;
                     color: #000000;
                 }
-
                 p:nth-child(2) {
-                    font-size: 20px;
+                    font-size: $fontSize*1.25;
                     color: #4669e6;
                     margin-top: 2%;
                 }
             }
-
             .cookList_vote {
                 text-align: center;
                 margin-bottom: 5%;
-
                 button {
                     @extend %btn_ano;
                     padding: 4% 16%;
                 }
             }
-
             .msg {
                 background-color: #ffffff;
                 border-radius: 0 0 10px 10px;
@@ -143,75 +149,58 @@ body {
                 margin: 0 auto 30px auto;
                 border: 1px solid #f7c029;
                 box-shadow: 6px 6px 0px rgb(247, 192, 41);
-
                 .big {
-                    font-size: 20px;
+                    font-size: $fontSize*1.25;
                     text-align: center;
                     color: #1d1d1d;
                     padding: 10px;
                     background-color: #FBD672;
                 }
-
                 .msg_text {
                     width: 100%;
                     height: 70px;
                     overflow: scroll;
                     overflow-x: hidden;
-
                     img {
                         width: 50px;
                         vertical-align: middle;
                     }
-
                     p {
                         padding: 10px;
                     }
                 }
-
                 .msg_btn {
                     text-align: center;
                     margin-bottom: 3%;
-
                     button {
                         @extend %btn;
                     }
                 }
-
             }
         }
-
-
-
     }
-
     .cookList_item:nth-child(2) {
         transform: translateY(-15%);
     }
-
     @keyframes lightmove {
         0% {
             transform: rotate(0deg);
         }
-    
         100% {
             transform: rotate(360deg);
         }
     }
-
     @keyframes popup {
         0% {
             opacity: 0;
         }
-
         50% {
             opacity: 0;
         }
-    
         100% {
             opacity: 1;
         }
     }
-
     &:after {
         content: "";
         position: absolute;
@@ -224,25 +213,20 @@ body {
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center center;
-        animation-name: popup,lightmove;
-        animation-duration: 5s,20s;
-        animation-delay: 0,10s;
-        animation-iteration-count: 1,infinite;
+        animation-name: popup, lightmove;
+        animation-duration: 3s, 20s;
+        animation-delay: 0, 10s;
+        animation-iteration-count: 1, infinite;
         animation-timing-function: linear;
     }
-
-
 }
 
-
 // 舊的排行榜版面
-
 // .contain .ranking_item {
 //     display: inline-block;
 //     width: 340px;
 //     margin: 0 20px 0px 20px;
 //     // border: 1px solid rgb(0, 0, 0);
-
 //     .ranking_bg{
 //         // background-image: url(../image/cookList_item_bg.png);
 //         background-image: url(../images/cookList_item_bg.png);
@@ -258,10 +242,8 @@ body {
 //     transform: translateY(100px);
 //     margin-bottom: 200px;
 // }
-
 // .contain .ranking_item .cookList_img{
 //     // border: 1px solid red;
-
 //     .cookList_cook{
 //         margin: 0px auto 0px auto;
 //         width: 300px;
@@ -269,46 +251,38 @@ body {
 //         // top: 70px;
 //         transform: translateY(70px);
 //         // border: 1px solid rgb(243, 243, 13);
-
 //         img {
 //             width: 100%;
 //             // border: 1px solid red;
 //         }
-
 //         figcaption {
 //             margin-bottom: 20px;
 //             // border: 1px solid red;
 //         }
-
 //         p {
 //             font-size: 28px;
 //             color: #000000;
 //             text-align: center;
 //         }
-
 //         p:nth-child(2){
 //             font-size: 20px;
 //             color: #4669e6;
 //         }
-
 //         p:nth-child(3){
 //             font-size: 14px;
 //             color: #4e4e4e;
 //             margin-top: 10px;
 //         }
 //     }
-
 //     .barrel{
 //         width: 180px;
 //         margin: auto;
 //         margin-bottom: 20px;
-
 //         img{
 //             width: 100%;
 //         }
 //     }
 // }
-
 // .contain .ranking_item .ranking_bg .cookList_infoPanel{
 //     // text-align: center;
 //     // border: 1px solid red;
@@ -316,7 +290,6 @@ body {
 //     margin: auto;
 //     display: flex;
 //     justify-content: space-between;
-
 //     div{
 //         display: inline-block;
 //         background-color: #001871;
@@ -329,11 +302,9 @@ body {
 //         text-align: center;
 //         // border: 1px solid yellow;
 //     }
-
 //     div:nth-child(2){
 //         background-color: #4EB6E6;
 //     }
-
 //     // span{
 //     //     text-align: center;
 //     //     display: inline-block;
@@ -343,14 +314,12 @@ body {
 //     //     padding: 10px;
 //     // }
 // }
-
 // .contain .ranking_item .ranking_bg .icon{
 //     display: flex;
 //     justify-content: flex-end;
 //     align-items: center;
 //     margin-bottom: 10px;
 //     // border: 1px solid rgb(253, 34, 34);
-
 //     .message{
 //         width: 35px;
 //         cursor: pointer;
@@ -360,7 +329,6 @@ body {
 //         margin: 0 20px 0px 5px;
 //     }
 // }
-
 // .contain .ranking_item .ranking_bg .msg{
 //     background-color: #ffffff;
 //     border-radius: 0 0 10px 10px;
@@ -368,7 +336,6 @@ body {
 //     margin: 0 auto 0px auto;
 //     border: 1px solid lightskyblue;
 //     box-shadow: 1px 1px 1px  rgb(183, 227, 255);
-
 //     .big{
 //         font-size: 20px;
 //         text-align: center;
@@ -376,30 +343,24 @@ body {
 //         padding: 10px;
 //         background-color: #001871;
 //     }
-
 //     img{
 //         width: 50px;
 //         vertical-align: middle;
 //     }
-
 //     p{
 //         font-size: 16px;
 //         padding: 10px;
-
 //     }
-
 //     .more{
 //         text-align: center;
 //         padding-bottom: 15px;
 //         // border: 1px solid red;
-
 //         a{
 //             display: inline-block;
 //             background-color: #4EB6E6;
 //             border-radius: 10px;
 //             // border: 1px solid red;
 //         }
-
 //         span{
 //             text-align: center;
 //             display: inline-block;
@@ -409,62 +370,54 @@ body {
 //             padding: 10px 10px;
 //         }
 //     }
-
 // }
 
 /* ------------ ranking 結束 ---------------*/
 
 
 /* ------------ aboutContest 開始 ---------------*/
+
 .aboutContest {
     margin-bottom: 70px;
-
     .event {
         display: inline-block;
         width: 55%;
         background-color: #e0f1fc;
         border-radius: 50px;
         padding: 40px;
-
+        box-shadow: 1px 1px 5px #4bb0f3;
         .aboutContest_title {
             margin-bottom: 30px;
-
             p {
-                font-size: 28px;
+                font-size: $fontSize*1.75;
                 text-align: center;
             }
         }
-
         .text {
             margin-bottom: 10px;
-
             img {
                 width: 60px;
                 margin-right: 30px;
                 vertical-align: top;
             }
-
             span {
-                font-size: 20px;
+                font-size: $fontSize*1.25;
                 color: #4669e6;
                 margin-right: 22px;
                 vertical-align: top;
             }
-
             p {
                 display: inline-block;
                 width: 340px;
-                font-size: 20px;
+                font-size: $fontSize*1.25;
                 vertical-align: top;
             }
         }
     }
-
     .eventImg {
         display: inline-block;
         width: 43%;
         vertical-align: top;
-
         .board {
             display: inline-block;
             width: 250px;
@@ -476,30 +429,27 @@ body {
             top: 30px;
             left: 85px;
             vertical-align: top;
-
             a {
                 display: inline-block;
             }
-
             p {
                 width: 185px;
                 padding: 15px 15px 15px 20px;
-                font-size: 20px;
+                font-size: $fontSize*1.25;
                 color: #001871;
             }
         }
-
         .character {
             display: inline-block;
             width: 230px;
             cursor: pointer;
-
             img {
                 width: 100%;
             }
         }
     }
 }
+
 
 /* ------------ aboutContest 結束 ---------------*/
 
@@ -508,13 +458,12 @@ body {
 
 .cookList {
     margin-bottom: 70px;
-
     .cookList_title {
         text-align: center;
-        font-size: 28px;
+        font-size: $fontSize*1.75;
         position: relative;
         color: #fff;
-        &:after{
+        &:after {
             content: "";
             width: 289px;
             height: 105px;
@@ -523,38 +472,33 @@ body {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50% ,-50%);
+            transform: translate(-50%, -50%);
             z-index: -1;
         }
     }
-
     .filter {
         margin-top: 60px;
         margin-bottom: 40px;
-
         span {
             font-size: 20px;
         }
-
         select {
             font-family: 'jf-openhuninn-1.0';
-            font-size: 20px;
+            font-size: $fontSize*1.25;
             color: #ffffff;
             background-color: #4EB6E6;
             padding: 10px;
             border-radius: 10px;
             border: transparent;
+            outline: none;
         }
     }
 }
-
-
 
 @keyframes move {
     0% {
         transform: translateY(-15px);
     }
-
     100% {
         transform: translateY(15px);
     }
@@ -565,7 +509,6 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 5%;
-
     .cookList_item {
         width: 340px;
         background-image: url(../images/cookList_item_bg.png);
@@ -577,52 +520,40 @@ body {
         box-shadow: 0px 2px 5px #f7c029;
         // animation-timing-function:linear;
         // border: 2px solid rgb(3, 129, 41);
-
         .cookList_img {
             text-align: center;
-
             .cookList_cook {
                 margin: 20px auto 20px auto;
                 width: 300px;
-
                 img {
                     width: 85%;
                     // border: 1px solid red;
                 }
-
                 figcaption {
                     margin-top: 20px;
-
                     // border: 1px solid red;
                     p {
                         text-align: center;
                     }
-
                     p:nth-child(1) {
-                        font-size: 24px;
-                        color: #000000;
+                        font-size: $fontSize*1.5;
                     }
-
                     p:nth-child(2) {
-                        font-size: 20px;
+                        font-size: $fontSize*1.25;
                         color: #4669e6;
                         margin-top: 2%;
                     }
-
                 }
             }
         }
-
         .cookList_vote {
             text-align: center;
             margin-bottom: 5%;
-
             button {
                 @extend %btn_ano;
                 padding: 4% 16%;
             }
         }
-
         .msg {
             background-color: #ffffff;
             border-radius: 0 0 10px 10px;
@@ -630,59 +561,49 @@ body {
             margin: 0 auto 30px auto;
             border: 1px solid #f7c029;
             box-shadow: 6px 6px 0px rgb(247, 192, 41);
-
             .big {
-                font-size: 20px;
+                font-size: $fontSize*1.25;
                 text-align: center;
                 color: #1d1d1d;
                 padding: 10px;
                 background-color: #FBD672;
             }
-
             .msg_text {
                 width: 100%;
                 height: 70px;
                 overflow: scroll;
                 overflow-x: hidden;
-
                 img {
                     width: 50px;
                     vertical-align: middle;
                 }
-
                 p {
                     padding: 10px;
                 }
             }
-
             .msg_btn {
                 text-align: center;
                 margin-bottom: 3%;
-
                 button {
                     @extend %btn;
                 }
             }
         }
     }
-
-    .cookList_item:nth-child(1),.cookList_item:nth-child(2),.cookList_item:nth-child(3){
+    .cookList_item:nth-child(1),
+    .cookList_item:nth-child(2),
+    .cookList_item:nth-child(3) {
         margin-bottom: 5%;
     }
-
     .cookList_item:nth-child(1),
     .cookList_item:nth-child(4) {
         animation-delay: 2s;
     }
-
     .cookList_item:nth-child(2),
     .cookList_item:nth-child(5) {
         animation-delay: 1s;
     }
 }
-
-
-
 
 
 /* ------------ cookList 結束 ---------------*/
@@ -691,7 +612,6 @@ body {
 /*------------------ 頁碼開始 ----------------*/
 
 .page-normal {
-
     margin: 50px auto 50px auto;
     text-align: center;
 }
@@ -699,7 +619,6 @@ body {
 .page-normal a {
     /* border: 1px solid rgb(201, 1, 75); */
     padding: 5px 7px;
-    font-size: 16px;
     color: #4EB6E6;
     text-decoration: none;
 }
@@ -709,15 +628,12 @@ body {
     background-color: #4EB6E6;
 }
 
-
 .page-normal .page-current {
-    font-size: 16px;
     color: #ffffff;
     background-color: #4EB6E6;
 }
 
 .page-normal .page-prev {
-    font-size: 16px;
     color: #4EB6E6;
 }
 
@@ -729,11 +645,13 @@ body {
     padding: 5px 7px;
 }
 
+
 /*------------------ 頁碼結束 ----------------*/
+
 
 /*------------------ 留言板燈箱開始 ----------------*/
 
-.msg_overlay{
+.msg_overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -750,20 +668,17 @@ body {
         margin: 0 auto 30px auto;
         border: 1px solid #f7c029;
         box-shadow: 6px 6px 0px rgb(247, 192, 41);
-
         position: absolute;
-        top: 50%;
+        top: 56%;
         left: 50%;
         transform: translate(-50%, -50%);
-    
         .msg_title {
-            font-size: 24px;
+            font-size: $fontSize*1.5;
             text-align: center;
             color: #1d1d1d;
             padding: 10px;
             background-color: #FBD672;
             position: relative;
-    
             img {
                 width: 7%;
                 position: absolute;
@@ -772,44 +687,36 @@ body {
                 cursor: pointer;
             }
         }
-    
         .msg_wrap {
             width: 100%;
-            height: 500px;
+            height: 400px;
             overflow: scroll;
             overflow-x: hidden;
             // border: 1px solid black;
-    
             .mem_contain {
                 border: 1px solid rgb(241, 185, 30);
                 border-radius: 10px;
                 padding: 3% 3% 2% 2%;
                 margin: 3%;
-    
                 .flex_wrap {
                     display: flex;
-    
                     .mem_name {
                         text-align: center;
                         width: 20%;
-    
                         // border: 1px solid blue;
                         img {
                             width: 80%;
                         }
                     }
-    
                     .mem_msg {
                         width: 60%;
                         // border: 1px solid rgb(4, 158, 37);
                         padding: 5%;
                     }
-    
                     .report {
                         width: 20%;
                         // border: 1px solid rgb(255, 251, 0);
                         text-align: right;
-    
                         .report_btn {
                             @extend %btn_ano;
                             color: rgb(65, 56, 56);
@@ -818,29 +725,22 @@ body {
                         }
                     }
                 }
-    
                 .msg_date {
                     text-align: right;
                 }
-    
             }
-    
-    
         }
-    
         .msg_input {
             // margin: 3%;
             // border: 1px solid red;
             background-color: #FBD672;
             padding: 3%;
             border-radius: 0 0 10px 10px;
-    
             input {
                 width: 80%;
                 height: 40px;
                 border: 2px solid rgb(238, 180, 20);
             }
-    
             .msginput_btn {
                 @extend %btn;
                 height: 38px;
@@ -859,9 +759,103 @@ body {
     opacity: 0;
 }
 
+
 /*------------------ 留言板燈箱結束 ----------------*/
 
+/*------------------ 檢舉燈箱開始 ----------------*/
+.report_overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, .5);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 1s;
+
+    .report_board{
+        width: 350px;
+        background-color: #ffffff;
+        border-radius: 0 0 10px 10px;
+        border-radius: 10px;
+        // margin: 0 auto 30px auto;
+        border: 1px solid #f7c029;
+        box-shadow: 4px 4px 0px rgb(247, 192, 41);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .report_title {
+            font-size: $fontSize*1.25;
+            text-align: center;
+            color: #1d1d1d;
+            padding: 10px;
+            background-color: #FBD672;
+            position: relative;
+            img {
+                width: 9%;
+                position: absolute;
+                top: 4px;
+                right: 10px;
+                cursor: pointer;
+            }
+        }
+
+        .report_wrap {
+            width: 100%;
+            // height: 400px;
+            // border: 1px solid black;
+            .report_contain {
+                border: 1px solid rgb(241, 185, 30);
+                border-radius: 10px;
+                padding: 5%;
+                margin: 6%;
+
+                p{
+                    text-align: center;
+                    margin-bottom: 3%;
+                    color: #4669e6;
+                }
+                .reason_box{
+                    margin: 2% auto 2% auto;
+                    width: 110px;
+                }
+                .rep_btn{
+                    margin-top: 6%;
+                    text-align: center;
+
+                    .rep_submit{
+                        @extend %btn_ano;
+                        margin-right: 4%;
+                        font-family: $fontFamily;
+                    }
+                    .rep_cancel{
+                        @extend %btn;
+                        margin-left: 4%;
+                        font-family: $fontFamily;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.report_overlay.-on {
+    opacity: 1;
+    z-index: 101;
+}
+
+.report_overlay.-opacity-zero {
+    opacity: 0;
+}
+
+/*------------------ 檢舉燈箱結束 ----------------*/
+
+
 /*------------------ 查看詳情 ----------------*/
+
 // .look{
 //     margin-bottom: 100px;
 //     .wrap{
@@ -872,24 +866,19 @@ body {
 //         border-radius: 10px;
 //         background-image: url(../images/look_bg.jpg);
 //         position: relative;
-
 //         .cross{
 //             display: inline-block;
 //             width: 40px;
 //             position: absolute;
 //             right: 10px;
 //             top: 10px;
-
 //             img{
 //                 width: 100%;
 //             }
-
 //         }
-
 //         .look_img{
 //             width: 400px;
 //             margin: 0 auto 20px auto;
-
 //             p{
 //                 text-align: center;
 //                 font-size: 35px;
@@ -899,114 +888,92 @@ body {
 //                 width: 100%;
 //             }
 //         }
-
 //         .food{
 //             width: 400px;
 //             margin: auto;
 //             padding-bottom: 20px;
 //             border-bottom: 1px dashed rgb(88, 88, 88);
-
 //             span{
 //                 font-size: 20px;
 //                 margin-right: 93px;
 //             }
-
 //             p{
 //                 display: inline-block;
 //                 width: 120px;
 //                 font-size: 20px;
 //             }
-
 //             .pic{
 //                 display: inline-block;
 //                 width: 70px;
 //                 vertical-align: middle;
-
 //                 img{
 //                     width: 100%;
 //                 }
 //             }
 //         }
-
 //         .Ingredients{
 //             width: 400px;
 //             margin: auto;
 //             padding-top: 20px;
-
 //             span{
 //                 font-size: 20px;
 //                 margin-right: 93px;
 //             }
-
 //             p{
 //                 display: inline-block;
 //                 width: 120px;
 //                 font-size: 20px;
 //             }
-
 //             .pic{
 //                 display: inline-block;
 //                 width: 70px;
 //                 vertical-align: middle;
-
 //                 img{
 //                     width: 100%;
 //                 }
 //             }
 //         }
-
 //         .Ingredients_bottom{
 //             width: 400px;
 //             margin: auto;
 //             padding-top: 20px;
 //             padding-bottom: 20px;
-
 //             span{
 //                 font-size: 20px;
 //                 margin-right: 93px;
 //             }
-
 //             p{
 //                 display: inline-block;
 //                 width: 120px;
 //                 font-size: 20px;
 //             }
-
 //             .pic{
 //                 display: inline-block;
 //                 width: 70px;
 //                 vertical-align: middle;
-
 //                 img{
 //                     width: 100%;
 //                 }
 //             }
 //         }
-
-
-
 //         .cooking_way{
 //             width: 400px;
 //             margin: auto;
 //             padding-top: 20px;
 //             border-top: 1px dashed rgb(88, 88, 88);
-
 //             span{
 //                 font-size: 20px;
 //                 margin-right: 93px;
 //             }
-
 //             p{
 //                 display: inline-block;
 //                 width: 120px;
 //                 font-size: 20px;
 //             }
-
 //             .pic{
 //                 display: inline-block;
 //                 width: 70px;
 //                 vertical-align: middle;
-
 //                 img{
 //                     width: 100%;
 //                 }
@@ -1016,6 +983,7 @@ body {
 // }
 
 /*------------------ 查看詳情結束 ----------------*/
+
 
 /*------------------ 完成投票提示 ----------------*/
 
@@ -1027,296 +995,292 @@ body {
     padding: 40px;
     text-align: center;
     margin: 0 auto 100px 400px;
-
     p {
-        font-size: 16px;
-
         span {
-            font-size: 18px;
+            font-size: $fontSize*1.25;
             color: rgb(255, 102, 0);
         }
     }
 }
 
+
 /*------------------ 完成投票提示結束 ----------------*/
 
+
 /*--------置頂按鈕---------*/
+
 @keyframes to_top {
     0% {
         transform: translateY(-15px);
     }
-
     100% {
         transform: translateY(15px);
     }
 }
 
-#go_top {
-    width: 150px;
-    height: 150px;
-    background: none;
-    position: fixed;
-    left: 20px;
-    bottom: 100px;
-    border: transparent;
-    outline: none;
-    cursor: pointer;
-    // animation-name: to_top;
-    // animation-duration: 2s;
-    // animation-iteration-count: infinite;
-    // animation-direction: alternate-reverse;
-    // animation-timing-function: linear;
-}
-
-#go_top img {
-    width: 100%;
-}
 
 /*--------置頂按鈕結束---------*/
 
 
 /*-------- RWD(max-width:1200px) ---------*/
-@include rwd(desktop){
-/* ------------ ranking 開始 ---------------*/
+
+@include rwd(desktop) {
+    /* ------------ ranking 開始 ---------------*/
+    .ranking .fly_area #fly_boat a {
+        font-size: $fontSize*1;
+    }
     .wrap {
         // padding: 0 5%;
         width: 100%;
     }
-
     .ranking_title {
         padding-top: unset;
     }
-
     .ranking_contain {
         .cookList_item {
             width: 30%;
-
             .cookList_pic {
                 .food_img {
                     width: 95%;
                     transform: translateY(49px);
                 }
-
                 .barrel {
                     width: 45%;
                 }
             }
-
             .list_bg {
                 .food_title {
                     width: 100%;
                 }
-
                 .msg {
                     width: 92%;
                     margin: auto;
                     box-shadow: 3px 3px 0px rgb(247, 192, 41);
-
                     .msg_text {
                         img {
                             width: 40px;
                         }
-
-                        p {
-                            font-size: 14px;
-                        }
                     }
-
                 }
             }
-
-
-
         }
-
         &:after {
             left: 0%;
             width: 100%;
             height: 100%;
         }
     }
-/* ------------ ranking 結束 ---------------*/
-/* ------------ aboutContest 開始 ---------------*/
-.aboutContest {
-    margin-bottom: 8%;
-
-    .event {
-        width: 55%;
-        padding: 4%;
-
-        .aboutContest_title {
-            margin-bottom: 6%;
-        }
-
-        .text {
-            margin-bottom: 2%;
-
-            img {
-                width: 10%;
-                margin-right: 3%;
+    /* ------------ ranking 結束 ---------------*/
+    /* ------------ aboutContest 開始 ---------------*/
+    .aboutContest {
+        margin-bottom: 13%;
+        .event {
+            width: 55%;
+            padding: 4%;
+            .aboutContest_title {
+                margin-bottom: 6%;
             }
-
-            span {
-                font-size: 18px;
-            }
-
-            p {
-                width: 58%;
-                font-size: 18px;
-            }
-        }
-    }
-
-    .eventImg {
-        .board {
-            width: 200px;
-            height: 70px;
-            left: 34px;
-        }
-
-        .character {
-            width: 43%;
-
-            img {
-                width: 100%;
-            }
-        }
-    }
-}
-/* ------------ aboutContest 結束 ---------------*/
-/* ------------ cookList 開始 ---------------*/
-.cookList {
-    margin-bottom: 8%;
-}
-
-.cookList_contain {
-    .cookList_item {
-        width: 30%;
-
-        .cookList_img {
-
-            .cookList_cook {
-                width: 90%;
-            }
-        }
-
-        .msg {
-            width: 92%;
-            margin: 0 auto 4% auto;
-            box-shadow: 3px 3px 0px rgb(247, 192, 41);
-
-            .msg_text {
-
+            .text {
+                margin-bottom: 2%;
                 img {
-                    width: 40px;
+                    width: 10%;
+                    margin-right: 3%;
                 }
-
+                span {
+                    font-size: 18px;
+                }
                 p {
-                    font-size: 14px;
+                    width: 58%;
+                    font-size: 18px;
+                }
+            }
+        }
+        .eventImg {
+            .board {
+                width: 200px;
+                height: 70px;
+                left: 34px;
+            }
+            .character {
+                width: 43%;
+                img {
+                    width: 100%;
                 }
             }
         }
     }
+    /* ------------ aboutContest 結束 ---------------*/
+    /* ------------ cookList 開始 ---------------*/
+    .cookList {
+        margin-bottom: 8%;
+    }
+    .cookList_contain {
+        .cookList_item {
+            width: 30%;
+            .cookList_img {
+                .cookList_cook {
+                    width: 90%;
+                }
+            }
+            .msg {
+                width: 92%;
+                margin: 0 auto 4% auto;
+                box-shadow: 3px 3px 0px rgb(247, 192, 41);
+                .msg_text {
+                    img {
+                        width: 40px;
+                    }
+                }
+            }
+        }
+    }
+    /* ------------ cookList 結束 ---------------*/
 }
-/* ------------ cookList 結束 ---------------*/
-}
+
 
 /*-------- RWD(max-width:991px) ---------*/
-@include rwd(medium){
-/* ------------ ranking 開始 ---------------*/
+
+@include rwd(medium) {
+    /* ------------ ranking 開始 ---------------*/
+    @keyframes fly {
+        0% {
+            left: -30%;
+            top: 50%;
+        }
+        20% {
+            top: 70%;
+        }
+        40% {
+            top: 150%;
+        }
+        50% {
+            top: 170%;
+        }
+        60% {
+            top: 150%;
+        }
+        80% {
+            top: 70%;
+        }
+        100% {
+            left: 100%;
+            top: 50%;
+        }
+    }
+    
     .ranking_contain {
         justify-content: space-around;
         flex-wrap: wrap;
-
         .cookList_item {
             width: 43%;
+            .list_bg{
+                .food_title{
+                    p:nth-child(1){
+                        font-size: $fontSize*1.25;
+                    }
+                    p:nth-child(2){
+                        font-size: 18px;
+                    }
+                }
+            }
         }
-
-        .cookList_item:nth-child(2){
+        .cookList_item:nth-child(2) {
             transform: unset;
             order: -1;
             flex-basis: 60%;
-
             .cookList_pic {
                 .food_img {
                     width: 85%;
                 }
-
                 .barrel {
                     width: 35%;
                 }
             }
         }
     }
-
-/* ------------ ranking 結束 ---------------*/
-/* ------------ aboutContest 開始 ---------------*/
-.aboutContest {
-    .event {
-        display: block;
-        width: 90%;
-        padding: 4%;
-        margin: auto;
-
-        .text {
-            img {
-                width: 7%;
-            }
-
-            p {
-                width: 70%;
-            }
-        }
-    }
-
-    .eventImg {
-        display: block;
-        margin: 1% auto;
-
-        .board {
+    /* ------------ ranking 結束 ---------------*/
+    /* ------------ aboutContest 開始 ---------------*/
+    .aboutContest {
+        .event {
             display: block;
-            width: unset;
-            height: unset;
-            background-image: unset;
-            position: unset;
-            text-align: center;
-
-            a {
-                display: unset;
+            width: 90%;
+            padding: 4%;
+            margin: auto;
+            .aboutContest_title p{
+                font-size: 22px;
             }
-
-            p {
+            .text {
+                img {
+                    width: 7%;
+                }
+                p {
+                    width: 70%;
+                }
+            }
+        }
+        .eventImg {
+            display: block;
+            margin: 1% auto;
+            .board {
+                display: block;
                 width: unset;
-                padding: unset;
+                height: unset;
+                background-image: unset;
+                position: unset;
+                text-align: center;
+                a {
+                    display: unset;
+                }
+                p {
+                    width: unset;
+                    padding: unset;
+                }
+            }
+            .character {
+                display: none;
             }
         }
-
-        .character {
-            display: none;
+    }
+    /* ------------ aboutContest 結束 ---------------*/
+    /* ------------ cookList 開始 ---------------*/
+    .cookList {
+        .cookList_title{
+            font-size: 22px;
+            &:after{
+                width: 250px;
+                height: 90px;
+            }
+        }
+        .filter {
+            margin: 8% auto;
+            text-align: center;
+            span{
+                font-size: 18px;
+            }
+            select{
+                font-size: 18px;
+            }
         }
     }
-}
-/* ------------ aboutContest 結束 ---------------*/
-/* ------------ cookList 開始 ---------------*/
-.cookList {
-    .filter {
-        margin: 5% auto;
-        text-align: center;
-}
-}
-.cookList_contain {
-    .cookList_item {
-        width: 43%;
-        animation-name: none;
+    .cookList_contain {
+        .cookList_item {
+            width: 43%;
+            animation-name: none;
+        }
+        .cookList_item:nth-child(4),
+        .cookList_item:nth-child(5),
+        .cookList_item:nth-child(6) {
+            margin-bottom: 5%;
+        }
+        .cookList_item .cookList_img .cookList_cook figcaption p:nth-child(1){
+            font-size: $fontSize*1.25;
+        }
+        .cookList_item .cookList_img .cookList_cook figcaption p:nth-child(2){
+            font-size: 18px;
+        }
     }
-
-    .cookList_item:nth-child(4),.cookList_item:nth-child(5),.cookList_item:nth-child(6){
-        margin-bottom: 5%;
-    }
-}
-/* ------------ cookList 結束 ---------------*/
-
-    #go_top{
+    /* ------------ cookList 結束 ---------------*/
+    #go_top {
         width: 20%;
         height: unset;
         right: 5%;
@@ -1324,141 +1288,204 @@ body {
     }
 }
 
+
 /*-------- RWD(max-width:767px) ---------*/
-@include rwd(small){
-/* ------------ ranking 開始 ---------------*/
+
+@include rwd(small) {
+    /* ------------ ranking 開始 ---------------*/
+    @keyframes fly {
+        0% {
+            left: -30%;
+            top: 100%;
+        }
+        20% {
+            top: 120%;
+        }
+        40% {
+            top: 130%;
+        }
+        50% {
+            top: 140%;
+        }
+        60% {
+            top: 130%;
+        }
+        80% {
+            top: 120%;
+        }
+        100% {
+            left: 100%;
+            top: 100%;
+        }
+    }
+
     .ranking_contain {
         .cookList_item {
             width: 60%;
-
             .cookList_pic {
                 .food_img {
                     width: 85%;
                 }
-
                 .barrel {
                     width: 35%;
                 }
             }
         }
-
-        .cookList_item:nth-child(2){
+        .cookList_item:nth-child(2) {
             flex-basis: unset;
-
             .cookList_pic {
                 .food_img {
                     width: 85%;
                 }
-
                 .barrel {
                     width: 35%;
                 }
             }
         }
-
-        &:after{
+        &:after {
             display: none;
         }
     }
-
-/* ------------ ranking 結束 ---------------*/
-/* ------------ aboutContest 開始 ---------------*/
-.aboutContest {
-    .event {
-
-        .text {
-            
-            span{
-                font-size: 16px;
-                margin-right: 2%;
+    /* ------------ ranking 結束 ---------------*/
+    /* ------------ aboutContest 開始 ---------------*/
+    .aboutContest {
+        .event {
+            .text {
+                span {
+                    font-size: $fontSize*1;
+                    margin-right: 2%;
+                }
+                p {
+                    font-size: $fontSize*1;
+                    width: 65%;
+                }
             }
-            p {
-                font-size: 16px;
-                width: 65%;
+        }
+        .eventImg {
+            width: 45%;
+            .board {
+                p {
+                    font-size: 18px;
+                }
             }
         }
     }
-
-    .eventImg {
-        width: 45%;
-
-        .board {
-
-            p {
-                font-size: 18px;
-
-            }
+    /* ------------ aboutContest 結束 ---------------*/
+    /* ------------ cookList 開始 ---------------*/
+    .cookList_contain {
+        justify-content: space-around;
+        .cookList_item {
+            width: 60%;
+        }
+        .cookList_item:nth-child(1),
+        .cookList_item:nth-child(2),
+        .cookList_item:nth-child(3),
+        .cookList_item:nth-child(4),
+        .cookList_item:nth-child(5),
+        .cookList_item:nth-child(6) {
+            margin-bottom: 8%;
         }
     }
+    /* ------------ cookList 結束 ---------------*/
 }
-/* ------------ aboutContest 結束 ---------------*/
-/* ------------ cookList 開始 ---------------*/
-.cookList_contain {
-    justify-content: space-around;
-    .cookList_item {
-        width: 60%;
-    }
-    .cookList_item:nth-child(1),.cookList_item:nth-child(2),.cookList_item:nth-child(3),.cookList_item:nth-child(4),.cookList_item:nth-child(5),.cookList_item:nth-child(6){
-        margin-bottom: 8%;
-    }
-}
-/* ------------ cookList 結束 ---------------*/
-}
+
 
 /*-------- RWD(max-width:576px) ---------*/
-@include rwd(mobile){
-/* ------------ ranking 開始 ---------------*/
+
+@include rwd(mobile) {
+    /* ------------ ranking 開始 ---------------*/
+    @keyframes fly {
+        0% {
+            left: -30%;
+            top: 100%;
+        }
+        20% {
+            top: 120%;
+        }
+        40% {
+            top: 140%;
+        }
+        50% {
+            top: 150%;
+        }
+        60% {
+            top: 140%;
+        }
+        80% {
+            top: 120%;
+        }
+        100% {
+            left: 100%;
+            top: 100%;
+        }
+    }
+    .ranking .fly_area #fly_boat a {
+        font-size: $fontSize*0.8;
+    }
     .ranking_contain {
         .cookList_item {
             width: 80%;
         }
     }
-/* ------------ ranking 結束 ---------------*/
-/* ------------ aboutContest 開始 ---------------*/
-.aboutContest {
-    .event {
-        .aboutContest_title{
-            p{
-                font-size: 24px;
+    /* ------------ ranking 結束 ---------------*/
+    /* ------------ aboutContest 開始 ---------------*/
+    .aboutContest {
+        .event {
+            .aboutContest_title {
+                p {
+                    font-size: $fontSize*1.5;
+                }
+            }
+            .text {
+                p {
+                    width: 55%;
+                }
             }
         }
-        .text {
-            p {
-                width: 55%;
+        .eventImg {
+            width: 70%;
+            margin-bottom: 20%;
+        }
+    }
+    /* ------------ aboutContest 結束 ---------------*/
+    /* ------------ cookList 開始 ---------------*/
+    .cookList .filter {
+        span {
+            font-size: 18px;
+        }
+        select {
+            font-size: 18px;
+        }
+    }
+    .cookList .cookList_title {
+        font-size: $fontSize*1.5;
+        &:after {
+            width: 194px;
+            height: 72px;
+        }
+    }
+    .cookList_contain {
+        .cookList_item {
+            width: 80%;
+        }
+    }
+    /* ------------ cookList 結束 ---------------*/
+    /*------------------ 留言板燈箱開始 ----------------*/
+    .msg_overlay {
+        .msg_board {
+            width: 80%;
+            height: 79%;
+            margin: auto;
+            .msg_wrap {
+                width: 100%;
+                height: 81%;
+            }
+            .msg_input {
+                input {
+                    width: 70%;
+                }
             }
         }
     }
-
-    .eventImg {
-        width: 70%;
-    }
-}
-/* ------------ aboutContest 結束 ---------------*/
-/* ------------ cookList 開始 ---------------*/
-.cookList_contain {
-    .cookList_item {
-        width: 80%;
-    }
-}
-/* ------------ cookList 結束 ---------------*/
-/*------------------ 留言板燈箱開始 ----------------*/
-.msg_overlay{
-    .msg_board {
-        width: 80%;
-        height: 79%;
-        margin: auto;
-    
-        .msg_wrap {
-            width: 100%;
-            height: 81%;
-        }
-    
-        .msg_input {
-            input {
-                width: 70%;
-            }
-        }
-    }
-}
-/*------------------ 留言板燈箱結束 ----------------*/
+    /*------------------ 留言板燈箱結束 ----------------*/
 }

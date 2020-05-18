@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="./images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="/css/customized_cuisine.css">
+    <link rel="stylesheet" href="./css/customized_cuisine.css">
     <script src="./jquery/jquery.min.js"></script>
     <script src="./jquery/jquery-ui.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
@@ -20,19 +20,94 @@
     @@include('./layout/header.html')
 
     <div class="container">
-        <h1>
-            <div class="pu_h1_div">
-                <img class="pu_h1_img" src="./images/ribbon.png" alt="">
-                <div class="pu_div_text">
-                    客製化料理
+
+        <div class="attn on">
+            <div class="people"></div>
+            <div class="talking-here">
+                <div class="talk act1 on">
+                    這位客人，您似乎還沒進行登入
+                </div>
+                <div class="talk act2">
+                    提醒您，在沒有登入的情況下製作料理會無法儲存料理
+                </div>
+                <div class="talk act3">
+                    請問要進行登入嗎？
+                    <div class="yes">是</div>
+                    <div class="no">否</div>
+                </div>
+                <div class="talk act4">
+                    這樣呀...我明白了<br>
+                    祝您有段美好的時光
                 </div>
             </div>
-        </h1>
+
+        </div>
+        <script>
+            $(".talking-here").click(function () {
+                if ($(".act1").hasClass("on") == 1) {
+                    $(".act1").removeClass("on");
+                    $(".act2").addClass("on");
+                } else if ($(".act2").hasClass("on") == 1) {
+                    $(".act2").removeClass("on");
+                    $(".act3").addClass("on");
+                } else if ($(".act4").hasClass("on") == 1) {
+                    $(".attn").delay(800).fadeOut(1000);
+                    $("main").addClass("on");
+                }
+            });
+
+            $(".no").click(function () {
+                $(".act3").removeClass("on");
+                $(".act4").addClass("on");
+            });
+        </script>
+        <script>
+        
+
+            // var talk = document.querySelector(".talk");
+            // var act1 = "這位客人，您似乎還沒進行登入";
+            // var act2 = " 提醒您，在沒有登入的情況下製作料理會無法儲存料理";
+            // var act3 = " 請問要進行登入嗎？";
+            // var words = act1.split('');
+            // var words2 = act2.split('');
+            // var words3 = act3.split('');
+            // var first = function() {
+            //     if (words.length > 0) {
+            //         talk.innerHTML += words.shift();
+            //     } else {
+            //         clearTimeout(loopTimer);
+            //     }
+            //     var loopTimer = setTimeout('first()', 100);
+            // };
+            // var second = function() {
+            //     if (words2.length > 0) {
+            //         talk.innerHTML += words2.shift();
+            //     } else {
+            //         clearTimeout(loopTimer);
+            //     }
+            //     var loopTimer = setTimeout('second()', 100);
+            //     // $(".act1").removeClass("on");
+            //     // $(".act2").addClass("on");
+            // };
+
+
+            // function timemsg(){
+            //     setTimeout("first()", 3000);
+            // }
+            // timemsg();
+
+            // $(".act1").click(function(){
+            //     $(".talk").empty(); 
+            //     second();  
+            // });
+            // // $(".act2").click(function(){
+            // //     $(".talk").empty(); 
+            // //     second();  
+            // // });
+        </script>
         <main>
+            @@include('./layout/h1_title.html')
             <div class="intro">
-                <p>
-                    修旦幾勒，已經登入了嗎？沒有登入的話就沒辦法記錄料理囉
-                </p>
                 <p>
                     只能選擇菜單上的菜色讓您感到了無新意？<br>
                     這裡歡迎您盡情發揮想像，來創造獨一無二的客製化料理吧！
@@ -50,7 +125,6 @@
                     STEP 1： 選擇一個喜歡的海鮮
                 </h3>
                 <section class="choose-fish">
-
                     <div class="note selected-fish">
                         <div class="note-content">
                             <span>章魚</span>
@@ -79,6 +153,24 @@
                             <img src="./images/seafood4.svg" alt="flounder">
                         </div>
                     </div>
+                    <!-- <div class="note">
+                        <div class="note-content">
+                            <span>鰈魚</span>
+                            <span>價格：NT$800元</span>
+                        </div>
+                        <div class="fish-pic">
+                            <img src="./images/seafood5.svg" alt="flounder">
+                        </div>
+                    </div>
+                    <div class="note">
+                        <div class="note-content">
+                            <span>鰈魚</span>
+                            <span>價格：NT$800元</span>
+                        </div>
+                        <div class="fish-pic">
+                            <img src="./images/seafood6.svg" alt="flounder">
+                        </div>
+                    </div> -->
                 </section>
             </div>
 
@@ -145,6 +237,7 @@
                                             </li>
                                         </ul>
                                     </div>
+
                                     <div class="cabinet-bottom">
                                         <ul>
                                             <li>
@@ -166,49 +259,58 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <script>
-                                    
-                                </script>
+
                                 <div id="c-cook" class="tab tab2">
                                     <div class="cabinet-top">
-                                        <ul class="tab_cook">
-                                            <li>
+                                        <ul class="tab_cook" style="display: flex;">
+                                            <li id="tab_cook1" class="cook-type">
                                                 煮湯
                                             </li>
-                                            <li>
+                                            <li id="tab_cook2" class="cook-type">
                                                 蒸
                                             </li>
-                                            <li>
-                                               烤
+                                            <li id="tab_cook3" class="cook-type">
+                                                烤
+                                            </li>
+                                        </ul>
+                                        <ul class="tab_cook" style="display: none;">
+                                            <li id="tab_cook4" class="cook-type">
+                                                炒
+                                            </li>
+                                            <li id="tab_cook5" class="cook-type">
+                                                炸
+                                            </li>
+                                            <li id="tab_cook6" class="cook-type">
+                                                涼拌
+                                            </li>
+                                        </ul>
+                                        <ul class="tab_cook" style="display: none;">
+                                            <li id="tab_cook7" class="cook-type">
+                                                煮清湯
+                                            </li>
+                                            <li id="tab_cook8" class="cook-type">
+                                                生吃
+                                            </li>
+                                            <li id="tab_cook9" class="cook-type">
+                                                烤
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="cabinet-bottom">
-                                        <ul>
-                                            <li>
-                                                <figure>
-                                                    <figcaption>
-                                                        <p>奶油</p>
-                                                    </figcaption>
-                                                    <img src="./images/butter.png" alt="">
-                                                </figure>
-                                            </li>
-                                            <li>
-                                                <figure>
-                                                    <figcaption>
-                                                        <p>奶油</p>
-                                                    </figcaption>
-                                                    <img src="./images/butter.png" alt="">
-                                                </figure>
-                                            </li>
-                                        </ul>
+                                        <p>
+                                            目前選擇海鮮：<span class="now-fish"></span>
+                                        </p><br>
+                                        <p>
+                                            目前選擇烹調方式：<span class="now-type"></span>
+                                        </p>
+
                                     </div>
                                 </div>
 
                                 <div id="c-element" class="tab tab3">
                                     <div class="cabinet-top">
                                         <ul>
-                                            <li>
+                                            <li class="tab_in">
                                                 <figure>
                                                     <figcaption>
                                                         <p>奶油</p>
@@ -216,7 +318,7 @@
                                                     <img src="./images/butter.png" alt="">
                                                 </figure>
                                             </li>
-                                            <li>
+                                            <li class="tab_in">
                                                 <figure>
                                                     <figcaption>
                                                         <p>芥末</p>
@@ -224,7 +326,7 @@
                                                     <img src="./images/wasabi.png" alt="">
                                                 </figure>
                                             </li>
-                                            <li>
+                                            <li class="tab_in">
                                                 <figure>
                                                     <figcaption>
                                                         <p>金箔</p>
@@ -236,7 +338,7 @@
                                     </div>
                                     <div class="cabinet-bottom">
                                         <ul>
-                                            <li>
+                                            <li class="tab_in">
                                                 <figure>
                                                     <figcaption>
                                                         <p>迷迭香</p>
@@ -244,7 +346,7 @@
                                                     <img src="./images/rosemary.png" alt="">
                                                 </figure>
                                             </li>
-                                            <li>
+                                            <li class="tab_in">
                                                 <figure>
                                                     <figcaption>
                                                         <p>辣椒</p>
@@ -252,7 +354,7 @@
                                                     <img src="./images/chili.png" alt="">
                                                 </figure>
                                             </li>
-                                            <li>
+                                            <li class="tab_in">
                                                 <figure>
                                                     <figcaption>
                                                         <p>檸檬</p>
@@ -280,17 +382,17 @@
                                     <li class="cook-type shr3" id="cook6">涼拌</li>
                                 </ul>
                                 <ul class="list-of-cook" style="display: none;">
-                                    <li class="cook-type flo1">煮清湯</li>
-                                    <li class="cook-type flo2">生吃</li>
-                                    <li class="cook-type flo3">烤</li>
+                                    <li class="cook-type flo1" id="cook7">煮清湯</li>
+                                    <li class="cook-type flo2" id="cook8">生吃</li>
+                                    <li class="cook-type flo3" id="cook9">烤</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="choose-element">
-                            <h3>STEP 3： 選擇想要配料，依喜好擺成自己喜歡的樣子<br>最多選三樣</h3>
+                            <h3>STEP 3： 選擇想要配料，依喜好擺成自己喜歡的樣子<br>最多選三樣<span id="reset"></span></h3>
                             <div class="choose-ingredient">
-                                <ul>
+                                <ul class="ingre-wrap">
                                     <li class="ingret">
                                         <figure>
                                             <figcaption>
@@ -323,19 +425,33 @@
                                             <img src="./images/rosemary.png" alt="">
                                         </figure>
                                     </li>
-
+                                    <li class="ingret">
+                                        <figure>
+                                            <figcaption>
+                                                <p>奶油</p>
+                                            </figcaption>
+                                            <img src="./images/butter.png" alt="">
+                                        </figure>
+                                    </li>
+                                    <li class="ingret">
+                                        <figure>
+                                            <figcaption>
+                                                <p>芥末</p>
+                                            </figcaption>
+                                            <img src="./images/wasabi.png" alt="">
+                                        </figure>
+                                    </li>
                                 </ul>
+                                <div class="left-right">
+                                    <div id="arrowL">←</div>
+                                    <div id="arrowR">→</div>  
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
                 <script>
-                    // $(".ingret").click(function () {
-                    //     let src = $(this).children().children("img").attr('src');
-                    //     alert(src);
-                    //     $(".ingret_pos img").attr("src", src);
-                    // });
-
                     var num = 0;
 
                     $(document).ready(function () {
@@ -347,32 +463,48 @@
                                 // alert(in_src);
                                 $(".in_pic").eq(num).attr("src", in_src);
                                 num++;
+                                $(".ingret_pos").css("cursor", "move");
+                                if (num > 3) {
+                                    alert("最多只能選三個喔!!!");
+                                }
+                            })
+                        }
+
+                        for (let i = 0; i < $('.tab_in').length; i++) {
+                            $(".tab_in").eq(i).click(function () {
+                                var in_src = $(this).children().children("img").attr("src");
+
+                                $(".in_pic").eq(num).attr("src", in_src);
+                                num++;
 
                                 if (num > 3) {
                                     alert("最多只能選三個喔!!!");
                                 }
-
                             })
                         }
                     });
 
-
-
                     $(".ingret_pos").draggable({
                         containment: "parent",
-                        scroll: false
+                        scroll: false,
                     });
 
                     var arr = [];
                     var change = document.querySelectorAll(".in_pic");
                     for (let i = 0; i < change.length; i++) {
-                        alert(change.length);
+                        // alert(change.length);
+                        //將配料加到圖上
                         change[i].addEventListener("click", function (e) {
                             // alert(arr.indexOf(this));
-                            if (arr.indexOf(this)==-1) {
+                            if (arr.indexOf(this) == -1) {
                                 arr.push(this);
                             }
+                        })
 
+                        // 配料重置
+                        $("#reset").click(function () {
+                            num = 0;
+                            $(".in_pic").attr("src", "");
                         })
                     }
                 </script>
@@ -382,13 +514,13 @@
                     <h3>STEP 4： 為您的料理取個名字並加入菜單，你就可以在預約時點到這個專屬料理囉~</h3>
                     <div class="food-info">
                         <label for="">這道菜的名字是</label>
-                        <span>此項必填</span>
+                        <span>◎此項必填</span>
                         <input type="text" placeholder="名字最長十個字~" maxlength="10">
 
                     </div>
                     <div class="food-info">
                         <label for="">關於這道菜，我想說...</label>
-                        <textarea name="" id="" cols="30" rows="1" placeholder="輸入文字吧~"></textarea>
+                        <textarea name="" cols="30" rows="1" placeholder="輸入文字吧~"></textarea>
                     </div>
                     <div class="form-control">
                         <h3>
@@ -401,20 +533,22 @@
 
             <div class="overlay">
                 <article>
-                    <h1>這是 Modal 裡的標題</h1>
-                    <p>這是 Modal 段落</p>
+                    <h2>您已完成料理囉～</h2>
+                    <p>按下確定後也會同時報名美食大賽，趕快去看一看吧！</p>
                     <div class="close"></div>
+                    <div class="cancel">取消</div>
                     <a href="">
-                        <input type="submit" value="前往美食大賽">
+                        <input type="submit" value="確定">
                     </a>
 
                 </article>
             </div>
 
         </main>
+        @@include('./layout/reboot.html')
     </div>
 
-    <footer></footer>
+    <footer> @@include('./layout/foot.html')</footer>
     @@include('./all_js.html')
     <script>
         // 手機用版面
@@ -434,14 +568,18 @@
     </script>
     <script>
         // =================海鮮和烹調的切換
-        // 選海鮮，被選擇的海鮮會有紅圈
+        // 選海鮮，被選擇的海鮮會有紅圈，原本被選擇的烹調方式會恢復正常
         $(".fish-pic, .note-content").on("click", function () {
             $(".note").removeClass("selected-fish");
             $(this.parentNode).addClass("selected-fish");
+            $(".cook-type").removeClass("selected");
+            $(".tab_cook li").removeClass("selected");
         });
         $(".tab_fish").on("click", function () {
             $(".tab_fish").removeClass("selected");
             $(this).addClass("selected");
+            $(".cook-type").removeClass("selected");
+            $(".tab_cook li").removeClass("selected");
         });
         //桌機版的海鮮與手機版連動
         for (let i = 0; i < $(".fish-pic").length; i++) {
@@ -471,12 +609,15 @@
         $(".note img").click(function () {
             let src = $(this).attr('src');
             $("#pin img.base").attr("src", src);
+            $(".cook-type").removeClass("selected");
         });
         //點海鮮文字改預覽圖
         $(".note-content").click(function () {
             let src = $(this).next().children().attr('src');
             $("#pin img.base").attr("src", src);
+            $(".cook-type").removeClass("selected");
         });
+
         //點手機海鮮可以改預覽圖
         $(".tab_fish").click(function () {
             let src = $(this).children().children("img").attr('src');
@@ -484,73 +625,105 @@
         });
 
         // 選了海鮮後會更換烹調
-        // let s_note = document.getElementsByClassName("note");
-        // let cookList = document.getElementsByClassName("list-of-cook");
-        // // alert(s_note.length);
-        // // alert(cookList.length);
-        // for (let i = 0; i < s_note.length; i++) {
-        //     s_note[i].addEventListener('click', function () {
-        //         for (let j = 0; j < cookList.length; j++) {
-        //             if (j == i) {
-        //                 cookList[j].style.display = "flex";
-        //             } else {
-        //                 cookList[j].style.display = "none";
-        //             }
-        //         }
-        //         let src = $(this).children().children('img').attr('src');
-        //     $("#pin img").attr("src",src);
-        //     })
+        let s_note = document.getElementsByClassName("note");
+        let cookList = document.getElementsByClassName("list-of-cook");
+        let tf_select = document.getElementsByClassName("tab_fish");
+        let tc_select = document.getElementsByClassName("tab_cook");
+        // alert(s_note.length);
+        // alert(cookList.length);
+        for (let i = 0; i < s_note.length; i++) {
+            s_note[i].addEventListener('click', function () {
+                for (let j = 0; j < cookList.length; j++) {
+                    if (j == i) {
+                        cookList[j].style.display = "flex";
+                        //確認手機版的烹調方式會跟著改變
+                        for (let a = 0; a < tc_select.length; a++) {
+                            if (a == i) {
+                                tc_select[a].style.display = "flex";
+                            }
+                        }
+                    } else {
+                        cookList[j].style.display = "none";
+                        for (let a = 0; a < tc_select.length; a++) {
+                            if (a != i) {
+                                tc_select[a].style.display = "none";
+                            }
+                        }
+                    }
+                }
+                let src = $(this).children().children('img.base').attr('src');
+                $("#pin img").attr("src", src);
+            })
 
-        // };
+        };
+
+        for (let i = 0; i < tf_select.length; i++) {
+            tf_select[i].addEventListener('click', function () {
+                for (let j = 0; j < tc_select.length; j++) {
+                    if (j == i) {
+                        tc_select[j].style.display = "flex";
+                        //確認桌機版的烹調方式會跟著改變
+                        for (let a = 0; a < cookList.length; a++) {
+                            if (a == i) {
+                                cookList[a].style.display = "flex";
+                            }
+                        }
+                    } else {
+                        tc_select[j].style.display = "none";
+                        for (let a = 0; a < cookList.length; a++) {
+                            if (a != i) {
+                                cookList[a].style.display = "none";
+                            }
+                        }
+                    }
+                }
+            })
+        };
 
         // 點烹調方式改預覽圖
-        $("#cook1").click(function () {
-            src = "./images/cook1.png";
-            $("#pin img.base").attr("src", src);
-        });
 
-        $("#cook2").click(function () {
-            src = "./images/cook2.png";
+        $(".cook-type").click(function (e) {
+            var str = e.target.id;
+            str = str.substr(str.length - 1, 1);
+            src = `./images/cook${str}.png`;
             $("#pin img.base").attr("src", src);
-        });
-
-        $("#cook3").click(function () {
-            src = "./images/cook3.png";
-            $("#pin img.base").attr("src", src);
+            $(".cook-type").removeClass("selected");
+            $(".tab_cook li").removeClass("selected");
+            $(`#cook${str},#tab_cook${str}`).addClass("selected");
         });
     </script>
     <script>
-        // $(function () {
+        //配料slider
+        var right = document.getElementById("arrowR"),
+            left = document.getElementById("arrowL"),
+            slider = document.querySelector(".ingre-wrap"),
+            position = 1,
+            finalPosition = 3;
 
-        //     // 食物預覽圖跟著移動
-        //     var controller = new ScrollMagic.Controller();
-        //     var scene = new ScrollMagic.Scene({
-        //             triggerElement: "#center",
-        //             triggerHook: 0,
-        //             duration: 150,
-        //         })
-        //         .setPin("#pin")
-        //         .addIndicators({
-        //             name: "1 (duration: 170)"
-        //         }).addTo(controller);
+        right.onclick = function () {
+            if (position == 3) {
+                $('#arrowR').attr('disabled', true);
 
-        //     // 載入完先判斷
-        //     if ($(window).width() < 768) {
-        //         controller.removeScene(scene);
-        //     }
+            } else {
+                slider.style.transform = "translateX(-" + position * 16.66 + "%)";
+                position += 1;
+                $('#arrowL').attr('disabled', false);
+            }
+        }
 
-        //     // resize的時候判斷
-        //     $(window).resize(function () {
+        left.onclick = function () {
+            if (position == 1) {
+                $('#arrowL').attr('disabled', true);
 
-        //         if ($(window).width() < 768) {
-        //             controller.removeScene(scene);
-        //         } else {
-        //             controller.addScene(scene);
-        //         }
-
-        //     });
-        // });
-
+            } else {
+                slider.style.transform = "translateX(-" + ((position - 2) * 16.66) + "%)";
+                position -= 1;
+                $('#arrowR').attr('disabled', false);
+            }
+        }
+    </script>
+    <!-- <script>
+        // 取消srollmagic
         $(document).ready(function () {
 
             var tooSmall = false;
@@ -572,9 +745,7 @@
                         duration: 150,
                     })
                     .setPin("#pin")
-                    .addIndicators({
-                        name: "1 (duration: 170)"
-                    }).addTo(controller);
+                    .addTo(controller);
             }
 
             if (!tooSmall) {
@@ -611,7 +782,7 @@
             }
 
         });
-    </script>
+    </script> -->
     <script>
         $(function () {
 
@@ -619,7 +790,7 @@
             $("button.to_lightbox").on("click", function () {
                 $(".overlay").addClass("-on");
             });
-            $(".close").on("click", function () {
+            $(".close, .cancel").on("click", function () {
                 $(".overlay").addClass("-opacity-zero");
 
                 // 設定隔一秒後，移除相關 class
@@ -627,10 +798,9 @@
                     $(".overlay").removeClass("-on -opacity-zero");
                 }, 1000);
             });
-
-
         });
     </script>
+    <script src="./js/customized_cuisine.js"></script>
 </body>
 
 </html>

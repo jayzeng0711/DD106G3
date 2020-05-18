@@ -10,35 +10,27 @@
     <link rel="stylesheet" href="./css/contest.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
+    
 </head>
 
 <body>
-    @@include('./layout/header.html')
+    
     <section class="ranking">
-        <h1>
-            <div class="pu_h1_div">
-                <img class="pu_h1_img" src="./images/ribbon.png" alt="">
-                <div class="pu_div_text">
-                    美食大賽
-                </div>
-            </div>
-
+        <div class="fly_area">
+            @@include('./layout/header.html')
+            @@include('./layout/h1_title.html')
             <div id="fly_boat">
-                <a href="customized_cuisine.html">還沒有自己的料理嗎?來去DIY海鮮囉~~~<img src="./images/boat.svg"></a>
+                <a href="customized_cuisine.html">還沒有自己的料理嗎?來去DIY海鮮囉~~~<img src="./images/Cruise_landingPage_01.png"></a>
             </div>
-        </h1>
+        </div>
+        <div id="contestant_msg"></div> <!--hover參賽留言顯示區塊-->
         <div class="wrap">
 
             <div class="ranking_contain">
-
-                <div class="cookList_item">
-                    <div class="cookList_pic animated bounceInLeft delay-1s">
-                        <figure class="food_img">
-                            <img id="cook_1" src="./images/cook2.png" alt="">
+                <div class="cookList_item">   
+                    <div class="cookList_pic animated bounceInLeft delay-.5s">
+                        <figure class="food_img textHover" hovertext="作品留言放在這~作品留言放在這~作品留言放在這~">
+                            <img id="cook_1" src="./images/cook2.png" >
                         </figure>
                         <figure class="barrel">
                             <img src="./images/barrel_r02.png" alt="">
@@ -73,11 +65,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="cookList_item">
-                    <div class="cookList_pic animated bounceInDown delay-2s">
-                        <figure class="food_img">
+                    <div class="cookList_pic animated bounceInDown delay-1s">
+                        <figure class="food_img textHover" hovertext="作品留言放在這~作品留言放在這~作品留言放在這~">
                             <img id="cook_1" src="./images/cook1.png" alt="">
                         </figure>
                         <figure class="barrel">
@@ -113,11 +104,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="cookList_item">
                     <div class="cookList_pic animated bounceInRight delay-.5s">
-                        <figure class="food_img">
+                        <figure class="food_img textHover" hovertext="作品留言放在這~作品留言放在這~作品留言放在這~">
                             <img id="cook_1" src="./images/cook3.png" alt="">
                         </figure>
                         <figure class="barrel">
@@ -153,157 +143,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-
-                <!-- 舊的排行榜版面 -->
-                <!-- <div class="ranking_item">
-
-                    <div class="cookList_img animated swing">
-                        <figure class="cookList_cook">
-                            <figcaption>
-                                <p id="name_1">料理名稱3</p>
-                                <p>票數:1111</p>
-                                <p>參賽日期:2020.05.03</p>
-                            </figcaption>
-                            <img id="cook_1" src="./images/cook1.png" alt="">
-
-                        </figure>
-                        <figure class="barrel">
-                            <img src="./images/barrel_02.png" alt="">
-                        </figure>
-                    </div>
-                    <div class="ranking_bg">
-
-                        <div class="cookList_infoPanel">
-                            <div>投票</div>
-                            <div id="detail_1" class="look_detail">查看詳情</div>
-                        </div>
-                        <div class="icon">
-                            <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
-                            <span>留言</span>
-                        </div>
-                        <div class="msg">
-                            <P class="big">留言板</p>
-                            <p>
-                                <img src="./images/unnamed.jpg" alt="">
-                                會員A:好吃
-                            </p>
-                            <p>
-                                <img src="./images/unnamed.jpg" alt="">
-                                會員B:很好吃
-                            </p>
-                            <p>
-                                <img src="./images/unnamed.jpg" alt="">
-                                會員C:超級好吃
-                            </p>
-                            <div class="more">
-                                <a href=""><span>查看更多</span></a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="ranking_item">
-
-                    <div class="cookList_img animated swing">
-                        <figure class="cookList_cook">
-                            <figcaption>
-                                <p id="name_2">料理名稱1</p>
-                                <p>票數:8888</p>
-                                <p>參賽日期:2020.05.03</p>
-                            </figcaption>
-                            <img id="cook_2" src="./images/cook2.png" alt="">
-
-                        </figure>
-                        <figure class="barrel">
-                            <img src="./images/barrel_01.png" alt="">
-                        </figure>
-                    </div>
-                    <div class="ranking_bg">
-
-                        <div class="cookList_infoPanel">
-                            <div>投票</div>
-                            <div id="detail_2" class="look_detail">查看詳情</div>
-                        </div>
-                        <div class="icon">
-                            <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
-                            <span>留言</span>
-                        </div>
-                        <div class="msg">
-                            <P class="big">留言板</p>
-                            <p>
-                                <img src="./images/unnamed.jpg" alt="">
-                                會員A:好吃
-                            </p>
-                            <p>
-                                <img src="./images/unnamed.jpg" alt="">
-                                會員B:很好吃
-                            </p>
-                            <p>
-                                <img src="./images/unnamed.jpg" alt="">
-                                會員C:超級好吃
-                            </p>
-                            <div class="more">
-                                <a href=""><span>查看更多</span></a>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </div>
-                <div class="ranking_item">
-
-                    <div class="cookList_img animated swing">
-                        <figure class="cookList_cook">
-                            <figcaption>
-                                <p id="name_3">料理名稱3</p>
-                                <p>票數:2222</p>
-                                <p>參賽日期:2020.05.03</p>
-                            </figcaption>
-                            <img id="cook_3" src="./images/cook3.png" alt="">
-
-                        </figure>
-                        <figure class="barrel">
-                            <img src="./images/barrel_03.png" alt="">
-                        </figure>
-                    </div>
-                    <div class="ranking_bg">
-
-                        <div class="cookList_infoPanel">
-                            <div>投票</div>
-                            <div id="detail_3" class="look_detail">查看詳情</div>
-                        </div>
-                        <div class="icon">
-                            <img src="./images/blue-balloon-plus-icon.png" alt="" class="message">
-                            <span>留言</span>
-                        </div>
-                        <div class="msg">
-                            <P class="big">留言板</p>
-                            <p>
-                                <img src="./images/unnamed.jpg" alt="">
-                                會員A:好吃
-                            </p>
-                            <p>
-                                <img src="./images/unnamed.jpg" alt="">
-                                會員B:很好吃
-                            </p>
-                            <p>
-                                <img src="./images/unnamed.jpg" alt="">
-                                會員C:超級好吃
-                            </p>
-                            <div class="more">
-                                <a href=""><span>查看更多</span></a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div> -->
-
             </div>
 
         </div>
@@ -372,7 +212,7 @@
 
             <div class="cookList_contain">
 
-                <div class="cookList_item">
+                <!-- <div class="cookList_item">
                     <div class="cookList_img">
                         <figure class="cookList_cook">
                             <img id="cook_4" src="./images/cook4.png" alt="">
@@ -575,7 +415,7 @@
                             <button id="msg_btn9">留言9</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -621,7 +461,7 @@
                             <p>限制十個文字補補補補</p>
                         </div>
                         <div class="report">
-                            <button class="report_btn">檢舉</button>
+                            <button class="report_btn" id="rep1">檢舉</button>
                         </div>
                     </div>
                     <div class="msg_date">
@@ -682,20 +522,53 @@
     
             </div>
             
+
             <form action="" class="msg_input">
                 <input type="text" name="" placeholder="最多輸入10個字喔～～" maxlength="10">
                 <button class="msginput_btn">留言</button>
             </form>
         </div>
     </div>
-        
+
+    <!-- 檢舉燈箱 -->
+    <div class="report_overlay">
+        <div class="report_board">
+            <div class="report_title">
+                檢舉留言
+                <img class="report_close" src="./images/blue-cross-icon.png" alt="">
+            </div>
+            <div class="report_wrap">
+                <form class="report_contain">
+                    <p>請選擇一項您的檢舉理由</p>
+                    <div class="reason_box">
+                        <input type="radio" name="rep_reason" id="reason1" value="reason1">
+                        <label for="reason1">仇恨言論</label>
+                    </div>
+                    <div class="reason_box">
+                        <input type="radio" name="rep_reason" id="reason2" value="reason2">
+                        <label for="reason2">色情暴力</label>
+                    </div>
+                    <div class="reason_box">
+                        <input type="radio" name="rep_reason" id="reason3" value="reason3">
+                        <label for="reason3">與主題無關</label>
+                    </div>
+                    <div class="rep_btn">
+                        <button class="rep_submit">確定</button>
+                        <button class="rep_cancel">取消</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+    
 
     
 
 
 
     <!-- 查看詳情燈箱 -->
-    <div class="look_back"
+    <!-- <div class="look_back"
         style="background-color: rgba(66, 66, 66, .6);width: 100%;height: 100vh;position: fixed;top: 0;z-index: 1;display: none;">
 
     </div>
@@ -752,7 +625,7 @@
 
         </div>
 
-    </section>
+    </section> -->
 
     <!-- 完成投票提示 -->
     <!-- <section class="votese">
@@ -762,10 +635,7 @@
     </section> -->
 
     @@include('./layout/reboot.html')
-    <!-- 回到最上方按鈕 -->
-    <button type="button" id="go_top">
-        <img src="./images/waiter.png" alt="">
-    </button>
+    
 
     
     <footer>
@@ -777,32 +647,71 @@
     <script src="./jquery/jquery.min.js"></script>
 
     <script>
-        // init controller
-        var controller = new ScrollMagic.Controller();
-
-        let scroll = TweenMax.from('#go_top', 1, {
-            x: '-200%',
-            y: '100%',
-
+        $(document).ready(function(){
+            for(i=1; i<7; i++){
+                $(".cookList_contain").append(`
+                <div class="cookList_item">
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img id="cook_6" src="./images/cook1.png" alt="">
+                            <figcaption>
+                                <p id="name_6">料理名稱1</p>
+                                <p>票數:1111</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_vote">
+                        <button id="vote">投票</button>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <div class="msg_text">
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                AAAA:好吃
+                            </p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                BBBB:好吃
+                            </p>
+                            <p>
+                                <img src="./images/unnamed.jpg" alt="">
+                                CCCC:好吃
+                            </p>
+                        </div>
+                        <div class="msg_btn">
+                            <button id="msg_btn9">留言9</button>
+                        </div>
+                    </div>
+                </div>
+                `);
+            }
+            
         });
-        new ScrollMagic.Scene({
-                triggerElement: '#keypoint',
-                triggerHook: 0.2,
+    </script>
 
 
-            }).setTween(scroll)
-            // .addIndicators({  //加上名稱
-            //     name: '#go_top',
-            // })
-            .addTo(controller);
 
-        $(window).scrollTop()
+    <script>
+        $(document).ready(function(){
+            // 動態偵測螢幕的X和Y座標
+            /*===
+            $('.textHover').mousemove(function(e){
+                $('#theDiv').show().text(`X: ${e.pageX} | Y: ${e.pageY}`);
+            });
+            ===*/
 
-        $('#go_top').click(function () {
+            // $('.textHover').mousemove().mouseout();
+            $('.textHover').mousemove(function(e){
+                let theText = $(this).attr('hovertext');
 
-            $('html').animate({
-                scrollTop: 0
-            }, 600);
+                $('#contestant_msg').text(theText).show().css({
+                    left: e.pageX+10,
+                    top: e.pageY+10,
+                });
+            }).mouseout(function(){
+                $('#contestant_msg').hide();
+            });
 
         });
     </script>
@@ -813,7 +722,7 @@
         AOS.init();
     </script>
     @@include('./all_js.html')
-    <script src="/js/contest.js"></script>
+    <script src="./js/contest.js"></script>
     
 </body>
 
