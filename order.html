@@ -327,27 +327,23 @@
                             <div class="row leftrow2 justify-content-center">
                                 <div id="nologin">
                                     <p>請先登入會員</p>
+                                    <div class="buttonlogin">登入</div>
                                 </div>
                                 <div id="nocusto">
                                     <p>此帳號沒有客製化料理</p>
+                                    <a href="customized_cuisine.html" class="button">去客製</a>
                                 </div>
-                                <!-- <div class="col-6 col-md-3">
-                                    <div class="dish">
-                                        <div class="img">
-                                            <img src="./images/menupic1.png " alt="">
-                                        </div>
-                                        <div class="name"> 香蒜奶油龍蝦</div>
-                                    </div>
-                                </div> -->
-
                             </div>
 
                             <div class="row leftrow4 justify-content-center">
                                 <div class="col-2">
-                                    <div class="previouspage"></div>
+                                    <div class="previouscusto"></div>
                                 </div>
                                 <div class="col-2">
-                                    <div class="nextpage"></div>
+                                    <div class="nowpage"></div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="nextcusto"></div>
                                 </div>
                             </div>
                         </div>
@@ -360,56 +356,22 @@
                                     <p>*客製料理均為一人份</p>
                                 </div>
                                 <div class="answer">
-                                    <table>
+                                    <table class="custotable">
                                         <tr>
                                             <th>料理</th>
                                             <th>價格</th>
                                             <th>數量</th>
                                             <th>刪除</th>
                                         </tr>
-                                        <tr>
-                                            <td class="custo">檸檬蝦</td>
-                                            <td>300元</td>
-                                            <td>
-                                                <span class="minus">-</span>
-                                                <input type="number" name="meal" id="cus1Amount" min="0" class="meal" value="1">
-                                                <span class="plus">+</span>
-                                            </td>
-                                            <td>
-                                                <img src="./images/trash.svg" alt="刪除" class="delete">
-                                            </td>
+                                        <tr class="nocusto">
+                                            <td colspan="4"> 目前沒有客製化料理 </td>
                                         </tr>
-                                        <tr>
-                                            <td class="custo">胡椒蝦</td>
-                                            <td>500元</td>
-                                            <td>
-                                                <span class="minus">-</span>
-                                                <input type="number" name="meal" id="cus2Amount" min="0" class="meal" value="1">
-                                                <span class="plus">+</span>
-                                            </td>
-                                            <td>
-                                                <img src="./images/trash.svg" alt="刪除" class="delete">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="custo">金箔蝦</td>
-                                            <td>400元</td>
-                                            <td>
-                                                <span class="minus">-</span>
-                                                <input type="number" name="meal" id="cus3Amount" min="0" class="meal" value="1">
-                                                <span class="plus">+</span>
-                                            </td>
-                                            <td>
-                                                <img src="./images/trash.svg" alt="刪除" class="delete">
-                                            </td>
-                                        </tr>
-
-
                                     </table>
                                 </div>
                                 <div class="wrapper">
                                     <div class="button previous">上一步</div>
                                     <a href="order_detail.html" class="button next">下一步</a>
+                                    <!-- <div class="button next">下一步</div> -->
                                 </div>
                             </div>
                         </div>
