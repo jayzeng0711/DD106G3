@@ -1,6 +1,5 @@
 window.addEventListener('load', function() {
 
-
     // 按步驟切換頁面位置
     // $('.section2').css('display', 'none');
     // $('.section3').css('display', 'none');
@@ -19,7 +18,7 @@ window.addEventListener('load', function() {
             // $('html').animate({
             //     scrollTop: $('.section2').offset().top
             // }, 600);
-            // $('.section1').css('display', 'none');
+            $('.section1').css('display', 'none');
             $('.section2').css('display', 'block');
 
         }
@@ -83,6 +82,8 @@ window.addEventListener('load', function() {
         localStorage['people'] = $('#people').val();
         dateNow = document.getElementById('date').value;
         localStorage['date'] = dateNow;
+
+        // 存套餐資料
         localStorage['meal1amount'] = $('#mealAamount').val();
         localStorage['meal2amount'] = $('#mealBamount').val();
         localStorage['meal3amount'] = $('#mealCamount').val();
@@ -90,19 +91,85 @@ window.addEventListener('load', function() {
         localStorage['meal2price'] = $('.mealBprice').text();
         localStorage['meal3price'] = $('.mealCprice').text();
 
-        custoLength = $('.section3 table').find('td.custo').length;
-        custo = "";
-        for (i = 2; i <= (custoLength + 1); i++) {
-            custo += $(`.section3 table tr:nth-child(${i}) td.custo`).text() + "|";
-        }
-        localStorage['custo'] = custo;
+        // 存會員資料
+        localStorage['memNo'] = member.memNo; //編號
+        localStorage['memName'] = member.memName; //姓名
+        localStorage['memId'] = member.memId; //信箱
 
+
+        // 存客製化料理資料
+        // 先存所有客製化料理名稱、再存個別商品
+        console.log($('.custo').length);
+        localStorage['custoLength'] = $('.custo').length;
+
+        let custoName = ""; //存所有客製化料理名稱
+        let custoStorage = [];
+
+        if ($('.custo').length != 0) {
+
+            for (let i = 0; i < $('.custo').length; i++) {
+
+                // custoName += $.trim($(`.custo:eq(${i})`).text()) + "|";
+                // custo = $.trim($(`.custo:eq(${i})`).text()) + "|";
+                // custo += $(`.custoPrice:eq(${i})`).text() + "|";
+                // custo += $(`.custoAmount:eq(${i})`).val();
+
+                let custo = {};
+                custo.name = $.trim($(`.custo:eq(${i})`).text());
+                custo.price = $(`.custoPrice:eq(${i})`).text();
+                custo.amount = $(`.custoAmount:eq(${i})`).val();
+
+                custoStorage.push(custo);
+            }
+
+
+            console.log(custoName);
+            console.log(custoStorage);
+            localStorage['custo'] = JSON.stringify(custoStorage);
+        };
 
     });
 
 
 
+    // 套餐、人數，按加改變數字
+
+
+    $('.plus').click(function() {
+        let val = parseInt($(this).prev().val());
+        $(this).prev().val(val + 1);
+        people();
+        console.log(val);
+    });
+
+    // 套餐、客製化料理、人數，按減改變數字
+
+    minus();
+
+    function minus() {
+
+        $('.minus').click(function() {
+            let val = parseInt($(this).next().val());
+
+            if ($(this).next().attr('id') == 'people') {
+                if (val >= 2) {
+                    $(this).next().val(val - 1);
+                }
+            } else {
+                if (val >= 1) {
+                    $(this).next().val(val - 1);
+                }
+            }
+            people();
+
+        });
+
+    };
+
+
+
     // 套餐、客製化料理數量，不小於0、不是空值
+
     $('.meal').change(function() {
 
         let inputVal = $(this).val();
@@ -114,43 +181,6 @@ window.addEventListener('load', function() {
 
 
 
-
-    // 套餐、客製化料理、人數，按加改變數字
-    $('.plus').click(function() {
-        let val = parseInt($(this).prev().val());
-        $(this).prev().val(val + 1);
-        people();
-    });
-
-    // 套餐、客製化料理、人數，按減改變數字
-    $('.minus').click(function() {
-        let val = parseInt($(this).next().val());
-
-        if ($(this).next().attr('id') == 'people') {
-            if (val >= 2) {
-                $(this).next().val(val - 1);
-            }
-        } else {
-            if (val >= 1) {
-                $(this).next().val(val - 1);
-            }
-        }
-        people();
-        console.log('1');
-    });
-
-
-    // 客製化料理按刪除，清單中消失，表格列數不變
-
-    $('.delete').click(function() {
-
-        $(this).parent().parent().remove();
-        $('.section3 table').append('<tr><td></td><td></td><td></td><td></td></tr>');
-        let firsttd = $('.section3 table tr:nth-child(2) td:first-child');
-        if (firsttd.text() == "") {
-            firsttd.parent().html('<td colspan = "4"> 目前沒有客製化料理 </td>');
-        }
-    });
 
 
     // 地圖
@@ -449,7 +479,7 @@ window.addEventListener('load', function() {
             xhr.onload = function() {
                 if (xhr.status == 200) {
                     routenow = JSON.parse(xhr.responseText);
-                    console.log(routenow);
+                    // console.log(routenow);
                     // 營業日期改成日
                     // 計算剩餘座位
                     for (i in routenow) {
@@ -537,7 +567,7 @@ window.addEventListener('load', function() {
 
             if (xhr.status == 200) {
                 meals = JSON.parse(xhr.responseText);
-                console.log(meals);
+                // console.log(meals);
 
                 for (let i = 0; i < meals.length; i++) {
 
@@ -642,67 +672,193 @@ window.addEventListener('load', function() {
 
     /////////////////////客製化料理頁面//////////////////////
 
+    let custos; //客製化料理陣列
+
     // 先判斷是否登入
     if (member.memNo == undefined) {
+        //未登入
         $('#nologin').css('display', 'block');
     } else if (member.memNo) {
-
         let xhr = new XMLHttpRequest;
         xhr.onload = function() {
 
             if (xhr.status == 200) {
                 custos = JSON.parse(xhr.responseText);
-                console.log(custos);
+                // console.log(custos);
 
                 if (custos == "") {
-                    console.log("沒有客製化料理");
+                    //已登入，沒有客製化料理
                     $('#nocusto').css('display', 'block');
 
                 } else {
-                    console.log("有料理");
-
-
-                    for (let i = 0; i < custos.length; i++) {
-
-
-
-                        //     <!-- <div class="col-6 col-md-3">
-                        //     <div class="dish">
-                        //         <div class="img">
-                        //             <img src="./images/menupic1.png " alt="">
-                        //         </div>
-                        //         <div class="name"> 香蒜奶油龍蝦</div>
-                        //     </div>
-                        // </div> -->
-                    }
+                    //已登入，有料理
+                    showCusto(0);
                 };
-
-
             } else {
                 alert(xhr.status);
             }
-
-
         };
 
-        // memId=${$id("memId").value}
-        // data = member.memNo;
         data = ` memNo=${member.memNo}`;
-        console.log(data);
+        // console.log(data);
         xhr.open("POST", "./php/order_custo.php", true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(data);
 
     }
 
+    // 客製化料理點擊登入按鈕，出現登入燈箱
+    $('.buttonlogin').click(function() {
+        $('#Login,#Login_back').css('display', 'block');
+        $('#pu_mem_resist_wrap').css('display', 'none');
+        $('#pu_mem_forget_wrap').css('display', 'none');
+        $('#pu_mem_login_wrap').css('display', 'block');
+    });
 
-
-
-    // 是否有客製化料理
     // 顯示客製化料理
+    function showCusto(nowpage) {
+        let pages = Math.ceil(custos.length / 3);
+
+        if (nowpage + 1 <= pages) {
+            $('.section3 .leftrow2').removeClass("justify-content-center").empty();
+
+            for (let i = 0; i < 3; i++) {
+                no = i + nowpage * 3;
+                if (custos[no]) {
+                    $('.section3 .leftrow2').append(`
+                        <div class="col-6 col-md-4">
+                            <div class="dish">
+                                <div class="img">
+                                        <img src="./images/cook2.png " alt="">
+                                </div>
+                                <div class="name">
+                                    <p class="dishname" custoNo="${custos[no].custoNo}">${custos[no].custoName}
+                                            <img src="./images/cart.svg" alt="" class="cart">
+                                    </p>
+                                    <p><span class="dishprice">${custos[no].custoPrice}</span>元</p> 
+                            </div>
+                       </div>`);
+                }
+
+            }
+            $('.nowpage').text(nowpage + 1 + "/" + pages);
+
+        } else {
+            $('.nowpage').text(pages + "/" + pages);
+        }
+        addCart();
+
+    };
+
+    // 客製化料理按前一頁
+    $('.previouscusto').click(function() {
+        nowpage = $('.nowpage').text().substr(0, 1) - 1; //現在第幾頁，0是第一頁
+        if (nowpage > 0) {
+            nowpage--
+            showCusto(nowpage);
+        }
+    });
+
+    // 客製化料理按下一頁
+    $('.nextcusto').click(function() {
+        nowpage = $('.nowpage').text().substr(0, 1) - 1; //現在第幾頁，0是第一頁
+        nowpage++;
+        showCusto(nowpage);
+    });
+
+
+    // 客製化料理加入購物車
+    function addCart() {
+        $('.cart').click(function() {
+
+            // 清除「目前沒有客製化料理」
+            $('.custotable .nocusto').remove();
+            // 料理名稱
+            let name = $(this).parent().text();
+            // 價格
+            let price = $(this).parent().next().find("span").text();
+            // 料理編號
+            let custono = $(this).parent().attr('custono');
+
+            // 確認是否已加入購物車
+            let a = true; //已加入
+            if ($('.custo').length == 0) {
+                add();
+            } else {
+                for (let i = 0; i < $('.custo').length; i++) {
+                    if ($(`.custo:eq(${i})`).attr("custono") == custono) {
+                        a = false;
+                        alert("已加入購物車");
+                        break;
+                    }
+                }
+
+                if (a == true) {
+                    add();
+                }
+
+            };
+
+            // 加入購物車
+            function add() {
+
+                $('.custotable').append(`<tr><td class="custo" custono="${custono}">${name}</td><td class="custoPrice">${price}元</td><td><span class="minus">-</span><input type="number" name="meal" min="0" class="custoAmount meal" value="1"><span class="plus">+</span></td><td><img src="./images/trash.svg" alt="刪除" class="delete"></td></tr>`);
+
+            };
+
+
+            // 增加客製化料理數量
+            // custoplus();
+            $('.section3 .plus').click(function() {
+                console.log("按了");
+                let val = parseInt($(this).prev().val());
+                console.log(val);
+                $(this).prev().val(val + 1);
+
+            });
+
+            // 減少客製化料理數量
+            minus();
+            // 從購物車刪除客製化料理
+            deleteCusto();
+
+        });
 
 
 
+    };
+
+    function custoplus() {
+        $('.section3 .plus').click(function() {
+            console.log("按了");
+            // let val = parseInt($(this).prev().val());
+            // console.log(val);
+            // $(this).prev().val(val + 1);
+
+        });
+
+    };
+
+
+    // $('.plus').click(function() {
+    //     let val = parseInt($(this).prev().val());
+    //     $(this).prev().val(val + 1);
+    //     people();
+    //     console.log(val);
+    // });
+
+
+    // 從購物車刪除客製化料理
+    function deleteCusto() {
+        $('.delete').click(function() {
+            $(this).parent().parent().remove();
+            let trLength = $('.section3 table tr').length;
+            if (trLength == "1") {
+                $('.section3 table').append('<tr  class="nocusto"><td colspan = "4" > 目前沒有客製化料理 </td></tr>');
+            }
+        });
+
+    };
 
 
 

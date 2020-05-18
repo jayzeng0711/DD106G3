@@ -41,8 +41,9 @@ try {
     // 儲存客製化料理訂單明細資料
     // data.custo = "[1, 1, 1200],[2, 2, 1200],[3, 2, 1200]";
    
-
-    // $sqlcusto = "INSERT INTO `custolist` (`orderNo`, `custoNo`, `custoListCount`, `custoListPrice`) VALUES ('4', '1', :custoListCount, :custolListPrice)";
+    // INSERT INTO `custolist` (`orderNo`, `custoNo`, `custoListCount`, `custoListPrice`) VALUES ('70', '10', '1', '111');
+    
+    
     // $sqlcusto = "INSERT INTO `custolist` (`orderNo`, `custoNo`, `custoListCount`, `custoListPrice`) VALUES ('3', '1', :custoListCount, :custoListPrice)";
     // $custolist = $pdo->prepare($sqlcusto);
     // // $meallist->bindValue(":orderNo", "$psn");
