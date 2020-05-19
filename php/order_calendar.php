@@ -5,7 +5,7 @@ $errMsg = "";
 try {
     require_once("connectdd106g3.php");
    // $sql = "select routeDate,routeSeat,routeCount from `route` where (routePort =:port and routeState=1)";
-   $sql = "SELECT * FROM `route` where routePort =:port and :from < routeDate and routeDate < :to and routeState = '1'";
+   $sql = "SELECT * FROM `route` where routePort =:port and :from < `routeDate` and `routeDate` < :to and `routeState` = '1' order by `routeDate`";
 
 
    $routeNow = json_decode(file_get_contents("php://input"));

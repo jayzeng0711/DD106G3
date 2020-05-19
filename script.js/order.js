@@ -175,8 +175,14 @@ window.addEventListener('load', function() {
     /////////////////////訂位頁面//////////////////////
 
     let selectdate = document.getElementById("date");
-    let n = 1; //n = 1 改變日期下拉選單
+    // let n = 1;
+    //showCalender()時n++
+    // n = 1 載入和選燈箱日期時，外面下拉選單變化，改按燈箱港口，外面不變化
     let routenow; //存放航程紀錄的陣列
+    let now = new Date(); //今天日期
+    let today = now.getDate(); //今天日期
+    let firstYear = (now.getFullYear()).toString(); //今天月份字串
+    let firstMonth = (now.getMonth() + 1).toString(); //今天年份字串
 
 
     //選港口
@@ -194,29 +200,90 @@ window.addEventListener('load', function() {
                 $(`.btnport:eq(${i})`).addClass("on");
             }
         }
-        n = 1;
-        showCalender();
+        selectDate();
 
     });
 
-    // 選日期
-    // 下拉選單只顯示目前選擇的港口、這個月的航程
-    function showDate() {
-        $("#date").empty();
-        for (let i = 0; i < routenow.length; i++) {
-            option = new Option(routenow[i].routeDate, routenow[i].routeDate)
-            selectdate.add(option);
-        }
-        selectChange();
 
-    };
+
+
+    // 選日期
+    // 下拉選單預設顯示目前選擇的港口、接下來5個航程
+    selectDate();
+
+    function selectDate(index) {
+        $("#date").empty();
+        let xhr = new XMLHttpRequest;
+        xhr.onload = function() {
+            if (xhr.status == 200) {
+                date = JSON.parse(xhr.responseText);
+                // console.log(date);
+
+                for (let i = 0; i < date.length; i++) {
+                    option = new Option(date[i].routeDate, date[i].routeDate)
+                    date[i].routeRemaining = date[i].routeSeat - date[i].routeCount;
+                    selectdate.add(option);
+                    $('#date option:last-child').attr("remaining", date[i].routeRemaining);
+                }
+
+                // 按燈箱裡的td，會傳參數，改變選項
+                if (index) {
+                    for (let i = 0; i < $(`#date option`).length; i++) {
+                        if ($(`#date option:eq(${i})`).text() == index) {
+                            $(`#date option:eq(${i})`).attr("selected", "selected");
+                        }
+
+                    }
+                    // //顯示剩餘座位數
+                    let i = selectdate.selectedIndex;
+                    remaining = $(`#date option:eq(${i})`).attr("remaining");
+                    $('.answer .remaining').text(remaining);
+                } else {
+                    //顯示剩餘座位數
+                    let i = selectdate.selectedIndex;
+                    remaining = $(`#date option:eq(${i})`).attr("remaining");
+                    $('.answer .remaining').text(remaining);
+
+                    // 燈箱裡的年月變成現在選的時間
+                    let nowdate = $(`#date option:eq(${i})`).val();
+                    $('.year').text(nowdate.substr(0, 4));
+                    $('.month').text(parseInt(nowdate.substr(5, 2)));
+                    showCalender();
+                }
+
+
+            } else {
+                alert(xhr.status);
+            };
+        };
+
+        let data = {};
+        data.port = portnow;
+        data.form = `${firstYear}-${firstMonth}-${today}`;
+
+        data = JSON.stringify(data);
+        // console.log(data);
+        xhr.open("POST", "./php/order_selectdate.php", true);
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhr.send(data);
+
+    }
 
     //下拉選單選擇的日期改變，顯示的剩餘座位數不同
     selectdate.onchange = selectChange;
 
     function selectChange() {
         let i = selectdate.selectedIndex;
-        $('.answer .remaining').text(routenow[i].routeRemaining);
+        remaining = $(`#date option:eq(${i})`).attr("remaining");
+        $('.answer .remaining').text(remaining);
+        let nowdate = $(`#date option:eq(${i})`).val();
+
+        // 燈箱裡的年月變成現在選的時間
+        $('.year').text(nowdate.substr(0, 4));
+        $('.month').text(parseInt(nowdate.substr(5, 2)));
+
+        // 改變燈箱顯示的月曆
+        showCalender();
     };
 
     //選人數
@@ -242,7 +309,24 @@ window.addEventListener('load', function() {
     /////////////////////航程月曆燈箱//////////////////////
     // 燈箱顯示、消失
     $('#calimg').click(function() {
-        $('.box').css("display", "block");
+        // 清除燈箱裡的港口
+        $(".btnport").removeClass("on");
+
+        // 打開燈箱先抓外面選的港口
+        for (let i = 0; i < 3; i++) {
+            if ($(`.section1 .port label:eq(${i})`).hasClass('on')) {
+                portnow = $(`.section1 .port label:eq(${i})`).text();
+                // console.log(portnow);
+                // 選擇燈箱裡的港口
+                if ($(`.btnport:eq(${i})`).text() == portnow) {
+                    $(`.btnport:eq(${i})`).addClass("on");
+                    showCalender();
+                    $('.box').css("display", "block");
+                }
+
+            }
+        }
+
     });
 
     $(".boxclose").click(function() {
@@ -251,34 +335,94 @@ window.addEventListener('load', function() {
 
 
     // 月曆內容
-    let now = new Date(), //今天日期
-        days = document.getElementsByClassName('day'); //每一格td
+    let days = document.getElementsByClassName('day'); //每一格td
 
     // 現在年月
     $('.year').text(now.getFullYear());
     $('.month').text(now.getMonth() + 1);
 
+    // 資料庫沒有營業日的月曆，不顯示
+    hideCalender();
+
+    let first, //可顯示最早的年月
+        last; //可顯示最晚的年月
+
+    function hideCalender() {
+
+        // 連資料庫找所有航程
+        let xhr = new XMLHttpRequest;
+
+        xhr.onload = function ans() {
+            if (xhr.status == 200) {
+                let lastMonth = JSON.parse(xhr.responseText);
+                // 最後月份
+                lastYear = lastMonth.routeDate.substr(0, 4);
+                lastMonth = lastMonth.routeDate.substr(5, 2);
+                last = lastYear + lastMonth;
+                // 目前月份
+                if (firstMonth < 10) {
+                    firstMonth = "0" + firstMonth;
+                }
+                first = firstYear + firstMonth;
+
+            } else {
+                alert("xhr.status");
+            }
+        };
+
+        xhr.open("GET", "./php/order_route.php");
+        xhr.send(null);
+    };
+
+
     //  燈箱裡按上個月
     $('.boxprev').click(function() {
+        // console.log("first", first);
+        // console.log("last", last);
+        let year = $('.year').text();
         let month = $('.month').text();
 
         if (month < 2) {
-            month = 13;
-            $('.year').text($('.year').text() - 1);
+            newmonth = 12;
+            newyear = year - 1;
+        } else {
+            newmonth = month - 1;
+            newyear = year;
         }
-        $('.month').text(month - 1);
+
+        if (newmonth < 10) {
+            newmonth = "0" + newmonth;
+        }
+        change = newyear.toString() + newmonth;
+        // console.log(change);
+        if (first <= change && change <= last) {
+            $('.year').text(newyear);
+            $('.month').text(parseInt(newmonth));
+        }
         showCalender();
     });
 
     //  燈箱裡按下個月
     $('.boxnext').click(function() {
+        let year = parseInt($('.year').text());
         let month = parseInt($('.month').text());
+
         if (month > 11) {
-            month = 0;
-            year = parseInt($('.year').text());
-            $('.year').text(year + 1);
+            newmonth = 1;
+            newyear = year + 1;
+        } else {
+            newmonth = month + 1;
+            newyear = year;
         }
-        $('.month').text(month + 1);
+        if (newmonth < 10) {
+            newmonth = "0" + newmonth;
+        }
+        change = newyear.toString() + newmonth;
+        if (first <= change && change <= last) {
+            $('.year').text(newyear);
+            $('.month').text(parseInt(newmonth));
+        }
+
         showCalender();
     });
 
@@ -308,10 +452,11 @@ window.addEventListener('load', function() {
     }
 
     // 點擊燈箱裡的日期，外面的資料跟著改變
-    let tdclickIndex = 0; //點擊的日期，在當月份營業日的的索引直
 
     function tdClick() {
         $('td').click(function() {
+
+
             if ($(this).attr("remaining")) {
 
                 // 改變港口
@@ -321,33 +466,37 @@ window.addEventListener('load', function() {
                         $(`.port label:eq(${i})`).addClass("on");
                     }
                 }
-                n = -1;
-                showCalender();
 
                 // 改變日期
-                for (let i = 0; i < routenow.length; i++) {
-                    if ($(this).text() == routenow[i].routeDay) {
-                        tdclickIndex = i;
-                    }
-
+                year = $('.year').text();
+                month = $('.month').text();
+                day = $(this).text();
+                if (month < 10) {
+                    month = "0" + month;
                 }
+                if (day < 10) {
+                    day = "0" + day;
+                }
+                date = year + "-" + month + "-" + day;
+                // console.log(date);
 
+                selectDate(date);
             }
         });
 
     }
 
-    // 日期下拉選單改為燈箱中點擊的日期
-    function selectedBox() {
-        selectdate.selectedIndex = tdclickIndex;
-        selectChange();
-    };
+
+
 
     //月曆上的資料
+    // 先顯示所有日期
+    // 找出營業日變色
+    // 資料庫沒有營業資料的月份不顯示(上個月和下個月的按鈕失效)
     showCalender();
 
+
     function showCalender() {
-        n++;
         let year = $('.year').text(), //現在選的年份
             month = $('.month').text(), //現在選的月份
             day = 0, //這個月有幾天
@@ -422,47 +571,54 @@ window.addEventListener('load', function() {
                         // 把營業日期存成斜線的格式
                         routenow[i].routeDate = routenow[i].routeDate.replace("-", "/").replace("-", "/");
 
-                        // 把營業日單獨存成一個陣列
-                        routenow[i].routeDay = routenow[i].routeDate.substr(8, 2);
-
-                        // 10號以前，從01變成1
-                        if (routenow[i].routeDay < 10) {
-                            routenow[i].routeDay = routenow[i].routeDay.substr(1, 1);
-                        }
+                        // 把營業日單獨存成一個陣列，parseInt()讓10號以前，從01變成1
+                        routenow[i].routeDay = parseInt(routenow[i].routeDate.substr(8, 2));
 
                         // 計算剩餘座位
                         routenow[i].routeRemaining = routenow[i].routeSeat - routenow[i].routeCount;
                     };
 
 
-                    // 找出是營業日的標籤，改變顏色
+                    // 找出是營業日的標籤，先排除今天(含)以前的營業日期，改變顏色
+
                     for (i = 0; i < $('.day').length; i++) {
                         for (j = 0; j < routenow.length; j++) {
-                            if ($(`.day:eq(${i})`).text() == routenow[j].routeDay) {
+                            let tddate = year.toString() + month + $(`.day:eq(${i})`).text();
 
-                                if (portnow == "深澳港") {
-                                    $(`.day:eq(${i})`).addClass("on1");
-                                } else if (portnow == "梧棲港") {
-                                    $(`.day:eq(${i})`).addClass("on2");
-                                } else {
-                                    $(`.day:eq(${i})`).addClass("on3");
+                            // 判斷月份大於本月，如果是這個月，日期需大於今天
+                            if (month > (now.getMonth() + 1)) {
+                                tdColor();
+                            } else if ($(`.day:eq(${i})`).text() > today) {
+                                tdColor();
+                            };
+
+                            // 改變顏色
+                            function tdColor() {
+                                if ($(`.day:eq(${i})`).text() == routenow[j].routeDay) {
+
+                                    if (portnow == "深澳港") {
+                                        $(`.day:eq(${i})`).addClass("on1");
+                                    } else if (portnow == "梧棲港") {
+                                        $(`.day:eq(${i})`).addClass("on2");
+                                    } else {
+                                        $(`.day:eq(${i})`).addClass("on3");
+                                    }
+
+                                    $(`.day:eq(${i})`).attr("remaining", routenow[j].routeRemaining);
+                                    boxRemaining();
+
                                 }
 
-                                $(`.day:eq(${i})`).attr("remaining", routenow[j].routeRemaining);
-                                boxRemaining();
+                            };
 
-                            }
+
+
+
                         }
                     };
 
-
-                    if (n == 2) {
-                        showDate();
-                    } else if (n == 0) {
-                        // 燈箱裡的營業日被點擊，外面的資料也改變
-                        showDate();
-                        selectedBox();
-                    };
+                    // 避免重複觸發點擊營業日期的事件
+                    $('td').unbind();
                     tdClick();
 
 
@@ -721,6 +877,7 @@ window.addEventListener('load', function() {
             let a = true; //已加入
             if ($('.custo').length == 0) {
                 add();
+
             } else {
                 for (let i = 0; i < $('.custo').length; i++) {
                     if ($(`.custo:eq(${i})`).attr("custono") == custono) {
@@ -738,38 +895,18 @@ window.addEventListener('load', function() {
 
             // 加入購物車
             function add() {
+                // 取消加減數量的觸發事件
+                $('.section3 .plus').unbind();
+                $('.section3 .minus').unbind();
 
                 $('.custotable').append(`<tr><td class="custo" custono="${custono}">${name}</td><td class="custoPrice">${price}元</td><td><span class="minus">-</span><input type="number" name="meal" min="0" class="custoAmount meal" value="1"><span class="plus">+</span></td><td><img src="./images/trash.svg" alt="刪除" class="delete"></td></tr>`);
 
             };
 
 
-            // 增加客製化料理數量
-            // custoplus();
-            $('.section3 .plus').click(function() {
-                console.log("按了");
-                let val = parseInt($(this).prev().val());
-                console.log(val);
-                $(this).prev().val(val + 1);
+            // 改變客製化料理數量
+            custoamount();
 
-            });
-
-            $('.section3 .minus').click(function() {
-                let val = parseInt($(this).next().val());
-
-                if ($(this).next().attr('id') == 'people') {
-                    if (val >= 2) {
-                        $(this).next().val(val - 1);
-                    }
-                } else {
-                    if (val >= 1) {
-                        $(this).next().val(val - 1);
-                    }
-                }
-            });
-
-            // 減少客製化料理數量
-            minus();
             // 從購物車刪除客製化料理
             deleteCusto();
 
@@ -779,24 +916,31 @@ window.addEventListener('load', function() {
 
     };
 
-    function custoplus() {
+
+    // 改變客製化料理數量
+    function custoamount() {
         $('.section3 .plus').click(function() {
-            console.log("按了");
-            // let val = parseInt($(this).prev().val());
-            // console.log(val);
-            // $(this).prev().val(val + 1);
+            let val = parseInt($(this).prev().val());
+            $(this).prev().val(val + 1);
 
         });
 
+        $('.section3 .minus').click(function() {
+            let val = parseInt($(this).next().val());
+            if ($(this).next().attr('id') == 'people') {
+                if (val >= 2) {
+                    $(this).next().val(val - 1);
+                }
+            } else {
+                if (val >= 1) {
+                    $(this).next().val(val - 1);
+                }
+            }
+
+        });
+
+
     };
-
-
-    // $('.plus').click(function() {
-    //     let val = parseInt($(this).prev().val());
-    //     $(this).prev().val(val + 1);
-    //     people();
-    //     console.log(val);
-    // });
 
 
     // 從購物車刪除客製化料理
