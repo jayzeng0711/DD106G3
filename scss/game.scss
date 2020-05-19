@@ -532,7 +532,7 @@ body{
 #capture-ball-button {
   width: 30px;
   height: 30px;
-  margin-top: -20px;
+  margin-top: 0px;
   border-radius: 20px;
   opacity: 0.8;
   background-color: red;
@@ -626,6 +626,7 @@ body{
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 1001;
 }
 
 .hidden {
@@ -1833,6 +1834,7 @@ body{
     letter-spacing: 1px;
     width: 100%;
     font-size: $fontSize*0.8;
+    z-index: -1;
     .singke_ball_div{
       text-align: center;
       .singke_ball_div_img{
@@ -1868,6 +1870,7 @@ body{
     position: relative;
     line-height: 100px;
     opacity: 1;
+    z-index: -1;
     img{
       width: 80px;
       max-width: 100%;

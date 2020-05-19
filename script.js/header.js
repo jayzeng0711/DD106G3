@@ -28,10 +28,10 @@ $(document).ready(function() {
     })
 })
 $(window).resize(function() {
-        window_w = $(window).width();
-        $('.mb_big_cloud_img').css('width', `${window_w}`);
-    })
-    //mobile
+    window_w = $(window).width();
+    $('.mb_big_cloud_img').css('width', `${window_w}`);
+})
+//mobile
 
 //判斷滾輪方向
 $(window).scroll(function() {
@@ -451,7 +451,7 @@ $(document).ready(function() {
 
 
         // windows
-        xhr.open('post',  './php/reboor_item.php',  true);
+        xhr.open('GET',  './php/reboor_item.php',  true);
 
         // Mac
         // xhr.open('GET', 'http://localhost:8888/reboor_item.php');
@@ -471,7 +471,7 @@ $(document).ready(function() {
                     $('.pu_mem_login_div_wrap').css('display', 'none');
                     $('.pu_mem_login_div_suc_wrap').css('display', 'flex');
                     if(member.memPic){
-                        $('.pu_icon_suc_div').append(`<img style="border: 1px solid #ccc;border-radius: 50%;" src="./images/${member.memPic}" alt="">`)
+                        $('.pu_icon_suc_div').append(`<img style="border: 1px solid #ccc;border-radius: 50%;width:40px;height:40px;" src="./php/images/${member.memPic}" alt="">`)
                     }else{
                         $('.pu_icon_suc_div').append(`<img style="border: 1px solid #ccc;border-radius: 50%;" src="./images/login.png" alt="">`)
                     }
@@ -491,7 +491,6 @@ $(document).ready(function() {
         xhr.send(null);
     }
 //會員登入改變
-
 
 // init controller
 var controller = new ScrollMagic.Controller();

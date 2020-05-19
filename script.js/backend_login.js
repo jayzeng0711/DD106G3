@@ -21,7 +21,7 @@ $('#login_btn').click(function(){
         var mem_login_data_str = JSON.stringify(mem_login_data);
 
         // windows
-        xhr.open('GET',  './php/backend_login.php',  true);
+        xhr.open('POST',  './php/backend_login.php',  true);
 
         // Mac
         // xhr.open('POST', "http://localhost:8888/backend_login.php");

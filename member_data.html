@@ -10,7 +10,6 @@
 
 <body>
     @@include('./layout/header.html')
-    <form action="" method="POST">
         <div class="mem_data_wrap">
 
             <!-- 側邊欄 -->
@@ -36,7 +35,7 @@
                 </div>
                 <div class="mem_data_name_update_div">
                     <div>
-                    小明 
+                        小明 
                     </div>
                     <div class="mem_data_name_update_button">
                         <button>更新相片</button>
@@ -168,15 +167,15 @@
                                 <div>10900</div>
                             </div>
                         </div>
+                        <div >
+                            <button class="order_detail_btn">    
+                                修改
+                            </button>
+                            <button class="order_detail_cancel_btn">
+                                取消訂單
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div id="checkbtn1" class="showbtn">
-                    <button class="order_detail_btn">    
-                        修改
-                    </button>
-                    <button class="order_detail_cancel_btn">
-                        取消訂單
-                    </button>
                 </div>
                
                 <hr>
@@ -254,19 +253,105 @@
                                 <div>10900</div>
                             </div>
                         </div>
-                        
+                        <div >
+                            <button class="order_detail_btn">    
+                                修改
+                            </button>
+                            <button class="order_detail_cancel_btn">
+                                取消訂單
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div id="checkbtn2" class="showbtn">
-                    <button class="order_detail_btn">    
-                        修改
-                    </button>
-                    <button class="order_detail_cancel_btn">
-                        取消訂單
-                    </button>
-                </div>
+                
                 <hr>
                <!-- 第二筆資料 end -->
+
+                <!-- 第三筆資料 star -->
+                <div class="order_history_test">
+                    <div class="order_history_list test">
+                        <div>0012</div>
+                    </div>
+                    <div class="order_history_list test">
+                        <div><input size="6" type="text" value="2020/05/12">
+                            </div>
+                    </div>
+                    <div class="order_history_list test">
+                       <div>
+                        <input size="6" type="text" value="高雄港">
+                       </div>
+                    </div>
+                    <div class="order_history_list test">
+                        <div><input size="6" type="text" value="10">
+                            </div>
+                    </div>
+                    <div class="order_history_list test">
+                        <div>已付款</div>
+                    </div>
+                </div>
+                <div class="order_history_btn">
+                    +
+                </div>
+                <div class="order_detail_div_wrap" style="display: none;">
+                  
+                    <div class="order_detail_right_div">
+                        <div>
+                            <div class="order_detail_right_div_title">
+                                <div>套餐名稱</div>
+                                <div>數量</div>
+                                <div>單價</div>
+                                <div>小計</div>
+                            </div>
+                            <div class="order_detail_right_div_item">
+                                <div>A套餐</div>
+                                <div><input class="input_modify" size="6" type="text" value="5"></div>
+                                <div><input class="input_not_modify" size="6" readonly type="text" value="1000"></div>
+                                <div>5000</div>
+                            </div>
+                            <div class="order_detail_right_div_item_1">
+                                <div>B套餐</div>
+                                <div><input class="input_modify" size="6" type="text" value="5"></div>
+                                <div><input class="input_not_modify" size="6" readonly type="text" value="1000"></div>
+                                <div>5000</div>
+                            </div>
+                        </div>
+                        <div class="order_detail_right_div_custom_wrap">
+                            <div class="order_detail_right_div_custom">
+                                <div>客製化料理</div>
+                                <div>數量</div>
+                                <div>單價</div>
+                                <div>小計</div>
+                            </div>
+                            <div class="order_detail_right_div_custom_item">
+                                <div>蛤蜊湯</div>
+                                <div><input class="input_modify" type="text" size="6" value="5"></div>
+                                <div><input class="input_not_modify" size="6" readonly type="text" value="200"></div>
+                                <div>1000</div>
+                            </div>
+                        </div>
+                        <div class="order_detail_right_div_point_wrap">
+                            <div class="order_detail_right_div_point">
+                                <div class="order_detail_right_div_point_text">使用點數</div>
+                                <div><input class="input_modify" size="6" type="text" value="100"></div>
+                            </div>
+                            <div class="order_detail_right_div_point">
+                                <div class="order_detail_right_div_total">總金額</div>
+                                <div>10900</div>
+                            </div>
+                        </div>
+                        <div >
+                            <button class="order_detail_btn">    
+                                修改
+                            </button>
+                            <button class="order_detail_cancel_btn">
+                                取消訂單
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <hr>
+               <!-- 第三筆資料 end -->
             </div>
 
 
@@ -321,7 +406,6 @@
                 <!-- 手機版客製化料理 -->
                 
             </div>
-    </form>
  
     
     <script src="./jquery/jquery.min.js"></script>

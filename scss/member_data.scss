@@ -33,7 +33,7 @@
         width: 100%;
         letter-spacing: 1px;
         div{
-            margin: 1.5% 0; 
+            margin: 1% 0; 
         }
         .mem_img_div{
             width: 120px;
@@ -42,24 +42,29 @@
             border: 1px solid #999;
             cursor: pointer;
             img{
-                padding: 10%;
+                // padding: 10%;
                 width: 120px;
                 height: 120px;
                 border-radius: 50%;
             }
         }
-        .mem_data_name_update_div{
-            width: 30%;
-            text-align: center;
-            position: relative;
-            .mem_data_name_update_button{
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                button{
-                    display: block;
-                    white-space: nowrap;
-                    @extend %btn;
+        #imageform{
+            width: 100%;
+            .mem_data_name_update_div{
+                // width: 50%;
+                text-align: center;
+                // position: relative;
+                .mem_data_name_update_button{
+                    // position: absolute;
+                    // right: 35%;
+                    // bottom: -20px;
+                    button{
+                        margin:  0 auto;
+                        display: block;
+                        white-space: nowrap;
+                        padding: .5%;
+                        @extend %btn_ano;
+                    }
                 }
             }
         }
@@ -68,7 +73,7 @@
             display: flex;
             justify-content: center;
             .mem_data_input{
-                margin: 1% 5%;
+                margin: 1% 3%;
                 div{
                     margin-bottom: 3%;
                     input{
@@ -292,9 +297,6 @@
             padding: 1% 2%;
         }
     }
-    .showbtn{
-        display: none;
-    }
     //訂單細節
 
     //客製化料理
@@ -390,24 +392,26 @@
                 border: 1px solid #999;
                 cursor: pointer;
                 img{
-                    padding: 10%;
+                    // padding: 10%;
                     width: 120px;
                     height: 120px;
                     border-radius: 50%;
                 }
             }
-            .mem_data_name_update_div{
-                width: 30%;
-                text-align: center;
-                position: relative;
-                .mem_data_name_update_button{
-                    position: absolute;
-                    right: -40px;
-                    bottom: 0;
-                    button{
-                        display: block;
-                        white-space: nowrap;
-                        // @extend %btn;
+            #imageform{
+                width: 100%;
+                .mem_data_name_update_div{
+                    // width: 50%;
+                    text-align: center;
+                    position: relative;
+                    .mem_data_name_update_button{
+                        position: absolute;
+                        right: 35%;
+                        bottom: -20px;
+                        button{
+                            display: block;
+                            white-space: nowrap;
+                        }
                     }
                 }
             }
@@ -676,24 +680,26 @@
                 border: 1px solid #999;
                 cursor: pointer;
                 img{
-                    padding: 10%;
+                    // padding: 10%;
                     width: 120px;
                     height: 120px;
                     border-radius: 50%;
                 }
             }
-            .mem_data_name_update_div{
-                width: 30%;
-                text-align: center;
-                position: relative;
-                .mem_data_name_update_button{
-                    position: absolute;
-                    right: -60px;
-                    bottom: 0;
-                    button{
-                        display: block;
-                        white-space: nowrap;
-                        // @extend %btn;
+            #imageform{
+                width: 100%;
+                .mem_data_name_update_div{
+                    // width: 50%;
+                    text-align: center;
+                    position: relative;
+                    .mem_data_name_update_button{
+                        position: absolute;
+                        right: 35%;
+                        bottom: -20px;
+                        button{
+                            display: block;
+                            white-space: nowrap;
+                        }
                     }
                 }
             }
@@ -966,24 +972,26 @@
                 border: 1px solid #999;
                 cursor: pointer;
                 img{
-                    padding: 10%;
+                    // padding: 10%;
                     width: 100px;
                     height: 100px;
                     border-radius: 50%;
                 }
             }
-            .mem_data_name_update_div{
-                width: 30%;
-                text-align: center;
-                position: relative;
-                .mem_data_name_update_button{
-                    position: absolute;
-                    right: -60px;
-                    bottom: 0;
-                    button{
-                        display: block;
-                        white-space: nowrap;
-                        // @extend %btn;
+            #imageform{
+                width: 100%;
+                .mem_data_name_update_div{
+                    // width: 50%;
+                    text-align: center;
+                    position: relative;
+                    .mem_data_name_update_button{
+                        position: absolute;
+                        right: 35%;
+                        bottom: -20px;
+                        button{
+                            display: block;
+                            white-space: nowrap;
+                        }
                     }
                 }
             }
