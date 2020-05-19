@@ -4,15 +4,13 @@ $errMsg = "";
 
 try {
     require_once("connectdd106g3.php");
-   // $sql = "select routeDate,routeSeat,routeCount from `route` where (routePort =:port and routeState=1)";
-   $sql = "SELECT * FROM `route` where routePort =:port and :from < `routeDate` and `routeDate` < :to and `routeState` = '1' order by `routeDate`";
+   $sql = "SELECT * FROM `route` where routePort =:port and :from < `routeDate` and `routeState` = '1' order by `routeDate`";
 
 
    $routeNow = json_decode(file_get_contents("php://input"));
    $routes = $pdo->prepare($sql);
    $routes->bindValue(":port",$routeNow->port);
    $routes->bindValue(":from",$routeNow->form);
-   $routes->bindValue(":to",$routeNow->to);
    $routes->execute();
    $routeRow = $routes->fetchAll(PDO::FETCH_ASSOC);
 

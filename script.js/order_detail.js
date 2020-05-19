@@ -1,15 +1,15 @@
 window.addEventListener('load', function() {
 
-
-
-    // 訂位信箱自動帶入會員帳號
-    // 訂位姓名自動帶入會員帳號
-    // 點數抓會員點數、不可超過總計
     // 點數旁邊有一個小框，可打開看點數規則
     // 送出訂單，資訊填寫不完整的提示
 
 
     // localStorage.clear();
+
+    // 訂購資料頁會員帳號和訂單資料的帳號不同時，跳轉回訂購頁
+    if (localStorage['memNo'] != member.memNo) {
+        location.href = "order.html";
+    }
 
     //////////////////套餐訂單明細//////////////////
 
@@ -209,7 +209,8 @@ window.addEventListener('load', function() {
         };
 
         let data = `memNo=${localStorage['memNo']}`;
-        console.log(data);
+        // console.log(data);
+
         xhr.open("POST", "./php/orderdetail_point.php");
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(data);
@@ -234,9 +235,10 @@ window.addEventListener('load', function() {
 
 
 
-
     // 送出訂單
     // 檢查訂位資訊都填寫好
+
+
     $('.next').click(function() {
         if ($('#ordername').val() == "") {
             alert('請填寫姓名');
@@ -244,6 +246,11 @@ window.addEventListener('load', function() {
             alert('請填寫聯絡電話');
         } else if ($('#orderemail').val() == "") {
             alert('請填寫信箱');
+        } else if ($('.pu_mem_login_suc_div').text() == false) {
+            $('#Login,#Login_back').css('display', 'block');
+            $('#pu_mem_resist_wrap').css('display', 'none');
+            $('#pu_mem_forget_wrap').css('display', 'none');
+            $('#pu_mem_login_wrap').css('display', 'block');
         } else {
 
             let xhr = new XMLHttpRequest;
