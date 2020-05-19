@@ -328,7 +328,7 @@ $(document).ready(function() {
         };
 
         // 丟球的力量，決定球被丟多遠
-        var MAX_VELOCITY = Screen.height * 0.009;
+        var MAX_VELOCITY = Screen.height * 0.003;
         // var MAX_VELOCITY = Screen.height * 0.01;
 
         var Ball = {
@@ -470,7 +470,7 @@ $(document).ready(function() {
 
 
             //球甩出後，取消綁定滑鼠移出球回歸位置事件
-            // $("#screen").unbind("mouseleave");
+            $("#screen").unbind("mouseleave");
 
             //丟球角度
             var angle = e.detail.data[0].currentDirection;

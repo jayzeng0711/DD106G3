@@ -1,26 +1,3 @@
-$(document).ready(function(){
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-        if(xhr.status == 200){
-            var mem = JSON.parse(xhr.responseText);
-            if(mem.adminName){
-                $('.membername').text(`${mem.adminName} 管理員`);
-                show();
-            }else{
-                alert("尚未登入");
-                window.location.href = "backend_login.html";
-            }
-        }
-    }
-    // windows
-     xhr.open('GET',  './php/backend_getlogin_info.php',  true);
-    
-    // Mac
-    // xhr.open('GET','http://localhost:8888/backend_getlogin_info.php');
-    xhr.send(null);
-})
-
-
 //新增管理員
 $('.addbtn').click(function(){
     // 停用新增按鈕
@@ -49,7 +26,7 @@ $('.addbtn').click(function(){
         var message_content_str = JSON.stringify(message_content);
 
        // windows
-        xhr.open('GET',  './php/backend_admin_insert.php',  true);
+        xhr.open('POST',  './php/backend_admin_insert.php',  true);
 
        // Mac
         // xhr.open('POST','http://localhost:8888/backend_admin_insert.php');
@@ -122,7 +99,7 @@ function update(id){
     message_row_update.message_text = id;
     var message_row_update_str = JSON.stringify(message_row_update);
     // windows
-    xhr.open('GET',  './php/backend_admin_update.php',  true);
+    xhr.open('POST',  './php/backend_admin_update.php',  true);
     // Mac
     // xhr.open('POST','http://localhost:8888/backend_admin_update.php');
     xhr.send(message_row_update_str);

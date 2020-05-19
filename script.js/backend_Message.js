@@ -110,7 +110,7 @@ function update(id){
     message_row_update.message_status = message_status;
     var message_row_update_str = JSON.stringify(message_row_update);
     // windows
-    xhr.open('GET',  './php/backend_message_update.php',  true);
+    xhr.open('POST',  './php/backend_message_update.php',  true);
     // Mac
     // xhr.open('POST','http://localhost:8888/backend_message_update.php');
     xhr.send(message_row_update_str);
