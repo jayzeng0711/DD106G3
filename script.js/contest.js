@@ -30,47 +30,93 @@
 
 $(document).ready(function(){
 
+    showPage();
+    function showPage() {
+        
+        // 從資料庫抓資料顯示於網頁
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+
+                let custoRows = JSON.parse(xhr.responseText);
+                // console.log(custoRows);
+                // console.log(custoRows.length);
+
+                // console.log(custoRows[0]);
+                // console.log(custoRows[0].comments[0].commentContent);
+                // console.log(custoRows[0].comments.length);
+                // console.log(custoRows[1].comments.length);
+                // console.log(custoRows[2].comments.length);
 
 
-    //顯示參賽作品列表
-    for(i=1; i<7; i++){
-        $(".cookList_contain").append(`
-        <div class="cookList_item">
-            <div class="cookList_img">
-                <figure class="cookList_cook">
-                    <img id="cook_6" src="./images/cook1.png" alt="">
-                    <figcaption>
-                        <p id="name_6">料理名稱1</p>
-                        <p>票數:1111</p>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="cookList_vote">
-                <button id="vote">投票</button>
-            </div>
-            <div class="msg">
-                <P class="big">留言板</p>
-                <div class="msg_text">
-                    <p>
-                        <img src="./images/unnamed.jpg" alt="">
-                        AAAA:好吃
-                    </p>
-                    <p>
-                        <img src="./images/unnamed.jpg" alt="">
-                        BBBB:好吃
-                    </p>
-                    <p>
-                        <img src="./images/unnamed.jpg" alt="">
-                        CCCC:好吃
-                    </p>
-                </div>
-                <div class="msg_btn">
-                    <button id="msg_btn9">留言9</button>
-                </div>
-            </div>
-        </div>
-        `);
+                // 顯示參賽作品列表
+                for(i=0; i<custoRows.length; i++){
+                    $(".cookList_contain").append(`
+                    <div class="cookList_item">
+                        <div class="cookList_img">
+                            <figure class="cookList_cook">
+                                <img id="cook_${custoRows[i].custoNo}" src="./images/${custoRows[i].custoPic}" alt="">
+                                <figcaption>
+                                    <p id="name_${custoRows[i].custoNo}">${custoRows[i].custoName}</p>
+                                    <p>票數:${custoRows[i].contestCustoVote}</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="cookList_vote">
+                            <button id="vote_${custoRows[i].custoNo}">投票</button>
+                        </div>
+                        <div class="msg">
+                            <P class="big">留言板</p>
+                            
+                            <div class="msg_text" id="msg_text_${custoRows[i].custoNo}">
+                                
+                            </div>
+                            <div class="msg_btn">
+                                <button id="msg_btn${custoRows[i].custoNo}">留言</button>
+                            </div>
+                        </div>
+                    </div>
+                    `);
+                   
+
+                    
+                    for(j=0; j<custoRows[i].comments.length; j++){ // [0]:3 [1]:2 [2]:2
+                            // console.log(custoRows[i].comments.length);
+
+                            $(`#msg_text_${custoRows[i].custoNo}`).append(`
+                            <p>
+                            <img src="./images/unnamed.jpg" alt="">
+                            ${custoRows[i].comments[j].commentContent}
+                            </p>
+                            `);
+
+                    }
+
+
+                }
+                
+                
+            } else {
+                alert(xhr.status);
+            }
+        }
+
+        // FTP
+        // xhr.open('post', './php/test.php', true);
+
+        // Mac
+        // xhr.open('post', 'http://localhost:8080/test.php', true);
+
+        // windows
+        xhr.open('GET', './php/contest_showlist.php', true);
+        xhr.send(null);
     }
+
+
+
+
+
+    
 
 
     //排行榜作品留言顯示區域
