@@ -303,7 +303,7 @@ window.addEventListener('load', function() {
                 custo.custoCount = $(`.custocount:eq(${i})`).text();
                 custo.custoPrice = parseInt($(`.custoprice:eq(${i})`).text());
                 data.custo.push(custo);
-                alert(parseInt($(`.custoprice:eq(${i})`).text()));
+                // alert(parseInt($(`.custoprice:eq(${i})`).text()));
             }
 
             let data_info = JSON.stringify(data);
