@@ -149,15 +149,15 @@ $(document).ready(function(){
     xhr.send(null);
 })
 //載入網頁，撈出會員的基本資料
-$(function(){
-    $('.order_history_btn').click(function(){
-        $('.order_detail_div_wrap').slideToggle(600);
-    });
-});
-$(function(){
-    $('.order_history_btn').click(function(){
-        $('#checkbtn1').toggleClass('showbtn');
-        $('#checkbtn2').toggleClass('showbtn');
+
+
+
+// 訂單細節收缩展开效果
+$(document).ready(function(){
+    $(".order_history_btn").click(function(){
+     $(this).next(".order_detail_div_wrap",).slideToggle;
+    },function(){
+     $(this).next(".order_detail_div_wrap").slideToggle("slow");
     });
 });
 

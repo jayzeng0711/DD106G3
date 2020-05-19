@@ -178,14 +178,14 @@ section {
     .now {
         display: flex;
         justify-content: space-around;
-        .prev {
+        .boxprev {
             width: 10%;
             background: url(../images/left.svg) no-repeat;
             background-position: 50% 50%;
             background-size: contain;
             cursor: pointer;
         }
-        .next {
+        .boxnext {
             width: 10%;
             background: url(../images/right.svg) no-repeat;
             background-position: 50% 50%;
@@ -357,14 +357,14 @@ section {
             }
             .leftrow4 {
                 margin-bottom: 1%;
-                .previouspage {
+                #previousmeal {
                     border-top: 10px solid transparent;
                     border-bottom: 10px solid transparent;
                     border-right: 20px solid #7E4E4E;
                     border-left: 10px solid transparent;
                     cursor: pointer;
                 }
-                .nextpage {
+                #nextmeal {
                     border-top: 10px solid transparent;
                     border-bottom: 10px solid transparent;
                     border-right: 10px solid transparent;
@@ -468,7 +468,7 @@ section {
                 transform: translateY(-51%);
             }
             .leftrow1 {
-                .mealname {
+                .custoname {
                     background: url(../images/mealname.svg) no-repeat;
                     background-position: 50% 0;
                     background-size: contain;
@@ -482,38 +482,77 @@ section {
                 }
                 margin-bottom: 0;
             }
-            .dish {
-                margin: 0 auto;
-                .img {
-                    margin: 0 auto;
-                    width: 70%;
-                    img {
-                        width: 100%;
+            .leftrow2 {
+                #nologin,
+                #nocusto {
+                    display: none;
+                }
+                #nologin {
+                    text-align: center;
+                    .buttonlogin {
+                        @extend %btn;
+                        display: inline-block;
+                        margin-top: 10%;
+                        padding: 5px 10px;
                     }
                 }
-                .name {
-                    width: 90%;
-                    margin: 0 auto;
-                    padding: 5% 10%;
-                    background-color: #fff;
-                    border-radius: 10px;
+                #nocusto {
                     text-align: center;
-                    font-size: $fontSize;
+                    .button {
+                        text-decoration: none;
+                        @extend %btn;
+                        display: inline-block;
+                        margin-top: 10%;
+                        padding: 5px 10px;
+                    }
                 }
-            }
-            .leftrow3 {
-                margin-bottom: 3%;
+                .dish {
+                    margin: 0 auto;
+                    .img {
+                        margin: 0 auto;
+                        width: 70%;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .name {
+                        position: relative;
+                        width: 90%;
+                        margin: 0 auto;
+                        padding: 5% 10%;
+                        background-color: #fff;
+                        border-radius: 10px;
+                        font-size: $fontSize;
+                        p:nth-child(2) {
+                            margin-top: 8%;
+                            color: #E8A234;
+                        }
+                        .cart {
+                            position: absolute;
+                            bottom: 12%;
+                            right: 5%;
+                            width: 12%;
+                            margin-left: 10%;
+                            max-width: 30px;
+                            cursor: pointer;
+                        }
+                    }
+                }
             }
             .leftrow4 {
                 margin-bottom: 1%;
-                .previouspage {
+                .previouscusto {
                     border-top: 10px solid transparent;
                     border-bottom: 10px solid transparent;
                     border-right: 20px solid #7E4E4E;
                     border-left: 10px solid transparent;
                     cursor: pointer;
                 }
-                .nextpage {
+                .nowpage {
+                    text-align: center;
+                    color: #7E4E4E;
+                }
+                .nextcusto {
                     border-top: 10px solid transparent;
                     border-bottom: 10px solid transparent;
                     border-right: 10px solid transparent;

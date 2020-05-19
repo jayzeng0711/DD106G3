@@ -39,20 +39,20 @@ try {
     }
 
     // 儲存客製化料理訂單明細資料
-    // data.custo = "[1, 1, 1200],[2, 2, 1200],[3, 2, 1200]";
-   
+    $sqlcusto = "INSERT INTO `custolist` (`orderNo`, `custoNo`, `custoListCount`, `custoListPrice`) VALUES (:orderNo, :custoNo, :custoListCount, :custoListPrice)";
 
-    // $sqlcusto = "INSERT INTO `custolist` (`orderNo`, `custoNo`, `custoListCount`, `custoListPrice`) VALUES ('4', '1', :custoListCount, :custolListPrice)";
-    // $sqlcusto = "INSERT INTO `custolist` (`orderNo`, `custoNo`, `custoListCount`, `custoListPrice`) VALUES ('3', '1', :custoListCount, :custoListPrice)";
-    // $custolist = $pdo->prepare($sqlcusto);
-    // // $meallist->bindValue(":orderNo", "$psn");
-    // $custolist->bindValue(":custoListCount", '1');
-    // $custolist->bindValue(":custoListPrice", '1');
-    // // $meallist->bindValue(":custoListCount", $custo[0][1]);
-    // // $meallist->bindValue(":custoListPrice", $custo[0][2]);
-    // $custolist->execute();
- 
-    
+    $arr = $orderNow->custo;
+
+    foreach($arr as $custo){
+        $custolist = $pdo->prepare($sqlcusto);
+        $custolist->bindValue(":orderNo", "$psn");
+        $custolist->bindValue(":custoNo",  $custo->custoNo);
+        $custolist->bindValue(":custoListCount", $custo->custoCount);
+        $custolist->bindValue(":custoListPrice", $custo->custoPrice);
+        $custolist->execute();
+
+    }   
+    echo json_encode($arr);
 
 
 } catch (PDOException $e) {
