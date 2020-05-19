@@ -113,13 +113,9 @@ $(document).ready(function(){
 })
 //載入網頁，撈出會員的基本資料
 
-// $(function(){
-//     $('.order_history_btn').click(function(){
-//         $('.order_detail_div_wrap').slideToggle(600);
-//     });
-// });
 
-// 收缩展开效果
+
+// 訂單細節收缩展开效果
 $(document).ready(function(){
     $(".order_history_btn").click(function(){
      $(this).next(".order_detail_div_wrap",).slideToggle;
@@ -128,11 +124,5 @@ $(document).ready(function(){
     });
  });
 
-$(function(){
-    $('.order_history_btn').click(function(){
-        $('#checkbtn1').toggleClass('showbtn');
-        $('#checkbtn2').toggleClass('showbtn');
-    });
-});
 
  
