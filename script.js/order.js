@@ -7,6 +7,8 @@ window.addEventListener('load', function() {
 
     /////////////////////各頁面切換//////////////////////
 
+    let selectdate = document.getElementById("date"); //日期下拉選單
+
     // localStorage.clear();
     // 第一屏按下一步，確認訂位人數
     $('.section1 .next').click(function() {
@@ -26,6 +28,8 @@ window.addEventListener('load', function() {
             dateNow = document.getElementById('date').value;
             localStorage['date'] = dateNow;
             localStorage['people'] = $('#people').val();
+            let i = selectdate.selectedIndex;
+            localStorage['routeNo'] = $(`#date option:eq(${i})`).attr("routeNo");
             $('.section1').css('display', 'none');
             $('.section2').css('display', 'block');
 
@@ -95,6 +99,8 @@ window.addEventListener('load', function() {
             dateNow = document.getElementById('date').value;
             localStorage['date'] = dateNow;
             localStorage['people'] = $('#people').val();
+            let i = selectdate.selectedIndex;
+            localStorage['routeNo'] = $(`#date option:eq(${i})`).attr("routeNo");
 
             // 存套餐資料
             localStorage['meal1amount'] = $('#mealAamount').val();
@@ -188,7 +194,6 @@ window.addEventListener('load', function() {
 
     /////////////////////訂位頁面//////////////////////
 
-    let selectdate = document.getElementById("date");
     let routenow; //存放航程紀錄的陣列
     let now = new Date(); //今天日期
     let today = now.getDate(); //今天日期
@@ -257,7 +262,7 @@ window.addEventListener('load', function() {
         xhr.onload = function() {
             if (xhr.status == 200) {
                 date = JSON.parse(xhr.responseText);
-                // console.log(date);
+                console.log(date);
 
                 for (let i = 0; i < date.length; i++) {
                     // 只顯示5個選項
@@ -266,6 +271,7 @@ window.addEventListener('load', function() {
                         date[i].routeRemaining = date[i].routeSeat - date[i].routeCount;
                         selectdate.add(option);
                         $('#date option:last-child').attr("remaining", date[i].routeRemaining);
+                        $('#date option:last-child').attr("routeNo", date[i].routeNo);
 
                     }
                 }
