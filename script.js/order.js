@@ -1,13 +1,12 @@
 window.addEventListener('load', function() {
 
-    // 按步驟切換頁面位置
-    // $('.section2').css('display', 'none');
-    // $('.section3').css('display', 'none');
-
+    // 取消視窗滾動header消失的事件
 
     /////////////////////各頁面切換//////////////////////
 
     let selectdate = document.getElementById("date"); //日期下拉選單
+
+    $(window).unbind();
 
     // localStorage.clear();
     // 第一屏按下一步，確認訂位人數
@@ -20,9 +19,7 @@ window.addEventListener('load', function() {
             alert('請先選擇訂位人數！');
 
         } else {
-            // $('html').animate({
-            //     scrollTop: $('.section2').offset().top
-            // }, 600);
+
             // 存訂位港口、日期、人數
             localStorage['port'] = $('.port label.on').prev().attr('id');
             dateNow = document.getElementById('date').value;
@@ -30,8 +27,12 @@ window.addEventListener('load', function() {
             localStorage['people'] = $('#people').val();
             let i = selectdate.selectedIndex;
             localStorage['routeNo'] = $(`#date option:eq(${i})`).attr("routeNo");
-            $('.section1').css('display', 'none');
-            $('.section2').css('display', 'block');
+
+            // 移動位置
+            $('html,body').animate({
+                scrollTop: $('.section2').offset().top
+            }, 600);
+
 
         }
         // 檢查訂位人數是否超過剩餘人數
@@ -50,6 +51,7 @@ window.addEventListener('load', function() {
         if (total < people) {
             alert('每人低消一份套餐喔！');
         } else {
+
             // 存套餐資料
             localStorage['meal1amount'] = $('#mealAamount').val();
             localStorage['meal2amount'] = $('#mealBamount').val();
@@ -58,11 +60,10 @@ window.addEventListener('load', function() {
             localStorage['meal2price'] = $('.mealBprice').text();
             localStorage['meal3price'] = $('.mealCprice').text();
 
-            $('html').animate({
+            // 移動位置
+            $('html,body').animate({
                 scrollTop: $('.section3').offset().top
             }, 600);
-            $('.section2').css('display', 'none');
-            $('.section3').css('display', 'block');
 
         }
 
@@ -70,21 +71,19 @@ window.addEventListener('load', function() {
 
     // 第二屏按上一步
     $('.section2 .previous').click(function() {
-        $('html').animate({
+
+        $('html,body').animate({
             scrollTop: $('.section1').offset().top
         }, 600);
-        $('.section1').css('display', 'block');
-        $('.section2').css('display', 'none');
 
     });
 
     // 第三屏按上一步
     $('.section3 .previous').click(function() {
-        $('html').animate({
+
+        $('html,body').animate({
             scrollTop: $('.section2').offset().top
         }, 600);
-        $('.section2').css('display', 'block');
-        $('.section3').css('display', 'none');
 
     });
 
