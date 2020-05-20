@@ -19,6 +19,16 @@
         .backend_orderMaster:hover {
             background-color: steelblue;
         }
+        
+        .btn-success {
+            background-color: #34a019;
+            border-color: #34a019;
+        }
+        
+        .btn-success:hover {
+            background-color: #34a019;
+            border-color: #34a019;
+        }
     </style>
 </head>
 
@@ -30,37 +40,40 @@
             <h3>訂單管理</h3>
         </div>
         <div class="content">
+
             <table>
-                <tr class="title">
-                    <th>訂單編號</th>
-                    <th>會員姓名</th>
-                    <th>港口</th>
-                    <th>訂位日期</th>
-                    <th>人數</th>
-                    <th>總金額</th>
-                    <th>狀態</th>
-                    <th></th>
-                </tr>
+                <form action="backend_OrderMaster_Deatail.html">
 
-                <tr>
-                    <td>1</td>
-                    <td>12</td>
-                    <td>深澳港</td>
-                    <td>2020/05/01</td>
-                    <td>10</td>
-                    <td>13900</td>
-                    <td>尚未報到</td>
-                    <td>查看明細</td>
+                    <tr class="title">
+                        <th>訂單編號</th>
+                        <th>會員姓名</th>
+                        <th>港口</th>
+                        <th>訂位日期</th>
+                        <th>人數</th>
+                        <th>總金額</th>
+                        <th>狀態</th>
+                        <th></th>
+                    </tr>
 
-                </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>海鷗</td>
+                        <td>深澳港</td>
+                        <td>2020/05/01</td>
+                        <td>10</td>
+                        <td>13900</td>
+                        <td>尚未報到</td>
+                        <td>查看明細</td>
 
+                    </tr>
 
+                </form>
             </table>
 
         </div>
     </main>
-
-    <script src="./jquery/jquery.min.js"></script>
+    @@include('all_js.html')
+    <script src="./js/backend_OrderMaster.js"></script>
     <script src="./js/backend_all.js"></script>
 
 </body>
