@@ -471,7 +471,7 @@ $(document).ready(function() {
                     $('.pu_mem_login_div_wrap').css('display', 'none');
                     $('.pu_mem_login_div_suc_wrap').css('display', 'flex');
                     if(member.memPic){
-                        $('.pu_icon_suc_div').append(`<img style="border: 1px solid #ccc;border-radius: 50%;width:40px;height:40px;" src="./php/images/${member.memPic}" alt="">`)
+                        $('.pu_icon_suc_div').append(`<img style="border: 1px solid #ccc;border-radius: 50%;width:40px;" src="./php/images/${member.memPic}" alt="">`)
                     }else{
                         $('.pu_icon_suc_div').append(`<img style="border: 1px solid #ccc;border-radius: 50%;" src="./images/login.png" alt="">`)
                     }

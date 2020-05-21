@@ -76,24 +76,24 @@ $(document).ready(function(){
                     <div class="mem_data_input_div">
                         <div class="mem_data_input">
                             <div>
-                                會員信箱> <input style="border: none;" type="email" name="email" id="email" value="${mem_basic_data.memId}">   
+                                會員信箱: <input style="border: none;" type="email" name="email" id="email" value="${mem_basic_data.memId}">   
                             </div>
                             <div>
-                                會員密碼> <input class="input_cannoy_mod" name="input_cannoy_mod" type="text" value="${mem_basic_data.memPsw}">
+                                會員密碼: <input class="input_cannoy_mod" name="input_cannoy_mod" type="text" value="${mem_basic_data.memPsw}">
                             </div>
                             <div>
-                                會員暱稱> <input class="name" type="text" name="name" value="${mem_basic_data.memName}">
+                                會員暱稱: <input class="name" type="text" name="name" value="${mem_basic_data.memName}">
                             </div>
                         </div>
                         <div class="mem_data_input">
                             <div>
-                                會員等級> <input style="border: none;" class="input_cannoy_mod" type="text" name="" id="" value="${mem_basic_data.levelName}" readonly>
+                                會員等級: <input style="border: none;" class="input_cannoy_mod" type="text" name="" id="" value="${mem_basic_data.levelName}" readonly>
                             </div>
                             <div>
-                                會員積分> <input style="border: none;" class="input_cannoy_mod" type="number" value="${mem_basic_data.memScore}" readonly>
+                                會員積分: <input style="border: none;" class="input_cannoy_mod" type="number" value="${mem_basic_data.memScore}" readonly>
                             </div>
                             <div>
-                                會員點數> <input style="border: none;" class="input_cannoy_mod" type="number" value="${mem_basic_data.memPoints}" readonly>
+                                會員點數: <input style="border: none;" class="input_cannoy_mod" type="number" value="${mem_basic_data.memPoints}" readonly>
                             </div>
                         </div>
                     </div>
