@@ -4,7 +4,7 @@ $errMsg = "";
 
 try {
     require_once("connectdd106g3.php");
-    session_id(SID);
+    // session_id(SID);
     session_start();
     $sql = "select * from `member` JOIN `memberlevel` ON member.levelNo = memberlevel.levelNo where memId = :memId";
     $route = $pdo->prepare($sql);

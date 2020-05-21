@@ -6,7 +6,7 @@
     //                                     JOIN `custo` ON custolist.custoNo = custo.custoNo where memNo = 1";
     $sql = "select * from `ordermaster` JOIN `route` ON ordermaster.routeNo  = route.routeNo where memNo = :memNo AND `orderStatue` = 1";
     $member_data = $pdo->prepare($sql);
-    session_id(SID);
+    // session_id(SID);
     session_start();
     $member_data ->bindValue(":memNo", $_SESSION['memNo']);
     $member_data->execute();

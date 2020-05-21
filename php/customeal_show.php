@@ -5,7 +5,7 @@ try{
  
     $sql = "SELECT custo.custoNo,custo.memNo,custo.custoPic,cook.cookName,seafood.seafoodName,seafood.seafoodPrice FROM custo INNER JOIN cook ON custo.cookNo = cook.cookNo INNER JOIN seafood ON custo.seafoodNo = seafood.seafoodNo where memNo = :memNo"; 
     $custo = $pdo->prepare($sql);
-    session_id(SID);
+    // session_id(SID);
     session_start();
     $custo->bindValue(":memNo", $_SESSION["memNo"]);
     $custo->execute();
