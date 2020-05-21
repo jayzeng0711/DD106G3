@@ -9,7 +9,7 @@
     $sql2 = "select * from `memberlevel` where levelNo = 2";
     $member_data = $pdo->query($sql2);
     $memRow = $member_data->fetch(PDO::FETCH_ASSOC);
-    // session_id(SID);
+    session_id(SID);
     session_start();
     $_SESSION["levelNo"] =  $memRow["levelNo"];
     echo json_encode($memRow);

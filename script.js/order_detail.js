@@ -1,15 +1,15 @@
 window.addEventListener('load', function() {
 
-
-
-    // 訂位信箱自動帶入會員帳號
-    // 訂位姓名自動帶入會員帳號
-    // 點數抓會員點數、不可超過總計
     // 點數旁邊有一個小框，可打開看點數規則
     // 送出訂單，資訊填寫不完整的提示
 
 
     // localStorage.clear();
+
+    // 訂購資料頁會員帳號和訂單資料的帳號不同時，跳轉回訂購頁
+    if (localStorage['memNo'] != member.memNo) {
+        location.href = "order.html";
+    }
 
     //////////////////套餐訂單明細//////////////////
 
@@ -209,7 +209,8 @@ window.addEventListener('load', function() {
         };
 
         let data = `memNo=${localStorage['memNo']}`;
-        console.log(data);
+        // console.log(data);
+
         xhr.open("POST", "./php/orderdetail_point.php");
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(data);
@@ -234,9 +235,10 @@ window.addEventListener('load', function() {
 
 
 
-
     // 送出訂單
     // 檢查訂位資訊都填寫好
+
+
     $('.next').click(function() {
         if ($('#ordername').val() == "") {
             alert('請填寫姓名');
@@ -244,13 +246,18 @@ window.addEventListener('load', function() {
             alert('請填寫聯絡電話');
         } else if ($('#orderemail').val() == "") {
             alert('請填寫信箱');
+        } else if ($('.pu_mem_login_suc_div').text() == false) {
+            $('#Login,#Login_back').css('display', 'block');
+            $('#pu_mem_resist_wrap').css('display', 'none');
+            $('#pu_mem_forget_wrap').css('display', 'none');
+            $('#pu_mem_login_wrap').css('display', 'block');
         } else {
 
             let xhr = new XMLHttpRequest;
             xhr.onload = function() {
                 if (xhr.status == 200) {
                     let order = xhr.responseText;
-                    // alert(order);
+                    console.log(order);
 
                 } else {
                     alert(xhr.status);
@@ -268,7 +275,7 @@ window.addEventListener('load', function() {
 
             //訂單 
             let data = {};
-            data.memNo = '1';
+            data.memNo = localStorage['memNo'];
 
             datenow = $('.datenow').text();
             datenow = datenow.replace('/', '-');
@@ -281,19 +288,20 @@ window.addEventListener('load', function() {
             data.orderPrice = $('.subtotal').text();
             data.orderPoints = $('#ordepoint').val();
             data.orderTotal = $('.total').text();
-            data.routeNo = '1';
-
-            // 共有幾個套餐
-            data.meals = $('main').find($('.mdmeal')).length;
+            data.routeNo = localStorage['routeNo'];
+            data.orderPeople = localStorage['people'];
 
             //套餐訂單明細：數量、價格
-            data.mealListCount1 = $(`.meal1amount:eq(0)`).text();
-            data.mealListCount1 = $(`.meal1amount:eq(0)`).text();
-            data.mealListPrice1 = $(`.meal1price:eq(0)`).text();
-            data.mealListCount2 = $(`.meal2amount:eq(0)`).text();
-            data.mealListPrice2 = $(`.meal2price:eq(0)`).text();
-            data.mealListCount3 = $(`.meal3amount:eq(0)`).text();
-            data.mealListPrice3 = $(`.meal3price:eq(0)`).text();
+            data.meal = [];
+
+            for (let i = 1; i <= 3; i++) {
+                let meal = {};
+                meal.mealNo = i;
+                meal.mealListCount = $(`.meal${i}amount:eq(0)`).text();
+                meal.mealListPrice = $(`.meal${i}price:eq(0)`).text();
+                data.meal.push(meal);
+            }
+
 
             //客製化料理訂單明細：料理編號、數量、單價
             data.custo = [];
@@ -303,7 +311,7 @@ window.addEventListener('load', function() {
                 custo.custoCount = $(`.custocount:eq(${i})`).text();
                 custo.custoPrice = parseInt($(`.custoprice:eq(${i})`).text());
                 data.custo.push(custo);
-                alert(parseInt($(`.custoprice:eq(${i})`).text()));
+                // alert(parseInt($(`.custoprice:eq(${i})`).text()));
             }
 
             let data_info = JSON.stringify(data);

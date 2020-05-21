@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/backend.css">
+    <style>
+        .backend_orderMaster {
+            background-color: steelblue;
+        }
+        
+        .backend_orderMaster a {
+            color: #fff;
+        }
+        
+        .backend_orderMaster:hover {
+            background-color: steelblue;
+        }
+        
+        .btn-success {
+            background-color: #34a019;
+            border-color: #34a019;
+        }
+        
+        .btn-success:hover {
+            background-color: #34a019;
+            border-color: #34a019;
+        }
+        
+        table {
+            margin-bottom: 10px!important;
+        }
+        
+        table.meal,
+        table.custo {
+            width: auto !important;
+            vertical-align: top !important;
+            display: inline-block;
+        }
+        
+        table.price {
+            width: auto !important;
+            display: inline-block;
+            margin-bottom: 0!important;
+        }
+        
+        .btn.save {
+            background-color: #021A71;
+            border: none;
+            margin: 5px;
+        }
+        
+        .btn.cancel {
+            background-color: #5FA8D3;
+            border: none;
+            margin: 5px;
+        }
+        
+        .button {
+            width: 20%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    @@include('./layout/backend.html')
+
+    <main>
+        <div class="nowpage">
+            <h3>訂單管理 / 訂單明細</h3>
+        </div>
+        <div class="content">
+            <table class="main">
+                <tr class="title">
+                    <th>訂單編號</th>
+                    <th>會員姓名</th>
+                    <th>港口</th>
+                    <th>訂位日期</th>
+                    <th>人數</th>
+                    <th>總金額</th>
+                    <th>狀態</th>
+                </tr>
+            </table>
+            <table class="meal">
+                <tr class="title">
+                    <th>套餐</th>
+                    <th>數量</th>
+                    <th>單價</th>
+                    <th>小計</th>
+                </tr>
+
+            </table>
+            <table class="custo">
+                <tr class="title">
+                    <th>客製化料理</th>
+                    <th>數量</th>
+                    <th>單價</th>
+                    <th>小計</th>
+                </tr>
+
+
+            </table>
+            <div>
+                <table class="price">
+                    <tr class="title">
+                        <th>原價</th>
+                        <th>使用點數</th>
+                        <th>總計</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="button">
+                <button type="button" class="btn btn-info cancel">回上頁</button>
+                <button type="submit" class="btn btn-info save">儲存</button>
+
+            </div>
+        </div>
+    </main>
+    @@include('all_js.html')
+    <script src="./js/backend_OrderDetail.js"></script>
+    <script src="./js/backend_all.js"></script>
+
+</body>
+
+</html>
