@@ -1,125 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/back.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/backend.css">
+    <style>
+        .backend_Route {
+            background-color: steelblue;
+        }
+        
+        .backend_Route a {
+            color: #fff;
+        }
+        
+        .backend_Route:hover {
+            background-color: steelblue;
+        }
+        
+        input.routeSeat {
+            max-width: 80px;
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <div class="with-logo">
-            <div class="logo">
-                <div class="img">logo here</div>
-            </div>
+    @@include('./layout/backend.html')
+
+    <main>
+        <div class="nowpage">
+            <h3>航程管理</h3>
         </div>
-        <div class="member-control">
-            管理員登出
+        <div class="content">
+            <button type="button" class="btn btn-info addbtn">新增航程</button>
+            <table>
+                <tr class="title">
+                    <th>航程編號</th>
+                    <th>日期</th>
+                    <th>港口</th>
+                    <th>座位總數</th>
+                    <th>訂位人數</th>
+                    <th>狀態</th>
+                    <th>編輯</th>
+                </tr>
+            </table>
         </div>
-    </header>
+    </main>
+    @@include('all_js.html')
 
-    <div id="Container" class="container">
-        <nav>
-            <ul>
-                <li>
-                    <a  href="backend_Admin.html">後台管理員管理</a>
-                </li>
-                <li>
-                    <a   href="backend_Member.html">會員</a>
-                </li>
-                <li>
-                    <a   href="backend_Route.html">航線管理</a>
-                </li>
-                <li>
-                    <a  href="backend_MealList.html">訂單管理</a>
-
-                </li>
-                <li>
-                    <a  href="backend_Meal.html">套餐管理</a>
-                </li>
-                <li>
-                    <a href="backend_Seafood.html">海鮮種類管理</a>
-                </li>
-                <li>
-                    <a  href="backend_Cook.html">烹調方式管理</a>
-                </li>
-                <li>
-                    <a href="backend_Ingredient.html">配料管理</a>
-                </li>
-                <li>
-                    <a  href="backend_Report.html"> 留言檢舉管理</a>
-                </li>
-                <li>
-                    <a  href="backend_Message.html">聊天機器人管理</a>
-                </li>
-            </ul>
-        </nav>
-        <main id="Main">
-            <div class="now-page">
-                <ol>
-                    <li>
-                        <a href="#">首頁</a>
-                    </li>
-                    <li>
-                        <a href="#">航線管理</a>
-                    </li>
-                </ol>
-            </div>
-
-             <!-- 航線管理 -->
-             <div id="Route" class="page-content" >
-                 <div class="addBtn"><button  >新增航程</button></div>
-                <table>
-                    <tr>
-                        <th>編號</th>
-                        <th>日期</th>
-                        <th>港口</th>
-                        <th>座位總數</th>
-                        <th>訂位人數</th>
-                        <th>狀態</th>
-                        <th>編輯</th>
-                        
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>2020/05/02</td>
-                        <td>深澳港</td>
-                        <td>200</td>
-                        <td>150</td>
-                        <td>正常執行</td>
-                        <td>
-                            <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>2020/05/04</td>
-                        <td>深澳港</td>
-                        <td>200</td>
-                        <td>120</td>
-                        <td>正常執行</td>
-                        <td>
-                            <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                        </td>
-                       
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>2020/05/02</td>
-                        <td>深澳港</td>
-                        <td>200</td>
-                        <td>100</td>
-                        <td>正常執行</td>
-                        <td>
-                            <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                        </td>
-                       
-                    </tr>
-                </table>
-                
-         
-            </div>
+    <script src="./js/backend_Route.js"></script>
+    <script src="./js/backend_all.js"></script>
 </body>
+
 </html>

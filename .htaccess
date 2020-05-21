@@ -1,5 +1,0 @@
-RewriteEngine on
-
-RewriteRule ^backend_admin$ backend_admin.php
-
-AddType application/xhttpd-php .htm .html
