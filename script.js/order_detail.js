@@ -1,8 +1,12 @@
 window.addEventListener('load', function() {
 
-    // 點數旁邊有一個小框，可打開看點數規則
-    // 送出訂單，資訊填寫不完整的提示
 
+    setTimeout(function() {
+        if ($('.portnow').text() == "") {
+            location.reload();
+        }
+        // console.log($('.portnow').text());
+    }, 500);
 
     // localStorage.clear();
 
@@ -49,104 +53,112 @@ window.addEventListener('load', function() {
 
 
     let custoLength = localStorage['custoLength'];
-    let custototal = 0; // 小計總和
-    for (let i = 0; i < custoLength; i++) {
-        custos = JSON.parse(localStorage['custo']);
-        // 圖片
-        // img = custos[i].name;
-        // 料理名稱
-        name = custos[i].name;
-        // 數量
-        amount = custos[i].amount;
-        // 單價
-        price = custos[i].price;
-        // 小計
-        total = parseInt(amount) * parseInt(price);
-        // 編號custo.custoNo
-        custoNo = custos[i].custoNo;
-        // 桌機顯示
-        $('.custoline').after(`
-        <div class="row mdcusto align-items-center ">
-        <div class="col-md-4 ">
-            <div class="row ">
-                <div class="col-6 col-md-12 divorder ">
-                    <div class="row align-items-center custorow">
-                        <div class="col-6 ">
-                            <img src="./images/menupic1.png " alt=" ">
-                        </div>
-                        <div class="col-5 divorder ">
-                            <p class="custonow " custono="${custoNo}">${name}</p>
+
+    if (custoLength == 0) {
+        $('.custowrapper').css("display", "none");
+    } else {
+
+        let custototal = 0; // 小計總和
+        for (let i = 0; i < custoLength; i++) {
+            custos = JSON.parse(localStorage['custo']);
+            // 圖片
+            imgsrc = custos[i].custoPic;
+            // 料理名稱
+            name = custos[i].name;
+            // 數量
+            amount = custos[i].amount;
+            // 單價
+            price = custos[i].price;
+            // 小計
+            total = parseInt(amount) * parseInt(price);
+            // 編號
+            custoNo = custos[i].custoNo;
+            // 桌機顯示
+            $('.custoafterline').before(`
+            <div class="row mdcusto align-items-center ">
+            <div class="col-md-4 ">
+                <div class="row ">
+                    <div class="col-6 col-md-12 divorder ">
+                        <div class="row align-items-center custorow">
+                            <div class="col-6 ">
+                                <img src="${imgsrc}" alt=" ">
+                            </div>
+                            <div class="col-5 divorder ">
+                                <p class="custonow " custono="${custoNo}">${name}</p>
+                            </div>
                         </div>
                     </div>
+        
                 </div>
-    
             </div>
-        </div>
-        <div class="col-md-2 divorder custoAmount">
-            <p class="custocount ">${amount}</p>
-        </div>
-        <div class="col-md-3 divorder custoPrice">
-            <p class="custoprice ">${price}</p>
-        </div>
-        <div class="col-md-3 divorder ">
-            <p class="custoamount ">${total}元</p>
-        </div>
-        <div class="line "></div>
-    
-    </div>`);
+            <div class="col-md-2 divorder custoAmount">
+                <p class="custocount ">${amount}</p>
+            </div>
+            <div class="col-md-3 divorder custoPrice">
+                <p class="custoprice ">${price}</p>
+            </div>
+            <div class="col-md-3 divorder ">
+                <p class="custoamount ">${total}元</p>
+            </div>
+            <div class="line "></div>
+        
+        </div>`);
 
-        // 手機顯示
-        $('.smline').after(`
-        <div class="row smcusto ">
-        <div class="col-12 ">
-            <div class="row align-items-center divorder ">
-                <div class="col-6 ">
-                <p class="custonow " custono="${custoNo}">${name}</p>
-                </div>
-                <div class="col-6 ">
-                    <img src="./images/menupic1.png " alt=" ">
-                </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="row align-items-center ">
-                <div class="col-6 d-md-none divtitle ">
-                    <p>數量</p>
-                </div>
-                <div class="col-6 col-md-12 divorder ">
-                    <p class="custocount ">${amount}</p>
+            // 手機顯示
+            $('.custoafterline').before(`
+            <div class="row smcusto ">
+            <div class="col-12 ">
+                <div class="row align-items-center divorder ">
+                    <div class="col-6 ">
+                    <p class="custonow " custono="${custoNo}">${name}</p>
+                    </div>
+                    <div class="col-6 ">
+                        <img src="${imgsrc}" alt=" ">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12">
-            <div class="row ">
-                <div class="col-6 d-md-none divtitle ">
-                    <p>單價</p>
-                </div>
-                <div class="col-6 col-md-12 divorder ">
-                    <p class="custoprice ">${price}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="row ">
-                <div class="col-6 d-md-none divtitle ">
-                    <p>小計</p>
-                </div>
-                <div class="col-6 col-md-12 divorder ">
-                    <p class="custoamount ">${total}元</p>
+            <div class="col-12">
+                <div class="row align-items-center ">
+                    <div class="col-6 d-md-none divtitle ">
+                        <p>數量</p>
+                    </div>
+                    <div class="col-6 col-md-12 divorder ">
+                        <p class="custocount ">${amount}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="line "></div>
-    </div>`);
+            <div class="col-12">
+                <div class="row ">
+                    <div class="col-6 d-md-none divtitle ">
+                        <p>單價</p>
+                    </div>
+                    <div class="col-6 col-md-12 divorder ">
+                        <p class="custoprice ">${price}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row ">
+                    <div class="col-6 d-md-none divtitle ">
+                        <p>小計</p>
+                    </div>
+                    <div class="col-6 col-md-12 divorder ">
+                        <p class="custoamount ">${total}元</p>
+                    </div>
+                </div>
+            </div>
+            <div class="line "></div>
+        </div>`);
 
-        custototal += total;
+            custototal += total;
 
-    }
+        }
 
-    // 計算客製化料理總金額
-    $('.custototal').text(custototal);
+        // 計算客製化料理總金額
+        $('.custototal').text(custototal);
+
+
+    };
 
 
 
@@ -211,7 +223,12 @@ window.addEventListener('load', function() {
         let data = `memNo=${localStorage['memNo']}`;
         // console.log(data);
 
+        // windows
         xhr.open("POST", "./php/orderdetail_point.php");
+
+        // Mac
+        // xhr.open('POST', 'http://localhost:8080/orderdetail_point.php');
+
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(data);
 
@@ -232,8 +249,6 @@ window.addEventListener('load', function() {
         checkTotal();
 
     });
-
-
 
     // 送出訂單
     // 檢查訂位資訊都填寫好
@@ -277,9 +292,10 @@ window.addEventListener('load', function() {
             let data = {};
             data.memNo = localStorage['memNo'];
 
-            datenow = $('.datenow').text();
-            datenow = datenow.replace('/', '-');
-            datenow = datenow.replace('/', '-');
+
+            let now = new Date();
+            datenow = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+
             data.datenow = datenow;
 
             data.orderName = $('#ordername').val();
@@ -299,19 +315,22 @@ window.addEventListener('load', function() {
                 meal.mealNo = i;
                 meal.mealListCount = $(`.meal${i}amount:eq(0)`).text();
                 meal.mealListPrice = $(`.meal${i}price:eq(0)`).text();
-                data.meal.push(meal);
+
+                // 套餐數量不為0，才存進資料庫
+                if (meal.mealListCount != 0) {
+                    data.meal.push(meal);
+                }
             }
 
 
             //客製化料理訂單明細：料理編號、數量、單價
             data.custo = [];
-            for (let i = 0; i < $('.custonow').length / 2; i++) {
+            for (let i = 0; i < $('.mdcusto .custonow').length; i++) {
                 let custo = {};
-                custo.custoNo = $(`.custonow:eq(${i})`).attr("custono");
-                custo.custoCount = $(`.custocount:eq(${i})`).text();
-                custo.custoPrice = parseInt($(`.custoprice:eq(${i})`).text());
+                custo.custoNo = $(`.mdcusto .custonow:eq(${i})`).attr("custono");
+                custo.custoCount = $(`.mdcusto .custocount:eq(${i})`).text();
+                custo.custoPrice = parseInt($(`.mdcusto .custoprice:eq(${i})`).text());
                 data.custo.push(custo);
-                // alert(parseInt($(`.custoprice:eq(${i})`).text()));
             }
 
             let data_info = JSON.stringify(data);
@@ -320,6 +339,5 @@ window.addEventListener('load', function() {
 
         }
     });
-
 
 });

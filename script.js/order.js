@@ -2,6 +2,7 @@ window.addEventListener('load', function() {
 
     // 取消視窗滾動header消失的事件
 
+
     /////////////////////各頁面切換//////////////////////
 
     let selectdate = document.getElementById("date"); //日期下拉選單
@@ -123,12 +124,18 @@ window.addEventListener('load', function() {
             if ($('.custo').length != 0) {
 
                 for (let i = 0; i < $('.custo').length; i++) {
-                    let custo = {};
-                    custo.name = $.trim($(`.custo:eq(${i})`).text());
-                    custo.price = $(`.custoPrice:eq(${i})`).text();
-                    custo.amount = $(`.custoAmount:eq(${i})`).val();
-                    custo.custoNo = $(`.dishname:eq(${i})`).attr("custono");
-                    custoStorage.push(custo);
+
+                    if ($(`.custoAmount:eq(${i})`).val() != 0) {
+                        let custo = {};
+                        custo.name = $.trim($(`.custo:eq(${i})`).text());
+                        custo.price = $(`.custoPrice:eq(${i})`).text();
+                        custo.amount = $(`.custoAmount:eq(${i})`).val();
+                        custo.custoNo = $(`.dishname:eq(${i})`).attr("custono");
+                        custo.custoPic = $(`.custoPic:eq(${i})`).attr("src");
+                        custoStorage.push(custo);
+
+                    }
+
                 }
 
                 localStorage['custo'] = JSON.stringify(custoStorage);
@@ -261,7 +268,7 @@ window.addEventListener('load', function() {
         xhr.onload = function() {
             if (xhr.status == 200) {
                 date = JSON.parse(xhr.responseText);
-                console.log(date);
+                // console.log(date);
 
                 for (let i = 0; i < date.length; i++) {
                     // 只顯示5個選項
@@ -311,8 +318,11 @@ window.addEventListener('load', function() {
         data.form = `${firstYear}-${firstMonth}-${today}`;
 
         data = JSON.stringify(data);
-        console.log(data);
+        // console.log(data);
+        // windows
         xhr.open("POST", "./php/order_calendar.php", true);
+        // Mac
+        // xhr.open('POST', 'http://localhost:8080/order_calendar.php');
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(data);
 
@@ -430,7 +440,10 @@ window.addEventListener('load', function() {
             }
         };
 
+        // windows
         xhr.open("GET", "./php/order_route.php");
+        // Mac
+        // xhr.open('GET', 'http://localhost:8080/order_route.php');
         xhr.send(null);
     };
 
@@ -694,7 +707,11 @@ window.addEventListener('load', function() {
 
             data = JSON.stringify(data);
             // console.log(data);
+
+            // windows
             xhr.open("POST", "./php/order_calendar.php", true);
+            // Mac
+            // xhr.open('POST', 'http://localhost:8080/order_calendar.php');
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             xhr.send(data);
 
@@ -743,7 +760,10 @@ window.addEventListener('load', function() {
 
         };
 
+        // windows
         xhr.open("GET", "./php/order_meal.php");
+        // Mac
+        // xhr.open('POST', 'http://localhost:8080/order_meal.php');
         xhr.send(null);
 
     };
@@ -841,7 +861,7 @@ window.addEventListener('load', function() {
 
             if (xhr.status == 200) {
                 custos = JSON.parse(xhr.responseText);
-                // console.log(custos);
+                console.log(custos);
 
                 if (custos == "") {
                     //已登入，沒有客製化料理
@@ -851,7 +871,7 @@ window.addEventListener('load', function() {
                     //已登入，有料理
 
                     // 抓同帳號上次存取的客製化料理
-                    if (localStorage['memNo'] == member.memNo && localStorage['custoLength']) {
+                    if (localStorage['memNo'] == member.memNo && localStorage['custoLength'] != 0) {
                         $('.custotable .nocusto').remove();
                         custoarr = JSON.parse(localStorage['custo']);
                         console.log(custoarr);
@@ -860,7 +880,6 @@ window.addEventListener('load', function() {
                             $('.custotable tr:last-child input').val(custoarr[i].amount);
 
                         };
-
 
                         // 改變客製化料理數量
                         custoamount();
@@ -877,7 +896,10 @@ window.addEventListener('load', function() {
 
         data = ` memNo=${member.memNo}`;
         // console.log(data);
+        // windows
         xhr.open("POST", "./php/order_custo.php", true);
+        // Mac
+        // xhr.open('POST', 'http://localhost:8080/order_custo.php');
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(data);
 
@@ -898,17 +920,18 @@ window.addEventListener('load', function() {
     function showCusto(nowpage) {
         let pages = Math.ceil(custos.length / 3);
 
-        if (nowpage + 1 <= pages) {
-            $('.section3 .leftrow2').removeClass("justify-content-center").empty();
+        if (nowpage + 1 <= pages) { //頁數不超過最大頁數
+
+            $('.section3 .rightrow2').removeClass("justify-content-center").empty();
 
             for (let i = 0; i < 3; i++) {
                 no = i + nowpage * 3;
                 if (custos[no]) {
-                    $('.section3 .leftrow2').append(`
+                    $('.section3 .rightrow2').append(`
                         <div class="col-6 col-md-4">
                             <div class="dish">
                                 <div class="img">
-                                        <img src="./images/cook2.png " alt="">
+                                        <img src="./images/${custos[no].custoPic}" alt="${custos[no].custoName}" class="custoPic">
                                 </div>
                                 <div class="name">
                                     <p class="dishname" custoNo="${custos[no].custoNo}">${custos[no].custoName}
@@ -918,12 +941,9 @@ window.addEventListener('load', function() {
                             </div>
                        </div>`);
                 }
-
             }
-            $('.nowpage').text(nowpage + 1 + "/" + pages);
+            $('.nowpage').text((nowpage + 1) + "/" + pages);
 
-        } else {
-            $('.nowpage').text(pages + "/" + pages);
         }
         addCart();
 
@@ -933,7 +953,7 @@ window.addEventListener('load', function() {
     $('.previouscusto').click(function() {
         nowpage = $('.nowpage').text().substr(0, 1) - 1; //現在第幾頁，0是第一頁
         if (nowpage > 0) {
-            nowpage--
+            nowpage--;
             showCusto(nowpage);
         }
     });

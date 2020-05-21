@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/order.css">
     <link rel="stylesheet" href="./css/icon.min.css">
-
-
     <title>訂位點餐</title>
 </head>
 
@@ -20,19 +18,18 @@
         <section class="section1">
             <div class="container-fluid">
                 <div class="row row0">
-                    <div class="col-12  col-md-5 right ">
+                    <div class="col-12  col-md-5 left ">
                     </div>
-                    <div class="col-12  col-md-7 left">
+                    <div class="col-12  col-md-7 right">
                     </div>
-
                 </div>
                 <div class="row row1 ">
-
-                    <div class="col-12  col-md-5 right">
-                        <div class=" righttext">
+                    <div class="col-12  col-md-5 left">
+                        <div class=" lefttext">
                             <div class="question">
                                 <h3>選擇港口</h3>
                             </div>
+
                             <div class="answer port">
                                 <input type="radio" name="port" id="port1">
                                 <label for="port1" class="port1 on">深澳港</label>
@@ -64,7 +61,7 @@
 
                         </div>
                     </div>
-                    <div class="col-12  col-md-7 left align-self-center">
+                    <div class="col-12  col-md-7 align-self-center right">
                         <div id="map"></div>
                     </div>
                 </div>
@@ -162,15 +159,15 @@
         <section class="section2">
             <div class="container-fluid">
                 <div class="row row0">
-                    <div class="col-12  col-md-5 right ">
+                    <div class="col-12  col-md-5 left ">
                     </div>
-                    <div class="col-12  col-md-7 left">
+                    <div class="col-12  col-md-7 right">
                     </div>
 
                 </div>
                 <div class="row row1 ">
-                    <div class="col-12  col-md-5 right">
-                        <div class="righttext">
+                    <div class="col-12  col-md-5 left">
+                        <div class="lefttext">
                             <div class="meal">
                                 <div class="question">
                                     <h3>選擇套餐數量</h3>
@@ -231,16 +228,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12  col-md-7 left">
-                        <div class="leftbg">
-                            <div class="row leftrow1 justify-content-center">
+                    <div class="col-12  col-md-7 right">
+                        <div class="rightbg">
+                            <div class="row rightrow1 justify-content-center">
                                 <div class="col-12 col-md-3">
                                     <div class="mealname">
                                         <h3></h3>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row leftrow2 justify-content-center">
+                            <div class="row rightrow2 justify-content-center">
                                 <div class="col-6 col-md-3">
                                     <div class="dish">
                                         <div class="img">
@@ -266,7 +263,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row leftrow3 justify-content-center">
+                            <div class="row rightrow3 justify-content-center">
                                 <div class="col-6 col-md-3">
                                     <div class="dish">
                                         <div class="img">
@@ -292,7 +289,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row leftrow4 justify-content-center">
+                            <div class="row rightrow4 justify-content-center">
                                 <div class="col-2">
                                     <div id="previousmeal"></div>
                                 </div>
@@ -308,14 +305,14 @@
         <section class="section3">
             <div class="container-fluid">
                 <div class="row row0">
-                    <div class="col-12  col-md-5 right ">
+                    <div class="col-12  col-md-5 left">
                     </div>
-                    <div class="col-12  col-md-7 left">
+                    <div class="col-12  col-md-7 right">
                     </div>
                 </div>
                 <div class="row row1 ">
-                    <div class="col-12  col-md-5 right">
-                        <div class="righttext">
+                    <div class="col-12  col-md-5 left">
+                        <div class="lefttext">
                             <div class="meal">
                                 <div class="question">
                                     <h3>選擇客製料理</h3>
@@ -341,9 +338,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12  col-md-7 left">
-                        <div class="leftbg">
-                            <div class="row leftrow1 justify-content-center">
+                    <div class="col-12  col-md-7 right">
+                        <div class="rightbg">
+                            <div class="row rightrow1 justify-content-center">
                                 <div class="col-12 col-md-3">
                                     <div class="custoname">
                                         <h3>我的</h3>
@@ -351,7 +348,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row leftrow2 justify-content-center">
+                            <div class="row rightrow2 justify-content-center">
                                 <div id="nologin">
                                     <p>請先登入會員</p>
                                     <div class="buttonlogin">登入</div>
@@ -362,7 +359,7 @@
                                 </div>
                             </div>
 
-                            <div class="row leftrow4 justify-content-center">
+                            <div class="row rightrow4 justify-content-center">
                                 <div class="col-2">
                                     <div class="previouscusto"></div>
                                 </div>
@@ -424,8 +421,8 @@
     @@include('./layout/reboot.html') @@include('./all_js.html')
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
-
     <script src="./js/order.js"></script>
+
 </body>
 
 </html>
