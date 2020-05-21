@@ -451,7 +451,7 @@ $(document).ready(function() {
 
 
         // windows
-        // xhr.open('GET',  './php/reboor_item.php',  true);
+         xhr.open('GET',  './php/reboor_item.php',  true);
 
         // Mac
         xhr.open('GET', 'http://localhost:8888/reboor_item.php');
@@ -484,10 +484,10 @@ $(document).ready(function() {
 
 
         // windows
-        // xhr.open('GET',  './php/getlogininfo.php',  true);
+         xhr.open('GET',  './php/getlogininfo.php',  true);
 
         // Mac
-        xhr.open('GET', "http://localhost:8888/getlogininfo.php");
+        //xhr.open('GET', "http://localhost:8888/getlogininfo.php");
         xhr.send(null);
     }
 //會員登入改變

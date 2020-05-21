@@ -37,25 +37,31 @@ window.addEventListener('load', function(){
 
 
             // windows
-            xhr.open('post',  './php/backend_Route_insert.php',  true);
+            xhr.open('post',  './php/backend_Meal_insert.php',  true);
             // Mac
-            // xhr.open('POST', 'http://localhost:8888/backend_Route_insert.php', true);
+            // xhr.open('POST', 'http://localhost:8888/backend_Meal_insert.php', true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
 
-            let route = {};
-            routePort = $('#routePort').val();
+            let meal = {};
+            meatState = $('#meatState').val();
             if (routePort == 0) {
-                routePort = "深澳港";
+                routePort = "A套餐";
             } else if (routePort == 1) {
-                routePort = "梧棲港";
+                routePort = "B套餐";
             } else {
-                routePort = "高雄港";
+                routePort = "C套餐";
             }
 
-            route.routeDate = $('#routeDate').val();
-            route.routePort = routePort;
-            route.routeSeat = $('#routeSeat').val();
+            meal.mealName = $('#mealName').val();
+            meal.meatState = meatState;
+            meal.mealPic = $('#mealPic').val();
+            meal.mealFirst = $('#mealFirst').val();
+            meal.mealMain = $('#mealMain').val();
+            meal.mealDishOne = $('#mealDishOne').val();
+            meal.mealDishTwo = $('#mealDishTwo').val();
+            meal.mealsoup = $('#mealSoup').val();
+            meal.mealDrink = $('#mealDrink').val();
 
             let data_info = JSON.stringify(route);
             console.log(data_info);

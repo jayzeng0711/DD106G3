@@ -9,17 +9,16 @@ try{
     $theMeal = json_decode(file_get_contents("php://input"));
 
     $newMeal = $pdo->prepare($sql);
-    $newMeal->bindValue(':mealNo', $mealRows->mealNo);
-    $editmeal->bindValue(':mealName', $mealRows->mealName);
-    $editmeal->bindValue(':mealPic', $mealRows->mealPic);
-    $editmeal->bindValue(':mealFirst', $mealRows->mealFirst);
-    $editmeal->bindValue(':mealMain', $mealRows->mealMain);
-    $editmeal->bindValue(':mealDishOne', $mealRows->mealDishOne);
-    $editmeal->bindValue(':mealDishTwo', $mealRows->mealDishTwo);
-    $editmeal->bindValue(':mealSoup', $mealRows->mealSoup);
-    $editmeal->bindValue(':mealDrink', $mealRows->mealDrink);
-    $editmeal->bindValue(':meatState', $mealRows->meatState);
-    $editmeal->execute();
+    $newMeal->bindValue(':mealName', $mealRows->mealName);
+    $newMeal->bindValue(':mealPic', $mealRows->mealPic);
+    $newMeal->bindValue(':mealFirst', $mealRows->mealFirst);
+    $newMeal->bindValue(':mealMain', $mealRows->mealMain);
+    $newMeal->bindValue(':mealDishOne', $mealRows->mealDishOne);
+    $newMeal->bindValue(':mealDishTwo', $mealRows->mealDishTwo);
+    $newMeal->bindValue(':mealSoup', $mealRows->mealSoup);
+    $newMeal->bindValue(':mealDrink', $mealRows->mealDrink);
+    $newMeal->bindValue(':meatState', $mealRows->meatState);
+    $newMeal->execute();
 
 }catch (PDOException $e) {
     
