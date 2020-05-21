@@ -34,7 +34,7 @@ function show() {
     // windows
     xhr.open('POST', './php/backend_OrderDetail_show.php',  true);
     // Mac
-    // xhr.open(''POST', 'http://localhost:8888/backend_OrderDetail_show.php', true);
+    // xhr.open(''POST', 'http://localhost:8080/backend_OrderDetail_show.php', true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.send(data);
 
@@ -57,7 +57,7 @@ function show() {
     // windows
     xhrm.open('POST', './php/backend_OrderDetail_meal.php',  true);
     // Mac
-    // xhr.open(''POST', 'http://localhost:8888/backend_OrderDetail_meal.php', true);
+    // xhr.open(''POST', 'http://localhost:8080/backend_OrderDetail_meal.php', true);
     xhrm.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhrm.send(data);
 
@@ -88,7 +88,7 @@ function show() {
     // windows
     xhrc.open('POST', './php/backend_OrderDetail_custo.php',  true);
     // Mac
-    // xhr.open(''POST', 'http://localhost:8888/backend_OrderDetail_custo.php', true);
+    // xhr.open(''POST', 'http://localhost:8080/backend_OrderDetail_custo.php', true);
     xhrc.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhrc.send(data);
 
@@ -119,7 +119,7 @@ $('.save').click(function() {
     // windows
     xhrs.open('POST', './php/backend_OrderDetail_save.php',  true);
     // Mac
-    // xhr.open(''POST', 'http://localhost:8888/backend_OrderDetail_save.php', true);
+    // xhr.open(''POST', 'http://localhost:8080/backend_OrderDetail_save.php', true);
     xhrs.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhrs.send(data);
     console.log(data);

@@ -33,7 +33,7 @@ function show() {
     // windows
     xhr.open('GET',  './php/backend_OrderMaster_show.php',  true);
     // Mac
-    // xhr.open('GET', 'http://localhost:8888/backend_OrderMaster_show.php', true);
+    // xhr.open('GET', 'http://localhost:8080/backend_OrderMaster_show.php', true);
     xhr.send(null);
 
 };

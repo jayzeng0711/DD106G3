@@ -11,6 +11,6 @@ $('.logout').click(function(){
     xhr.open('post',  './php/member_logout.php',  true);
 
     // Mac
-    // xhr.open('POST', 'http://localhost:8888/member_logout.php', true);
+    // xhr.open('POST', 'http://localhost:8080/member_logout.php', true);
     xhr.send(null);
 })

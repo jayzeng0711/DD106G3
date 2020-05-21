@@ -14,7 +14,7 @@
     $member_data -> bindValue(":memId", $mem_po_sco_str->member);
     $member_data->execute();
     $memRow = $member_data->fetch(PDO::FETCH_ASSOC);
-    session_id(SID);
+    // session_id(SID);
     session_start();
     $_SESSION["memScore"] =  $memRow["memScore"];
     $_SESSION["memPoints"] =  $memRow["memPoints"];

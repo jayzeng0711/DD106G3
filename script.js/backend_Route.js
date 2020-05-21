@@ -32,7 +32,7 @@ function show() {
     // windows
     xhr.open('GET',  './php/backend_Route_show.php',  true);
     // Mac
-    // xhr.open('GET', 'http://localhost:8888/backend_Route_show.php', true);
+    // xhr.open('GET', 'http://localhost:8080/backend_Route_show.php', true);
     xhr.send(null);
 
 };
@@ -68,7 +68,7 @@ $('.addbtn').click(function() {
         // windows
         xhr.open('post',  './php/backend_Route_insert.php',  true);
         // Mac
-        // xhr.open('POST', 'http://localhost:8888/backend_Route_insert.php', true);
+        // xhr.open('POST', 'http://localhost:8080/backend_Route_insert.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
 
@@ -173,7 +173,7 @@ function edit() {
             // windows
             xhr.open('post',  './php/backend_Route_edit.php',  true);
             // Mac
-            // xhr.open('POST', 'http://localhost:8888/backend_Route_edit.php', true);
+            // xhr.open('POST', 'http://localhost:8080/backend_Route_edit.php', true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
             let editRoute = {};

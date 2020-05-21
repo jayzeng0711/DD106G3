@@ -24,7 +24,7 @@ $('#login_btn').click(function(){
         xhr.open('POST',  './php/backend_login.php',  true);
 
         // Mac
-        // xhr.open('POST', "http://localhost:8888/backend_login.php");
+        // xhr.open('POST', "http://localhost:8080/backend_login.php");
         xhr.send(mem_login_data_str);
     }
 })

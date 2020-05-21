@@ -29,7 +29,7 @@ $('.addbtn').click(function(){
         xhr.open('POST',  './php/backend_admin_insert.php',  true);
 
        // Mac
-        // xhr.open('POST','http://localhost:8888/backend_admin_insert.php');
+        // xhr.open('POST','http://localhost:8080/backend_admin_insert.php');
         xhr.send(message_content_str);
     })
     // 取消新增
@@ -81,7 +81,7 @@ function show(){
     // windows
     xhr.open('GET',  './php/backend_Admin.php',  true);
     // Mac
-    // xhr.open('GET','http://localhost:8888/backend_Admin.php');
+    // xhr.open('GET','http://localhost:8080/backend_Admin.php');
     xhr.send(null);
 }
 
@@ -101,7 +101,7 @@ function update(id){
     // windows
     xhr.open('POST',  './php/backend_admin_update.php',  true);
     // Mac
-    // xhr.open('POST','http://localhost:8888/backend_admin_update.php');
+    // xhr.open('POST','http://localhost:8080/backend_admin_update.php');
     xhr.send(message_row_update_str);
 }
 //更新
