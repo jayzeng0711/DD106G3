@@ -13,6 +13,7 @@
 
 body {
     background-color: #F0EEE0;
+    overflow: hidden;
 }
 
 section {
@@ -115,6 +116,7 @@ section {
                     }
                 }
                 .people {
+                    margin-bottom: 5%;
                     #people {
                         display: inline-block;
                         width: $fontSize*2;
@@ -140,12 +142,12 @@ section {
                     cursor: pointer;
                 }
                 .button {
-                    @extend %btn_ano;
-                    width: 100px;
-                    height: 40px;
-                    margin: 50px auto 0;
+                    @extend %btn;
+                    width: 27%;
+                    margin: 0 auto;
                     text-align: center;
-                    padding: 10px 20px;
+                    padding: 10px;
+                    max-width: 100px;
                 }
             }
         }
@@ -158,9 +160,10 @@ section {
     padding: 2.5% 1% 1%;
     background-color: #FBD672;
     position: fixed;
-    top: calc(150px + 1%);
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1000;
     box-shadow: 6px 6px 0px rgb(247, 192, 41);
     border-radius: 0 0 10px 10px;
     .boxclose {
@@ -441,11 +444,17 @@ section {
                     .button.previous {
                         @extend %btn;
                         display: inline-block;
-                        margin-right: 30px;
+                        margin-right: 10%;
+                        width: 27%;
+                        padding: 10px;
+                        max-width: 100px;
                     }
                     .button.next {
-                        @extend %btn_ano;
+                        @extend %btn;
+                        width: 27%;
                         display: inline-block;
+                        padding: 10px;
+                        max-width: 100px;
                     }
                 }
             }
@@ -494,6 +503,7 @@ section {
                         display: inline-block;
                         margin-top: 10%;
                         padding: 5px 10px;
+                        max-width: 100px;
                     }
                 }
                 #nocusto {
@@ -504,6 +514,7 @@ section {
                         display: inline-block;
                         margin-top: 10%;
                         padding: 5px 10px;
+                        max-width: 100px;
                     }
                 }
                 .dish {
@@ -637,13 +648,17 @@ section {
                     .button.previous {
                         @extend %btn;
                         display: inline-block;
-                        margin-right: 30px;
+                        margin-right: 10%;
+                        width: 25%;
+                        padding: 10px;
+                        max-width: 100px;
                     }
                     .button.next {
-                        @extend %btn_ano;
+                        @extend %btn;
+                        width: 27%;
                         display: inline-block;
-                        text-decoration: none;
-                        color: #fff;
+                        padding: 10px;
+                        max-width: 100px;
                     }
                 }
             }

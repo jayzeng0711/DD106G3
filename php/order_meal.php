@@ -4,7 +4,7 @@ $errMsg = "";
 
 try {
     require_once("connectdd106g3.php");
-    $sql = "select * from `meal` where meatState=1";
+    $sql = "select * from `meal` where mealState=1";
   
     $meals= $pdo->query($sql);
     $mealRow = $meals->fetchAll(PDO::FETCH_ASSOC);
