@@ -151,10 +151,10 @@ $('#mem_regisit_finish').click(function() {
 
 
         // windows
-        xhr.open('post', './php/member_regisit.php',  true);
+        // xhr.open('post', './php/member_regisit.php',  true);
 
         // Mac
-        // xhr.open('POST', 'http://localhost:8888/member_regisit.php', true);
+        xhr.open('POST', 'http://localhost:8888/member_regisit.php', true);
         // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
         var member_rigist = {};
@@ -200,10 +200,10 @@ $('#signInBtn').click(function() {
 
 
         // windows
-        xhr.open('post',  './php/member_login.php',  true);
+        // xhr.open('post',  './php/member_login.php',  true);
 
         // Mac
-        // xhr.open('POST', 'http://localhost:8888/member_login.php', true);
+        xhr.open('POST', 'http://localhost:8888/member_login.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         var member_login = {};
         member_login.mem_email = loginEmail;
@@ -245,10 +245,10 @@ $('.pu_login_logout').click(function() {
         }
 
         // windows
-        xhr.open('post',  './php/member_logout.php',  true);
+        // xhr.open('post',  './php/member_logout.php',  true);
 
         // Mac
-        // xhr.open('POST', 'http://localhost:8888/member_logout.php', true);
+        xhr.open('POST', 'http://localhost:8888/member_logout.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(null);
     })
@@ -305,10 +305,10 @@ $('.pu_reb_btn').click(function(e) {
 
 
         // windows
-        xhr.open('post',  './php/reboot_ans.php',  true);
+        // xhr.open('post',  './php/reboot_ans.php',  true);
 
         // Mac
-        // xhr.open('Post', 'http://localhost:8888/reboot_ans.php', true);
+        xhr.open('Post', 'http://localhost:8888/reboot_ans.php', true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         var ans = {};
         ans.text = text;
@@ -372,9 +372,9 @@ $('#textarea').keydown(function(e) {
 
 
             // windows
-            xhr.open('post',  './php/reboot_ans.php',  true);
+            // xhr.open('post',  './php/reboot_ans.php',  true);
             // Mac
-            // xhr.open('Post', 'http://localhost:8888/reboot_ans.php', true);
+            xhr.open('Post', 'http://localhost:8888/reboot_ans.php', true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             var ans = {};
             ans.text = text;
@@ -433,10 +433,10 @@ $(document).ready(function() {
 
 
                     // windows
-                    xhr.open('post',  './php/select_reboot_ans.php',  true);
+                    // xhr.open('post',  './php/select_reboot_ans.php',  true);
 
                     // Mac
-                    // xhr.open('Post', 'http://localhost:8888/select_reboot_ans.php', true);
+                    xhr.open('Post', 'http://localhost:8888/select_reboot_ans.php', true);
                     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
                     var ans = {};
                     ans.text = text;
@@ -451,10 +451,10 @@ $(document).ready(function() {
 
 
         // windows
-        xhr.open('GET',  './php/reboor_item.php',  true);
+        // xhr.open('GET',  './php/reboor_item.php',  true);
 
         // Mac
-        // xhr.open('GET', 'http://localhost:8888/reboor_item.php');
+        xhr.open('GET', 'http://localhost:8888/reboor_item.php');
         xhr.send(null)
     })
     //機器人選項從資料庫撈出
@@ -484,10 +484,10 @@ $(document).ready(function() {
 
 
         // windows
-        xhr.open('GET',  './php/getlogininfo.php',  true);
+        // xhr.open('GET',  './php/getlogininfo.php',  true);
 
         // Mac
-        // xhr.open('GET', "http://localhost:8888/getlogininfo.php");
+        xhr.open('GET', "http://localhost:8888/getlogininfo.php");
         xhr.send(null);
     }
 //會員登入改變

@@ -25,7 +25,7 @@
     $member_data -> bindValue(":memId", $_POST['email']);
     $member_data->execute();
     $memRow = $member_data->fetch(PDO::FETCH_ASSOC);
-    // session_id(SID);
+    session_id(SID);
     session_start();
     $_SESSION["memName"] =  $memRow["memName"];
     $_SESSION["memPic"] =  $_FILES['file']['name'];

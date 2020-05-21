@@ -157,8 +157,8 @@
         }
         .order_detail_div_wrap{
             display: flex;
-            width: 70%;
-            margin: 0.5% auto;
+            width: 80%;
+            margin: 0 auto;
             border: 1px solid rgb(185, 185, 185);
             padding: 1% 0;
             .order_detail_div_in_wrap{
@@ -192,10 +192,10 @@
             }
             .order_detail_right_div{
                 margin: auto;
-                width: 70%;
+                width: 90%;
                 .order_detail_right_div_title{
                     display: flex;
-                    margin-bottom: 4%;
+                    margin-bottom: 2%;
                     align-items: center;
                     div{
                         flex: 1;
@@ -240,14 +240,15 @@
                 .order_detail_right_div_custom_wrap{
                     .order_detail_right_div_custom{
                         display: flex;
-                        margin-bottom: 4%;
+                        margin-bottom: 2%;
+                        margin-top: 2%;
                         div{
                             flex: 1;
                         }
                     }
                     .order_detail_right_div_custom_item{
                         display: flex;
-                        margin-bottom: 6%;
+                        margin-bottom: 2%;
                         div{
                             flex: 1;
                             .input_modify{

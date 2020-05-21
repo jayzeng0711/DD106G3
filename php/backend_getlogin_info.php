@@ -1,5 +1,5 @@
 <?php
-    // session_id(SID);
+    session_id(SID);
     session_start();
     require_once("connectdd106g3.php");
     if(isset($_SESSION['adminId'])){
