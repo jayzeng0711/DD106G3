@@ -32,6 +32,8 @@
         justify-content: center;
         width: 100%;
         letter-spacing: 1px;
+        background-image: url("../images/member_page_backGround2.jpg");
+        background-size: cover;
         div{
             margin: 1% 0; 
         }
@@ -149,6 +151,8 @@
         letter-spacing: 1px;
         display: flex;
         flex-direction: column;
+        background-image: url("../images/member_page_backGround2.jpg");
+        background-size: cover;
         .order_detail_title{
             margin-bottom: 6%;
             font-size: $fontSize*1.25;
@@ -305,6 +309,8 @@
         text-align: center;
         width: 100%;
         letter-spacing: 1px;
+        background-image: url("../images/member_page_backGround2.jpg");
+        background-size: cover;
         .curisine_div_title{
             margin-bottom: 6%;
             margin-top: 8%;
@@ -960,6 +966,7 @@
             align-items: center;
             justify-content: center;
             width: 100%;
+            height: 75vh;
             letter-spacing: 1px;
             
             div{
@@ -1025,6 +1032,7 @@
         .order_detail_wrap{
             text-align: center;
             width: 100%;
+            height: 75vh;
             letter-spacing: 1px;
             display: flex;
             flex-direction: column;
@@ -1182,6 +1190,7 @@
         .curisine_wrap{
             text-align: center;
             width: 100%;
+            height: 75vh;
             letter-spacing: 1px;
             .curisine_div_title{
                 margin-bottom: 6%;
