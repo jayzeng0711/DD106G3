@@ -88,7 +88,7 @@ $(document).ready(function(){
     // windows
     xhr.open('GET',  './php/backend_Member.php',  true);
     // Mac
-    // xhr.open('GET','http://localhost:8888/backend_Member.php');
+    // xhr.open('GET','http://localhost:8080/backend_Member.php');
     xhr.send(null);
 })
 
@@ -123,7 +123,7 @@ function change_sta(id_num){
         // windows
         xhr.open('POST',  './php/backend_member_update.php',  true);
         // Mac
-        // xhr.open('POST','http://localhost:8888/backend_member_update.php');
+        // xhr.open('POST','http://localhost:8080/backend_member_update.php');
         xhr.send(mem_row_str)
 }
 //傳送會員切換的狀態

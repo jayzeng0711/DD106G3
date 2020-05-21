@@ -17,7 +17,7 @@ $(document).ready(function(){
      xhr.open('GET',  './php/backend_getlogin_info.php',  true);
 
     // Mac
-    // xhr.open('GET','http://localhost:8888/backend_getlogin_info.php');
+    // xhr.open('GET','http://localhost:8080/backend_getlogin_info.php');
     xhr.send(null);
 })
 //確認後台有無登入

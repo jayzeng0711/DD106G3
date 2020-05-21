@@ -62,10 +62,6 @@ $(document).ready(function(){
         if(xhr.status == 200){
             var mem_basic_data = JSON.parse(xhr.responseText);
             console.log(mem_basic_data)
-            // <div>
-            // 名字看要不要
-            //     ${mem_basic_data.memName}
-            // </div>
             if(mem_basic_data.memName){
                 $('.mem_data_right_div').append(`<div class="mem_img_div">
                 <img class="img_src" src="./php/images/${mem_basic_data.memPic}" alt="">
@@ -129,7 +125,7 @@ $(document).ready(function(){
                     // xhr.open('POST', './php/member_data_update.php',  true);
 
                     // Mac
-                    xhr.open('POST','http://localhost:8888/member_data_update.php');
+                    xhr.open('POST','http://localhost:8080/member_data_update.php');
                     xhr.send(imageform);
             })
             }else{
@@ -248,7 +244,7 @@ $(document).ready(function(){
                             // xhr5.open('POST',  './php/mem_cancel_order.php',  true);
     
                             // Mac
-                            xhr5.open('POST','http://localhost:8888/mem_cancel_order.php');
+                            xhr5.open('POST','http://localhost:8080/mem_cancel_order.php');
                             xhr5.send(order_detail_str);
                         }else{
                             return false;
@@ -342,7 +338,7 @@ $(document).ready(function(){
                             // xhr4.open('POST',  './php/mem_data_order_custo.php',  true);
 
                             // Mac
-                            xhr4.open('GET','http://localhost:8888/mem_data_order_custo.php');
+                            xhr4.open('GET','http://localhost:8080/mem_data_order_custo.php');
                             xhr4.send(null)
                         }
                     }
@@ -350,7 +346,7 @@ $(document).ready(function(){
                     // xhr3.open('POST',  './php/customeal_show.php',  true);
 
                     // Mac
-                    xhr3.open('POST','http://localhost:8888/customeal_show.php');
+                    xhr3.open('POST','http://localhost:8080/customeal_show.php');
                     xhr3.send(null);
                 }
             }
@@ -358,7 +354,7 @@ $(document).ready(function(){
             // xhr2.open('GET', './php/member_order_record_show.php',  true);
 
             // Mac
-            xhr2.open('GET','http://localhost:8888/member_order_record_show.php');
+            xhr2.open('GET','http://localhost:8080/member_order_record_show.php');
             xhr2.send(null);
 
         }
@@ -368,7 +364,7 @@ $(document).ready(function(){
     // xhr.open('GET',  './php/member_data_show.php',  true);
 
     // Mac
-    xhr.open('GET','http://localhost:8888/member_data_show.php');
+    xhr.open('GET','http://localhost:8080/member_data_show.php');
     xhr.send(null);
 })
 //載入網頁，撈出會員的基本資料
