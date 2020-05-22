@@ -195,8 +195,11 @@ window.addEventListener('load', function() {
     // 顯示訂位總金額
     checkTotal();
 
+    // alert($('#ordepoint').val());
+
     function checkTotal() {
-        $('.total').text($('.subtotal').text() - $('#ordepoint').val());
+        // $('.total').text($('.subtotal').text() - $('#ordepoint').val());
+        $('.total').text($('.subtotal').text());
 
     };
 
@@ -306,6 +309,7 @@ window.addEventListener('load', function() {
             data.orderTotal = $('.total').text();
             data.routeNo = localStorage['routeNo'];
             data.orderPeople = localStorage['people'];
+
 
             //套餐訂單明細：數量、價格
             data.meal = [];

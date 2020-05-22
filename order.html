@@ -49,9 +49,9 @@
 
                             </div>
                             <div class="answer ">
-                                <select name="date" id="date" class="custom-select"></select>
+                                <select name="date" id="date" class="custom-select">
+                                </select>
                                 <span>尚餘<span class="remaining"></span>個座位</span>
-
                                 <p>中午11點集合，下午四點原港口解散</p>
                             </div>
                             <div class="question">
@@ -59,13 +59,19 @@
 
                             </div>
                             <div class="answer people">
-                                <span class="minus">-</span>
+                                <span class="minus">
+                                    <img src="./images/minus.svg" alt="">
+                                </span>
                                 <input type="number" name="people" id="people" min="1" value="1">
-                                <span class="plus ">+</span>
+                                <span class="plus ">
+                                    <img src="./images/plus.svg" alt="">
+                                </span>
                                 <span>人</span>
                             </div>
-                            <div class="button next">下一步</div>
-
+                            <div class="wrapper">
+                                <div class="button previous"></div>
+                                <div class="button next">下一步</div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-12  col-md-7 align-self-center right">
@@ -188,30 +194,42 @@
                                             <th>數量</th>
                                         </tr>
                                         <tr>
+
                                             <td>A</td>
                                             <td><span class="mealAprice"></span>元</td>
                                             <td>
-                                                <span class="minus">-</span>
+                                                <span class="minus">
+                                                    <img src="./images/minus.svg" alt="">
+                                                </span>
                                                 <input type="number" name="meal" id="mealAamount" min="0" class="meal" value="1">
-                                                <span class="plus">+</span>
+                                                <span class="plus ">
+                                                    <img src="./images/plus.svg" alt="">
+                                                </span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>B</td>
                                             <td><span class="mealBprice"></span>元</td>
                                             <td>
-                                                <span class="minus">-</span>
+                                                <span class="minus">
+                                                    <img src="./images/minus.svg" alt="">
+                                                </span>
                                                 <input type="number" name="meal" id="mealBamount" min="0" class="meal" value="1">
-                                                <span class="plus">+</span>
-                                            </td>
+                                                <span class="plus ">
+                                                    <img src="./images/plus.svg" alt="">
+                                                </span>
                                         </tr>
                                         <tr>
                                             <td>C</td>
                                             <td><span class="mealCprice"></span>元</td>
                                             <td>
-                                                <span class="minus">-</span>
+                                                <span class="minus">
+                                                    <img src="./images/minus.svg" alt="">
+                                                </span>
                                                 <input type="number" name="meal" id="mealCamount" min="0" class="meal" value="1">
-                                                <span class="plus">+</span>
+                                                <span class="plus ">
+                                                    <img src="./images/plus.svg" alt="">
+                                                </span>
                                             </td>
                                         </tr>
                                         <tr>

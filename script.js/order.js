@@ -3,6 +3,13 @@ window.addEventListener('load', function() {
     // 取消視窗滾動header消失的事件
     $(window).unbind();
 
+    // $(window).resize(function() {
+    //     headerh = $('.pu_head_wrap_div').height();
+    //     // alert(headerh);
+    //     $('section .row0').css("height", headerh);
+    //     $('section').css("height", `calc(100vh - ${headerh})`);
+    // });
+
     /////////////////////各頁面切換//////////////////////
 
     let selectdate = document.getElementById("date"); //日期下拉選單
@@ -27,12 +34,13 @@ window.addEventListener('load', function() {
             let i = selectdate.selectedIndex;
             localStorage['routeNo'] = $(`#date option:eq(${i})`).attr("routeNo");
 
-
             // 移動位置
             $('html,body').animate({
                 scrollTop: $('.section2').offset().top
             }, 600);
 
+            // 機器人消失
+            $('.reboot_div').fadeOut();
 
         }
         // 檢查訂位人數是否超過剩餘人數
@@ -65,9 +73,11 @@ window.addEventListener('load', function() {
                 scrollTop: $('.section3').offset().top
             }, 600);
 
+
         }
 
     });
+
 
     // 第二屏按上一步
     $('.section2 .previous').click(function() {
@@ -75,6 +85,9 @@ window.addEventListener('load', function() {
         $('html,body').animate({
             scrollTop: $('.section1').offset().top
         }, 600);
+
+        // 機器人出現
+        $('.reboot_div').fadeIn();
 
     });
 
@@ -84,6 +97,7 @@ window.addEventListener('load', function() {
         $('html,body').animate({
             scrollTop: $('.section2').offset().top
         }, 600);
+
 
     });
 
@@ -881,7 +895,9 @@ window.addEventListener('load', function() {
                         custoarr = JSON.parse(localStorage['custo']);
                         // console.log(custoarr);
                         for (let i = 0; i < custoarr.length; i++) {
-                            $('.custotable').append(`<tr><td class="custo" custono="${custoarr[i].custoNo}" pic="${custoarr[i].custoPic}">${custoarr[i].name}</td><td class="custoPrice">${ custoarr[i].price}</td><td><span class="minus">-</span><input type="number" name="meal" min="0" class="custoAmount meal" value="1"><span class="plus">+</span></td><td><img src="./images/trash.svg" alt="刪除" class="delete"></td></tr>`);
+                            $('.custotable').append(`<tr><td class="custo" custono="${custoarr[i].custoNo}" pic="${custoarr[i].custoPic}">${custoarr[i].name}</td><td class="custoPrice">${ custoarr[i].price}</td><td><span class="minus"><img src="./images/minus.svg" alt="">
+                            </span><input type="number" name="meal" min="0" class="custoAmount meal" value="1"><span class="plus ">
+                            <img src="./images/plus.svg" alt=""></span></td><td><img src="./images/trash.svg" alt="刪除" class="delete"></td></tr>`);
                             $('.custotable tr:last-child input').val(custoarr[i].amount);
 
                         };
@@ -1013,7 +1029,9 @@ window.addEventListener('load', function() {
                 $('.section3 .plus').unbind();
                 $('.section3 .minus').unbind();
 
-                $('.custotable').append(`<tr><td class="custo" custono="${custono}" pic="${custopic}">${name}</td><td class="custoPrice">${price}元</td><td><span class="minus">-</span><input type="number" name="meal" min="0" class="custoAmount meal" value="1"><span class="plus">+</span></td><td><img src="./images/trash.svg" alt="刪除" class="delete"></td></tr>`);
+                $('.custotable').append(`<tr><td class="custo" custono="${custono}" pic="${custopic}">${name}</td><td class="custoPrice">${price}元</td><td> <span class="minus"><img src="./images/minus.svg" alt="">
+            </span><input type="number" name="meal" min="0" class="custoAmount meal" value="1"><span class="plus ">
+            <img src="./images/plus.svg" alt=""></span></td><td><img src="./images/trash.svg" alt="刪除" class="delete"></td></tr>`);
 
             };
 
