@@ -1,13 +1,11 @@
 window.addEventListener('load', function() {
 
     // 取消視窗滾動header消失的事件
-
+    $(window).unbind();
 
     /////////////////////各頁面切換//////////////////////
 
     let selectdate = document.getElementById("date"); //日期下拉選單
-
-    $(window).unbind();
 
     // localStorage.clear();
     // 第一屏按下一步，確認訂位人數
@@ -28,6 +26,7 @@ window.addEventListener('load', function() {
             localStorage['people'] = $('#people').val();
             let i = selectdate.selectedIndex;
             localStorage['routeNo'] = $(`#date option:eq(${i})`).attr("routeNo");
+
 
             // 移動位置
             $('html,body').animate({
@@ -130,8 +129,8 @@ window.addEventListener('load', function() {
                         custo.name = $.trim($(`.custo:eq(${i})`).text());
                         custo.price = $(`.custoPrice:eq(${i})`).text();
                         custo.amount = $(`.custoAmount:eq(${i})`).val();
-                        custo.custoNo = $(`.dishname:eq(${i})`).attr("custono");
-                        custo.custoPic = $(`.custoPic:eq(${i})`).attr("src");
+                        custo.custoNo = $(`.custo:eq(${i})`).attr("custono");
+                        custo.custoPic = $(`.custo:eq(${i})`).attr("pic");
                         custoStorage.push(custo);
 
                     }
@@ -155,13 +154,13 @@ window.addEventListener('load', function() {
     });
 
 
-
     // 套餐、人數，按加改變數字
 
     $('.plus').click(function() {
         let val = parseInt($(this).prev().val());
         $(this).prev().val(val + 1);
         people();
+
     });
 
     // 套餐、人數，按減改變數字
@@ -268,18 +267,23 @@ window.addEventListener('load', function() {
         xhr.onload = function() {
             if (xhr.status == 200) {
                 date = JSON.parse(xhr.responseText);
-                // console.log(date);
+                console.log(date);
 
                 for (let i = 0; i < date.length; i++) {
-                    // 只顯示5個選項
-                    if (i < 5) {
-                        option = new Option(date[i].routeDate, date[i].routeDate)
-                        date[i].routeRemaining = date[i].routeSeat - date[i].routeCount;
-                        selectdate.add(option);
-                        $('#date option:last-child').attr("remaining", date[i].routeRemaining);
-                        $('#date option:last-child').attr("routeNo", date[i].routeNo);
+                    date[i].routeRemaining = date[i].routeSeat - date[i].routeCount;
 
-                    }
+                    // 訂位沒有額滿，顯示選項
+                    if (date[i].routeRemaining > 0) {
+                        // 只顯示5個選項
+                        if (selectdate.options.length < 5) {
+                            option = new Option(date[i].routeDate, date[i].routeDate);
+                            selectdate.add(option);
+                            $('#date option:last-child').attr("remaining", date[i].routeRemaining);
+                            $('#date option:last-child').attr("routeNo", date[i].routeNo);
+
+                        }
+                    };
+
                 }
 
                 // 按燈箱裡的td，會傳參數，改變選項
@@ -309,13 +313,13 @@ window.addEventListener('load', function() {
 
 
             } else {
-                alert(xhr.status);
+                console.log(xhr.status);
             };
         };
 
         let data = {};
         data.port = portnow;
-        data.form = `${firstYear}-${firstMonth}-${today}`;
+        data.from = `${firstYear}-${firstMonth}-${today}`;
 
         data = JSON.stringify(data);
         // console.log(data);
@@ -436,7 +440,7 @@ window.addEventListener('load', function() {
                 first = firstYear + firstMonth;
 
             } else {
-                alert("xhr.status");
+                console.log("xhr.status");
             }
         };
 
@@ -561,7 +565,7 @@ window.addEventListener('load', function() {
 
 
 
-    //月曆上的資料
+    // 月曆上的資料
     // 先顯示所有日期
     // 找出營業日變色
     // 資料庫沒有營業資料的月份不顯示(上個月和下個月的按鈕失效)
@@ -652,36 +656,38 @@ window.addEventListener('load', function() {
                         routenow[i].routeRemaining = routenow[i].routeSeat - routenow[i].routeCount;
                     };
 
-
                     // 找出是營業日的標籤，改變顏色
 
                     if (month < 10) {
                         month = "0" + month;
                     };
                     for (i = 0; i < routenow.length; i++) {
-                        // 判斷日期大於本月
-                        if (routenow[i].oridate > todayDate) {
-                            // 營業時間的年月和目前顯示的年月相同
-                            for (j = 0; j < $('.day').length; j++) {
-                                a = routenow[i].oridate.substr(0, 6); //營業時間的年月
-                                b = year + month; //目前顯示的年月
-                                if (a == b) {
-                                    if ($(`.day:eq(${j})`).text() == routenow[i].routeDay) {
+                        // 訂位沒有額滿，顯示選項
+                        if (routenow[i].routeRemaining > 0) {
+                            // 判斷日期大於本月
+                            if (routenow[i].oridate > todayDate) {
+                                // 營業時間的年月和目前顯示的年月相同
+                                for (j = 0; j < $('.day').length; j++) {
+                                    a = routenow[i].oridate.substr(0, 6); //營業時間的年月
+                                    b = year + month; //目前顯示的年月
+                                    if (a == b) {
+                                        if ($(`.day:eq(${j})`).text() == routenow[i].routeDay) {
 
-                                        if (portnow == "深澳港") {
-                                            $(`.day:eq(${j})`).addClass("on1");
-                                        } else if (portnow == "梧棲港") {
-                                            $(`.day:eq(${j})`).addClass("on2");
-                                        } else {
-                                            $(`.day:eq(${j})`).addClass("on3");
+                                            if (portnow == "深澳港") {
+                                                $(`.day:eq(${j})`).addClass("on1");
+                                            } else if (portnow == "梧棲港") {
+                                                $(`.day:eq(${j})`).addClass("on2");
+                                            } else {
+                                                $(`.day:eq(${j})`).addClass("on3");
+                                            }
+
+                                            $(`.day:eq(${j})`).attr("remaining", routenow[i].routeRemaining);
+
+
                                         }
-
-                                        $(`.day:eq(${j})`).attr("remaining", routenow[i].routeRemaining);
-
-
                                     }
-                                }
-                            };
+                                };
+                            }
 
                         }
                     };
@@ -693,7 +699,7 @@ window.addEventListener('load', function() {
 
 
                 } else {
-                    alert(xhr.status);
+                    console.log(xhr.status);
                 };
 
 
@@ -702,8 +708,7 @@ window.addEventListener('load', function() {
 
             let data = {};
             data.port = portnow;
-            data.form = `${year}-${month}-1`;
-            // data.to = `${year}-${month}-${day}`;
+            data.from = `${year}-${month}-1`;
 
             data = JSON.stringify(data);
             // console.log(data);
@@ -754,7 +759,7 @@ window.addEventListener('load', function() {
                 }
 
             } else {
-                alert(xhr.status);
+                console.log(xhr.status);
             }
 
 
@@ -874,9 +879,9 @@ window.addEventListener('load', function() {
                     if (localStorage['memNo'] == member.memNo && localStorage['custoLength'] != 0) {
                         $('.custotable .nocusto').remove();
                         custoarr = JSON.parse(localStorage['custo']);
-                        console.log(custoarr);
+                        // console.log(custoarr);
                         for (let i = 0; i < custoarr.length; i++) {
-                            $('.custotable').append(`<tr><td class="custo" custono="${custoarr[i].custono}">${custoarr[i].name}</td><td class="custoPrice">${custoarr[i].price}</td><td><span class="minus">-</span><input type="number" name="meal" min="0" class="custoAmount meal" value="1"><span class="plus">+</span></td><td><img src="./images/trash.svg" alt="刪除" class="delete"></td></tr>`);
+                            $('.custotable').append(`<tr><td class="custo" custono="${custoarr[i].custoNo}" pic="${custoarr[i].custoPic}">${custoarr[i].name}</td><td class="custoPrice">${ custoarr[i].price}</td><td><span class="minus">-</span><input type="number" name="meal" min="0" class="custoAmount meal" value="1"><span class="plus">+</span></td><td><img src="./images/trash.svg" alt="刪除" class="delete"></td></tr>`);
                             $('.custotable tr:last-child input').val(custoarr[i].amount);
 
                         };
@@ -890,7 +895,7 @@ window.addEventListener('load', function() {
                     showCusto(0);
                 };
             } else {
-                alert(xhr.status);
+                console.log(xhr.status);
             }
         };
 
@@ -978,6 +983,8 @@ window.addEventListener('load', function() {
             let price = $(this).parent().next().find("span").text();
             // 料理編號
             let custono = $(this).parent().attr('custono');
+            // 料理照片
+            let custopic = $(this).parent().parent().prev().find("img").attr('src');
 
             // 確認是否已加入購物車
             let a = true; //已加入
@@ -989,6 +996,7 @@ window.addEventListener('load', function() {
                     if ($(`.custo:eq(${i})`).attr("custono") == custono) {
                         a = false;
                         alert("已加入購物車");
+
                         break;
                     }
                 }
@@ -1005,7 +1013,7 @@ window.addEventListener('load', function() {
                 $('.section3 .plus').unbind();
                 $('.section3 .minus').unbind();
 
-                $('.custotable').append(`<tr><td class="custo" custono="${custono}">${name}</td><td class="custoPrice">${price}元</td><td><span class="minus">-</span><input type="number" name="meal" min="0" class="custoAmount meal" value="1"><span class="plus">+</span></td><td><img src="./images/trash.svg" alt="刪除" class="delete"></td></tr>`);
+                $('.custotable').append(`<tr><td class="custo" custono="${custono}" pic="${custopic}">${name}</td><td class="custoPrice">${price}元</td><td><span class="minus">-</span><input type="number" name="meal" min="0" class="custoAmount meal" value="1"><span class="plus">+</span></td><td><img src="./images/trash.svg" alt="刪除" class="delete"></td></tr>`);
 
             };
 
