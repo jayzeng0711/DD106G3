@@ -17,7 +17,7 @@ function show(){
                 } else {
                     meatState = "未上架";
                 }
-                $('table').append(`<tr><td>${mealRows[i].mealNo}</td><td>${mealRows[i].mealName}</td><td>${mealRows[i].mealPic}</td><td>${mealRows[i].mealFirst}</td><td>${mealRows[i].mealMain}</td><td>${mealRows[i].mealDishOne}</td><td>${mealRows[i].mealDishTwo}</td><td>${mealRows[i].mealSoup}</td><td>${mealRows[i].mealDrink}</td><td>${mealRows[i].mealPrice}</td><td>${meatState}</td><td><button type="button" class="btn btn-info edit">編輯</button></td></tr>`);
+                $('table').append(`<tr><td>${mealRows[i].mealNo}</td><td>${mealRows[i].mealName}</td><td><img style="width: 50%;" src='images/${mealRows[i].mealPic}'></td><td>${mealRows[i].mealFirst}</td><td>${mealRows[i].mealMain}</td><td>${mealRows[i].mealDishOne}</td><td>${mealRows[i].mealDishTwo}</td><td>${mealRows[i].mealSoup}</td><td>${mealRows[i].mealDrink}</td><td>${mealRows[i].mealPrice}</td><td>${meatState}</td><td><button type="button" class="btn btn-info edit">編輯</button></td></tr>`);
             }
 
         } else {
@@ -40,7 +40,7 @@ $('.addbtn').click(function() {
     $(this).attr('disabled', 'disabled');
 
     // 顯示輸入新增資料的欄位
-    $('tr.title').after('<tr class="insert"><td></td><td><input type="text" name="mealName" id="mealName"></td><td><input type="file" name="mealPic" id="mealPic"></td><td><input type="text" name="mealFirst" id="mealFirst"></td><td><input type="text" name="mealMain" id="mealMain"></td><td><inupt type="text" name="mealDishOne" id="mealDishOne"></td><td><input type="text" name="mealDishTwo" id="mealDishTwo"></td><td><input type="text" name="mealSoup" id="mealSoup"></td><td><input type="text" name="mealDrink" id="mealDrink"></td><td><input type="text" name="mealPrice" id="mealPrice"></td><td><select id="meatState"><option value="0">未上架</option><option value="1">上架</option></select></td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
+    $('tr.title').after('<tr class="insert"><td></td><td><input type="text" name="mealName" id="mealName"></td><td><form id="mealPic" enctype="multipart/form-data" method="post" action="./php/picPreview.php"><input type="file" id="mealPic" class="mealPic" name="mealPic" accept=".jpg,.png,.svg" value="${mealPic}"><lable for="mealPic"><img style="width: 50%;" src=""></lable><button id="preview" type="submit">上傳</button></form></td><td><input type="text" name="mealFirst" id="mealFirst"></td><td><input type="text" name="mealMain" id="mealMain"></td><td><inupt type="text" name="mealDishOne" id="mealDishOne"></td><td><input type="text" name="mealDishTwo" id="mealDishTwo"></td><td><input type="text" name="mealSoup" id="mealSoup"></td><td><input type="text" name="mealDrink" id="mealDrink"></td><td><input type="text" name="mealPrice" id="mealPrice"></td><td><select id="meatState"><option value="0">未上架</option><option value="1">上架</option></select></td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
 
     // 儲存新增
     $('.save').click(function() {
@@ -119,7 +119,7 @@ $(document).on('click', '.edit', function(){
         let mealPic = tr.find('td:eq(2)').text();
         tr.find('td:eq(2)').text("");
         tr.find('td:eq(2)').append(`
-        <input type="file" class="mealPic" name="mealPic" accept=".jpg,.png,.svg" value="${mealPic}"><img id="preview" src="">`);
+        <form id="mealPic" method="post" enctype="multipart/form-data" action="./php/picPreview.php"><input type="file" id="mealPic" class="mealPic" name="mealPic" accept=".jpg,.png,.svg" value="${mealPic}"><lable for="mealPic"><img id="preview" style="width: 50%;" src=""></lable><button id="preview" type="submit">上傳</button></form>`);
 
         //前菜
         let mealFirst = tr.find('td:eq(3)').text();
@@ -241,15 +241,32 @@ $(document).on('click', '.edit', function(){
 });
 
 //存圖片
-$('.mealPic').change(function(){
-    var frm = new FormData();
-    frm.append('mealPic', input.files[0]);
-    $.ajax({
-        method: 'POST',
-        address: './images/',
-        data: frm,
-        contentType: false,
-        processData: false,
-        cache: false
-    });
+window.addEventListener('load', function(){
+    document.getElementById("mealPic").onchange = function(e){
+        let file = e.target.files[0];
+        let reader = new FileReader();
+        RTCRtpSender.onload = function(e){
+            document.getElementById("preview").src = reader.result;
+        }
+        reader.readAsDataURL(file);
+    }
+})
+$(document).ready(function(e){
+    $('#mealPic').on('submit', (function(e){
+        e.preventDefault();
+        $.ajax({
+            url: "./php/picPreview.php",
+            type: "POST",
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            success: function(data){
+                alert("success");
+            },
+            error: function(){
+                alert("fail");
+            }
+        });
+        console.log(new FormData(this));
+    }));
 });
