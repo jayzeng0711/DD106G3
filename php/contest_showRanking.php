@@ -16,14 +16,6 @@ try{
         $custoRKRows[$i]["comments"] = $commentRKRows;
     }
 
-    // 會員資料要跟著評論跑
-    // foreach($custoRKRows as $i => $custoRKRow){
-    //     $sql3 = "select * from `member` where memNo=${custoRKRow["memNo"]}";
-    //     $memberRK = $pdo->query($sql3);
-    //     $memberRKRows = $memberRK->fetchAll(PDO::FETCH_ASSOC);
-    //     $custoRKRows[$i]["members"] = $memberRKRows;
-    // }
-
     echo json_encode($custoRKRows);
 
     
