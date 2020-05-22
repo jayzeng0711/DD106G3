@@ -451,7 +451,11 @@ $(document).ready(function() {
 
 
         // windows
+<<<<<<< HEAD
+         xhr.open('GET',  './php/reboor_item.php',  true);
+=======
         xhr.open('GET',  './php/reboor_item.php',  true);
+>>>>>>> f52a642ecb71ff54156d92d3c41785990610d61d
 
         // Mac
         // xhr.open('GET', 'http://localhost:8080/reboor_item.php');
@@ -484,10 +488,17 @@ $(document).ready(function() {
 
 
         // windows
+<<<<<<< HEAD
+         xhr.open('GET',  './php/getlogininfo.php',  true);
+
+        // Mac
+        //xhr.open('GET', "http://localhost:8888/getlogininfo.php");
+=======
         xhr.open('GET',  './php/getlogininfo.php',  true);
 
         // Mac
         // xhr.open('GET', "http://localhost:8080/getlogininfo.php");
+>>>>>>> f52a642ecb71ff54156d92d3c41785990610d61d
         xhr.send(null);
     }
 //會員登入改變
