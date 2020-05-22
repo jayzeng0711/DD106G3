@@ -195,6 +195,9 @@ body {
                     p {
                         padding: 10px;
                     }
+                    p.no_msg{
+                        text-align: center;
+                    }
                 }
                 .msg_btn {
                     text-align: center;
@@ -451,12 +454,16 @@ body {
                 height: 70px;
                 overflow: scroll;
                 overflow-x: hidden;
+                
                 img {
                     width: 50px;
                     vertical-align: middle;
                 }
                 p {
                     padding: 10px;
+                }
+                p.no_msg{
+                    text-align: center;
                 }
             }
             .msg_btn {
