@@ -8,8 +8,6 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept');
 
     // $user = "root";
     // $password = "root";
-    $user = "root";
-    $password = "root";
     $pdo = new PDO($dsn,$user,$password);
 
    
