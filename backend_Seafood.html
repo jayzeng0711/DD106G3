@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/backend.css">
     <style>
@@ -19,6 +20,9 @@
         .backend_Seafood:hover {
             background-color: steelblue;
         }
+        td img{
+            width: 150px;
+        }
     </style>
 </head>
 
@@ -32,7 +36,7 @@
         <div class="content">
             <button type="button" class="btn btn-info addbtn">新增海鮮</button>
             <table>
-                <tr>
+                <tr class="title">
                     <th>編號</th>
                     <th>名稱</th>
                     <th>海鮮圖片</th>
@@ -40,11 +44,11 @@
                     <th>積分/點數</th>
                     <th>會員等級</th>
                     <th>烹調方式</th>
-                    <th>圖片</th>
+                    <th>海鮮料理圖片</th>
                     <th>海鮮種類上下架狀態</th>
                     <th>編輯</th>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>1</td>
                     <td>章魚</td>
                     <td>
@@ -90,7 +94,7 @@
                     <td>炸</td>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    <td></td> -->
 
                 </tr>
 
@@ -99,10 +103,14 @@
 
         </div>
     </main>
+<<<<<<< HEAD
 
     <script src="./jquery/jquery.min.js"></script>
     <script src="./js/backend_all.js"></script>
 
+=======
+    <script src="./js/backend_Seafood.js"></script>
+>>>>>>> MYSELF
 </body>
 
 </html>
