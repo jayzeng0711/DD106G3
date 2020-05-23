@@ -76,32 +76,77 @@ $(document).ready(function(){
                     <div class="mem_data_input_div">
                         <div class="mem_data_input">
                             <div>
-                                會員信箱: <input style="border: none;" type="email" name="email" id="email" value="${mem_basic_data.memId}">   
+                                會員信箱: <input style="border: none;background-color: transparent;" size="25" type="email" name="email" id="email" value="${mem_basic_data.memId}" readonly>   
                             </div>
                             <div>
-                                會員密碼: <input class="input_cannoy_mod" name="input_cannoy_mod" type="text" value="${mem_basic_data.memPsw}">
+                                會員密碼: <input id="input_cannoy_mod" class="input_cannoy_mod" name="input_cannoy_mod" type="text" value="${mem_basic_data.memPsw}" size="25">
                             </div>
+                            <input id="psw_hidden" type="text" value="${mem_basic_data.memPsw}" hidden>
                             <div>
-                                會員暱稱: <input class="name" type="text" name="name" value="${mem_basic_data.memName}">
+                                會員暱稱: <input class="name" type="text" name="name" value="${mem_basic_data.memName}" size="25">
                             </div>
                         </div>
                         <div class="mem_data_input">
                             <div>
-                                會員等級: <input style="border: none;" class="input_cannoy_mod" type="text" name="" id="" value="${mem_basic_data.levelName}" readonly>
+                                會員等級: <input style="border: none;background-color: transparent;" size="25" class="input_cannoy_mod" type="text" name="" id="" value="${mem_basic_data.levelName}" readonly>
                             </div>
                             <div>
-                                會員積分: <input style="border: none;" class="input_cannoy_mod" type="number" value="${mem_basic_data.memScore}" readonly>
+                                會員積分: <input style="border: none;background-color: transparent;" size="25" class="input_cannoy_mod" type="text" value="${mem_basic_data.memScore}" readonly>
                             </div>
                             <div>
-                                會員點數: <input style="border: none;" class="input_cannoy_mod" type="number" value="${mem_basic_data.memPoints}" readonly>
+                                會員點數: <input style="border: none;background-color: transparent;" size="25" class="input_cannoy_mod" type="text" value="${mem_basic_data.memPoints}" readonly>
                             </div>
                         </div>
                     </div>
                 </form>
                 <button type="button" class="mem_modify_btn">
-                    修改
+                    儲存
                 </button>
                 `)
+                //點下會員密碼欄位觸發燈箱
+                $('#input_cannoy_mod').click(function(){
+                    if(confirm('要修改密碼嗎？')==true){
+                        $('#Login').css('display', 'block');
+                        $('#pu_mem_resist_wrap').css('display', 'none');
+                        $('#pu_mem_login_wrap').css('display', 'none');
+                        $('#pu_mem_forget_wrap').css('display', 'block');
+                        $('#Login_back').css('display', 'block');
+                    }else{
+                        return false;
+                    }
+                })
+                //點下會員密碼欄位觸發燈箱
+                //點下修改密碼
+                $('#modify_signInBtn').click(function(e){
+                    var input_cannoy_mod =$('#input_cannoy_mod').val();
+                    var psw_hidden =$('#psw_hidden').val();
+                    var old_psw = $('#old_psw').val();
+                    var new_psw = $('#new_psw').val();
+                    if(old_psw == "" || new_psw ==""){
+                        alert('請填寫舊密碼與新密碼');
+                        return false;
+                    }
+                    if(old_psw.length<3 || new_psw.length<3){
+                        alert('密碼長度不可小於3位');
+                        return false;
+                    }
+                    if(old_psw.length == new_psw.length){
+                        alert('舊密碼與新密碼相同');
+                        return false;
+                    }
+                    if(psw_hidden != old_psw){
+                        alert('舊密碼不相同，請重新輸入')
+                        return false;
+                    }
+                    $('#input_cannoy_mod').val(new_psw);
+                    $('#Login').css('display', 'none');
+                    $('#pu_mem_forget_wrap').css('display', 'none');
+                    $('#Login_back').css('display', 'none');
+                    $('#old_psw').val("");
+                    $('#new_psw').val("");
+                })
+                //點下修改密碼
+
                 //更改大頭貼
                 $('#file').change(function(e){
                     filename = e.target.files[0].name;
@@ -113,7 +158,7 @@ $(document).ready(function(){
                     fr.readAsDataURL(file);
                 })
             
-                //按下修改 找img 密碼 名稱三個欄位
+                //按下儲存 找img 密碼 名稱三個欄位
                 $('.mem_modify_btn').click(function(){
                     var xhr = new XMLHttpRequest();
                     var imageform = new FormData(document.getElementById("imageform"));
@@ -137,9 +182,81 @@ $(document).ready(function(){
                     console.log(JSON.parse(xhr2.responseText));
                     order_record = JSON.parse(xhr2.responseText);
                     for(i = 0;i<order_record.length;i++){
-                        var time = order_record[i].orderTime;
-                        var time_str = time.split(" ");
-                        $('.order_detail_wrap').append(`<div class="order_history">
+                        if(order_record[i].orderState == 0){
+                            order_record[i].orderState = '已取消';
+                            $('.order_detail_wrap').append(`<div class="order_history">
+                            <div class="order_history_list">
+                                <div>訂單編號</div>
+                            </div>
+                            <div class="order_history_list">
+                                <div>日期</div>
+                            </div>
+                            <div class="order_history_list">
+                                <div>港口</div>
+                            </div>
+                            <div class="order_history_list">
+                                <div>人數</div>
+                            </div>
+                            <div class="order_history_list">
+                                <div>狀態</div>
+                            </div>
+                        </div>
+                            <div class="order_history_test">
+                            <div class="order_history_list test">
+                                <div class="orderno_id" id="orderno_id_${i}">${order_record[i].orderNo[0].orderNo}</div>
+                            </div>
+                            <div class="order_history_list test">
+                                <div>${order_record[i].routeDate}</div>
+                            </div>
+                            <div class="order_history_list test">
+                            <div>${order_record[i].routePort}</div>
+                            </div>
+                            <div class="order_history_list test">
+                                <div>${order_record[i].orderPeople}</div>
+                            </div>
+                            <div class="order_history_list test">
+                                <div>${order_record[i].orderState}</div>
+                            </div>
+                        </div>
+                        <div class="order_history_btn" id="order_history_btn_${i}">
+                            +
+                        </div>
+                        <div class="order_detail_div_wrap" id="order_detail_div_wrap_${i}" style="display: none;">
+                            <div class="order_detail_right_div">
+                                <div class="order_div_wrap_${i}">
+                                    <div class="order_detail_right_div_title">
+                                        <div>套餐名稱</div>
+                                        <div>數量</div>
+                                        <div>單價</div>
+                                        <div>小計</div>
+                                    </div>
+                                </div>
+                                <hr style="width: 100%;">
+                                <div class="order_detail_right_div_custom_wrap" id="order_detail_right_div_custom_wrap_${i}" style="margin-bottom: 2%;">
+                                    <div class="order_detail_right_div_custom">
+                                        <div>客製化料理</div>
+                                        <div>數量</div>
+                                        <div>單價</div>
+                                        <div>小計</div>
+                                    </div>
+                                </div>
+                                <hr style="width: 100%;">
+                                <div class="order_detail_right_div_point_wrap">
+                                    <div class="order_detail_right_div_point">
+                                        <div class="order_detail_right_div_point_text">使用點數</div>
+                                        <div><input value="${order_record[i].orderPoints}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                    </div>
+                                    <div class="order_detail_right_div_point">
+                                        <div class="order_detail_right_div_total">總金額</div>
+                                        <div><input value="${order_record[i].orderTotal}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>`)
+                        }else if(order_record[i].orderState == 1){
+                            order_record[i].orderState = '訂單成立，尚未報到';
+                            $('.order_detail_wrap').append(`<div class="order_history">
                         <div class="order_history_list">
                             <div>訂單編號</div>
                         </div>
@@ -161,16 +278,16 @@ $(document).ready(function(){
                             <div class="orderno_id" id="orderno_id_${i}">${order_record[i].orderNo[0].orderNo}</div>
                         </div>
                         <div class="order_history_list test">
-                            <div>${time_str[0]}</div>
+                            <div id="routedate_${order_record[i].orderNo[0].orderNo}">${order_record[i].routeDate}</div>
                         </div>
                         <div class="order_history_list test">
                         <div>${order_record[i].routePort}</div>
                         </div>
                         <div class="order_history_list test">
-                            <div>${order_record[i].orderCount}</div>
+                            <div>${order_record[i].orderPeople}</div>
                         </div>
                         <div class="order_history_list test">
-                            <div>${order_record[i].orderStatue}</div>
+                            <div>${order_record[i].orderState}</div>
                         </div>
                     </div>
                     <div class="order_history_btn" id="order_history_btn_${i}">
@@ -186,7 +303,8 @@ $(document).ready(function(){
                                     <div>小計</div>
                                 </div>
                             </div>
-                            <div class="order_detail_right_div_custom_wrap" id="order_detail_right_div_custom_wrap_${i}">
+                            <hr style="width: 100%;">
+                            <div class="order_detail_right_div_custom_wrap" id="order_detail_right_div_custom_wrap_${i}" style="margin-bottom: 2%;">
                                 <div class="order_detail_right_div_custom">
                                     <div>客製化料理</div>
                                     <div>數量</div>
@@ -194,14 +312,15 @@ $(document).ready(function(){
                                     <div>小計</div>
                                 </div>
                             </div>
+                            <hr style="width: 100%;">
                             <div class="order_detail_right_div_point_wrap">
                                 <div class="order_detail_right_div_point">
                                     <div class="order_detail_right_div_point_text">使用點數</div>
-                                    <div>${order_record[i].orderPoints}</div>
+                                    <div><input value="${order_record[i].orderPoints}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                 </div>
                                 <div class="order_detail_right_div_point">
                                     <div class="order_detail_right_div_total">總金額</div>
-                                    <div>${order_record[i].orderTotal}</div>
+                                    <div><input value="${order_record[i].orderTotal}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                 </div>
                             </div>
                             <div>
@@ -212,6 +331,79 @@ $(document).ready(function(){
                         </div>
                     </div>
                     <hr>`)
+                        } else if(order_record[i].orderState == 2){
+                            order_record[i].orderState = '訂單成立，報到成功';
+                            $('.order_detail_wrap').append(`<div class="order_history">
+                        <div class="order_history_list">
+                            <div>訂單編號</div>
+                        </div>
+                        <div class="order_history_list">
+                            <div>日期</div>
+                        </div>
+                        <div class="order_history_list">
+                            <div>港口</div>
+                        </div>
+                        <div class="order_history_list">
+                            <div>人數</div>
+                        </div>
+                        <div class="order_history_list">
+                            <div>狀態</div>
+                        </div>
+                    </div>
+                        <div class="order_history_test">
+                        <div class="order_history_list test">
+                            <div class="orderno_id" id="orderno_id_${i}">${order_record[i].orderNo[0].orderNo}</div>
+                        </div>
+                        <div class="order_history_list test">
+                            <div>${order_record[i].routeDate}</div>
+                        </div>
+                        <div class="order_history_list test">
+                        <div>${order_record[i].routePort}</div>
+                        </div>
+                        <div class="order_history_list test">
+                            <div>${order_record[i].orderPeople}</div>
+                        </div>
+                        <div class="order_history_list test">
+                            <div>${order_record[i].orderState}</div>
+                        </div>
+                    </div>
+                    <div class="order_history_btn" id="order_history_btn_${i}">
+                        +
+                    </div>
+                    <div class="order_detail_div_wrap" id="order_detail_div_wrap_${i}" style="display: none;">
+                        <div class="order_detail_right_div">
+                            <div class="order_div_wrap_${i}">
+                                <div class="order_detail_right_div_title">
+                                    <div>套餐名稱</div>
+                                    <div>數量</div>
+                                    <div>單價</div>
+                                    <div>小計</div>
+                                </div>
+                            </div>
+                            <hr style="width: 100%;">
+                            <div class="order_detail_right_div_custom_wrap" id="order_detail_right_div_custom_wrap_${i}" style="margin-bottom: 2%;">
+                                <div class="order_detail_right_div_custom">
+                                    <div>客製化料理</div>
+                                    <div>數量</div>
+                                    <div>單價</div>
+                                    <div>小計</div>
+                                </div>
+                            </div>
+                            <hr style="width: 100%;">
+                            <div class="order_detail_right_div_point_wrap">
+                                <div class="order_detail_right_div_point">
+                                    <div class="order_detail_right_div_point_text">使用點數</div>
+                                    <div><input value="${order_record[i].orderPoints}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                </div>
+                                <div class="order_detail_right_div_point">
+                                    <div class="order_detail_right_div_total">總金額</div>
+                                    <div><input value="${order_record[i].orderTotal}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>`)
+                        }
                     for(j=0;j<order_record[i].orderNo.length;j++){
                         $(`.order_div_wrap_${i}`).append(` 
                         <div class="order_detail_right_div_item">
@@ -227,23 +419,45 @@ $(document).ready(function(){
                     //判斷每個取消訂單按鈕
                     $(`.order_detail_cancel_btn`).click(function(e){
                         if(confirm("確認要取消訂單嗎")==true){
-                            var order_detail_last_num = e.target.id;
-                            order_detail_last_num = order_detail_last_num.substr(order_detail_last_num.length-1,1);
-                            var xhr5 = new XMLHttpRequest();
-                            xhr5.onload = function(){
-                                if(xhr5.status == 200){
-                                    window.location.reload()
+                            var route_last = e.target.id;
+                            route_last = route_last.slice(24);
+                            var roure_date = $(`#routedate_${route_last}`).text();
+                            var cancel_time = new Date();
+                            var year = cancel_time.getFullYear();
+                            var month = cancel_time.getMonth()+1;
+                            var date = cancel_time.getDate();
+                            var today = `${year}-${month}-${date}`;
+                            var DateDiff = function (sDate1, sDate2) {
+                                var oDate1 = new Date(sDate1);
+                                var oDate2 = new Date(sDate2);
+                                var iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24); 
+                                return iDays;
+                              };
+                              
+                              var GetDateDiff1 = DateDiff(today,roure_date);
+                              if(GetDateDiff1 >= 7){
+                                var order_detail_last_num = e.target.id;
+                                order_detail_last_num = order_detail_last_num.slice(24);
+                                var xhr5 = new XMLHttpRequest();
+                                xhr5.onload = function(){
+                                    if(xhr5.status == 200){
+                                        window.location.reload()
+                                    }
                                 }
-                            }
-                            var order_detail ={};
-                            order_detail.num_id = order_detail_last_num;
-                            order_detail_str = JSON.stringify(order_detail);
-                            // windows
-                            xhr5.open('POST',  './php/mem_cancel_order.php',  true);
-    
-                            // Mac
-                            // xhr5.open('POST','http://localhost:8080/mem_cancel_order.php');
-                            xhr5.send(order_detail_str);
+                                var order_detail ={};
+                                order_detail.num_id = order_detail_last_num;
+                                order_detail_str = JSON.stringify(order_detail);
+                                // windows
+                                xhr5.open('POST',  './php/mem_cancel_order.php',  true);
+        
+                                // Mac
+                                // xhr5.open('POST','http://localhost:8080/mem_cancel_order.php');
+                                xhr5.send(order_detail_str);
+                              }else{
+                                  alert('出發前七日內無法取消訂單');
+                                  return false;
+                              }
+                              
                         }else{
                             return false;
                         }
@@ -252,7 +466,7 @@ $(document).ready(function(){
                     //判斷每個展開按鈕
                     $(`.order_history_btn`).click(function(e){
                         var id_num =e.target.id;
-                        id_num = id_num.substr(id_num.length-1,1);
+                        id_num = id_num.slice(18);
                         if($(`#order_detail_div_wrap_${id_num}`).css('display') =="none"){
                             $(`#order_detail_div_wrap_${id_num}`).slideDown();
                             $(`#order_history_btn_${id_num}`).text('-');
@@ -378,6 +592,11 @@ $(document).scroll(function(){
     if (scrolltop[index] > scrolltop[index-1]) {
         if($(window).width() <=576){
             $('.mem_data_left_div').slideUp(500);
+            $(window).resize(function(){
+                if($(window).width() > 576){
+                    $('.mem_data_left_div').slideDown();
+                }
+            })
         }
     }else{
         if($(window).width() <=576){

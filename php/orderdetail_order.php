@@ -7,7 +7,7 @@ try {
 
 
     // 儲存訂單資料
-    $sql = "INSERT INTO `ordermaster` (`orderNo`, `memNo`, `orderTime`, `orderName`, `orderPhone`, `orderEmail`, `orderPrice`, `orderPoints`, `orderTotal`, `orderStatue`, `routeNo`,`orderPeople`) VALUES (NULL, :memNo, :datenow, :orderName, :orderPhone, :orderEmail, :orderPrice, :orderPoints, :orderTotal, '1', :routeNo,:orderPeople)";
+    $sql = "INSERT INTO `ordermaster` (`orderNo`, `memNo`, `orderTime`, `orderName`, `orderPhone`, `orderEmail`, `orderPrice`, `orderPoints`, `orderTotal`, `orderState`, `routeNo`,`orderPeople`) VALUES (NULL, :memNo, :datenow, :orderName, :orderPhone, :orderEmail, :orderPrice, :orderPoints, :orderTotal, '1', :routeNo,:orderPeople)";
 
     $orderNow = json_decode(file_get_contents("php://input"));
     $order = $pdo->prepare($sql);

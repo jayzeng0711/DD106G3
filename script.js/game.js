@@ -32,10 +32,11 @@ $(document).ready(function() {
                             //這邊要把遊戲頁面的資料都依照會員等級放進去
                             Resources = {
                                 pokeball: `./images/${memberLevel.levelSrc}`,
-                                pokeballActive: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballactive.png',
-                                pokeballClosed: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballclosed.png'
+                                pokeballActive: `./images/${memberLevel.levelSrc2}`,
+                                pokeballClosed: `./images/${memberLevel.levelSrc1}`
                             };
-                            $('.fake_ball').css('background-image', `url("./images/${memberLevel.levelSrc}")`);
+                            $('.ball_img_change').attr('src',`./images/${memberLevel.levelSrc}`)
+                            $('.fake_ball,#capture-ball').css('background-image', `url("./images/${memberLevel.levelSrc}")`);
 
                             //設定捕捉機率
                             successRate = memberLevel.levelBallValue * 100;
@@ -59,7 +60,7 @@ $(document).ready(function() {
                                                 <div id="show_seafood_price_${i}" class="show_seafood_price">${seafood_info[i].seafoodPrice}元</div>
                                             </div>
                                             <div class="show_seafood_point">${seafood_info[i].seafoodName} ${seafood_info[i].seafoodPoint}點</div>
-                                        </div>`)
+                                            </div>`)
                                                 } else {
                                                     $('.show_seafood_wrap').append(`<div>
                                             <div class="show_seafood_img_div">
@@ -67,7 +68,7 @@ $(document).ready(function() {
                                                 <div id="show_seafood_price_${i}" class="show_seafood_price">???元</div>
                                             </div>
                                             <div class="show_seafood_point">??? ?點</div>
-                                        </div>`)
+                                            </div>`)
                                                 }
                                             }
                                             break;
@@ -89,7 +90,7 @@ $(document).ready(function() {
                                                 <div id="show_seafood_price_${i}" class="show_seafood_price">???元</div>
                                             </div>
                                             <div class="show_seafood_point">??? ?點</div>
-                                        </div>`)
+                                            </div>`)
                                                 }
                                             }
                                             break;
@@ -102,7 +103,7 @@ $(document).ready(function() {
                                             <div id="show_seafood_price_${i}" class="show_seafood_price">${seafood_info[i].seafoodPrice}元</div>
                                         </div>
                                         <div class="show_seafood_point">${seafood_info[i].seafoodName} ${seafood_info[i].seafoodPoint}點</div>
-                                    </div>`)
+                                        </div>`)
                                             }
                                             break;
                                         default:
@@ -161,35 +162,33 @@ $(document).ready(function() {
 
 //一載入頁面，撈出所有的球種類及機率
 $(document).ready(function() {
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function() {
-            if (xhr.status == 200) {
-                mem_info = JSON.parse(xhr.responseText);
-                for (i = 0; i < mem_info.length; i++) {
-                    $('.ball_cate_div').append(`<div class="singke_ball_div">
-            <div>
-                ${mem_info[i].levelBall}
-            </div>
-            <div class="singke_ball_div_img">
-                <img src="./images/${mem_info[i].levelSrc}" alt="">
-            </div>
-            <div>
-                捕捉率：${mem_info[i].levelBallValue*100}%
-            </div>
-        </div>`)
-                }
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        if (xhr.status == 200) {
+            mem_info = JSON.parse(xhr.responseText);
+            for (i = 0; i < mem_info.length; i++) {
+                $('.ball_cate_div').append(`<div class="singke_ball_div">
+        <div>
+            ${mem_info[i].levelBall}
+        </div>
+        <div class="singke_ball_div_img">
+            <img src="./images/${mem_info[i].levelSrc}" alt="">
+        </div>
+        <div>
+            捕捉率：${mem_info[i].levelBallValue*100}%
+        </div>
+    </div>`)
             }
         }
+    }
+    // windows
+    xhr.open('GET',  './php/getmember_level_info.php');
 
-
-        // windows
-        xhr.open('GET',  './php/getmember_level_info.php');
-
-        // Mac
-        // xhr.open('GET', "http://localhost:8080/getmember_level_info.php");
-        xhr.send(null);
-    })
-    //一載入頁面，撈出所有的球種類及機率
+    // Mac
+    // xhr.open('GET', "http://localhost:8080/getmember_level_info.php");
+    xhr.send(null);
+})
+//一載入頁面，撈出所有的球種類及機率
 
 //一載入頁面，如果沒有登入會員，顯示的海鮮
 $(document).ready(function() {
@@ -197,6 +196,7 @@ $(document).ready(function() {
         xhr.onload = function() {
             if (xhr.status == 200) {
                 seafood_info = JSON.parse(xhr.responseText);
+                console.log(seafood_info)
                 for (i = 0; i < seafood_info.length; i++) {
                     if (seafood_info[i].seafoodLevel == 1) {
                         $('.show_seafood_wrap').append(`<div>
@@ -218,9 +218,10 @@ $(document).ready(function() {
                 }
                 Resources = {
                     pokeball: './images/Group%2071.png',
-                    pokeballActive: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballactive.png',
-                    pokeballClosed: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballclosed.png'
+                    pokeballActive: './images/one_open_ball.png',
+                    pokeballClosed: './images/one_ball.png'
                 };
+                $('.fake_ball').css('background-image', `url("./images/Group%2071.png")`);
                 successRate = 50;
                 //魚的價格hover
                 $('.show_seafood_img_div').hover(function(e) {
@@ -235,9 +236,6 @@ $(document).ready(function() {
                     //魚的價格hover
             }
         }
-
-
-
         // windows
         xhr.open('GET',  './php/seafood_info.php');
 
@@ -306,8 +304,10 @@ $(document).ready(function() {
             if (time <= 0) {
                 if (score == 0) {
                     $('#asd_fail').css('display', 'block');
+                    $('.screen_back').css('display', 'block');
                 } else {
                     $('#asd').css('display', 'block');
+                    $('.screen_back').css('display', 'block');
                 }
                 seafood_animate.pause();
                 clearInterval(clear);
@@ -328,7 +328,7 @@ $(document).ready(function() {
         };
 
         // 丟球的力量，決定球被丟多遠
-        var MAX_VELOCITY = Screen.height * 0.003;
+        var MAX_VELOCITY = Screen.height * 0.005;
         // var MAX_VELOCITY = Screen.height * 0.01;
 
         var Ball = {
@@ -406,7 +406,7 @@ $(document).ready(function() {
         // 使用方式 https://zingchart.github.io/zingtouch/   https://www.noupe.com/development/zingtouch-extensive-gesture-recognition-98540.html
 
         //第一步：先找出需要作動的區塊，touch-layer是指整個瀏覽器畫面
-        var touchElement = document.getElementById('touch-layer');
+        touchElement = document.getElementById('touch-layer');
 
         //第二步：new ZingTouch.Region(需要作動的區塊)，會監聽下面六種行為
         var touchRegion = new ZingTouch.Region(touchElement);
@@ -520,8 +520,10 @@ $(document).ready(function() {
                         if (ball_num <= 1) {
                             if (score == 0) {
                                 $('#asd_fail').css('display', 'block');
+                                $('.screen_back').css('display', 'block');
                             } else {
                                 $('#asd').css('display', 'block');
+                                $('.screen_back').css('display', 'block');
                             }
                             seafood_animate.pause();
                             clearInterval(clear);
@@ -567,7 +569,6 @@ $(document).ready(function() {
 
 
             //決定球是否有碰到目標
-            //radius為什麼會變動
             var radius = document.getElementById('target').getBoundingClientRect().width / 2;
 
             //球碰到了海鮮
@@ -580,11 +581,11 @@ $(document).ready(function() {
                 var ballOrientation = (ballCoords.x < targetCoords.x) ? -1 : 1;
                 anime({
                     targets: ['#ball'],
-                    translateY: {
-                        value: -1.15 * radius,
-                        duration: 200,
-                        easing: 'linear'
-                    },
+                    // translateY: {
+                    //     value: -1.15 * radius,
+                    //     duration: 200,
+                    //     easing: 'linear'
+                    // },
                     translateX: {
                         value: 1.15 * radius * ballOrientation,
                         duration: 200,
@@ -608,8 +609,10 @@ $(document).ready(function() {
                 if (ball_num <= 1) {
                     if (score == 0) {
                         $('#asd_fail').css('display', 'block');
+                        $('.screen_back').css('display', 'block');
                     } else {
                         $('#asd').css('display', 'block');
+                        $('.screen_back').css('display', 'block');
                     }
                     seafood_animate.pause();
                     clearInterval(clear);
@@ -926,8 +929,10 @@ $(document).ready(function() {
                                 if (ball_num <= 0) {
                                     if (score == 0) {
                                         $('#asd_fail').css('display', 'block');
+                                        $('.screen_back').css('display', 'block');
                                     } else {
                                         $('#asd').css('display', 'block');
+                                        $('.screen_back').css('display', 'block');
                                     }
                                     seafood_animate.pause();
                                     clearInterval(clear);
@@ -999,8 +1004,10 @@ $(document).ready(function() {
                             if (ball_num <= 0) {
                                 if (score == 0) {
                                     $('#asd_fail').css('display', 'block');
+                                    $('.screen_back').css('display', 'block');
                                 } else {
                                     $('#asd').css('display', 'block');
+                                    $('.screen_back').css('display', 'block');
                                 }
                                 seafood_animate.pause();
                                 clearInterval(clear);
@@ -1076,7 +1083,8 @@ $(document).ready(function() {
                 //每次重置球的時候，球數減少
             ball_num--;
             $(`.ball_num_img_div_${ball_num+1}`).remove();
-            if (ball_num < 0) {
+            if (ball_num <= 0) {
+                $('#fake_ball,#ball').hide();
                 $('#ball_num').html(0);
             } else {
                 $('#ball_num').html(ball_num);
@@ -1111,9 +1119,10 @@ function update_mem_info() {
                             alert(`恭喜升等為${memlevel_score.levelName}會員`);
                             Resources = {
                                 pokeball: `./images/${memlevel_score.levelSrc}`,
-                                pokeballActive: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballactive.png',
-                                pokeballClosed: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballclosed.png'
+                                pokeballActive: `./images/${memlevel_score.levelSrc2}`,
+                                pokeballClosed: `./images/${memlevel_score.levelSrc1}`
                             };
+                            $('.ball_img_change').attr('src',`./images/${memlevel_score.levelSrc}`)
                             $('.fake_ball').css('background-image', `url("./images/${memlevel_score.levelSrc}")`);
                             //設定捕捉機率
                             successRate = memlevel_score.levelBallValue * 100;
@@ -1144,9 +1153,10 @@ function update_mem_info() {
                             alert(`恭喜升等為${memlevel_score.levelName}會員`);
                             Resources = {
                                 pokeball: `./images/${memlevel_score.levelSrc}`,
-                                pokeballActive: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballactive.png',
-                                pokeballClosed: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/374756/pkmngo-pokeballclosed.png'
+                                pokeballActive: `./images/${memlevel_score.levelSrc2}`,
+                                pokeballClosed: `./images/${memlevel_score.levelSrc1}`
                             };
+                            $('.ball_img_change').attr('src',`./images/${memlevel_score.levelSrc}`)
                             $('.fake_ball').css('background-image', `url("./images/${memlevel_score.levelSrc}")`);
 
                             //設定捕捉機率

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    show();
+    show_message();
 })
 
 //新增關鍵字
@@ -45,7 +45,7 @@ $('.addbtn').click(function(){
 //新增關鍵字
 
 
-function show(){
+function show_message(){
     $(`table tr`).not("tr.title").not("tr.insert").remove();
     $('tr.insert').remove();
     var xhr = new XMLHttpRequest();
@@ -66,7 +66,7 @@ function show(){
                 </td>
                 <td>
                     <div>
-                        <button class="update btn btn-info edit" id="update_${message_row[i].messageNo}">編輯</button>
+                        <button class="update btn btn-info edit" id="update_${message_row[i].messageNo}">儲存</button>
                     </div>
                 </td>
             </tr>`)
@@ -76,7 +76,7 @@ function show(){
             //再把所有編輯註冊事件
             $('.update').click(function(e){
                 var num_id = e.target.id;
-                var num = num_id.substr(num_id.length-1,1);
+                var num = num_id.slice(7);
                 update(num);
             })
             //再把所有編輯註冊事件

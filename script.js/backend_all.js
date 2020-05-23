@@ -15,7 +15,7 @@ $(document).ready(function(){
     }
     // windows
      xhr.open('GET',  './php/backend_getlogin_info.php',  true);
-
+// 
     // Mac
     // xhr.open('GET','http://localhost:8080/backend_getlogin_info.php');
     xhr.send(null);

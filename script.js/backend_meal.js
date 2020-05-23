@@ -39,7 +39,7 @@ window.addEventListener('load', function(){
             // windows
             xhr.open('post',  './php/backend_Route_insert.php',  true);
             // Mac
-            // xhr.open('POST', 'http://localhost:8888/backend_Route_insert.php', true);
+            // xhr.open('POST', 'http://localhost:8080/backend_Route_insert.php', true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
 
@@ -168,7 +168,7 @@ window.addEventListener('load', function(){
                 // windows
                 xhr.open('post',  './php/backend_Meal_edit.php',  true);
                 // Mac
-                // xhr.open('POST', 'http://localhost:8888/backend_Meal_edit.php', true);
+                // xhr.open('POST', 'http://localhost:8080/backend_Meal_edit.php', true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     
                 let editMeal = {};
