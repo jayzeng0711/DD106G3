@@ -47,7 +47,7 @@
                 </h3>
                 <section class="choose-fish">
                     <div class="fish-select-wrap">
-                        <div class="note selected-fish">
+                        <!-- <div class="note selected-fish">
                             <div class="note-content">
                                 <span>章魚</span>
                                 <span>價格：NT$800元</span>
@@ -92,7 +92,7 @@
                             <div class="fish-pic">
                                 <img src="./images/seafood4.svg" alt="flounder">
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                     <button id="fishL">←</button>
@@ -699,6 +699,21 @@
                 }
             });
         });
+    </script>
+    <script>
+        var session = localStorage;
+        for(i=0;i<session.length;i++){
+            var aaa = session.getItem(i);
+            $('.fish-select-wrap').append(`<div class="note">
+                            <div class="note-content">
+                                <span>胭脂蝦</span>
+                                <span>價格：NT$800元</span>
+                            </div>
+                            <div class="fish-pic">
+                                <img src="${aaa}" alt="shrimp">
+                            </div>
+                        </div>`)
+        }
     </script>
     <script>
         //配料slider
