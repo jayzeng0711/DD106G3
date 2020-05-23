@@ -459,8 +459,9 @@ window.addEventListener('load', function () {
                     tr.find('td:eq(6)').text("");
                     tr.find('td:eq(6)').append("<select class='cookChange' name='cookChange'></select>");
                     for (let a = 0; a < cookLength; a++) {
-                        let now = `${cookRows[a].cookName}`;
-                        $(".cookChange").append(`<option value="${cookRows[a].cookNo}">${cookRows[a].cookName}</option>`);
+                        if(`${cookRows[a].cookState}` == 1){
+                            $(".cookChange").append(`<option value="${cookRows[a].cookNo}">${cookRows[a].cookName}</option>`);
+                        }
                     }
                 } else {
                     alert(xhr2.status);
@@ -475,7 +476,7 @@ window.addEventListener('load', function () {
             // 海鮮圖片
             let seafoodPic = tr.find('td:eq(2)').children().attr('src');
             tr.find('td:eq(2)').text("");
-            tr.find('td:eq(2)').append(`<form id="uploadSf"><div class="changeSeafood"><div class="seafoodNow">更新前圖片：<img src="${seafoodPic}"><button class="chNewSf">換一張新圖片</button></div>   <div class="forNewSf" style="display:none;"><label for="newSf"><img id="newSfPreview"></label><div id="uploadNewSf"><input type="file" name="newSf" id="newSf"><input type="submit" value="上傳新海鮮"></div></div></div></form>`);
+            tr.find('td:eq(2)').append(`<form id="uploadSf"><div class="changeSeafood"><div class="seafoodNow">更新前圖片：<img src="${seafoodPic}"><button class="chNewSf">換一張新圖片</button></div>   <div class="forNewSf" style="display:none;"><label for="newSfIn"><img id="newSfPreview"></label><div id="uploadNewSf"><input type="file" name="newSfIn" id="newSfIn"><input type="submit" value="上傳新海鮮圖"></div></div></div></form>`);
 
             $(".chNewSf").click(function () {
                 $(".seafoodNow").remove();
@@ -485,7 +486,7 @@ window.addEventListener('load', function () {
             $("#uploadSf").on('submit', (function (e) {
                 e.preventDefault();
                 $.ajax({
-                    url: "./php/uploadSf.php",
+                    url: "./php/uploadSfIn.php",
                     type: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -529,7 +530,7 @@ window.addEventListener('load', function () {
             // 海鮮料理圖
             let seafoodCookPic = tr.find('td:eq(7)').children().attr('src');
             tr.find('td:eq(7)').text("");
-            tr.find('td:eq(7)').append(`<form id="uploadCookPic"><div class="chCook"><div class="cookPicNow">更新前圖片：<img class="cookNow" src="${seafoodCookPic}"><button class="chNewCook">換一張新圖片</button></div><div class="toNewCook" style="display:none;"><label for="newCook"><img id="newCookPre"></label><div id="uploadNewCook"><input type="file" name="newCook" id="newCook"><input type="submit" value="上傳新海鮮"></div></div></div></form>`);
+            tr.find('td:eq(7)').append(`<form id="uploadCookPic"><div class="chCook"><div class="cookPicNow">更新前圖片：<img class="cookNow" src="${seafoodCookPic}"><button class="chNewCook">換一張新圖片</button></div><div class="toNewCook" style="display:none;"><label for="newC"><img id="newCookPre"></label><div id="uploadNewCook"><input type="file" name="newC" id="newC"><input type="submit" value="上傳新海鮮"></div></div></div></form>`);
 
             $(".chNewCook").click(function () {
                 $(".cookPicNow").remove();
@@ -539,7 +540,7 @@ window.addEventListener('load', function () {
             $("#uploadCookPic").on('submit', (function (e) {
                 e.preventDefault();
                 $.ajax({
-                    url: "./php/uploadNewCook.php",
+                    url: "./php/uploadNewC.php",
                     type: "POST",
                     data: new FormData(this),
                     contentType: false,
@@ -583,7 +584,7 @@ window.addEventListener('load', function () {
 
             //選擇換新海鮮圖
             $(".chNewSf").click(function () {
-                document.getElementById("newSf").onchange = function (e) {
+                document.getElementById("newSfIn").onchange = function (e) {
                     let fish = e.target.files[0];
                     let reader = new FileReader();
                     reader.onload = function (e) {
@@ -591,7 +592,7 @@ window.addEventListener('load', function () {
                     }
                     reader.readAsDataURL(fish);
                     //也換新烹調圖
-                    document.getElementById("newCook").onchange = function (e) {
+                    document.getElementById("newC").onchange = function (e) {
                         let file = e.target.files[0];
                         let read = new FileReader();
                         read.onload = function (e) {
@@ -681,7 +682,7 @@ window.addEventListener('load', function () {
             });
 
             //從後方先更新烹調圖片
-            document.getElementById("newCook").onchange = function (e) {
+            document.getElementById("newC").onchange = function (e) {
                 let file = e.target.files[0];
                 let read = new FileReader();
                 read.onload = function (e) {
@@ -690,7 +691,7 @@ window.addEventListener('load', function () {
                 read.readAsDataURL(file);
                 //也換了海鮮圖
                 $(".chNewSf").click(function () {
-                    document.getElementById("newSf").onchange = function (e) {
+                    document.getElementById("newSfIn").onchange = function (e) {
                         let fish = e.target.files[0];
                         let reader = new FileReader();
                         reader.onload = function (e) {
