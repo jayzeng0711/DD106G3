@@ -47,7 +47,7 @@
                 </h3>
                 <section class="choose-fish">
                     <div class="fish-select-wrap">
-                        <div class="note selected-fish">
+                        <!-- <div class="note selected-fish">
                             <div class="note-content">
                                 <span>章魚</span>
                                 <span>價格：NT$800元</span>
@@ -92,7 +92,7 @@
                             <div class="fish-pic">
                                 <img src="./images/seafood4.svg" alt="flounder">
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                     <button id="fishL">←</button>
@@ -312,7 +312,7 @@
                             <h3>STEP 3： 選擇想要配料，依喜好擺成自己喜歡的樣子<br>最多選三樣<span class="reset"></span></h3>
                             <div class="choose-ingredient">
                                 <ul class="ingre-wrap">
-                                    <li class="ingret">
+                                    <!-- <li class="ingret">
                                         <figure>
                                             <figcaption>
                                                 <p>奶油</p>
@@ -359,7 +359,7 @@
                                             </figcaption>
                                             <img src="./images/lemon.png" alt="">
                                         </figure>
-                                    </li>
+                                    </li> -->
                                 </ul>
                                 <div class="left-right">
                                     <div id="arrowL">←</div>
@@ -417,6 +417,7 @@
 
     <script src="./jquery/jquery.min.js"></script>
     <script src="./jquery/jquery-ui.min.js"></script>
+    <script src="./js/customized_cuisine.js"></script>
     <script>
         // 點擊配料圖片
         $(".ingret").click(function() {
@@ -699,6 +700,21 @@
                 }
             });
         });
+    </script>
+    <script>
+        var session = localStorage;
+        for(i=0;i<session.length;i++){
+            var aaa = session.getItem(i);
+            $('.fish-select-wrap').append(`<div class="note">
+                            <div class="note-content">
+                                <span>胭脂蝦</span>
+                                <span>價格：NT$800元</span>
+                            </div>
+                            <div class="fish-pic">
+                                <img src="${aaa}" alt="shrimp">
+                            </div>
+                        </div>`)
+        }
     </script>
     <script>
         //配料slider
