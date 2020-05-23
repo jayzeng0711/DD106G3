@@ -466,8 +466,17 @@ $(document).ready(function() {
     }
 
 
+<<<<<<< HEAD
     // windows
     xhr.open('GET',  './php/reboor_item.php',  true);
+=======
+        // windows
+<<<<<<< HEAD
+         xhr.open('GET',  './php/reboor_item.php',  true);
+=======
+        xhr.open('GET',  './php/reboor_item.php',  true);
+>>>>>>> f52a642ecb71ff54156d92d3c41785990610d61d
+>>>>>>> 3ebf19d5a7af1db0100abfc7830d86c5c20c38d3
 
     // Mac
     // xhr.open('GET', 'http://localhost:8080/reboor_item.php');
@@ -500,6 +509,7 @@ function login_change(){
     }
 
 
+<<<<<<< HEAD
     // windows
     xhr.open('GET',  './php/getlogininfo.php',  true);
 
@@ -507,6 +517,22 @@ function login_change(){
     // xhr.open('GET', "http://localhost:8080/getlogininfo.php");
     xhr.send(null);
 }
+=======
+        // windows
+<<<<<<< HEAD
+         xhr.open('GET',  './php/getlogininfo.php',  true);
+
+        // Mac
+        //xhr.open('GET', "http://localhost:8888/getlogininfo.php");
+=======
+        xhr.open('GET',  './php/getlogininfo.php',  true);
+
+        // Mac
+        // xhr.open('GET', "http://localhost:8080/getlogininfo.php");
+>>>>>>> f52a642ecb71ff54156d92d3c41785990610d61d
+        xhr.send(null);
+    }
+>>>>>>> 3ebf19d5a7af1db0100abfc7830d86c5c20c38d3
 //會員登入改變
 
 // init controller

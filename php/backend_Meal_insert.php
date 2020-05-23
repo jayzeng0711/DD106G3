@@ -4,22 +4,22 @@ $errMsg = "";
 
 try{
     require_once("connectdd106g3.php");
-    $sql = "INSERT INTO `meal` (`mealNo`, `mealName`, `mealPic`, `mealFirst`, `mealMain`, `mealDishOne`, `mealDishTwo`, `mealsoup`, `mealDrink`, `mealPrice`, `meatstate`)";
+    $sql = "INSERT INTO `meal` (`mealNo`, `mealName`, `mealPic`, `mealFirst`, `mealMain`, `mealDishOne`, `mealDishTwo`, `mealSoup`, `mealDrink`, `mealPrice`, `meatState`)";
 
     $theMeal = json_decode(file_get_contents("php://input"));
 
     $newMeal = $pdo->prepare($sql);
-    $newMeal->bindValue(':mealNo', $mealRows->mealNo);
-    $editmeal->bindValue(':mealName', $mealRows->mealName);
-    $editmeal->bindValue(':mealPic', $mealRows->mealPic);
-    $editmeal->bindValue(':mealFirst', $mealRows->mealFirst);
-    $editmeal->bindValue(':mealMain', $mealRows->mealMain);
-    $editmeal->bindValue(':mealDishOne', $mealRows->mealDishOne);
-    $editmeal->bindValue(':mealDishTwo', $mealRows->mealDishTwo);
-    $editmeal->bindValue(':mealSoup', $mealRows->mealSoup);
-    $editmeal->bindValue(':mealDrink', $mealRows->mealDrink);
-    $editmeal->bindValue(':meatState', $mealRows->meatState);
-    $editmeal->execute();
+    $newMeal->bindValue(':mealName', $theMeal->mealName);
+    $newMeal->bindValue(':mealPic', $theMeal->mealPic);
+    $newMeal->bindValue(':mealFirst', $theMeal->mealFirst);
+    $newMeal->bindValue(':mealMain', $theMeal->mealMain);
+    $newMeal->bindValue(':mealDishOne', $theMeal->mealDishOne);
+    $newMeal->bindValue(':mealDishTwo', $theMeal->mealDishTwo);
+    $newMeal->bindValue(':mealSoup', $theMeal->mealSoup);
+    $newMeal->bindValue(':mealDrink', $theMeal->mealDrink);
+    $newMeal->bindValue(':mealPrice', $theMeal->mealPrice);
+    $newMeal->bindValue(':meatState', $theMeal->meatState);
+    $newMeal->execute();
 
 }catch (PDOException $e) {
     

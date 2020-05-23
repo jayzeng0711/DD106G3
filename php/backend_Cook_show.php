@@ -1,13 +1,14 @@
-<?php   
+<?php
+
 $errMsg = "";
 
 try {
     require_once("connectdd106g3.php");
-    $sql="select * from `meal`";
-    $meal = $pdo->query($sql);
-    $mealRows= $meal->fetchAll(PDO::FETCH_ASSOC);
-    
-    echo json_encode($mealRows);
+
+    $sql = "select * from `cook`";
+    $cook = $pdo->query($sql);
+    $cookRows = $cook->fetchAll(PDO::FETCH_ASSOC);    
+    echo json_encode($cookRows);
 
 } catch (PDOException $e) {
 
@@ -15,5 +16,5 @@ try {
     $errMsg .= "錯誤行號" . $e->getMessage();
     echo $errMsg;
 }
+
 ?>
-   

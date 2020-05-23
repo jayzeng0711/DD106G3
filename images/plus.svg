@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="86" height="86" viewBox="0 0 86 86">
+  <g id="Group_7" data-name="Group 7" transform="translate(-32 -295)">
+    <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M59.938,27.609H39.191V6.861A4.611,4.611,0,0,0,34.58,2.25H29.969a4.611,4.611,0,0,0-4.611,4.611V27.609H4.611A4.611,4.611,0,0,0,0,32.219V36.83a4.611,4.611,0,0,0,4.611,4.611H25.359V62.188A4.611,4.611,0,0,0,29.969,66.8H34.58a4.611,4.611,0,0,0,4.611-4.611V41.441H59.938a4.611,4.611,0,0,0,4.611-4.611V32.219A4.611,4.611,0,0,0,59.938,27.609Z" transform="translate(43 303.75)" fill="#fff"/>
+    <g id="Group_6" data-name="Group 6">
+      <rect id="Rectangle_3" data-name="Rectangle 3" width="86" height="86" transform="translate(32 295)" fill="none"/>
+      <path id="Icon_awesome-minus" data-name="Icon awesome-minus" d="M59.938,14.625H4.611A4.611,4.611,0,0,0,0,19.236v4.611a4.611,4.611,0,0,0,4.611,4.611H59.938a4.611,4.611,0,0,0,4.611-4.611V19.236A4.611,4.611,0,0,0,59.938,14.625Z" transform="translate(43 316.375)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
