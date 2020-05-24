@@ -4,7 +4,7 @@
     //                                     JOIN `meallist` ON ordermaster.orderNo = meallist.orderNo
     //                                     JOIN `custolist` ON ordermaster.orderNo = custolist.orderNo
     //                                     JOIN `custo` ON custolist.custoNo = custo.custoNo where memNo = 1";
-    $sql = "select * from `ordermaster` JOIN `route` ON ordermaster.routeNo  = route.routeNo where memNo = :memNo AND `orderStatue` = 1";
+    $sql = "select * from `ordermaster` JOIN `route` ON ordermaster.routeNo  = route.routeNo where memNo = :memNo order by orderState desc";
     $member_data = $pdo->prepare($sql);
     // session_id(SID);
     session_start();

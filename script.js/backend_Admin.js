@@ -1,10 +1,20 @@
+$(document).ready(function(){
+    show();
+})
 //新增管理員
 $('.addbtn').click(function(){
     // 停用新增按鈕
     $(this).attr('disabled', 'disabled');
 
+    adminAuthority = $('#adminAuthority').val();
+    if(adminAuthority == 0){
+        adminAuthority = "一般";
+    } else {
+        adminAuthority = "最高";
+    }
+
     // 顯示輸入新增資料的欄位
-    $('tr.title').after('<tr class="insert"><td></td><td><input class="msg_text" type="text"></td><td><input class="msg_textque" type="text"></td><td><input class="msg_textleng" type="text"></td><td><input class="msg_text_sta" style="text-align: center" type="text" value="1"></td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
+    $('tr.title').after('<tr class="insert"><td></td><td><input class="msg_text" type="text"></td><td><input class="msg_textque" type="text"></td><td><input class="msg_textleng" type="text"></td><td><select id="adminAuthority" class="msg_text_sta"><option value="0">一般</option><option value="1">最高</option></select></td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
 
     // 按下儲存
     $('.save').click(function(){
@@ -31,6 +41,7 @@ $('.addbtn').click(function(){
        // Mac
         // xhr.open('POST','http://localhost:8080/backend_admin_insert.php');
         xhr.send(message_content_str);
+        $('.addbtn').removeAttr('disabled');
     })
     // 取消新增
     $('.cancel').click(function() {
@@ -44,21 +55,30 @@ $('.addbtn').click(function(){
 function show(){
     $(`table tr`).not("tr.title").not("tr.insert").remove();
     $('tr.insert').remove();
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.onload = function(){
         if(xhr.status == 200){
-            var message_row = JSON.parse(xhr.responseText);
+            let message_row = JSON.parse(xhr.responseText);
             console.log(message_row)
+            let trlength = message_row.length;
+
+            adminAuthority = $('.adminAuthority').val();
+            if(adminAuthority == 0){
+                adminAuthority = "一般";
+            } else {
+                adminAuthority = "最高";
+            }
             
             //先從資料庫把所有欄位撈出
-            for(i=0;i<message_row.length;i++){
+            for(let i=0;i<trlength;i++){
+                
                 $("table").append(`<tr>
                 <td id="message_num_${message_row[i].adminNo}">${message_row[i].adminNo}</td>
                 <td id="message_text_${message_row[i].adminNo}">${message_row[i].adminId}</td>
                 <td id="message_quest_${message_row[i].adminNo}">${message_row[i].adminPsw}</td>
                 <td id="message_input_${message_row[i].adminNo}">${message_row[i].adminName}</td>
                 <td id="message_status_${message_row[i].adminNo}">
-                    <div><input id="message_auth_${message_row[i].adminNo}"  type="text" value="${message_row[i].adminAuthority}" size="10" style="text-align: center;"></div>
+                    <div><select id="message_auth_${message_row[i].adminNo}"><option class="adminAuthority" value="0">一般</option><option class="adminAuthority" value="1">最高</option></select></div>
                 </td>
                 <td>
                     <div>
@@ -72,7 +92,8 @@ function show(){
             //再把所有編輯註冊事件
             $('.update').click(function(e){
                 var num_id = e.target.id;
-                var num = num_id.substr(num_id.length-1,1);
+                var num = num_id.slice(7);
+                alert(num)
                 update(num);
             })
             //再把所有編輯註冊事件

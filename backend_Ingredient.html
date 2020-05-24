@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/backend.css">
+    <script src="./jquery/jquery.min.js"></script>
     <style>
         .backend_Ingredient {
             background-color: steelblue;
@@ -18,6 +19,10 @@
         
         .backend_Ingredient:hover {
             background-color: steelblue;
+        }
+        td img{
+            width: 100px;
+            /* height: 50px; */
         }
     </style>
 </head>
@@ -32,68 +37,25 @@
         <div class="content">
             <button type="button" class="btn btn-info addbtn">新增配料</button>
             <table>
-                <tr>
+                <tr class="title">
                     <th>編號</th>
                     <th>名稱</th>
                     <th>圖片</th>
+                    <th>選擇用配料圖</th>
                     <th>配料上下架狀態</th>
                     <th>編輯</th>
-
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>A餐</td>
-                    <td>
-                        <div>img</div>
-                    </td>
-                    <td class="yesNo">
-                        <div></div>
-                    </td>
-                    <td>
-                        <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                    </td>
-
-
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>B餐</td>
-                    <td>
-                        <div>img</div>
-                    </td>
-                    <td class="yesNo">
-                        <div></div>
-                    </td>
-                    <td>
-                        <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                    </td>
-
-
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>C餐</td>
-                    <td>
-                        <div>img</div>
-                    </td>
-                    <td class="yesNo">
-                        <div></div>
-                    </td>
-                    <td>
-                        <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                    </td>
-
-
                 </tr>
             </table>
-
-
         </div>
     </main>
+<<<<<<< HEAD
 
     <script src="./jquery/jquery.min.js"></script>
     <script src="./js/backend_all.js"></script>
 
+=======
+    <script src="./js/backend_Ingredient.js"></script>
+>>>>>>> MYSELF
 </body>
 
 </html>

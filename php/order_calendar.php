@@ -10,7 +10,7 @@ try {
    $routeNow = json_decode(file_get_contents("php://input"));
    $routes = $pdo->prepare($sql);
    $routes->bindValue(":port",$routeNow->port);
-   $routes->bindValue(":from",$routeNow->form);
+   $routes->bindValue(":from",$routeNow->from);
    $routes->execute();
    $routeRow = $routes->fetchAll(PDO::FETCH_ASSOC);
 

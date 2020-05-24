@@ -18,6 +18,7 @@ try{
     $editmeal->bindValue(':mealDishTwo', $mealRows->mealDishTwo);
     $editmeal->bindValue(':mealSoup', $mealRows->mealSoup);
     $editmeal->bindValue(':mealDrink', $mealRows->mealDrink);
+    $editmeal->bindValue(':mealPrice', $mealRows->mealPrice);
     $editmeal->bindValue(':meatState', $mealRows->meatState);
     $editmeal->execute();
 

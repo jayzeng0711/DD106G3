@@ -195,6 +195,9 @@ body {
                     p {
                         padding: 10px;
                     }
+                    p.no_msg{
+                        text-align: center;
+                    }
                 }
                 .msg_btn {
                     text-align: center;
@@ -451,12 +454,16 @@ body {
                 height: 70px;
                 overflow: scroll;
                 overflow-x: hidden;
+                
                 img {
                     width: 50px;
                     vertical-align: middle;
                 }
                 p {
                     padding: 10px;
+                }
+                p.no_msg{
+                    text-align: center;
                 }
             }
             .msg_btn {
@@ -596,7 +603,14 @@ body {
                         width: 20%;
                         // border: 1px solid rgb(255, 251, 0);
                         text-align: right;
-                        .report_btn {
+                        .RK_report_btn {
+                            @extend %btn_ano;
+                            font-family: $fontFamily;
+                            color: rgb(65, 56, 56);
+                            padding: 10px;
+                            background-color: rgb(207, 203, 196);
+                        }
+                        .List_report_btn {
                             @extend %btn_ano;
                             font-family: $fontFamily;
                             color: rgb(65, 56, 56);

@@ -49,6 +49,7 @@ h4{
 
 //button
 %btn{
+    font-family: $fontFamily;
     border: none;
     outline: none;
     background-color: $btn_bg_color;
@@ -84,6 +85,7 @@ h4{
   }
 
   %btn_ano{
+    font-family: $fontFamily;
     border: none;
     outline: none;
     background-color: #021A71;

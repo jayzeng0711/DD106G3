@@ -10,51 +10,51 @@ $(document).ready(function () {
             if (xhr.status == 200) {
 
                 let reportRows = JSON.parse(xhr.responseText);
-                // console.log(report)
+                console.log(reportRows);
                 // console.log(report.length)
                 for (i = 0; i < reportRows.length; i++) {
 
                     //將處理狀態顯示為中文
                     if (reportRows[i].ReportState == 0) {
                         ReportState = "未處理";
-                        $(".table").append(`
-                            <tr>
-                            <td id="aaa_${reportRows[i].ReportNo}">${reportRows[i].ReportNo}</td>
-                            <td>${reportRows[i].memNo}</td>
-                            <td>${reportRows[i].commentContent}</td>
-                            <td>${reportRows[i].ReportReason}</td>
-                            <td>${ReportState}</td>
-                            <td><button type="button" id="edit_btn_${reportRows[i].ReportNo}" class="btn btn-info edit">編輯</button></td>
-                            </tr>
-                        `);
+                        // $(".table").append(`
+                        //     <tr>
+                        //     <td id="aaa_${reportRows[i].ReportNo}">${reportRows[i].ReportNo}</td>
+                        //     <td>${reportRows[i].memNo}</td>
+                        //     <td>${reportRows[i].commentContent}</td>
+                        //     <td>${reportRows[i].ReportReason}</td>
+                        //     <td>${ReportState}</td>
+                        //     <td><button type="button" id="edit_btn_${reportRows[i].ReportNo}" class="btn btn-info edit">編輯</button></td>
+                        //     </tr>
+                        // `);
                     } else if (reportRows[i].ReportState == 1) {
                         ReportState = "檢舉成功(隱藏留言)";
                         // 檢舉成功不顯示
                     } else {
                         ReportState = "檢舉失敗(顯示留言)";
-                        $(".table").append(`
-                            <tr>
-                            <td id="aaa_${reportRows[i].ReportNo}">${reportRows[i].ReportNo}</td>
-                            <td>${reportRows[i].memNo}</td>
-                            <td>${reportRows[i].commentContent}</td>
-                            <td>${reportRows[i].ReportReason}</td>
-                            <td>${ReportState}</td>
-                            <td><button type="button" id="edit_btn_${reportRows[i].ReportNo}" class="btn btn-info edit">編輯</button></td>
-                            </tr>
-                        `);
+                        // $(".table").append(`
+                        //     <tr>
+                        //     <td id="aaa_${reportRows[i].ReportNo}">${reportRows[i].ReportNo}</td>
+                        //     <td>${reportRows[i].memNo}</td>
+                        //     <td>${reportRows[i].commentContent}</td>
+                        //     <td>${reportRows[i].ReportReason}</td>
+                        //     <td>${ReportState}</td>
+                        //     <td><button type="button" id="edit_btn_${reportRows[i].ReportNo}" class="btn btn-info edit">編輯</button></td>
+                        //     </tr>
+                        // `);
                     }
 
 
-                    // $(".table").append(`
-                    // <tr>
-                    // <td id="aaa_${reportRows[i].ReportNo}">${reportRows[i].ReportNo}</td>
-                    // <td>${reportRows[i].memNo}</td>
-                    // <td>${reportRows[i].commentContent}</td>
-                    // <td>${reportRows[i].ReportReason}</td>
-                    // <td>${ReportState}</td>
-                    // <td><button type="button" id="edit_btn_${reportRows[i].ReportNo}" class="btn btn-info edit">編輯</button></td>
-                    // </tr>
-                    // `);
+                    $(".table").append(`
+                    <tr>
+                    <td id="aaa_${reportRows[i].ReportNo}">${reportRows[i].ReportNo}</td>
+                    <td>${reportRows[i].memName}</td>
+                    <td>${reportRows[i].commentContent}</td>
+                    <td>${reportRows[i].ReportReason}</td>
+                    <td>${ReportState}</td>
+                    <td><button type="button" id="edit_btn_${reportRows[i].ReportNo}" class="btn btn-info edit">編輯</button></td>
+                    </tr>
+                    `);
 
                 }
 

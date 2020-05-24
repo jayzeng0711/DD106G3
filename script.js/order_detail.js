@@ -1,20 +1,13 @@
 window.addEventListener('load', function() {
 
 
-    setTimeout(function() {
-        if ($('.portnow').text() == "") {
-            location.reload();
-        }
-        // console.log($('.portnow').text());
-    }, 500);
+
+    // 登出就會跳轉到訂位頁
+    $('.pu_login_logout').click(function() {
+        location.href = "order.html";
+    });
 
     // localStorage.clear();
-
-    // 訂購資料頁會員帳號和訂單資料的帳號不同時，跳轉回訂購頁
-    if (localStorage['memNo'] != member.memNo) {
-        location.href = "order.html";
-    }
-
     //////////////////套餐訂單明細//////////////////
 
     let mealtotal = 0;
@@ -195,8 +188,11 @@ window.addEventListener('load', function() {
     // 顯示訂位總金額
     checkTotal();
 
+    // alert($('#ordepoint').val());
+
     function checkTotal() {
-        $('.total').text($('.subtotal').text() - $('#ordepoint').val());
+        // $('.total').text($('.subtotal').text() - $('#ordepoint').val());
+        $('.total').text($('.subtotal').text());
 
     };
 
@@ -306,6 +302,7 @@ window.addEventListener('load', function() {
             data.orderTotal = $('.total').text();
             data.routeNo = localStorage['routeNo'];
             data.orderPeople = localStorage['people'];
+
 
             //套餐訂單明細：數量、價格
             data.meal = [];

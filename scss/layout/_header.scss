@@ -208,7 +208,7 @@
                 border-radius: 5px;
             }
         }
-        #signInBtn{
+        .signInBtn{
             @extend %btn;
             width: 100px;
             margin: 10% auto;
