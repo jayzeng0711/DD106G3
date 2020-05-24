@@ -115,7 +115,7 @@ $(document).ready(function () {
                 $(`#RKmsg_text_${custoRKRows[0].custoNo}`).append(`
                     <p class="no_msg">來當第一個留言的人吧!</p>
                 `);
-            }
+            } 
             
 
             //取出排行榜第三名資訊
