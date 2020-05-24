@@ -466,7 +466,7 @@ $(document).ready(function() {
     }
 
 
-    // windows
+    // // windows
     xhr.open('GET',  './php/reboor_item.php',  true);
 
     // Mac

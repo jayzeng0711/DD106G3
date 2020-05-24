@@ -47,7 +47,7 @@
                 </h3>
                 <section class="choose-fish">
                     <div class="fish-select-wrap">
-                        <!-- <div class="note selected-fish">
+                         <div class="note selected-fish">
                             <div class="note-content">
                                 <span>章魚</span>
                                 <span>價格：NT$800元</span>
@@ -92,8 +92,7 @@
                             <div class="fish-pic">
                                 <img src="./images/seafood4.svg" alt="flounder">
                             </div>
-                        </div> -->
-
+                        </div> 
                     </div>
                     <button id="fishL">←</button>
                     <button id="fishR">→</button>
@@ -702,21 +701,6 @@
         });
     </script>
     <script>
-        var session = localStorage;
-        for(i=0;i<session.length;i++){
-            var aaa = session.getItem(i);
-            $('.fish-select-wrap').append(`<div class="note">
-                            <div class="note-content">
-                                <span>胭脂蝦</span>
-                                <span>價格：NT$800元</span>
-                            </div>
-                            <div class="fish-pic">
-                                <img src="${aaa}" alt="shrimp">
-                            </div>
-                        </div>`)
-        }
-    </script>
-    <script>
         //配料slider
         var right = document.getElementById("arrowR"),
             left = document.getElementById("arrowL"),
@@ -763,6 +747,67 @@
         });
     </script>
     <script>
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            if (xhr.status == 200) {
+                member = JSON.parse(xhr.responseText);
+                if (member.memName) {
+                    $('.attn').css('display','none');
+                    $('main').addClass('on')
+                    var session = localStorage;
+                    //有登入又有玩抓海鮮
+                    if(session.length != 0){
+                        $('.fish-select-wrap').empty();
+                        for(i=0;i<session.length;i++){
+                        var seafood = session.getItem(i);
+                        seafood_arr = seafood.split('|');
+                        $('.fish-select-wrap').append(`
+                            <div class="note">
+                            <div class="note-content">
+                                <span>${seafood_arr[1]}</span>
+                                <span>價格：NT$${seafood_arr[2]}元</span>
+                            </div>
+                            <div class="fish-pic">
+                                <img src="${seafood_arr[0]}" alt="shrimp">
+                            </div>
+                            </div>`)
+                        }
+                    }else{
+                        //有登入沒玩抓海鮮
+                        alert('有登入沒玩抓海鮮')
+                    }
+                } else {
+                    var session = localStorage;
+                    //沒登入有玩抓海鮮
+                    if(session.length != 0){
+                        $('.fish-select-wrap').empty();
+                        for(i=0;i<session.length;i++){
+                        var seafood = session.getItem(i);
+                        seafood_arr = seafood.split('|');
+                        $('.fish-select-wrap').append(`
+                            <div class="note">
+                            <div class="note-content">
+                                <span>${seafood_arr[1]}</span>
+                                <span>價格：NT$${seafood_arr[2]}元</span>
+                            </div>
+                            <div class="fish-pic">
+                                <img src="${seafood_arr[0]}" alt="shrimp">
+                            </div>
+                            </div>`)
+                        }
+                    }else{
+                        //沒登入沒玩抓海鮮
+                        alert('沒登入沒玩抓海鮮')
+                    }
+                }
+            }
+        }
+        // windows
+        // xhr.open('GET',  './php/getlogininfo.php',  true);
+
+        // Mac
+        xhr.open('GET', "http://localhost:8080/getlogininfo.php");
+        xhr.send(null);
         // 打字效果
         var str = "這位客人，您似乎還沒進行登入";
         var str2 = " 提醒您，在沒有登入的情況下製作料理會無法儲存料理";

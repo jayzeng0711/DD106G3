@@ -378,8 +378,8 @@ $(document).ready(function() {
 
         //海鮮的動畫，利用anime.js套件
         // 使用方式 http://www.htmleaf.com/jQuery/jquery-tools/201607013672.html
-        // path_random = anime.random(1, 4);
-        path = anime.path(`.cls-4`);
+        path_random = anime.random(1, 4);
+        path = anime.path(`.cls-${path_random}`);
         seafood_animate = anime({
             targets: ['#target'],
             rotate: 20,
