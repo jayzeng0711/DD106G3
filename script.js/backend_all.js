@@ -6,7 +6,6 @@ $(document).ready(function(){
             var mem = JSON.parse(xhr.responseText);
             if(mem.adminName){
                 $('.membername').text(`${mem.adminName} 管理員`);
-                show();
             }else{
                 alert("尚未登入");
                 window.location.href = "backend_login.html";

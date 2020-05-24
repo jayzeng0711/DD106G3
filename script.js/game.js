@@ -196,7 +196,6 @@ $(document).ready(function() {
         xhr.onload = function() {
             if (xhr.status == 200) {
                 seafood_info = JSON.parse(xhr.responseText);
-                console.log(seafood_info)
                 for (i = 0; i < seafood_info.length; i++) {
                     if (seafood_info[i].seafoodLevel == 1) {
                         $('.show_seafood_wrap').append(`<div>
@@ -379,8 +378,8 @@ $(document).ready(function() {
 
         //海鮮的動畫，利用anime.js套件
         // 使用方式 http://www.htmleaf.com/jQuery/jquery-tools/201607013672.html
-        path_random = anime.random(1, 4);
-        path = anime.path(`.cls-${path_random}`);
+        // path_random = anime.random(1, 4);
+        path = anime.path(`.cls-4`);
         seafood_animate = anime({
             targets: ['#target'],
             rotate: 20,
@@ -757,11 +756,19 @@ $(document).ready(function() {
                                     target_img = target_img.replace('url(', '').replace(')', '').replace(/\"/gi, "");
                                     //找是第幾個海鮮
                                     target_img = target_img.substr(-5, 1)
-                                    $('.capture_poke').append(`<div><img src="./images/seafood${target_img}.png"></div>`)
-                                        //存到session裡面
-                                    stroge = localStorage;
-                                    stroge.setItem(session_id, `./images/seafood${target_img}.svg`);
+                                    $('.capture_poke').append(`<div><img src="./images/seafood${target_img}.svg"></div>`);
+                                    console.log(seafood_info);
+                                    //存到session裡面，把抓到的海鮮的圖片，跟上面八個海鮮做比對，如果圖片相同，把海鮮名稱跟價格存入
+                                    for(var i = 0;i<seafood_info.length;i++){
+                                        if(`seafood${target_img}.svg` == seafood_info[i].seafoodPic){
+                                            seafoodName = seafood_info[i].seafoodName;
+                                            seafoodPrice = seafood_info[i].seafoodPrice;
+                                            stroge = localStorage;
+                                            stroge.setItem(session_id, `./images/seafood${target_img}.svg|${seafoodName}|${seafoodPrice}`);
+                                        }
+                                    }
                                     session_id++;
+                                    //存到session裡面，把抓到的海鮮的圖片，跟上面八個海鮮做比對，如果圖片相同，把海鮮名稱跟價格存入
                                     if (memberLevel.memId) {
                                         switch (target_img) {
                                             case '1':

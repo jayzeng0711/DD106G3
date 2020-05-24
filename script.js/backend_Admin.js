@@ -1,3 +1,6 @@
+$(document).ready(function(){
+    show();
+})
 //新增管理員
 $('.addbtn').click(function(){
     // 停用新增按鈕
@@ -33,10 +36,10 @@ $('.addbtn').click(function(){
         var message_content_str = JSON.stringify(message_content);
 
        // windows
-        xhr.open('POST',  './php/backend_admin_insert.php',  true);
+        // xhr.open('POST',  './php/backend_admin_insert.php',  true);
 
        // Mac
-        // xhr.open('POST','http://localhost:8080/backend_admin_insert.php');
+        xhr.open('POST','http://localhost:8080/backend_admin_insert.php');
         xhr.send(message_content_str);
         $('.addbtn').removeAttr('disabled');
     })
@@ -97,9 +100,9 @@ function show(){
         }
     }
     // windows
-    xhr.open('GET',  './php/backend_Admin.php',  true);
+    // xhr.open('GET',  './php/backend_Admin.php',  true);
     // Mac
-    // xhr.open('GET','http://localhost:8080/backend_Admin.php');
+    xhr.open('GET','http://localhost:8080/backend_Admin.php');
     xhr.send(null);
 }
 
@@ -117,9 +120,9 @@ function update(id){
     message_row_update.message_text = id;
     var message_row_update_str = JSON.stringify(message_row_update);
     // windows
-    xhr.open('POST',  './php/backend_admin_update.php',  true);
+    // xhr.open('POST',  './php/backend_admin_update.php',  true);
     // Mac
-    // xhr.open('POST','http://localhost:8080/backend_admin_update.php');
+    xhr.open('POST','http://localhost:8080/backend_admin_update.php');
     xhr.send(message_row_update_str);
 }
 //更新
