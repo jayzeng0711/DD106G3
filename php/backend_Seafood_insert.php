@@ -7,7 +7,6 @@ try {
 
     $sql = "INSERT INTO `seafood` (`seafoodNo`, `seafoodName`, `seafoodPrice`, `seafoodScore`, `seafoodPoint`,`seafoodLevel`, `seafoodPic`, `cookNo`, `seafoodCookPic`, `seafoodState`) VALUES (null, :seafoodName,:seafoodPrice,:seafoodScore,  :seafoodPoint, :seafoodLevel, :seafoodPic,:cookNo, :seafoodCookPic,:seafoodState)";
 
-
     $seafoodNow = json_decode(file_get_contents("php://input"));
 
     $newSeafood = $pdo->prepare($sql);
