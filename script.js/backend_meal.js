@@ -1,93 +1,170 @@
-window.addEventListener('load', function(){
-
-    $.ajax({ //接收資料呈現於網頁
-        type: "GET",
-        url: './php/backend_Meal.php',
-        data: {"data":"check"},
+function show(){
+    // 清除表格內容
+        $(`table tr`).not("tr.title").not("tr.insert").remove();
     
-        success: function(data){
-            $("#showMeal").html(data);
-        }
-    });
-
+           // 顯示資料庫內容
+        let xhr = new XMLHttpRequest;
+        xhr.onload = function() {
+            if (xhr.status == 200) {
+    
+                let mealRows = JSON.parse(xhr.responseText);
+                let trLength = mealRows.length;
+    
+                for (let i = 0; i < trLength; i++) {
+    
+                    if (mealRows[i].meatState == 0) {
+                        meatState = "上架";
+                    } else {
+                        meatState = "未上架";
+                    }
+                    $('table').append(`<tr><td>${mealRows[i].mealNo}</td><td>${mealRows[i].mealName}</td><td><img style="width: 50%;" src='images/${mealRows[i].mealPic}'></td><td>${mealRows[i].mealFirst}</td><td>${mealRows[i].mealMain}</td><td>${mealRows[i].mealDishOne}</td><td>${mealRows[i].mealDishTwo}</td><td>${mealRows[i].mealSoup}</td><td>${mealRows[i].mealDrink}</td><td>${mealRows[i].mealPrice}</td><td>${meatState}</td><td><button type="button" class="btn btn-info edit">編輯</button></td></tr>`);
+                }
+    
+            } else {
+                alert(xhr.status);
+            }
+        };
+    
+        // windows
+        xhr.open('GET',  './php/backend_Meal.php',  true);
+        // Mac
+        // xhr.open('GET', 'http://localhost:8080/backend_Meal.php', true);
+        xhr.send(null);
+    
+    };
+    
+    //ADD new Row
     $('.addbtn').click(function() {
-
+    
         // 停用新增按鈕
         $(this).attr('disabled', 'disabled');
-
+    
         // 顯示輸入新增資料的欄位
-        $('tr.title').after('<tr class="insert"><td></td><td><input type="text" name="mealName" id="mealName"></td><td><input type="file" name="mealPic" id="mealPic"></td><td><input type="text" name="mealMain" id="mealMain"></td><td><inupt type="text" name="mealDishOne" id="mealDishOne"></td><td><input type="text" name="mealDishTwo" id="mealDishTwo"></td><td><input type="text" name="mealSoup" id="mealSoup"></td><td><input type="text" name="mealPrice" id="mealPrice"></td><td><select><option>未上架</option><option>上架</option></select></td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
+        $('tr.title').after('<tr class="insert"><td></td><td><input type="text" name="mealName" id="mealName"></td><td><form id="mealPic" method="post" enctype="multipart/form-data" action="./php/mealPicUpload.php"><input type="file" id="mealPic" class="mealPic" name="mealPic" accept=".jpg,.png,.svg"><lable id="show" for="mealPic"><img id="preview" style="width: 50%;"></lable><button id="addPic" type="submit">上傳</button></form></td><td><input type="text" name="mealFirst" id="mealFirst"></td><td><input type="text" name="mealMain" id="mealMain"></td><td><inupt type="text" name="mealDishOne" id="mealDishOne" pleaceholder="I am here!"></td><td><input type="text" name="mealDishTwo" id="mealDishTwo"></td><td><input type="text" name="mealSoup" id="mealSoup"></td><td><input type="text" name="mealDrink" id="mealDrink"></td><td><input type="text" name="mealPrice" id="mealPrice"></td><td><select id="meatState"><option value="0">未上架</option><option value="1">上架</option></select></td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
+ 
+        $('#mealPic').on('submit', (function(e){
+            e.preventDefault();
+            $.ajax({
+                url: "./php/mealPicUpload.php",
+                type: "POST",
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                success: function(data){
+                    alert("上傳成功");
+                },
+                error: function(){
+                    alert("上傳失敗");
+                }
+            });
+            console.log(new FormData(this));
+        }));
+        
 
-        // 儲存新增
+        //顯示新的圖片
+        $("#addPic").click(function(){
+            document.getElementById("show").onchange = function(e){
+            let meal = e.target.files[0];
+            let reader = new FileReader();
+            reader.onload = getElementById("preview").src = read.result;
+        }
+            read.readAsDataURL(meal);
+
+            // 儲存新增
         $('.save').click(function() {
-
+    
             let xhr = new XMLHttpRequest;
-
+    
             xhr.onload = function() {
-
+    
                 if (xhr.status == 200) {
                     $('tr.insert').remove();
                     show();
-
+    
                 } else {
                     alert(xhr.status);
                 }
-
+    
             };
-
-
-            // windows
-            xhr.open('post',  './php/backend_Route_insert.php',  true);
-            // Mac
-            // xhr.open('POST', 'http://localhost:8888/backend_Route_insert.php', true);
+    
+            // windows
+            xhr.open('post',  './php/backend_Meal_insert.php',  true);
+            // Mac
+            // xhr.open('POST', 'http://localhost:8888/backend_Meal_insert.php', true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-
-
-            let route = {};
-            routePort = $('#routePort').val();
-            if (routePort == 0) {
-                routePort = "深澳港";
-            } else if (routePort == 1) {
-                routePort = "梧棲港";
-            } else {
-                routePort = "高雄港";
+    
+            let meal = {};
+            meatState = $('#meatState').val();
+            if (meatState == 0) {
+                meatState = "未上架";
+            } else{
+                meatState = "上架";
             }
-
-            route.routeDate = $('#routeDate').val();
-            route.routePort = routePort;
-            route.routeSeat = $('#routeSeat').val();
-
-            let data_info = JSON.stringify(route);
+    
+            meal.mealName = $('#mealName').val();
+            meal.mealPic = `${mealPic.name}`;
+            meal.mealFirst = $('#mealFirst').val();
+            meal.mealMain = $('#mealMain').val();
+            meal.mealDishOne = $('#mealDishOne').val();
+            meal.mealDishTwo = $('#mealDishTwo').val();
+            meal.mealSoup = $('#mealSoup').val();
+            meal.mealDrink = $('#mealDrink').val();
+            meal.mealPrice = $('#mealPrice').val();
+            meal.meatState = meatState;
+    
+            let data_info = JSON.stringify(meal);
             console.log(data_info);
             xhr.send(data_info);
-
+    
             $('.addbtn').removeAttr('disabled');
-        });
-
+            });
+         });
+        
         // 取消新增
         $('.cancel').click(function() {
             $('tr.insert').remove();
             $('.addbtn').removeAttr('disabled');
-
+    
         });
-
+    
     });
- 
-    edit();
-
-    function edit(){
-        $('.edit').click(function(){
+    
+    //EDIT
+    $(document).on('click', '.edit', function(){
     
             $('.edit').attr('disabled', 'disabled');
     
             let tr = $(this).parent().parent();
+    
+            let mealName = tr.find('td:eq(1)').text();
+            tr.find('td:eq(1)').text("");
+            tr.find('td:eq(1)').append(`
+            <input type="text" name="mealName" class="mealName" value="${mealName}">`);
             
             //圖片
             let mealPic = tr.find('td:eq(2)').text();
             tr.find('td:eq(2)').text("");
             tr.find('td:eq(2)').append(`
-            <input type="file" name="image" accept=".jpg,.png,.svg" value="${mealPic}">`);
+            <form id="mealPic" method="post" enctype="multipart/form-data" action="./php/mealPicUpload.php"><input type="file" id="mealPic" class="mealPic" name="mealPic" accept=".jpg,.png,.svg" value="${mealPic}"><lable id="show" for="mealPic"><img id="preview" style="width: 50%;"></lable><button id="addPic" type="submit">上傳</button></form>`);
     
+            $('#mealPic').on('submit', (function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: "./php/mealPicUpload.php",
+                    type: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    success: function(data){
+                        alert("上傳成功");
+                    },
+                    error: function(){
+                        alert("上傳失敗");
+                    }
+                });
+                console.log(new FormData(this));
+            }));
+
             //前菜
             let mealFirst = tr.find('td:eq(3)').text();
             tr.find('td:eq(3)').text("");
@@ -135,8 +212,8 @@ window.addEventListener('load', function(){
             tr.find('td:eq(10)').text("");
             tr.find('td:eq(10)').append(`
             <select>
-            <option>未上架</option>
-            <option>上架</option>
+            <option value="0">未上架</option>
+            <option value="1">上架</option>
             </select>`);
             if(meatState == "未上架"){
                 tr.find('td:eq(10) option:eq(0)').attr("slected", "selected");
@@ -150,8 +227,17 @@ window.addEventListener('load', function(){
             <button type="submit" class="btn btn-info save">儲存</button>
             <button type="button" class="btn btn-info cancel">取消</button>`);
     
-            // 儲存
-            $('.save').click(function() {
+            //顯示新的圖片
+             $("#addPic").click(function(){
+                document.getElementById("show").onchange = function(e){
+                let meal = e.target.files[0];
+                let reader = new FileReader();
+                reader.onload = getElementById("preview").src = read.result;
+            }
+                read.readAsDataURL(meal);
+
+                // 儲存
+            $('.save').click(function () {
                 let xhr = new XMLHttpRequest;
     
                 xhr.onload = function() {
@@ -165,45 +251,132 @@ window.addEventListener('load', function(){
     
                 };
     
-                // windows
-                xhr.open('post',  './php/backend_Meal_edit.php',  true);
-                // Mac
+                // windows
+                xhr.open('post',  './php/backend_Meal_edit.php',  true);
+                // Mac
                 // xhr.open('POST', 'http://localhost:8888/backend_Meal_edit.php', true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     
                 let editMeal = {};
-                mealName = tr.find('.mealName').val();
-                 alert(mealName);
-                if (mealName == 1) {
-                    mealName = "B套餐";
-                } else if (mealName == 2) {
-                    mealName = "C套餐";
+                let meatState= tr.find('.meatState').val();
+                 //alert(meatState);
+                if (meatState == 0) {
+                    meatState = "未上架";
                 } else {
-                    mealName = "A套餐";
+                    meatState = "上架";
                 }
     
                 editMeal.mealNo = tr.find('td:eq(0)').text();
-                editMeal.mealName = mealName;
-                editMeal.mealPic = tr.find('td:eq(2)').text();
-                editMeal.mealFirts = tr.find('td:eq(3)').text();
-                editMeal.mealMain = tr.find('td:eq(4)').text();
-                editMeal.mealDishOne = tr.find('td:eq(5)').text();
-                editMeal.mealDishTwo = tr.find('td:eq(6)').text();
-                editMeal.mealSoup = tr.find('td:eq(7)').text();
-                editMeal.mealDrink = tr.find('td:eq(8)').text();
-                editMeal.meatState = tr.find('td:eq(9)').text();
+                editMeal.mealName = tr.find('.mealName').val();
+                editMeal.mealPic = `${meal.name}`;
+                editMeal.mealFirst = tr.find('.mealFirst').val();
+                editMeal.mealMain = tr.find('.mealMain').val();
+                editMeal.mealDishOne = tr.find('.mealDishOne').val();
+                editMeal.mealDishTwo = tr.find('.mealDishTwo').val();
+                editMeal.mealSoup = tr.find('.mealSoup').val();
+                editMeal.mealDrink = tr.find('.mealDrink').val();
+                editMeal.mealPrice = tr.find('.mealPrice').val();
+                editMeal.meatState = tr.find('.meatState').val();
     
-                let data_info = JSON.stringify(editmeal);
+                let data_info = JSON.stringify(editMeal);
                 console.log(data_info);
                 xhr.send(data_info);
-    
-    
+                return;
             });
+
+             //無換圖
+             $('.save').click(function () {
+                let xhr = new XMLHttpRequest;
     
+                xhr.onload = function() {
+    
+                    if (xhr.status == 200) {
+                        show();
+    
+                    } else {
+                        alert(xhr.status);
+                    }
+    
+                };
+    
+                // windows
+                xhr.open('post',  './php/backend_Meal_edit.php',  true);
+                // Mac
+                // xhr.open('POST', 'http://localhost:8888/backend_Meal_edit.php', true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    
+                let editMeal = {};
+                let meatState= tr.find('.meatState').val();
+                 //alert(meatState);
+                if (meatState == 0) {
+                    meatState = "未上架";
+                } else {
+                    meatState = "上架";
+                }
+    
+                editMeal.mealNo = tr.find('td:eq(0)').text();
+                editMeal.mealName = tr.find('.mealName').val();
+                editMeal.mealPic = tr.find('.mealPic').val();
+                editMeal.mealFirst = tr.find('.mealFirst').val();
+                editMeal.mealMain = tr.find('.mealMain').val();
+                editMeal.mealDishOne = tr.find('.mealDishOne').val();
+                editMeal.mealDishTwo = tr.find('.mealDishTwo').val();
+                editMeal.mealSoup = tr.find('.mealSoup').val();
+                editMeal.mealDrink = tr.find('.mealDrink').val();
+                editMeal.mealPrice = tr.find('.mealPrice').val();
+                editMeal.meatState = tr.find('.meatState').val();
+    
+                let data_info = JSON.stringify(editMeal);
+                console.log(data_info);
+                xhr.send(data_info);
+             
+            });
+            
+        });
+            
             // 取消
             tr.find('.cancel').click(function() {
                 show();
             });
-        });
-    };
-});
+         
+    });
+
+    
+    
+    
+
+
+    //無跳轉上傳圖片
+    // $(document).ready(function(){
+    //     $(document).on('change', '#mealPic', function(){
+    //         var name = document.getElementById("mealPic").files[0].name;
+    //         var form_data = new FormData();
+    //         var ext = name.split('.').pop().toLowerCase();
+    //         if(jQuery.inArray(ext, ['gif','png','jpg','jepg']) == -1){
+    //             alert("檔案格式不對");
+    //         }
+    //         var oFReader = new FileReader();
+    //         oFReader.readAsDataURL(document.getElementById("mealPic").files[0]);
+    //         var f = document.getElementById("mealPic").files[0];
+    //         var fsize = f.size||f.fileSize;
+    //         if(fsize > 2000000){
+    //             alert("檔案過大");
+    //         }else{
+    //             form_data.append("mealPic", document.getElementById('mealPic').files[0]);
+    //             $.ajax({
+    //                 url: "./php/picUpload.php",
+    //                 method: "POST",
+    //                 data: form_data,
+    //                 contentType: false,
+    //                 cache: false,
+    //                 processData: false,
+    //                 beforeSend: function(){
+    //                     $('#display').html("<lable class='text_success'>上傳中...</lable>");
+    //                 },
+    //                 success: function(data){
+    //                     $('#display').html(data);
+    //                 }
+    //             });
+    //         }
+    //     });
+    // });
