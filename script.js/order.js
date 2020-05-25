@@ -792,7 +792,7 @@ window.addEventListener('load', function() {
 
             if (xhr.status == 200) {
                 meals = JSON.parse(xhr.responseText);
-                // console.log(meals);
+                console.log(meals);
 
                 for (let i = 0; i < meals.length; i++) {
 

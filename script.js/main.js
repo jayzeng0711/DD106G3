@@ -715,6 +715,7 @@ window.addEventListener('load', function() {
 
     let custos; //存放參賽料理的陣列
     let comments; //存放留言的陣列
+    let contestNo; //比賽編號
 
 
     // 計算這個月比賽，各料理的得票數和排名，存進 custco 表格
@@ -725,11 +726,14 @@ window.addEventListener('load', function() {
 
     // 計算這個月比賽，各料理的得票數和排名，存進 custco 表格，再顯示料理排序
     function vote() {
+
+
+        console.log("vote");
         let xhr = new XMLHttpRequest;
         xhr.onload = function() {
             if (xhr.status == 200) {
                 voteRank = JSON.parse(xhr.responseText);
-                // console.log(voteRank);
+                console.log(voteRank);
                 page();
             } else {
                 console.log(xhr.status);
@@ -746,6 +750,7 @@ window.addEventListener('load', function() {
 
     // 抓這個月參賽料理的留言
     function comment() {
+
         let xhr = new XMLHttpRequest;
         xhr.onload = function() {
             if (xhr.status == 200) {
@@ -766,6 +771,7 @@ window.addEventListener('load', function() {
         xhr.send(null);
     };
 
+
     // 排序參賽料理
     function page() {
 
@@ -774,6 +780,13 @@ window.addEventListener('load', function() {
             if (xhr.status == 200) {
 
                 custos = JSON.parse(xhr.responseText);
+
+                // 清空客製化料理
+                $(".custo").empty();
+
+                // 比賽編號
+                contestNo = custos[0].contestNo;
+
                 // 預設所有料理的留言是一個陣列
                 for (let i = 0; i < custos.length; i++) {
                     custos[i].comment = new Array();
@@ -800,7 +813,7 @@ window.addEventListener('load', function() {
                     return b.contestCustoVote - a.contestCustoVote;
                 });
 
-                console.log(custos);
+                // console.log(custos);
 
 
                 // 顯示料理
@@ -824,12 +837,11 @@ window.addEventListener('load', function() {
                                         <figcaption>
                                       
                                             <p>第${i+1}名 ${custoName}</p>
-                                            <p>票數:${custoVote}票</p>
+                                            <p class="nowvote">票數:${custoVote}票</p>
                                         </figcaption>
                                     </figure>
                                 </div>
-                                <div class="cookList_vote">
-                                    <button class="vote_btn" id="vote_${custoNo}">投票</button>
+                                <div class="cookList_vote"><button class="vote_btn" id="vote_${custoNo}">投票</button>
                                 </div>
                                 <div class="msg">
                                     <P class="big">留言板</p>
@@ -893,6 +905,22 @@ window.addEventListener('load', function() {
 
                 }
 
+                // 點擊投票
+                $(".vote_btn").on("click", function(e) {
+                    //判斷是否登入
+                    if ($('.pu_mem_login_suc_div').text() != false) {
+                        votes = $(this).attr("id").slice(5);
+                        inputVote(votes);
+
+                    } else {
+                        //未登入
+                        $('#Login,#Login_back').css('display', 'block');
+                        $('#pu_mem_resist_wrap').css('display', 'none');
+                        $('#pu_mem_forget_wrap').css('display', 'none');
+                        $('#pu_mem_login_wrap').css('display', 'block');
+                    }
+
+                });
             } else {
                 console.log(xhr.status);
             }
@@ -905,9 +933,85 @@ window.addEventListener('load', function() {
         // xhr.open('get', 'http://localhost:8080/contest_pagesvote.php', true);
         xhr.send(null);
 
-
-
     };
+
+    //投票(參賽列表)，檢查會員今日是否已投過
+    function inputVote(LTvote_num) {
+
+        var xhr5 = new XMLHttpRequest();
+        var custoNo = LTvote_num;
+
+        xhr5.onload = function() {
+            if (xhr5.status == 200) {
+                vList_check_Row = JSON.parse(xhr5.responseText);
+                // console.log(vList_check_Row);
+
+                if (vList_check_Row == false) {
+
+                    var xhr6 = new XMLHttpRequest();
+                    xhr6.onload = function() {
+                        if (xhr6.status == 200) {
+                            $('.alertbox .wrapper').text("投票成功!");
+                            $('.alertbox').addClass("on");
+
+                            // 重新計算票數
+                            vote();
+                        } else {
+                            console.log(xhr6.status);
+                        }
+                    }
+
+
+                    var voteData = {};
+                    voteData.contestNo = contestNo;
+                    voteData.custoNo = custoNo;
+
+                    var voteData_str = JSON.stringify(voteData);
+                    console.log(voteData_str);
+
+                    // windows
+                    xhr6.open('POST', './php/contest_vote_input.php', true);
+                    // Mac
+                    // xhr.open('post', 'http://localhost:8080/contest_vote_input.php', true);
+
+                    xhr6.send(voteData_str);
+
+                } else {
+                    $('.alertbox .wrapper').text("您今日已投過票囉~");
+                    $('.alertbox').addClass("on");
+                }
+
+
+            } else {
+                console.log(xhr5.status);
+            }
+        }
+
+
+        var voteData = {};
+        voteData.contestNo = contestNo;
+        voteData.custoNo = custoNo;
+
+        var voteData_str = JSON.stringify(voteData);
+        console.log(voteData_str);
+
+        // windows
+        xhr5.open('POST', './php/contest_vote_check.php', true);
+
+        // Mac
+        // xhr.open('post', 'http://localhost:8080/contest_vote_check.php', true);
+        xhr5.send(null);
+    }
+
+
+    // 關掉提示燈箱
+    $('.alertbox .boxclose').click(function() {
+        $('.alertbox').removeClass("on");
+    });
+
+
+
+
 
 
 
