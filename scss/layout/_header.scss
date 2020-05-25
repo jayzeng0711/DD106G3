@@ -17,7 +17,7 @@
     }
     .pu_head_ul{
         display: flex;
-        width: 100%;
+        width: 90%;
         align-items: center;
         text-align: center;
         .pu_head_li{
@@ -68,7 +68,7 @@
             letter-spacing: 1px;
         }
         .pu_icon_suc_div{
-            width: 30px;
+            // width: 30px;
             margin-right: 3%;
             img{
                 max-width: 100%;
@@ -237,6 +237,40 @@
 }
 //會員登入燈箱
 
+// 提示燈箱
+.alertbox {
+    display: none;
+    background-color: #FBD672;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 150px;
+    padding: 30px 10px;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1005;
+    box-shadow: 6px 6px 0px rgb(247, 192, 41);
+    border-radius: 0 0 10px 10px;
+    .boxclose {
+        width: 7%;
+        position: absolute;
+        top: 4px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .wrapper {
+        background-color: #fff;
+        border-radius: 5px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+    }
+}
+
+.alertbox.on {
+    display: block;
+}
+
 #go_top {
     width: 150px;
     height: 150px;
@@ -325,11 +359,17 @@
                 top: -5px;
                 z-index: 10;
                 display: none;
+                .mb_big_cloud_img{
+                    min-height: 600px;
+                }
                 .mb_big_cloud_text{
                     position: absolute;
                     z-index: 5;
                     top: 2%;
                     left: 50%;
+                    div{
+                        height: 80px;
+                    }
                     .pu_mb_text_a{
                         color: #01355D;
                         text-decoration: none;

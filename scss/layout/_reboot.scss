@@ -173,13 +173,16 @@
         }
     }
     .pu_reb_ul_div{
-        overflow-x: scroll;
+        // overflow-x: scroll;
         overflow-y: hidden;
         white-space: nowrap;
         margin-bottom: 2%;
         .pu_reb_ul{
             overflow-x: scroll;
             overflow-y: hidden;
+            .disabled {
+                pointer-events:none;
+            }
              &::-webkit-scrollbar {
                  width: 5px;
                  border-radius: 10px;

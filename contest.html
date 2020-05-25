@@ -9,20 +9,28 @@
     <title>美食大賽</title>
     <link rel="stylesheet" href="./css/contest.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    
+
 </head>
 
 <body>
-    
+    <div class="alertbox">
+        <img class="boxclose" src="./images/blue-cross-icon.png" alt="">
+        <div class="wrapper_alert"></div>
+    </div>
+    <div class="alertbox2">
+        <img class="boxclose2" src="./images/blue-cross-icon.png" alt="">
+        <div class="wrapper_alert2"></div>
+    </div>
     <section class="ranking">
+        
         <div class="fly_area">
-            @@include('./layout/header.html')
-            @@include('./layout/h1_title.html')
+            @@include('./layout/header.html') @@include('./layout/h1_title.html')
             <div id="fly_boat">
                 <a href="customized_cuisine.html"><img src="./images/flyboatflag.png"></a>
             </div>
         </div>
-        <div id="contestant_msg"></div> <!--hover參賽留言顯示區塊-->
+        <div id="contestant_msg"></div>
+        <!--hover參賽留言顯示區塊-->
         <div class="wrap">
 
             <div class="ranking_contain">
@@ -76,13 +84,14 @@
 
 
     <section class="cookList">
-        <div id="keypoint"></div>  <!-- scrollmagic觸發點 -->
+        <div id="keypoint"></div>
+        <!-- scrollmagic觸發點 -->
         <div class="wrap">
 
             <div class="cookList_title">
                 參賽料理列表
             </div>
-            
+
             <div class="filter" id="filter">
                 <span>排序篩選：</span>
                 <select name="" id="order">
@@ -97,7 +106,7 @@
 
             </div>
 
-            
+
 
             <div class="page-normal">
                 <span id="prevPage">&lt;</span>
@@ -144,7 +153,7 @@
                     </div>
                 </form>
             </div>
-            
+
         </div>
     </div>
 
@@ -156,14 +165,14 @@
     </section> -->
 
     @@include('./layout/reboot.html')
-    
+
     <footer>
         @@include('./layout/foot.html')
     </footer>
 
     @@include('./all_js.html')
     <script src="./js/contest.js"></script>
-    
+
 </body>
 
 </html>

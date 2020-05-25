@@ -61,8 +61,8 @@ $(document).ready(function(){
     xhr.onload = function(){
         if(xhr.status == 200){
             var mem_basic_data = JSON.parse(xhr.responseText);
-            console.log(mem_basic_data)
-            if(mem_basic_data.memName){
+            // console.log(mem_basic_data)
+            if(mem_basic_data.memId){
                 $('.mem_data_right_div').append(`<div class="mem_img_div">
                 <img class="img_src" src="./php/images/${mem_basic_data.memPic}" alt="">
                 </div>
@@ -120,22 +120,27 @@ $(document).ready(function(){
                 $('#modify_signInBtn').click(function(e){
                     var input_cannoy_mod =$('#input_cannoy_mod').val();
                     var psw_hidden =$('#psw_hidden').val();
+                    var memid =$('#email').val();
                     var old_psw = $('#old_psw').val();
                     var new_psw = $('#new_psw').val();
                     if(old_psw == "" || new_psw ==""){
-                        alert('請填寫舊密碼與新密碼');
+                        $('.alertbox .wrapper').text("請填寫舊密碼與新密碼");
+                        $('.alertbox').addClass("on");
                         return false;
                     }
                     if(old_psw.length<3 || new_psw.length<3){
-                        alert('密碼長度不可小於3位');
+                        $('.alertbox .wrapper').text("密碼長度不可小於3位");
+                        $('.alertbox').addClass("on");
                         return false;
                     }
                     if(old_psw.length == new_psw.length){
-                        alert('舊密碼與新密碼相同');
+                        $('.alertbox .wrapper').text("舊密碼與新密碼相同");
+                        $('.alertbox').addClass("on");
                         return false;
                     }
                     if(psw_hidden != old_psw){
-                        alert('舊密碼不相同，請重新輸入')
+                        $('.alertbox .wrapper').text("舊密碼不相同，請重新輸入");
+                        $('.alertbox').addClass("on");
                         return false;
                     }
                     $('#input_cannoy_mod').val(new_psw);
@@ -144,6 +149,23 @@ $(document).ready(function(){
                     $('#Login_back').css('display', 'none');
                     $('#old_psw').val("");
                     $('#new_psw').val("");
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function(){
+                        if(xhr == 200){
+
+                        }
+                    }
+                    var psw = {};
+                    psw.new_psw = new_psw;
+                    psw.memid = memid;
+                    var psw_str = JSON.stringify(psw);
+                    // console.log(psw_str)
+                    // windows
+                    // xhr.open('POST', './php/member_data_update_psw.php',  true);
+
+                    //  Mac
+                    xhr.open('POST','http://localhost:8080/member_data_update_psw.php');
+                    xhr.send(psw_str);
                 })
                 //點下修改密碼
 
@@ -172,14 +194,15 @@ $(document).ready(function(){
                 })
                 //按下修改 找img 密碼 名稱三個欄位
             }else{
-                alert('無登入會員');
+                $('.alertbox .wrapper').text("無登入會員");
+                $('.alertbox').addClass("on");
                 window.location.href = "order.html";
             }
 
             var xhr2 = new XMLHttpRequest();
             xhr2.onload = function(){
                 if(xhr2.status == 200){
-                    console.log(JSON.parse(xhr2.responseText));
+                    // console.log(JSON.parse(xhr2.responseText));
                     order_record = JSON.parse(xhr2.responseText);
                     for(i = 0;i<order_record.length;i++){
                         if(order_record[i].orderState == 0){
@@ -244,11 +267,11 @@ $(document).ready(function(){
                                 <div class="order_detail_right_div_point_wrap">
                                     <div class="order_detail_right_div_point">
                                         <div class="order_detail_right_div_point_text">使用點數</div>
-                                        <div><input value="${order_record[i].orderPoints}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                        <div><input value="${order_record[i].orderPoints}點" size="10" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                     </div>
                                     <div class="order_detail_right_div_point">
                                         <div class="order_detail_right_div_total">總金額</div>
-                                        <div><input value="${order_record[i].orderTotal}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                        <div><input value="${order_record[i].orderTotal}元" size="10" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -316,11 +339,11 @@ $(document).ready(function(){
                             <div class="order_detail_right_div_point_wrap">
                                 <div class="order_detail_right_div_point">
                                     <div class="order_detail_right_div_point_text">使用點數</div>
-                                    <div><input value="${order_record[i].orderPoints}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                    <div><input value="${order_record[i].orderPoints}點" size="10" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                 </div>
                                 <div class="order_detail_right_div_point">
                                     <div class="order_detail_right_div_total">總金額</div>
-                                    <div><input value="${order_record[i].orderTotal}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                    <div><input value="${order_record[i].orderTotal}元" size="10" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                 </div>
                             </div>
                             <div>
@@ -393,11 +416,11 @@ $(document).ready(function(){
                             <div class="order_detail_right_div_point_wrap">
                                 <div class="order_detail_right_div_point">
                                     <div class="order_detail_right_div_point_text">使用點數</div>
-                                    <div><input value="${order_record[i].orderPoints}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                    <div><input value="${order_record[i].orderPoints}點" size="10" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                 </div>
                                 <div class="order_detail_right_div_point">
                                     <div class="order_detail_right_div_total">總金額</div>
-                                    <div><input value="${order_record[i].orderTotal}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                    <div><input value="${order_record[i].orderTotal}元" size="10" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                 </div>
                             </div>
                         </div>
@@ -405,15 +428,27 @@ $(document).ready(function(){
                     <hr>`)
                         }
                     for(j=0;j<order_record[i].orderNo.length;j++){
+                        if(order_record[i].orderNo[j].mealNo == 1){
+                            order_record[i].orderNo[j].mealNo = "A套餐"
+                        }
+                        if(order_record[i].orderNo[j].mealNo == 2){
+                            order_record[i].orderNo[j].mealNo = "B套餐"
+                        }
+                        if(order_record[i].orderNo[j].mealNo == 3){
+                            order_record[i].orderNo[j].mealNo = "C套餐"
+                        }
                         $(`.order_div_wrap_${i}`).append(` 
                         <div class="order_detail_right_div_item">
                         <div>${order_record[i].orderNo[j].mealNo}</div>
                         <div id="mealListCount_${j}_${i}">${order_record[i].orderNo[j].mealListCount}</div>
-                        <div id="mealListPrice_${j}_${i}">${order_record[i].orderNo[j].mealListPrice}</div>
+                        <div class="mealListCount" id="mealListPrice_${j}_${i}">${order_record[i].orderNo[j].mealListPrice}元</div>
                         <div id="mealListToatl_${j}_${i}"></div>
                         </div>
                         `)
-                        $(`#mealListToatl_${j}_${i}`).text($(`#mealListCount_${j}_${i}`).text()*$(`#mealListPrice_${j}_${i}`).text())
+                        var mealListPrice = $(`#mealListPrice_${j}_${i}`).text();
+                        //把元刪掉
+                        mealListPrice = mealListPrice.substring(0,mealListPrice.length-1);
+                        $(`#mealListToatl_${j}_${i}`).text($(`#mealListCount_${j}_${i}`).text()*mealListPrice+'元')
                         }
                     }
                     //判斷每個取消訂單按鈕
@@ -454,8 +489,9 @@ $(document).ready(function(){
                                 // xhr5.open('POST','http://localhost:8080/mem_cancel_order.php');
                                 xhr5.send(order_detail_str);
                               }else{
-                                  alert('出發前七日內無法取消訂單');
-                                  return false;
+                                $('.alertbox .wrapper').text("出發前七日內無法取消訂單");
+                                $('.alertbox').addClass("on");
+                                return false;
                               }
                               
                         }else{
@@ -479,7 +515,7 @@ $(document).ready(function(){
                     var xhr3 = new XMLHttpRequest();
                     xhr3.onload = function(){
                         if(xhr3.status ==200){
-                            console.log(JSON.parse(xhr3.responseText));
+                            // console.log(JSON.parse(xhr3.responseText));
                             var custo = JSON.parse(xhr3.responseText);
                             for(i=0;i<custo.length;i++){
                                 $('.curisine_desktop').append(`<div class="curisine_div_title_item_bot">
@@ -488,7 +524,7 @@ $(document).ready(function(){
                                 <div>${custo[i].cookName}</div>
                                 <div id="ingreNo_${i}"></div>
                                 <div>${custo[i].seafoodPrice}</div>
-                                </div>`)
+                                </div><hr>`)
                                 for(j=0;j<custo[i].ingreNo.length;j++){
                                     $(`#ingreNo_${i}`).append(`${custo[i].ingreNo[j].ingreName}<br>`);
                                 }
@@ -515,7 +551,7 @@ $(document).ready(function(){
                                 </div>
                                 <div class="curisine_mobile_div_item">
                                     <div>金額</div>
-                                    <div>${custo[k].seafoodPrice}</div>
+                                    <div>${custo[k].seafoodPrice}元</div>
                                 </div>
                             </div>`)
                                 for(l=0;l<custo[k].ingreNo.length;l++){
@@ -529,7 +565,7 @@ $(document).ready(function(){
                             xhr4.onload = function(){
                                 if(xhr4.status == 200){
                                     order_custo_num = JSON.parse(xhr4.responseText);
-                                    console.log(order_custo_num)
+                                    // console.log(order_custo_num)
                                     for(m=0;m<order_record.length;m++){
                                         for(n=0;n<order_custo_num.length;n++){
                                             if(order_custo_num[n].orderNo == order_record[m].orderNo[0].orderNo){
@@ -537,10 +573,13 @@ $(document).ready(function(){
                                                 <div class="order_detail_right_div_custom_item">
                                                 <div>${order_custo_num[n].custoName}</div>
                                                 <div id="custoListCount_${n}">${order_custo_num[n].custoListCount}</div>
-                                                <div id="custoListPrice_${n}">${order_custo_num[n].custoListPrice}</div>
+                                                <div id="custoListPrice_${n}">${order_custo_num[n].custoListPrice}元</div>
                                                 <div id="custoListTotal_${n}"></div>
                                             </div>`)
-                                            $(`#custoListTotal_${n}`).text($(`#custoListCount_${n}`).text()*$(`#custoListPrice_${n}`).text())
+                                            var custoListPrice = $(`#custoListPrice_${n}`).text();
+                                            //把元刪掉
+                                            custoListPrice = custoListPrice.substring(0,custoListPrice.length-1);
+                                            $(`#custoListTotal_${n}`).text($(`#custoListCount_${n}`).text()*custoListPrice+'元')
                                             }
                                         }   
                                     }
@@ -574,12 +613,13 @@ $(document).ready(function(){
 
     // windows
     xhr.open('GET',  './php/member_data_show.php',  true);
-
-    // Mac
+// Mac
+    
     // xhr.open('GET','http://localhost:8080/member_data_show.php');
     xhr.send(null);
 })
 //載入網頁，撈出會員的基本資料
+
 
 //判斷滾輪方向
 

@@ -288,7 +288,7 @@ main.on {
                 }
             }
 
-            .note:nth-child(2) {
+            .note:nth-child(even) {
                 background-image: url(../images/note02.png);
             }
         }
