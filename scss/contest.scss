@@ -15,7 +15,7 @@ body {
 }
 
 // 提示燈箱
-.alertbox {
+.alertbox1 {
     display: none;
     background-color: #FBD672;
     position: fixed;
@@ -28,14 +28,14 @@ body {
     z-index: 1000;
     box-shadow: 6px 6px 0px rgb(247, 192, 41);
     border-radius: 0 0 10px 10px;
-    .boxclose {
+    .boxclose1 {
         width: 7%;
         position: absolute;
         top: 4px;
         right: 10px;
         cursor: pointer;
     }
-    .wrapper_alert {
+    .wrapper_alert1 {
         background-color: #fff;
         border-radius: 5px;
         height: 100px;
@@ -44,7 +44,7 @@ body {
     }
 }
 
-.alertbox.on_alert {
+.alertbox1.on_alert1 {
     display: block;
 }
 // 提示燈箱2
@@ -276,7 +276,7 @@ body {
         position: absolute;
         z-index: -1;
         top: -35%;
-        left: 2%;
+        // left: 2%;
         width: 1158px;
         height: 744px;
         background-image: url(../images/light_move.png);

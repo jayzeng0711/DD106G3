@@ -337,8 +337,8 @@ $(document).ready(function() {
 
                             //檢查留言框是否有輸入內容
                             if ($.trim($(`#text_${RKinputBtn}`).val()) == "") {
-                                $('.alertbox .wrapper_alert').text("您還沒有輸入任何文字喔~1");
-                                $('.alertbox').addClass("on_alert");
+                                $('.alertbox1 .wrapper_alert1').text("您還沒有輸入任何文字喔~1");
+                                $('.alertbox1').addClass("on_alert1");
                                 return false;
                             }
                             inputMsg(RKinputBtn);
@@ -735,8 +735,8 @@ $(document).ready(function() {
                 LTinputBtn = LTinputBtn.slice(17);
                 //檢查留言框是否有輸入內容
                 if ($.trim($(`#List_text_${LTinputBtn}`).val()) == "") {
-                    $('.alertbox .wrapper_alert').text("您還沒有輸入任何文字喔~2");
-                    $('.alertbox').addClass("on_alert");
+                    $('.alertbox1 .wrapper_alert1').text("您還沒有輸入任何文字喔~2");
+                    $('.alertbox1').addClass("on_alert1");
                     return false;
                 }
                 inputListMsg(LTinputBtn);
@@ -801,8 +801,8 @@ $(document).ready(function() {
 
 
     // 關掉提示燈箱
-    $('.alertbox .boxclose').click(function() {
-        $('.alertbox').removeClass("on_alert");
+    $('.alertbox1 .boxclose1').click(function() {
+        $('.alertbox1').removeClass("on_alert1");
     });
     // 關掉提示燈箱，並登入
     $('.alertbox2 .boxclose2').click(function() {
@@ -861,8 +861,8 @@ $(document).ready(function() {
                 if ($('.pu_mem_login_suc_div').text() != false) {
                     //檢查留言框是否有輸入內容
                     if ($.trim($(`#text_${id}`).val()) == "") {
-                        $('.alertbox .wrapper_alert').text("您還沒有輸入任何文字喔~3");
-                        $('.alertbox').addClass("on_alert");
+                        $('.alertbox1 .wrapper_alert1').text("您還沒有輸入任何文字喔~3");
+                        $('.alertbox1').addClass("on_alert1");
                         return false;
                     }
                     inputMsg(id);
@@ -1007,14 +1007,14 @@ $(document).ready(function() {
 
                         xhr6.open('POST', './php/contest_vote_input.php', true);
                         xhr6.send(voteData_str);
-                        $('.alertbox .wrapper_alert').text("恭喜您投票成功!");
-                        $('.alertbox').addClass("on_alert");
+                        $('.alertbox1 .wrapper_alert1').text("恭喜您投票成功!");
+                        $('.alertbox1').addClass("on_alert1");
                         // vote(selectedIndex);
                         console.log(selectedIndex);
 
                     } else {
-                        $('.alertbox .wrapper_alert').text("您今日已投過票囉~");
-                        $('.alertbox').addClass("on_alert");
+                        $('.alertbox1 .wrapper_alert1').text("您今日已投過票囉~");
+                        $('.alertbox1').addClass("on_alert1");
                     }
 
 
@@ -1086,14 +1086,14 @@ $(document).ready(function() {
 
                         xhr6.open('POST', './php/contest_vote_input.php', true);
                         xhr6.send(voteData_str);
-                        $('.alertbox .wrapper_alert').text("恭喜您投票成功!");
-                        $('.alertbox').addClass("on_alert");
+                        $('.alertbox1 .wrapper_alert1').text("恭喜您投票成功!");
+                        $('.alertbox1').addClass("on_alert1");
                         // vote(selectedIndex);
 
 
                     } else {
-                        $('.alertbox .wrapper_alert').text("您今日已投過票囉");
-                        $('.alertbox').addClass("on_alert");
+                        $('.alertbox1 .wrapper_alert1').text("您今日已投過票囉");
+                        $('.alertbox1').addClass("on_alert1");
                     }
 
 
@@ -1139,8 +1139,8 @@ $(document).ready(function() {
                 if ($('.pu_mem_login_suc_div').text() != false) {
                     //檢查留言框是否有輸入內容
                     if ($.trim($(`#List_text_${id}`).val()) == "") {
-                        $('.alertbox .wrapper_alert').text("您還沒有輸入任何文字喔~4");
-                        $('.alertbox').addClass("on_alert");
+                        $('.alertbox1 .wrapper_alert1').text("您還沒有輸入任何文字喔~4");
+                        $('.alertbox1').addClass("on_alert1");
                         return false;
                     }
                     inputListMsg(id);
@@ -1283,8 +1283,6 @@ $(document).ready(function() {
         xhr4.open('POST', './php/contest_report_comment.php', true);
         xhr4.send(reportData_str);
     }
-
-
 
 
 
