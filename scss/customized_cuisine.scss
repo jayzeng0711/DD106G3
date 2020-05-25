@@ -9,6 +9,39 @@ body {
     overflow-x: hidden;
 }
 
+.alertbox {
+    display: none;
+    background-color: #FBD672;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 150px;
+    padding: 30px 10px;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1000;
+    box-shadow: 6px 6px 0px rgb(247, 192, 41);
+    border-radius: 0 0 10px 10px;
+    .boxclose {
+        width: 7%;
+        position: absolute;
+        top: 4px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .wrapper {
+        background-color: #fff;
+        border-radius: 5px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+    }
+}
+
+.alertbox.on {
+    display: block;
+}
+
 //標題波浪
 .pu_customized {
     background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x, radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
