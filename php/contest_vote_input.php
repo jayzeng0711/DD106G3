@@ -5,7 +5,7 @@ try{
 
 
     session_start();
-    //新增一筆檢舉留言到資料庫
+    //新增一筆投票到資料庫
     $sql = "INSERT INTO `vote` (`voteNo`, `contestNo`, `memNo`, `custoNo`) VALUES (null, :contestNo, :memNo, :custoNo)";
     $vote_str = json_decode(file_get_contents('php://input'));
     $vote = $pdo->prepare($sql);
@@ -14,6 +14,12 @@ try{
     $vote->bindValue(":custoNo", $vote_str->custoNo);
     
     $vote->execute();
+
+    //更新會員投票時間欄位為今日
+    $sql = "UPDATE `member` SET `memVote` = DATE_FORMAT( CURDATE( ) , '%Y%m%d' ) where memNo=:memNo";
+    $mem_vote = $pdo->prepare($sql);
+    $mem_vote -> bindValue(":memNo", $_SESSION["memNo"]);
+    $mem_vote->execute();
 
     
 } catch (PDOException $e) {

@@ -4,7 +4,7 @@ $errMsg = "";
 
 try{
     require_once("connectdd106g3.php");
-    $sql = "INSERT INTO `meal` (`mealNo`, `mealName`, `mealPic`, `mealFirst`, `mealMain`, `mealDishOne`, `mealDishTwo`, `mealSoup`, `mealDrink`, `mealPrice`, `meatState`)";
+    $sql = "INSERT INTO `meal` (`mealNo`, `mealName`, `mealPic`, `mealFirst`, `mealMain`, `mealDishOne`, `mealDishTwo`, `mealSoup`, `mealDrink`, `mealPrice`, `mealState`) VALUES (null, :mealName, :mealPic, :mealFirst, :mealMain, :mealDishOne, :mealDishTwo, :mealSoup, :mealDrink, :mealPrice, :mealState)";
 
     $theMeal = json_decode(file_get_contents("php://input"));
 
@@ -18,7 +18,7 @@ try{
     $newMeal->bindValue(':mealSoup', $theMeal->mealSoup);
     $newMeal->bindValue(':mealDrink', $theMeal->mealDrink);
     $newMeal->bindValue(':mealPrice', $theMeal->mealPrice);
-    $newMeal->bindValue(':meatState', $theMeal->meatState);
+    $newMeal->bindValue(':mealState', $theMeal->mea1State);
     $newMeal->execute();
 
 }catch (PDOException $e) {
