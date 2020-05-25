@@ -133,7 +133,7 @@ $(document).ready(function(){
                         $('.alertbox').addClass("on");
                         return false;
                     }
-                    if(old_psw.length == new_psw.length){
+                    if(old_psw == new_psw){
                         $('.alertbox .wrapper').text("舊密碼與新密碼相同");
                         $('.alertbox').addClass("on");
                         return false;
@@ -161,10 +161,10 @@ $(document).ready(function(){
                     var psw_str = JSON.stringify(psw);
                     // console.log(psw_str)
                     // windows
-                    // xhr.open('POST', './php/member_data_update_psw.php',  true);
+                    xhr.open('POST', './php/member_data_update_psw.php',  true);
 
-                    //  Mac
-                    xhr.open('POST','http://localhost:8080/member_data_update_psw.php');
+                    // Mac
+                    // xhr.open('POST','http://localhost:8080/member_data_update_psw.php');
                     xhr.send(psw_str);
                 })
                 //點下修改密碼
@@ -594,10 +594,10 @@ $(document).ready(function(){
                         }
                     }
                     // windows
-                    xhr3.open('POST',  './php/customeal_show.php',  true);
+                    xhr3.open('GET',  './php/customeal_show.php',  true);
 
                     // Mac
-                    // xhr3.open('POST','http://localhost:8080/customeal_show.php');
+                    // xhr3.open('GET','http://localhost:8080/customeal_show.php');
                     xhr3.send(null);
                 }
             }
