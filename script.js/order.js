@@ -346,13 +346,13 @@ window.addEventListener('load', function() {
                     // 訂位沒有額滿，顯示選項
                     if (date[i].routeRemaining > 0) {
                         // 只顯示5個選項
-                        if (selectdate.options.length < 5) {
-                            option = new Option(date[i].routeDate, date[i].routeDate);
-                            selectdate.add(option);
-                            $('#date option:last-child').attr("remaining", date[i].routeRemaining);
-                            $('#date option:last-child').attr("routeNo", date[i].routeNo);
+                        // if (selectdate.options.length < 5) {
+                        option = new Option(date[i].routeDate, date[i].routeDate);
+                        selectdate.add(option);
+                        $('#date option:last-child').attr("remaining", date[i].routeRemaining);
+                        $('#date option:last-child').attr("routeNo", date[i].routeNo);
 
-                        }
+                        // }
                     };
 
                 }
