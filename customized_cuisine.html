@@ -177,6 +177,17 @@
                                 <div id="c-cook" class="tab tab2">
                                     <div class="cabinet-top">
                                         <ul class="tab_cook" style="display: flex;">
+                                            <li id="" class="cook-type-mb">
+                                                煮湯
+                                            </li>
+                                            <li id="" class="cook-type-mb">
+                                                蒸
+                                            </li>
+                                            <li id="" class="cook-type-mb">
+                                                烤
+                                            </li>
+                                        </ul>
+                                        <!-- <ul class="tab_cook" style="display: flex;">
                                             <li id="" class="cook-type">
                                                 煮湯
                                             </li>
@@ -208,7 +219,7 @@
                                             <li id="tab_cook9" class="cook-type">
                                                 烤
                                             </li>
-                                        </ul>
+                                        </ul> -->
                                     </div>
                                     <div class="cabinet-bottom">
                                         <p>
@@ -290,7 +301,7 @@
                                     <li class="cook-type" id="cook2">蒸</li>
                                     <li class="cook-type" id="cook3">烤</li>
                                 </ul>
-                                <ul class="list-of-cook" style="display: none;">
+                                <!-- <ul class="list-of-cook" style="display: none;">
                                     <li class="cook-type" id="cook4">炒</li>
                                     <li class="cook-type" id="cook5">炸</li>
                                     <li class="cook-type" id="cook6">涼拌</li>
@@ -299,7 +310,7 @@
                                     <li class="cook-type" id="cook7">煮清湯</li>
                                     <li class="cook-type" id="cook8">生吃</li>
                                     <li class="cook-type" id="cook9">烤</li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
 
@@ -371,12 +382,12 @@
                     <div class="food-info">
                         <label for="">這道菜的名字是</label>
                         <span>◎此項必填</span>
-                        <input type="text" placeholder="名字最長十個字~" maxlength="10">
+                        <input type="text" placeholder="名字最長十個字~" maxlength="10" id="custoName">
 
                     </div>
                     <div class="food-info">
                         <label for="">關於這道菜，我想說...</label>
-                        <textarea name="" cols="30" rows="1" placeholder="輸入文字吧~"></textarea>
+                        <textarea name="" cols="30" rows="1" placeholder="輸入文字吧~" id="content"></textarea>
                     </div>
                     <div class="form-control">
                         <h3>
@@ -396,9 +407,11 @@
                     <p>按下確定後也會同時報名美食大賽，趕快去看一看吧！</p>
 
                     <div class="cancel">取消</div>
-                    <a href="">
+
+                    <input type="submit" value="確定" id="download">
+                    <!-- <a href="">
                         <input type="submit" value="確定">
-                    </a>
+                    </a> -->
 
                 </article>
             </div>
@@ -414,8 +427,8 @@
 
     <script>
         // 手機用版面
-        $(function () {
-            $("a.tab").on("click", function (e) {
+        $(function() {
+            $("a.tab").on("click", function(e) {
                 e.preventDefault();
 
                 /* 將頁籤列表移除所有 -on，再將指定的加上 -on */
@@ -555,8 +568,8 @@
         //     $(`#cook${str},#tab_cook${str}`).addClass("selected");
         // });
     </script>
-    
-    
+
+
     <script>
         // var xhr = new XMLHttpRequest();
         // xhr.onload = function () {
@@ -652,7 +665,7 @@
         //                         var seafood = session.getItem(i);
         //                         seafood_arr = seafood.split('|');
         //                         $(`.note${i}`).append(`
-                        
+
         //                     <div class="note-content">
         //                         <span id="fishName">${seafood_arr[1]}</span>
         //                         <span>價格：NT$${seafood_arr[2]}元</span>
@@ -755,13 +768,12 @@
 
 
         //     // windows
- 
+
         // xhr.open('GET', './php/getlogininfo.php', true); 
 
         // // Mac
         // // xhr.open('GET', "http://localhost:8080/getlogininfo.php");
         // xhr.send(null);
-       
     </script>
     <script>
         // //獲得海鮮的烹調方式
