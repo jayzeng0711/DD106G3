@@ -244,11 +244,11 @@ $(document).ready(function(){
                                 <div class="order_detail_right_div_point_wrap">
                                     <div class="order_detail_right_div_point">
                                         <div class="order_detail_right_div_point_text">使用點數</div>
-                                        <div><input value="${order_record[i].orderPoints}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                        <div><input value="${order_record[i].orderPoints}點" size="10" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                     </div>
                                     <div class="order_detail_right_div_point">
                                         <div class="order_detail_right_div_total">總金額</div>
-                                        <div><input value="${order_record[i].orderTotal}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                        <div><input value="${order_record[i].orderTotal}元" size="10" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -316,11 +316,11 @@ $(document).ready(function(){
                             <div class="order_detail_right_div_point_wrap">
                                 <div class="order_detail_right_div_point">
                                     <div class="order_detail_right_div_point_text">使用點數</div>
-                                    <div><input value="${order_record[i].orderPoints}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                    <div><input value="${order_record[i].orderPoints}點" size="10" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                 </div>
                                 <div class="order_detail_right_div_point">
                                     <div class="order_detail_right_div_total">總金額</div>
-                                    <div><input value="${order_record[i].orderTotal}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                    <div><input value="${order_record[i].orderTotal}元" size="10" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                 </div>
                             </div>
                             <div>
@@ -393,11 +393,11 @@ $(document).ready(function(){
                             <div class="order_detail_right_div_point_wrap">
                                 <div class="order_detail_right_div_point">
                                     <div class="order_detail_right_div_point_text">使用點數</div>
-                                    <div><input value="${order_record[i].orderPoints}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                    <div><input value="${order_record[i].orderPoints}點" size="10" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                 </div>
                                 <div class="order_detail_right_div_point">
                                     <div class="order_detail_right_div_total">總金額</div>
-                                    <div><input value="${order_record[i].orderTotal}" size="6" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
+                                    <div><input value="${order_record[i].orderTotal}元" size="10" style="text-align: right;font-size: 16px;border: none;background-color: transparent;"></div>
                                 </div>
                             </div>
                         </div>
@@ -405,15 +405,27 @@ $(document).ready(function(){
                     <hr>`)
                         }
                     for(j=0;j<order_record[i].orderNo.length;j++){
+                        if(order_record[i].orderNo[j].mealNo == 1){
+                            order_record[i].orderNo[j].mealNo = "A套餐"
+                        }
+                        if(order_record[i].orderNo[j].mealNo == 2){
+                            order_record[i].orderNo[j].mealNo = "B套餐"
+                        }
+                        if(order_record[i].orderNo[j].mealNo == 3){
+                            order_record[i].orderNo[j].mealNo = "C套餐"
+                        }
                         $(`.order_div_wrap_${i}`).append(` 
                         <div class="order_detail_right_div_item">
                         <div>${order_record[i].orderNo[j].mealNo}</div>
                         <div id="mealListCount_${j}_${i}">${order_record[i].orderNo[j].mealListCount}</div>
-                        <div id="mealListPrice_${j}_${i}">${order_record[i].orderNo[j].mealListPrice}</div>
+                        <div class="mealListCount" id="mealListPrice_${j}_${i}">${order_record[i].orderNo[j].mealListPrice}元</div>
                         <div id="mealListToatl_${j}_${i}"></div>
                         </div>
                         `)
-                        $(`#mealListToatl_${j}_${i}`).text($(`#mealListCount_${j}_${i}`).text()*$(`#mealListPrice_${j}_${i}`).text())
+                        var mealListPrice = $(`#mealListPrice_${j}_${i}`).text();
+                        //把元刪掉
+                        mealListPrice = mealListPrice.substring(0,mealListPrice.length-1);
+                        $(`#mealListToatl_${j}_${i}`).text($(`#mealListCount_${j}_${i}`).text()*mealListPrice+'元')
                         }
                     }
                     //判斷每個取消訂單按鈕
@@ -488,7 +500,7 @@ $(document).ready(function(){
                                 <div>${custo[i].cookName}</div>
                                 <div id="ingreNo_${i}"></div>
                                 <div>${custo[i].seafoodPrice}</div>
-                                </div>`)
+                                </div><hr>`)
                                 for(j=0;j<custo[i].ingreNo.length;j++){
                                     $(`#ingreNo_${i}`).append(`${custo[i].ingreNo[j].ingreName}<br>`);
                                 }
@@ -515,7 +527,7 @@ $(document).ready(function(){
                                 </div>
                                 <div class="curisine_mobile_div_item">
                                     <div>金額</div>
-                                    <div>${custo[k].seafoodPrice}</div>
+                                    <div>${custo[k].seafoodPrice}元</div>
                                 </div>
                             </div>`)
                                 for(l=0;l<custo[k].ingreNo.length;l++){
@@ -537,10 +549,13 @@ $(document).ready(function(){
                                                 <div class="order_detail_right_div_custom_item">
                                                 <div>${order_custo_num[n].custoName}</div>
                                                 <div id="custoListCount_${n}">${order_custo_num[n].custoListCount}</div>
-                                                <div id="custoListPrice_${n}">${order_custo_num[n].custoListPrice}</div>
+                                                <div id="custoListPrice_${n}">${order_custo_num[n].custoListPrice}元</div>
                                                 <div id="custoListTotal_${n}"></div>
                                             </div>`)
-                                            $(`#custoListTotal_${n}`).text($(`#custoListCount_${n}`).text()*$(`#custoListPrice_${n}`).text())
+                                            var custoListPrice = $(`#custoListPrice_${n}`).text();
+                                            //把元刪掉
+                                            custoListPrice = custoListPrice.substring(0,custoListPrice.length-1);
+                                            $(`#custoListTotal_${n}`).text($(`#custoListCount_${n}`).text()*custoListPrice+'元')
                                             }
                                         }   
                                     }
@@ -574,8 +589,8 @@ $(document).ready(function(){
 
     // windows
     xhr.open('GET',  './php/member_data_show.php',  true);
-
-    // Mac
+// Mac
+    
     // xhr.open('GET','http://localhost:8080/member_data_show.php');
     xhr.send(null);
 })

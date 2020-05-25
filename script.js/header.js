@@ -183,7 +183,7 @@ $('#signInBtn').click(function() {
         return false;
     }
     if (loginPassword.length < 3) {
-        alert('密碼長度不可小於3位數');
+        alert('密碼不正確');
         return false;
     }
     var xhr = new XMLHttpRequest();
@@ -235,13 +235,16 @@ $('.pu_login_member_center').click(function(){
 })
 //點擊會員跑出會員中心及登出
 //會員登出
-$('.pu_login_logout').click(function() {
+$('.pu_login_logout,#mem_lohin_btn_mobile_div_logout').click(function() {
         var xhr = new XMLHttpRequest();
         xhr.onload = function() {
             if (xhr.status == 200) {
                 $('.pu_mem_login_div_wrap').css('display', 'flex');
                 $('.pu_mem_login_div_suc_wrap').css('display', 'none');
                 $('.pu_login_btn').css('display', 'none');
+                $('.mem_lohin_btn_mobile_div').css('display', 'block');
+                $('.mem_lohin_btn_mobile_div_center').css('display', 'none');
+                $('.mem_lohin_btn_mobile_div_logout').css('display', 'none');
                 window.location.reload();
                 $('.pu_mem_login_div').text('會員登入');
                 //清除storage
@@ -409,6 +412,7 @@ $(document).ready(function() {
                 $('.pu_reb_ul').append(`<li class="pu_reb_li">${message[i].messageContent}</li> `)
             }
             $('.pu_reb_li').click(function(e) {
+                $('.pu_reb_li').addClass('disabled')
                 var text = $(e.target).text();
                 $('.pu_big_content_center').append(
                         ` <div class="pu_big_content_text_ans">
@@ -433,6 +437,7 @@ $(document).ready(function() {
                                     //讓滾動條保持最下方
                                 $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
                                 //讓滾動條保持最下方
+                                $('.pu_reb_li').removeClass('disabled')
                             }, 500)
                         } else {
                             setTimeout(function() {
@@ -442,6 +447,7 @@ $(document).ready(function() {
                                     //讓滾動條保持最下方
                                 $('.pu_big_content_center').scrollTop($('.pu_big_content_center')[0].scrollHeight);
                                 //讓滾動條保持最下方
+                                $('.pu_reb_li').removeClass('disabled')
                             }, 500)
                         }
                     }
@@ -486,6 +492,9 @@ function login_change(){
                 $('.pu_mem_login_suc_div').text(`hi~${member.memName}`);
                 $('.pu_mem_login_div_wrap').css('display', 'none');
                 $('.pu_mem_login_div_suc_wrap').css('display', 'flex');
+                $('.mem_lohin_btn_mobile_div').css('display', 'none');
+                $('.mem_lohin_btn_mobile_div_center').css('display', 'block');
+                $('.mem_lohin_btn_mobile_div_logout').css('display', 'block');
                 if(member.memPic){
                     $('.pu_icon_suc_div').append(`<img style="border-radius: 50%;width:40px;height:40px" src="./php/images/${member.memPic}" alt="">`)
                 }else{
