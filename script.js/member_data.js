@@ -586,7 +586,7 @@ $(document).ready(function(){
                                 }
                             }
                             // windows
-                            xhr4.open('POST',  './php/mem_data_order_custo.php',  true);
+                            xhr4.open('GET',  './php/mem_data_order_custo.php',  true);
 
                             // Mac
                             // xhr4.open('GET','http://localhost:8080/mem_data_order_custo.php');
