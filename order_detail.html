@@ -18,6 +18,10 @@
         <div class="title">
             @@include('./layout/h1_title.html')
         </div>
+        <div class="alertbox">
+            <img class="boxclose" src="./images/blue-cross-icon.png" alt="">
+            <div class="wrapper"></div>
+        </div>
 
         <div class="wrapper">
             <h3>套餐訂單明細</h3>
@@ -314,79 +318,10 @@
 
                 </div>
                 <div class="line custoline"></div>
-                <!-- <div class="row mdcusto align-items-center ">
-                    <div class="col-md-4 ">
-                        <div class="row ">
-                            <div class="col-6 col-md-12 divorder ">
-                                <div class="row align-items-center custorow">
-                                    <div class="col-6 ">
-                                        <img src="./images/menupic1.png " alt=" ">
-                                    </div>
-                                    <div class="col-5 divorder ">
-                                        <p class="custonow ">海膽金箔</p>
-                                    </div>
-                                </div>
-                            </div>
 
-                        </div>
-                    </div>
-                    <div class="col-md-2 divorder custoAmount">
-                        <p class="custocount ">3</p>
-                    </div>
-                    <div class="col-md-3 divorder custoPrice">
-                        <p class="custoprice ">500元</p>
-                    </div>
-                    <div class="col-md-3 divorder ">
-                        <p class="custoamount ">1500元</p>
-                    </div>
-
-                </div> -->
 
                 <div class="smline "></div>
-                <!-- <div class="row smcusto ">
-                    <div class="col-12 ">
-                        <div class="row align-items-center divorder ">
-                            <div class="col-6 ">
-                                <p>海膽金箔</p>
-                            </div>
-                            <div class="col-6 ">
-                                <img src="./images/menupic1.png " alt=" ">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="row align-items-center ">
-                            <div class="col-6 d-md-none divtitle ">
-                                <p>數量</p>
-                            </div>
-                            <div class="col-6 col-md-12 divorder ">
-                                <p class="custocount ">3</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="row ">
-                            <div class="col-6 d-md-none divtitle ">
-                                <p>單價</p>
-                            </div>
-                            <div class="col-6 col-md-12 divorder ">
-                                <p class="custoprice ">500元</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="row ">
-                            <div class="col-6 d-md-none divtitle ">
-                                <p>小計</p>
-                            </div>
-                            <div class="col-6 col-md-12 divorder ">
-                                <p class="custoamount ">1500元</p>
-                            </div>
-                        </div>
-                    </div>
 
-
-                </div> -->
                 <div class="row custoorder justify-content-end custoafterline">
                     <div class="col-6 col-md-3 ">
                         <p>總計</p>
@@ -400,9 +335,10 @@
         </div>
         <div class="wrapper ">
             <h3>訂位付款資訊</h3>
+            <div class="line"></div>
             <div class="container order ">
                 <div class="row">
-                    <div class="col-12 col-md-4 ">
+                    <div class="col-12 col-md-6 ">
                         <div class="row date ">
                             <div class="col-12 ">
                                 <div class="row ">
@@ -437,7 +373,7 @@
 
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 ">
+                    <div class="col-12 col-md-6 ">
                         <div class="row people">
                             <div class="col-12 ">
                                 <div class="row ">
@@ -471,7 +407,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 ">
+                    <div class="col-12 col-md-6 ">
                         <div class="row pay ">
                             <div class="col-12 ">
                                 <div class="row ">
@@ -485,17 +421,17 @@
                             </div>
                             <div class="col-12 ">
                                 <div class="row ">
-                                    <div class="col-3 divinput">
+                                    <div class="col-3 divinput ">
                                         <p>點數</p>
                                     </div>
                                     <div class="col-9 divinput">
                                         <input type="number " name="ordepoint" id="ordepoint" value="0"><span>點</span>
-                                        <p>可用點數<span id="maxpoint"></span>點</p>
+                                        <p>(可用點數<span id="maxpoint"></span>點)</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 ">
-                                <div class="row ">
+                                <div class="row rowtotal">
                                     <div class="col-3 divorder ">
                                         <p>總計</p>
                                     </div>
@@ -512,8 +448,6 @@
                         <a href="order.html " class="button previous ">上一步</a>
                     </div>
                     <div class="col-6 col-md-3 ">
-                        <!-- <a href="main.html " class="button ">送出訂單</a> -->
-                        <!-- <a href="" class="button next">送出訂單</a> -->
                         <div class="button next">送出訂單</a>
                         </div>
                     </div>

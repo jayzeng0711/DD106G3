@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    show();
+})
+
 function show() {
     // 清除表格內容
     $(`table tr`).not("tr.title").remove();
