@@ -21,6 +21,10 @@ $(document).ready(function () {
             custoRKRows = JSON.parse(xhr2.responseText);
             // console.log(custoRKRows);
 
+            if(`${custoRKRows[0].contestCustoVote}` == 0 || `${custoRKRows[1].contestCustoVote}` == 0 || `${custoRKRows[2].contestCustoVote}` == 0){
+                window.location.reload();
+            }
+
             //取出排行榜第二名資訊
             $(".ranking_contain").append(`
             <div class="cookList_item">   
@@ -67,6 +71,8 @@ $(document).ready(function () {
                     <p class="no_msg">來當第一個留言的人吧!</p>
                 `);
             }
+            
+            
             
 
             //取出排行榜第一名資訊
@@ -334,8 +340,11 @@ $(document).ready(function () {
                     inputMsg(RKinputBtn);
                 } else {
                     //未登入
-                    $('#nologin').css('display', 'block'); //好像沒作用?
                     alert("尚未登入，請先進行登入喔~");
+                    $('#Login,#Login_back').css('display', 'block');
+                    $('#pu_mem_resist_wrap').css('display', 'none');
+                    $('#pu_mem_forget_wrap').css('display', 'none');
+                    $('#pu_mem_login_wrap').css('display', 'block');
                 }
                 
             });
@@ -347,14 +356,16 @@ $(document).ready(function () {
                 if ($('.pu_mem_login_suc_div').text() != false){
                     var RKvote = e.target.id;
                     RKvote = RKvote.slice(8); 
-                    // showMsg(RKid); //打開燈箱
-                    alert(RKvote);
+                    // alert(RKvote);
                     inputRKvote(RKvote);
                     
                 } else {
                     //未登入
-                    $('#nologin').css('display', 'block'); //好像沒作用?
                     alert("尚未登入，請先進行登入喔~");
+                    $('#Login,#Login_back').css('display', 'block');
+                    $('#pu_mem_resist_wrap').css('display', 'none');
+                    $('#pu_mem_forget_wrap').css('display', 'none');
+                    $('#pu_mem_login_wrap').css('display', 'block');
                 }
                 
             });
@@ -372,7 +383,7 @@ $(document).ready(function () {
     // windows
     xhr2.open('GET', './php/contest_showRanking.php', true);
     xhr2.send(null);
-
+    
     
 
 
@@ -398,7 +409,6 @@ $(document).ready(function () {
         xhr.onload = function() {
             if (xhr.status == 200) {
                 voteRank = JSON.parse(xhr.responseText);
-                // console.log("v",voteRank);
                 page(index);
             } else {
                 console.log(xhr.status);
@@ -473,6 +483,7 @@ $(document).ready(function () {
                                 memNo: comments[j].memNo,
                                 memName: comments[j].memName,
                                 memPic: comments[j].memPic,
+                                commentTime: comments[j].commentTime,
                             };
                             custos[i].comment.push(object);
 
@@ -566,7 +577,7 @@ $(document).ready(function () {
                         let no = i + now * 6;
                         
                         if (custos[no]) {
-
+                            
                             // 料理編號(由大到小，等於時間由新到舊)
                             custoNo = custos[no].custoNo;
                             
@@ -638,6 +649,10 @@ $(document).ready(function () {
                                     commemName = custos[no].comment[j].memName;
                                     // 留言會員照片
                                     commemPic = custos[no].comment[j].memPic;
+                                    // 留言時間
+                                    commentTime = custos[no].comment[j].commentTime;
+
+                                    // console.log(custos[no].comment[j].commentTime);
 
 
                                     $(`#msg_${custoNo}`).append(`
@@ -664,7 +679,7 @@ $(document).ready(function () {
                                             </div>
                                         </div>
                                         <div class="msg_date">
-                                            <p></p>
+                                            <p>${commentTime}</p>
                                         </div>
                                     </div>
                                     `);
@@ -686,7 +701,7 @@ $(document).ready(function () {
                         LTid = LTid.slice(13); 
                         listMsg(LTid); //打開燈箱
                         listEnterInput(LTid);
-                        alert(LTid);
+                        // alert(LTid);
                         event.stopPropagation();
                     });
                     //按下送出留言
@@ -706,8 +721,11 @@ $(document).ready(function () {
                             inputListMsg(LTinputBtn);
                         } else {
                             //未登入
-                            $('#nologin').css('display', 'block'); //好像沒作用?
                             alert("尚未登入，請先進行登入喔~");
+                            $('#Login,#Login_back').css('display', 'block');
+                            $('#pu_mem_resist_wrap').css('display', 'none');
+                            $('#pu_mem_forget_wrap').css('display', 'none');
+                            $('#pu_mem_login_wrap').css('display', 'block');
                         }
                     });
                     // 點叉叉圖示關閉燈箱
@@ -741,8 +759,11 @@ $(document).ready(function () {
                             $("div.report_overlay").addClass("-on");
                         } else {
                             //未登入
-                            $('#nologin').css('display', 'block'); //好像沒作用?
                             alert("尚未登入，請先進行登入喔~");
+                            $('#Login,#Login_back').css('display', 'block');
+                            $('#pu_mem_resist_wrap').css('display', 'none');
+                            $('#pu_mem_forget_wrap').css('display', 'none');
+                            $('#pu_mem_login_wrap').css('display', 'block');
                         }
                     });
                     //抓到(前三名)檢舉留言的按鈕，開啟燈箱
@@ -756,8 +777,11 @@ $(document).ready(function () {
                             $("div.report_overlay").addClass("-on");
                         } else {
                             //未登入
-                            $('#nologin').css('display', 'block'); //好像沒作用?
                             alert("尚未登入，請先進行登入喔~");
+                            $('#Login,#Login_back').css('display', 'block');
+                            $('#pu_mem_resist_wrap').css('display', 'none');
+                            $('#pu_mem_forget_wrap').css('display', 'none');
+                            $('#pu_mem_login_wrap').css('display', 'block');
                         }
                     });
                     //檢舉確定送出
@@ -792,6 +816,27 @@ $(document).ready(function () {
                         setTimeout(function () {
                             $("div.report_overlay").removeClass("-on -opacity-zero");
                         }, 1000);
+                    });
+
+
+                    // 點擊投票
+                    $(".vote_btn").on("click", function (e) {
+                        //判斷是否登入
+                        if ($('.pu_mem_login_suc_div').text() != false){
+                            var list_vote = e.target.id;
+                            list_vote = list_vote.slice(5); 
+                            // alert(list_vote);
+                            inputLTvote(list_vote);
+                            
+                        } else {
+                            //未登入
+                            alert("尚未登入，請先進行登入喔~");
+                            $('#Login,#Login_back').css('display', 'block');
+                            $('#pu_mem_resist_wrap').css('display', 'none');
+                            $('#pu_mem_forget_wrap').css('display', 'none');
+                            $('#pu_mem_login_wrap').css('display', 'block');
+                        }
+                        
                     });
 
                 }
@@ -833,8 +878,11 @@ function rankingEnterInput(id) {
                 inputMsg(id);
             } else {
                 //未登入
-                $('#nologin').css('display', 'block'); //好像沒作用?
                 alert("尚未登入，請先進行登入喔~");
+                $('#Login,#Login_back').css('display', 'block');
+                $('#pu_mem_resist_wrap').css('display', 'none');
+                $('#pu_mem_forget_wrap').css('display', 'none');
+                $('#pu_mem_login_wrap').css('display', 'block');
             }
 
         }
@@ -875,8 +923,6 @@ function inputMsg(id) {
     xhr3.onload = function () {
         if (xhr3.status == 200) {
             let commentRow = JSON.parse(xhr3.responseText);
-            // console.log(commentRow)
-            // console.log(commentRow.commentNo)
             var last_commentNo = parseInt(commentRow.commentNo);
                 
             $(`.msg_wrap${id}`).append(`
@@ -915,7 +961,7 @@ function inputMsg(id) {
     commentData.commentTime = time;
     commentData.custoNo = id;
     var commentData_str = JSON.stringify(commentData);
-    // console.log(commentData_str);
+
 
     xhr3.open('POST', './php/contest_last_commentNo.php', true);
     xhr3.send(commentData_str);
@@ -923,7 +969,7 @@ function inputMsg(id) {
     $(`#text_${id}`).val("");
 }
 
-//新增投票
+//新增投票(前三名)，檢查會員今日是否已投過
 function inputRKvote(RKvote_num) {
 
     var contestNo = custoRKRows[0].contestNo;
@@ -933,7 +979,48 @@ function inputRKvote(RKvote_num) {
     var xhr5 = new XMLHttpRequest();
     xhr5.onload = function () {
         if (xhr5.status == 200) {
-            
+            v_check_Row = JSON.parse(xhr5.responseText);
+            // console.log(v_check_Row);
+
+            if(v_check_Row == false){
+
+                var contestNo = custoRKRows[0].contestNo;
+                var custoNo = RKvote_num;
+
+                var xhr6 = new XMLHttpRequest();
+                xhr6.onload = function () {
+                    if (xhr6.status == 200) {
+                        
+                    } else {
+                        alert(xhr6.status);
+                    }
+                }
+                // FTP
+                // xhr.open('post', './php/test.php', true);
+
+                // Mac
+                // xhr.open('post', 'http://localhost:8080/test.php', true);
+
+                // windows
+
+                var voteData = {};
+                voteData.contestNo = contestNo;
+                voteData.custoNo = custoNo;
+
+                var voteData_str = JSON.stringify(voteData);
+                // console.log(voteData_str);
+
+                xhr6.open('POST', './php/contest_vote_input.php', true);
+                xhr6.send(voteData_str);
+                alert("投票成功!")
+
+
+
+            }else{
+                alert("您今日已投過票囉~")
+            }
+
+
         } else {
             alert(xhr5.status);
         }
@@ -953,13 +1040,203 @@ function inputRKvote(RKvote_num) {
     var voteData_str = JSON.stringify(voteData);
     // console.log(voteData_str);
 
-    xhr5.open('POST', './php/contest_vote_input.php', true);
-    xhr5.send(voteData_str);
+    // xhr5.open('POST', './php/contest_vote_input.php', true);
+    // xhr5.send(voteData_str);
+
+    xhr5.open('POST', './php/contest_vote_check.php', true);
+    xhr5.send(null);
+}
+
+//新增投票(參賽列表)，檢查會員今日是否已投過
+function inputLTvote(LTvote_num){
+    var contestNo = custoRKRows[0].contestNo;
+    var custoNo = LTvote_num;
+
+
+    var xhr5 = new XMLHttpRequest();
+    xhr5.onload = function () {
+        if (xhr5.status == 200) {
+            vList_check_Row = JSON.parse(xhr5.responseText);
+            // console.log(vList_check_Row);
+
+            if(vList_check_Row == false){
+
+                var contestNo = custoRKRows[0].contestNo;
+                var custoNo = LTvote_num;
+
+                var xhr6 = new XMLHttpRequest();
+                xhr6.onload = function () {
+                    if (xhr6.status == 200) {
+                        
+                    } else {
+                        alert(xhr6.status);
+                    }
+                }
+                // FTP
+                // xhr.open('post', './php/test.php', true);
+
+                // Mac
+                // xhr.open('post', 'http://localhost:8080/test.php', true);
+
+                // windows
+
+                var voteData = {};
+                voteData.contestNo = contestNo;
+                voteData.custoNo = custoNo;
+
+                var voteData_str = JSON.stringify(voteData);
+                // console.log(voteData_str);
+
+                xhr6.open('POST', './php/contest_vote_input.php', true);
+                xhr6.send(voteData_str);
+                alert("投票成功!")
+
+
+
+            }else{
+                alert("您今日已投過票囉~")
+            }
+
+
+        } else {
+            alert(xhr5.status);
+        }
+    }
+    // FTP
+    // xhr.open('post', './php/test.php', true);
+
+    // Mac
+    // xhr.open('post', 'http://localhost:8080/test.php', true);
+
+    // windows
+
+    var voteData = {};
+    voteData.contestNo = contestNo;
+    voteData.custoNo = custoNo;
+
+    var voteData_str = JSON.stringify(voteData);
+    // console.log(voteData_str);
+
+    // xhr5.open('POST', './php/contest_vote_input.php', true);
+    // xhr5.send(voteData_str);
+
+    xhr5.open('POST', './php/contest_vote_check.php', true);
+    xhr5.send(null);
 }
 
 
 
+//開啟留言燈箱(參賽列表)
+function listMsg(id) {
+    $(`#List_msg_overlay_${id}`).addClass("-on");
+}
 
+ //按下enter送出留言(參賽列表)
+ function listEnterInput(id) {
+    $(`#List_text_${id}`).keydown(function (e) {
+        if(e.which == 13){
+            e.preventDefault();
+            //判斷是否登入
+            if ($('.pu_mem_login_suc_div').text() != false){
+                //檢查留言框是否有輸入內容
+                if ($.trim($(`#List_text_${id}`).val()) == "") {
+                    alert("您還沒有輸入任何文字喔~");
+                    return false;
+                }
+                inputListMsg(id);
+            } else {
+                //未登入
+                alert("尚未登入，請先進行登入喔~");
+                $('#Login,#Login_back').css('display', 'block');
+                $('#pu_mem_resist_wrap').css('display', 'none');
+                $('#pu_mem_forget_wrap').css('display', 'none');
+                $('#pu_mem_login_wrap').css('display', 'block');
+            }
+        }
+    });
+}
+
+//新增留言(參賽列表)
+function inputListMsg(id) {
+
+    var inputText = $(`#List_text_${id}`).val();
+    var now = new Date();
+    var nowYear = now.getFullYear();
+    var nowMonth = now.getMonth() + 1;
+    var nowDate = now.getDate();
+    var nowHour = now.getHours();
+    var nowMin = now.getMinutes();
+    var nowSec = now.getSeconds();
+    //將日期資料轉換為和資料庫相同格式
+    if (nowMonth <= 9) {
+        nowMonth = "0" + nowMonth;
+    }
+    if (nowDate <= 9) {
+        nowDate = "0" + nowDate;
+    }
+    if (nowHour <= 9) {
+        nowHour = "0" + nowHour;
+    }
+    if (nowMin <= 9) {
+        nowMin = "0" + nowMin;
+    }
+    if (nowSec <= 9) {
+        nowSec = "0" + nowSec;
+    }
+    var time = nowYear + "-" + nowMonth + "-" + nowDate + " " + nowHour + ":" + nowMin + ":" + nowSec;
+    
+    // 從資料庫抓最後一筆留言編號            
+    var xhr3 = new XMLHttpRequest();
+    xhr3.onload = function () {
+        if (xhr3.status == 200) {
+            let commentRow = JSON.parse(xhr3.responseText);
+            var last_commentNo = parseInt(commentRow.commentNo);
+
+                
+                $(`.List_msg_wrap${id}`).append(`
+                <div class="mem_contain">
+                    <div class="flex_wrap">
+                        <div class="mem_name">
+                            <p>${member.memName}</p>
+                            <img src="./images/unname.jpg" alt="">
+                        </div>
+                        <div class="mem_msg">
+                            <p>${inputText}</p>
+                        </div>
+                        <div class="report">
+                            <button class="List_report_btn" id="List_rep_${(last_commentNo+1)}">檢舉</button>
+                        </div>
+                    </div>
+                    <div class="msg_date">
+                        <p>${time}</p>
+                    </div>
+                </div>
+                `);
+
+            
+        } else {
+            alert(xhr3.status);
+        }
+    }
+    // FTP
+    // xhr.open('post', './php/test.php', true);
+
+    // Mac
+    // xhr.open('post', 'http://localhost:8080/test.php', true);
+
+    // windows
+    var commentData = {};
+    commentData.commentContent = inputText;
+    commentData.commentTime = time;
+    commentData.custoNo = id;
+    var commentData_str = JSON.stringify(commentData);
+    // console.log(commentData_str);
+
+    xhr3.open('POST', './php/contest_last_commentNo.php', true);
+    xhr3.send(commentData_str);
+    //清空留言框
+    $(`#List_text_${id}`).val("");
+}
 
 
 //新增檢舉
@@ -1003,130 +1280,6 @@ function inputReport(RKreportNo) {
 
     xhr4.open('POST', './php/contest_report_comment.php', true);
     xhr4.send(reportData_str);
-}
-
-
-
-
-
-
-
-//開啟留言燈箱(參賽列表)
-function listMsg(id) {
-    $(`#List_msg_overlay_${id}`).addClass("-on");
-}
-
- //按下enter送出留言(參賽列表)
- function listEnterInput(id) {
-    $(`#List_text_${id}`).keydown(function (e) {
-        if(e.which == 13){
-            e.preventDefault();
-            //判斷是否登入
-            if ($('.pu_mem_login_suc_div').text() != false){
-                //檢查留言框是否有輸入內容
-                if ($.trim($(`#List_text_${id}`).val()) == "") {
-                    alert("您還沒有輸入任何文字喔~");
-                    return false;
-                }
-                inputListMsg(id);
-            } else {
-                //未登入
-                $('#nologin').css('display', 'block'); //好像沒作用?
-                alert("尚未登入，請先進行登入喔~");
-            }
-        }
-    });
-}
-
-//新增留言(參賽列表)
-function inputListMsg(id) {
-
-    var inputText = $(`#List_text_${id}`).val();
-    var now = new Date();
-    var nowYear = now.getFullYear();
-    var nowMonth = now.getMonth() + 1;
-    var nowDate = now.getDate();
-    var nowHour = now.getHours();
-    var nowMin = now.getMinutes();
-    var nowSec = now.getSeconds();
-    //將日期資料轉換為和資料庫相同格式
-    if (nowMonth <= 9) {
-        nowMonth = "0" + nowMonth;
-    }
-    if (nowDate <= 9) {
-        nowDate = "0" + nowDate;
-    }
-    if (nowHour <= 9) {
-        nowHour = "0" + nowHour;
-    }
-    if (nowMin <= 9) {
-        nowMin = "0" + nowMin;
-    }
-    if (nowSec <= 9) {
-        nowSec = "0" + nowSec;
-    }
-    var time = nowYear + "-" + nowMonth + "-" + nowDate + " " + nowHour + ":" + nowMin + ":" + nowSec;
-    
-    // 從資料庫抓最後一筆留言編號            
-    var xhr3 = new XMLHttpRequest();
-    xhr3.onload = function () {
-        if (xhr3.status == 200) {
-            let commentRow = JSON.parse(xhr3.responseText);
-            // console.log(commentRow)
-            // console.log(commentRow.commentNo)
-            var last_commentNo = parseInt(commentRow.commentNo);
-
-            // //判斷是否登入會員
-            // if ($('.pu_mem_login_suc_div').text() != false) {
-                
-                $(`.List_msg_wrap${id}`).append(`
-                <div class="mem_contain">
-                    <div class="flex_wrap">
-                        <div class="mem_name">
-                            <p>${member.memName}</p>
-                            <img src="./images/unname.jpg" alt="">
-                        </div>
-                        <div class="mem_msg">
-                            <p>${inputText}</p>
-                        </div>
-                        <div class="report">
-                            <button class="List_report_btn" id="List_rep_${(last_commentNo+1)}">檢舉</button>
-                        </div>
-                    </div>
-                    <div class="msg_date">
-                        <p>${time}</p>
-                    </div>
-                </div>
-                `);
-
-            // } else {
-            //     //未登入
-            //     $('#nologin').css('display', 'block'); //好像沒作用?
-            // }
-            
-        } else {
-            // alert(xhr3.status);
-            alert("尚未登入，請先進行登入喔~");
-        }
-    }
-    // FTP
-    // xhr.open('post', './php/test.php', true);
-
-    // Mac
-    // xhr.open('post', 'http://localhost:8080/test.php', true);
-
-    // windows
-    var commentData = {};
-    commentData.commentContent = inputText;
-    commentData.commentTime = time;
-    commentData.custoNo = id;
-    var commentData_str = JSON.stringify(commentData);
-    // console.log(commentData_str);
-
-    xhr3.open('POST', './php/contest_last_commentNo.php', true);
-    xhr3.send(commentData_str);
-    //清空留言框
-    $(`#List_text_${id}`).val("");
 }
 
 
