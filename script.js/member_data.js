@@ -61,7 +61,7 @@ $(document).ready(function(){
     xhr.onload = function(){
         if(xhr.status == 200){
             var mem_basic_data = JSON.parse(xhr.responseText);
-            console.log(mem_basic_data)
+            // console.log(mem_basic_data)
             if(mem_basic_data.memId){
                 $('.mem_data_right_div').append(`<div class="mem_img_div">
                 <img class="img_src" src="./php/images/${mem_basic_data.memPic}" alt="">
@@ -124,19 +124,23 @@ $(document).ready(function(){
                     var old_psw = $('#old_psw').val();
                     var new_psw = $('#new_psw').val();
                     if(old_psw == "" || new_psw ==""){
-                        alert('請填寫舊密碼與新密碼');
+                        $('.alertbox .wrapper').text("請填寫舊密碼與新密碼");
+                        $('.alertbox').addClass("on");
                         return false;
                     }
                     if(old_psw.length<3 || new_psw.length<3){
-                        alert('密碼長度不可小於3位');
+                        $('.alertbox .wrapper').text("密碼長度不可小於3位");
+                        $('.alertbox').addClass("on");
                         return false;
                     }
                     if(old_psw.length == new_psw.length){
-                        alert('舊密碼與新密碼相同');
+                        $('.alertbox .wrapper').text("舊密碼與新密碼相同");
+                        $('.alertbox').addClass("on");
                         return false;
                     }
                     if(psw_hidden != old_psw){
-                        alert('舊密碼不相同，請重新輸入')
+                        $('.alertbox .wrapper').text("舊密碼不相同，請重新輸入");
+                        $('.alertbox').addClass("on");
                         return false;
                     }
                     $('#input_cannoy_mod').val(new_psw);
@@ -155,7 +159,7 @@ $(document).ready(function(){
                     psw.new_psw = new_psw;
                     psw.memid = memid;
                     var psw_str = JSON.stringify(psw);
-                    console.log(psw_str)
+                    // console.log(psw_str)
                     // windows
                     // xhr.open('POST', './php/member_data_update_psw.php',  true);
 
@@ -190,14 +194,15 @@ $(document).ready(function(){
                 })
                 //按下修改 找img 密碼 名稱三個欄位
             }else{
-                alert('無登入會員');
+                $('.alertbox .wrapper').text("無登入會員");
+                $('.alertbox').addClass("on");
                 window.location.href = "order.html";
             }
 
             var xhr2 = new XMLHttpRequest();
             xhr2.onload = function(){
                 if(xhr2.status == 200){
-                    console.log(JSON.parse(xhr2.responseText));
+                    // console.log(JSON.parse(xhr2.responseText));
                     order_record = JSON.parse(xhr2.responseText);
                     for(i = 0;i<order_record.length;i++){
                         if(order_record[i].orderState == 0){
@@ -484,8 +489,9 @@ $(document).ready(function(){
                                 // xhr5.open('POST','http://localhost:8080/mem_cancel_order.php');
                                 xhr5.send(order_detail_str);
                               }else{
-                                  alert('出發前七日內無法取消訂單');
-                                  return false;
+                                $('.alertbox .wrapper').text("出發前七日內無法取消訂單");
+                                $('.alertbox').addClass("on");
+                                return false;
                               }
                               
                         }else{
@@ -509,7 +515,7 @@ $(document).ready(function(){
                     var xhr3 = new XMLHttpRequest();
                     xhr3.onload = function(){
                         if(xhr3.status ==200){
-                            console.log(JSON.parse(xhr3.responseText));
+                            // console.log(JSON.parse(xhr3.responseText));
                             var custo = JSON.parse(xhr3.responseText);
                             for(i=0;i<custo.length;i++){
                                 $('.curisine_desktop').append(`<div class="curisine_div_title_item_bot">
@@ -559,7 +565,7 @@ $(document).ready(function(){
                             xhr4.onload = function(){
                                 if(xhr4.status == 200){
                                     order_custo_num = JSON.parse(xhr4.responseText);
-                                    console.log(order_custo_num)
+                                    // console.log(order_custo_num)
                                     for(m=0;m<order_record.length;m++){
                                         for(n=0;n<order_custo_num.length;n++){
                                             if(order_custo_num[n].orderNo == order_record[m].orderNo[0].orderNo){

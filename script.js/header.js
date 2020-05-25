@@ -124,29 +124,35 @@ $('#mem_regisit_finish').click(function() {
     var mem_psw_confirm = $('#mem_psw_confirm').val();
     var emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
     if (mem_name == "" || mem_email == "" || mem_psw == "" || mem_psw_confirm == "") {
-        alert('欄位不可為空');
+        $('.alertbox .wrapper').text("欄位不可為空");
+        $('.alertbox').addClass("on");
         return false;
     }
     if (mem_email.search(emailRule) == -1) {
-        alert('請填寫正確的email格式');
+        $('.alertbox .wrapper').text("請填寫正確的email格式");
+        $('.alertbox').addClass("on");
         return false;
     }
     if (mem_psw.length < 3 || mem_psw_confirm.length < 3) {
-        alert('密碼長度不可小於3位數');
+        $('.alertbox .wrapper').text("密碼長度不可小於3位數");
+        $('.alertbox').addClass("on");
         return false;
     }
     if (mem_psw != mem_psw_confirm) {
-        alert('密碼不一致，請重新輸入');
+        $('.alertbox .wrapper').text("密碼不一致，請重新輸入");
+        $('.alertbox').addClass("on");
         return false;
     }
     var xhr = new XMLHttpRequest();
     xhr.onload = function() {
         if (xhr.status == 200) {
             if (xhr.responseText == '註冊成功') {
-                alert('註冊成功');
+                $('.alertbox .wrapper').text("註冊成功");
+                $('.alertbox').addClass("on");
                 window.location.reload();
             } else {
-                alert(xhr.responseText);
+                $('.alertbox .wrapper').text(xhr.responseText);
+                $('.alertbox').addClass("on");
             }
         }
     }
@@ -175,15 +181,18 @@ $('#signInBtn').click(function() {
     var loginPassword = $('#loginPassword').val();
     var emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
     if (loginEmail == "" || loginPassword == "") {
-        alert('請填寫所有欄位');
+        $('.alertbox .wrapper').text("請填寫所有欄位");
+        $('.alertbox').addClass("on");
         return false;
     }
     if (loginEmail.search(emailRule) == -1) {
-        alert('請填寫正確的email格式');
+        $('.alertbox .wrapper').text("請填寫正確的email格式");
+        $('.alertbox').addClass("on");
         return false;
     }
     if (loginPassword.length < 3) {
-        alert('密碼不正確');
+        $('.alertbox .wrapper').text("密碼不正確");
+        $('.alertbox').addClass("on");
         return false;
     }
     var xhr = new XMLHttpRequest();
@@ -191,7 +200,8 @@ $('#signInBtn').click(function() {
         if (xhr.status == 200) {
             var mem_login = xhr.responseText;
             if (!mem_login) {
-                alert('查無此帳號');
+                $('.alertbox .wrapper').text("查無此帳號");
+                $('.alertbox').addClass("on");
                 return false;
             } else {
                 window.location.reload();
@@ -247,7 +257,8 @@ $('.pu_login_logout,#mem_lohin_btn_mobile_div_logout').click(function() {
                     $('.mem_lohin_btn_mobile_div_center').css('display', 'none');
                     $('.mem_lohin_btn_mobile_div_logout').css('display', 'none');
                     window.location.href = "order.html";
-                    alert('無登入會員');
+                    $('.alertbox .wrapper').text("無登入會員");
+                    $('.alertbox').addClass("on");
                     $('.pu_mem_login_div').text('會員登入');
                     //清除storage
                     var storge = localStorage;
@@ -342,7 +353,7 @@ $('.pu_reb_btn').click(function(e) {
     var ans = {};
     ans.text = text;
     var ans_str = JSON.stringify(ans);
-    console.log(ans_str)
+    // console.log(ans_str)
     xhr.send(ans_str);
     //把找到的文字傳給後端
 })
@@ -411,7 +422,7 @@ $('#textarea').keydown(function(e) {
         var ans = {};
         ans.text = text;
         var ans_str = JSON.stringify(ans);
-        console.log(ans_str)
+        // console.log(ans_str)
         xhr.send(ans_str);
         //把找到的文字傳給後端
     }
@@ -444,7 +455,7 @@ $(document).ready(function() {
                 xhr.onload = function() {
                     if (xhr.status == 200) {
                         var reboot_ans_str = JSON.parse(xhr.responseText);
-                        console.log(reboot_ans_str)
+                        // console.log(reboot_ans_str)
                         if (reboot_ans_str.messageQueConrent === undefined) {
                             setTimeout(function() {
                                 $('.pu_big_content_center').append(
@@ -479,7 +490,7 @@ $(document).ready(function() {
                 var ans = {};
                 ans.text = text;
                 var ans_str = JSON.stringify(ans);
-                console.log(ans_str)
+                // console.log(ans_str)
                 xhr.send(ans_str);
                 //把找到的文字傳給後端
                 //機器人對話點選文字
@@ -503,7 +514,7 @@ function login_change(){
     xhr.onload = function() {
         if (xhr.status == 200) {
             member = JSON.parse(xhr.responseText);
-            console.log(member);
+            // console.log(member);
             if (member.memName) {
                 $('.pu_mem_login_suc_div').text(`hi~${member.memName}`);
                 $('.pu_mem_login_div_wrap').css('display', 'none');
@@ -533,6 +544,9 @@ function login_change(){
     xhr.send(null);
 }
 //會員登入改變
+$('.alertbox .boxclose').click(function() {
+    $('.alertbox').removeClass("on");
+});
 
 // init controller
 var controller = new ScrollMagic.Controller();

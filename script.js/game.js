@@ -137,7 +137,7 @@ $(document).ready(function() {
                 mem.memId = memlevel.memId;
                 mem_level_no = memlevel.levelNo;
                 var mem_str = JSON.stringify(mem);
-                console.log(mem_str)
+                // console.log(mem_str)
 
                 // windows 
                 xhr2.open('post',  './php/member_level.php',  true);
@@ -759,7 +759,7 @@ $(document).ready(function() {
                                     //找是第幾個海鮮
                                     target_img = target_img.substr(-5, 1)
                                     $('.capture_poke').append(`<div><img src="./images/seafood${target_img}.svg"></div>`);
-                                    console.log(seafood_info);
+                                    // console.log(seafood_info);
                                     //存到session裡面，把抓到的海鮮的圖片，跟上面八個海鮮做比對，如果圖片相同，把海鮮名稱跟價格存入
                                     for(var i = 0;i<seafood_info.length;i++){
                                         if(`seafood${target_img}.svg` == seafood_info[i].seafoodPic){
@@ -1119,7 +1119,7 @@ function update_mem_info() {
     xhr.onload = function() {
         if (xhr.status == 200) {
             var mem_info_detail = JSON.parse(xhr.responseText);
-            console.log(mem_info_detail)
+            // console.log(mem_info_detail)
             //判斷是否到達了升級銀鷗積分
             if (mem_info_detail.levelNo == 1) {
                 if (mem_info_detail.memScore >= mem_info[1].levelScore && mem_info_detail.memScore < mem_info[2].levelScore) {
@@ -1127,7 +1127,8 @@ function update_mem_info() {
                     xhr2.onload = function() {
                         if (xhr2.status == 200) {
                             var memlevel_score = JSON.parse(xhr2.responseText);
-                            alert(`恭喜升等為${memlevel_score.levelName}會員`);
+                            $('.alertbox .wrapper').text(`恭喜升等為${memlevel_score.levelName}會員`);
+                            $('.alertbox').addClass("on");
                             Resources = {
                                 pokeball: `./images/${memlevel_score.levelSrc}`,
                                 pokeballActive: `./images/${memlevel_score.levelSrc2}`,
@@ -1161,7 +1162,8 @@ function update_mem_info() {
                     xhr2.onload = function() {
                         if (xhr2.status == 200) {
                             var memlevel_score = JSON.parse(xhr2.responseText);
-                            alert(`恭喜升等為${memlevel_score.levelName}會員`);
+                            $('.alertbox .wrapper').text(`恭喜升等為${memlevel_score.levelName}會員`);
+                            $('.alertbox').addClass("on");
                             Resources = {
                                 pokeball: `./images/${memlevel_score.levelSrc}`,
                                 pokeballActive: `./images/${memlevel_score.levelSrc2}`,
@@ -1196,7 +1198,7 @@ function update_mem_info() {
     point_score.point = point;
     point_score.member = memberLevel.memId;
     var point_score_str = JSON.stringify(point_score);
-    console.log(point_score_str)
+    // console.log(point_score_str)
 
     // windows
     xhr.open('POST',  './php/member_seafood_point_score.php',  true);
