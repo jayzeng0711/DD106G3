@@ -16,6 +16,40 @@ body {
     background: url(../images/shortbg.png) left top no-repeat;
 }
 
+// 提示燈箱
+.alertbox {
+    display: none;
+    background-color: #FBD672;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 150px;
+    padding: 30px 10px;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1000;
+    box-shadow: 6px 6px 0px rgb(247, 192, 41);
+    border-radius: 0 0 10px 10px;
+    .boxclose {
+        width: 7%;
+        position: absolute;
+        top: 4px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .wrapper {
+        background-color: #fff;
+        border-radius: 5px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+    }
+}
+
+.alertbox.on {
+    display: block;
+}
+
 .section1 {
     background: url(../images/shortbg.png) left top no-repeat;
     width: 100%;
@@ -883,9 +917,10 @@ body {
             top: 25vh;
             .title {
                 margin-bottom: 5%;
-                .pu_h1_div {
-                    width: 80%;
-                    margin: 0 auto;
+                .h1div {
+                    position: relative;
+                    width: 100%;
+                    margin: 12% auto 5% auto;
                     .pu_h1_img {
                         max-width: 100%;
                     }
@@ -962,7 +997,6 @@ body {
                     }
                 }
                 .msg {
-                    display: none;
                     background-color: #ffffff;
                     border-radius: 0 0 10px 10px;
                     width: 80%;
@@ -993,9 +1027,6 @@ body {
                         }
                     }
                 }
-            }
-            .cookList_item:hover .msg {
-                display: block;
             }
         }
         @keyframes light {
@@ -1088,9 +1119,9 @@ body {
             height: auto;
             padding-bottom: 100px;
             .textwrapper {
-                top: 0;
+                top: 10vh;
                 .title {
-                    .pu_h1_div {
+                    .h1div {
                         .titletext {
                             font-size: $fontSize*1.5;
                         }
@@ -1098,7 +1129,7 @@ body {
                 }
             }
             .contest {
-                top: 0;
+                top: 10vh;
                 .cookList_item {
                     .cookList_img {
                         .cookList_cook {
@@ -1261,8 +1292,9 @@ body {
             .textwrapper {
                 top: 0;
                 .title {
-                    z-index: 20;
-                    .pu_h1_div {
+                    width: 60%;
+                    margin: 0 auto;
+                    .h1div {
                         .titletext {
                             font-size: $fontSize*1.5;
                         }
@@ -1271,6 +1303,20 @@ body {
             }
             .contest {
                 top: 0;
+                .cookList_item {
+                    .cookList_img {
+                        .cookList_cook {
+                            figcaption {
+                                p:nth-child(1) {
+                                    font-size: $fontSize*1.2;
+                                }
+                                p:nth-child(2) {
+                                    font-size: $fontSize*1.2;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -1344,18 +1390,16 @@ body {
         height: auto;
         .row {
             height: auto;
-            .left {
-                .title {
-                    .pu_h1_div {
-                        .titletext {
-                            font-size: $fontSize*1.5;
-                        }
+            .title {
+                .pu_h1_div {
+                    .titletext {
+                        font-size: $fontSize*1.5;
                     }
                 }
-                .text {
-                    p {
-                        color: #034;
-                    }
+            }
+            .text {
+                p {
+                    color: #034;
                 }
             }
         }
