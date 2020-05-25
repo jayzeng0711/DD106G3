@@ -22,6 +22,9 @@ $(document).ready(function() {
                     custoRKRows = JSON.parse(xhr2.responseText);
                     // console.log(custoRKRows);
 
+                    // 清空內容
+                    $(".ranking_contain").empty();
+
                     // if(`${custoRKRows[0].contestCustoVote}` == 0 || `${custoRKRows[1].contestCustoVote}` == 0 || `${custoRKRows[2].contestCustoVote}` == 0){
                     //     window.location.reload();
                     // }
@@ -435,14 +438,17 @@ $(document).ready(function() {
 
     // 改變排序
     // 每次改變排序，都要先呼叫vote()重新計算票數和排名，vote()會再呼叫page()顯示內容
+    let selectedIndex = "time";
     $('#order').change(function() {
         $('.cookList_contain').empty();
         $('.a4').empty(); //清空參賽列表燈箱
         $('span.wrapper').empty();
         if (select.selectedIndex == 0) {
             vote("time");
+            selectedIndex = "time";
         } else {
             vote("vote")
+            selectedIndex = "vote";
         };
     });
 
@@ -455,6 +461,10 @@ $(document).ready(function() {
             if (xhr.status == 200) {
 
                 custos = JSON.parse(xhr.responseText);
+
+                // 清空內容和頁碼
+                $('span.wrapper').empty();
+                $('.cookList_contain').empty();
 
                 // 預設所有料理的留言是一個陣列
                 for (let i = 0; i < custos.length; i++) {
@@ -1000,6 +1010,7 @@ $(document).ready(function() {
                         xhr6.open('POST', './php/contest_vote_input.php', true);
                         xhr6.send(voteData_str);
                         alert("投票成功!")
+                        vote(selectedIndex);
 
 
 
@@ -1077,7 +1088,7 @@ $(document).ready(function() {
                         xhr6.open('POST', './php/contest_vote_input.php', true);
                         xhr6.send(voteData_str);
                         alert("投票成功!")
-
+                        vote(selectedIndex);
 
 
                     } else {
