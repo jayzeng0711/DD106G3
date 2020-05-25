@@ -22,6 +22,7 @@ body {
     z-index: 1000;
     box-shadow: 6px 6px 0px rgb(247, 192, 41);
     border-radius: 0 0 10px 10px;
+
     .boxclose {
         width: 7%;
         position: absolute;
@@ -29,6 +30,7 @@ body {
         right: 10px;
         cursor: pointer;
     }
+
     .wrapper {
         background-color: #fff;
         border-radius: 5px;
@@ -98,7 +100,7 @@ button#go_top {
     display: block;
     margin: auto;
     z-index: 10;
-    position: absolute;
+    position: fixed;
 
     &:before {
         content: "";
@@ -163,7 +165,7 @@ button#go_top {
             .yes,
             .no,
             .go-fish {
-                @extend %btn;
+                @extend %btn_ano;
                 text-decoration: none;
                 display: inline-block;
                 padding: 10px 30px;
@@ -176,7 +178,7 @@ button#go_top {
             }
 
             .no {
-                @extend %btn_ano;
+                @extend %btn;
                 animation-delay: 1.3s;
             }
 
@@ -317,6 +319,11 @@ main.on {
                         top: 50%;
                         left: 50%;
                         transform: translate(-50%, -50%);
+                    }
+
+                    a {
+                        @extend %btn_ano;
+                        text-decoration: none;
                     }
                 }
             }
@@ -678,13 +685,13 @@ form {
         }
 
         .cancel {
-            @extend %btn_ano;
+            @extend %btn;
             display: inline-block;
             padding: 10px 15px;
         }
 
         a input {
-            @extend %btn;
+            @extend %btn_ano;
             padding: 10px 15px;
         }
     }
@@ -857,7 +864,8 @@ form {
             .food-display {
                 position: relative;
                 width: 100%;
-                .move{
+
+                .move {
                     font-size: 24px;
                 }
             }
@@ -1060,7 +1068,8 @@ form {
             }
         }
     }
-    .side-left .food-display #delete{
+
+    .side-left .food-display #delete {
         font-size: 22px;
     }
 
