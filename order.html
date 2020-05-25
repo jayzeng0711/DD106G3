@@ -18,6 +18,11 @@
 <body>
     @@include('./layout/header.html')
     <main>
+
+        <div class="alertbox">
+            <img class="boxclose" src="./images/blue-cross-icon.png" alt="">
+            <div class="wrapper"></div>
+        </div>
         <section class="section1">
             <div class="container-fluid">
                 <div class="row row0">
@@ -51,7 +56,7 @@
                             <div class="answer ">
                                 <select name="date" id="date" class="custom-select">
                                 </select>
-                                <span>尚餘<span class="remaining"></span>個座位</span>
+                                <p>尚餘<span class="remaining"></span>個座位</p>
                                 <p>中午11點集合，下午四點原港口解散</p>
                             </div>
                             <div class="question">
@@ -69,7 +74,6 @@
                                 <span>人</span>
                             </div>
                             <div class="wrapper">
-                                <div class="button previous"></div>
                                 <div class="button next">下一步</div>
                             </div>
                         </div>
@@ -262,23 +266,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row rightrow2 justify-content-center">
-                                <div class="col-1">
-                                    <div id="previousmeal">前</div>
-                                </div>
-                                <div class="col-5">
+                            <div class="row rightrow2 ">
+
+                                <div class="col-6">
                                     <div class="dish">
                                         <div class="img">
-                                            <img src="./images/menupic1.png " alt="">
+                                            <img src="" alt="套餐" id="mealPic">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-5">
-                                    <div class="name mealFirst"></div>
-                                    <div class="name mealMain"></div>
-                                    <div class="name  mealDishOne"></div>
-                                    <div class="name mealDishTwo"></div>
-                                    <div class="name mealSoup"></div>
                                     <div class="price">
                                         <div class="text">
                                             <p>每人份</p>
@@ -286,8 +281,23 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-1">
-                                    <div id="nextmeal">後</div>
+                                <div class="col-6">
+                                    <div class="names">
+                                        <div class="name mealFirst"></div>
+                                        <div class="name mealMain"></div>
+                                        <div class="name mealDishOne"></div>
+                                        <div class="name mealDishTwo"></div>
+                                        <div class="name mealSoup"></div>
+                                        <div class="name mealDrink"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row rightrow3 justify-content-center">
+                                <div class="col-2">
+                                    <div id="previousmeal"></div>
+                                </div>
+                                <div class="col-2">
+                                    <div id="nextmeal"></div>
                                 </div>
                             </div>
                         </div>

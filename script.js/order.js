@@ -1,30 +1,26 @@
 window.addEventListener('load', function() {
 
-    // 取消視窗滾動header消失的事件
-    $(window).unbind();
 
-    // $(window).resize(function() {
-    //     headerh = $('.pu_head_wrap_div').height();
-    //     // alert(headerh);
-    //     $('section .row0').css("height", headerh);
-    //     $('section').css("height", `calc(100vh - ${headerh})`);
-    // });
 
-    /////////////////////各頁面切換//////////////////////
+    // 關掉機器人
+    $('.reboot_div').css("display", "none");
+
+    // localStorage.clear();
 
     let selectdate = document.getElementById("date"); //日期下拉選單
 
-    // localStorage.clear();
-    // 第一屏按下一步，確認訂位人數
+
+    /////////////////////各頁面切換//////////////////////
+
+
+    // 第一屏按下一步確認訂位人數
+
     $('.section1 .next').click(function() {
 
-        let inputVal = parseInt($('#people').val());
+        // 檢查訂位人數不為空值、不超過可訂位人數
+        let check = people();
 
-        // 訂位人數小於1，無法下一步
-        if (inputVal < 0) {
-            alert('請先選擇訂位人數！');
-
-        } else {
+        if (check == 0) {
 
             // 存訂位港口、日期、人數
             localStorage['port'] = $('.port label.on').prev().attr('id');
@@ -34,30 +30,32 @@ window.addEventListener('load', function() {
             let i = selectdate.selectedIndex;
             localStorage['routeNo'] = $(`#date option:eq(${i})`).attr("routeNo");
 
+            $('.section1').css("display", "none");
+            $('.section2').css("display", "block");
             // 移動位置
-            $('html,body').animate({
-                scrollTop: $('.section2').offset().top
-            }, 600);
+            // $('html,body').animate({
+            //     scrollTop: $('.section2').offset().top
+            // }, 600);
 
-            // 機器人消失
-            $('.reboot_div').fadeOut();
-
+            // 關掉月曆燈箱
+            $('.box').css("display", "none");
         }
-        // 檢查訂位人數是否超過剩餘人數
-        people();
-        // 關掉月曆燈箱
-        $('.box').css("display", "none");
+
     });
 
-    // 第二屏按下一步，確認訂位人數
+    // 第二屏按下一步，確認套餐總數量大於訂位人數
+
     $('.section2 .next').click(function() {
 
         let people = parseInt($('#people').val());
-        let total = parseInt($('.amount').text());
+
+        // 計算套餐數量
+        let total = mealAmount();
 
         // 套餐數量小於訂位人數，無法下一步
         if (total < people) {
-            alert('每人低消一份套餐喔！');
+            $('.alertbox .wrapper').text("每人低消一份套餐喔～");
+            $('.alertbox').addClass("on");
         } else {
 
             // 存套餐資料
@@ -68,12 +66,15 @@ window.addEventListener('load', function() {
             localStorage['meal2price'] = $('.mealBprice').text();
             localStorage['meal3price'] = $('.mealCprice').text();
 
+            $('.section2').css("display", "none");
+            $('.section3').css("display", "block");
+
             // 移動位置
-            $('html,body').animate({
-                scrollTop: $('.section3').offset().top
-            }, 600);
+            // $('html,body').animate({
+            //     scrollTop: $('.section3').offset().top
+            // }, 600);
 
-
+            // $('body').css("overflow", "auto");
         }
 
     });
@@ -82,31 +83,35 @@ window.addEventListener('load', function() {
     // 第二屏按上一步
     $('.section2 .previous').click(function() {
 
-        $('html,body').animate({
-            scrollTop: $('.section1').offset().top
-        }, 600);
-
-        // 機器人出現
-        $('.reboot_div').fadeIn();
+        $('.section2').css("display", "none");
+        $('.section1').css("display", "block");
+        // $('html,body').animate({
+        //     scrollTop: $('.section1').offset().top
+        // }, 600);
 
     });
 
     // 第三屏按上一步
     $('.section3 .previous').click(function() {
 
-        $('html,body').animate({
-            scrollTop: $('.section2').offset().top
-        }, 600);
+
+        $('.section3').css("display", "none");
+        $('.section2').css("display", "block");
+
+        // $('html,body').animate({
+        //     scrollTop: $('.section2').offset().top
+        // }, 600);
+
 
 
     });
 
-    // localStorage.clear();
 
     // 第三屏按下一步，訂位點餐資訊存進Storage
     $('.section3 .next').click(function() {
 
         if (member.memNo) {
+
             // 存訂位港口、日期、人數
             localStorage['port'] = $('.port label.on').prev().attr('id');
             dateNow = document.getElementById('date').value;
@@ -158,7 +163,8 @@ window.addEventListener('load', function() {
             location.href = "order_detail.html";
 
         } else {
-            alert("請先登入會員");
+
+            // 未登入會員，開登入燈箱
             $('#Login,#Login_back').css('display', 'block');
             $('#pu_mem_resist_wrap').css('display', 'none');
             $('#pu_mem_forget_wrap').css('display', 'none');
@@ -168,12 +174,21 @@ window.addEventListener('load', function() {
     });
 
 
+    // 關掉提示燈箱
+
+    $('.alertbox .boxclose').click(function() {
+        $('.alertbox').removeClass("on");
+    });
+
+
+    /////////////// 套餐數量、人數計算 ////////////////////////
+
+
     // 套餐、人數，按加改變數字
 
     $('.plus').click(function() {
         let val = parseInt($(this).prev().val());
         $(this).prev().val(val + 1);
-        people();
 
     });
 
@@ -191,24 +206,67 @@ window.addEventListener('load', function() {
                 $(this).next().val(val - 1);
             }
         }
-        people();
+
     });
 
-    // 套餐、客製化料理數量，不小於0、不是空值
+    // 檢查訂位人數不為空值、不超過可訂位人數
+    function people() {
+        let inputVal = $('#people').val();
+        let maxVal = parseInt($('.answer .remaining').text());
 
+        if (inputVal == "" || inputVal <= 0) {
+            $('.alertbox .wrapper').text("請先選擇訂位人數～");
+            $('.alertbox').addClass("on");
+        } else if (inputVal > maxVal) {
+            $('.alertbox .wrapper').text("超過可訂位人數～");
+            $('.alertbox').addClass("on");
+        } else {
+            return 0;
+        }
+
+    };
+
+
+    // 套餐數量改變，檢查不可為空值，必須大於等0
     $('.meal').change(function() {
-
         let inputVal = $(this).val();
-
-        if (inputVal == "") {
+        if (inputVal == "" || parseInt(inputVal) < 0) {
             $(this).val(0);
         }
-        if (parseInt(inputVal) < 0) {
-            $(this).val(0);
-        }
-        console.log($(this).val());
 
     });
+
+    // 改變套餐數量，就要重新計算數量
+
+    $('#mealAamount').change(function() {
+        mealAmount();
+    });
+    $('#mealBamount').change(function() {
+        mealAmount();
+    });
+    $('#mealCamount').change(function() {
+        mealAmount();
+    });
+
+    $('.section2 .minus').click(function() {
+        mealAmount();
+    });
+    $('.section2 .plus').click(function() {
+        mealAmount();
+    });
+
+    // 計算套餐數量
+    function mealAmount() {
+        let mealA = parseInt($('#mealAamount').val());
+        let mealB = parseInt($('#mealBamount').val());
+        let mealC = parseInt($('#mealCamount').val());
+
+        total = mealA + mealB + mealC;
+        $('.amount').text(total);
+
+        return total;
+    };
+
 
 
     /////////////////////訂位頁面//////////////////////
@@ -231,7 +289,6 @@ window.addEventListener('load', function() {
     }
 
     let todayDate = firstYear + Month + Day; //今天年份字串
-
 
 
     //選港口
@@ -281,7 +338,7 @@ window.addEventListener('load', function() {
         xhr.onload = function() {
             if (xhr.status == 200) {
                 date = JSON.parse(xhr.responseText);
-                console.log(date);
+                // console.log(date);
 
                 for (let i = 0; i < date.length; i++) {
                     date[i].routeRemaining = date[i].routeSeat - date[i].routeCount;
@@ -364,29 +421,14 @@ window.addEventListener('load', function() {
     };
 
     //選人數
-    // 人數不小於0、不是空值
     if (localStorage['people']) {
         $('#people').val(localStorage['people']);
     }
-    $('#people').change(function() {
-        people();
-    });
 
-    function people() {
-        let inputVal = $('#people').val();
-        let maxVal = parseInt($('.answer .remaining').text());
-        if (inputVal == "" || parseInt(inputVal) < 0) {
-            alert('請先選擇訂位人數！');
-            $('#people').val("1");
-        } else if (inputVal > maxVal) {
-            alert('超過可訂位人數！');
-            $('#people').val("1");
-        }
-
-    };
 
 
     /////////////////////航程月曆燈箱//////////////////////
+
     // 燈箱顯示、消失
     $('#calimg').click(function() {
         // 清除燈箱裡的港口
@@ -396,7 +438,6 @@ window.addEventListener('load', function() {
         for (let i = 0; i < 3; i++) {
             if ($(`.section1 .port label:eq(${i})`).hasClass('on')) {
                 portnow = $(`.section1 .port label:eq(${i})`).text();
-                // console.log(portnow);
                 // 改變燈箱裡的港口
                 if ($(`.btnport:eq(${i})`).text() == portnow) {
                     $(`.btnport:eq(${i})`).addClass("on");
@@ -429,7 +470,7 @@ window.addEventListener('load', function() {
     $('.year').text(now.getFullYear());
     $('.month').text(now.getMonth() + 1);
 
-    // 資料庫沒有營業日的月曆，不顯示
+    // 資料庫只顯示現在這個月到最後有營業日的那個月份
     hideCalender();
 
     let first, //可顯示最早的年月
@@ -468,8 +509,6 @@ window.addEventListener('load', function() {
 
     //  燈箱裡按上個月
     $('.boxprev').click(function() {
-        // console.log("first", first);
-        // console.log("last", last);
         let year = $('.year').text();
         let month = $('.month').text();
 
@@ -818,17 +857,20 @@ window.addEventListener('load', function() {
         $('#mealCamount').val(localStorage['meal3amount']);
     }
 
-    // 改變左邊套餐內容
+    // 改變右邊套餐內容
     function changeMeal(name) {
         for (let i = 0; i < meals.length; i++) {
             // 套餐價格、菜名、圖片
             if (meals[i].mealName == name) {
+
+                $('#mealPic').attr("src", "./images/" + meals[i].mealPic);
                 $('.mealname h3').text(meals[i].mealName);
-                $('.mealFirst').text(meals[i].mealFirst);
-                $('.mealMain').text(meals[i].mealMain);
-                $('.mealDishOne').text(meals[i].mealDishOne);
-                $('.mealDishTwo').text(meals[i].mealDishTwo);
-                $('.mealSoup').text(meals[i].mealSoup);
+                $('.mealFirst').text(`前菜：${meals[i].mealFirst}`);
+                $('.mealMain').text(`主菜：${meals[i].mealMain}`);
+                $('.mealDishOne').text(`副菜：${meals[i].mealDishOne}`);
+                $('.mealDishTwo').text(`副菜：${meals[i].mealDishTwo}`);
+                $('.mealSoup').text(`湯品：${meals[i].mealSoup}`);
+                $('.mealDrink').text(`飲品：${meals[i].mealDrink}`);
                 $('.mealPrice').text(meals[i].mealPrice);
 
             };
@@ -837,33 +879,6 @@ window.addEventListener('load', function() {
 
     };
 
-    // 計算套餐數量
-
-    $('#mealAamount').change(function() {
-        mealAmount();
-    });
-    $('#mealBamount').change(function() {
-        mealAmount();
-    });
-    $('#mealCamount').change(function() {
-        mealAmount();
-    });
-
-    $('.section2 .minus').click(function() {
-        mealAmount();
-    });
-    $('.section2 .plus').click(function() {
-        mealAmount();
-    });
-
-    function mealAmount() {
-        let mealA = parseInt($('#mealAamount').val());
-        let mealB = parseInt($('#mealBamount').val());
-        let mealC = parseInt($('#mealCamount').val());
-
-        total = mealA + mealB + mealC;
-        $('.amount').text(total);
-    };
 
 
     /////////////////////客製化料理頁面//////////////////////
@@ -880,7 +895,7 @@ window.addEventListener('load', function() {
 
             if (xhr.status == 200) {
                 custos = JSON.parse(xhr.responseText);
-                console.log(custos);
+                // console.log(custos);
 
                 if (custos == "") {
                     //已登入，沒有客製化料理
@@ -1011,8 +1026,8 @@ window.addEventListener('load', function() {
                 for (let i = 0; i < $('.custo').length; i++) {
                     if ($(`.custo:eq(${i})`).attr("custono") == custono) {
                         a = false;
-                        alert("已加入購物車");
-
+                        $('.alertbox .wrapper').text("已加入購物車囉！");
+                        $('.alertbox').addClass("on");
                         break;
                     }
                 }
