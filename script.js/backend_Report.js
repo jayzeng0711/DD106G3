@@ -1,12 +1,13 @@
-$(document).ready(function () {
+$(document).ready(function() {
     showPage();
+
     function showPage() {
         // 清除表格內容
         $(`table tr`).not("tr.title").remove();
 
         // 從資料庫抓資料顯示於網頁
         var xhr = new XMLHttpRequest();
-        xhr.onload = function () {
+        xhr.onload = function() {
             if (xhr.status == 200) {
 
                 reportRows = JSON.parse(xhr.responseText);
@@ -44,7 +45,7 @@ $(document).ready(function () {
                     //     //     <td><button type="button" id="edit_btn_${reportRows[i].ReportNo}" class="btn btn-info edit">編輯</button></td>
                     //     //     </tr>
                     //     // `);
-                    
+
 
                 }
 
@@ -55,11 +56,9 @@ $(document).ready(function () {
             }
         }
 
-        // FTP
-        // xhr.open('post', './php/test.php', true);
 
         // Mac
-        // xhr.open('post', 'http://localhost:8080/test.php', true);
+        // xhr.open('GET', 'http://localhost:8080/backend_Report.php', true);
 
         // windows
         xhr.open('GET', './php/backend_Report.php', true);
@@ -68,7 +67,7 @@ $(document).ready(function () {
 
 
     function edit() {
-        $('.edit').click(function () {
+        $('.edit').click(function() {
             // var num = e.target.id;
             // var num_id = num.substr(num.length-1,1);
             // abc(num_id);
@@ -103,10 +102,10 @@ $(document).ready(function () {
                 <button type="button" class="btn btn-info cancel">取消</button>`);
 
             // 儲存
-            $('.save').click(function () {
+            $('.save').click(function() {
                 let xhr = new XMLHttpRequest;
 
-                xhr.onload = function () {
+                xhr.onload = function() {
 
                     if (xhr.status == 200) {
                         showPage();
@@ -134,11 +133,11 @@ $(document).ready(function () {
                 editReport.ReportState = tr.find('.reportState').val();
                 editReport.commentNo = tr.find('td:eq(2)').text();
 
-                if(editReport.ReportState == 1){ //檢舉成功，隱藏留言
+                if (editReport.ReportState == 1) { //檢舉成功，隱藏留言
                     let commentState = '0'
                     editReport.commentState = commentState;
                 }
-                if(editReport.ReportState == 2){ //檢舉失敗，顯示留言
+                if (editReport.ReportState == 2) { //檢舉失敗，顯示留言
                     let commentState = '1'
                     editReport.commentState = commentState;
                 }

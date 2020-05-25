@@ -22,7 +22,7 @@ $(document).ready(function() {
                     custoRKRows = JSON.parse(xhr2.responseText);
                     // console.log(custoRKRows);
 
-                    // 清空內容
+                    //清空內容
                     $(".ranking_contain").empty();
 
                     // if(`${custoRKRows[0].contestCustoVote}` == 0 || `${custoRKRows[1].contestCustoVote}` == 0 || `${custoRKRows[2].contestCustoVote}` == 0){
@@ -31,35 +31,35 @@ $(document).ready(function() {
 
                     //取出排行榜第二名資訊
                     $(".ranking_contain").append(`
-                <div class="cookList_item">   
-                    <div class="cookList_pic animated bounceInLeft delay-.5s">
-                        <figure class="food_img textHover" hovertext="作品留言放在這~作品留言放在這~作品留言放在這~">
-                        <img id="cook_${custoRKRows[1].custoNo}" src="./images/${custoRKRows[1].custoPic}" alt="">
-                        </figure>
-                        <figure class="barrel">
-                            <img src="./images/barrel_r02.png" alt="">
-                        </figure>
-                    </div>
-                    <div class="list_bg">    
-                        <div class="food_title">
-                            <p id="name_${custoRKRows[1].custoNo}">${custoRKRows[1].custoName}</p>
-                            <p>票數:${custoRKRows[1].contestCustoVote}</p>
+                    <div class="cookList_item">   
+                        <div class="cookList_pic animated bounceInLeft delay-.5s">
+                            <figure class="food_img textHover" hovertext="作品留言放在這~作品留言放在這~作品留言放在這~">
+                            <img id="cook_${custoRKRows[1].custoNo}" src="./images/${custoRKRows[1].custoPic}" alt="">
+                            </figure>
+                            <figure class="barrel">
+                                <img src="./images/barrel_r02.png" alt="">
+                            </figure>
                         </div>
-                        <div class="cookList_vote">
-                            <button class="RK_vote_btn" id="RK_vote_${custoRKRows[1].custoNo}">投票</button>
-                        </div>
-                        <div class="msg">
-                            <P class="big">留言板</p>
-                            <div class="msg_text" id="RKmsg_text_${custoRKRows[1].custoNo}">
-                                
+                        <div class="list_bg">    
+                            <div class="food_title">
+                                <p id="name_${custoRKRows[1].custoNo}">${custoRKRows[1].custoName}</p>
+                                <p>票數:${custoRKRows[1].contestCustoVote}</p>
                             </div>
-                            <div class="msg_btn">
-                                <button class="RKmsg_btn" id="RKmsg_btn_${custoRKRows[1].custoNo}">留言</button>
+                            <div class="cookList_vote">
+                                <button class="RK_vote_btn" id="RK_vote_${custoRKRows[1].custoNo}">投票</button>
+                            </div>
+                            <div class="msg">
+                                <P class="big">留言板</p>
+                                <div class="msg_text" id="RKmsg_text_${custoRKRows[1].custoNo}">
+                                    
+                                </div>
+                                <div class="msg_btn">
+                                    <button class="RKmsg_btn" id="RKmsg_btn_${custoRKRows[1].custoNo}">留言</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                `);
+                    `);
                     //取出所有留言
                     if (custoRKRows[1].comments.length) {
                         for (j = 0; j < custoRKRows[1].comments.length; j++) {
@@ -307,7 +307,6 @@ $(document).ready(function() {
                         RKid = RKid.slice(10);
                         showMsg(RKid); //打開燈箱
                         rankingEnterInput(RKid);
-                        // alert(RKid);
                         // event.stopPropagation();
                     });
                     // 點叉叉圖示關閉燈箱
@@ -338,19 +337,31 @@ $(document).ready(function() {
 
                             //檢查留言框是否有輸入內容
                             if ($.trim($(`#text_${RKinputBtn}`).val()) == "") {
-                                alert("您還沒有輸入任何文字喔~");
+                                $('.alertbox .wrapper_alert').text("您還沒有輸入任何文字喔~1");
+                                $('.alertbox').addClass("on_alert");
                                 return false;
                             }
                             inputMsg(RKinputBtn);
                         } else {
                             //未登入
-                            alert("尚未登入，請先進行登入喔~");
-                            $('#Login,#Login_back').css('display', 'block');
-                            $('#pu_mem_resist_wrap').css('display', 'none');
-                            $('#pu_mem_forget_wrap').css('display', 'none');
-                            $('#pu_mem_login_wrap').css('display', 'block');
+                            $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
+                            $('.alertbox2').addClass("on_alert2");
                         }
 
+                    });
+
+                    //抓到(前三名)檢舉留言的按鈕，開啟燈箱
+                    $(".RK_report_btn").on("click", function(e) {
+                        //判斷是否登入
+                        if ($('.pu_mem_login_suc_div').text() != false) {
+                            RKreportNo = e.target.id;
+                            // RKreportNo = RKreportNo.slice(4);
+                            $("div.report_overlay").addClass("-on");
+                        } else {
+                            //未登入
+                            $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
+                            $('.alertbox2').addClass("on_alert2");
+                        }
                     });
 
 
@@ -360,16 +371,12 @@ $(document).ready(function() {
                         if ($('.pu_mem_login_suc_div').text() != false) {
                             var RKvote = e.target.id;
                             RKvote = RKvote.slice(8);
-                            // alert(RKvote);
                             inputRKvote(RKvote);
 
                         } else {
                             //未登入
-                            alert("尚未登入，請先進行登入喔~");
-                            $('#Login,#Login_back').css('display', 'block');
-                            $('#pu_mem_resist_wrap').css('display', 'none');
-                            $('#pu_mem_forget_wrap').css('display', 'none');
-                            $('#pu_mem_login_wrap').css('display', 'block');
+                            $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
+                            $('.alertbox2').addClass("on_alert2");
                         }
 
                     });
@@ -394,6 +401,7 @@ $(document).ready(function() {
 
     // 計算這個月比賽，各料理的得票數和排名，存進 custco 表格，再顯示料理排序
     function vote(index) {
+        console.log('11')
         let xhr = new XMLHttpRequest;
         xhr.onload = function() {
             if (xhr.status == 200) {
@@ -447,7 +455,7 @@ $(document).ready(function() {
             vote("time");
             selectedIndex = "time";
         } else {
-            vote("vote")
+            vote("vote");
             selectedIndex = "vote";
         };
     });
@@ -551,292 +559,7 @@ $(document).ready(function() {
 
                 //////////// 切換排序方式、顯示內容  ///////////
 
-                function pagenow(now) {
 
-                    // 更新現在頁數
-                    nowpage = now;
-
-                    // 現在這頁頁碼變色
-                    $('.pages').removeClass("on");
-                    $(`#page${now}`).addClass("on");
-
-                    // 清空內容
-                    $('.cookList_contain').empty();
-                    $('.a4').empty();
-
-
-                    now--;
-
-                    // 顯示料理
-                    for (let i = 0; i < 6; i++) {
-
-                        // 出現的第幾個料理
-                        let no = i + now * 6;
-
-                        if (custos[no]) {
-
-                            // 料理編號(由大到小，等於時間由新到舊)
-                            custoNo = custos[no].custoNo;
-
-                            // 料理名稱
-                            custoName = custos[no].custoName;
-                            // 圖片
-                            custoPic = custos[no].custoPic;
-                            // 票數
-                            custoVote = custos[no].contestCustoVote;
-
-                            $('.cookList_contain').append(`
-                            <div class="cookList_item">
-                                <div class="cookList_img">
-                                    <figure class="cookList_cook">
-                                        <img src="./images/${custoPic}" alt="">
-                                        <figcaption>
-                                            
-                                            <p>${custoName}</p>
-                                            <p>票數:${custoVote}票</p>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <div class="cookList_vote">
-                                    <button class="vote_btn" id="vote_${custoNo}">投票</button>
-                                </div>
-                                <div class="msg">
-                                    <P class="big">留言板</p>
-                                    <div class="msg_text" id="msg_${custoNo}">
-                                    <p>目前沒有人留言~</p>              
-                                    </div>
-                                    <div class="msg_btn">
-                                        <button class="List_msg_btn" id="List_msg_btn_${custoNo}">留言</button>
-                                    </div>
-                                </div>
-                            </div>`);
-                            //參賽列表留言燈箱
-                            $(".a4").append(`
-                            <div class="msg_overlay" id="List_msg_overlay_${custoNo}">
-                                <div class="msg_board">
-                                    <div class="msg_title">
-                                        留言板
-                                        <img class="msg_close" src="./images/blue-cross-icon.png" alt="">
-                                    </div>
-                                    <div class="msg_wrap List_msg_wrap${custoNo}">
-                                        
-                                    </div>
-                                    <form action="" class="msg_input" id="List_msg_input_${custoNo}">
-                                        <input type="text" id="List_text_${custoNo}" name="" placeholder="最多輸入10個字喔～～" maxlength="10">
-                                        <button class="msginput_btn List_input_btn" id="msginput_Listbtn_${custoNo}" type="button">留言</button>
-                                    </form>
-                                </div>
-                            </div>
-                            `);
-
-
-                            // 留言
-                            if (custos[no].comment.length != 0) {
-                                $(`#msg_${custoNo}`).empty();
-                                $(`.List_msg_wrap${custoNo}`).empty();
-                                for (let j = 0; j < custos[no].comment.length; j++) {
-
-                                    // 留言編號
-                                    commentNo = custos[no].comment[j].commentNo;
-                                    // 留言內容
-                                    commentContent = custos[no].comment[j].commentContent;
-                                    // 留言會員編號
-                                    commemNo = custos[no].comment[j].memNo;
-                                    // 留言會員姓名
-                                    commemName = custos[no].comment[j].memName;
-                                    // 留言會員照片
-                                    commemPic = custos[no].comment[j].memPic;
-                                    // 留言時間
-                                    commentTime = custos[no].comment[j].commentTime;
-
-                                    // console.log(custos[no].comment[j].commentTime);
-
-
-                                    $(`#msg_${custoNo}`).append(`
-                                        <p>
-                                            <img src="./images/${commemPic}" alt="">
-                                            ${commemName}:${commentContent}
-                                        </p>  
-                                    `);
-
-                                    //取出所有留言
-
-                                    $(`.List_msg_wrap${custoNo}`).append(`
-                                    <div class="mem_contain">
-                                        <div class="flex_wrap">
-                                            <div class="mem_name">
-                                                <p>${commemName}</p>
-                                                <img src="./images/${commemPic}" alt="">
-                                            </div>
-                                            <div class="mem_msg" id="List_mem_msg_${commentNo}">
-                                                <p>${commentContent}</p>
-                                            </div>
-                                            <div class="report">
-                                                <button class="List_report_btn" id="List_rep_${commentNo}">檢舉</button>
-                                            </div>
-                                        </div>
-                                        <div class="msg_date">
-                                            <p>${commentTime}</p>
-                                        </div>
-                                    </div>
-                                    `);
-                                    // ${custoRows[i].comments[j].commentTime}  要抓時間
-
-
-                                }
-
-                            }
-
-
-                        }
-
-
-                    };
-                    // 按下留言
-                    $(".List_msg_btn").on("click", function(e) {
-                        var LTid = e.target.id;
-                        LTid = LTid.slice(13);
-                        listMsg(LTid); //打開燈箱
-                        listEnterInput(LTid);
-                        // alert(LTid);
-                        event.stopPropagation();
-                    });
-                    //按下送出留言
-                    $(".List_input_btn").on("click", function(e) {
-                        e.preventDefault();
-                        //判斷是否登入
-                        if ($('.pu_mem_login_suc_div').text() != false) {
-                            var LTinputBtn = e.target.id;
-                            LTinputBtn = LTinputBtn.slice(17);
-                            // alert(LTinputBtn);
-                            // alert($(`#List_text_${LTinputBtn}`).val());
-                            //檢查留言框是否有輸入內容
-                            if ($.trim($(`#List_text_${LTinputBtn}`).val()) == "") {
-                                alert("您還沒有輸入任何文字喔~");
-                                return false;
-                            }
-                            inputListMsg(LTinputBtn);
-                        } else {
-                            //未登入
-                            alert("尚未登入，請先進行登入喔~");
-                            $('#Login,#Login_back').css('display', 'block');
-                            $('#pu_mem_resist_wrap').css('display', 'none');
-                            $('#pu_mem_forget_wrap').css('display', 'none');
-                            $('#pu_mem_login_wrap').css('display', 'block');
-                        }
-                    });
-                    // 點叉叉圖示關閉燈箱
-                    $("img.msg_close").on("click", function() {
-                        $("div.msg_overlay").addClass("-opacity-zero");
-                        // 設定隔一秒後，移除相關 class
-                        setTimeout(function() {
-                            $("div.msg_overlay").removeClass("-on -opacity-zero");
-                        }, 1000);
-                    });
-                    //點選空白處關閉燈箱
-                    $("div.msg_overlay").click(function(e) {
-                        var _con = $('div.msg_board'); // 設定目標區域
-                        if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
-                            $("div.msg_overlay").addClass("-opacity-zero");
-
-                            setTimeout(function() {
-                                $("div.msg_overlay").removeClass("-on -opacity-zero");
-                            }, 1000);
-                        }
-                    });
-
-                    //抓到檢舉留言的按鈕，開啟燈箱
-                    $(".List_report_btn").on("click", function(e) {
-                        //判斷是否登入
-                        if ($('.pu_mem_login_suc_div').text() != false) {
-                            RKreportNo = e.target.id;
-                            // alert(RKreportNo)
-                            // RKreportNo = RKreportNo.slice(4);
-                            // alert(RKreportNo);
-                            $("div.report_overlay").addClass("-on");
-                        } else {
-                            //未登入
-                            alert("尚未登入，請先進行登入喔~");
-                            $('#Login,#Login_back').css('display', 'block');
-                            $('#pu_mem_resist_wrap').css('display', 'none');
-                            $('#pu_mem_forget_wrap').css('display', 'none');
-                            $('#pu_mem_login_wrap').css('display', 'block');
-                        }
-                    });
-                    //抓到(前三名)檢舉留言的按鈕，開啟燈箱
-                    $(".RK_report_btn").on("click", function(e) {
-                        //判斷是否登入
-                        if ($('.pu_mem_login_suc_div').text() != false) {
-                            RKreportNo = e.target.id;
-                            // alert(RKreportNo)
-                            // RKreportNo = RKreportNo.slice(4);
-                            // alert(RKreportNo);
-                            $("div.report_overlay").addClass("-on");
-                        } else {
-                            //未登入
-                            alert("尚未登入，請先進行登入喔~");
-                            $('#Login,#Login_back').css('display', 'block');
-                            $('#pu_mem_resist_wrap').css('display', 'none');
-                            $('#pu_mem_forget_wrap').css('display', 'none');
-                            $('#pu_mem_login_wrap').css('display', 'block');
-                        }
-                    });
-                    //檢舉確定送出
-                    $(".rep_submit").on("click", function() {
-                        var RKreportNo_replace = RKreportNo.replace('rep', 'mem_msg');
-                        aaa = RKreportNo_replace.replace("List_", "");
-                        aaa_str = aaa.slice(8)
-                        alert(RKreportNo_replace)
-                        alert(aaa_str)
-                        inputReport(RKreportNo_replace);
-
-                        event.stopPropagation();
-                        $("div.report_overlay").addClass("-opacity-zero");
-                        // 設定隔一秒後，移除相關 class
-                        setTimeout(function() {
-                            $("div.report_overlay").removeClass("-on -opacity-zero");
-                        }, 1000);
-                    });
-                    //取消
-                    $(".rep_cancel").on("click", function() {
-                        $("div.report_overlay").addClass("-opacity-zero");
-                        // 設定隔一秒後，移除相關 class
-                        setTimeout(function() {
-                            $("div.report_overlay").removeClass("-on -opacity-zero");
-                        }, 1000);
-                    });
-                    // 點叉叉圖示關閉燈箱
-                    $("img.report_close").on("click", function() {
-                        $("div.report_overlay").addClass("-opacity-zero");
-
-                        // 設定隔一秒後，移除相關 class
-                        setTimeout(function() {
-                            $("div.report_overlay").removeClass("-on -opacity-zero");
-                        }, 1000);
-                    });
-
-
-                    // 點擊投票
-                    $(".vote_btn").on("click", function(e) {
-                        //判斷是否登入
-                        if ($('.pu_mem_login_suc_div').text() != false) {
-                            var list_vote = e.target.id;
-                            list_vote = list_vote.slice(5);
-                            // alert(list_vote);
-                            inputLTvote(list_vote);
-
-                        } else {
-                            //未登入
-                            alert("尚未登入，請先進行登入喔~");
-                            $('#Login,#Login_back').css('display', 'block');
-                            $('#pu_mem_resist_wrap').css('display', 'none');
-                            $('#pu_mem_forget_wrap').css('display', 'none');
-                            $('#pu_mem_login_wrap').css('display', 'block');
-                        }
-
-                    });
-
-                }
 
             } else {
                 console.log(xhr.status);
@@ -854,6 +577,275 @@ $(document).ready(function() {
 
     };
 
+    function pagenow(now) {
+
+        // 更新現在頁數
+        nowpage = now;
+
+        // 現在這頁頁碼變色
+        $('.pages').removeClass("on");
+        $(`#page${now}`).addClass("on");
+
+        // 清空內容
+        $('.cookList_contain').empty();
+        $('.a4').empty();
+
+
+        now--;
+
+        // 顯示料理
+        for (let i = 0; i < 6; i++) {
+
+            // 出現的第幾個料理
+            let no = i + now * 6;
+
+            if (custos[no]) {
+
+                // 料理編號(由大到小，等於時間由新到舊)
+                custoNo = custos[no].custoNo;
+
+                // 料理名稱
+                custoName = custos[no].custoName;
+                // 圖片
+                custoPic = custos[no].custoPic;
+                // 票數
+                custoVote = custos[no].contestCustoVote;
+
+                $('.cookList_contain').append(`
+                <div class="cookList_item">
+                    <div class="cookList_img">
+                        <figure class="cookList_cook">
+                            <img src="./images/${custoPic}" alt="">
+                            <figcaption>
+                                
+                                <p>${custoName}</p>
+                                <p>票數:${custoVote}票</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="cookList_vote">
+                        <button class="vote_btn" id="vote_${custoNo}">投票</button>
+                    </div>
+                    <div class="msg">
+                        <P class="big">留言板</p>
+                        <div class="msg_text" id="msg_${custoNo}">
+                        <p>目前沒有人留言~</p>              
+                        </div>
+                        <div class="msg_btn">
+                            <button class="List_msg_btn" id="List_msg_btn_${custoNo}">留言</button>
+                        </div>
+                    </div>
+                </div>`);
+                //參賽列表留言燈箱
+                $(".a4").append(`
+                <div class="msg_overlay" id="List_msg_overlay_${custoNo}">
+                    <div class="msg_board">
+                        <div class="msg_title">
+                            留言板
+                            <img class="msg_close" src="./images/blue-cross-icon.png" alt="">
+                        </div>
+                        <div class="msg_wrap List_msg_wrap${custoNo}">
+                            
+                        </div>
+                        <form action="" class="msg_input" id="List_msg_input_${custoNo}">
+                            <input type="text" id="List_text_${custoNo}" name="" placeholder="最多輸入10個字喔～～" maxlength="10">
+                            <button class="msginput_btn List_input_btn" id="msginput_Listbtn_${custoNo}" type="button">留言</button>
+                        </form>
+                    </div>
+                </div>
+                `);
+
+
+                // 留言
+                if (custos[no].comment.length != 0) {
+                    $(`#msg_${custoNo}`).empty();
+                    $(`.List_msg_wrap${custoNo}`).empty();
+                    for (let j = 0; j < custos[no].comment.length; j++) {
+
+                        // 留言編號
+                        commentNo = custos[no].comment[j].commentNo;
+                        // 留言內容
+                        commentContent = custos[no].comment[j].commentContent;
+                        // 留言會員編號
+                        commemNo = custos[no].comment[j].memNo;
+                        // 留言會員姓名
+                        commemName = custos[no].comment[j].memName;
+                        // 留言會員照片
+                        commemPic = custos[no].comment[j].memPic;
+                        // 留言時間
+                        commentTime = custos[no].comment[j].commentTime;
+
+                        // console.log(custos[no].comment[j].commentTime);
+
+
+                        $(`#msg_${custoNo}`).append(`
+                            <p>
+                                <img src="./images/${commemPic}" alt="">
+                                ${commemName}：${commentContent}
+                            </p>  
+                        `);
+
+                        //取出所有留言
+
+                        $(`.List_msg_wrap${custoNo}`).append(`
+                        <div class="mem_contain">
+                            <div class="flex_wrap">
+                                <div class="mem_name">
+                                    <p>${commemName}</p>
+                                    <img src="./images/${commemPic}" alt="">
+                                </div>
+                                <div class="mem_msg" id="List_mem_msg_${commentNo}">
+                                    <p>${commentContent}</p>
+                                </div>
+                                <div class="report">
+                                    <button class="List_report_btn" id="List_rep_${commentNo}">檢舉</button>
+                                </div>
+                            </div>
+                            <div class="msg_date">
+                                <p>${commentTime}</p>
+                            </div>
+                        </div>
+                        `);
+                        // ${custoRows[i].comments[j].commentTime}  要抓時間
+
+
+                    }
+
+                }
+
+
+            }
+
+
+        };
+        // 按下留言
+        $(".List_msg_btn").on("click", function(e) {
+            var LTid = e.target.id;
+            LTid = LTid.slice(13);
+            listMsg(LTid); //打開燈箱
+            listEnterInput(LTid);
+            event.stopPropagation();
+        });
+        //按下送出留言
+        $(".List_input_btn").on("click", function(e) {
+            e.preventDefault();
+            //判斷是否登入
+            if ($('.pu_mem_login_suc_div').text() != false) {
+                var LTinputBtn = e.target.id;
+                LTinputBtn = LTinputBtn.slice(17);
+                //檢查留言框是否有輸入內容
+                if ($.trim($(`#List_text_${LTinputBtn}`).val()) == "") {
+                    $('.alertbox .wrapper_alert').text("您還沒有輸入任何文字喔~2");
+                    $('.alertbox').addClass("on_alert");
+                    return false;
+                }
+                inputListMsg(LTinputBtn);
+            } else {
+                //未登入
+                $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
+                $('.alertbox2').addClass("on_alert2");
+            }
+        });
+        // 點叉叉圖示關閉燈箱
+        $("img.msg_close").on("click", function() {
+            $("div.msg_overlay").addClass("-opacity-zero");
+            // 設定隔一秒後，移除相關 class
+            setTimeout(function() {
+                $("div.msg_overlay").removeClass("-on -opacity-zero");
+            }, 1000);
+        });
+        //點選空白處關閉燈箱
+        $("div.msg_overlay").click(function(e) {
+            var _con = $('div.msg_board'); // 設定目標區域
+            if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
+                $("div.msg_overlay").addClass("-opacity-zero");
+
+                setTimeout(function() {
+                    $("div.msg_overlay").removeClass("-on -opacity-zero");
+                }, 1000);
+            }
+        });
+
+        //抓到檢舉留言的按鈕，開啟燈箱
+        $(".List_report_btn").on("click", function(e) {
+            //判斷是否登入
+            if ($('.pu_mem_login_suc_div').text() != false) {
+                RKreportNo = e.target.id;
+                $("div.report_overlay").addClass("-on");
+            } else {
+                //未登入
+                $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
+                $('.alertbox2').addClass("on_alert2");
+            }
+        });
+
+
+
+        // 點擊投票
+        $(".vote_btn").on("click", function(e) {
+            //判斷是否登入
+            if ($('.pu_mem_login_suc_div').text() != false) {
+                var list_vote = e.target.id;
+                list_vote = list_vote.slice(5);
+                inputLTvote(list_vote);
+
+            } else {
+                //未登入
+                $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
+                $('.alertbox2').addClass("on_alert2");
+            }
+
+        });
+
+    }
+
+
+    // 關掉提示燈箱
+    $('.alertbox .boxclose').click(function() {
+        $('.alertbox').removeClass("on_alert");
+    });
+    // 關掉提示燈箱，並登入
+    $('.alertbox2 .boxclose2').click(function() {
+        $('.alertbox2').removeClass("on_alert2");
+        $('#Login,#Login_back').css('display', 'block');
+        $('#pu_mem_resist_wrap').css('display', 'none');
+        $('#pu_mem_forget_wrap').css('display', 'none');
+        $('#pu_mem_login_wrap').css('display', 'block');
+    });
+
+
+    //檢舉確定送出
+    $(".rep_submit").on("click", function() {
+        var RKreportNo_replace = RKreportNo.replace('rep', 'mem_msg');
+        aaa = RKreportNo_replace.replace("List_", "");
+        aaa_str = aaa.slice(8)
+        inputReport(RKreportNo_replace);
+
+        event.stopPropagation();
+        $("div.report_overlay").addClass("-opacity-zero");
+        // 設定隔一秒後，移除相關 class
+        setTimeout(function() {
+            $("div.report_overlay").removeClass("-on -opacity-zero");
+        }, 1000);
+    });
+    //取消
+    $(".rep_cancel").on("click", function() {
+        $("div.report_overlay").addClass("-opacity-zero");
+        // 設定隔一秒後，移除相關 class
+        setTimeout(function() {
+            $("div.report_overlay").removeClass("-on -opacity-zero");
+        }, 1000);
+    });
+    // 點叉叉圖示關閉燈箱
+    $("img.report_close").on("click", function() {
+        $("div.report_overlay").addClass("-opacity-zero");
+
+        // 設定隔一秒後，移除相關 class
+        setTimeout(function() {
+            $("div.report_overlay").removeClass("-on -opacity-zero");
+        }, 1000);
+    });
+
 
 
     //開啟留言燈箱
@@ -869,17 +861,15 @@ $(document).ready(function() {
                 if ($('.pu_mem_login_suc_div').text() != false) {
                     //檢查留言框是否有輸入內容
                     if ($.trim($(`#text_${id}`).val()) == "") {
-                        alert("您還沒有輸入任何文字喔~");
+                        $('.alertbox .wrapper_alert').text("您還沒有輸入任何文字喔~3");
+                        $('.alertbox').addClass("on_alert");
                         return false;
                     }
                     inputMsg(id);
                 } else {
                     //未登入
-                    alert("尚未登入，請先進行登入喔~");
-                    $('#Login,#Login_back').css('display', 'block');
-                    $('#pu_mem_resist_wrap').css('display', 'none');
-                    $('#pu_mem_forget_wrap').css('display', 'none');
-                    $('#pu_mem_login_wrap').css('display', 'block');
+                    $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
+                    $('.alertbox2').addClass("on_alert2");
                 }
 
             }
@@ -941,6 +931,14 @@ $(document).ready(function() {
                 </div>
             </div>
             `);
+                    $(`#RKmsg_text_${id}`).append(`
+            <p>
+            <img src="./images/${member.memPic}" alt="">
+            ${member.memName}：${inputText}
+            </p>
+            `);
+                    //留言後scroll bar至最新留言
+                    $(`.msg_wrap${id}`).scrollTop($(`.msg_wrap${id}`)[0].scrollHeight);
 
                 } else {
                     alert(xhr3.status);
@@ -987,7 +985,7 @@ $(document).ready(function() {
                         var xhr6 = new XMLHttpRequest();
                         xhr6.onload = function() {
                                 if (xhr6.status == 200) {
-
+                                    vote(selectedIndex);
                                 } else {
                                     alert(xhr6.status);
                                 }
@@ -1009,13 +1007,14 @@ $(document).ready(function() {
 
                         xhr6.open('POST', './php/contest_vote_input.php', true);
                         xhr6.send(voteData_str);
-                        alert("投票成功!")
-                        vote(selectedIndex);
-
-
+                        $('.alertbox .wrapper_alert').text("恭喜您投票成功!");
+                        $('.alertbox').addClass("on_alert");
+                        // vote(selectedIndex);
+                        console.log(selectedIndex);
 
                     } else {
-                        alert("您今日已投過票囉~")
+                        $('.alertbox .wrapper_alert').text("您今日已投過票囉~");
+                        $('.alertbox').addClass("on_alert");
                     }
 
 
@@ -1065,7 +1064,7 @@ $(document).ready(function() {
                         var xhr6 = new XMLHttpRequest();
                         xhr6.onload = function() {
                                 if (xhr6.status == 200) {
-
+                                    vote(selectedIndex);
                                 } else {
                                     alert(xhr6.status);
                                 }
@@ -1087,12 +1086,14 @@ $(document).ready(function() {
 
                         xhr6.open('POST', './php/contest_vote_input.php', true);
                         xhr6.send(voteData_str);
-                        alert("投票成功!")
-                        vote(selectedIndex);
+                        $('.alertbox .wrapper_alert').text("恭喜您投票成功!");
+                        $('.alertbox').addClass("on_alert");
+                        // vote(selectedIndex);
 
 
                     } else {
-                        alert("您今日已投過票囉~")
+                        $('.alertbox .wrapper_alert').text("您今日已投過票囉");
+                        $('.alertbox').addClass("on_alert");
                     }
 
 
@@ -1138,17 +1139,15 @@ $(document).ready(function() {
                 if ($('.pu_mem_login_suc_div').text() != false) {
                     //檢查留言框是否有輸入內容
                     if ($.trim($(`#List_text_${id}`).val()) == "") {
-                        alert("您還沒有輸入任何文字喔~");
+                        $('.alertbox .wrapper_alert').text("您還沒有輸入任何文字喔~4");
+                        $('.alertbox').addClass("on_alert");
                         return false;
                     }
                     inputListMsg(id);
                 } else {
                     //未登入
-                    alert("尚未登入，請先進行登入喔~");
-                    $('#Login,#Login_back').css('display', 'block');
-                    $('#pu_mem_resist_wrap').css('display', 'none');
-                    $('#pu_mem_forget_wrap').css('display', 'none');
-                    $('#pu_mem_login_wrap').css('display', 'block');
+                    $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
+                    $('.alertbox2').addClass("on_alert2");
                 }
             }
         });
@@ -1189,28 +1188,35 @@ $(document).ready(function() {
                 if (xhr3.status == 200) {
                     let commentRow = JSON.parse(xhr3.responseText);
                     var last_commentNo = parseInt(commentRow.commentNo);
-
+                    console.log(commentRow);
 
                     $(`.List_msg_wrap${id}`).append(`
-                <div class="mem_contain">
-                    <div class="flex_wrap">
-                        <div class="mem_name">
-                            <p>${member.memName}</p>
-                            <img src="./images/unname.jpg" alt="">
+                    <div class="mem_contain">
+                        <div class="flex_wrap">
+                            <div class="mem_name">
+                                <p>${member.memName}</p>
+                                <img src="./images/unname.jpg" alt="">
+                            </div>
+                            <div class="mem_msg">
+                                <p>${inputText}</p>
+                            </div>
+                            <div class="report">
+                                <button class="List_report_btn" id="List_rep_${(last_commentNo+1)}">檢舉</button>
+                            </div>
                         </div>
-                        <div class="mem_msg">
-                            <p>${inputText}</p>
-                        </div>
-                        <div class="report">
-                            <button class="List_report_btn" id="List_rep_${(last_commentNo+1)}">檢舉</button>
+                        <div class="msg_date">
+                            <p>${time}</p>
                         </div>
                     </div>
-                    <div class="msg_date">
-                        <p>${time}</p>
-                    </div>
-                </div>
-                `);
-
+                    `);
+                    $(`#msg_${id}`).append(`
+                    <p>
+                    <img src="./images/${member.memPic}" alt="">
+                    ${member.memName}：${inputText}
+                    </p>
+                    `)
+                        //留言後scroll bar至最新留言
+                    $(`.List_msg_wrap${id}`).scrollTop($(`.List_msg_wrap${id}`)[0].scrollHeight);
 
                 } else {
                     alert(xhr3.status);
@@ -1239,9 +1245,7 @@ $(document).ready(function() {
 
     //新增檢舉
     function inputReport(RKreportNo) {
-        // alert(`#${RKreportNo}`)
         var commentContent = $(`#${RKreportNo} p`).text();
-        // alert(commentContent)
         // RKreportNo = RKreportNo.slice(13);
 
         var ReportReason = $('input[name=rep_reason]:checked').val();

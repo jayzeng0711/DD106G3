@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="./php/mealPicUpload.php" method="post" id="newPic">
+    <input type="file" id="mealPic" name="mealPic" class="mealPic">
+    <input type="submit" value="OK">
+    <lable id="mealPic">
+        <img id="show" src="">
+    </lable>
+
+
+    <form action="./php/editMealPic.php" method="post" id="eidtPic">
+        <input type="file" id="theNewPic" name="theNewPic" class="theNewPic">
+        <input type="submit" value="OK">
+        <lable id="theNewPic">
+            <img id="preview" src="">
+        </lable>
+
+    <script>
+          window.addEventListener('load', function () {
+                document.getElementById("mealPic").onchange = function (e) {
+                    let file = e.target.files[0];
+                    let reader = new FileReader();
+                    reader.onload = function (e) {
+                        document.getElementById("show").src = reader.result;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            })
+            $(document).ready(function (e) {
+                $("#newPic").on('submit', (function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: "./php/mealPicUpload.php",
+                        type: "POST",
+                        data: new FormData(this),
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        success: function (data) {
+
+                            alert("上傳成功");
+                        },
+                        error: function () {
+                            alert("失敗");
+                        }
+                    });
+                    console.log(new FormData(this));
+                }));
+            });
+    </script>
+
+
+<script>
+    window.addEventListener('load', function () {
+          document.getElementById("theNewPic").onchange = function (e) {
+              let file = e.target.files[0];
+              let reader = new FileReader();
+              reader.onload = function (e) {
+                  document.getElementById("preview").src = reader.result;
+              }
+              reader.readAsDataURL(file);
+          }
+      })
+      $(document).ready(function (e) {
+          $("#editPic").on('submit', (function (e) {
+              e.preventDefault();
+              $.ajax({
+                  url: "./php/editMealPic.php",
+                  type: "POST",
+                  data: new FormData(this),
+                  contentType: false,
+                  cache: false,
+                  processData: false,
+                  success: function (data) {
+
+                      alert("上傳成功");
+                  },
+                  error: function () {
+                      alert("失敗");
+                  }
+              });
+              console.log(new FormData(this));
+          }));
+      });
+</script>
+</form>
+</body>
+</html>

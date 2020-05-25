@@ -17,7 +17,7 @@ $(document).ready(function(){
                         <td>${member[i].memScore}</td>
                         <td>${member[i].memPoints}</td>
                         <td>
-                            <div class="bigimg"><img style="width: 50px;" src="./images/${member[i].memPic}"></div>
+                            <div class="bigimg"><img style="width: 50px;" src="./php/images/${member[i].memPic}"></div>
                         </td>
                         <td class="yesNo">
                             <div class="yes_div status" id="yes_div_${member[i].memNo}"></div>
@@ -33,7 +33,7 @@ $(document).ready(function(){
                         <td>${member[i].memScore}</td>
                         <td>${member[i].memPoints}</td>
                         <td>
-                            <div class="bigimg"><img style="width: 50px;" src="./images/${member[i].memPic}"></div>
+                            <div class="bigimg"><img style="width: 50px;" src="./php/images/${member[i].memPic}"></div>
                         </td>
                         <td class="yesNo">
                             <div class="no_div status" id="no_div_${member[i].memNo}"></div>
