@@ -11,7 +11,8 @@ score = 0;
 point = 0;
 
 // 把海鮮存入session的key初值
-session_id = 0;
+seafood_arr = [];
+seafood_object = {};
 
 // 把會員資料初始化，如果沒登入是空的物件
 memberLevel = {};
@@ -122,7 +123,7 @@ $(document).ready(function() {
                                 }
                             }
 
-                            // windows
+                            // // windows
                             xhr3.open('GET',  './php/seafood_info.php',  true);
 
                             // Mac
@@ -251,7 +252,7 @@ $(document).ready(function() {
 
         //清除storage
         var storge = localStorage;
-        storge.clear();
+        storge.removeItem('fish');;
         //清除storage
 
         $('#game_start').css('display', 'none');
@@ -764,11 +765,13 @@ $(document).ready(function() {
                                         if(`seafood${target_img}.svg` == seafood_info[i].seafoodPic){
                                             seafoodName = seafood_info[i].seafoodName;
                                             seafoodPrice = seafood_info[i].seafoodPrice;
-                                            stroge = localStorage;
-                                            stroge.setItem(session_id, `./images/seafood${target_img}.svg|${seafoodName}|${seafoodPrice}`);
+                                            seafood_object.name = seafoodName;
+                                            seafood_object.img = `./images/seafood${target_img}.svg`;
+                                            seafood_object.price = seafoodPrice;
+                                            seafood_arr.push(seafood_object);
                                         }
                                     }
-                                    session_id++;
+                                    localStorage['fish'] = JSON.stringify(seafood_arr);
                                     //存到session裡面，把抓到的海鮮的圖片，跟上面八個海鮮做比對，如果圖片相同，把海鮮名稱跟價格存入
                                     if (memberLevel.memId) {
                                         switch (target_img) {
@@ -1107,7 +1110,7 @@ $(document).ready(function() {
         })
         $('#re_game_start').click(function() {
             var storge = localStorage;
-            storge.clear();
+            storge.removeItem('fish');
         })
     })
     //抓到海鮮後更新積分及點數
