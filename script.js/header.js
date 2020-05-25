@@ -239,18 +239,34 @@ $('.pu_login_logout,#mem_lohin_btn_mobile_div_logout').click(function() {
         var xhr = new XMLHttpRequest();
         xhr.onload = function() {
             if (xhr.status == 200) {
-                $('.pu_mem_login_div_wrap').css('display', 'flex');
-                $('.pu_mem_login_div_suc_wrap').css('display', 'none');
-                $('.pu_login_btn').css('display', 'none');
-                $('.mem_lohin_btn_mobile_div').css('display', 'block');
-                $('.mem_lohin_btn_mobile_div_center').css('display', 'none');
-                $('.mem_lohin_btn_mobile_div_logout').css('display', 'none');
-                window.location.reload();
-                $('.pu_mem_login_div').text('會員登入');
-                //清除storage
-                var storge = localStorage;
-                storge.clear();
-                //清除storage
+                if(location.href.substr(location.href.lastIndexOf('/')+1) == "member_data.html"){
+                    $('.pu_mem_login_div_wrap').css('display', 'flex');
+                    $('.pu_mem_login_div_suc_wrap').css('display', 'none');
+                    $('.pu_login_btn').css('display', 'none');
+                    $('.mem_lohin_btn_mobile_div').css('display', 'block');
+                    $('.mem_lohin_btn_mobile_div_center').css('display', 'none');
+                    $('.mem_lohin_btn_mobile_div_logout').css('display', 'none');
+                    window.location.href = "order.html";
+                    alert('無登入會員');
+                    $('.pu_mem_login_div').text('會員登入');
+                    //清除storage
+                    var storge = localStorage;
+                    storge.clear();
+                    //清除storage
+                }else{
+                    $('.pu_mem_login_div_wrap').css('display', 'flex');
+                    $('.pu_mem_login_div_suc_wrap').css('display', 'none');
+                    $('.pu_login_btn').css('display', 'none');
+                    $('.mem_lohin_btn_mobile_div').css('display', 'block');
+                    $('.mem_lohin_btn_mobile_div_center').css('display', 'none');
+                    $('.mem_lohin_btn_mobile_div_logout').css('display', 'none');
+                    window.location.reload();
+                    $('.pu_mem_login_div').text('會員登入');
+                    //清除storage
+                    var storge = localStorage;
+                    storge.clear();
+                    //清除storage
+                }
             }
         }
 

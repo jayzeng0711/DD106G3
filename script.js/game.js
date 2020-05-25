@@ -220,6 +220,7 @@ $(document).ready(function() {
                     pokeballActive: './images/one_open_ball.png',
                     pokeballClosed: './images/one_ball.png'
                 };
+                $('.ball_img_change').attr('src',`./images/Group%2071.png`)
                 $('.fake_ball').css('background-image', `url("./images/Group%2071.png")`);
                 successRate = 50;
                 //魚的價格hover

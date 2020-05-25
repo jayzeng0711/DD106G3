@@ -62,7 +62,7 @@ $(document).ready(function(){
         if(xhr.status == 200){
             var mem_basic_data = JSON.parse(xhr.responseText);
             console.log(mem_basic_data)
-            if(mem_basic_data.memName){
+            if(mem_basic_data.memId){
                 $('.mem_data_right_div').append(`<div class="mem_img_div">
                 <img class="img_src" src="./php/images/${mem_basic_data.memPic}" alt="">
                 </div>
@@ -120,6 +120,7 @@ $(document).ready(function(){
                 $('#modify_signInBtn').click(function(e){
                     var input_cannoy_mod =$('#input_cannoy_mod').val();
                     var psw_hidden =$('#psw_hidden').val();
+                    var memid =$('#email').val();
                     var old_psw = $('#old_psw').val();
                     var new_psw = $('#new_psw').val();
                     if(old_psw == "" || new_psw ==""){
@@ -144,6 +145,23 @@ $(document).ready(function(){
                     $('#Login_back').css('display', 'none');
                     $('#old_psw').val("");
                     $('#new_psw').val("");
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function(){
+                        if(xhr == 200){
+
+                        }
+                    }
+                    var psw = {};
+                    psw.new_psw = new_psw;
+                    psw.memid = memid;
+                    var psw_str = JSON.stringify(psw);
+                    console.log(psw_str)
+                    // windows
+                    // xhr.open('POST', './php/member_data_update_psw.php',  true);
+
+                    //  Mac
+                    xhr.open('POST','http://localhost:8080/member_data_update_psw.php');
+                    xhr.send(psw_str);
                 })
                 //點下修改密碼
 
@@ -595,6 +613,7 @@ $(document).ready(function(){
     xhr.send(null);
 })
 //載入網頁，撈出會員的基本資料
+
 
 //判斷滾輪方向
 
