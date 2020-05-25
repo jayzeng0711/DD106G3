@@ -22,8 +22,8 @@ $(document).ready(function() {
                     custoRKRows = JSON.parse(xhr2.responseText);
                     // console.log(custoRKRows);
 
-                    // 清空內容
-                    // $(".ranking_contain").empty();
+                    //清空內容
+                    $(".ranking_contain").empty();
 
                     // if(`${custoRKRows[0].contestCustoVote}` == 0 || `${custoRKRows[1].contestCustoVote}` == 0 || `${custoRKRows[2].contestCustoVote}` == 0){
                     //     window.location.reload();
@@ -985,7 +985,7 @@ $(document).ready(function() {
                         var xhr6 = new XMLHttpRequest();
                         xhr6.onload = function() {
                                 if (xhr6.status == 200) {
-
+                                    vote(selectedIndex);
                                 } else {
                                     alert(xhr6.status);
                                 }
@@ -1009,7 +1009,7 @@ $(document).ready(function() {
                         xhr6.send(voteData_str);
                         $('.alertbox .wrapper_alert').text("恭喜您投票成功!");
                         $('.alertbox').addClass("on_alert");
-                        vote(selectedIndex);
+                        // vote(selectedIndex);
                         console.log(selectedIndex);
 
                     } else {
@@ -1064,7 +1064,7 @@ $(document).ready(function() {
                         var xhr6 = new XMLHttpRequest();
                         xhr6.onload = function() {
                                 if (xhr6.status == 200) {
-
+                                    vote(selectedIndex);
                                 } else {
                                     alert(xhr6.status);
                                 }
@@ -1088,7 +1088,7 @@ $(document).ready(function() {
                         xhr6.send(voteData_str);
                         $('.alertbox .wrapper_alert').text("恭喜您投票成功!");
                         $('.alertbox').addClass("on_alert");
-                        vote(selectedIndex);
+                        // vote(selectedIndex);
 
 
                     } else {
