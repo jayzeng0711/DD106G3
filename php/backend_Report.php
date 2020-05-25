@@ -2,8 +2,8 @@
 $errMsg = "";
 try{
     require_once("connectdd106g3.php");
- 
-    $sql = "select * from `report` JOIN `member` ON report.memNo = member.memNo ORDER BY ReportState";
+    $sql = "SELECT * FROM (`report` JOIN member on `report`.`memNo` = `member`.`memNo`) JOIN comment on `report`.`commentNo` = `comment`.`commentNo`";
+    // $sql = "select * from `report` JOIN `member` ON report.memNo = member.memNo ORDER BY ReportState";
     $report = $pdo->query($sql);
     $reportRows = $report->fetchAll(PDO::FETCH_ASSOC);
 

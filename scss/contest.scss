@@ -13,7 +13,72 @@ body {
     animation: pu_waveFlow 1s infinite linear;
 }
 
+// 提示燈箱
+.alertbox {
+    display: none;
+    background-color: #FBD672;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 150px;
+    padding: 30px 10px;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1000;
+    box-shadow: 6px 6px 0px rgb(247, 192, 41);
+    border-radius: 0 0 10px 10px;
+    .boxclose {
+        width: 7%;
+        position: absolute;
+        top: 4px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .wrapper_alert {
+        background-color: #fff;
+        border-radius: 5px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+    }
+}
 
+.alertbox.on_alert {
+    display: block;
+}
+// 提示燈箱2
+.alertbox2 {
+    display: none;
+    background-color: #FBD672;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 150px;
+    padding: 30px 10px;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1000;
+    box-shadow: 6px 6px 0px rgb(247, 192, 41);
+    border-radius: 0 0 10px 10px;
+    .boxclose2 {
+        width: 7%;
+        position: absolute;
+        top: 4px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .wrapper_alert2 {
+        background-color: #fff;
+        border-radius: 5px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+    }
+}
+
+.alertbox2.on_alert2 {
+    display: block;
+}
 /* ------------ ranking 開始 ---------------*/
 
 @keyframes fly {
