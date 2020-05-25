@@ -1,3 +1,6 @@
+$(document).ready(function(){
+    show();
+})
 //新增管理員
 $('.addbtn').click(function(){
     // 停用新增按鈕
@@ -38,6 +41,7 @@ $('.addbtn').click(function(){
        // Mac
         // xhr.open('POST','http://localhost:8080/backend_admin_insert.php');
         xhr.send(message_content_str);
+        $('.addbtn').removeAttr('disabled');
     })
     // 取消新增
     $('.cancel').click(function() {
@@ -88,7 +92,8 @@ function show(){
             //再把所有編輯註冊事件
             $('.update').click(function(e){
                 var num_id = e.target.id;
-                var num = num_id.substr(num_id.length-1,1);
+                var num = num_id.slice(7);
+                alert(num)
                 update(num);
             })
             //再把所有編輯註冊事件

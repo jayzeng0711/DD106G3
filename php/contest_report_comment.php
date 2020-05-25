@@ -2,13 +2,6 @@
 $errMsg = "";
 try{
     require_once("connectdd106g3.php");
-    // //找最新一則檢舉留言
-    // $sql = "select * from `report` ORDER BY ReportNo DESC LIMIT 0 , 1"; 
-    // $report = $pdo->prepare($sql);
-    // $report->execute();
-    // $reportRow = $report->fetch(PDO::FETCH_ASSOC);
-
-    // echo json_encode($reportRow);
 
 
     session_start();

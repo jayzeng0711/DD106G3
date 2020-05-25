@@ -39,7 +39,7 @@
                 <img src="./images/login.png" alt="">
             </div>
             <div class="pu_mem_login_div">
-                會員登入
+                <!-- 會員登入 -->
             </div>
         </div>
 
@@ -66,7 +66,7 @@
 <!-- 電腦版 -->
 
 <!-- 手機版 -->
-<div style="position: sticky;position: -webkit-sticky;top: 5px;z-index: 999;">
+<div class="mobile_header_div_wrap" style="position: sticky;position: -webkit-sticky;top: 0px;z-index: 999;overflow-x: hidden;">
     <header class="mobile_header">
         <a class="pu_mb_logo_a" href="main.html">
             <img src="./images/logo.png" alt="">
@@ -98,9 +98,18 @@
                             美食大賽
                         </a>
                     </div>
-                    <div>
+                    <div class="mem_lohin_btn_mobile_div">
                         <a id="mem_lohin_btn_mobile" class="pu_mb_text_a" href="">
                             會員登入
+                        </a>
+                    </div>
+                    <div class="mem_lohin_btn_mobile_div_center" style="display: none;">
+                        <a id="mem_lohin_btn_mobile_div_center" class="pu_mb_text_a" href="member_data.html">
+                            會員中心
+                        </a>
+                    </div><div class="mem_lohin_btn_mobile_div_logout" style="display: none;">
+                        <a id="mem_lohin_btn_mobile_div_logout" class="pu_mb_text_a" href="">
+                            登出
                         </a>
                     </div>
                 </div>
@@ -138,34 +147,37 @@
                 </label>
                 <input type="password" id="loginPassword">
             </div>
-            <button type="button" id="signInBtn">
+            <button type="button" id="signInBtn" class="signInBtn">
                 登入
             </button>     
             <div id="action">
                 <a class="showRegister" id="showRegister" href="#" >立即註冊</a>
-                <a class="showForget" id="showForget" href="#">忘記密碼</a>
             </div>
         </form>
     </div>
     <!-- 會員登入 -->
 
-    <!-- 忘記密碼 -->
+    <!-- 修改密碼 -->
     <div class="pu_mem_login_wrap" id="pu_mem_forget_wrap">
-        <div class="mem_login">忘記密碼</div>
-        <form method="POST" action="" class="formSignIn">
+        <div class="mem_login">修改密碼</div>
+        <form class="formSignIn">
             <div class="pu_email_div">
-                <label for="Email">
-                    信箱   
-                </label>
-                <input type="text" id="Email">
+                <div style="margin-bottom: 10%;">
+                    <label for="Email">
+                        舊密碼   
+                    </label>
+                    <input type="password" id="old_psw">
+                </div>
+                <div>
+                    <label for="Email">
+                        新密碼   
+                    </label>
+                    <input type="password" id="new_psw">
+                </div>
             </div>
-            <button id="signInBtn">
-                確認
+            <button id="modify_signInBtn" class="signInBtn" type="button">
+                修改
             </button>     
-            <div id="action">
-                <a class="return_login" href="#" >返回登入</a>
-                <a class="showRegister" href="#">立即註冊</a>
-            </div>
         </form>
     </div>
     <!-- 忘記密碼 -->
@@ -215,4 +227,10 @@
 <button type="button" id="go_top">
     <img src="./images/GotoTop.png" alt="">
 </button>
+
+<!-- 提示燈箱 -->
+<div class="alertbox">
+    <img class="boxclose" src="./images/blue-cross-icon.png" alt="">
+    <div class="wrapper"></div>
+</div>
     

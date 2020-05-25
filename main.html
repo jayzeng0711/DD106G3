@@ -16,6 +16,10 @@
 <body>
 
     @@include('./layout/header.html')
+    <div class="alertbox">
+        <img class="boxclose" src="./images/blue-cross-icon.png" alt="">
+        <div class="wrapper"></div>
+    </div>
 
     <main>
         <section class="section1">
@@ -39,10 +43,9 @@
         </section>
 
         <div class="wrapperWheel">
-
             <section class="section2">
                 <div class="container-fluid">
-                    <div class="row row0"></div>
+
                     <div class="row row1 justify-content-center">
                         <div class="col-12  col-md-6">
                             <div class="wrapper">
@@ -52,67 +55,141 @@
                                         <div class="text">訂位</div>
                                     </div>
                                 </div>
-
                                 <div class="reservation">
-                                    <div class="item">
+                                    <div class=" lefttext">
                                         <div class="question">
                                             <h3>選擇港口</h3>
                                         </div>
+
                                         <div class="answer port">
                                             <input type="radio" name="port" id="port1">
-                                            <label for="port1" class="port1">深澳港</label>
+                                            <label for="port1" class="port1 on">深澳港</label>
                                             <input type="radio" name="port" id="port2">
                                             <label for="port2">梧棲港</label>
                                             <input type="radio" name="port" id="port3">
                                             <label for="port3">高雄港</label>
+
                                         </div>
-                                        <br>
                                         <div class="question">
-                                            <h3>選擇人數</h3>
-                                        </div>
-                                        <div class="answer people">
-                                            <span class="minus">-</span>
-                                            <input type="number" name="people" id="people" min="1" value="1">
-                                            <span class="plus">+</span>
-                                            <span>人</span>
-                                        </div>
-                                        <br>
-                                        <div class="question">
-                                            <h3>選擇日期</h3>
+                                            <h3 class="dateh3">查看航班</h3>
+                                            <img src="./images/calendar.svg" alt="月曆" id="calimg">
                                         </div>
                                         <div class="answer ">
-                                            <select name="date" id="date">
-                                                <option value="">2020/05/01</option>
-                                                <option value="">2020/05/02</option>
-                                                <option value="">2020/05/03</option>
+                                            <select name="date" id="date" class="custom-select">
                                             </select>
-                                            <span class="icon"></span>
-                                            <!-- <span>(尚餘<span>20</span>個座位)</span> -->
+                                            <p>尚餘<span class="remaining"></span>個座位</p>
+                                            <p>中午11點集合，下午四點原港口解散</p>
                                         </div>
+
                                         <a href="order.html" class="button">立即訂位</a>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
-
-                        <div class="d-none d-md-block col-md-6 mappic">
-                            <img src="./images/boat.svg" alt="船" class="boat">
-                            <img src="./images/smallwave.svg" alt="" class="smallwave smallwave1">
-                            <img src="./images/smallwave.svg" alt="" class="smallwave smallwave2">
-                            <img src="./images/taiwanisland.jpg " alt=" " class="map">
-                            <img src="./images/smallwave.svg" alt="" class="smallwave smallwave3">
-                            <img src="./images/smallwave.svg" alt="" class="smallwave smallwave4">
+                        <div class="col-12  col-md-6">
+                            <div id="map"></div>
                         </div>
-                    </div>
-                    <div class="row wave">
-                        <div class="wave wave1"></div>
                     </div>
                 </div>
             </section>
         </div>
+
+
+        <!-- 月曆燈箱 -->
+        <div class="box">
+            <img class="boxclose" src="./images/blue-cross-icon.png" alt="">
+            <div class="wrapper">
+                <div class="now">
+                    <div class="boxprev"></div>
+                    <div class="time">
+                        <p class="month"></p>
+                        <p class="year"></p>
+                    </div>
+                    <div class="boxnext"></div>
+                </div>
+                <table>
+
+                    <tr>
+                        <td>S</td>
+                        <td>M</td>
+                        <td>T</td>
+                        <td>W</td>
+                        <td>T</td>
+                        <td>F</td>
+                        <td>S</td>
+                    </tr>
+                    <tr>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                    </tr>
+                    <tr>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                    </tr>
+                    <tr>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                    </tr>
+                    <tr>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                    </tr>
+                    <tr class="week6">
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                    </tr>
+                    <tr class="week7">
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                        <td class="day"></td>
+                    </tr>
+                </table>
+                <span>營業日</span>
+                <div class="btnport btnport1 on">深澳港</div>
+                <div class="btnport btnport2">梧棲港</div>
+                <div class="btnport btnport3">高雄港</div>
+                <p>尚餘<span class="remaining">0</span>個座位</p>
+
+
+            </div>
+
+        </div>
+
         <div class="wrapperBg ">
+            <div class="row0"></div>
             <section class="section3 ">
                 <div class="container-fluid ">
+
                     <div class="row row1 justify-content-center">
                         <div class="col-12 col-sm-8 col-md-5">
                             <div class="title">
@@ -132,13 +209,12 @@
                         <div class="d-none d-md-block  col-md-3 ">
                             <div class="menu menu1 ">
                                 <div class="wrapper">
-                                    <img src="./images/menupic1.png " alt="A套餐 ">
+                                    <img src="" alt="A套餐" class="mealPicA">
                                     <div class="text ">
-                                        <h4>A套餐：龍蝦特餐</h4>
-                                        <p>主菜：海陸龍蝦重擊</p>
-                                        <p>湯品：七彩活龍蝦鍋</p>
-                                        <p>金額：1000元</p>
-
+                                        <h4 class="name mealMainA"></h4>
+                                        <p class="name mealSoupA"></p>
+                                        <p class="name mealDrinkA"></p>
+                                        <p class="mealPriceA"></p>
                                     </div>
                                 </div>
                             </div>
@@ -146,13 +222,12 @@
                         <div class="d-none d-md-block  col-md-3">
                             <div class="menu menu2 ">
                                 <div class="wrapper">
-                                    <img src="./images/menupic2.png " alt="A套餐 ">
+                                    <img src="" alt="B套餐" class="mealPicB">
                                     <div class="text ">
-                                        <h4>B套餐：龍蝦特餐</h4>
-                                        <p>主菜：海陸龍蝦重擊</p>
-                                        <p>湯品：七彩活龍蝦鍋</p>
-                                        <p>金額：1400元</p>
-
+                                        <h4 class="name mealMainB"></h4>
+                                        <p class="name mealSoupB"></p>
+                                        <p class="name mealDrinkB"></p>
+                                        <p class="mealPriceB"></p>
                                     </div>
                                 </div>
                             </div>
@@ -160,13 +235,12 @@
                         <div class="d-none d-md-block  col-md-3">
                             <div class="menu menu3 ">
                                 <div class="wrapper">
-                                    <img src="./images/menupic3.png " alt="A套餐 ">
+                                    <img src="" alt="C套餐" class="mealPicC">
                                     <div class="text ">
-                                        <h4>C套餐：龍蝦特餐</h4>
-                                        <p>主菜：海陸龍蝦重擊</p>
-                                        <p>湯品：七彩活龍蝦鍋</p>
-                                        <p>金額：1200元</p>
-
+                                        <h4 class="name mealMainC"></h4>
+                                        <p class="name mealSoupC"></p>
+                                        <p class="name mealDrinkC"></p>
+                                        <p class="mealPriceC"></p>
                                     </div>
                                 </div>
                             </div>
@@ -180,12 +254,12 @@
                                     <li>
                                         <div class="menu menu1 ">
                                             <div class="wrapper">
-                                                <img src="./images/menupic3.png " alt="A套餐 ">
+                                                <img src="" alt="A套餐" class="mealPicA">
                                                 <div class="text ">
-                                                    <h4>A套餐：龍蝦特餐</h4>
-                                                    <p>主菜：海陸龍蝦重擊</p>
-                                                    <p>湯品：七彩活龍蝦鍋</p>
-                                                    <p>金額：1000元</p>
+                                                    <h4 class="name mealMainA"></h4>
+                                                    <p class="name mealSoupA"></p>
+                                                    <p class="name mealDrinkA"></p>
+                                                    <p class="mealPriceA"></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -193,12 +267,12 @@
                                     <li>
                                         <div class="menu menu2 ">
                                             <div class="wrapper">
-                                                <img src="./images/menupic2.png " alt="A套餐 ">
+                                                <img src="" alt="B套餐" class="mealPicB">
                                                 <div class="text ">
-                                                    <h4>B套餐：龍蝦特餐</h4>
-                                                    <p>主菜：海陸龍蝦重擊</p>
-                                                    <p>湯品：七彩活龍蝦鍋</p>
-                                                    <p>金額：1400元</p>
+                                                    <h4 class="name mealMainB"></h4>
+                                                    <p class="name mealSoupB"></p>
+                                                    <p class="name mealDrinkB"></p>
+                                                    <p class="mealPriceB"></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -206,12 +280,12 @@
                                     <li>
                                         <div class="menu menu3 ">
                                             <div class="wrapper">
-                                                <img src="./images/menupic3.png " alt="A套餐 ">
+                                                <img src="" alt="C套餐" class="mealPicC">
                                                 <div class="text ">
-                                                    <h4>C套餐：龍蝦特餐</h4>
-                                                    <p>主菜：海陸龍蝦重擊</p>
-                                                    <p>湯品：七彩活龍蝦鍋</p>
-                                                    <p>金額：1200元</p>
+                                                    <h4 class="name mealMainC"></h4>
+                                                    <p class="name mealSoupC"></p>
+                                                    <p class="name mealDrinkC"></p>
+                                                    <p class="mealPriceC"></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -224,6 +298,7 @@
                 </div>
 
             </section>
+            <div class="rowbg1"></div>
             <section class="section4 ">
                 <div class="container-fluid ">
                     <div class="row row1 justify-content-center ">
@@ -254,7 +329,7 @@
                         </div>
                         <div class="col-12 col-md-6 ">
                             <div class="game ">
-                                <img src="./images/game.png " alt="遊戲畫面 ">
+                                <img src="./images/game.gif " alt="遊戲畫面 ">
                             </div>
 
                         </div>
@@ -262,6 +337,7 @@
 
                 </div>
             </section>
+            <div class="rowbg2"></div>
             <section class="section5">
                 <div class="container-fluid wrapper">
                     <div class="row justify-content-center ">
@@ -286,20 +362,20 @@
                                 <div class="col-4 fish fish1">
                                     <img src="./images/note.png" alt="">
                                     <div class="cook cook1">
-                                        <img src="./images/1.png" alt="">
+                                        <img src="" alt="" class="main">
                                     </div>
 
                                 </div>
                                 <div class="col-4 fish fish2">
                                     <img src="./images/note02.png" alt="">
                                     <div class="cook cook2">
-                                        <img src="./images/7.png" alt="">
+                                        <img src="" alt="" class="ingre">
                                     </div>
                                 </div>
                                 <div class="col-4 fish fish3">
                                     <img src="./images/note.png" alt="">
                                     <div class="cook cook3">
-                                        <img src="./images/2.png" alt="">
+                                        <img src="" alt="" class="dish">
                                     </div>
                                 </div>
                             </div>
@@ -308,56 +384,40 @@
                 </div>
             </section>
             <section class="section6 ">
-                <img src="./images/bgbottom.svg" alt="" class="bgbottom">
                 <div class="container-fluid ">
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-12 col-sm-8 col-md-5 left">
-                            <div class="title">
-                                <div class="pu_h1_div">
-                                    <img class="pu_h1_img" src="./images/ribbon.png" alt="">
-                                    <div class="titletext">美食大賽</div>
+                    <div class="row row1 justify-content-center">
+                        <div class="col-12 col-md-4">
+                            <div class="row justify-content-center">
+                                <div class="col-12">
+                                    <div class="textwrapper">
+                                        <div class="title">
+                                            <div class="h1div">
+                                                <img class="pu_h1_img" src="./images/ribbon.png" alt="">
+                                                <div class="titletext">美食大賽</div>
+                                            </div>
+                                        </div>
+                                        <div class="text">
+                                            <p>把你的料理分享給更多人，</p>
+                                            <p>每月獲得前三名的選手，</p>
+                                            <p>將獲得點數獎勵！</p>
+                                            <a href="contest.html" class="button">去投票</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="text">
-                                <p>把你的料理分享給更多人，</p>
-                                <p>每月獲得前三名的選手，</p>
-                                <p>將獲得點數獎勵！</p>
-                                <a href="contest.html" class="button">參加比賽</a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-7 right">
-                            <div class="row justify-content-center align-items-end contest">
-                                <img src="./images/light_move.png" alt="" class="light">
-                                <div class="col-4 cook cook1 ">
-                                    <h4>章魚壽喜燒</h4>
-                                    <div class="button ">投票</div>
-                                    <img src="./images/cook1.png " alt="料理 " class="dish">
-                                    <img src="./images/barrel_02.png" alt="" class="barrel">
-                                </div>
-                                <div class="col-4 cook cook2 ">
-                                    <h4>金箔海膽</h4>
-                                    <div class="button ">投票</div>
-                                    <img src="./images/cook5.png " alt="料理 " class="dish">
-                                    <img src="./images/barrelfirst.png" alt="" class="first">
-                                </div>
-                                <div class="col-4 cook cook3 ">
-                                    <h4>鰈魚生魚片</h4>
-                                    <div class="button ">投票</div>
-                                    <img src="./images/cook3.png " alt="料理 " class="dish">
-                                    <img src="./images/barrel_03.png" alt="" class="barrel">
-                                </div>
-                            </div>
-                        </div>
 
+                            </div>
+                        </div>
+                        <div class="col-12  col-md-8 ">
+                            <div class="row row2 justify-content-center contest">
+                                <div class="col-10 col-md-4 custo custo1 "></div>
+                                <div class="d-none d-md-block col-md-4  custo custo2 "></div>
+                                <div class="d-none d-md-block col-md-4  custo custo3 "></div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
         </div>
-
-        </section>
-
-
-        </div>
-
         @@include('./layout/reboot.html')
 
     </main>
@@ -375,6 +435,40 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
     <script type="text/javascript" src="./js/vanilla-tilt.js"></script>
     <script src="./js/main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_wUBc4tgNQJ4VWqlmASpbCMC9wbWth7s&callback=initMap">
+    </script>
+    <script>
+        function initMap() {
+            var port1 = {
+                lat: 25.132219,
+                lng: 121.819155
+            };
+            var port2 = {
+                lat: 24.2922424,
+                lng: 120.5136367
+            };
+            var port3 = {
+                lat: 22.6266234,
+                lng: 120.2747798
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: port2
+            });
+            var marker1 = new google.maps.Marker({
+                position: port1,
+                map: map
+            });
+            var marker2 = new google.maps.Marker({
+                position: port2,
+                map: map
+            });
+            var marker3 = new google.maps.Marker({
+                position: port3,
+                map: map
+            });
+        }
+    </script>
 
 </body>
 

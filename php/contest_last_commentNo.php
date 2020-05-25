@@ -3,7 +3,7 @@ $errMsg = "";
 try{
     require_once("connectdd106g3.php");
     //找最新一則留言
-    $sql = "select * from `comment` ORDER BY commentNo DESC LIMIT 0 , 1"; 
+    $sql = "SELECT * from `comment` ORDER BY `commentNo` DESC LIMIT 0 , 1"; 
     $comment = $pdo->prepare($sql);
     $comment->execute();
     $commentRow = $comment->fetch(PDO::FETCH_ASSOC);
