@@ -13,7 +13,7 @@ try {
 
   require_once("connectdd106g3.php");
 
-  $sql = "SELECT c.`custoNo`,c.`commentNo`,c.`memNo`,m.`memName`,m.`memPic`,c.`commentContent` FROM `comment`c JOIN `member`m on c.`memNo`=m.`memNo` WHERE DATE_FORMAT( c.`commentTime`, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' ) and c.`commentState`=1";
+  $sql = "SELECT c.`custoNo`,c.`commentNo`,c.`memNo`,m.`memName`,m.`memPic`,c.`commentContent`,c.`commentTime` FROM `comment`c JOIN `member`m on c.`memNo`=m.`memNo` WHERE DATE_FORMAT( c.`commentTime`, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' ) and c.`commentState`=1";
   $comments = $pdo->query($sql);
   $commentRows = $comments->fetchAll(PDO::FETCH_ASSOC);
 
