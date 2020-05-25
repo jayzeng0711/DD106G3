@@ -559,7 +559,7 @@ $(document).ready(function() {
 
                 //////////// 切換排序方式、顯示內容  ///////////
 
-                
+
 
             } else {
                 console.log(xhr.status);
@@ -778,7 +778,7 @@ $(document).ready(function() {
                 $('.alertbox2').addClass("on_alert2");
             }
         });
-                
+
 
 
         // 點擊投票
@@ -931,14 +931,14 @@ $(document).ready(function() {
                 </div>
             </div>
             `);
-            $(`#RKmsg_text_${id}`).append(`
+                    $(`#RKmsg_text_${id}`).append(`
             <p>
             <img src="./images/${member.memPic}" alt="">
             ${member.memName}：${inputText}
             </p>
             `);
-            //留言後scroll bar至最新留言
-            $(`.msg_wrap${id}`).scrollTop($(`.msg_wrap${id}`)[0].scrollHeight);
+                    //留言後scroll bar至最新留言
+                    $(`.msg_wrap${id}`).scrollTop($(`.msg_wrap${id}`)[0].scrollHeight);
 
                 } else {
                     alert(xhr3.status);
@@ -1215,8 +1215,8 @@ $(document).ready(function() {
                     ${member.memName}：${inputText}
                     </p>
                     `)
-                //留言後scroll bar至最新留言
-                $(`.List_msg_wrap${id}`).scrollTop($(`.List_msg_wrap${id}`)[0].scrollHeight);
+                        //留言後scroll bar至最新留言
+                    $(`.List_msg_wrap${id}`).scrollTop($(`.List_msg_wrap${id}`)[0].scrollHeight);
 
                 } else {
                     alert(xhr3.status);
