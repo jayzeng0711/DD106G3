@@ -288,7 +288,7 @@ main.on {
                 }
             }
 
-            .note:nth-child(2) {
+            .note:nth-child(even) {
                 background-image: url(../images/note02.png);
             }
         }
@@ -342,14 +342,49 @@ section.paper {
         position: relative;
         width: 100%;
 
-        img.base {
-            width: 100%;
+        .move {
+            display: inline-block;
+            margin: 5px;
+            padding: 4px 9px;
+            border-radius: 5px;
+            background-color: #8B4513;
+            color: #fff;
+            font-size: 29px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        #moveleft {
+            position: absolute;
+            left: 1%;
+            bottom: 0;
+        }
+
+        #moveright {
+            position: absolute;
+            left: 23%;
+            bottom: 0;
+        }
+
+        #movetop {
+            position: absolute;
+            left: 11.5%;
+            bottom: 8.5%;
+        }
+
+        #movebottom {
+            position: absolute;
+            left: 11.5%;
+            bottom: -8.5%;
+        }
+
+        #delete {
+            position: absolute;
+            bottom: 0;
+            right: 0;
         }
     }
 
-    .reset {
-        display: none;
-    }
 
     .pic {
         width: 25%;
@@ -638,6 +673,17 @@ form {
         width: 250%;
     }
 
+    .side-left .food-display {
+        .move {
+            padding: 3px 8px;
+            font-size: 28px;
+        }
+
+        #delete {
+            font-size: 26px;
+        }
+    }
+
     .side-right {
         .choose-cook {
             ul {
@@ -667,15 +713,34 @@ form {
         .talk {
             font-size: 26px;
         }
+
         .click_next {
             font-size: 18px;
             bottom: 25px;
+
             &:before {
                 border-left: 8px solid transparent;
                 border-right: 8px solid transparent;
                 border-top: 24px solid #4EB6E6;
                 bottom: -22px;
             }
+        }
+    }
+
+    .side-left .food-display {
+        .move {
+            margin: 5px;
+            padding: 3px 8px;
+            font-size: 28px;
+        }
+
+        #movetop,
+        #movebottom {
+            left: 13%;
+        }
+
+        #moveright {
+            left: 27%;
         }
     }
 
@@ -709,22 +774,34 @@ form {
             margin-bottom: 30px;
             text-align: center;
 
-            img.base {
-                width: 70%;
+            #moveright {
+                left: 18%;
             }
-        }
 
-        .pic {
-            width: 16%;
+            #movetop,
+            #movebottom {
+                left: 9%;
+                bottom: 6.5%;
+            }
+
+            #movebottom {
+                bottom: -6.5%;
+            }
+
         }
     }
 
-    .side-right {
-        width: 100%;
-        display: block;
-        padding: 0;
+    .pic {
+        width: 16%;
     }
 }
+
+.side-right {
+    width: 100%;
+    display: block;
+    padding: 0;
+}
+
 
 @media screen and (max-width:767px) {
     .intro {
@@ -747,6 +824,9 @@ form {
             .food-display {
                 position: relative;
                 width: 100%;
+                .move{
+                    font-size: 24px;
+                }
             }
 
             .reset {
@@ -934,9 +1014,11 @@ form {
         .talk {
             font-size: 24px;
         }
+
         .click_next {
             font-size: 16px;
             bottom: 21px;
+
             &:before {
                 border-left: 8px solid transparent;
                 border-right: 8px solid transparent;
@@ -944,6 +1026,9 @@ form {
                 bottom: -18px;
             }
         }
+    }
+    .side-left .food-display #delete{
+        font-size: 22px;
     }
 
     .center .for-phone .tab-contents {
@@ -964,9 +1049,12 @@ form {
 }
 
 @media screen and (max-width:576px) {
-    .talking-here .talk.on .yes, .no{
+
+    .talking-here .talk.on .yes,
+    .no {
         margin-top: 10px;
     }
+
     form {
         .form-control {
             input {

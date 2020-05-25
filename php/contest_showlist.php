@@ -15,7 +15,7 @@ try{
 
     foreach($custoRows as $i => $custoRow){
         // $sql2 = "select * from `comment` where custoNo=${custoRow["custoNo"]}";
-        $sql2 = "select * from `comment` JOIN `member` ON comment.memNo = member.memNo where custoNo=${custoRow["custoNo"]}";
+        $sql2 = "select * from `comment` JOIN `member` ON comment.memNo = member.memNo where custoNo=${custoRow["custoNo"]} and commentState=1";
         $comment = $pdo->query($sql2);
         $commentRows = $comment->fetchAll(PDO::FETCH_ASSOC);
         $custoRows[$i]["comments"] = $commentRows;

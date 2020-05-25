@@ -1,20 +1,23 @@
 window.addEventListener('load', function() {
 
 
-    setTimeout(function() {
-        if ($('.portnow').text() == "") {
-            location.reload();
-        }
-        // console.log($('.portnow').text());
-    }, 500);
+
+    // 登出就會跳轉到訂位頁
+    $('.pu_login_logout').click(function() {
+        location.href = "order.html";
+    });
+
+
+
+
+    // 關掉提示燈箱
+
+    $('.alertbox .boxclose').click(function() {
+        $('.alertbox').removeClass("on");
+    });
+
 
     // localStorage.clear();
-
-    // 訂購資料頁會員帳號和訂單資料的帳號不同時，跳轉回訂購頁
-    if (localStorage['memNo'] != member.memNo) {
-        location.href = "order.html";
-    }
-
     //////////////////套餐訂單明細//////////////////
 
     let mealtotal = 0;
@@ -195,8 +198,6 @@ window.addEventListener('load', function() {
     // 顯示訂位總金額
     checkTotal();
 
-    // alert($('#ordepoint').val());
-
     function checkTotal() {
         // $('.total').text($('.subtotal').text() - $('#ordepoint').val());
         $('.total').text($('.subtotal').text());
@@ -218,7 +219,7 @@ window.addEventListener('load', function() {
                 $('#maxpoint').text(point);
 
             } else {
-                alert(xhr.status);
+                console.log(xhr.status);
             };
 
         };
@@ -259,11 +260,14 @@ window.addEventListener('load', function() {
 
     $('.next').click(function() {
         if ($('#ordername').val() == "") {
-            alert('請填寫姓名');
+            $('.alertbox .wrapper').text("請填寫姓名～");
+            $('.alertbox').addClass("on");
         } else if ($('#ordertel').val() == "") {
-            alert('請填寫聯絡電話');
+            $('.alertbox .wrapper').text("請填寫正確的聯絡電話～");
+            $('.alertbox').addClass("on");
         } else if ($('#orderemail').val() == "") {
-            alert('請填寫信箱');
+            $('.alertbox .wrapper').text("請填寫信箱～");
+            $('.alertbox').addClass("on");
         } else if ($('.pu_mem_login_suc_div').text() == false) {
             $('#Login,#Login_back').css('display', 'block');
             $('#pu_mem_resist_wrap').css('display', 'none');
@@ -275,10 +279,19 @@ window.addEventListener('load', function() {
             xhr.onload = function() {
                 if (xhr.status == 200) {
                     let order = xhr.responseText;
-                    console.log(order);
+                    // console.log(order);
+                    $('.alertbox .wrapper').text("訂位成功！");
+                    $('.alertbox').addClass("on");
+
+                    // 關掉提示燈箱
+                    $('.alertbox .boxclose').click(function() {
+                        $('.alertbox').removeClass("on");
+                        location.href = "main.html";
+                    });
+
 
                 } else {
-                    alert(xhr.status);
+                    console.log(xhr.status);
                 }
             };
 
