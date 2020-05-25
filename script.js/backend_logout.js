@@ -8,9 +8,9 @@ $('.logout').click(function(){
     }
 
     // windows
-    xhr.open('post',  './php/member_logout.php',  true);
+    xhr.open('GET',  './php/member_logout.php',  true);
 
     // Mac
-    // xhr.open('POST', 'http://localhost:8080/member_logout.php', true);
+    // xhr.open('GET', 'http://localhost:8080/member_logout.php', true);
     xhr.send(null);
 })
