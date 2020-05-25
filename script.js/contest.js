@@ -681,7 +681,7 @@ $(document).ready(function() {
                         $(`#msg_${custoNo}`).append(`
                             <p>
                                 <img src="./images/${commemPic}" alt="">
-                                ${commemName}:${commentContent}
+                                ${commemName}：${commentContent}
                             </p>  
                         `);
 
@@ -930,6 +930,12 @@ $(document).ready(function() {
                     <p>${time}</p>
                 </div>
             </div>
+            `);
+            $(`#RKmsg_text_${id}`).append(`
+            <p>
+            <img src="./images/${member.memPic}" alt="">
+            ${member.memName}：${inputText}
+            </p>
             `);
             //留言後scroll bar至最新留言
             $(`.msg_wrap${id}`).scrollTop($(`.msg_wrap${id}`)[0].scrollHeight);
@@ -1182,7 +1188,7 @@ $(document).ready(function() {
                 if (xhr3.status == 200) {
                     let commentRow = JSON.parse(xhr3.responseText);
                     var last_commentNo = parseInt(commentRow.commentNo);
-
+                    console.log(commentRow);
 
                     $(`.List_msg_wrap${id}`).append(`
                     <div class="mem_contain">
@@ -1203,12 +1209,12 @@ $(document).ready(function() {
                         </div>
                     </div>
                     `);
-                    // $(`#msg_${id}`).append(`
-                    // <p>
-                    // <img src="./images/${commemPic}" alt="">
-                    // ${commemName}:${commentContent}
-                    // </p>
-                    // `)
+                    $(`#msg_${id}`).append(`
+                    <p>
+                    <img src="./images/${member.memPic}" alt="">
+                    ${member.memName}：${inputText}
+                    </p>
+                    `)
                 //留言後scroll bar至最新留言
                 $(`.List_msg_wrap${id}`).scrollTop($(`.List_msg_wrap${id}`)[0].scrollHeight);
 
