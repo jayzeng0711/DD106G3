@@ -7,14 +7,44 @@
     animation: pu_waveFlow 1s infinite linear;
 }
 
-#go_top {
-    display: none;
-}
-
 body {
     background-color: #F0EEE0;
     padding-bottom: 10%;
     position: relative;
+}
+
+// 提示燈箱
+.alertbox {
+    display: none;
+    background-color: #FBD672;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 150px;
+    padding: 30px 10px;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1000;
+    box-shadow: 6px 6px 0px rgb(247, 192, 41);
+    border-radius: 0 0 10px 10px;
+    .boxclose {
+        width: 7%;
+        position: absolute;
+        top: 4px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .wrapper {
+        background-color: #fff;
+        border-radius: 5px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+    }
+}
+
+.alertbox.on {
+    display: block;
 }
 
 .wrapper {
@@ -79,16 +109,16 @@ body {
             margin-bottom: 5%;
             text-align: left;
             font-size: $fontSize;
-            // input {
-            // position: relative;
-            // top: 50%;
-            // transform: translateY(-50%);
-            // margin: 0;
-            // }
+            input {
+                width: 100%;
+            }
             #ordepoint {
                 width: 50%;
                 margin-right: 2%;
             }
+        }
+        .rowtotal {
+            margin-top: 10px;
         }
         a {
             text-decoration: none;
@@ -117,6 +147,9 @@ footer {
 // $small: 767px;
 // $mobile: 576px;
 @include rwd(small) {
+    #go_top {
+        display: none;
+    }
     .wrapper {
         margin: 3% 5%;
         h3 {
@@ -146,5 +179,11 @@ footer {
                 }
             }
         }
+    }
+}
+
+@include rwd(small) {
+    #go_top {
+        display: none;
     }
 }

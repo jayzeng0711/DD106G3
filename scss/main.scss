@@ -9,15 +9,15 @@
 // .wrapperBg {
 //     display: none;
 // }
+// footer {
+//     display: none;
+// }
 body {
     background: url(../images/shortbg.png) left top no-repeat;
 }
 
-// .section1.bg {
-//     background: url(../images/shortbg.png) left top;
-// }
 .section1 {
-    // background: url(../images/shortbg.png) right top;
+    background: url(../images/shortbg.png) left top no-repeat;
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -96,6 +96,7 @@ body {
     }
     // 海浪
     .wrapper {
+        background-color: #1B81C7;
         .wave {
             width: 100%;
             background-size: 50vh 15vh;
@@ -252,115 +253,96 @@ body {
 
 .section2 {
     height: 100vh;
-    overflow: hidden;
-    position: relative;
-    background: url(../images/mainbg2.svg) bottom;
-    background-color: #A3D9FD;
-    transition: all 0.5s linear;
-    .row0 {
-        height: 150px;
-    }
+    background-color: #1B81C7;
     .row1 {
-        height: calc(100vh - 150px);
         .wrapper {
             position: relative;
-            top: 50%;
-            transform: translateY(-60%);
-            z-index: 1;
-        }
-        .title {
-            width: 80%;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            // opacity: 0;
-            .pu_h1_div {
-                position: relative;
+            top: 10vh;
+            .title {
                 width: 80%;
-                margin: 0 auto 5% auto;
-                .pu_h1_img {
-                    max-width: 100%;
-                }
-                .text {
-                    font-size: $fontSize*2;
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    bottom: 18%;
-                    letter-spacing: 1px;
-                }
-            }
-        }
-        .text {
-            text-align: center;
-            p {
-                color: #034;
-                margin-bottom: 1%;
-            }
-        }
-        .reservation {
-            width: 60%;
-            color: #fff;
-            background-color: #2E4581;
-            border-radius: 10px;
-            margin-top: 5%;
-            padding: 5%;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: all 1s 0.5s;
-            z-index: 20;
-            // opacity: 0;
-            h3 {
-                font-size: $fontSize * 1.2;
-            }
-            p {
-                font-size: $fontSize;
-                margin: 3% 0;
-            }
-            .question {
-                margin-bottom: 5%;
-                display: inline-block;
-            }
-            .answer {
-                margin-bottom: 5%;
-                display: inline-block;
-            }
-            .port {
-                label {
-                    background-color: #fff;
-                    color: #034;
-                    border-radius: 5px;
-                    padding: 5px 10px;
-                    margin: 5px 5px 5px 0;
-                    cursor: pointer;
-                }
-                .port1 {
-                    background-color: #4EB6E6;
-                    color: #fff;
-                }
-                input {
-                    display: none;
-                }
-            }
-            .people {
-                #people {
-                    display: inline-block;
-                    width: $fontSize*2;
-                    margin-right: 5px;
-                    text-align: right;
-                }
-                input#people::-webkit-inner-spin-button {
-                    -webkit-appearance: none !important;
-                    margin: 0;
-                }
-                .minus,
-                .plus {
-                    font-size: $fontSize*1.5;
-                    margin-right: 10px;
-                    cursor: pointer;
+                margin: 0 auto;
+                position: relative;
+                z-index: 1;
+                .pu_h1_div {
                     position: relative;
-                    top: 3px;
+                    width: 80%;
+                    margin: 0 auto 5% auto;
+                    .pu_h1_img {
+                        max-width: 100%;
+                    }
+                    .text {
+                        font-size: $fontSize*2;
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: 18%;
+                        letter-spacing: 1px;
+                    }
+                }
+            }
+            .text {
+                text-align: center;
+                p {
+                    color: #034;
+                    margin-bottom: 1%;
+                }
+            }
+            .reservation {
+                width: 60%;
+                color: #003355;
+                background-color: rgb(162, 226, 255);
+                border-radius: 10px;
+                margin-top: 5%;
+                padding: 5%;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: all 1s 0.5s;
+                z-index: 20;
+                h3 {
+                    font-size: $fontSize*1.3;
+                }
+                p {
+                    font-size: $fontSize;
+                    margin: 3% 0;
+                }
+                .question {
+                    margin-bottom: 5%;
+                    .dateh3 {
+                        display: inline-block;
+                    }
+                    #calimg {
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-left: 5%;
+                        cursor: pointer;
+                    }
+                }
+                .answer {
+                    margin-bottom: 7%;
+                }
+                .port {
+                    label {
+                        background-color: #fff;
+                        color: #034;
+                        border-radius: 5px;
+                        padding: 3% 4%;
+                        margin: 5px 5px 5px 0;
+                        cursor: pointer;
+                        font-size: $fontSize;
+                    }
+                    input {
+                        display: none;
+                    }
+                    label.on {
+                        background: #2E4581;
+                        color: #fff;
+                    }
+                }
+                #date {
+                    display: inline-block;
+                    width: 60%;
+                    margin-right: 2%;
                 }
             }
             .button {
@@ -375,58 +357,169 @@ body {
                 color: #fff;
             }
         }
-        .mappic {
+        #map {
+            width: 90%;
+            height: 80%;
             position: relative;
-            .boat {
-                position: absolute;
-                top: 20vh;
-                left: 20vh;
-                z-index: 50;
-                width: 100px;
-                opacity: 0;
-                transition: all .5s;
-                transform: rotateZ(-2deg);
-                animation: boatfloat 3s infinite;
-            }
-            .smallwave {
-                width: 100px;
-                position: absolute;
-                z-index: 1;
-                opacity: 0;
-            }
-            .smallwave1 {
-                top: 10vh;
-                left: 5vh;
-            }
-            .smallwave2 {
-                top: 50vh;
-                left: 10vh;
-            }
-            .smallwave3 {
-                top: 20vh;
-                right: 5vh;
-            }
-            .smallwave4 {
-                top: 60vh;
-                right: 5vh;
-            }
-            .map {
-                // width: 100vw;
-                position: relative;
-                left: 50%;
-                top: 50%;
-                transform: translateX(-50%) translateY(-50%);
-                transition: all 0.2s linear;
-            }
+            left: 50%;
+            top: 20vh;
+            transform: translateX(-50%);
+            border-radius: 5px;
         }
     }
-    .wave {
-        width: 100%;
-        height: 15vh;
-        bottom: -7vh;
-        background-image: url(../images/wave1.png);
-        background-size: 50vh 15vh;
+}
+
+// 月曆燈箱
+.box {
+    display: none;
+    padding: 2.5% 1% 1%;
+    background-color: #FBD672;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1000;
+    box-shadow: 6px 6px 0px rgb(247, 192, 41);
+    border-radius: 0 0 10px 10px;
+    .boxclose {
+        width: 7%;
         position: absolute;
+        top: 4px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .wrapper {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 2% 50px;
+    }
+    .now {
+        display: flex;
+        justify-content: space-around;
+        .boxprev {
+            width: 10%;
+            background: url(../images/left.svg) no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            cursor: pointer;
+        }
+        .boxnext {
+            width: 10%;
+            background: url(../images/right.svg) no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            cursor: pointer;
+        }
+        .time .month {
+            font-family: Segoe UI;
+            font-size: $fontSize*3;
+            font-weight: 700;
+            margin: 0 auto;
+            margin-bottom: 5%;
+            text-align: center;
+            color: #204D77;
+        }
+        .time .year {
+            font-family: Segoe UI;
+            font-size: $fontSize*1.2;
+            font-weight: 700;
+            text-align: center;
+            color: #204D77;
+            margin: 0 auto 20%;
+        }
+    }
+    table {
+        font-family: Segoe UI;
+        margin: 0 auto 3%;
+        padding: 3px;
+        tr:first-child td {
+            border-radius: 3px;
+            background-color: #F5E8D8;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin: 2px;
+            display: inline-block;
+        }
+        td {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            vertical-align: top;
+            padding: 0;
+            margin: 2px;
+            display: inline-block;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        td.on1 {
+            background-color: #6597AC;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+        }
+        td.on2 {
+            background-color: #F7B54D;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+        }
+        td.on3 {
+            background-color: #B6A78E;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+    p {
+        margin-top: 5%;
+    }
+    .btnport {
+        display: inline-block;
+        padding: 1%;
+        color: #fff;
+        line-height: $fontSize*2;
+        border-radius: 10px;
+        background-color: #6597AC;
+        cursor: pointer;
+    }
+    .btnport2 {
+        background-color: #F7B54D;
+    }
+    .btnport3 {
+        background-color: #B6A78E;
+    }
+    .btnport.on {
+        padding: 3%;
+    }
+}
+
+.wrapperBg {
+    background: #A3D9FD;
+    width: 100%;
+    height: 100%;
+    .row0 {
+        height: 15vh;
+        background: url(../images/wave1_rev.png);
+        background-size: 50vh 15vh;
+        background-position: 0 0;
+        animation: wave 20s linear infinite;
+    }
+    .rowbg1 {
+        height: 15vh;
+        position: relative;
+        bottom: -5px;
+        background: url(../images/wave3.png);
+        background-size: 50vh 15vh;
+        background-position: 0 0;
+        animation: wave 20s linear infinite;
+    }
+    .rowbg2 {
+        height: 15vh;
+        position: relative;
+        background: url(../images/wave3_rev.png);
+        background-size: 50vh 15vh;
+        background-position: 0 0;
         animation: wave 20s linear infinite;
     }
     @keyframes wave {
@@ -439,15 +532,7 @@ body {
     }
 }
 
-.wrapperBg {
-    background: #A6D4F2;
-    height: 100%;
-}
-
 .section3 {
-    background: url(../images/section3bg.svg) no-repeat;
-    background-size: contain;
-    background-position: 0 -10px;
     height: 100vh;
     .row1 {
         .title {
@@ -456,7 +541,7 @@ body {
             .pu_h1_div {
                 position: relative;
                 width: 80%;
-                margin: 12% auto 5%;
+                margin: 0 auto;
                 .pu_h1_img {
                     max-width: 100%;
                 }
@@ -499,6 +584,7 @@ body {
             background-color: #F0EEE0;
             margin: 5% 0;
             padding: 3%;
+            z-index: 10;
             .wrapper {
                 border: 3PX solid #E3D6B3;
                 margin: 3%;
@@ -566,14 +652,12 @@ body {
             margin: 50px auto;
             overflow: hidden;
         }
-        /* ul */
         #sliderBoard ul {
             width: 915px;
             height: 320px;
             position: relative;
             animation: slider 8s infinite;
         }
-        /* li */
         #sliderBoard li {
             width: 300px;
             height: 320px;
@@ -586,6 +670,7 @@ body {
             border-radius: 5px;
             background-color: #F0EEE0;
             padding: 3%;
+            z-index: 10;
             .wrapper {
                 border: 3PX solid #E3D6B3;
                 margin: 3%;
@@ -629,6 +714,7 @@ body {
 
 .section4 {
     height: 100vh;
+    background-color: #48ABDE;
     .row1 {
         .title {
             position: relative;
@@ -662,6 +748,8 @@ body {
         }
     }
     .row2 {
+        position: relative;
+        top: 10vh;
         .step {
             margin: 0 auto;
             background-color: #318DD6;
@@ -708,7 +796,6 @@ body {
 }
 
 .section5 {
-    overflow: hidden;
     height: 100vh;
     position: relative;
     z-index: 1;
@@ -788,24 +875,17 @@ body {
 }
 
 .section6 {
-    height: 100vh;
-    position: relative;
-    .bgbottom {
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-    }
-    .row {
+    background: url(../images/bgbottom.svg) no-repeat;
+    .row1 {
         height: 100vh;
-        overflow: hidden;
-        .left {
+        .textwrapper {
+            position: relative;
+            top: 25vh;
             .title {
-                position: relative;
-                z-index: 1;
+                margin-bottom: 5%;
                 .pu_h1_div {
-                    position: relative;
                     width: 80%;
-                    margin: 0 auto 5% auto;
+                    margin: 0 auto;
                     .pu_h1_img {
                         max-width: 100%;
                     }
@@ -824,56 +904,98 @@ body {
                 text-align: center;
                 p {
                     font-size: $fontSize;
-                    color: #fff;
                     margin: 3% 0;
-                }
-                .button {
-                    @extend %btn_ano;
-                    width: 120px;
-                    height: 40px;
-                    margin: 0 auto 3%;
-                    text-align: center;
-                    padding: 10px 20px;
-                    display: block;
-                    text-decoration: none;
                     color: #fff;
                 }
             }
+            .button {
+                @extend %btn_ano;
+                width: 120px;
+                height: 40px;
+                margin: 10% auto 3%;
+                text-align: center;
+                padding: 10px 20px;
+                display: block;
+                text-decoration: none;
+                color: #fff;
+            }
         }
-        .right {
-            .contest {
-                position: relative;
-                .light {
-                    position: absolute;
-                    width: 70%;
-                    animation: light 5s linear infinite;
-                }
-                .cook {
-                    color: #fff;
+        .contest {
+            position: relative;
+            top: 20vh;
+            .cookList_item {
+                width: 100%;
+                background-image: url(../images/cookList_item_bg.png);
+                border-radius: 10px;
+                box-shadow: 0px 2px 5px #f7c029;
+                padding: 10px 0;
+                color: #034;
+                .cookList_img {
                     text-align: center;
-                    h4 {
-                        font-size: $fontSize*1.4;
-                        margin-bottom: 10%;
-                    }
-                    .dish {
-                        width: 80%;
-                        display: block;
-                        position: relative;
-                        left: 10%;
-                        top: 30px;
-                    }
-                    .barrel {
-                        width: 50%;
-                    }
-                    .first {
-                        width: 70%;
-                    }
-                    .button {
-                        @extend %btn;
-                        width: 80px;
-                        margin: 0 auto;
+                    .cookList_cook {
+                        img {
+                            width: 75%;
+                        }
+                        figcaption {
+                            margin-top: 20px;
+                            p {
+                                text-align: center;
+                            }
+                            p:nth-child(1) {
+                                font-size: $fontSize*1.5;
+                                margin: 5% 0;
+                            }
+                            p:nth-child(2) {
+                                font-size: $fontSize*1.2;
+                                margin: 5% 0;
+                            }
+                        }
                     }
                 }
+                .cookList_vote {
+                    text-align: center;
+                    margin-bottom: 5%;
+                    button {
+                        @extend %btn;
+                        padding: 4% 16%;
+                        margin: 5%;
+                    }
+                }
+                .msg {
+                    display: none;
+                    background-color: #ffffff;
+                    border-radius: 0 0 10px 10px;
+                    width: 80%;
+                    margin: 0 auto;
+                    border: 1px solid #f7c029;
+                    box-shadow: 6px 6px 0px rgb(247, 192, 41);
+                    .big {
+                        font-size: $fontSize*1.25;
+                        text-align: center;
+                        color: #1d1d1d;
+                        padding: 10px;
+                        background-color: #FBD672;
+                    }
+                    .msg_text {
+                        width: 100%;
+                        height: 15vh;
+                        overflow: scroll;
+                        overflow-x: hidden;
+                        img {
+                            width: 50px;
+                            vertical-align: middle;
+                        }
+                        p {
+                            padding: 10px;
+                        }
+                        p.no_msg {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+            .cookList_item:hover .msg {
+                display: block;
             }
         }
         @keyframes light {
@@ -897,38 +1019,18 @@ body {
 @include rwd(desktop) {}
 
 @include rwd(medium) {
-    .wave {
-        animation: wave 15s linear infinite;
-    }
     .section2 {
-        .row0 {
-            height: 0;
-        }
         .row1 {
-            .title {
-                .pu_h1_div {
-                    .text {
-                        font-size: $fontSize*1.5;
+            .wrapper {
+                .title {
+                    .pu_h1_div {
+                        .text {
+                            font-size: $fontSize*1.5;
+                        }
                     }
                 }
-            }
-            .text {
-                text-align: center;
-                p {
-                    color: #034;
-                    margin-bottom: 1%;
-                }
-            }
-            .reservation {
-                width: 80%;
-                .item {
-                    display: inline-block;
-                    position: relative;
-                    left: 50%;
-                    transform: translateX(-50%);
-                }
-                .question {
-                    margin-bottom: 15%;
+                .reservation {
+                    width: 80%;
                 }
             }
         }
@@ -970,13 +1072,23 @@ body {
                 }
             }
         }
+        .row2 {
+            .game {
+                img {
+                    width: 100%;
+                }
+            }
+        }
     }
-    // .section5 {}
-    .section6 {
+    .section5 {
         height: auto;
-        .row {
+    }
+    .section6 {
+        .row1 {
             height: auto;
-            .left {
+            padding-bottom: 100px;
+            .textwrapper {
+                top: 0;
                 .title {
                     .pu_h1_div {
                         .titletext {
@@ -984,42 +1096,20 @@ body {
                         }
                     }
                 }
-                .text {
-                    text-align: center;
-                    p {
-                        font-size: $fontSize;
-                        color: #fff;
-                        margin: 3% 0;
-                    }
-                }
             }
-            .right {
-                .contest {
-                    position: relative;
-                    .light {
-                        position: absolute;
-                        width: 70%;
-                        animation: light 5s linear infinite;
-                    }
-                    .cook {
-                        color: #fff;
-                        text-align: center;
-                        h4 {
-                            font-size: $fontSize*1.4;
-                            margin-bottom: 10%;
-                        }
-                        .dish {
-                            width: 80%;
-                            display: block;
-                            position: relative;
-                            left: 10%;
-                            top: 30px;
-                        }
-                        .barrel {
-                            width: 50%;
-                        }
-                        .first {
-                            width: 70%;
+            .contest {
+                top: 0;
+                .cookList_item {
+                    .cookList_img {
+                        .cookList_cook {
+                            figcaption {
+                                p:nth-child(1) {
+                                    font-size: $fontSize;
+                                }
+                                p:nth-child(2) {
+                                    font-size: $fontSize;
+                                }
+                            }
                         }
                     }
                 }
@@ -1069,13 +1159,15 @@ body {
             }
         }
     }
+    main {
+        background-color: #1B81C7;
+    }
     .section2 {
-        .row0 {
-            height: 0;
-        }
+        height: auto;
         .row1 {
             margin: 5%;
             .title {
+                width: 100%;
                 .pu_h1_div {
                     .titletext {
                         font-size: $fontSize*1.5;
@@ -1083,7 +1175,22 @@ body {
                 }
             }
         }
-        .wave {
+        .reservation {
+            width: 80%;
+        }
+    }
+    .box {
+        width: 400px;
+        height: 450px;
+    }
+    .wrapperBg {
+        .row0 {
+            animation: wave 5s linear infinite;
+        }
+        .rowbg1 {
+            animation: wave 5s linear infinite;
+        }
+        .rowbg2 {
             animation: wave 5s linear infinite;
         }
     }
@@ -1091,7 +1198,7 @@ body {
         .row1 {
             .title {
                 .pu_h1_div {
-                    .titletext {
+                    .text {
                         font-size: $fontSize*1.5;
                     }
                 }
@@ -1105,6 +1212,7 @@ body {
         }
     }
     .section4 {
+        height: auto;
         .row1 {
             .title {
                 .pu_h1_div {
@@ -1115,6 +1223,7 @@ body {
             }
         }
         .row2 {
+            top: 0;
             .text {
                 margin-top: 20px;
                 text-align: center;
@@ -1132,25 +1241,36 @@ body {
             }
         }
     }
-    // .section5 {}
-    .section6 {
+    .section5 {
         height: auto;
-        .row {
+        .wrapper {
+            position: relative;
+            top: 0;
+            transform: translateY(0%);
+            margin: 2px;
+            .text {
+                p {
+                    margin-bottom: 2%;
+                }
+            }
+        }
+    }
+    .section6 {
+        .row1 {
             height: auto;
-            .left {
+            .textwrapper {
+                top: 0;
                 .title {
+                    z-index: 20;
                     .pu_h1_div {
                         .titletext {
                             font-size: $fontSize*1.5;
                         }
                     }
                 }
-                .text {
-                    text-align: center;
-                    p {
-                        color: #034;
-                    }
-                }
+            }
+            .contest {
+                top: 0;
             }
         }
     }
@@ -1187,6 +1307,37 @@ body {
                 bottom: 0;
                 z-index: 30;
             }
+        }
+    }
+    .section2 {
+        height: auto;
+        .row1 {
+            margin: 5%;
+            .wrapper {
+                .title {
+                    .pu_h1_div {
+                        .text {
+                            font-size: $fontSize*1.25;
+                        }
+                    }
+                }
+                .reservation {
+                    width: 100%;
+                    h3 {
+                        font-size: $fontSize;
+                    }
+                    p {
+                        font-size: $fontSize*0.8;
+                    }
+                }
+            }
+        }
+    }
+    .box {
+        width: 90%;
+        height: auto;
+        .wrapper {
+            padding: 2% 5px !important;
         }
     }
     .section6 {
