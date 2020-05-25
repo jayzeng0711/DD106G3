@@ -1,14 +1,263 @@
-$(document).ready(function () {
+window.addEventListener("load", function () {
 
-    // 開發用，直接顯示主畫面
-    $('.attn').css("display", "none");
-    $("main").addClass("on");
+    //////////////////// 打字效果 ///////////////////////
 
-    var xhr = new XMLHttpRequest();
+    // type();
 
-    xhr.onload = function () {
-        if (xhr.status == 200) {
-            let ingreRows = JSON.parse(xhr.responseText);
+    function type() {
+        var str = "這位客人，您似乎還沒進行登入";
+        var str2 = " 提醒您，在沒有登入的情況下製作料理會無法儲存料理";
+        var str3 = "請問要進行登入嗎？";
+        var str4 = "這樣呀...我明白了。祝您有段美好的時光";
+        var btny = document.createElement('div');
+        btny.textContent = "是";
+        btny.setAttribute('class', 'yes');
+        var btnn = document.createElement('div');
+        btnn.textContent = "否";
+        btnn.setAttribute('class', 'no');
+        var click_next = document.createElement('div');
+        click_next.textContent = "click";
+        click_next.setAttribute('class', 'click_next');
+        var br = document.createElement('br');
+        var i = 0,
+            j = 0,
+            k = 0,
+            l = 0;
+
+        function typing() {
+            if (i <= str.length) {
+                $(".talk")[0].innerHTML = str.slice(0, i++);
+                setTimeout('typing()', 100); //遞歸調用
+            } else {
+                //文字輸入完成後再出現
+                $(".talk")[0].appendChild(click_next);
+            }
+        }
+        $(document).ready(function () {
+            if ($(".act1").hasClass("on") == 1) {
+                setTimeout('typing()', 2500);
+            } else if ($(".no-fish1").hasClass("on") == 1) {
+                setTimeout('goCatch()', 2500);
+            }
+        });
+
+        function typing2() {
+            if (j <= str2.length) {
+                $(".talk")[1].innerHTML = str2.slice(0, j++);
+                setTimeout('typing2()', 100);
+            } else {
+                $(".talk")[1].appendChild(click_next);
+            }
+        }
+
+        function typing3() {
+            if (k <= str3.length) {
+                $(".talk")[2].innerHTML = str3.slice(0, k++);
+                setTimeout('typing3()', 100);
+                if ($(window).width() > 576) {
+                    $(".talk")[2].appendChild(btny);
+                    $(".talk")[2].appendChild(btnn);
+                } else {
+                    $(".talk")[2].appendChild(br);
+                    $(".talk")[2].appendChild(btny);
+                    $(".talk")[2].appendChild(btnn);
+                }
+
+            } else {
+                $(".no").click(function () {
+                    $(".act3").removeClass("on");
+                    $(".act4").addClass("on");
+                    setTimeout('typing4()', 100);
+                });
+            }
+        }
+
+        function typing4() {
+            if (l <= str4.length) {
+                $(".talk")[3].innerHTML = str4.slice(0, l++);
+                setTimeout('typing4()', 100);
+            }
+        }
+
+        $(".talking-here").click(function () {
+            if ($(".act1").hasClass("on") == 1) {
+                $(".act1").removeClass("on");
+                $(".act2").addClass("on");
+                setTimeout('typing2()', 300);
+            } else if ($(".act2").hasClass("on") == 1) {
+                $(".act2").removeClass("on");
+                $(".act3").addClass("on");
+                setTimeout('typing3()', 300);
+            } else if ($(".act4").hasClass("on") == 1) {
+                $(".attn").delay(3000).fadeOut(1000);
+                $("main").addClass("on");
+            } else if ($(".no-fish1").hasClass("on") == 1) {
+                $(".no-fish1").removeClass("on");
+                $(".no-fish2").addClass("on");
+                setTimeout('goCatch2()', 300);
+            }
+        });
+
+        // 沒有料理時的畫面
+        var con = "您目前的海鮮清單空空如也，請先抓取海鮮再來製作料理";
+        var con2 = "想抓取海鮮請往這邊";
+        var a = 0,
+            b = 0;
+        var goFish = document.createElement('a');
+        goFish.textContent = "前往現撈海鮮";
+        goFish.setAttribute('class', 'go-fish');
+        goFish.setAttribute('href', './game.html');
+
+        function goCatch() {
+            if (a <= con.length) {
+                $(".talk")[4].innerHTML = con.slice(0, a++);
+                setTimeout('goCatch()', 100);
+            } else {
+                $(".talk")[4].appendChild(click_next);
+            }
+        }
+
+        function goCatch2() {
+            if (b <= con2.length) {
+                $(".talk")[5].innerHTML = con2.slice(0, b++);
+                setTimeout('goCatch2()', 100);
+                $(".talk")[5].appendChild(goFish);
+            }
+        }
+
+    };
+
+    // 4隻魚
+    let fishss = [{
+        "name": "蛤仔",
+        "price": "200",
+        "img": "./images/seafood1.svg"
+    }, {
+        "name": "章魚",
+        "price": "400",
+        "img": "./images/seafood3.svg"
+    }, {
+        "name": "鮭魚",
+        "price": "600",
+        "img": "./images/seafood5.svg"
+    }, {
+        "name": "胭脂蝦",
+        "price": "1200",
+        "img": "./images/seafood8.svg"
+    }];
+
+    localStorage["fish"] = JSON.stringify(fishss);
+
+
+    //////////////////// 顯示抓到的海鮮 ///////////////////////
+
+    let fish = JSON.parse(localStorage["fish"]);
+
+    for (let i = 0; i < fish.length; i++) {
+
+        // 海鮮名稱
+        let name = fish[i].name;
+        // 海鮮價格
+        let price = fish[i].price;
+        // 海鮮圖片
+        let img = fish[i].img;
+        $(`.fishName:eq(${i})`).text(name);
+        $(`.fishPrice:eq(${i})`).text(`價格：NT$${price}元`);
+        $(`.fish-pic:eq(${i})`).append(`<img src=${img} alt="" class="fishImg">`);
+        $(`.tab_fishName:eq(${i})`).text(name);
+        $(`.tab_fishPic:eq(${i})`).attr('src', `${img}`);
+
+    }
+
+    //////////////////// 海鮮slider ///////////////////////
+    seafoodSlider();
+
+    function seafoodSlider() {
+
+        var fishRight = document.getElementById("fishR"),
+            fishLeft = document.getElementById("fishL"),
+            fishSlider = document.querySelector(".fish-select-wrap"),
+            fishPosition = 1;
+        var w = $(window).width();
+        if (w > 1200) {
+            fishRight.onclick = function () {
+                if (fishPosition == 3) {} else {
+                    fishSlider.style.transform = "translateX(-" + fishPosition * 20 + "%)";
+                    fishPosition += 1;
+                }
+            }
+
+            fishLeft.onclick = function () {
+                if (fishPosition == 1) {} else {
+                    fishSlider.style.transform = "translateX(-" + ((fishPosition - 2) * 20) + "%)";
+                    fishPosition -= 1;
+                }
+            }
+        } else {
+            fishRight.onclick = function () {
+                if (fishPosition == 4) {} else {
+                    fishSlider.style.transform = "translateX(-" + fishPosition * 20 + "%)";
+                    fishPosition += 1;
+                }
+            }
+
+            fishLeft.onclick = function () {
+                if (fishPosition == 1) {} else {
+                    fishSlider.style.transform = "translateX(-" + ((fishPosition - 2) * 20) + "%)";
+                    fishPosition -= 1;
+                }
+            }
+        }
+
+        $(window).resize(function () {
+            var w = $(window).width();
+            if (w > 1200) {
+                //考慮當小視窗posi = 4時，換成大posi要等於3
+                if (fishPosition == 4) {
+                    fishSlider.style.transform = "translateX(-" + 40 + "%)";
+                    fishPosition = 3;
+                }
+
+                fishRight.onclick = function () {
+                    if (fishPosition == 3) {} else {
+                        fishSlider.style.transform = "translateX(-" + fishPosition * 20 + "%)";
+                        fishPosition += 1;
+                    }
+                }
+
+                fishLeft.onclick = function () {
+                    if (fishPosition == 1) {} else {
+                        fishSlider.style.transform = "translateX(-" + ((fishPosition - 2) *
+                            20) + "%)";
+                        fishPosition -= 1;
+                    }
+                }
+            } else {
+                fishRight.onclick = function () {
+                    if (fishPosition == 4) {} else {
+                        fishSlider.style.transform = "translateX(-" + fishPosition * 20 +
+                            "%)";
+                        fishPosition += 1;
+                    }
+                }
+                fishLeft.onclick = function () {
+                    if (fishPosition == 1) {} else {
+                        fishSlider.style.transform = "translateX(-" + ((fishPosition - 2) *
+                            20) + "%)";
+                        fishPosition -= 1;
+                    }
+                }
+            }
+        });
+
+    };
+
+    //////////////////// 配料slider ///////////////////////
+    var xhrn = new XMLHttpRequest();
+
+    xhrn.onload = function () {
+        if (xhrn.status == 200) {
+            let ingreRows = JSON.parse(xhrn.responseText);
             let trLength = ingreRows.length;
 
             for (let i = 0; i < trLength; i++) {
@@ -19,16 +268,17 @@ $(document).ready(function () {
             }
             $(".ingret").click(function () {
                 if ($(".cook-type").hasClass != 1) {
-                    alert("先選烹調方式才能加配料喔");
-                    return;
+                    // alert("先選烹調方式才能加配料喔");
+                    // return;
                 }
                 if (count == 3) {
-                    alert("最多只能放三個配料喔!");
+                    // alert("最多只能放三個配料喔!");
                 } else {
                     ingretImgSrc = $(this).find("img").attr("src");
                     dot = ingretImgSrc.lastIndexOf('.');
                     cus = ingretImgSrc.substr(0, dot);
                     str = cus + "_in.png";
+                    alert(str);
                     addIngret(str);
                 }
             });
@@ -58,12 +308,12 @@ $(document).ready(function () {
                     str = cus + "_in.png";
                     addIngret(str);
                 }
-                
+
             });
 
 
         } else {
-            alert(xhr.status);
+            alert(xhrn.status);
         }
     }
 
@@ -74,10 +324,109 @@ $(document).ready(function () {
     // xhr.open('post', 'http://localhost:8080/test.php', true);
 
     // windows
-    xhr.open('GET', './php/backend_Ingredient_show.php', true);
-    xhr.send(null);
+    xhrn.open('GET', './php/backend_Ingredient_show.php', true);
+    xhrn.send(null);
 
 
+
+    ingretSlider();
+
+    function ingretSlider() {
+        var right = document.getElementById("arrowR"),
+            left = document.getElementById("arrowL"),
+            slider = document.querySelector(".ingre-wrap"),
+            position = 1,
+            finalPosition = 3;
+
+        right.onclick = function () {
+            if (position == 3) {
+                $('#arrowR').attr('disabled', true);
+
+            } else {
+                slider.style.transform = "translateX(-" + position * 16.66 + "%)";
+                position += 1;
+                $('#arrowL').attr('disabled', false);
+            }
+        }
+
+        left.onclick = function () {
+            if (position == 1) {
+                $('#arrowL').attr('disabled', true);
+
+            } else {
+                slider.style.transform = "translateX(-" + ((position - 2) * 16.66) + "%)";
+                position -= 1;
+                $('#arrowR').attr('disabled', false);
+            }
+        }
+
+    };
+
+    //////////////////// 被選擇的海鮮會有紅圈 ///////////////////////
+
+    $(".fish-pic, .note-content").on("click", function () {
+        $(".note").removeClass("selected-fish");
+        $(this.parentNode).addClass("selected-fish");
+        $(".cook-type").removeClass("selected");
+        $(".tab_cook li").removeClass("selected");
+        $(".food-display .pic").remove(); //點海鮮時配料會重置
+    });
+    $(".tab_fish").on("click", function () {
+        $(".tab_fish").removeClass("selected");
+        $(this).addClass("selected");
+        $(".cook-type").removeClass("selected");
+        $(".tab_cook li").removeClass("selected");
+        $(".food-display .pic").remove();
+    });
+
+
+    //////////////////// 選了海鮮會換烹調 ///////////////////////
+
+    // 存放海鮮烹調方式的陣列
+    let cooks;
+
+    // 預設先顯示第一隻海鮮的烹調方式
+    changeCook(fish[0].name);
+
+    function changeCook(name) {
+        let xhr = new XMLHttpRequest;
+
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                cooks = JSON.parse(xhr.responseText)
+                console.log(cooks);
+                for (let i = 0; i < cooks.length; i++) {
+                    $(`.cook-type:eq(${i})`).text(cooks[i].cookName);
+                    $(`.cook-type:eq(${i})`).attr("id", cooks[i].seafoodCookPic);
+                     console.log(cooks[i].seafoodCookPic);
+                };
+
+            } else {
+                console.log(xhr.status);
+            }
+
+        };
+
+        let data_info = `name=${name}`;
+
+        // windows
+        xhr.open('post', './php/customized_seafoodCook.php', true);
+
+        // Mac
+        // xhr.open('POST', 'http://localhost:8080/customized_seafoodCook.php', true);
+
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+        console.log(data_info);
+        xhr.send(data_info);
+
+    };
+
+
+    //////////////////// 海鮮預覽圖 ///////////////////////
+    // 開發用，直接顯示主畫面
+    $('.attn').css("display", "none");
+    $("main").addClass("on");
 
 
     // 建立canvas畫布
@@ -110,10 +459,16 @@ $(document).ready(function () {
     $(".fish-pic").click(function () {
         foodImgSrc = $(this).find("img").attr("src");
         addSeafood(foodImgSrc);
+
+        name = $(this).parent().find(".fishName").text();
+        changeCook(name);
     });
     $(".note-content").click(function () {
         foodImgSrc = $(this).next().find("img").attr("src");
         addSeafood(foodImgSrc);
+
+        name = $(this).find(".fishName").text();
+        changeCook(name);
     });
     $(".tab_fish").click(function () {
         foodImgSrc = $(this).find("img").attr('src');
@@ -122,21 +477,21 @@ $(document).ready(function () {
 
     // 選烹調方式
     $(".cook-type").click(function () {
-        var str = $(this).attr("id");
-        id = str.substr(str.length - 1, 1);
-        cookImgSrc = `./images/cook${id}.png`;
+        var id = $(this).attr("id");
+        // 選了烹調會換預覽圖
+        cookImgSrc = `./images/${id}`;
         addSeafood(cookImgSrc);
     });
 
     // 選配料
-    // $(".ingret").click(function() {
-    //     if (count == 3) {
-    //         alert("最多只能放三個配料喔!");
-    //     } else {
-    //         ingretImgSrc = $(this).find("img").attr("src");
-    //         addIngret(ingretImgSrc);
-    //     }
-    // });
+    $(".ingret").click(function () {
+        if (count == 3) {
+            alert("最多只能放三個配料喔!");
+        } else {
+            ingretImgSrc = $(this).find("img").attr("src");
+            addIngret(ingretImgSrc);
+        }
+    });
 
     // 存放海鮮和烹調方式
     function addSeafood(ImgSrc) {
@@ -156,8 +511,6 @@ $(document).ready(function () {
         // 加配料的次數歸零
         count = 0;
     };
-
-
 
     // 存放配料
     function addIngret(ImgSrc) {
@@ -198,34 +551,18 @@ $(document).ready(function () {
     let nowX = 0,
         nowY = 0; //現在圖片的x,y位置
     $('#moveright').click(function () {
-        if (count == 0) {
-            alert("先選配料才能移動喔");
-            return;
-        }
         move(nowX + 20, nowY);
         nowX = nowX + 20;
     });
     $('#moveleft').click(function () {
-        if (count == 0) {
-            alert("先選配料才能移動喔");
-            return;
-        }
         move(nowX - 20, nowY);
         nowX = nowX - 20;
     });
     $('#movetop').click(function () {
-        if (count == 0) {
-            alert("先選配料才能移動喔");
-            return;
-        }
         move(nowX, nowY - 20);
         nowY = nowY - 20;
     });
     $('#movebottom').click(function () {
-        if (count == 0) {
-            alert("先選配料才能移動喔");
-            return;
-        }
         move(nowX, nowY + 20);
         nowY = nowY + 20;
     });
@@ -391,5 +728,26 @@ $(document).ready(function () {
         xhr.send(data_info);
 
     });
+
+
+
+    //////////////////// 開啟彈跳視窗(完成料理) ///////////////////////
+    $("button.to_lightbox").on("click", function () {
+        $(".overlay").addClass("-on");
+    });
+    $(".close, .cancel").on("click", function () {
+        $(".overlay").addClass("-opacity-zero");
+
+        // 設定隔一秒後，移除相關 class
+        setTimeout(function () {
+            $(".overlay").removeClass("-on -opacity-zero");
+        }, 1000);
+    });
+
+
+
+
+
+
 
 });
