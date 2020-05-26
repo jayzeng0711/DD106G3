@@ -199,8 +199,8 @@ window.addEventListener('load', function() {
     checkTotal();
 
     function checkTotal() {
-        // $('.total').text($('.subtotal').text() - $('#ordepoint').val());
-        $('.total').text($('.subtotal').text());
+        $('.total').text($('.subtotal').text() - $('#ordepoint').val());
+        // $('.total').text($('.subtotal').text());
 
     };
 
