@@ -18,7 +18,7 @@ try {
 
 
     // 抓這次比賽所有參賽料理(參賽編號、參賽時間、料理編號、料理名稱、料理圖片、會員姓名、會員照片、得票數、排名、編號比賽)
-    $sql = " SELECT c.`custoNo` ,c.`custoTime`,c.`custoName` ,c.`custoPic`,m.`memName`,m.`memPic`,c.`contestCustoVote`,`c`.`contestCustoRank`,c.`contestNo` FROM `custo`c JOIN `member`m on c.`memNo` = m.`memNo` WHERE `contestNo` = $no order by c.`custoTime` DESC";
+    $sql = " SELECT c.`custoNo` ,c.`custoTime`,c.`custoName` ,c.`custoPic`,m.`memName`,m.`memPic`,c.`contestCustoVote`,`c`.`contestCustoRank`,c.`contestNo`,c.`custoContent` FROM `custo`c JOIN `member`m on c.`memNo` = m.`memNo` WHERE `contestNo` = $no order by c.`custoTime` DESC";
 
     $custos = $pdo->query($sql);
     $custoRows = $custos->fetchAll(PDO::FETCH_ASSOC);

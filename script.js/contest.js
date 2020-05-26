@@ -20,7 +20,7 @@ $(document).ready(function() {
 
                 if (xhr2.status == 200) {
                     custoRKRows = JSON.parse(xhr2.responseText);
-                    // console.log(custoRKRows);
+                    console.log(custoRKRows);
 
                     //清空內容
                     $(".ranking_contain").empty();
@@ -33,7 +33,7 @@ $(document).ready(function() {
                     $(".ranking_contain").append(`
                     <div class="cookList_item">   
                         <div class="cookList_pic animated bounceInLeft delay-.5s">
-                            <figure class="food_img textHover" hovertext="作品留言放在這~作品留言放在這~作品留言放在這~">
+                            <figure class="food_img textHover" hovertext="${custoRKRows[1].custoContent}">
                             <img id="cook_${custoRKRows[1].custoNo}" src="./images/${custoRKRows[1].custoPic}" alt="">
                             </figure>
                             <figure class="barrel">
@@ -83,7 +83,7 @@ $(document).ready(function() {
                     $(".ranking_contain").append(`
                 <div class="cookList_item">   
                     <div class="cookList_pic animated bounceInDown delay-1s">
-                        <figure class="food_img textHover" hovertext="作品留言放在這~作品留言放在這~作品留言放在這~">
+                        <figure class="food_img textHover" hovertext="${custoRKRows[0].custoContent}">
                         <img id="cook_${custoRKRows[0].custoNo}" src="./images/${custoRKRows[0].custoPic}" alt="">
                         </figure>
                         <figure class="barrel">
@@ -132,7 +132,7 @@ $(document).ready(function() {
                     $(".ranking_contain").append(`
                 <div class="cookList_item">   
                     <div class="cookList_pic animated bounceInRight delay-.5s">
-                        <figure class="food_img textHover" hovertext="作品留言放在這~作品留言放在這~作品留言放在這~">
+                        <figure class="food_img textHover" hovertext="${custoRKRows[2].custoContent}">
                         <img id="cook_${custoRKRows[2].custoNo}" src="./images/${custoRKRows[2].custoPic}" alt="">
                         </figure>
                         <figure class="barrel">
@@ -174,6 +174,23 @@ $(document).ready(function() {
                         <p class="no_msg">來當第一個留言的人吧!</p>
                     `);
                     }
+                    //排行榜作品留言顯示區域
+                    $('.textHover').mousemove(function (e) { //當滑鼠移入顯示
+                        let theText = $(this).attr('hovertext');
+                        if(theText == "null"){
+                            $('#contestant_msg').text('參賽者沒有留言~').show().css({
+                                left: e.pageX + 10,
+                                top: e.pageY + 10,
+                            });
+                        }else{
+                            $('#contestant_msg').text(theText).show().css({
+                                left: e.pageX + 10,
+                                top: e.pageY + 10,
+                            });
+                        }
+                    }).mouseout(function () { //當滑鼠移出隱藏
+                        $('#contestant_msg').hide();
+                    });
 
 
                     //第一名留言燈箱
@@ -599,7 +616,7 @@ $(document).ready(function() {
             let no = i + now * 6;
 
             if (custos[no]) {
-
+                console.log(custos[1]);
                 // 料理編號(由大到小，等於時間由新到舊)
                 custoNo = custos[no].custoNo;
 
@@ -609,12 +626,14 @@ $(document).ready(function() {
                 custoPic = custos[no].custoPic;
                 // 票數
                 custoVote = custos[no].contestCustoVote;
+                // 參賽者留言內容
+                custoContent = custos[no].custoContent;
 
                 $('.cookList_contain').append(`
                 <div class="cookList_item">
                     <div class="cookList_img">
                         <figure class="cookList_cook">
-                            <img src="./images/${custoPic}" alt="">
+                            <img src="./images/${custoPic}" alt="" class="textHover" hovertext="${custoContent}">
                             <figcaption>
                                 
                                 <p id="List_name_${custoNo}">${custoName}</p>
@@ -653,6 +672,23 @@ $(document).ready(function() {
                     </div>
                 </div>
                 `);
+                //排行榜作品留言顯示區域
+                    $('.textHover').mousemove(function (e) { //當滑鼠移入顯示
+                        let theText = $(this).attr('hovertext');
+                        if(theText == "null"){
+                            $('#contestant_msg').text('參賽者沒有留言~').show().css({
+                                left: e.pageX + 10,
+                                top: e.pageY + 10,
+                            });
+                        }else{
+                            $('#contestant_msg').text(theText).show().css({
+                                left: e.pageX + 10,
+                                top: e.pageY + 10,
+                            });
+                        }
+                    }).mouseout(function () { //當滑鼠移出隱藏
+                        $('#contestant_msg').hide();
+                    });
 
 
                 // 留言
