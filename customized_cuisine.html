@@ -407,8 +407,10 @@
                     <p>按下確定後也會同時報名美食大賽，趕快去看一看吧！</p>
 
                     <div class="cancel">取消</div>
+                    <div id="download">確定</div>
 
-                    <a href="./contest.html"><input type="submit" value="確定" id="download"></a>
+                    <!-- <a href="./contest.html"><input type="submit" value="確定" id="download"></a> -->
+                    <!-- <a href="./contest.html"><input type="submit" value="確定" id="download"></a> -->
 
                 </article>
             </div>
@@ -424,8 +426,8 @@
 
     <script>
         // 手機用版面
-        $(function () {
-            $("a.tab").on("click", function (e) {
+        $(function() {
+            $("a.tab").on("click", function(e) {
                 e.preventDefault();
 
                 /* 將頁籤列表移除所有 -on，再將指定的加上 -on */
@@ -569,7 +571,7 @@
 
     <script>
         var xhr = new XMLHttpRequest();
-        xhr.onload = function () {
+        xhr.onload = function() {
             if (xhr.status == 200) {
                 member = JSON.parse(xhr.responseText);
                 if (member.memName) {
@@ -687,7 +689,7 @@
                 $(".talk")[0].appendChild(click_next);
             }
         }
-        $(document).ready(function () {
+        $(document).ready(function() {
             if ($(".act1").hasClass("on") == 1) {
                 setTimeout('typing()', 2500);
             } else if ($(".no-fish1").hasClass("on") == 1) {
@@ -719,18 +721,18 @@
 
             } else {
                 //開啟登入燈箱
-                $(".yes").click(function () {
+                $(".yes").click(function() {
                     $('#Login,#Login_back').css('display', 'block');
                     $('#pu_mem_resist_wrap').css('display', 'none');
                     $('#pu_mem_forget_wrap').css('display', 'none');
                     $('#pu_mem_login_wrap').css('display', 'block');
                 });
-                 $(".no").click(function () {
-                //     $(".act3").removeClass("on");
-                //     $(".act4").addClass("on");
-                //     setTimeout('typing4()', 100);
-                    $(location).attr("href","./contest.html");
-                 });
+                $(".no").click(function() {
+                    //     $(".act3").removeClass("on");
+                    //     $(".act4").addClass("on");
+                    //     setTimeout('typing4()', 100);
+                    $(location).attr("href", "./contest.html");
+                });
             }
         }
 
@@ -741,7 +743,7 @@
         //     }
         // }
 
-        $(".talking-here").click(function () {
+        $(".talking-here").click(function() {
             if ($(".act1").hasClass("on") == 1) {
                 $(".act1").removeClass("on");
                 $(".act2").addClass("on");
@@ -750,9 +752,9 @@
                 $(".act2").removeClass("on");
                 $(".act3").addClass("on");
                 setTimeout('typing3()', 300);
-            //} else if ($(".act4").hasClass("on") == 1) {
-               // $(".attn").delay(3000).fadeOut(1000);
-               // $("main").addClass("on");
+                //} else if ($(".act4").hasClass("on") == 1) {
+                // $(".attn").delay(3000).fadeOut(1000);
+                // $("main").addClass("on");
             } else if ($(".no-fish1").hasClass("on") == 1) {
                 $(".no-fish1").removeClass("on");
                 $(".no-fish2").addClass("on");
