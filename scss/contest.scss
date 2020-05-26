@@ -350,6 +350,7 @@ body {
             vertical-align: top;
             a {
                 display: inline-block;
+                text-decoration: none;
             }
             p {
                 width: 185px;
@@ -998,7 +999,7 @@ span.wrapper {
             .cookList_pic {
                 .food_img {
                     width: 95%;
-                    transform: translateY(49px);
+                    transform: translateY(38%);
                 }
                 .barrel {
                     width: 45%;
