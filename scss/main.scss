@@ -1333,6 +1333,15 @@ body {
 }
 
 @include rwd(mobile) {
+    .wrapperWheel {
+        display: block !important;
+    }
+    .wrapperBg {
+        display: block !important;
+    }
+    footer {
+        display: block !important;
+    }
     .section1 {
         .wrapper {
             .wave {
