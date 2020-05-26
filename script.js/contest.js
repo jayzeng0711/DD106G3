@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     let select = document.getElementById("order"); // 排序篩選
     let custos; //存放參賽料理的陣列
     let comments; //存放留言的陣列
@@ -11,7 +10,6 @@ $(document).ready(function() {
 
     // 抓這個月參賽料理的留言
     comment();
-
 
     // 從資料庫抓排行前三名資料
     function show() {
@@ -24,10 +22,6 @@ $(document).ready(function() {
 
                     //清空內容
                     $(".ranking_contain").empty();
-
-                    // if(`${custoRKRows[0].contestCustoVote}` == 0 || `${custoRKRows[1].contestCustoVote}` == 0 || `${custoRKRows[2].contestCustoVote}` == 0){
-                    //     window.location.reload();
-                    // }
 
                     //取出排行榜第二名資訊
                     $(".ranking_contain").append(`
@@ -77,41 +71,38 @@ $(document).ready(function() {
                     }
 
 
-
-
                     //取出排行榜第一名資訊
                     $(".ranking_contain").append(`
-                <div class="cookList_item">   
-                    <div class="cookList_pic animated bounceInDown delay-1s">
-                        <figure class="food_img textHover" hovertext="${custoRKRows[0].custoContent}">
-                        <img id="cook_${custoRKRows[0].custoNo}" src="./images/${custoRKRows[0].custoPic}" alt="">
-                        </figure>
-                        <figure class="barrel">
-                            <img src="./images/barrel_r01.png" alt="">
-                        </figure>
-                    </div>
-                    <div class="list_bg">    
-                        <div class="food_title">
-                            <p id="name_${custoRKRows[0].custoNo}">${custoRKRows[0].custoName}</p>
-                            <p>票數:${custoRKRows[0].contestCustoVote}</p>
+                    <div class="cookList_item">   
+                        <div class="cookList_pic animated bounceInDown delay-1s">
+                            <figure class="food_img textHover" hovertext="${custoRKRows[0].custoContent}">
+                            <img id="cook_${custoRKRows[0].custoNo}" src="./images/${custoRKRows[0].custoPic}" alt="">
+                            </figure>
+                            <figure class="barrel">
+                                <img src="./images/barrel_r01.png" alt="">
+                            </figure>
                         </div>
-                        <div class="cookList_vote">
-                            <button class="RK_vote_btn" id="RK_vote_${custoRKRows[0].custoNo}">投票</button>
-                        </div>
-                        <div class="msg">
-                            <P class="big">留言板</p>
-                            <div class="msg_text" id="RKmsg_text_${custoRKRows[0].custoNo}">
-                                
+                        <div class="list_bg">    
+                            <div class="food_title">
+                                <p id="name_${custoRKRows[0].custoNo}">${custoRKRows[0].custoName}</p>
+                                <p>票數:${custoRKRows[0].contestCustoVote}</p>
                             </div>
-                            <div class="msg_btn">
-                                <button class="RKmsg_btn" id="RKmsg_btn_${custoRKRows[0].custoNo}">留言</button>
+                            <div class="cookList_vote">
+                                <button class="RK_vote_btn" id="RK_vote_${custoRKRows[0].custoNo}">投票</button>
+                            </div>
+                            <div class="msg">
+                                <P class="big">留言板</p>
+                                <div class="msg_text" id="RKmsg_text_${custoRKRows[0].custoNo}">
+                                    
+                                </div>
+                                <div class="msg_btn">
+                                    <button class="RKmsg_btn" id="RKmsg_btn_${custoRKRows[0].custoNo}">留言</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                `);
+                    `);
                     //取出所有留言
-                    // console.log(custoRKRows[0].comments.length);
                     if (custoRKRows[0].comments.length) {
                         for (j = 0; j < custoRKRows[0].comments.length; j++) {
                             $(`#RKmsg_text_${custoRKRows[0].custoNo}`).append(`
@@ -124,60 +115,60 @@ $(document).ready(function() {
                     } else {
                         $(`#RKmsg_text_${custoRKRows[0].custoNo}`).append(`
                         <p class="no_msg">來當第一個留言的人吧!</p>
-                    `);
+                        `);
                     }
 
 
                     //取出排行榜第三名資訊
                     $(".ranking_contain").append(`
-                <div class="cookList_item">   
-                    <div class="cookList_pic animated bounceInRight delay-.5s">
-                        <figure class="food_img textHover" hovertext="${custoRKRows[2].custoContent}">
-                        <img id="cook_${custoRKRows[2].custoNo}" src="./images/${custoRKRows[2].custoPic}" alt="">
-                        </figure>
-                        <figure class="barrel">
-                            <img src="./images/barrel_r03.png" alt="">
-                        </figure>
-                    </div>
-                    <div class="list_bg">    
-                        <div class="food_title">
-                            <p id="name_${custoRKRows[2].custoNo}">${custoRKRows[2].custoName}</p>
-                            <p>票數:${custoRKRows[2].contestCustoVote}</p>
+                    <div class="cookList_item">   
+                        <div class="cookList_pic animated bounceInRight delay-.5s">
+                            <figure class="food_img textHover" hovertext="${custoRKRows[2].custoContent}">
+                            <img id="cook_${custoRKRows[2].custoNo}" src="./images/${custoRKRows[2].custoPic}" alt="">
+                            </figure>
+                            <figure class="barrel">
+                                <img src="./images/barrel_r03.png" alt="">
+                            </figure>
                         </div>
-                        <div class="cookList_vote">
-                            <button class="RK_vote_btn" id="RK_vote_${custoRKRows[2].custoNo}">投票</button>
-                        </div>
-                        <div class="msg">
-                            <P class="big">留言板</p>
-                            <div class="msg_text" id="RKmsg_text_${custoRKRows[2].custoNo}">
-                                
+                        <div class="list_bg">    
+                            <div class="food_title">
+                                <p id="name_${custoRKRows[2].custoNo}">${custoRKRows[2].custoName}</p>
+                                <p>票數:${custoRKRows[2].contestCustoVote}</p>
                             </div>
-                            <div class="msg_btn">
-                                <button class="RKmsg_btn" id="RKmsg_btn_${custoRKRows[2].custoNo}">留言</button>
+                            <div class="cookList_vote">
+                                <button class="RK_vote_btn" id="RK_vote_${custoRKRows[2].custoNo}">投票</button>
+                            </div>
+                            <div class="msg">
+                                <P class="big">留言板</p>
+                                <div class="msg_text" id="RKmsg_text_${custoRKRows[2].custoNo}">
+                                    
+                                </div>
+                                <div class="msg_btn">
+                                    <button class="RKmsg_btn" id="RKmsg_btn_${custoRKRows[2].custoNo}">留言</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                `);
+                    `);
                     //取出所有留言
                     if (custoRKRows[2].comments.length) {
                         for (j = 0; j < custoRKRows[2].comments.length; j++) {
                             $(`#RKmsg_text_${custoRKRows[2].custoNo}`).append(`
-                        <p>
-                        ${custoRKRows[2].comments[j].memName}：
-                        ${custoRKRows[2].comments[j].commentContent}
-                        </p>
+                            <p>
+                            ${custoRKRows[2].comments[j].memName}：
+                            ${custoRKRows[2].comments[j].commentContent}
+                            </p>
                         `);
                         }
                     } else {
                         $(`#RKmsg_text_${custoRKRows[2].custoNo}`).append(`
-                        <p class="no_msg">來當第一個留言的人吧!</p>
-                    `);
+                        <p id="RK_nomsg_${custoRKRows[2].custoNo}">來當第一個留言的人吧!</p>
+                        `);
                     }
                     //排行榜作品留言顯示區域
                     $('.textHover').mousemove(function (e) { //當滑鼠移入顯示
                         let theText = $(this).attr('hovertext');
-                        if(theText == "null"){
+                        if(theText == ""){ //未留言的情況
                             $('#contestant_msg').text('參賽者沒有留言~').show().css({
                                 left: e.pageX + 10,
                                 top: e.pageY + 10,
@@ -195,137 +186,135 @@ $(document).ready(function() {
 
                     //第一名留言燈箱
                     $(".a1").append(`
-                <div class="msg_overlay" id="msg_overlay_${custoRKRows[0].custoNo}">
-                <div class="msg_board">
-                    <div class="msg_title">
-                        留言板
-                        <img class="msg_close" src="./images/blue-cross-icon.png" alt="">
-                    </div>
-                    <div class="msg_wrap msg_wrap${custoRKRows[0].custoNo}">
-                        
-                    </div>
-                    <form action="" class="msg_input" id="msg_input_${custoRKRows[0].custoNo}">
-                        <input type="text" id="text_${custoRKRows[0].custoNo}" name="" placeholder="最多輸入10個字喔～～" maxlength="10">
-                        <button class="msginput_btn RK_input_btn" id="msginput_RKbtn_${custoRKRows[0].custoNo}" type="button">留言</button>
-                    </form>
-                </div>
-                </div>
-                `);
-                    //取出所有留言
-                    for (j = 0; j < custoRKRows[0].comments.length; j++) {
-                        $(`.msg_wrap${custoRKRows[0].custoNo}`).append(`
-                    <div class="mem_contain">
-                        <div class="flex_wrap">
-                            <div class="mem_name">
-                                <p>${custoRKRows[0].comments[j].memName}</p>
-                                <img src="./images/${custoRKRows[0].comments[j].memPic}" alt="">
+                    <div class="msg_overlay" id="msg_overlay_${custoRKRows[0].custoNo}">
+                        <div class="msg_board">
+                            <div class="msg_title">
+                                留言板
+                                <img class="msg_close" src="./images/blue-cross-icon.png" alt="">
                             </div>
-                            <div class="mem_msg" id="mem_msg_${custoRKRows[0].comments[j].commentNo}">
-                                <p>${custoRKRows[0].comments[j].commentContent}</p>
+                            <div class="msg_wrap msg_wrap${custoRKRows[0].custoNo}">
+                                
                             </div>
-                            <div class="report">
-                                <button class="RK_report_btn" id="rep_${custoRKRows[0].comments[j].commentNo}">檢舉</button>
-                            </div>
-                        </div>
-                        <div class="msg_date">
-                            <p>${custoRKRows[0].comments[j].commentTime}</p>
+                            <form action="" class="msg_input" id="msg_input_${custoRKRows[0].custoNo}">
+                                <input type="text" id="text_${custoRKRows[0].custoNo}" name="" placeholder="最多輸入10個字喔～～" maxlength="10">
+                                <button class="msginput_btn RK_input_btn" id="msginput_RKbtn_${custoRKRows[0].custoNo}" type="button">留言</button>
+                            </form>
                         </div>
                     </div>
                     `);
+                    //取出所有留言
+                    for (j = 0; j < custoRKRows[0].comments.length; j++) {
+                        $(`.msg_wrap${custoRKRows[0].custoNo}`).append(`
+                        <div class="mem_contain">
+                            <div class="flex_wrap">
+                                <div class="mem_name">
+                                    <p>${custoRKRows[0].comments[j].memName}</p>
+                                    <img src="./images/${custoRKRows[0].comments[j].memPic}" alt="">
+                                </div>
+                                <div class="mem_msg" id="mem_msg_${custoRKRows[0].comments[j].commentNo}">
+                                    <p>${custoRKRows[0].comments[j].commentContent}</p>
+                                </div>
+                                <div class="report">
+                                    <button class="RK_report_btn" id="rep_${custoRKRows[0].comments[j].commentNo}">檢舉</button>
+                                </div>
+                            </div>
+                            <div class="msg_date">
+                                <p>${custoRKRows[0].comments[j].commentTime}</p>
+                            </div>
+                        </div>
+                        `);
                     }
 
                     //第二名留言燈箱
                     $(".a2").append(`
-                <div class="msg_overlay" id="msg_overlay_${custoRKRows[1].custoNo}">
-                <div class="msg_board">
-                    <div class="msg_title">
-                        留言板
-                        <img class="msg_close" src="./images/blue-cross-icon.png" alt="">
-                    </div>
-                    <div class="msg_wrap msg_wrap${custoRKRows[1].custoNo}">
-                        
-                    </div>
-                    <form action="" class="msg_input" id="msg_input_${custoRKRows[1].custoNo}">
-                        <input type="text" id="text_${custoRKRows[1].custoNo}" name="" placeholder="最多輸入10個字喔～～" maxlength="10">
-                        <button class="msginput_btn RK_input_btn" id="msginput_RKbtn_${custoRKRows[1].custoNo}" type="button">留言</button>
-                    </form>
-                </div>
-                </div>
-                `);
-                    //取出所有留言
-                    for (j = 0; j < custoRKRows[1].comments.length; j++) {
-                        $(`.msg_wrap${custoRKRows[1].custoNo}`).append(`
-                    <div class="mem_contain">
-                        <div class="flex_wrap">
-                            <div class="mem_name">
-                                <p>${custoRKRows[1].comments[j].memName}</p>
-                                <img src="./images/${custoRKRows[1].comments[j].memPic}" alt="">
+                    <div class="msg_overlay" id="msg_overlay_${custoRKRows[1].custoNo}">
+                        <div class="msg_board">
+                            <div class="msg_title">
+                                留言板
+                                <img class="msg_close" src="./images/blue-cross-icon.png" alt="">
                             </div>
-                            <div class="mem_msg" id="mem_msg_${custoRKRows[1].comments[j].commentNo}">
-                                <p>${custoRKRows[1].comments[j].commentContent}</p>
+                            <div class="msg_wrap msg_wrap${custoRKRows[1].custoNo}">
+                                
                             </div>
-                            <div class="report">
-                                <button class="RK_report_btn" id="rep_${custoRKRows[1].comments[j].commentNo}">檢舉</button>
-                            </div>
-                        </div>
-                        <div class="msg_date">
-                            <p>${custoRKRows[1].comments[j].commentTime}</p>
+                            <form action="" class="msg_input" id="msg_input_${custoRKRows[1].custoNo}">
+                                <input type="text" id="text_${custoRKRows[1].custoNo}" name="" placeholder="最多輸入10個字喔～～" maxlength="10">
+                                <button class="msginput_btn RK_input_btn" id="msginput_RKbtn_${custoRKRows[1].custoNo}" type="button">留言</button>
+                            </form>
                         </div>
                     </div>
                     `);
+                    //取出所有留言
+                    for (j = 0; j < custoRKRows[1].comments.length; j++) {
+                        $(`.msg_wrap${custoRKRows[1].custoNo}`).append(`
+                        <div class="mem_contain">
+                            <div class="flex_wrap">
+                                <div class="mem_name">
+                                    <p>${custoRKRows[1].comments[j].memName}</p>
+                                    <img src="./images/${custoRKRows[1].comments[j].memPic}" alt="">
+                                </div>
+                                <div class="mem_msg" id="mem_msg_${custoRKRows[1].comments[j].commentNo}">
+                                    <p>${custoRKRows[1].comments[j].commentContent}</p>
+                                </div>
+                                <div class="report">
+                                    <button class="RK_report_btn" id="rep_${custoRKRows[1].comments[j].commentNo}">檢舉</button>
+                                </div>
+                            </div>
+                            <div class="msg_date">
+                                <p>${custoRKRows[1].comments[j].commentTime}</p>
+                            </div>
+                        </div>
+                        `);
                     }
 
                     //第三名留言燈箱
                     $(".a3").append(`
-                <div class="msg_overlay" id="msg_overlay_${custoRKRows[2].custoNo}">
-                <div class="msg_board">
-                    <div class="msg_title">
-                        留言板
-                        <img class="msg_close" src="./images/blue-cross-icon.png" alt="">
-                    </div>
-                    <div class="msg_wrap msg_wrap${custoRKRows[2].custoNo}">
-                        
-                    </div>
-                    <form action="" class="msg_input"  id="msg_input_${custoRKRows[2].custoNo}">
-                        <input type="text" id="text_${custoRKRows[2].custoNo}" name="" placeholder="最多輸入10個字喔～～" maxlength="10">
-                        <button class="msginput_btn RK_input_btn" id="msginput_RKbtn_${custoRKRows[2].custoNo}" type="button">留言</button>
-                    </form>
-                </div>
-                </div>
-                `);
-                    //取出所有留言
-                    for (j = 0; j < custoRKRows[2].comments.length; j++) {
-                        $(`.msg_wrap${custoRKRows[2].custoNo}`).append(`
-                    <div class="mem_contain">
-                        <div class="flex_wrap">
-                            <div class="mem_name">
-                                <p>${custoRKRows[2].comments[j].memName}</p>
-                                <img src="./images/${custoRKRows[2].comments[j].memPic}" alt="">
+                    <div class="msg_overlay" id="msg_overlay_${custoRKRows[2].custoNo}">
+                        <div class="msg_board">
+                            <div class="msg_title">
+                                留言板
+                                <img class="msg_close" src="./images/blue-cross-icon.png" alt="">
                             </div>
-                            <div class="mem_msg" id="mem_msg_${custoRKRows[2].comments[j].commentNo}">
-                                <p>${custoRKRows[2].comments[j].commentContent}</p>
+                            <div class="msg_wrap msg_wrap${custoRKRows[2].custoNo}">
+                                
                             </div>
-                            <div class="report">
-                                <button class="RK_report_btn" id="rep_${custoRKRows[2].comments[j].commentNo}">檢舉</button>
-                            </div>
-                        </div>
-                        <div class="msg_date">
-                            <p>${custoRKRows[2].comments[j].commentTime}</p>
+                            <form action="" class="msg_input"  id="msg_input_${custoRKRows[2].custoNo}">
+                                <input type="text" id="text_${custoRKRows[2].custoNo}" name="" placeholder="最多輸入10個字喔～～" maxlength="10">
+                                <button class="msginput_btn RK_input_btn" id="msginput_RKbtn_${custoRKRows[2].custoNo}" type="button">留言</button>
+                            </form>
                         </div>
                     </div>
                     `);
+                    //取出所有留言
+                    for (j = 0; j < custoRKRows[2].comments.length; j++) {
+                        $(`.msg_wrap${custoRKRows[2].custoNo}`).append(`
+                        <div class="mem_contain">
+                            <div class="flex_wrap">
+                                <div class="mem_name">
+                                    <p>${custoRKRows[2].comments[j].memName}</p>
+                                    <img src="./images/${custoRKRows[2].comments[j].memPic}" alt="">
+                                </div>
+                                <div class="mem_msg" id="mem_msg_${custoRKRows[2].comments[j].commentNo}">
+                                    <p>${custoRKRows[2].comments[j].commentContent}</p>
+                                </div>
+                                <div class="report">
+                                    <button class="RK_report_btn" id="rep_${custoRKRows[2].comments[j].commentNo}">檢舉</button>
+                                </div>
+                            </div>
+                            <div class="msg_date">
+                                <p>${custoRKRows[2].comments[j].commentTime}</p>
+                            </div>
+                        </div>
+                        `);
                     }
 
 
-
                     // 點擊留言
-                    // $(".RKmsg_btn").on("click", function(e) {
-                    //     var RKid = e.target.id;
-                    //     RKid = RKid.slice(10);
-                    //     showMsg(RKid); //打開燈箱
-                    //     rankingEnterInput(RKid);
-                    //     // event.stopPropagation();
-                    // });
+                    $(".RKmsg_btn").on("click", function(e) {
+                        var RKid = e.target.id;
+                        RKid = RKid.slice(10);
+                        showMsg(RKid); //打開燈箱
+                        rankingEnterInput(RKid);
+                    });
                     // 點叉叉圖示關閉燈箱
                     $("img.msg_close").on("click", function() {
                         $("div.msg_overlay").addClass("-opacity-zero");
@@ -389,21 +378,19 @@ $(document).ready(function() {
                             var RKvote = e.target.id;
                             RKvote = RKvote.slice(8);
                             inputRKvote(RKvote);
-
                         } else {
                             //未登入
                             $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
                             $('.alertbox2').addClass("on_alert2");
                         }
-
                     });
 
                 } else {
                     alert(xhr2.status);
                 }
             }
-            // FTP
-            // xhr.open('post', './php/test.php', true);
+        // FTP
+        // xhr.open('post', './php/test.php', true);
 
         // Mac
         // xhr.open('post', 'http://localhost:8080/test.php', true);
@@ -647,7 +634,7 @@ $(document).ready(function() {
                     <div class="msg">
                         <P class="big">留言板</p>
                         <div class="msg_text" id="msg_${custoNo}">
-                        <p>目前沒有人留言~</p>              
+                        <p id="nomsg_${custoNo}">目前沒有人留言~</p>              
                         </div>
                         <div class="msg_btn">
                             <button class="List_msg_btn" id="List_msg_btn_${custoNo}">留言</button>
@@ -675,7 +662,7 @@ $(document).ready(function() {
                 //排行榜作品留言顯示區域
                     $('.textHover').mousemove(function (e) { //當滑鼠移入顯示
                         let theText = $(this).attr('hovertext');
-                        if(theText == "null"){
+                        if(theText == ""){
                             $('#contestant_msg').text('參賽者沒有留言~').show().css({
                                 left: e.pageX + 10,
                                 top: e.pageY + 10,
@@ -710,8 +697,6 @@ $(document).ready(function() {
                         // 留言時間
                         commentTime = custos[no].comment[j].commentTime;
 
-                        // console.log(custos[no].comment[j].commentTime);
-
 
                         $(`#msg_${custoNo}`).append(`
                             <p>
@@ -741,7 +726,6 @@ $(document).ready(function() {
                             </div>
                         </div>
                         `);
-                        // ${custoRows[i].comments[j].commentTime}  要抓時間
 
 
                     }
@@ -979,8 +963,8 @@ $(document).ready(function() {
                     alert(xhr3.status);
                 }
             }
-            // FTP
-            // xhr.open('post', './php/test.php', true);
+        // FTP
+        // xhr.open('post', './php/test.php', true);
 
         // Mac
         // xhr.open('post', 'http://localhost:8080/test.php', true);
@@ -1106,8 +1090,8 @@ $(document).ready(function() {
                                     alert(xhr6.status);
                                 }
                             }
-                            // FTP
-                            // xhr.open('post', './php/test.php', true);
+                        // FTP
+                        // xhr.open('post', './php/test.php', true);
 
                         // Mac
                         // xhr.open('post', 'http://localhost:8080/test.php', true);
@@ -1140,8 +1124,8 @@ $(document).ready(function() {
                     alert(xhr5.status);
                 }
             }
-            // FTP
-            // xhr.open('post', './php/test.php', true);
+        // FTP
+        // xhr.open('post', './php/test.php', true);
 
         // Mac
         // xhr.open('post', 'http://localhost:8080/test.php', true);
@@ -1248,6 +1232,7 @@ $(document).ready(function() {
                         </div>
                     </div>
                     `);
+                    $(`#nomsg_${id}`).css("display","none"); //清除<目前沒人留言>的訊息
                     $(`#msg_${id}`).append(`
                     <p>
                     <img src="./images/${member.memPic}" alt="">
@@ -1261,8 +1246,8 @@ $(document).ready(function() {
                     alert(xhr3.status);
                 }
             }
-            // FTP
-            // xhr.open('post', './php/test.php', true);
+        // FTP
+        // xhr.open('post', './php/test.php', true);
 
         // Mac
         // xhr.open('post', 'http://localhost:8080/test.php', true);
@@ -1273,7 +1258,6 @@ $(document).ready(function() {
         commentData.commentTime = time;
         commentData.custoNo = id;
         var commentData_str = JSON.stringify(commentData);
-        // console.log(commentData_str);
 
         xhr3.open('POST', './php/contest_last_commentNo.php', true);
         xhr3.send(commentData_str);
@@ -1304,8 +1288,8 @@ $(document).ready(function() {
                     alert(xhr4.status);
                 }
             }
-            // FTP
-            // xhr.open('post', './php/test.php', true);
+        // FTP
+        // xhr.open('post', './php/test.php', true);
 
         // Mac
         // xhr.open('post', 'http://localhost:8080/test.php', true);
@@ -1317,7 +1301,6 @@ $(document).ready(function() {
         reportData.commentContent = commentContent;
         reportData.ReportReason = ReportReason;
         var reportData_str = JSON.stringify(reportData);
-        // console.log(reportData_str);
 
         xhr4.open('POST', './php/contest_report_comment.php', true);
         xhr4.send(reportData_str);
@@ -1327,25 +1310,4 @@ $(document).ready(function() {
 
 
 
-
-
-
-
 });
-
-
-
-
-
-
-// //排行榜作品留言顯示區域
-// $('.textHover').mousemove(function (e) { //當滑鼠移入顯示
-//     let theText = $(this).attr('hovertext');
-
-//     $('#contestant_msg').text(theText).show().css({
-//         left: e.pageX + 10,
-//         top: e.pageY + 10,
-//     });
-// }).mouseout(function () { //當滑鼠移出隱藏
-//     $('#contestant_msg').hide();
-// });
