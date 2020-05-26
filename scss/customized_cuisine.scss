@@ -609,10 +609,12 @@ form {
             display: inline-block;
             padding: 10px 15px;
         }
-        a input {
+        #download{
             @extend %btn_ano;
+            display: inline-block;
             padding: 10px 15px;
         }
+
     }
 }
 
