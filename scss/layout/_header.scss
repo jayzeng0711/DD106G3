@@ -1,32 +1,33 @@
 // desktop header
-.mobile_header{
+.mobile_header {
     display: none;
 }
-.pu_head_wrap_div{
+
+.pu_head_wrap_div {
     width: 100%;
     position: fixed;
     top: 0;
     display: flex;
     z-index: 500;
     transition: 1s all;
-    .pu_logo_a{
+    .pu_logo_a {
         width: 20%;
         text-align: center;
         padding-top: 1%;
         display: block;
     }
-    .pu_head_ul{
+    .pu_head_ul {
         display: flex;
         width: 90%;
         align-items: center;
         text-align: center;
-        .pu_head_li{
+        .pu_head_li {
             width: 22%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            .pu_text_a{
+            .pu_text_a {
                 color: #01355D;
                 text-decoration: none;
                 padding: 5px 0;
@@ -35,26 +36,26 @@
             }
         }
     }
-    .pu_mem_login_div_wrap{
+    .pu_mem_login_div_wrap {
         display: flex;
         width: 15%;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        .pu_mem_login_div{
+        .pu_mem_login_div {
             font-size: $fontSize;
             white-space: nowrap;
             letter-spacing: 1px;
         }
-        .pu_icon_div{
+        .pu_icon_div {
             width: 30px;
             margin-right: 3%;
-            img{
+            img {
                 max-width: 100%;
             }
         }
     }
-    .pu_mem_login_div_suc_wrap{
+    .pu_mem_login_div_suc_wrap {
         display: flex;
         width: 15%;
         align-items: center;
@@ -62,19 +63,19 @@
         cursor: pointer;
         display: none;
         position: relative;
-        .pu_mem_login_suc_div{
+        .pu_mem_login_suc_div {
             font-size: $fontSize;
             white-space: nowrap;
             letter-spacing: 1px;
         }
-        .pu_icon_suc_div{
+        .pu_icon_suc_div {
             // width: 30px;
             margin-right: 3%;
-            img{
+            img {
                 max-width: 100%;
             }
         }
-        .pu_login_btn{
+        .pu_login_btn {
             position: absolute;
             bottom: -55px;
             left: -3px;
@@ -83,7 +84,7 @@
             width: 100px;
             border-radius: 5px;
             display: none;
-            &::before{
+            &::before {
                 content: "";
                 position: absolute;
                 top: -25px;
@@ -98,15 +99,16 @@
                 border-color: #4EB6E6 transparent transparent transparent;
                 transform: rotate(180deg);
             }
-            .pu_login_member_center{
-                padding: 10% 0;border-bottom: 1px solid #ccc;
+            .pu_login_member_center {
+                padding: 10% 0;
+                border-bottom: 1px solid #ccc;
             }
-            .pu_login_logout{
+            .pu_login_logout {
                 padding: 10% 0;
             }
         }
     }
-    &::after{
+    &::after {
         content: "";
         background-image: url('../images/cloud.png');
         background-position: center;
@@ -124,33 +126,35 @@
 }
 
 .pu_flow-wave {
-    background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x,
-        radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
+    background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x, radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
     background-size: 20px 20px;
     background-position: -10px calc(100% + 16px), 0 calc(100% - 4px);
     animation: pu_waveFlow 1s infinite linear;
 }
 
-.pu_flow-wave:hover{
+.pu_flow-wave:hover {
     animation: pu_waveFlow 1s infinite linear;
 }
+
 @keyframes pu_waveFlow {
-    from { background-position-x: -10px, 0; }
-    to { background-position-x: -30px, -20px; }
+    from {
+        background-position-x: -10px, 0;
+    }
+    to {
+        background-position-x: -30px, -20px;
+    }
 }
+
 // desktop header
-
-
-
 // h1
-.pu_h1_div{
+.pu_h1_div {
     position: relative;
     width: 40%;
     margin: 12% auto 5% auto;
-    .pu_h1_img{
+    .pu_h1_img {
         max-width: 100%;
     }
-    .pu_div_text{
+    .pu_div_text {
         position: absolute;
         bottom: 22%;
         right: 0;
@@ -158,10 +162,10 @@
         letter-spacing: 1px;
     }
 }
-// h1
 
+// h1
 //會員登入燈箱
-#Login{
+#Login {
     background-color: #D9E8EC;
     width: 320px;
     padding: 10px;
@@ -172,25 +176,25 @@
     z-index: 1003;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     display: none;
     letter-spacing: 1px;
-    #cancel{
+    #cancel {
         position: absolute;
         right: 20px;
         top: 5px;
         font-size: 30px;
         cursor: pointer;
     }
-    .mem_login{
+    .mem_login {
         font-size: 20px;
         margin-bottom: 30px;
         padding-top: 5%;
     }
-    .formSignIn{
-        .pu_email_div{
+    .formSignIn {
+        .pu_email_div {
             margin-bottom: 10%;
-            input{
+            input {
                 border: 1px solid #707070;
                 padding: 5px 0;
                 outline: none;
@@ -198,9 +202,9 @@
                 border-radius: 5px;
             }
         }
-        .pu_psw_div{
+        .pu_psw_div {
             margin-bottom: 10%;
-            input{
+            input {
                 border: 1px solid #707070;
                 padding: 5px 0;
                 outline: none;
@@ -208,7 +212,7 @@
                 border-radius: 5px;
             }
         }
-        .signInBtn{
+        .signInBtn {
             @extend %btn;
             width: 100px;
             margin: 10% auto;
@@ -216,27 +220,28 @@
             text-align: center;
             text-decoration: none;
         }
-        #action{
+        #action {
             padding-bottom: 5%;
         }
-        #action a{
+        #action a {
             padding: 0 20px;
             text-decoration: none;
         }
     }
 }
-#Login_back{
+
+#Login_back {
     display: none;
     width: 100%;
-    background-color: rgba(119, 119, 119,.5);
+    background-color: rgba(119, 119, 119, .5);
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     z-index: 1002;
 }
-//會員登入燈箱
 
+//會員登入燈箱
 // 提示燈箱
 .alertbox {
     display: none;
@@ -288,16 +293,16 @@
     width: 100%;
 }
 
-@include rwd(desktop){
-    .pu_h1_div{
+@include rwd(desktop) {
+    .pu_h1_div {
         position: relative;
         margin: 15% auto 5% auto;
         width: 40%;
         font-size: $fontSize*2;
-        .pu_h1_img{
+        .pu_h1_img {
             max-width: 100%;
         }
-        .pu_div_text{
+        .pu_div_text {
             position: absolute;
             bottom: 20%;
             right: 0;
@@ -307,16 +312,16 @@
     }
 }
 
-@include rwd(medium){
-    .pu_h1_div{
+@include rwd(medium) {
+    .pu_h1_div {
         position: relative;
         margin: 17% auto 5% auto;
         width: 50%;
         font-size: $fontSize*1.5;
-        .pu_h1_img{
+        .pu_h1_img {
             max-width: 100%;
         }
-        .pu_div_text{
+        .pu_div_text {
             position: absolute;
             bottom: 23%;
             right: 0;
@@ -326,49 +331,49 @@
     }
 }
 
-@include rwd(small){
+@include rwd(small) {
     //mobile_header
-    .desktop_header{
+    .desktop_header {
         display: none;
     }
-    .mobile_header{
+    .mobile_header {
         display: flex;
         top: 6px;
-        .pu_mb_logo_a{
+        .pu_mb_logo_a {
             position: relative;
             z-index: 11;
             display: block;
             width: 10%;
             margin: 5px 0 0 5px;
-            img{
+            img {
                 max-width: 100%;
             }
         }
-        .mb_sma_cloud{
-            .mb_sma_cloud_img{
+        .mb_sma_cloud {
+            .mb_sma_cloud_img {
                 position: absolute;
                 right: -5px;
                 top: -10px;
                 z-index: 2;
             }
-            .mb_big_cloud_img_div{
+            .mb_big_cloud_img_div {
                 position: absolute;
                 right: -770px;
                 top: -5px;
                 z-index: 10;
                 display: none;
-                .mb_big_cloud_img{
+                .mb_big_cloud_img {
                     min-height: 600px;
                 }
-                .mb_big_cloud_text{
+                .mb_big_cloud_text {
                     position: absolute;
                     z-index: 5;
                     top: 2%;
                     left: 50%;
-                    div{
+                    div {
                         height: 80px;
                     }
-                    .pu_mb_text_a{
+                    .pu_mb_text_a {
                         color: #01355D;
                         text-decoration: none;
                         line-height: 5;
@@ -392,13 +397,11 @@
                     height: 3px;
                     margin-bottom: 7px;
                     position: relative;
-                    background: #01355D; 
+                    background: #01355D;
                     z-index: 1;
                     transform-origin: 4px 0px;
-                    transition: transform 0.2s cubic-bezier(0.77,0.2,0.05,1.0),
-                                background 0.2s cubic-bezier(0.77,0.2,0.05,1.0),
-                                opacity 0.25s ease;
-                    &:last-child{
+                    transition: transform 0.2s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.2s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.25s ease;
+                    &:last-child {
                         margin-bottom: 0;
                     }
                 }
@@ -421,16 +424,16 @@
         }
     }
     //mobile_header
-    .pu_h1_div{
+    .pu_h1_div {
         position: relative;
         margin: 5% auto 5% auto;
         width: 50%;
         font-size: $fontSize*1.5;
         z-index: -1;
-        .pu_h1_img{
+        .pu_h1_img {
             max-width: 100%;
         }
-        .pu_div_text{
+        .pu_div_text {
             position: absolute;
             bottom: 20%;
             right: 0;
@@ -440,17 +443,17 @@
     }
 }
 
-@include rwd(mobile){
-    .pu_h1_div{
+@include rwd(mobile) {
+    .pu_h1_div {
         position: relative;
         margin: 5% auto 5% auto;
         width: 60%;
         font-size: $fontSize*1.25;
         z-index: -1;
-        .pu_h1_img{
+        .pu_h1_img {
             max-width: 100%;
         }
-        .pu_div_text{
+        .pu_div_text {
             position: absolute;
             bottom: 20%;
             right: 0;

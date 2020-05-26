@@ -1,69 +1,69 @@
-filename ="";
+filename = "";
 
 //側邊欄切換
-$(document).ready(function(){
-    $('#preson_data').css({
-        "background-color": "#777",
-        "border-radius": "10px",
-        "color": "#fff",
-    })
-    $('#preson_data').click(function(){
-        $('.mem_data_right_div').css('display','flex');
-        $('.order_detail_wrap').css('display','none');
-        $('.curisine_wrap').css('display','none');
+$(document).ready(function() {
         $('#preson_data').css({
             "background-color": "#777",
             "border-radius": "10px",
             "color": "#fff",
         })
-        $('#order_record,#customized_curisine').css({
-            "background-color": "#D9E8EC",
-            "border-radius": "0px",
-            "color": "#000",
-        });
-    })
-    $('#order_record').click(function(){
-        $('.mem_data_right_div').css('display','none');
-        $('.order_detail_wrap').css('display','block');
-        $('.curisine_wrap').css('display','none');
-        $('#order_record').css({
-            "background-color": "#777",
-            "border-radius": "10px",
-            "color": "#fff",
+        $('#preson_data').click(function() {
+            $('.mem_data_right_div').css('display', 'flex');
+            $('.order_detail_wrap').css('display', 'none');
+            $('.curisine_wrap').css('display', 'none');
+            $('#preson_data').css({
+                "background-color": "#777",
+                "border-radius": "10px",
+                "color": "#fff",
+            })
+            $('#order_record,#customized_curisine').css({
+                "background-color": "#D9E8EC",
+                "border-radius": "0px",
+                "color": "#000",
+            });
         })
-        $('#preson_data,#customized_curisine').css({
-            "background-color": "#D9E8EC",
-            "border-radius": "0px",
-            "color": "#000",
-        });
-    })
-    $('#customized_curisine').click(function(){
-        $('.mem_data_right_div').css('display','none');
-        $('.order_detail_wrap').css('display','none');
-        $('.curisine_wrap').css('display','block');
-        $('#customized_curisine').css({
-            "background-color": "#777",
-            "border-radius": "10px",
-            "color": "#fff",
+        $('#order_record').click(function() {
+            $('.mem_data_right_div').css('display', 'none');
+            $('.order_detail_wrap').css('display', 'block');
+            $('.curisine_wrap').css('display', 'none');
+            $('#order_record').css({
+                "background-color": "#777",
+                "border-radius": "10px",
+                "color": "#fff",
+            })
+            $('#preson_data,#customized_curisine').css({
+                "background-color": "#D9E8EC",
+                "border-radius": "0px",
+                "color": "#000",
+            });
         })
-        $('#order_record,#preson_data').css({
-            "background-color": "#D9E8EC",
-            "border-radius": "0px",
-            "color": "#000",
-        });
+        $('#customized_curisine').click(function() {
+            $('.mem_data_right_div').css('display', 'none');
+            $('.order_detail_wrap').css('display', 'none');
+            $('.curisine_wrap').css('display', 'block');
+            $('#customized_curisine').css({
+                "background-color": "#777",
+                "border-radius": "10px",
+                "color": "#fff",
+            })
+            $('#order_record,#preson_data').css({
+                "background-color": "#D9E8EC",
+                "border-radius": "0px",
+                "color": "#000",
+            });
+        })
     })
-})
-//側邊欄切換
+    //側邊欄切換
 
 //載入網頁，撈出會員的基本資料
-$(document).ready(function(){
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-        if(xhr.status == 200){
-            var mem_basic_data = JSON.parse(xhr.responseText);
-            // console.log(mem_basic_data)
-            if(mem_basic_data.memId){
-                $('.mem_data_right_div').append(`<div class="mem_img_div">
+$(document).ready(function() {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            if (xhr.status == 200) {
+                var mem_basic_data = JSON.parse(xhr.responseText);
+                // console.log(mem_basic_data)
+                if (mem_basic_data.memId) {
+                    $('.mem_data_right_div').append(`<div class="mem_img_div">
                 <img class="img_src" src="./php/images/${mem_basic_data.memPic}" alt="">
                 </div>
                 <form id="imageform">
@@ -103,111 +103,111 @@ $(document).ready(function(){
                     儲存
                 </button>
                 `)
-                //點下會員密碼欄位觸發燈箱
-                $('#input_cannoy_mod').click(function(){
-                    if(confirm('要修改密碼嗎？')==true){
-                        $('#Login').css('display', 'block');
-                        $('#pu_mem_resist_wrap').css('display', 'none');
-                        $('#pu_mem_login_wrap').css('display', 'none');
-                        $('#pu_mem_forget_wrap').css('display', 'block');
-                        $('#Login_back').css('display', 'block');
-                    }else{
-                        return false;
-                    }
-                })
-                //點下會員密碼欄位觸發燈箱
-                //點下修改密碼
-                $('#modify_signInBtn').click(function(e){
-                    var input_cannoy_mod =$('#input_cannoy_mod').val();
-                    var psw_hidden =$('#psw_hidden').val();
-                    var memid =$('#email').val();
-                    var old_psw = $('#old_psw').val();
-                    var new_psw = $('#new_psw').val();
-                    if(old_psw == "" || new_psw ==""){
-                        $('.alertbox .wrapper').text("請填寫舊密碼與新密碼");
-                        $('.alertbox').addClass("on");
-                        return false;
-                    }
-                    if(old_psw.length<3 || new_psw.length<3){
-                        $('.alertbox .wrapper').text("密碼長度不可小於3位");
-                        $('.alertbox').addClass("on");
-                        return false;
-                    }
-                    if(old_psw == new_psw){
-                        $('.alertbox .wrapper').text("舊密碼與新密碼相同");
-                        $('.alertbox').addClass("on");
-                        return false;
-                    }
-                    if(psw_hidden != old_psw){
-                        $('.alertbox .wrapper').text("舊密碼不相同，請重新輸入");
-                        $('.alertbox').addClass("on");
-                        return false;
-                    }
-                    $('#input_cannoy_mod').val(new_psw);
-                    $('#Login').css('display', 'none');
-                    $('#pu_mem_forget_wrap').css('display', 'none');
-                    $('#Login_back').css('display', 'none');
-                    $('#old_psw').val("");
-                    $('#new_psw').val("");
-                    var xhr = new XMLHttpRequest();
-                    xhr.onload = function(){
-                        if(xhr == 200){
+                        //點下會員密碼欄位觸發燈箱
+                    $('#input_cannoy_mod').click(function() {
+                            if (confirm('要修改密碼嗎？') == true) {
+                                $('#Login').css('display', 'block');
+                                $('#pu_mem_resist_wrap').css('display', 'none');
+                                $('#pu_mem_login_wrap').css('display', 'none');
+                                $('#pu_mem_forget_wrap').css('display', 'block');
+                                $('#Login_back').css('display', 'block');
+                            } else {
+                                return false;
+                            }
+                        })
+                        //點下會員密碼欄位觸發燈箱
+                        //點下修改密碼
+                    $('#modify_signInBtn').click(function(e) {
+                            var input_cannoy_mod = $('#input_cannoy_mod').val();
+                            var psw_hidden = $('#psw_hidden').val();
+                            var memid = $('#email').val();
+                            var old_psw = $('#old_psw').val();
+                            var new_psw = $('#new_psw').val();
+                            if (old_psw == "" || new_psw == "") {
+                                $('.alertbox .wrapper').text("請填寫舊密碼與新密碼");
+                                $('.alertbox').addClass("on");
+                                return false;
+                            }
+                            if (old_psw.length < 3 || new_psw.length < 3) {
+                                $('.alertbox .wrapper').text("密碼長度不可小於3位");
+                                $('.alertbox').addClass("on");
+                                return false;
+                            }
+                            if (old_psw == new_psw) {
+                                $('.alertbox .wrapper').text("舊密碼與新密碼相同");
+                                $('.alertbox').addClass("on");
+                                return false;
+                            }
+                            if (psw_hidden != old_psw) {
+                                $('.alertbox .wrapper').text("舊密碼不相同，請重新輸入");
+                                $('.alertbox').addClass("on");
+                                return false;
+                            }
+                            $('#input_cannoy_mod').val(new_psw);
+                            $('#Login').css('display', 'none');
+                            $('#pu_mem_forget_wrap').css('display', 'none');
+                            $('#Login_back').css('display', 'none');
+                            $('#old_psw').val("");
+                            $('#new_psw').val("");
+                            var xhr = new XMLHttpRequest();
+                            xhr.onload = function() {
+                                if (xhr == 200) {
 
-                        }
-                    }
-                    var psw = {};
-                    psw.new_psw = new_psw;
-                    psw.memid = memid;
-                    var psw_str = JSON.stringify(psw);
-                    // console.log(psw_str)
-                    // windows
-                    xhr.open('POST', './php/member_data_update_psw.php',  true);
+                                }
+                            }
+                            var psw = {};
+                            psw.new_psw = new_psw;
+                            psw.memid = memid;
+                            var psw_str = JSON.stringify(psw);
+                            // console.log(psw_str)
+                            // windows
+                            xhr.open('POST', './php/member_data_update_psw.php',  true);
 
-                    // Mac
-                    // xhr.open('POST','http://localhost:8080/member_data_update_psw.php');
-                    xhr.send(psw_str);
-                })
-                //點下修改密碼
+                            // Mac
+                            // xhr.open('POST','http://localhost:8080/member_data_update_psw.php');
+                            xhr.send(psw_str);
+                        })
+                        //點下修改密碼
 
-                //更改大頭貼
-                $('#file').change(function(e){
-                    filename = e.target.files[0].name;
-                    const file = this.files[0];
-                    const fr = new FileReader();
-                    fr.onload = function (e) {
-                        $('.img_src').attr('src', e.target.result);
-                    };
-                    fr.readAsDataURL(file);
-                })
-            
-                //按下儲存 找img 密碼 名稱三個欄位
-                $('.mem_modify_btn').click(function(){
-                    var xhr = new XMLHttpRequest();
-                    var imageform = new FormData(document.getElementById("imageform"));
-                    window.location.reload();
-                    // windows
-                    xhr.open('POST', './php/member_data_update.php',  true);
+                    //更改大頭貼
+                    $('#file').change(function(e) {
+                        filename = e.target.files[0].name;
+                        const file = this.files[0];
+                        const fr = new FileReader();
+                        fr.onload = function(e) {
+                            $('.img_src').attr('src', e.target.result);
+                        };
+                        fr.readAsDataURL(file);
+                    })
 
-                    // Mac
-                    // xhr.open('POST','http://localhost:8080/member_data_update.php');
-                    xhr.send(imageform);
-                })
-                //按下修改 找img 密碼 名稱三個欄位
-            }else{
-                $('.alertbox .wrapper').text("無登入會員");
-                $('.alertbox').addClass("on");
-                window.location.href = "order.html";
-            }
+                    //按下儲存 找img 密碼 名稱三個欄位
+                    $('.mem_modify_btn').click(function() {
+                            var xhr = new XMLHttpRequest();
+                            var imageform = new FormData(document.getElementById("imageform"));
+                            window.location.reload();
+                            // windows
+                            xhr.open('POST', './php/member_data_update.php',  true);
 
-            var xhr2 = new XMLHttpRequest();
-            xhr2.onload = function(){
-                if(xhr2.status == 200){
-                    // console.log(JSON.parse(xhr2.responseText));
-                    order_record = JSON.parse(xhr2.responseText);
-                    for(i = 0;i<order_record.length;i++){
-                        if(order_record[i].orderState == 0){
-                            order_record[i].orderState = '已取消';
-                            $('.order_detail_wrap').append(`<div class="order_history">
+                            // Mac
+                            // xhr.open('POST','http://localhost:8080/member_data_update.php');
+                            xhr.send(imageform);
+                        })
+                        //按下修改 找img 密碼 名稱三個欄位
+                } else {
+                    $('.alertbox .wrapper').text("無登入會員");
+                    $('.alertbox').addClass("on");
+                    window.location.href = "order.html";
+                }
+
+                var xhr2 = new XMLHttpRequest();
+                xhr2.onload = function() {
+                        if (xhr2.status == 200) {
+                            // console.log(JSON.parse(xhr2.responseText));
+                            order_record = JSON.parse(xhr2.responseText);
+                            for (i = 0; i < order_record.length; i++) {
+                                if (order_record[i].orderState == 0) {
+                                    order_record[i].orderState = '已取消';
+                                    $('.order_detail_wrap').append(`<div class="order_history">
                             <div class="order_history_list">
                                 <div>訂單編號</div>
                             </div>
@@ -277,9 +277,9 @@ $(document).ready(function(){
                             </div>
                         </div>
                         <hr>`)
-                        }else if(order_record[i].orderState == 1){
-                            order_record[i].orderState = '訂單成立，尚未報到';
-                            $('.order_detail_wrap').append(`<div class="order_history">
+                                } else if (order_record[i].orderState == 1) {
+                                    order_record[i].orderState = '訂單成立，尚未報到';
+                                    $('.order_detail_wrap').append(`<div class="order_history">
                         <div class="order_history_list">
                             <div>訂單編號</div>
                         </div>
@@ -354,9 +354,9 @@ $(document).ready(function(){
                         </div>
                     </div>
                     <hr>`)
-                        } else if(order_record[i].orderState == 2){
-                            order_record[i].orderState = '訂單成立，報到成功';
-                            $('.order_detail_wrap').append(`<div class="order_history">
+                                } else if (order_record[i].orderState == 2) {
+                                    order_record[i].orderState = '訂單成立，報到成功';
+                                    $('.order_detail_wrap').append(`<div class="order_history">
                         <div class="order_history_list">
                             <div>訂單編號</div>
                         </div>
@@ -426,18 +426,18 @@ $(document).ready(function(){
                         </div>
                     </div>
                     <hr>`)
-                        }
-                    for(j=0;j<order_record[i].orderNo.length;j++){
-                        if(order_record[i].orderNo[j].mealNo == 1){
-                            order_record[i].orderNo[j].mealNo = "A套餐"
-                        }
-                        if(order_record[i].orderNo[j].mealNo == 2){
-                            order_record[i].orderNo[j].mealNo = "B套餐"
-                        }
-                        if(order_record[i].orderNo[j].mealNo == 3){
-                            order_record[i].orderNo[j].mealNo = "C套餐"
-                        }
-                        $(`.order_div_wrap_${i}`).append(` 
+                                }
+                                for (j = 0; j < order_record[i].orderNo.length; j++) {
+                                    if (order_record[i].orderNo[j].mealNo == 1) {
+                                        order_record[i].orderNo[j].mealNo = "A套餐"
+                                    }
+                                    if (order_record[i].orderNo[j].mealNo == 2) {
+                                        order_record[i].orderNo[j].mealNo = "B套餐"
+                                    }
+                                    if (order_record[i].orderNo[j].mealNo == 3) {
+                                        order_record[i].orderNo[j].mealNo = "C套餐"
+                                    }
+                                    $(`.order_div_wrap_${i}`).append(` 
                         <div class="order_detail_right_div_item">
                         <div>${order_record[i].orderNo[j].mealNo}</div>
                         <div id="mealListCount_${j}_${i}">${order_record[i].orderNo[j].mealListCount}</div>
@@ -445,95 +445,95 @@ $(document).ready(function(){
                         <div id="mealListToatl_${j}_${i}"></div>
                         </div>
                         `)
-                        var mealListPrice = $(`#mealListPrice_${j}_${i}`).text();
-                        //把元刪掉
-                        mealListPrice = mealListPrice.substring(0,mealListPrice.length-1);
-                        $(`#mealListToatl_${j}_${i}`).text($(`#mealListCount_${j}_${i}`).text()*mealListPrice+'元')
-                        }
-                    }
-                    //判斷每個取消訂單按鈕
-                    $(`.order_detail_cancel_btn`).click(function(e){
-                        if(confirm("確認要取消訂單嗎")==true){
-                            var route_last = e.target.id;
-                            route_last = route_last.slice(24);
-                            var roure_date = $(`#routedate_${route_last}`).text();
-                            var cancel_time = new Date();
-                            var year = cancel_time.getFullYear();
-                            var month = cancel_time.getMonth()+1;
-                            var date = cancel_time.getDate();
-                            var today = `${year}-${month}-${date}`;
-                            var DateDiff = function (sDate1, sDate2) {
-                                var oDate1 = new Date(sDate1);
-                                var oDate2 = new Date(sDate2);
-                                var iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24); 
-                                return iDays;
-                              };
-                              
-                              var GetDateDiff1 = DateDiff(today,roure_date);
-                              if(GetDateDiff1 >= 7){
-                                var order_detail_last_num = e.target.id;
-                                order_detail_last_num = order_detail_last_num.slice(24);
-                                var xhr5 = new XMLHttpRequest();
-                                xhr5.onload = function(){
-                                    if(xhr5.status == 200){
-                                        window.location.reload()
-                                    }
+                                    var mealListPrice = $(`#mealListPrice_${j}_${i}`).text();
+                                    //把元刪掉
+                                    mealListPrice = mealListPrice.substring(0, mealListPrice.length - 1);
+                                    $(`#mealListToatl_${j}_${i}`).text($(`#mealListCount_${j}_${i}`).text() * mealListPrice + '元')
                                 }
-                                var order_detail ={};
-                                order_detail.num_id = order_detail_last_num;
-                                order_detail_str = JSON.stringify(order_detail);
-                                // windows
-                                xhr5.open('POST',  './php/mem_cancel_order.php',  true);
-        
-                                // Mac
-                                // xhr5.open('POST','http://localhost:8080/mem_cancel_order.php');
-                                xhr5.send(order_detail_str);
-                              }else{
-                                $('.alertbox .wrapper').text("出發前七日內無法取消訂單");
-                                $('.alertbox').addClass("on");
-                                return false;
-                              }
-                              
-                        }else{
-                            return false;
-                        }
-                    })
-                    //判斷每個取消訂單按鈕
-                    //判斷每個展開按鈕
-                    $(`.order_history_btn`).click(function(e){
-                        var id_num =e.target.id;
-                        id_num = id_num.slice(18);
-                        if($(`#order_detail_div_wrap_${id_num}`).css('display') =="none"){
-                            $(`#order_detail_div_wrap_${id_num}`).slideDown();
-                            $(`#order_history_btn_${id_num}`).text('-');
-                        }else{
-                            $(`#order_detail_div_wrap_${id_num}`).slideUp();
-                            $(`#order_history_btn_${id_num}`).text('+');
-                        }
-                    })
-                    //判斷每個展開按鈕
-                    var xhr3 = new XMLHttpRequest();
-                    xhr3.onload = function(){
-                        if(xhr3.status ==200){
-                            // console.log(JSON.parse(xhr3.responseText));
-                            var custo = JSON.parse(xhr3.responseText);
-                            for(i=0;i<custo.length;i++){
-                                $('.curisine_desktop').append(`<div class="curisine_div_title_item_bot">
+                            }
+                            //判斷每個取消訂單按鈕
+                            $(`.order_detail_cancel_btn`).click(function(e) {
+                                    if (confirm("確認要取消訂單嗎") == true) {
+                                        var route_last = e.target.id;
+                                        route_last = route_last.slice(24);
+                                        var roure_date = $(`#routedate_${route_last}`).text();
+                                        var cancel_time = new Date();
+                                        var year = cancel_time.getFullYear();
+                                        var month = cancel_time.getMonth() + 1;
+                                        var date = cancel_time.getDate();
+                                        var today = `${year}-${month}-${date}`;
+                                        var DateDiff = function(sDate1, sDate2) {
+                                            var oDate1 = new Date(sDate1);
+                                            var oDate2 = new Date(sDate2);
+                                            var iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24);
+                                            return iDays;
+                                        };
+
+                                        var GetDateDiff1 = DateDiff(today, roure_date);
+                                        if (GetDateDiff1 >= 7) {
+                                            var order_detail_last_num = e.target.id;
+                                            order_detail_last_num = order_detail_last_num.slice(24);
+                                            var xhr5 = new XMLHttpRequest();
+                                            xhr5.onload = function() {
+                                                if (xhr5.status == 200) {
+                                                    window.location.reload()
+                                                }
+                                            }
+                                            var order_detail = {};
+                                            order_detail.num_id = order_detail_last_num;
+                                            order_detail_str = JSON.stringify(order_detail);
+                                            // windows
+                                            xhr5.open('POST',  './php/mem_cancel_order.php',  true);
+
+                                            // Mac
+                                            // xhr5.open('POST','http://localhost:8080/mem_cancel_order.php');
+                                            xhr5.send(order_detail_str);
+                                        } else {
+                                            $('.alertbox .wrapper').text("出發前七日內無法取消訂單");
+                                            $('.alertbox').addClass("on");
+                                            return false;
+                                        }
+
+                                    } else {
+                                        return false;
+                                    }
+                                })
+                                //判斷每個取消訂單按鈕
+                                //判斷每個展開按鈕
+                            $(`.order_history_btn`).click(function(e) {
+                                    var id_num = e.target.id;
+                                    id_num = id_num.slice(18);
+                                    if ($(`#order_detail_div_wrap_${id_num}`).css('display') == "none") {
+                                        $(`#order_detail_div_wrap_${id_num}`).slideDown();
+                                        $(`#order_history_btn_${id_num}`).text('-');
+                                    } else {
+                                        $(`#order_detail_div_wrap_${id_num}`).slideUp();
+                                        $(`#order_history_btn_${id_num}`).text('+');
+                                    }
+                                })
+                                //判斷每個展開按鈕
+                            var xhr3 = new XMLHttpRequest();
+                            xhr3.onload = function() {
+                                    if (xhr3.status == 200) {
+                                        // console.log(JSON.parse(xhr3.responseText));
+                                        var custo = JSON.parse(xhr3.responseText);
+                                        for (i = 0; i < custo.length; i++) {
+                                            $('.curisine_desktop').append(`<div class="curisine_div_title_item_bot">
                                 <div class="curisine_div_title_item_bot_img"><img src="./images/${custo[i].custoPic}" alt=""></div>
                                 <div>${custo[i].seafoodName}</div>
                                 <div>${custo[i].cookName}</div>
                                 <div id="ingreNo_${i}"></div>
                                 <div>${custo[i].seafoodPrice}</div>
                                 </div><hr>`)
-                                for(j=0;j<custo[i].ingreNo.length;j++){
-                                    $(`#ingreNo_${i}`).append(`${custo[i].ingreNo[j].ingreName}<br>`);
-                                }
-                                if($(`#ingreNo_${i}`).text()==""){
-                                    $(`#ingreNo_${i}`).text("無配料");
-                                }
-                            }  
-                            for(k=0;k<custo.length;k++){
-                                $('.curisine_mobile').append(`<div class="curisine_mobile_img_div">
+                                            for (j = 0; j < custo[i].ingreNo.length; j++) {
+                                                $(`#ingreNo_${i}`).append(`${custo[i].ingreNo[j].ingreName}<br>`);
+                                            }
+                                            if ($(`#ingreNo_${i}`).text() == "") {
+                                                $(`#ingreNo_${i}`).text("無配料");
+                                            }
+                                        }
+                                        for (k = 0; k < custo.length; k++) {
+                                            $('.curisine_mobile').append(`<div class="curisine_mobile_img_div">
                                 <img src="./images/${custo[k].custoPic}" alt="">
                             </div>
                             <div class="curisine_mobile_div">
@@ -554,71 +554,71 @@ $(document).ready(function(){
                                     <div>${custo[k].seafoodPrice}元</div>
                                 </div>
                             </div>`)
-                                for(l=0;l<custo[k].ingreNo.length;l++){
-                                    $(`.mobile_ingre_${k}`).append(`${custo[k].ingreNo[l].ingreName}<br>`)
-                                }
-                                if($(`.mobile_ingre_${k}`).text()==""){
-                                    $(`.mobile_ingre_${k}`).text("無配料");
-                                }
-                            }
-                            var xhr4 = new XMLHttpRequest();
-                            xhr4.onload = function(){
-                                if(xhr4.status == 200){
-                                    order_custo_num = JSON.parse(xhr4.responseText);
-                                    // console.log(order_custo_num)
-                                    for(m=0;m<order_record.length;m++){
-                                        for(n=0;n<order_custo_num.length;n++){
-                                            if(order_custo_num[n].orderNo == order_record[m].orderNo[0].orderNo){
-                                                $(`#order_detail_right_div_custom_wrap_${m}`).append(`
+                                            for (l = 0; l < custo[k].ingreNo.length; l++) {
+                                                $(`.mobile_ingre_${k}`).append(`${custo[k].ingreNo[l].ingreName}<br>`)
+                                            }
+                                            if ($(`.mobile_ingre_${k}`).text() == "") {
+                                                $(`.mobile_ingre_${k}`).text("無配料");
+                                            }
+                                        }
+                                        var xhr4 = new XMLHttpRequest();
+                                        xhr4.onload = function() {
+                                                if (xhr4.status == 200) {
+                                                    order_custo_num = JSON.parse(xhr4.responseText);
+                                                    // console.log(order_custo_num)
+                                                    for (m = 0; m < order_record.length; m++) {
+                                                        for (n = 0; n < order_custo_num.length; n++) {
+                                                            if (order_custo_num[n].orderNo == order_record[m].orderNo[0].orderNo) {
+                                                                $(`#order_detail_right_div_custom_wrap_${m}`).append(`
                                                 <div class="order_detail_right_div_custom_item">
                                                 <div>${order_custo_num[n].custoName}</div>
                                                 <div id="custoListCount_${n}">${order_custo_num[n].custoListCount}</div>
                                                 <div id="custoListPrice_${n}">${order_custo_num[n].custoListPrice}元</div>
                                                 <div id="custoListTotal_${n}"></div>
                                             </div>`)
-                                            var custoListPrice = $(`#custoListPrice_${n}`).text();
-                                            //把元刪掉
-                                            custoListPrice = custoListPrice.substring(0,custoListPrice.length-1);
-                                            $(`#custoListTotal_${n}`).text($(`#custoListCount_${n}`).text()*custoListPrice+'元')
+                                                                var custoListPrice = $(`#custoListPrice_${n}`).text();
+                                                                //把元刪掉
+                                                                custoListPrice = custoListPrice.substring(0, custoListPrice.length - 1);
+                                                                $(`#custoListTotal_${n}`).text($(`#custoListCount_${n}`).text() * custoListPrice + '元')
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             }
-                                        }   
+                                            // windows
+                                        xhr4.open('GET',  './php/mem_data_order_custo.php',  true);
+
+                                        // Mac
+                                        // xhr4.open('GET','http://localhost:8080/mem_data_order_custo.php');
+                                        xhr4.send(null)
                                     }
                                 }
-                            }
-                            // windows
-                            xhr4.open('GET',  './php/mem_data_order_custo.php',  true);
+                                // windows
+                            xhr3.open('GET',  './php/customeal_show.php',  true);
 
                             // Mac
-                            // xhr4.open('GET','http://localhost:8080/mem_data_order_custo.php');
-                            xhr4.send(null)
+                            // xhr3.open('GET','http://localhost:8080/customeal_show.php');
+                            xhr3.send(null);
                         }
                     }
                     // windows
-                    xhr3.open('GET',  './php/customeal_show.php',  true);
+                xhr2.open('GET', './php/member_order_record_show.php',  true);
 
-                    // Mac
-                    // xhr3.open('GET','http://localhost:8080/customeal_show.php');
-                    xhr3.send(null);
-                }
+                // Mac
+                // xhr2.open('GET','http://localhost:8080/member_order_record_show.php');
+                xhr2.send(null);
+
             }
-            // windows
-            xhr2.open('GET', './php/member_order_record_show.php',  true);
-
-            // Mac
-            // xhr2.open('GET','http://localhost:8080/member_order_record_show.php');
-            xhr2.send(null);
-
         }
-    }
 
-    // windows
-    xhr.open('GET',  './php/member_data_show.php',  true);
-// Mac
-    
-    // xhr.open('GET','http://localhost:8080/member_data_show.php');
-    xhr.send(null);
-})
-//載入網頁，撈出會員的基本資料
+        // windows
+        xhr.open('GET',  './php/member_data_show.php',  true);
+        // Mac
+
+        // xhr.open('GET','http://localhost:8080/member_data_show.php');
+        xhr.send(null);
+    })
+    //載入網頁，撈出會員的基本資料
 
 
 //判斷滾輪方向
@@ -626,24 +626,22 @@ $(document).ready(function(){
 var scrolltop = new Array();
 var index = 0;
 scrolltop[0] = 0;
-$(document).scroll(function(){
-    index ++;
-    scrolltop[index] = $(document).scrollTop();
-    if (scrolltop[index] > scrolltop[index-1]) {
-        if($(window).width() <=576){
-            $('.mem_data_left_div').slideUp(500);
-            $(window).resize(function(){
-                if($(window).width() > 576){
-                    $('.mem_data_left_div').slideDown();
-                }
-            })
-        }
-    }else{
-        if($(window).width() <=576){
-            $('.mem_data_left_div').slideDown(500);
-        }
-    };
- })
-//判斷滾輪方向
-
-
+$(document).scroll(function() {
+        index++;
+        scrolltop[index] = $(document).scrollTop();
+        if (scrolltop[index] > scrolltop[index - 1]) {
+            if ($(window).width() <= 576) {
+                $('.mem_data_left_div').slideUp(500);
+                $(window).resize(function() {
+                    if ($(window).width() > 576) {
+                        $('.mem_data_left_div').slideDown();
+                    }
+                })
+            }
+        } else {
+            if ($(window).width() <= 576) {
+                $('.mem_data_left_div').slideDown(500);
+            }
+        };
+    })
+    //判斷滾輪方向
