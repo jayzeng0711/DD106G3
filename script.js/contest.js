@@ -553,7 +553,7 @@ $(document).ready(function() {
                 };
 
 
-                // console.log(custos);
+                console.log(custos);
 
 
                 //////////// 切換排序方式、顯示內容  ///////////
