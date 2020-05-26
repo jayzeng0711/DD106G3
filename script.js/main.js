@@ -308,28 +308,61 @@ window.addEventListener('load', function() {
 
         xhr.onload = function ans() {
             if (xhr.status == 200) {
-                let lastMonth = JSON.parse(xhr.responseText);
+                let routes = JSON.parse(xhr.responseText);
+                // console.log(routes);
+
+                let p1 = 0,
+                    p2 = 0,
+                    p3 = 0;
+                let datearr = [];
+
+                for (let i = 0; i < routes.length; i++) {
+                    if (routes[i].routePort == "深澳港" && p1 < 5) {
+                        p1++;
+                        datearr.push(routes[i].routeDate);
+                    } else if (routes[i].routePort == "梧棲港" && p2 < 5) {
+                        p2++;
+                        datearr.push(routes[i].routeDate);
+                    } else if (routes[i].routePort == "高雄港" && p3 < 5) {
+                        p3++;
+                        datearr.push(routes[i].routeDate);
+                    }
+                }
+
+
+                lastRoute = datearr.pop();
+                // console.log(lastRoute);
+
                 // 最後月份
-                lastYear = lastMonth.routeDate.substr(0, 4);
-                lastMonth = lastMonth.routeDate.substr(5, 2);
-                last = lastYear + lastMonth;
+                lastYear = lastRoute.substr(0, 4);
+                lastMonth = lastRoute.substr(5, 2);
+                last = lastYear + lastMonth; //可顯示最晚的年月
+
                 // 目前月份
                 if (firstMonth < 10) {
                     firstMonth = "0" + firstMonth;
                 }
-                first = firstYear + firstMonth;
+                first = firstYear + firstMonth; //可顯示最早的年月
 
             } else {
-                console.log("xhr.status");
+                console.log(xhr.status);
             }
         };
 
+
+        data_info = `from=${firstYear}-${firstMonth}-${today}`;
+        // console.log(data_info);
+
         // windows
-        xhr.open("GET", "./php/order_route.php");
+        xhr.open("post", "./php/order_route.php");
         // Mac
-        // xhr.open('GET', 'http://localhost:8080/order_route.php');
-        xhr.send(null);
+        // xhr.open('post', 'http://localhost:8080/order_route.php');
+
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhr.send(data_info);
+
     };
+
 
 
     //  燈箱裡按上個月
@@ -533,6 +566,7 @@ window.addEventListener('load', function() {
                     };
 
                     // 找出是營業日的標籤，改變顏色
+                    // 每個港口只顯示5個航程
 
                     if (month < 10) {
                         month = "0" + month;
@@ -551,9 +585,9 @@ window.addEventListener('load', function() {
 
                                             if (portnow == "深澳港") {
                                                 $(`.day:eq(${j})`).addClass("on1");
-                                            } else if (portnow == "梧棲港") {
+                                            } else if (portnow == "梧棲港") {;
                                                 $(`.day:eq(${j})`).addClass("on2");
-                                            } else {
+                                            } else if (portnow == "高雄港" && p3 < 5) {
                                                 $(`.day:eq(${j})`).addClass("on3");
                                             }
 
@@ -584,10 +618,11 @@ window.addEventListener('load', function() {
 
             let data = {};
             data.port = portnow;
-            data.from = `${year}-${month}-1`;
+            data.from = `${year}-${now.getMonth() + 1}-1`;
 
             data = JSON.stringify(data);
             // console.log(data);
+
 
             // windows
             xhr.open("POST", "./php/order_calendar.php", true);
@@ -733,7 +768,7 @@ window.addEventListener('load', function() {
         xhr.onload = function() {
             if (xhr.status == 200) {
                 voteRank = JSON.parse(xhr.responseText);
-                console.log(voteRank);
+                // console.log(voteRank);
                 page();
             } else {
                 console.log(xhr.status);

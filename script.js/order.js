@@ -1,7 +1,6 @@
 window.addEventListener('load', function() {
 
 
-
     // 關掉機器人
     $('.reboot_div').css("display", "none");
 
@@ -274,8 +273,8 @@ window.addEventListener('load', function() {
     let routenow; //存放航程紀錄的陣列
     let now = new Date(); //今天日期
     let today = now.getDate(); //今天日期
-    let firstYear = (now.getFullYear()).toString(); //今天月份字串
-    let firstMonth = (now.getMonth() + 1).toString(); //今天年份字串
+    let firstYear = (now.getFullYear()).toString(); //今天年份字串
+    let firstMonth = (now.getMonth() + 1).toString(); //今天月份字串
 
     if (firstMonth < 10) {
         Month = "0" + firstMonth;
@@ -330,6 +329,7 @@ window.addEventListener('load', function() {
 
     // 選日期
     // 下拉選單預設顯示目前選擇的港口、接下來5個航程
+
     selectDate();
 
     function selectDate(index) {
@@ -346,13 +346,13 @@ window.addEventListener('load', function() {
                     // 訂位沒有額滿，顯示選項
                     if (date[i].routeRemaining > 0) {
                         // 只顯示5個選項
-                        // if (selectdate.options.length < 5) {
-                        option = new Option(date[i].routeDate, date[i].routeDate);
-                        selectdate.add(option);
-                        $('#date option:last-child').attr("remaining", date[i].routeRemaining);
-                        $('#date option:last-child').attr("routeNo", date[i].routeNo);
+                        if (selectdate.options.length < 5) {
+                            option = new Option(date[i].routeDate, date[i].routeDate);
+                            selectdate.add(option);
+                            $('#date option:last-child').attr("remaining", date[i].routeRemaining);
+                            $('#date option:last-child').attr("routeNo", date[i].routeNo);
 
-                        // }
+                        }
                     };
 
                 }
@@ -483,27 +483,58 @@ window.addEventListener('load', function() {
 
         xhr.onload = function ans() {
             if (xhr.status == 200) {
-                let lastMonth = JSON.parse(xhr.responseText);
+                let routes = JSON.parse(xhr.responseText);
+                console.log(routes);
+
+                let p1 = 0, //每個港口只顯示5個航程，用來計算個數
+                    p2 = 0,
+                    p3 = 0;
+                let datearr = []; //存放航程
+
+                for (let i = 0; i < routes.length; i++) {
+                    if (routes[i].routePort == "深澳港" && p1 < 5) {
+                        p1++;
+                        datearr.push(routes[i].routeDate);
+                    } else if (routes[i].routePort == "梧棲港" && p2 < 5) {
+                        p2++;
+                        datearr.push(routes[i].routeDate);
+                    } else if (routes[i].routePort == "高雄港" && p3 < 5) {
+                        p3++;
+                        datearr.push(routes[i].routeDate);
+                    }
+                }
+
+                // console.log(datearr);
+                lastRoute = datearr.pop();
+
                 // 最後月份
-                lastYear = lastMonth.routeDate.substr(0, 4);
-                lastMonth = lastMonth.routeDate.substr(5, 2);
-                last = lastYear + lastMonth;
+                lastYear = lastRoute.substr(0, 4);
+                lastMonth = lastRoute.substr(5, 2);
+                last = lastYear + lastMonth; //可顯示最晚的年月
+
                 // 目前月份
                 if (firstMonth < 10) {
                     firstMonth = "0" + firstMonth;
                 }
-                first = firstYear + firstMonth;
+                first = firstYear + firstMonth; //可顯示最早的年月
 
             } else {
-                console.log("xhr.status");
+                console.log(xhr.status);
             }
         };
 
+
+        data_info = `from=${firstYear}-${firstMonth}-${today}`;
+        // console.log(data_info);
+
         // windows
-        xhr.open("GET", "./php/order_route.php");
+        xhr.open("post", "./php/order_route.php");
         // Mac
-        // xhr.open('GET', 'http://localhost:8080/order_route.php');
-        xhr.send(null);
+        // xhr.open('post', 'http://localhost:8080/order_route.php');
+
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhr.send(data_info);
+
     };
 
 
@@ -710,7 +741,7 @@ window.addEventListener('load', function() {
                     };
 
                     // 找出是營業日的標籤，改變顏色
-
+                    // 每個港口只顯示5個航程(php)
                     if (month < 10) {
                         month = "0" + month;
                     };
@@ -730,7 +761,7 @@ window.addEventListener('load', function() {
                                                 $(`.day:eq(${j})`).addClass("on1");
                                             } else if (portnow == "梧棲港") {
                                                 $(`.day:eq(${j})`).addClass("on2");
-                                            } else {
+                                            } else if (portnow == "高雄港") {
                                                 $(`.day:eq(${j})`).addClass("on3");
                                             }
 
@@ -761,10 +792,10 @@ window.addEventListener('load', function() {
 
             let data = {};
             data.port = portnow;
-            data.from = `${year}-${month}-1`;
+            data.from = `${year}-${now.getMonth() + 1}-1`;
 
             data = JSON.stringify(data);
-            // console.log(data);
+            console.log(data);
 
             // windows
             xhr.open("POST", "./php/order_calendar.php", true);
@@ -792,7 +823,7 @@ window.addEventListener('load', function() {
 
             if (xhr.status == 200) {
                 meals = JSON.parse(xhr.responseText);
-                console.log(meals);
+                // console.log(meals);
 
                 for (let i = 0; i < meals.length; i++) {
 
