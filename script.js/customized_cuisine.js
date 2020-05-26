@@ -679,8 +679,8 @@ window.addEventListener("load", function() {
             if (xhr.status == 200) {
                 // let img = JSON.parse(xhr.responseText);
                 // console.log(img);
-                // localStorage.removeItem("fish")
-                // location.href = "contest.html";
+                localStorage.removeItem("fish")
+                location.href = "contest.html";
 
 
             } else {
