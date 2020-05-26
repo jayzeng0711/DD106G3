@@ -407,7 +407,7 @@
                     <p>按下確定後也會同時報名美食大賽，趕快去看一看吧！</p>
 
                     <div class="cancel">取消</div>
-                    <div id="download">確定</div> 
+                    <div id="download">確定</div>
 
                     <!-- <a href="./contest.html"><input type="submit" value="確定" id="download"></a> -->
                     <!-- <a href="./contest.html"><input type="submit" value="確定" id="download"></a> -->
@@ -426,8 +426,8 @@
 
     <script>
         // 手機用版面
-        $(function() {
-            $("a.tab").on("click", function(e) {
+        $(function () {
+            $("a.tab").on("click", function (e) {
                 e.preventDefault();
 
                 /* 將頁籤列表移除所有 -on，再將指定的加上 -on */
@@ -567,41 +567,6 @@
         //     $(`#cook${str},#tab_cook${str}`).addClass("selected");
         // });
     </script>
-
-
-    <script>
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function() {
-            if (xhr.status == 200) {
-                member = JSON.parse(xhr.responseText);
-                if (member.memName) {
-                    var session = localStorage;
-                    //有登入又有玩抓海鮮
-                    if (session.length != 0) {
-                        $('.attn').css("display", "none");
-                        $("main").addClass("on");
-                        return;
-                    } else {
-                        //有登入沒玩抓海鮮
-                        $(".no-fish1").addClass("on");
-                        $(".act1").removeClass("on");
-                    }
-                }
-            } else {
-                // 沒登入
-                $(".no-fish1").addClass("on");
-                $(".act1").removeClass("on");
-            }
-        }
-
-        // windows
-
-        xhr.open('GET', './php/getlogininfo.php', true);
-
-        // Mac
-        // xhr.open('GET', "http://localhost:8080/getlogininfo.php");
-        xhr.send(null);
-    </script>
     <script>
         // //獲得海鮮的烹調方式
         // function getFishInfo() {
@@ -680,6 +645,7 @@
             k = 0,
             l = 0;
 
+
         function typing() {
             if (i <= str.length) {
                 $(".talk")[0].innerHTML = str.slice(0, i++);
@@ -689,13 +655,12 @@
                 $(".talk")[0].appendChild(click_next);
             }
         }
-        $(document).ready(function() {
-            if ($(".act1").hasClass("on") == 1) {
-                setTimeout('typing()', 2500);
-            } else if ($(".no-fish1").hasClass("on") == 1) {
-                setTimeout('goCatch()', 2500);
-            }
-        });
+
+        if ($(".act1").hasClass("on") == 1) {
+            setTimeout('typing()', 2500);
+        } else if ($(".no-fish1").hasClass("on") == 1) {
+            setTimeout('goCatch()', 2500);
+        }
 
         function typing2() {
             if (j <= str2.length) {
@@ -721,13 +686,13 @@
 
             } else {
                 //開啟登入燈箱
-                $(".yes").click(function() {
+                $(".yes").click(function () {
                     $('#Login,#Login_back').css('display', 'block');
                     $('#pu_mem_resist_wrap').css('display', 'none');
                     $('#pu_mem_forget_wrap').css('display', 'none');
                     $('#pu_mem_login_wrap').css('display', 'block');
                 });
-                $(".no").click(function() {
+                $(".no").click(function () {
                     //     $(".act3").removeClass("on");
                     //     $(".act4").addClass("on");
                     //     setTimeout('typing4()', 100);
@@ -743,7 +708,7 @@
         //     }
         // }
 
-        $(".talking-here").click(function() {
+        $(".talking-here").click(function () {
             if ($(".act1").hasClass("on") == 1) {
                 $(".act1").removeClass("on");
                 $(".act2").addClass("on");
@@ -788,6 +753,7 @@
                 $(".talk")[5].appendChild(goFish);
             }
         }
+        
     </script>
     <script src="./js/customized_cuisine.js"></script>
 </body>
