@@ -123,10 +123,10 @@ $(document).ready(function() {
                             }
 
                             // // windows
-                            // xhr3.open('GET',  './php/seafood_info.php',  true);
+                            xhr3.open('GET',  './php/seafood_info.php',  true);
 
                             // Mac
-                            xhr3.open('GET', "http://localhost:8080/seafood_info.php");
+                            // xhr3.open('GET', "http://localhost:8080/seafood_info.php");
                             xhr3.send(null);
                         }
                     }
