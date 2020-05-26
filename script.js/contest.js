@@ -302,13 +302,13 @@ $(document).ready(function() {
 
 
                     // 點擊留言
-                    $(".RKmsg_btn").on("click", function(e) {
-                        var RKid = e.target.id;
-                        RKid = RKid.slice(10);
-                        showMsg(RKid); //打開燈箱
-                        rankingEnterInput(RKid);
-                        // event.stopPropagation();
-                    });
+                    // $(".RKmsg_btn").on("click", function(e) {
+                    //     var RKid = e.target.id;
+                    //     RKid = RKid.slice(10);
+                    //     showMsg(RKid); //打開燈箱
+                    //     rankingEnterInput(RKid);
+                    //     // event.stopPropagation();
+                    // });
                     // 點叉叉圖示關閉燈箱
                     $("img.msg_close").on("click", function() {
                         $("div.msg_overlay").addClass("-opacity-zero");
@@ -401,7 +401,6 @@ $(document).ready(function() {
 
     // 計算這個月比賽，各料理的得票數和排名，存進 custco 表格，再顯示料理排序
     function vote(index) {
-        console.log('11')
         let xhr = new XMLHttpRequest;
         xhr.onload = function() {
             if (xhr.status == 200) {
@@ -583,8 +582,8 @@ $(document).ready(function() {
         nowpage = now;
 
         // 現在這頁頁碼變色
-        $('.pages').removeClass("on");
-        $(`#page${now}`).addClass("on");
+        $('.pages').removeClass("page_on");
+        $(`#page${now}`).addClass("page_on");
 
         // 清空內容
         $('.cookList_contain').empty();
@@ -618,7 +617,7 @@ $(document).ready(function() {
                             <img src="./images/${custoPic}" alt="">
                             <figcaption>
                                 
-                                <p>${custoName}</p>
+                                <p id="List_name_${custoNo}">${custoName}</p>
                                 <p>票數:${custoVote}票</p>
                             </figcaption>
                         </figure>
@@ -1007,7 +1006,9 @@ $(document).ready(function() {
 
                         xhr6.open('POST', './php/contest_vote_input.php', true);
                         xhr6.send(voteData_str);
-                        $('.alertbox1 .wrapper_alert1').text("恭喜您投票成功!");
+                        // $('.alertbox1 .wrapper_alert1').text("恭喜您投票成功!");
+                        var custoName = $(`#name_${custoNo}`).text();
+                        $('.alertbox1 .wrapper_alert1').text(`您已投給《${custoName}》一票`);
                         $('.alertbox1').addClass("on_alert1");
                         // vote(selectedIndex);
                         console.log(selectedIndex);
@@ -1086,7 +1087,9 @@ $(document).ready(function() {
 
                         xhr6.open('POST', './php/contest_vote_input.php', true);
                         xhr6.send(voteData_str);
-                        $('.alertbox1 .wrapper_alert1').text("恭喜您投票成功!");
+                        // $('.alertbox1 .wrapper_alert1').text("恭喜您投票成功!");
+                        var custoName = $(`#List_name_${custoNo}`).text();
+                        $('.alertbox1 .wrapper_alert1').text(`您已投給《${custoName}》一票`);
                         $('.alertbox1').addClass("on_alert1");
                         // vote(selectedIndex);
 
