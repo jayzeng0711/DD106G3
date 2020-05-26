@@ -502,6 +502,7 @@ window.addEventListener("load", function() {
     // 存放配料
     function addIngret(ImgSrc) {
 
+        console.log(ImgSrc);
         // 計算放配料次數
         count++;
         // 存現在這個配料的圖片，和前一個配料的位置
@@ -678,8 +679,8 @@ window.addEventListener("load", function() {
             if (xhr.status == 200) {
                 // let img = JSON.parse(xhr.responseText);
                 // console.log(img);
-                localStorage.clear();
-                location.href = "contest.html";
+                // localStorage.removeItem("fish")
+                // location.href = "contest.html";
 
 
             } else {
@@ -709,19 +710,19 @@ window.addEventListener("load", function() {
         data.ingret = [];
 
         if (IngreSrc1 != 0) {
-            IngreSrc1 = IngreSrc1.slice(9).replace(".png", "");
+            IngreSrc1 = IngreSrc1.slice(9).replace("_in.png", "");
             ingretNo = arrName.indexOf(IngreSrc1) + 1;
             data.ingret.push(ingretNo);
         }
 
         if (IngreSrc2 != 0) {
-            IngreSrc2 = IngreSrc2.slice(9).replace(".png", "");
+            IngreSrc2 = IngreSrc2.slice(9).replace("_in.png", "");
             ingretNo = arrName.indexOf(IngreSrc2) + 1;
             data.ingret.push(ingretNo);
         }
 
         if (IngreSrc3 != 0) {
-            IngreSrc3 = IngreSrc3.slice(9).replace(".png", "");
+            IngreSrc3 = IngreSrc3.slice(9).replace("_in.png", "");
             ingretNo = arrName.indexOf(IngreSrc3) + 1;
             data.ingret.push(ingretNo);
         }
