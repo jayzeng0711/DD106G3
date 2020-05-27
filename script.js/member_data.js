@@ -363,7 +363,17 @@ $(document).ready(function() {
                             </div>
                         </div>
                     </div>
-                    <hr>`)
+                    <hr><div class="overlay">
+                    <article>
+                        <div class="box-title">
+                            確認要取消訂單嗎
+                            <img class="close" src="./images/blue-cross-icon.png" alt="">
+                        </div>
+                        <p>按下確定後訂單無法恢復，必須重新訂餐喔！</p>
+                        <div class="cancel">取消</div>
+                        <div class="download" id="download_${order_record[i].orderNo[0].orderNo}">確定</div>
+                    </article>
+                </div>`)
                                 } else if (order_record[i].orderState == 2) {
                                     order_record[i].orderState = '訂單成立，報到成功';
                                     $('.order_detail_wrap').append(`<div class="order_history">
@@ -472,60 +482,69 @@ $(document).ready(function() {
                                 $('.alertbox .wrapper').empty();
                                 var qrcode = e.target.id;
                                 qrcode_last = qrcode.slice(10);
-                                $('.alertbox .wrapper').append(`<img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=http://140.115.236.71/demo-projects/DD106/DD106G3/0526dest/php/order_getQRcode.php?orderId=${qrcode_last}&choe=UTF-8
-                                "></img>`);
-                                $('.alertbox').addClass("on");
+                                $('.alertbox .wrapper').append(`<img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://140.115.236.71/demo-projects/DD106/DD106G3/0526dest/php/order_getQRcode.php?orderId=${qrcode_last}&choe=UTF-8
+                                "></img>`).css('height','150px');
+                                $('.alertbox').addClass("on").css('height','200px');
                             })
                             //判斷每個掃描qrcode按鈕
                             //判斷每個取消訂單按鈕
-                            $(`.order_detail_cancel_btn`).click(function(e) {
-                                    if (confirm("確認要取消訂單嗎") == true) {
-                                        var route_last = e.target.id;
-                                        route_last = route_last.slice(24);
-                                        var roure_date = $(`#routedate_${route_last}`).text();
-                                        var cancel_time = new Date();
-                                        var year = cancel_time.getFullYear();
-                                        var month = cancel_time.getMonth() + 1;
-                                        var date = cancel_time.getDate();
-                                        var today = `${year}-${month}-${date}`;
-                                        var DateDiff = function(sDate1, sDate2) {
-                                            var oDate1 = new Date(sDate1);
-                                            var oDate2 = new Date(sDate2);
-                                            var iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24);
-                                            return iDays;
-                                        };
+                            $(`.order_detail_cancel_btn`).click(function() {
+                                $(".overlay").addClass("-on");
+                            })
+                            $(".close, .cancel").on("click", function () {
+                                $(".overlay").addClass("-opacity-zero");
+                        
+                        
+                                // 設定隔一秒後，移除相關 class
+                                setTimeout(function () {
+                                    $(".overlay").removeClass("-on -opacity-zero");
+                                }, 1000);
+                            });
+                            //確認取消訂單
+                            $('.download').click(function(e){
+                                var route_last = e.target.id;
+                                route_last = route_last.slice(9);
+                                var roure_date = $(`#routedate_${route_last}`).text();
+                                var cancel_time = new Date();
+                                var year = cancel_time.getFullYear();
+                                var month = cancel_time.getMonth() + 1;
+                                var date = cancel_time.getDate();
+                                var today = `${year}-${month}-${date}`;
+                                var DateDiff = function(sDate1, sDate2) {
+                                    var oDate1 = new Date(sDate1);
+                                    var oDate2 = new Date(sDate2);
+                                    var iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24);
+                                    return iDays;
+                                };
 
-                                        var GetDateDiff1 = DateDiff(today, roure_date);
-                                        if (GetDateDiff1 >= 7) {
-                                            var order_detail_last_num = e.target.id;
-                                            order_detail_last_num = order_detail_last_num.slice(24);
-                                            var xhr5 = new XMLHttpRequest();
-                                            xhr5.onload = function() {
-                                                if (xhr5.status == 200) {
-                                                    window.location.reload()
-                                                }
-                                            }
-                                            var order_detail = {};
-                                            order_detail.num_id = order_detail_last_num;
-                                            order_detail_str = JSON.stringify(order_detail);
-                                            // windows
-                                            xhr5.open('POST',  './php/mem_cancel_order.php',  true);
-
-                                            // Mac
-                                            // xhr5.open('POST','http://localhost:8080/mem_cancel_order.php');
-                                            xhr5.send(order_detail_str);
-                                        } else {
-                                            $('.alertbox .wrapper').text("出發前七日內無法取消訂單");
-                                            $('.alertbox').addClass("on");
-                                            return false;
+                                var GetDateDiff1 = DateDiff(today, roure_date);
+                                if (GetDateDiff1 >= 7) {
+                                    var order_detail_last_num = e.target.id;
+                                    order_detail_last_num = order_detail_last_num.slice(9);
+                                    var xhr5 = new XMLHttpRequest();
+                                    xhr5.onload = function() {
+                                        if (xhr5.status == 200) {
+                                            window.location.reload()
                                         }
-
-                                    } else {
-                                        return false;
                                     }
-                                })
-                                //判斷每個取消訂單按鈕
-                                //判斷每個展開按鈕
+                                    var order_detail = {};
+                                    order_detail.num_id = order_detail_last_num;
+                                    order_detail_str = JSON.stringify(order_detail);
+                                    // windows
+                                    xhr5.open('POST',  './php/mem_cancel_order.php',  true);
+
+                                    // Mac
+                                    // xhr5.open('POST','http://localhost:8080/mem_cancel_order.php');
+                                    xhr5.send(order_detail_str);
+                                } else {
+                                    $('.alertbox .wrapper').text("出發前七日內無法取消訂單");
+                                    $('.alertbox').addClass("on");
+                                    return false;
+                                }
+                            })
+
+                            //判斷每個取消訂單按鈕
+                            //判斷每個展開按鈕
                             $(`.order_history_btn`).click(function(e) {
                                     var id_num = e.target.id;
                                     id_num = id_num.slice(18);
