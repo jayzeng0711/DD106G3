@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/order.css">
     <link rel="stylesheet" href="./css/icon.min.css">
-
     <title>訂位點餐</title>
 
 </head>
@@ -384,7 +383,7 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_wUBc4tgNQJ4VWqlmASpbCMC9wbWth7s&callback=initMap">
     </script>
     <script>
-        function initMap() {
+        function initMap(portNo) {
             var port1 = {
                 lat: 25.132219,
                 lng: 121.819155
@@ -398,21 +397,69 @@
                 lng: 120.2747798
             };
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 7,
-                center: port2
+                zoom: 8,
+                center: port1,
+                mapTypeControl: false,
+                streetViewControl: false,
             });
-            var marker1 = new google.maps.Marker({
+
+            var marker = new google.maps.Marker({
                 position: port1,
-                map: map
+                icon: "./images/cruise.png",
+                map: map,
+                animation: google.maps.Animation.BOUNCE
             });
-            var marker2 = new google.maps.Marker({
-                position: port2,
-                map: map
-            });
-            var marker3 = new google.maps.Marker({
-                position: port3,
-                map: map
-            });
+
+            // 換港口
+
+            if (portNo == "port1") {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 8,
+                    center: port1,
+                    mapTypeControl: false,
+                    streetViewControl: false,
+                });
+
+                var marker = new google.maps.Marker({
+                    position: port1,
+                    icon: "./images/cruise.png",
+                    map: map,
+                    animation: google.maps.Animation.BOUNCE
+
+                });
+
+            } else if (portNo == "port2") {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 8,
+                    center: port2,
+                    mapTypeControl: false,
+                    streetViewControl: false,
+                });
+
+                var marker = new google.maps.Marker({
+                    position: port2,
+                    icon: "./images/cruise.png",
+                    map: map,
+                    animation: google.maps.Animation.BOUNCE
+                });
+
+            } else if (portNo == "port3") {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 8,
+                    center: port3,
+                    mapTypeControl: false,
+                    streetViewControl: false,
+                });
+
+                var marker = new google.maps.Marker({
+                    position: port3,
+                    icon: "./images/cruise.png",
+                    map: map,
+                    animation: google.maps.Animation.BOUNCE
+                });
+
+            }
+
         }
     </script>
 

@@ -8,8 +8,6 @@ window.addEventListener('load', function() {
     });
 
 
-
-
     // 關掉提示燈箱
 
     $('.alertbox .boxclose').click(function() {
@@ -200,8 +198,6 @@ window.addEventListener('load', function() {
 
     function checkTotal() {
         $('.total').text($('.subtotal').text() - $('#ordepoint').val());
-        // $('.total').text($('.subtotal').text());
-
     };
 
 
@@ -211,7 +207,6 @@ window.addEventListener('load', function() {
 
     function checkPoint() {
         let xhr = new XMLHttpRequest;
-
         xhr.onload = function() {
 
             if (xhr.status == 200) {
@@ -223,7 +218,6 @@ window.addEventListener('load', function() {
             };
 
         };
-
         let data = `memNo=${localStorage['memNo']}`;
         // console.log(data);
 
@@ -240,39 +234,44 @@ window.addEventListener('load', function() {
 
     // 點數不可超過最大可用點數
     $('#ordepoint').change(function() {
+        changePoint();
+    });
+
+    function changePoint() {
         let val = $('#ordepoint').val();
-        if (val < 0) {
+
+        if (val < 0 || val == "") {
             $('#ordepoint').val(0);
         } else if (val > point) {
             $('#ordepoint').val(point);
         } else if (val < point) {
             $('#ordepoint').val(parseInt(val));
         } else {
-            $('#ordepoint').val(0);
+            $('#ordepoint').val(val);
         };
         checkTotal();
-
-    });
+    }
 
     // 送出訂單
     // 檢查訂位資訊都填寫好
 
 
+
     $('.next').click(function() {
+
+        changePoint(); //計算點數和總金額
+
+        let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+
         if ($('#ordername').val() == "") {
             $('.alertbox .wrapper').text("請填寫姓名～");
             $('.alertbox').addClass("on");
-        } else if ($('#ordertel').val() == "") {
+        } else if ($('#ordertel').val() == "" || $('#ordertel').val().length < 9) {
             $('.alertbox .wrapper').text("請填寫正確的聯絡電話～");
             $('.alertbox').addClass("on");
-        } else if ($('#orderemail').val() == "") {
-            $('.alertbox .wrapper').text("請填寫信箱～");
+        } else if ($('#orderemail').val() == "" || $('#orderemail').val().search(emailRule) == -1) {
+            $('.alertbox .wrapper').text("請填寫正確的信箱～");
             $('.alertbox').addClass("on");
-        } else if ($('.pu_mem_login_suc_div').text() == false) {
-            $('#Login,#Login_back').css('display', 'block');
-            $('#pu_mem_resist_wrap').css('display', 'none');
-            $('#pu_mem_forget_wrap').css('display', 'none');
-            $('#pu_mem_login_wrap').css('display', 'block');
         } else {
 
             let xhr = new XMLHttpRequest;
@@ -294,15 +293,6 @@ window.addEventListener('load', function() {
                     console.log(xhr.status);
                 }
             };
-
-
-            // windows
-            xhr.open('post',  './php/orderdetail_order.php',  true);
-
-            // Mac
-            // xhr.open('POST', 'http://localhost:8080/orderdetail_order.php', true);
-
-            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
             //訂單 
             let data = {};
@@ -350,8 +340,17 @@ window.addEventListener('load', function() {
                 data.custo.push(custo);
             }
 
+
             let data_info = JSON.stringify(data);
-            console.log(data_info);
+            // console.log(data_info);
+
+            // windows
+            xhr.open('post',  './php/orderdetail_order.php',  true);
+
+            // Mac
+            // xhr.open('POST', 'http://localhost:8080/orderdetail_order.php', true);
+
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             xhr.send(data_info);
 
         }

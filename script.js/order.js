@@ -31,10 +31,6 @@ window.addEventListener('load', function() {
 
             $('.section1').css("display", "none");
             $('.section2').css("display", "block");
-            // 移動位置
-            // $('html,body').animate({
-            //     scrollTop: $('.section2').offset().top
-            // }, 600);
 
             // 關掉月曆燈箱
             $('.box').css("display", "none");
@@ -68,12 +64,6 @@ window.addEventListener('load', function() {
             $('.section2').css("display", "none");
             $('.section3').css("display", "block");
 
-            // 移動位置
-            // $('html,body').animate({
-            //     scrollTop: $('.section3').offset().top
-            // }, 600);
-
-            // $('body').css("overflow", "auto");
         }
 
     });
@@ -81,28 +71,14 @@ window.addEventListener('load', function() {
 
     // 第二屏按上一步
     $('.section2 .previous').click(function() {
-
         $('.section2').css("display", "none");
         $('.section1').css("display", "block");
-        // $('html,body').animate({
-        //     scrollTop: $('.section1').offset().top
-        // }, 600);
-
     });
 
     // 第三屏按上一步
     $('.section3 .previous').click(function() {
-
-
         $('.section3').css("display", "none");
         $('.section2').css("display", "block");
-
-        // $('html,body').animate({
-        //     scrollTop: $('.section2').offset().top
-        // }, 600);
-
-
-
     });
 
 
@@ -270,6 +246,7 @@ window.addEventListener('load', function() {
 
     /////////////////////訂位頁面//////////////////////
 
+    let map = "port1"; //地圖位置
     let routenow; //存放航程紀錄的陣列
     let now = new Date(); //今天日期
     let today = now.getDate(); //今天日期
@@ -315,6 +292,9 @@ window.addEventListener('load', function() {
         $('.port label').not(this).removeClass('on');
         portnow = $(this).text();
 
+        // 換地圖位置
+        changeMap();
+
         // 燈箱裡的港口跟著改變
         $(".btnport").removeClass("on");
         for (let i = 0; i < $(".btnport").length; i++) {
@@ -325,6 +305,21 @@ window.addEventListener('load', function() {
         selectDate();
 
     });
+
+    // 換地圖位置
+
+    function changeMap() {
+        if (portnow == "深澳港") {
+            map = "port1";
+        } else if (portnow == "梧棲港") {
+            map = "port2";
+        } else {
+            map = "port3";
+        }
+        initMap(map);
+
+    };
+
 
 
     // 選日期
@@ -484,7 +479,7 @@ window.addEventListener('load', function() {
         xhr.onload = function ans() {
             if (xhr.status == 200) {
                 let routes = JSON.parse(xhr.responseText);
-                console.log(routes);
+                // console.log(routes);
 
                 let p1 = 0, //每個港口只顯示5個航程，用來計算個數
                     p2 = 0,
@@ -595,6 +590,8 @@ window.addEventListener('load', function() {
         portnow = $(this).text();
         showCalender();
 
+
+
     });
 
     // 營業日被摸到會顯示剩餘座位數
@@ -626,6 +623,8 @@ window.addEventListener('load', function() {
                         $(`.port label:eq(${i})`).addClass("on");
                     }
                 }
+                // 換地圖位置
+                changeMap();
 
                 // 改變日期
                 year = $('.year').text();
@@ -780,22 +779,17 @@ window.addEventListener('load', function() {
                     $('td').unbind();
                     tdClick();
                     boxRemaining();
-
-
                 } else {
                     console.log(xhr.status);
                 };
-
-
             };
-
 
             let data = {};
             data.port = portnow;
             data.from = `${year}-${now.getMonth() + 1}-1`;
 
             data = JSON.stringify(data);
-            console.log(data);
+            // console.log(data);
 
             // windows
             xhr.open("POST", "./php/order_calendar.php", true);

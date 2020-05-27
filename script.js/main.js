@@ -140,6 +140,9 @@ window.addEventListener('load', function() {
         $('.port label').not(this).removeClass("on");
         portnow = $(this).text();
 
+        // 換地圖位置
+        changeMap();
+
         // 燈箱裡的港口跟著改變
         $(".btnport").removeClass("on");
         for (let i = 0; i < $(".btnport").length; i++) {
@@ -149,6 +152,21 @@ window.addEventListener('load', function() {
         }
         selectDate();
     });
+
+    // 換地圖位置
+
+    function changeMap() {
+        if (portnow == "深澳港") {
+            map = "port1";
+        } else if (portnow == "梧棲港") {
+            map = "port2";
+        } else {
+            map = "port3";
+        }
+        initMap(map);
+
+    };
+
 
 
     // 選日期
@@ -454,6 +472,9 @@ window.addEventListener('load', function() {
                     }
                 }
 
+                // 換地圖位置
+                changeMap();
+
                 // 改變日期
                 year = $('.year').text();
                 month = $('.month').text();
@@ -587,7 +608,7 @@ window.addEventListener('load', function() {
                                                 $(`.day:eq(${j})`).addClass("on1");
                                             } else if (portnow == "梧棲港") {;
                                                 $(`.day:eq(${j})`).addClass("on2");
-                                            } else if (portnow == "高雄港" && p3 < 5) {
+                                            } else if (portnow == "高雄港") {
                                                 $(`.day:eq(${j})`).addClass("on3");
                                             }
 
