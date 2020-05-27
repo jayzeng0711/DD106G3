@@ -51,6 +51,10 @@ $(document).ready(function () {
             // 停用新增按鈕
             $(this).attr('disabled', 'disabled');
 
+            // 顯示輸入新增資料的欄位
+            $('tr.title').after('<tr class="insert"><td><input type="text" id="mealName"></td><td><form id="newPic" action="./php/mealPicUpload.php"><input type="file" id="mealPic" name="mealPic"><input type="submit" value="OK"><lable id="mealPic"><img id="show" src=""></lable></form></td><td><input type="text" id="mealFirst"></td><td><input type="text" id="mealMain"></td><td><input type="text" id="mealDishOne"></td><td><input type="text" id="mealDishTwo"></td><td><input type="text" id="mealSoup"></td><td><input type="text" id="mealDrink"></td><td><input type="text" id="mealPrice"></td><td><select id="mealState"><option value="0">未上架</option><option value="1">上架</option></select></td></tr>');
+
+
     // 顯示輸入新增資料的欄位
     $('tr.title').after('<tr class="insert"><td></td><td><input type="text" name="mealName" id="mealName"></td><td><form id="newPic" method="post" action="./php/mealPicUpload.php"><input type="file" id="mealPic" name="mealPic" class="mealPic" accept=".jpg,.png,.svg"><input type="submit" value="上傳"><label for="mealPic"><img id="show" src=""></label></form></td><td><input type="text" name="mealFirst" id="mealFirst"></td><td><input type="text" name="mealMain" id="mealMain"></td><td><input type="text" name="mealDishOne" id="mealDishOne"></td><td><input type="text" name="mealDishTwo" id="mealDishTwo"></td><td><input type="text" name="mealSoup" id="mealSoup"></td><td><input type="text" name="mealDrink" id="mealDrink"></td><td><input type="text" name="mealPrice" id="mealPrice"></td><td><select id="mealState"><option value="0">未上架</option><option value="1">上架</option></select></td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
 
@@ -182,7 +186,7 @@ $(document).ready(function () {
                 }
                 reader.readAsDataURL(file);
 
-                 // 儲存
+                 //有改圖片的儲存
             $('.save').click(function () {
 
                 let xhr = new XMLHttpRequest;
@@ -308,7 +312,7 @@ $(document).ready(function () {
             <button type="submit" class="btn btn-info save">儲存</button>
             <button type="button" class="btn btn-info cancel">取消</button>`);
 
- // 儲存
+ //無改圖的儲存
  $('.save').click(function () {
 
     let xhr = new XMLHttpRequest;
@@ -352,16 +356,16 @@ $(document).ready(function () {
     xhr.send(data_info);
 });
 
-            // 取消
-            tr.find('.cancel').click(function () {
-                show();
-            });
+    // 取消
+    tr.find('.cancel').click(function () {
+        show();
+    });
 
 
 
 
 
-        });
+    });
 
 
 

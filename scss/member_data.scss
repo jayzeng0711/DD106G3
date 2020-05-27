@@ -295,8 +295,8 @@
             }
         }
         .order_detail_btn{
-            @extend %btn;
-            padding: 1% 2%;
+            @extend %btn_ano;
+            padding: 4% 4%;
         }
         .order_detail_cancel_btn{
             @extend %btn;
@@ -632,7 +632,7 @@
                 }
             }
             .order_detail_btn{
-                padding: 1% 2%;
+                padding: 4% 4%;
             }
             .order_detail_cancel_btn{
                 padding: 1% 2%;
@@ -965,7 +965,7 @@
                 }
             }
             .order_detail_btn{
-                padding: 3% 5%;
+                padding: 4% 4%;
             }
             .order_detail_cancel_btn{
                 padding: 3% 5%;
@@ -1305,7 +1305,7 @@
                 }
             }
             .order_detail_btn{
-                padding: 2% 4%;
+                padding: 4% 4%;
             }
             .order_detail_cancel_btn{
                 padding: 2% 4%;

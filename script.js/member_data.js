@@ -1,5 +1,3 @@
-filename = "";
-
 //側邊欄切換
 $(document).ready(function() {
         $('#preson_data').css({
@@ -223,6 +221,9 @@ $(document).ready(function() {
                             <div class="order_history_list">
                                 <div>狀態</div>
                             </div>
+                            <div class="order_history_list">
+                                <div>QRcode</div>
+                            </div>
                         </div>
                             <div class="order_history_test">
                             <div class="order_history_list test">
@@ -239,6 +240,9 @@ $(document).ready(function() {
                             </div>
                             <div class="order_history_list test">
                                 <div>${order_record[i].orderState}</div>
+                            </div>
+                            <div class="order_history_list test">
+                                <div><button class="order_detail_btn" id="order_code${order_record[i].orderNo[0].orderNo}">掃描QRcode</button></div>
                             </div>
                         </div>
                         <div class="order_history_btn" id="order_history_btn_${i}">
@@ -295,6 +299,9 @@ $(document).ready(function() {
                         <div class="order_history_list">
                             <div>狀態</div>
                         </div>
+                        <div class="order_history_list">
+                            <div>QRcode</div>
+                        </div>
                     </div>
                         <div class="order_history_test">
                         <div class="order_history_list test">
@@ -311,6 +318,9 @@ $(document).ready(function() {
                         </div>
                         <div class="order_history_list test">
                             <div>${order_record[i].orderState}</div>
+                        </div>
+                        <div class="order_history_list test">
+                            <div><button class="order_detail_btn" id="order_code${order_record[i].orderNo[0].orderNo}">掃描QRcode</button></div>
                         </div>
                     </div>
                     <div class="order_history_btn" id="order_history_btn_${i}">
@@ -372,6 +382,9 @@ $(document).ready(function() {
                         <div class="order_history_list">
                             <div>狀態</div>
                         </div>
+                        <div class="order_history_list">
+                            <div>QRcode</div>
+                        </div>
                     </div>
                         <div class="order_history_test">
                         <div class="order_history_list test">
@@ -388,6 +401,9 @@ $(document).ready(function() {
                         </div>
                         <div class="order_history_list test">
                             <div>${order_record[i].orderState}</div>
+                        </div>
+                        <div class="order_history_list test">
+                            <div><button class="order_detail_btn" id="order_code${order_record[i].orderNo[0].orderNo}">掃描QRcode</button></div>
                         </div>
                     </div>
                     <div class="order_history_btn" id="order_history_btn_${i}">
@@ -451,6 +467,16 @@ $(document).ready(function() {
                                     $(`#mealListToatl_${j}_${i}`).text($(`#mealListCount_${j}_${i}`).text() * mealListPrice + '元')
                                 }
                             }
+                            //判斷每個掃描qrcode按鈕
+                            $('.order_detail_btn').click(function(e){
+                                $('.alertbox .wrapper').empty();
+                                var qrcode = e.target.id;
+                                qrcode_last = qrcode.slice(10);
+                                $('.alertbox .wrapper').append(`<img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=http://140.115.236.71/demo-projects/DD106/DD106G3/0526dest/php/order_getQRcode.php?orderId=${qrcode_last}&choe=UTF-8
+                                "></img>`);
+                                $('.alertbox').addClass("on");
+                            })
+                            //判斷每個掃描qrcode按鈕
                             //判斷每個取消訂單按鈕
                             $(`.order_detail_cancel_btn`).click(function(e) {
                                     if (confirm("確認要取消訂單嗎") == true) {
