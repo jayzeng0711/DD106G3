@@ -18,7 +18,6 @@ $(document).ready(function() {
 
                 if (xhr2.status == 200) {
                     custoRKRows = JSON.parse(xhr2.responseText);
-                    console.log(custoRKRows);
 
                     //清空內容
                     $(".ranking_contain").empty();
@@ -430,11 +429,9 @@ $(document).ready(function() {
         xhr.onload = function() {
             if (xhr.status == 200) {
                 comments = JSON.parse(xhr.responseText);
-                // console.log(comments);
 
             } else {
                 console.log(xhr.status);
-
             }
         };
 
@@ -557,9 +554,6 @@ $(document).ready(function() {
                 };
 
 
-                console.log(custos);
-
-
                 //////////// 切換排序方式、顯示內容  ///////////
 
 
@@ -603,7 +597,6 @@ $(document).ready(function() {
             let no = i + now * 6;
 
             if (custos[no]) {
-                console.log(custos[1]);
                 // 料理編號(由大到小，等於時間由新到舊)
                 custoNo = custos[no].custoNo;
 
@@ -994,7 +987,6 @@ $(document).ready(function() {
         xhr5.onload = function() {
                 if (xhr5.status == 200) {
                     v_check_Row = JSON.parse(xhr5.responseText);
-                    // console.log(v_check_Row);
 
                     if (v_check_Row == false) {
 
@@ -1022,7 +1014,6 @@ $(document).ready(function() {
                         voteData.custoNo = custoNo;
 
                         var voteData_str = JSON.stringify(voteData);
-                        // console.log(voteData_str);
 
                         xhr6.open('POST', './php/contest_vote_input.php', true);
                         xhr6.send(voteData_str);
@@ -1031,7 +1022,6 @@ $(document).ready(function() {
                         $('.alertbox1 .wrapper_alert1').text(`您已投給《${custoName}》一票`);
                         $('.alertbox1').addClass("on_alert1");
                         // vote(selectedIndex);
-                        console.log(selectedIndex);
 
                     } else {
                         $('.alertbox1 .wrapper_alert1').text("您今日已投過票囉~");
@@ -1056,7 +1046,6 @@ $(document).ready(function() {
         voteData.custoNo = custoNo;
 
         var voteData_str = JSON.stringify(voteData);
-        // console.log(voteData_str);
 
         // xhr5.open('POST', './php/contest_vote_input.php', true);
         // xhr5.send(voteData_str);
@@ -1075,7 +1064,6 @@ $(document).ready(function() {
         xhr5.onload = function() {
                 if (xhr5.status == 200) {
                     vList_check_Row = JSON.parse(xhr5.responseText);
-                    // console.log(vList_check_Row);
 
                     if (vList_check_Row == false) {
 
@@ -1103,7 +1091,6 @@ $(document).ready(function() {
                         voteData.custoNo = custoNo;
 
                         var voteData_str = JSON.stringify(voteData);
-                        // console.log(voteData_str);
 
                         xhr6.open('POST', './php/contest_vote_input.php', true);
                         xhr6.send(voteData_str);
@@ -1137,10 +1124,6 @@ $(document).ready(function() {
         voteData.custoNo = custoNo;
 
         var voteData_str = JSON.stringify(voteData);
-        // console.log(voteData_str);
-
-        // xhr5.open('POST', './php/contest_vote_input.php', true);
-        // xhr5.send(voteData_str);
 
         xhr5.open('POST', './php/contest_vote_check.php', true);
         xhr5.send(null);
@@ -1211,7 +1194,6 @@ $(document).ready(function() {
                 if (xhr3.status == 200) {
                     let commentRow = JSON.parse(xhr3.responseText);
                     var last_commentNo = parseInt(commentRow.commentNo);
-                    console.log(commentRow);
 
                     $(`.List_msg_wrap${id}`).append(`
                     <div class="mem_contain">
