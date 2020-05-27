@@ -59,18 +59,18 @@ function show(){
     xhr.onload = function(){
         if(xhr.status == 200){
             let message_row = JSON.parse(xhr.responseText);
-            // console.log(message_row)
+            console.log(message_row)
             let trlength = message_row.length;
-
-            adminAuthority = $('.adminAuthority').val();
-            if(adminAuthority == 0){
-                adminAuthority = "一般";
-            } else {
-                adminAuthority = "最高";
-            }
+            let tr = $(this).parent().parent();
             
             //先從資料庫把所有欄位撈出
             for(let i=0;i<trlength;i++){
+
+                if (message_row[i].adminAuthority == 0) {
+                    adminAuthority = "一般";
+                } else {
+                    adminAuthority = "最高";
+                }
                 
                 $("table").append(`<tr>
                 <td id="message_num_${message_row[i].adminNo}">${message_row[i].adminNo}</td>
@@ -78,7 +78,7 @@ function show(){
                 <td id="message_quest_${message_row[i].adminNo}">${message_row[i].adminPsw}</td>
                 <td id="message_input_${message_row[i].adminNo}">${message_row[i].adminName}</td>
                 <td id="message_status_${message_row[i].adminNo}">
-                    <div><select id="message_auth_${message_row[i].adminNo}"><option class="adminAuthority" value="0">一般</option><option class="adminAuthority" value="1">最高</option></select></div>
+                    <div><select id="message_auth_${message_row[i].adminNo}" class="adminAuthourty"><option disable selected value>${adminAuthority}</option><option  value="0">一般</option><option value="1">最高</option></select></div>
                 </td>
                 <td>
                     <div>
@@ -86,6 +86,13 @@ function show(){
                     </div>
                 </td>
             </tr>`)
+            
+            // let adminAuthority = tr.find('td:eq(4)').text();
+            // if( adminAuthority == "最高"){
+            //     tr.find('td:eq(4) option:eq(0)').attr("selected", "selected");
+            // } else {
+            //     tr.find('td:eq(4) option:eq(1)').attr("selected", "selected");
+            // }
             }
             //先從資料庫把所有欄位撈出
 
@@ -93,25 +100,17 @@ function show(){
             $('.update').click(function(e){
                 var num_id = e.target.id;
                 var num = num_id.slice(7);
+                // alert(num);
                 update(num);
-            })
-            //再把所有編輯註冊事件
-        }
-    }
-    // windows
-    xhr.open('GET',  './php/backend_Admin.php',  true);
-    // Mac
-    // xhr.open('GET','http://localhost:8080/backend_Admin.php');
-    xhr.send(null);
-}
 
-//更新
+                //更新
 function update(id){
     var message_id = $(`#message_auth_${id}`).val();
     var xhr = new XMLHttpRequest();
     xhr.onload = function(){
         if(xhr.status == 200){
-            // console.log(xhr.responseText);
+            show();
+            console.log(xhr.responseText);
         }
     }
     var message_row_update = {};
@@ -125,3 +124,14 @@ function update(id){
     xhr.send(message_row_update_str);
 }
 //更新
+            })
+            //再把所有編輯註冊事件
+        }
+    }
+    // windows
+    xhr.open('GET',  './php/backend_Admin.php',  true);
+    // Mac
+    // xhr.open('GET','http://localhost:8080/backend_Admin.php');
+    xhr.send(null);
+}
+
