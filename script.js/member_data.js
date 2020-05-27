@@ -79,7 +79,7 @@ $(document).ready(function() {
                                 會員信箱: <input style="border: none;background-color: transparent;" size="25" type="email" name="email" id="email" value="${mem_basic_data.memId}" readonly>   
                             </div>
                             <div>
-                                會員密碼: <input id="input_cannoy_mod" class="input_cannoy_mod" name="input_cannoy_mod" type="text" value="${mem_basic_data.memPsw}" size="25">
+                                會員密碼: <input id="input_cannoy_mod" class="input_cannoy_mod" name="input_cannoy_mod" type="password" value="${mem_basic_data.memPsw}" size="25">
                             </div>
                             <input id="psw_hidden" type="text" value="${mem_basic_data.memPsw}" hidden>
                             <div>
@@ -103,55 +103,55 @@ $(document).ready(function() {
                     儲存
                 </button>
                 `)
-                        //點下會員密碼欄位觸發燈箱
-                    $('#input_cannoy_mod').click(function() {
-                            if (confirm('要修改密碼嗎？') == true) {
-                                $('#Login').css('display', 'block');
-                                $('#pu_mem_resist_wrap').css('display', 'none');
-                                $('#pu_mem_login_wrap').css('display', 'none');
-                                $('#pu_mem_forget_wrap').css('display', 'block');
-                                $('#Login_back').css('display', 'block');
-                            } else {
-                                return false;
-                            }
-                        })
-                        //點下會員密碼欄位觸發燈箱
-                        //點下修改密碼
-                    $('#modify_signInBtn').click(function(e) {
-                            var input_cannoy_mod = $('#input_cannoy_mod').val();
-                            var psw_hidden = $('#psw_hidden').val();
-                            var memid = $('#email').val();
-                            var old_psw = $('#old_psw').val();
-                            var new_psw = $('#new_psw').val();
-                            if (old_psw == "" || new_psw == "") {
-                                $('.alertbox .wrapper').text("請填寫舊密碼與新密碼");
-                                $('.alertbox').addClass("on");
-                                return false;
-                            }
-                            if (old_psw.length < 3 || new_psw.length < 3) {
-                                $('.alertbox .wrapper').text("密碼長度不可小於3位");
-                                $('.alertbox').addClass("on");
-                                return false;
-                            }
-                            if (old_psw == new_psw) {
-                                $('.alertbox .wrapper').text("舊密碼與新密碼相同");
-                                $('.alertbox').addClass("on");
-                                return false;
-                            }
-                            if (psw_hidden != old_psw) {
-                                $('.alertbox .wrapper').text("舊密碼不相同，請重新輸入");
-                                $('.alertbox').addClass("on");
-                                return false;
-                            }
-                            $('#input_cannoy_mod').val(new_psw);
-                            $('#Login').css('display', 'none');
-                            $('#pu_mem_forget_wrap').css('display', 'none');
-                            $('#Login_back').css('display', 'none');
-                            $('#old_psw').val("");
-                            $('#new_psw').val("");
-                            var xhr = new XMLHttpRequest();
-                            xhr.onload = function() {
-                                if (xhr == 200) {
+                //點下會員密碼欄位觸發燈箱
+                $('#input_cannoy_mod').click(function(){
+                    // if(confirm('要修改密碼嗎？')==true){
+                        $('#Login').css('display', 'block');
+                        $('#pu_mem_resist_wrap').css('display', 'none');
+                        $('#pu_mem_login_wrap').css('display', 'none');
+                        $('#pu_mem_forget_wrap').css('display', 'block');
+                        $('#Login_back').css('display', 'block');
+                    // }else{
+                    //     return false;
+                    // }
+                })
+                //點下會員密碼欄位觸發燈箱
+                //點下修改密碼
+                $('#modify_signInBtn').click(function(e){
+                    var input_cannoy_mod =$('#input_cannoy_mod').val();
+                    var psw_hidden =$('#psw_hidden').val();
+                    var memid =$('#email').val();
+                    var old_psw = $('#old_psw').val();
+                    var new_psw = $('#new_psw').val();
+                    if(old_psw == "" || new_psw ==""){
+                        $('.alertbox .wrapper').text("請填寫舊密碼與新密碼");
+                        $('.alertbox').addClass("on");
+                        return false;
+                    }
+                    if(old_psw.length<3 || new_psw.length<3){
+                        $('.alertbox .wrapper').text("密碼長度不可小於3位");
+                        $('.alertbox').addClass("on");
+                        return false;
+                    }
+                    if(old_psw == new_psw){
+                        $('.alertbox .wrapper').text("舊密碼與新密碼相同");
+                        $('.alertbox').addClass("on");
+                        return false;
+                    }
+                    if(psw_hidden != old_psw){
+                        $('.alertbox .wrapper').text("舊密碼不相同，請重新輸入");
+                        $('.alertbox').addClass("on");
+                        return false;
+                    }
+                    $('#input_cannoy_mod').val(new_psw);
+                    $('#Login').css('display', 'none');
+                    $('#pu_mem_forget_wrap').css('display', 'none');
+                    $('#Login_back').css('display', 'none');
+                    $('#old_psw').val("");
+                    $('#new_psw').val("");
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function(){
+                        if(xhr == 200){
 
                                 }
                             }

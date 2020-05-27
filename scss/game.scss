@@ -1783,28 +1783,30 @@ body{
     #ball{
       display: none;
       position: fixed;
-      height: 40px;
-      width: 40px;
+      height: 50px;
+      width: 50px;
       border-radius: 25px;
       // background-image: url('../images/Group%2071.png');
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
       z-index: 3;
-      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+      // filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5))
+      filter:none;
     }
     .fake_ball{
       position: absolute;
       bottom: 10px;
-      height: 40px;
-      width: 40px;
+      height: 50px;
+      width: 50px;
       border-radius: 25px;
       // background-image: url('../images/Group%2071.png');
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
       z-index: 3;
-      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+      // filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+      filter:none;
     }
   }
   //時間球數積分點數的位置
@@ -2180,31 +2182,32 @@ body{
       }
     }
     #ball{
-      display: none;
+      display: block;
       position: fixed;
-      height: 40px;
-      width: 40px;
+      height: 50px;
+      width: 50px;
       border-radius: 25px;
       // background-image: url('../images/Group%2071.png');
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
       z-index: 3;
-      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+      // filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+      filter:none;
     }
-    .fake_ball{
-      position: absolute;
-      bottom: 10px;
-      height: 40px;
-      width: 40px;
-      border-radius: 25px;
-      // background-image: url('../images/Group%2071.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-      z-index: 3;
-      filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
-    }
+    // .fake_ball{
+    //   position: absolute;
+    //   bottom: 10px;
+    //   height: 50px;
+    //   width: 50px;
+    //   border-radius: 25px;
+    //   // background-image: url('../images/Group%2071.png');
+    //   background-repeat: no-repeat;
+    //   background-position: center center;
+    //   background-size: cover;
+    //   z-index: 3;
+    //   filter: drop-shadow(-10px 10px 7px rgba(0,0,0,0.5));
+    // }
   }
   //時間球數積分點數的位置
 }
