@@ -59,7 +59,7 @@ function show(){
     xhr.onload = function(){
         if(xhr.status == 200){
             let message_row = JSON.parse(xhr.responseText);
-            console.log(message_row)
+            // console.log(message_row)
             let trlength = message_row.length;
 
             adminAuthority = $('.adminAuthority').val();
@@ -93,7 +93,6 @@ function show(){
             $('.update').click(function(e){
                 var num_id = e.target.id;
                 var num = num_id.slice(7);
-                alert(num)
                 update(num);
             })
             //再把所有編輯註冊事件
