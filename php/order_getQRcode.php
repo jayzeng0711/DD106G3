@@ -5,6 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+			
+			width: 300px;
+			height: 300px;
+			text-align: center;
+            font-size: 50px;
+			line-height:50px;
+            color: steelblue;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -32,10 +48,8 @@
         }
 
         if ($check == true) {
-            $answer = "歡迎搭乘";
-            // echo "歡迎搭乘";
-            
-
+            $answer = "歡迎搭乘 Ocean Food！";
+        
             // 報到完成，更新訂單狀態
             $sql = "UPDATE `ordermaster` SET `orderState` = '2' WHERE `ordermaster`.`orderNo` =:orderNo";
             $state = $pdo->prepare($sql);
@@ -43,13 +57,12 @@
             $state->execute();
 
         }  else if ($check == false) {
-            $answer = "無法搭乘，請洽服務人員";
-            // echo "無法搭乘，請洽服務人員";
+            $answer = "目前無法搭乘，請洽服務人員～";
+         
         }
-    ?>
 
-<? echo $answer ?>
-    <?php
+        echo "<div>".$answer."</div>";
+    
     } catch (PDOException $e) {
 
         $errMsg .= "錯誤訊息" . $e->getMessage() . "<br>";
