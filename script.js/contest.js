@@ -342,8 +342,8 @@ $(document).ready(function() {
 
                             //檢查留言框是否有輸入內容
                             if ($.trim($(`#text_${RKinputBtn}`).val()) == "") {
-                                $('.alertbox1 .wrapper_alert1').text("您還沒有輸入任何文字喔~1");
-                                $('.alertbox1').addClass("on_alert1");
+                                // $('.alertbox1 .wrapper_alert1').text("您還沒有輸入任何文字喔~1");
+                                // $('.alertbox1').addClass("on_alert1");
                                 return false;
                             }
                             inputMsg(RKinputBtn);
@@ -747,8 +747,8 @@ $(document).ready(function() {
                 LTinputBtn = LTinputBtn.slice(17);
                 //檢查留言框是否有輸入內容
                 if ($.trim($(`#List_text_${LTinputBtn}`).val()) == "") {
-                    $('.alertbox1 .wrapper_alert1').text("您還沒有輸入任何文字喔~2");
-                    $('.alertbox1').addClass("on_alert1");
+                    // $('.alertbox1 .wrapper_alert1').text("您還沒有輸入任何文字喔~2");
+                    // $('.alertbox1').addClass("on_alert1");
                     return false;
                 }
                 inputListMsg(LTinputBtn);
@@ -829,8 +829,8 @@ $(document).ready(function() {
     //檢舉確定送出
     $(".rep_submit").on("click", function() {
         var RKreportNo_replace = RKreportNo.replace('rep', 'mem_msg');
-        aaa = RKreportNo_replace.replace("List_", "");
-        aaa_str = aaa.slice(8)
+        RKreport_put = RKreportNo_replace.replace("List_", "");
+        RKreport_str = RKreport_put.slice(8);
         inputReport(RKreportNo_replace);
 
         event.stopPropagation();
@@ -873,8 +873,8 @@ $(document).ready(function() {
                 if ($('.pu_mem_login_suc_div').text() != false) {
                     //檢查留言框是否有輸入內容
                     if ($.trim($(`#text_${id}`).val()) == "") {
-                        $('.alertbox1 .wrapper_alert1').text("您還沒有輸入任何文字喔~3");
-                        $('.alertbox1').addClass("on_alert1");
+                        // $('.alertbox1 .wrapper_alert1').text("您還沒有輸入任何文字喔~3");
+                        // $('.alertbox1').addClass("on_alert1");
                         return false;
                     }
                     inputMsg(id);
@@ -943,6 +943,19 @@ $(document).ready(function() {
                 </div>
             </div>
             `);
+            //抓到(前三名)檢舉留言的按鈕，開啟燈箱
+            $(".RK_report_btn").on("click", function(e) {
+                //判斷是否登入
+                if ($('.pu_mem_login_suc_div').text() != false) {
+                    RKreportNo = e.target.id;
+                    // RKreportNo = RKreportNo.slice(4);
+                    $("div.report_overlay").addClass("-on");
+                } else {
+                    //未登入
+                    $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
+                    $('.alertbox2').addClass("on_alert2");
+                }
+            });
                     $(`#RKmsg_text_${id}`).append(`
             <p>
             <img src="./images/${member.memPic}" alt="">
@@ -1145,8 +1158,8 @@ $(document).ready(function() {
                 if ($('.pu_mem_login_suc_div').text() != false) {
                     //檢查留言框是否有輸入內容
                     if ($.trim($(`#List_text_${id}`).val()) == "") {
-                        $('.alertbox1 .wrapper_alert1').text("您還沒有輸入任何文字喔~4");
-                        $('.alertbox1').addClass("on_alert1");
+                        // $('.alertbox1 .wrapper_alert1').text("您還沒有輸入任何文字喔~4");
+                        // $('.alertbox1').addClass("on_alert1");
                         return false;
                     }
                     inputListMsg(id);
@@ -1214,14 +1227,28 @@ $(document).ready(function() {
                         </div>
                     </div>
                     `);
+                    //抓到檢舉留言的按鈕，開啟燈箱
+                    $(".List_report_btn").on("click", function(e) {
+                        //判斷是否登入
+                        if ($('.pu_mem_login_suc_div').text() != false) {
+                            RKreportNo = e.target.id;
+                            $("div.report_overlay").addClass("-on");
+                        } else {
+                            //未登入
+                            $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
+                            $('.alertbox2').addClass("on_alert2");
+                        }
+                    });
+
                     $(`#nomsg_${id}`).css("display","none"); //清除<目前沒人留言>的訊息
+
                     $(`#msg_${id}`).append(`
                     <p>
                     <img src="./images/${member.memPic}" alt="">
                     ${member.memName}：${inputText}
                     </p>
                     `)
-                        //留言後scroll bar至最新留言
+                    //留言後scroll bar至最新留言
                     $(`.List_msg_wrap${id}`).scrollTop($(`.List_msg_wrap${id}`)[0].scrollHeight);
 
                 } else {
@@ -1279,7 +1306,7 @@ $(document).ready(function() {
         // windows
 
         var reportData = {};
-        reportData.commentNo = aaa_str;
+        reportData.commentNo = RKreport_str;
         reportData.commentContent = commentContent;
         reportData.ReportReason = ReportReason;
         var reportData_str = JSON.stringify(reportData);
