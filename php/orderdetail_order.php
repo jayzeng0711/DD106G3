@@ -11,7 +11,7 @@ try {
 
     $orderNow = json_decode(file_get_contents("php://input"));
     $order = $pdo->prepare($sql);
-       $order->bindValue(":memNo", $orderNow->memNo);
+    $order->bindValue(":memNo", $orderNow->memNo);
     $order->bindValue(":datenow", $orderNow->datenow);
     $order->bindValue(":orderName", $orderNow->orderName);
     $order->bindValue(":orderPhone", $orderNow->orderPhone);
@@ -58,6 +58,13 @@ try {
 
     }   
     // echo json_encode($arr);
+
+    // 扣掉使用的點數
+    $sqlpoint = "UPDATE `member` SET `memPoints` = (`memPoints`-:orderPoints) WHERE `memNo` = :memNo";
+    $point = $pdo->prepare($sqlpoint);
+    $point->bindValue(":memNo", $orderNow->memNo);
+    $point->bindValue(":orderPoints", $orderNow->orderPoints);
+    $point->execute();
 
 
 } catch (PDOException $e) {
