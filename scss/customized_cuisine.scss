@@ -177,7 +177,7 @@ h3{
                 animation-fill-mode: forwards;
             }
 
-            .no {
+            .no, .go-demo {
                 @extend %btn;
                 text-decoration: none;
                 display: inline-block;

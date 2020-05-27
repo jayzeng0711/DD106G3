@@ -456,6 +456,7 @@
         click_next.textContent = "click";
         click_next.setAttribute('class', 'click_next');
         var br = document.createElement('br');
+
         var i = 0,
             j = 0,
             k = 0,
@@ -552,6 +553,9 @@
         goFish.textContent = "前往現撈海鮮";
         goFish.setAttribute('class', 'go-fish');
         goFish.setAttribute('href', './game.html');
+        var goDemo = document.createElement('div');
+        goDemo.textContent ="我想試玩";
+        goDemo.setAttribute("class", "go-demo");
 
         function goCatch() {
             if (a <= con.length) {
@@ -567,7 +571,13 @@
                 $(".talk")[5].innerHTML = con2.slice(0, b++);
                 setTimeout('goCatch2()', 100);
                 $(".talk")[5].appendChild(goFish);
+                $(".talk")[5].appendChild(goDemo);
             }
+            $(".go-demo").click(function(){
+                $(".attn").fadeOut(1000);
+                setTimeout('noLoginMsg()', 1000);
+                $("main").addClass("on");
+            });
         }
 
         function noLoginMsg() {
