@@ -3,17 +3,23 @@
     display: none;
 }
 
-// .wrapperWheel {
-//     display: none;
-// }
-// .wrapperBg {
-//     display: none;
-// }
-// footer {
-//     display: none;
-// }
+.wrapperWheel {
+    display: none;
+}
+
+.wrapperBg {
+    display: none;
+}
+
+footer {
+    display: none;
+}
+
 body {
+    width: 100vw;
     background: url(../images/shortbg.png) left top no-repeat;
+    background-size: cover;
+    // background-color: #B8E2F5;
 }
 
 // 提示燈箱
@@ -27,7 +33,7 @@ body {
     height: 150px;
     padding: 30px 10px;
     transform: translateX(-50%) translateY(-50%);
-    z-index: 1000;
+    z-index: 1005;
     box-shadow: 6px 6px 0px rgb(247, 192, 41);
     border-radius: 0 0 10px 10px;
     .boxclose {
@@ -52,6 +58,7 @@ body {
 
 .section1 {
     background: url(../images/shortbg.png) left top no-repeat;
+    background-size: cover;
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -530,7 +537,7 @@ body {
 
 .wrapperBg {
     background: #A3D9FD;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     .row0 {
         height: 15vh;
@@ -909,7 +916,9 @@ body {
 }
 
 .section6 {
-    background: url(../images/bgbottom.svg) no-repeat;
+    width: 100vw;
+    background: url(../images/bgbottom.svg);
+    background-size: cover;
     .row1 {
         height: 100vh;
         .textwrapper {
@@ -957,7 +966,7 @@ body {
         }
         .contest {
             position: relative;
-            top: 20vh;
+            top: 25vh;
             .cookList_item {
                 width: 100%;
                 background-image: url(../images/cookList_item_bg.png);
@@ -997,6 +1006,7 @@ body {
                     }
                 }
                 .msg {
+                    display: none;
                     background-color: #ffffff;
                     border-radius: 0 0 10px 10px;
                     width: 80%;
@@ -1323,6 +1333,15 @@ body {
 }
 
 @include rwd(mobile) {
+    .wrapperWheel {
+        display: block !important;
+    }
+    .wrapperBg {
+        display: block !important;
+    }
+    footer {
+        display: block !important;
+    }
     .section1 {
         .wrapper {
             .wave {

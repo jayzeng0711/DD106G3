@@ -163,7 +163,7 @@ body {
             .food_img {
                 margin: 0px auto 0px auto;
                 width: 280px;
-                transform: translateY(57px);
+                transform: translateY(107px);
                 // border: 1px solid rgb(243, 13, 13);
                 img {
                     width: 100%;
@@ -275,7 +275,7 @@ body {
         content: "";
         position: absolute;
         z-index: -1;
-        top: -35%;
+        top: -25%;
         // left: 2%;
         width: 1158px;
         height: 744px;
@@ -350,6 +350,7 @@ body {
             vertical-align: top;
             a {
                 display: inline-block;
+                text-decoration: none;
             }
             p {
                 width: 185px;
@@ -449,7 +450,7 @@ body {
                     // border: 1px solid red;
                 }
                 figcaption {
-                    margin-top: 20px;
+                    // margin-top: 20px;
                     // border: 1px solid red;
                     p {
                         text-align: center;
@@ -998,7 +999,7 @@ span.wrapper {
             .cookList_pic {
                 .food_img {
                     width: 95%;
-                    transform: translateY(49px);
+                    transform: translateY(38%);
                 }
                 .barrel {
                     width: 45%;
