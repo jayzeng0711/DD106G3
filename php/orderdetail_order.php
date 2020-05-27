@@ -67,7 +67,7 @@ try {
     // 儲存訂位報到QRCODE
     $sqlQRCode = "UPDATE `ordermaster` SET `orderQRcode` = :QRcode WHERE `ordermaster`.`orderNo` = $psn";
 
-    $QRCode = "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.71/demo-projects/DD106/DD106G3/0526dest/php/order_getQRcode.php?orderId=".$psn."&choe=UTF-8";
+    $QRCode = "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.71/demo-projects/DD106/DD106G3/php/order_getQRcode.php?orderId=".$psn."&choe=UTF-8";
     
     $QRRow = $pdo->prepare($sqlQRCode);
     $QRRow->bindValue(":QRcode",$QRCode);

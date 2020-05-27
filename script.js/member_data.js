@@ -101,55 +101,55 @@ $(document).ready(function() {
                     儲存
                 </button>
                 `)
-                //點下會員密碼欄位觸發燈箱
-                $('#input_cannoy_mod').click(function(){
-                    // if(confirm('要修改密碼嗎？')==true){
-                        $('#Login').css('display', 'block');
-                        $('#pu_mem_resist_wrap').css('display', 'none');
-                        $('#pu_mem_login_wrap').css('display', 'none');
-                        $('#pu_mem_forget_wrap').css('display', 'block');
-                        $('#Login_back').css('display', 'block');
-                    // }else{
-                    //     return false;
-                    // }
-                })
-                //點下會員密碼欄位觸發燈箱
-                //點下修改密碼
-                $('#modify_signInBtn').click(function(e){
-                    var input_cannoy_mod =$('#input_cannoy_mod').val();
-                    var psw_hidden =$('#psw_hidden').val();
-                    var memid =$('#email').val();
-                    var old_psw = $('#old_psw').val();
-                    var new_psw = $('#new_psw').val();
-                    if(old_psw == "" || new_psw ==""){
-                        $('.alertbox .wrapper').text("請填寫舊密碼與新密碼");
-                        $('.alertbox').addClass("on");
-                        return false;
-                    }
-                    if(old_psw.length<3 || new_psw.length<3){
-                        $('.alertbox .wrapper').text("密碼長度不可小於3位");
-                        $('.alertbox').addClass("on");
-                        return false;
-                    }
-                    if(old_psw == new_psw){
-                        $('.alertbox .wrapper').text("舊密碼與新密碼相同");
-                        $('.alertbox').addClass("on");
-                        return false;
-                    }
-                    if(psw_hidden != old_psw){
-                        $('.alertbox .wrapper').text("舊密碼不相同，請重新輸入");
-                        $('.alertbox').addClass("on");
-                        return false;
-                    }
-                    $('#input_cannoy_mod').val(new_psw);
-                    $('#Login').css('display', 'none');
-                    $('#pu_mem_forget_wrap').css('display', 'none');
-                    $('#Login_back').css('display', 'none');
-                    $('#old_psw').val("");
-                    $('#new_psw').val("");
-                    var xhr = new XMLHttpRequest();
-                    xhr.onload = function(){
-                        if(xhr == 200){
+                        //點下會員密碼欄位觸發燈箱
+                    $('#input_cannoy_mod').click(function() {
+                            // if(confirm('要修改密碼嗎？')==true){
+                            $('#Login').css('display', 'block');
+                            $('#pu_mem_resist_wrap').css('display', 'none');
+                            $('#pu_mem_login_wrap').css('display', 'none');
+                            $('#pu_mem_forget_wrap').css('display', 'block');
+                            $('#Login_back').css('display', 'block');
+                            // }else{
+                            //     return false;
+                            // }
+                        })
+                        //點下會員密碼欄位觸發燈箱
+                        //點下修改密碼
+                    $('#modify_signInBtn').click(function(e) {
+                            var input_cannoy_mod = $('#input_cannoy_mod').val();
+                            var psw_hidden = $('#psw_hidden').val();
+                            var memid = $('#email').val();
+                            var old_psw = $('#old_psw').val();
+                            var new_psw = $('#new_psw').val();
+                            if (old_psw == "" || new_psw == "") {
+                                $('.alertbox .wrapper').text("請填寫舊密碼與新密碼");
+                                $('.alertbox').addClass("on");
+                                return false;
+                            }
+                            if (old_psw.length < 3 || new_psw.length < 3) {
+                                $('.alertbox .wrapper').text("密碼長度不可小於3位");
+                                $('.alertbox').addClass("on");
+                                return false;
+                            }
+                            if (old_psw == new_psw) {
+                                $('.alertbox .wrapper').text("舊密碼與新密碼相同");
+                                $('.alertbox').addClass("on");
+                                return false;
+                            }
+                            if (psw_hidden != old_psw) {
+                                $('.alertbox .wrapper').text("舊密碼不相同，請重新輸入");
+                                $('.alertbox').addClass("on");
+                                return false;
+                            }
+                            $('#input_cannoy_mod').val(new_psw);
+                            $('#Login').css('display', 'none');
+                            $('#pu_mem_forget_wrap').css('display', 'none');
+                            $('#Login_back').css('display', 'none');
+                            $('#old_psw').val("");
+                            $('#new_psw').val("");
+                            var xhr = new XMLHttpRequest();
+                            xhr.onload = function() {
+                                if (xhr == 200) {
 
                                 }
                             }
@@ -478,30 +478,30 @@ $(document).ready(function() {
                                 }
                             }
                             //判斷每個掃描qrcode按鈕
-                            $('.order_detail_btn').click(function(e){
-                                $('.alertbox .wrapper').empty();
-                                var qrcode = e.target.id;
-                                qrcode_last = qrcode.slice(10);
-                                $('.alertbox .wrapper').append(`<img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://140.115.236.71/demo-projects/DD106/DD106G3/0526dest/php/order_getQRcode.php?orderId=${qrcode_last}&choe=UTF-8
-                                "></img>`).css('height','150px');
-                                $('.alertbox').addClass("on").css('height','200px');
-                            })
-                            //判斷每個掃描qrcode按鈕
-                            //判斷每個取消訂單按鈕
+                            $('.order_detail_btn').click(function(e) {
+                                    $('.alertbox .wrapper').empty();
+                                    var qrcode = e.target.id;
+                                    qrcode_last = qrcode.slice(10);
+                                    $('.alertbox .wrapper').append(`<img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://140.115.236.71/demo-projects/DD106/DD106G3/php/order_getQRcode.php?orderId=${qrcode_last}&choe=UTF-8
+                                "></img>`).css('height', '150px');
+                                    $('.alertbox').addClass("on").css('height', '200px');
+                                })
+                                //判斷每個掃描qrcode按鈕
+                                //判斷每個取消訂單按鈕
                             $(`.order_detail_cancel_btn`).click(function() {
                                 $(".overlay").addClass("-on");
                             })
-                            $(".close, .cancel").on("click", function () {
+                            $(".close, .cancel").on("click", function() {
                                 $(".overlay").addClass("-opacity-zero");
-                        
-                        
+
+
                                 // 設定隔一秒後，移除相關 class
-                                setTimeout(function () {
+                                setTimeout(function() {
                                     $(".overlay").removeClass("-on -opacity-zero");
                                 }, 1000);
                             });
                             //確認取消訂單
-                            $('.download').click(function(e){
+                            $('.download').click(function(e) {
                                 var route_last = e.target.id;
                                 route_last = route_last.slice(9);
                                 var roure_date = $(`#routedate_${route_last}`).text();
