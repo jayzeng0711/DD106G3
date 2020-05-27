@@ -3,18 +3,15 @@
     display: none;
 }
 
-.wrapperWheel {
-    display: none;
-}
-
-.wrapperBg {
-    display: none;
-}
-
-footer {
-    display: none;
-}
-
+// .wrapperWheel {
+//     display: none;
+// }
+// .wrapperBg {
+//     display: none;
+// }
+// footer {
+//     display: none;
+// }
 body {
     width: 100vw;
     background: url(../images/shortbg.png) left top no-repeat;
@@ -331,7 +328,9 @@ body {
             .reservation {
                 width: 60%;
                 color: #003355;
+                color: #fff;
                 background-color: rgb(162, 226, 255);
+                background-color: #2E4581;
                 border-radius: 10px;
                 margin-top: 5%;
                 padding: 5%;
@@ -362,6 +361,11 @@ body {
                 .answer {
                     margin-bottom: 7%;
                 }
+                .remaining {
+                    color: #fBD672;
+                    margin: 0 5px;
+                    font-size: $fontSize*1.5;
+                }
                 .port {
                     label {
                         background-color: #fff;
@@ -376,7 +380,7 @@ body {
                         display: none;
                     }
                     label.on {
-                        background: #2E4581;
+                        background: #4EB6E6;
                         color: #fff;
                     }
                 }
@@ -388,6 +392,7 @@ body {
             }
             .button {
                 @extend %btn_ano;
+                background-color: #4EB6E6;
                 width: 120px;
                 height: 40px;
                 margin: 0 auto 3%;
@@ -540,6 +545,7 @@ body {
     width: 100vw;
     height: 100%;
     .row0 {
+        border-bottom: #A3D9FD 2px solid;
         height: 15vh;
         background: url(../images/wave1_rev.png);
         background-size: 50vh 15vh;
@@ -556,6 +562,7 @@ body {
         animation: wave 20s linear infinite;
     }
     .rowbg2 {
+        border-bottom: #A3D9FD 2px solid;
         height: 15vh;
         position: relative;
         background: url(../images/wave3_rev.png);
@@ -575,6 +582,38 @@ body {
 
 .section3 {
     height: 100vh;
+    position: relative;
+    .bubble {
+        position: absolute;
+        left: 10%;
+        top: 10%;
+        .bubble1 {
+            width: 5%;
+        }
+        .bubble2 {
+            position: relative;
+            top: 20px;
+            width: 4%;
+        }
+        .bubble3 {
+            width: 4%;
+            position: relative;
+            top: 60px;
+            right: 60px;
+        }
+        .bubble4 {
+            width: 3%;
+            position: relative;
+            top: 90px;
+            right: 60px;
+        }
+        .bubble5 {
+            width: 2%;
+            position: relative;
+            top: 120px;
+            right: 100px;
+        }
+    }
     .row1 {
         .title {
             position: relative;
@@ -756,6 +795,38 @@ body {
 .section4 {
     height: 100vh;
     background-color: #48ABDE;
+    position: relative;
+    .bubble {
+        position: absolute;
+        right: 10%;
+        top: 20vh;
+        .bubble1 {
+            width: 35%;
+        }
+        .bubble2 {
+            position: relative;
+            top: 20px;
+            width: 32%;
+        }
+        .bubble3 {
+            width: 30%;
+            position: relative;
+            top: 30px;
+            left: 10px;
+        }
+        .bubble4 {
+            width: 28%;
+            position: relative;
+            top: 40px;
+            left: 10px;
+        }
+        .bubble5 {
+            width: 25%;
+            position: relative;
+            top: 100px;
+            left: -50px;
+        }
+    }
     .row1 {
         .title {
             position: relative;
@@ -830,7 +901,9 @@ body {
         }
         .game {
             img {
-                width: 80%;
+                position: relative;
+                width: 70%;
+                z-index: 30;
             }
         }
     }
@@ -840,6 +913,12 @@ body {
     height: 100vh;
     position: relative;
     z-index: 1;
+    .boatmove {
+        position: absolute;
+        width: 15%;
+        left: 10px;
+        top: 0;
+    }
     .wrapper {
         position: relative;
         top: 50%;
@@ -972,7 +1051,7 @@ body {
                 background-image: url(../images/cookList_item_bg.png);
                 border-radius: 10px;
                 box-shadow: 0px 2px 5px #f7c029;
-                padding: 10px 0;
+                padding: 0 0 10px 0;
                 color: #034;
                 .cookList_img {
                     text-align: center;
@@ -981,24 +1060,23 @@ body {
                             width: 75%;
                         }
                         figcaption {
-                            margin-top: 20px;
                             p {
                                 text-align: center;
                             }
                             p:nth-child(1) {
                                 font-size: $fontSize*1.5;
-                                margin: 5% 0;
+                                margin: 0 0 5% 0;
                             }
                             p:nth-child(2) {
                                 font-size: $fontSize*1.2;
-                                margin: 5% 0;
+                                margin: 0;
                             }
                         }
                     }
                 }
                 .cookList_vote {
                     text-align: center;
-                    margin-bottom: 5%;
+                    margin-bottom: 2%;
                     button {
                         @extend %btn;
                         padding: 4% 16%;
@@ -1006,7 +1084,7 @@ body {
                     }
                 }
                 .msg {
-                    display: none;
+                    // display: none;
                     background-color: #ffffff;
                     border-radius: 0 0 10px 10px;
                     width: 80%;
@@ -1017,7 +1095,7 @@ body {
                         font-size: $fontSize*1.25;
                         text-align: center;
                         color: #1d1d1d;
-                        padding: 10px;
+                        padding: 5px;
                         background-color: #FBD672;
                     }
                     .msg_text {
@@ -1333,6 +1411,10 @@ body {
 }
 
 @include rwd(mobile) {
+    body {
+        background: url();
+        background-color: #83CCF3;
+    }
     .wrapperWheel {
         display: block !important;
     }
@@ -1343,6 +1425,13 @@ body {
         display: block !important;
     }
     .section1 {
+        background: url(../images/shortbg.png) left center no-repeat;
+        .layer1 {
+            display: none;
+        }
+        .layer2 {
+            display: none;
+        }
         .wrapper {
             .wave {
                 width: 100%;
@@ -1405,6 +1494,21 @@ body {
             padding: 2% 5px !important;
         }
     }
+    .section3 {
+        .bubble {
+            display: none;
+        }
+    }
+    .section4 {
+        .bubble {
+            display: none;
+        }
+    }
+    .section5 {
+        .boatmove {
+            display: none;
+        }
+    }
     .section6 {
         height: auto;
         .row {
@@ -1424,38 +1528,3 @@ body {
         }
     }
 }
-
-// img.bubble1 {
-//     width: 35px;
-//     position: relative;
-//     left: -20px;
-//     top: 5px;
-// }
-// img.bubble2 {
-//     width: 30px;
-//     position: relative;
-//     left: 30px;
-//     top: -5px;
-// }
-// img.bubble3 {
-//     width: 25px;
-//     position: relative;
-//     left: -5px;
-// }
-// img.bubble4 {
-//     width: 35px;
-//     position: relative;
-//     right: -10px;
-//     top: 5px;
-// }
-// img.bubble5 {
-//     width: 30px;
-//     position: relative;
-//     right: 20px;
-//     top: 0px;
-// }
-// img.bubble6 {
-//     width: 25px;
-//     position: relative;
-//     right: 50px;
-// }

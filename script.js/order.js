@@ -623,8 +623,6 @@ window.addEventListener('load', function() {
                         $(`.port label:eq(${i})`).addClass("on");
                     }
                 }
-                // 換地圖位置
-                changeMap();
 
                 // 改變日期
                 year = $('.year').text();

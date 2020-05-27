@@ -472,9 +472,6 @@ window.addEventListener('load', function() {
                     }
                 }
 
-                // 換地圖位置
-                changeMap();
-
                 // 改變日期
                 year = $('.year').text();
                 month = $('.month').text();
@@ -718,6 +715,20 @@ window.addEventListener('load', function() {
         // scale: 1.2
     });
 
+
+    //泡泡動畫
+    setInterval(bubblePop, 4000);
+
+    function bubblePop() {
+        TweenMax.staggerFrom(['.bubble1', '.bubble2', '.bubble3', '.bubble4', '.bubble5'], 1, {
+            x: 0,
+            y: 50,
+            opacity: 0,
+            scale: 0.5,
+
+        }, .3);
+
+    }
 
     /////////////////////第五屏 客製化料理//////////////////////////
 
@@ -1071,69 +1082,45 @@ window.addEventListener('load', function() {
 
 
 
-    // 進入套餐頁面
+    // 船移動
 
     var controller = new ScrollMagic.Controller();
 
-    // function boat() {
-    //     let boatmove = new TimelineLite();
-    //     boatmove.add(
-    //         TweenLite.to('.boat2', 5, {
-    //             bezier: {
-    //                 curviness: 2,
-    //                 autoRotate: false,
-    //                 values: [
-    //                     { x: 50, y: 100 },
-    //                     { x: 100, y: 200 },
-    //                     { x: 50, y: 400 },
-    //                     { x: 100, y: 500 }
-    //                 ]
-    //             },
-    //             ease: Power1.eaeInOut,
-    //         })
-    //     );
+    let boatmove = new TimelineLite();
+    boatmove.add(
+        TweenLite.to('.boatmove', 5, {
+            bezier: {
+                curviness: 2,
+                autoRotate: false,
+                values: [
+                    { x: 50, y: 100 },
+                    { x: 100, y: 200 },
+                    { x: 50, y: 400 },
+                    { x: 100, y: 600 },
 
-    //     var ourScene = new ScrollMagic.Scene({
-    //             triggerElement: '.ocean',
-    //             triggerHook: 0.3,
+                ]
 
-    //         }).setTween(boatmove)
-    //         // .addIndicators({
-    //         //     name: 'boat',
-    //         //     colorTrigger: '#f00',
-    //         // })
-    //         .addTo(controller);
+            },
+            ease: Power1.eaeInOut,
 
+        })
+    );
 
-    // };
+    var ourScene = new ScrollMagic.Scene({
+            triggerElement: '.section5',
+            triggerHook: 0.5,
 
+        }).setTween(boatmove)
+        // .addIndicators({
+        //     name: 'boat',
+        //     colorTrigger: '#f00',
+        // })
+        .addTo(controller);
 
 
-    // // 泡泡動畫
-    // bubblePop();
-    // bubblePop1();
-    // setInterval(bubblePop, 5000);
-    // setInterval(bubblePop1, 4000);
 
-    // function bubblePop() {
-    //     TweenMax.staggerFrom(['.seafood .bubble1', '.seafood .bubble2', '.seafood .bubble3'], 1, {
-    //         x: 0,
-    //         y: 50,
-    //         opacity: 0,
-    //         scale: 0.5,
-    //     }, .3);
 
-    // }
 
-    // function bubblePop1() {
-    //     TweenMax.staggerFrom(['.seafood .bubble4', '.seafood .bubble5', '.seafood .bubble6'], 1, {
-    //         x: -50,
-    //         y: 50,
-    //         opacity: 0,
-    //         scale: 0.5,
-    //         delay: 1,
-    //     }, .3);
-    // }
 
 
 
