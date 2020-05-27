@@ -52,7 +52,7 @@ $(document).ready(function () {
             $(this).attr('disabled', 'disabled');
 
     // 顯示輸入新增資料的欄位
-    $('tr.title').after('<tr class="insert"><td></td><td><input type="text" name="mealName" id="mealName"></td><td><form id="mealPic" enctype="multipart/form-data" method="post" action="./php/picPreview.php"><input type="file" id="mealPic" class="mealPic" name="mealPic" accept=".jpg,.png,.svg" value="${mealPic}"><lable for="mealPic"><img style="width: 50%;" src=""></lable><button id="preview" type="submit">上傳</button></form></td><td><input type="text" name="mealFirst" id="mealFirst"></td><td><input type="text" name="mealMain" id="mealMain"></td><td><inupt type="text" name="mealDishOne" id="mealDishOne" pleaceholder="I am here!"></td><td><input type="text" name="mealDishTwo" id="mealDishTwo"></td><td><input type="text" name="mealSoup" id="mealSoup"></td><td><input type="text" name="mealDrink" id="mealDrink"></td><td><input type="text" name="mealPrice" id="mealPrice"></td><td><select id="meatState"><option value="0">未上架</option><option value="1">上架</option></select></td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
+    $('tr.title').after('<tr class="insert"><td></td><td><input type="text" name="mealName" id="mealName"></td><td><form id="newPic" method="post" action="./php/mealPicUpload.php"><input type="file" id="mealPic" name="mealPic" class="mealPic" accept=".jpg,.png,.svg"><input type="submit" value="上傳"><label for="mealPic"><img id="show" src=""></label></form></td><td><input type="text" name="mealFirst" id="mealFirst"></td><td><input type="text" name="mealMain" id="mealMain"></td><td><input type="text" name="mealDishOne" id="mealDishOne"></td><td><input type="text" name="mealDishTwo" id="mealDishTwo"></td><td><input type="text" name="mealSoup" id="mealSoup"></td><td><input type="text" name="mealDrink" id="mealDrink"></td><td><input type="text" name="mealPrice" id="mealPrice"></td><td><select id="mealState"><option value="0">未上架</option><option value="1">上架</option></select></td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
 
            
                 document.getElementById("mealPic").onchange = function (e) {
@@ -91,7 +91,7 @@ $(document).ready(function () {
                     mealState = $('#mealState').val();
                     if (mealState == "未上架") {
                         mealState = 0;
-                    } else {
+                    } else if (mealState == "上架") {
                         mealState = 1;
                     }
                     meal.mealName = $('#mealName').val();
@@ -113,8 +113,6 @@ $(document).ready(function () {
                     });
                 }
    
-
-            $(document).ready(function (e) {
                 $("#newPic").on('submit', (function (e) {
                     e.preventDefault();
                     $.ajax({
@@ -134,13 +132,12 @@ $(document).ready(function () {
                     });
                     console.log(new FormData(this));
                 }));
-            });
 
             // 取消新增
             $('.cancel').click(function () {
                 $('tr.insert').remove();
-                // // 恢復新增按鈕
-                // $('.addbtn').removeAttr('disabled');
+                // 恢復新增按鈕
+                $('.addbtn').removeAttr('disabled');
 
             });
         });
@@ -208,6 +205,7 @@ $(document).ready(function () {
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
                 let editMeal = {};
+                
                 mealState = tr.find('.mealState').val();
 
 
@@ -310,9 +308,49 @@ $(document).ready(function () {
             <button type="submit" class="btn btn-info save">儲存</button>
             <button type="button" class="btn btn-info cancel">取消</button>`);
 
+ // 儲存
+ $('.save').click(function () {
 
-           
+    let xhr = new XMLHttpRequest;
+    xhr.onload = function () {
 
+        if (xhr.status == 200) {
+    
+            show();
+            // alert(xhr.status);
+        } else {
+            alert(xhr.status);
+        }
+
+    };
+
+    // windows
+    xhr.open('post', './php/backend_Meal_edit.php', true);
+    // Mac
+    // xhr.open('POST', 'http://localhost:8888/backend_Meal_edit.php', true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+    let editMeal = {};
+    let currentPic = parseInt(`${changePic}`.lastIndexOf('/')) +1;
+    mealState = tr.find('.mealState').val();
+
+
+    editMeal.mealNo = tr.find('td:eq(0)').text();
+    editMeal.mealName = tr.find('.mealName').val();
+    editMeal.mealPic = `${changePic}`.substr(currentPic, `${changePic}`.length);
+    editMeal.mealFirst = tr.find('.mealFirst').val();
+    editMeal.mealMain = tr.find('.mealMain').val();
+    editMeal.mealDishOne = tr.find('.mealDishOne').val();
+    editMeal.mealDishTwo = tr.find('.mealDishTwo').val();
+    editMeal.mealSoup = tr.find('.mealSoup').val();
+    editMeal.mealDrink = tr.find('.mealDrink').val();
+    editMeal.mealPrice = tr.find('.mealPrice').val();
+    editMeal.mealState = mealState;
+
+    let data_info = JSON.stringify(editMeal);
+    console.log(data_info);
+    xhr.send(data_info);
+});
 
             // 取消
             tr.find('.cancel').click(function () {

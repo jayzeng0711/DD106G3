@@ -18,7 +18,7 @@ try{
     $newMeal->bindValue(':mealSoup', $theMeal->mealSoup);
     $newMeal->bindValue(':mealDrink', $theMeal->mealDrink);
     $newMeal->bindValue(':mealPrice', $theMeal->mealPrice);
-    $newMeal->bindValue(':mealState', $theMeal->mea1State);
+    $newMeal->bindValue(':mealState', $theMeal->mealState);
     $newMeal->execute();
 
 }catch (PDOException $e) {
