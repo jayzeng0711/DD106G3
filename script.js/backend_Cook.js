@@ -37,7 +37,7 @@ window.addEventListener('load', function() {
         // windows
         xhr.open('GET',  './php/backend_Cook_show.php',  true);
         // Mac
-        // xhr.open('GET', 'http://localhost:8080/backend_Route_show.php', true);
+        // xhr.open('GET', 'http://localhost:8080/backend_Cook_show.php', true);
         xhr.send(null);
 
     };
@@ -73,7 +73,7 @@ window.addEventListener('load', function() {
             // windows
             xhr.open('post',  './php/backend_Cook_insert.php',  true);
             // Mac
-            // xhr.open('POST', 'http://localhost:8080/backend_Ingredient_insert.php', true);
+            // xhr.open('POST', 'http://localhost:8080/backend_Cook_insert.php', true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
 
@@ -155,17 +155,10 @@ window.addEventListener('load', function() {
                 // windows
                 xhr.open('post',  './php/backend_Cook_edit.php',  true);
                 // Mac
-                // xhr.open('POST', 'http://localhost:8080/backend_Route_edit.php', true);
+                // xhr.open('POST', 'http://localhost:8080/backend_Cook_edit.php', true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
                 let editCook = {};
-                // cookState = tr.find('#ingreState').val();
-                // // alert(cookState);
-                // if (cookState == 0) {
-                //     cookState = "未上架";
-                // } else if (cookState == 1) {
-                //     cookState = "上架";
-                // }
 
                 editCook.cookNo = tr.find('td:eq(0)').text();
                 editCook.cookName = tr.find('.cookName').val();

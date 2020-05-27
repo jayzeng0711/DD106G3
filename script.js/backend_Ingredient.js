@@ -1,5 +1,4 @@
 window.addEventListener('load', function () {
-    // alert();
     // 顯示資料
     show();
 
@@ -38,7 +37,7 @@ window.addEventListener('load', function () {
         // windows
         xhr.open('GET', './php/backend_Ingredient_show.php', true);
         // Mac
-        // xhr.open('GET', 'http://localhost:8888/backend_Route_show.php', true);
+        // xhr.open('GET', 'http://localhost:8888/backend_Ingredient_show.php', true);
         xhr.send(null);
 
     };

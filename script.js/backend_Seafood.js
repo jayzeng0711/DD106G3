@@ -48,7 +48,7 @@ window.addEventListener('load', function () {
         // windows
         xhr.open('GET', './php/backend_Seafood_show.php', true);
         // Mac
-        // xhr.open('GET', 'http://localhost:8888/backend_Route_show.php', true);
+        // xhr.open('GET', 'http://localhost:8888/backend_Seafood_show.php', true);
         xhr.send(null);
     };
 
@@ -101,13 +101,13 @@ window.addEventListener('load', function () {
         // windows
         xhr.open('GET', './php/backend_Seafood_show.php', true);
         // Mac
-        // xhr.open('GET', 'http://localhost:8888/backend_Route_show.php', true);
+        // xhr.open('GET', 'http://localhost:8888/backend_Seafood_show.php', true);
         xhr.send(null);
 
         // windows
         xhr2.open('GET', './php/backend_Cook_show.php', true);
         // Mac
-        // xhr.open('GET', 'http://localhost:8888/backend_Route_show.php', true);
+        // xhr.open('GET', 'http://localhost:8888/backend_Seafood_show.php', true);
         xhr2.send(null);
 
         $(".addNew").click(function () {
@@ -120,9 +120,7 @@ window.addEventListener('load', function () {
             $(".selectExist").remove();
             $(".chooseExist").css('display', 'block');
         });
-        // $("select.existFish").on('change',function(){
-        //     alert($(this).find("option:selected").attr('class'));
-        // });
+
         $("#uploadCookPic").on('submit', (function (e) {
             e.preventDefault();
             $.ajax({
@@ -199,7 +197,7 @@ window.addEventListener('load', function () {
                         // windows
                         xhr.open('post', './php/backend_Seafood_insert.php', true);
                         // Mac
-                        // xhr.open('POST', 'http://localhost:8888/backend_Ingredient_insert.php', true);
+                        // xhr.open('POST', 'http://localhost:8888/backend_Seafood_insert.php', true);
                         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
 
@@ -271,7 +269,7 @@ window.addEventListener('load', function () {
                     // windows
                     xhr.open('post', './php/backend_Seafood_insert.php', true);
                     // Mac
-                    // xhr.open('POST', 'http://localhost:8888/backend_Ingredient_insert.php', true);
+                    // xhr.open('POST', 'http://localhost:8888/backend_Seafood_insert.php', true);
                     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
 
@@ -347,7 +345,7 @@ window.addEventListener('load', function () {
                         // windows
                         xhr.open('post', './php/backend_Seafood_insert.php', true);
                         // Mac
-                        // xhr.open('POST', 'http://localhost:8888/backend_Ingredient_insert.php', true);
+                        // xhr.open('POST', 'http://localhost:8888/backend_Seafood_insert.php', true);
                         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
 
@@ -398,7 +396,7 @@ window.addEventListener('load', function () {
                 // windows
                 xhr.open('post', './php/backend_Seafood_insert.php', true);
                 // Mac
-                // xhr.open('POST', 'http://localhost:8888/backend_Ingredient_insert.php', true);
+                // xhr.open('POST', 'http://localhost:8888/backend_Seafood_insert.php', true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
 
@@ -578,7 +576,7 @@ window.addEventListener('load', function () {
             // windows
             xhr2.open('GET', './php/backend_Cook_show.php', true);
             // Mac
-            // xhr.open('GET', 'http://localhost:8888/backend_Route_show.php', true);
+            // xhr.open('GET', 'http://localhost:8888/backend_Seafood_show.php', true);
             xhr2.send(null);
 
 
@@ -619,7 +617,7 @@ window.addEventListener('load', function () {
                             // windows
                             xhr.open('post', './php/backend_Seafood_edit.php', true);
                             // Mac
-                            // xhr.open('POST', 'http://localhost:8888/backend_Route_edit.php', true);
+                            // xhr.open('POST', 'http://localhost:8888/backend_Seafood_edit.php', true);
                             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
                             let editSeafood = {};
@@ -657,11 +655,11 @@ window.addEventListener('load', function () {
                         // windows
                         xhr.open('post', './php/backend_Seafood_edit.php', true);
                         // Mac
-                        // xhr.open('POST', 'http://localhost:8888/backend_Route_edit.php', true);
+                        // xhr.open('POST', 'http://localhost:8888/backend_Seafood_edit.php', true);
                         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
                         let editSeafood = {};
-                        let forCook = `${seafoodCookPic}`.lastIndexOf('/');
+                        let forCook = parseInt(`${seafoodCookPic}`.lastIndexOf('/'))+1;
 
                         editSeafood.seafoodNo = tr.find('td:eq(0)').text();
                         editSeafood.seafoodName = tr.find('.seafoodName').val();
@@ -717,7 +715,7 @@ window.addEventListener('load', function () {
                             // windows
                             xhr.open('post', './php/backend_Seafood_edit.php', true);
                             // Mac
-                            // xhr.open('POST', 'http://localhost:8888/backend_Route_edit.php', true);
+                            // xhr.open('POST', 'http://localhost:8888/backend_Seafood_edit.php', true);
                             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
                             let editSeafood = {};
@@ -757,11 +755,11 @@ window.addEventListener('load', function () {
                     // windows
                     xhr.open('post', './php/backend_Seafood_edit.php', true);
                     // Mac
-                    // xhr.open('POST', 'http://localhost:8888/backend_Route_edit.php', true);
+                    // xhr.open('POST', 'http://localhost:8888/backend_Seafood_edit.php', true);
                     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
                     let editSeafood = {};
-                    let forSf = `${seafoodPic}`.lastIndexOf('/');
+                    let forSf = parseInt(`${seafoodPic}`.lastIndexOf('/'))+1;
 
                     editSeafood.seafoodNo = tr.find('td:eq(0)').text();
                     editSeafood.seafoodName = tr.find('.seafoodName').val();
@@ -798,12 +796,12 @@ window.addEventListener('load', function () {
                 // windows
                 xhr.open('post', './php/backend_Seafood_edit.php', true);
                 // Mac
-                // xhr.open('POST', 'http://localhost:8888/backend_Route_edit.php', true);
+                // xhr.open('POST', 'http://localhost:8888/backend_Seafood_edit.php', true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
                 let editSeafood = {};
-                let forSf = `${seafoodPic}`.lastIndexOf('/');
-                let forCook = `${seafoodCookPic}`.lastIndexOf('/');
+                let forSf = parseInt(`${seafoodPic}`.lastIndexOf('/'))+1;
+                let forCook = parseInt(`${seafoodCookPic}`.lastIndexOf('/'))+1;
 
                 editSeafood.seafoodNo = tr.find('td:eq(0)').text();
                 editSeafood.seafoodName = tr.find('.seafoodName').val();
