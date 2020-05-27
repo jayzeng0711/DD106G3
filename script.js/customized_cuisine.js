@@ -1,39 +1,60 @@
 window.addEventListener("load", function () {
 
     //////////////////// 判斷登入 ///////////////////////
+    if ($(".pu_mem_login_div").text() != "會員登入") {
+        //有登入
+        //有海鮮，直接顯示製作頁面
+        if (localStorage["fish"] != undefined) {
+            $('.attn').css("display", "none");
+            $("main").addClass("on");
+        } else {
+            //沒有海鮮，顯示去抓海鮮
+            $(".no-fish1").addClass("on");
+            $(".act1").removeClass("on");
+        }
+    } else {
+        //沒登入
+        //有海鮮，
+        if (localStorage["fish"] != 0) {
+            //顯示沒登入
+        } else {
+            //沒有海鮮，顯示去抓海鮮
+            $(".no-fish1").addClass("on");
+            $(".act1").removeClass("on");
+        }
+    }
 
-    // var xhr = new XMLHttpRequest();
-    // xhr.onload = function () {
-    //     if (xhr.status == 200) {
-    //         member = JSON.parse(xhr.responseText);
-    //         if (member.memName) {
-    //             var session = localStorage;
-    //             //有登入又有玩抓海鮮
-    //             if (session.length != 0) {
-    //                 $('.attn').css("display", "none");
-    //                 $("main").addClass("on");
-    //                 return;
-    //             } else {
-    //                 //有登入沒玩抓海鮮
-    //                 $(".no-fish1").addClass("on");
-    //                 $(".fish-pic").append('<a href="./game.html">抓魚去囉</a>');
-    //                 $(".fish-pic").css('text-align', 'center');
-    //                 $(".note").removeClass("selected-fish");
-    //             }
-    //         }
-    //     } else {
-    //         // 沒登入
 
-    //     }
-    // }
+    //////////////////// 控制打字效果 ///////////////////////
+    $(".talking-here").click(function () {
+        if ($(".act1").hasClass("on") == 1) {
+            $(".act1").removeClass("on");
+            $(".act2").addClass("on");
+            setTimeout('typing2()', 300);
+        } else if ($(".act2").hasClass("on") == 1) {
+            $(".act2").removeClass("on");
+            $(".act3").addClass("on");
+            setTimeout('typing3()', 300);
+            //} else if ($(".act4").hasClass("on") == 1) {
+            // $(".attn").delay(3000).fadeOut(1000);
+            // $("main").addClass("on");
+        } else if ($(".no-fish1").hasClass("on") == 1) {
+            $(".no-fish1").removeClass("on");
+            $(".no-fish2").addClass("on");
+            setTimeout('goCatch2()', 300);
+        }
+    });
 
-    // // windows
 
-    // xhr.open('GET', './php/getlogininfo.php', true);
+    if ($(".act1").hasClass("on") == 1) {
+        setTimeout('typing()', 2500);
+    } else if ($(".no-fish1").hasClass("on") == 1) {
+        setTimeout('goCatch()', 2500);
+    }
 
-    // // Mac
-    // // xhr.open('GET', "http://localhost:8080/getlogininfo.php");
-    // xhr.send(null);
+
+
+    
 
     // 4隻魚
     // let fishss = [{
@@ -56,7 +77,7 @@ window.addEventListener("load", function () {
 
     // localStorage["fish"] = JSON.stringify(fishss);
 
-    
+
     // 最後一個海鮮編號
     let lastSeafoodNo;
     // 最後一個海鮮價格
@@ -502,6 +523,7 @@ window.addEventListener("load", function () {
     // 存放配料
     function addIngret(ImgSrc) {
 
+        console.log(ImgSrc);
         // 計算放配料次數
         count++;
         // 存現在這個配料的圖片，和前一個配料的位置
@@ -667,6 +689,7 @@ window.addEventListener("load", function () {
         y1 = 0;
     });
 
+
     // 儲存客製化料理
     // 名稱、圖片、價格、會員編號、海鮮編號、烹調方式編號、烹調時間、想說的話
 
@@ -677,6 +700,9 @@ window.addEventListener("load", function () {
             if (xhr.status == 200) {
                 // let img = JSON.parse(xhr.responseText);
                 // console.log(img);
+                localStorage.removeItem("fish")
+                location.href = "contest.html";
+
 
             } else {
                 console.log(xhr.status);
@@ -705,19 +731,19 @@ window.addEventListener("load", function () {
         data.ingret = [];
 
         if (IngreSrc1 != 0) {
-            IngreSrc1 = IngreSrc1.slice(9).replace(".png", "");
+            IngreSrc1 = IngreSrc1.slice(9).replace("_in.png", "");
             ingretNo = arrName.indexOf(IngreSrc1) + 1;
             data.ingret.push(ingretNo);
         }
 
         if (IngreSrc2 != 0) {
-            IngreSrc2 = IngreSrc2.slice(9).replace(".png", "");
+            IngreSrc2 = IngreSrc2.slice(9).replace("_in.png", "");
             ingretNo = arrName.indexOf(IngreSrc2) + 1;
             data.ingret.push(ingretNo);
         }
 
         if (IngreSrc3 != 0) {
-            IngreSrc3 = IngreSrc3.slice(9).replace(".png", "");
+            IngreSrc3 = IngreSrc3.slice(9).replace("_in.png", "");
             ingretNo = arrName.indexOf(IngreSrc3) + 1;
             data.ingret.push(ingretNo);
         }
@@ -736,6 +762,7 @@ window.addEventListener("load", function () {
         console.log(data_info);
         xhr.send(data_info);
 
+
     });
 
 
@@ -746,6 +773,7 @@ window.addEventListener("load", function () {
     });
     $(".close, .cancel").on("click", function () {
         $(".overlay").addClass("-opacity-zero");
+
 
         // 設定隔一秒後，移除相關 class
         setTimeout(function () {

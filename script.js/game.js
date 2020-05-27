@@ -12,7 +12,6 @@ point = 0;
 
 // 把海鮮存入session的key初值
 seafood_arr = [];
-seafood_object = {};
 
 // 把會員資料初始化，如果沒登入是空的物件
 memberLevel = {};
@@ -763,6 +762,7 @@ $(document).ready(function() {
                                     //存到session裡面，把抓到的海鮮的圖片，跟上面八個海鮮做比對，如果圖片相同，把海鮮名稱跟價格存入
                                     for(var i = 0;i<seafood_info.length;i++){
                                         if(`seafood${target_img}.svg` == seafood_info[i].seafoodPic){
+                                            seafood_object = {};
                                             seafoodName = seafood_info[i].seafoodName;
                                             seafoodPrice = seafood_info[i].seafoodPrice;
                                             seafood_object.name = seafoodName;
