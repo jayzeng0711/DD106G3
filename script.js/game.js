@@ -248,7 +248,10 @@ $(document).ready(function() {
 //遊戲開始按鈕
 $(document).ready(function() {
     $('#game_start,#click_text').click(function() {
-
+        if($(window).width()<=576){
+            $('.alertbox .wrapper').text("請先點擊螢幕抓海鮮區塊，再進行丟球<br>小技巧：手指輕觸球，往海鮮方向移動小段距離，順勢放開");
+            $('.alertbox').addClass("on");
+        }
         //清除storage
         var storge = localStorage;
         storge.removeItem('fish');;
@@ -328,8 +331,11 @@ $(document).ready(function() {
         };
 
         // 丟球的力量，決定球被丟多遠
-        var MAX_VELOCITY = Screen.height * 0.005;
-        // var MAX_VELOCITY = Screen.height * 0.01;
+        if($(window).width()>576){
+            MAX_VELOCITY = Screen.height * 0.003;
+        }else{
+            MAX_VELOCITY = Screen.height * 0.00000001;
+        }
 
         var Ball = {
             id: 'ball',
@@ -397,7 +403,7 @@ $(document).ready(function() {
         window.onresize = function() {
             Screen.height = window.innerHeight;
             Screen.width = window.innerWidth;
-            MAX_VELOCITY = Screen.height * 0.009;
+            MAX_VELOCITY = Screen.height * 0.001;
             // resetState();
         }
 
@@ -413,7 +419,7 @@ $(document).ready(function() {
 
         //zingtouch有六種行為： 1.Tap(點擊)  2.Rotate(旋轉) 3.Pinch 4.Expand 5.Pan(滑鼠按住移動) 6.Swipe(甩動)
         var CustomSwipe = new ZingTouch.Swipe({
-            escapeVelocity: 0.1
+            escapeVelocity: 0.0001,
         })
         var CustomPan = new ZingTouch.Pan();
 
@@ -462,7 +468,6 @@ $(document).ready(function() {
                 $('#ball').hide();
                 $('#fake_ball').show();
             })
-
             //當發生丟球事件，就成功甩出球，執行以下程式，如果發生丟球，但滑鼠卻沒放開，球就會跟著滑鼠，不會被甩出
             Ball.inMotion = true;
             var screenEle = document.getElementById('screen');

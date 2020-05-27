@@ -18,11 +18,9 @@ $(document).ready(function() {
             $('.mb_sma_cloud_img').css('display', 'block');
             $('.mb_big_cloud_img_div').animate({ right: "-770px" }, 800, function() {
                 $('.mb_big_cloud_img_div').css('display', 'none');
-                $('.mobile_header_div_wrap').css('overflow-x','hidden');
             });
         } else {
             $(this).addClass('burger--close');
-            $('.mobile_header_div_wrap').css('overflow-x','visible');
             $('.mb_big_cloud_img_div').css('display', 'block');
             $('.mb_big_cloud_img').css('width', `${window_w}`);
             $('.mb_big_cloud_img_div').animate({ right: "0px" }, 800);

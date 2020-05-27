@@ -79,7 +79,7 @@ $(document).ready(function(){
                                 會員信箱: <input style="border: none;background-color: transparent;" size="25" type="email" name="email" id="email" value="${mem_basic_data.memId}" readonly>   
                             </div>
                             <div>
-                                會員密碼: <input id="input_cannoy_mod" class="input_cannoy_mod" name="input_cannoy_mod" type="text" value="${mem_basic_data.memPsw}" size="25">
+                                會員密碼: <input id="input_cannoy_mod" class="input_cannoy_mod" name="input_cannoy_mod" type="password" value="${mem_basic_data.memPsw}" size="25">
                             </div>
                             <input id="psw_hidden" type="text" value="${mem_basic_data.memPsw}" hidden>
                             <div>
@@ -105,15 +105,15 @@ $(document).ready(function(){
                 `)
                 //點下會員密碼欄位觸發燈箱
                 $('#input_cannoy_mod').click(function(){
-                    if(confirm('要修改密碼嗎？')==true){
+                    // if(confirm('要修改密碼嗎？')==true){
                         $('#Login').css('display', 'block');
                         $('#pu_mem_resist_wrap').css('display', 'none');
                         $('#pu_mem_login_wrap').css('display', 'none');
                         $('#pu_mem_forget_wrap').css('display', 'block');
                         $('#Login_back').css('display', 'block');
-                    }else{
-                        return false;
-                    }
+                    // }else{
+                    //     return false;
+                    // }
                 })
                 //點下會員密碼欄位觸發燈箱
                 //點下修改密碼
