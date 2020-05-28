@@ -748,72 +748,79 @@ window.addEventListener("load", function() {
 
     $('#download').click(function() {
 
-        let xhr = new XMLHttpRequest;
-        xhr.onload = function() {
-            if (xhr.status == 200) {
-                // let img = JSON.parse(xhr.responseText);
-                // console.log(img);
-                localStorage.removeItem("fish")
-                location.href = "contest.html";
+        if (localStorage["fish"] == undefined) {
+            $('.alertbox .wrapper').text("這是試玩畫面，無法參加美食大賽喔!");
+            $('.alertbox').addClass("on");
+
+        } else {
+            let xhr = new XMLHttpRequest;
+            xhr.onload = function() {
+                if (xhr.status == 200) {
+                    // let img = JSON.parse(xhr.responseText);
+                    // console.log(img);
+                    localStorage.removeItem("fish")
+                    location.href = "contest.html";
 
 
-            } else {
-                console.log(xhr.status);
+                } else {
+                    console.log(xhr.status);
+                }
+            };
+
+            // 現在時間
+            let now = new Date();
+            datenow = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+
+            let data = {};
+
+            data.custoName = $("#custoName").val();
+            data.custoPic = canvas.toDataURL('png');
+            data.custoContent = $("#content").val();
+            data.custoPrice = lastSeafoodPrice;
+            data.memNo = member.memNo;
+            data.seafoodNo = lastSeafoodNo;
+            data.cookNo = lastCookNo;
+            data.custoTime = datenow;
+
+
+            let arrName = ["lemon", "rosemary", "gold", "chili", "butter", "wasabi"];
+
+            data.ingret = [];
+
+            if (IngreSrc1 != 0) {
+                IngreSrc1 = IngreSrc1.slice(9).replace("_in.png", "");
+                ingretNo = arrName.indexOf(IngreSrc1) + 1;
+                data.ingret.push(ingretNo);
             }
-        };
 
-        // 現在時間
-        let now = new Date();
-        datenow = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+            if (IngreSrc2 != 0) {
+                IngreSrc2 = IngreSrc2.slice(9).replace("_in.png", "");
+                ingretNo = arrName.indexOf(IngreSrc2) + 1;
+                data.ingret.push(ingretNo);
+            }
 
-        let data = {};
-
-        data.custoName = $("#custoName").val();
-        data.custoPic = canvas.toDataURL('png');
-        data.custoContent = $("#content").val();
-        data.custoPrice = lastSeafoodPrice;
-        data.memNo = member.memNo;
-        data.seafoodNo = lastSeafoodNo;
-        data.cookNo = lastCookNo;
-        data.custoTime = datenow;
+            if (IngreSrc3 != 0) {
+                IngreSrc3 = IngreSrc3.slice(9).replace("_in.png", "");
+                ingretNo = arrName.indexOf(IngreSrc3) + 1;
+                data.ingret.push(ingretNo);
+            }
 
 
-        let arrName = ["lemon", "rosemary", "gold", "chili", "butter", "wasabi"];
+            let data_info = JSON.stringify(data);
 
-        data.ingret = [];
+            // windows
+            xhr.open('post', './php/customized_save.php', true);
 
-        if (IngreSrc1 != 0) {
-            IngreSrc1 = IngreSrc1.slice(9).replace("_in.png", "");
-            ingretNo = arrName.indexOf(IngreSrc1) + 1;
-            data.ingret.push(ingretNo);
+            // Mac
+            // xhr.open('POST', 'http://localhost:8080/customized_save.php', true);
+
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+            console.log(data_info);
+            xhr.send(data_info);
+
+
         }
-
-        if (IngreSrc2 != 0) {
-            IngreSrc2 = IngreSrc2.slice(9).replace("_in.png", "");
-            ingretNo = arrName.indexOf(IngreSrc2) + 1;
-            data.ingret.push(ingretNo);
-        }
-
-        if (IngreSrc3 != 0) {
-            IngreSrc3 = IngreSrc3.slice(9).replace("_in.png", "");
-            ingretNo = arrName.indexOf(IngreSrc3) + 1;
-            data.ingret.push(ingretNo);
-        }
-
-
-        let data_info = JSON.stringify(data);
-
-        // windows
-        xhr.open('post', './php/customized_save.php', true);
-
-        // Mac
-        // xhr.open('POST', 'http://localhost:8080/customized_save.php', true);
-
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-
-        console.log(data_info);
-        xhr.send(data_info);
-
 
     });
 
