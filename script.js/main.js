@@ -225,7 +225,7 @@ window.addEventListener('load', function() {
 
 
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             };
         };
 
@@ -363,7 +363,7 @@ window.addEventListener('load', function() {
                 first = firstYear + firstMonth; //可顯示最早的年月
 
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             }
         };
 
@@ -627,7 +627,7 @@ window.addEventListener('load', function() {
 
 
                 } else {
-                    console.log(xhr.status);
+                    // console.log(xhr.status);
                 };
 
 
@@ -692,7 +692,7 @@ window.addEventListener('load', function() {
                 $('.mealPriceC').text(`金額：${meals[2].mealPrice}元`);
 
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             }
 
 
@@ -795,7 +795,7 @@ window.addEventListener('load', function() {
     function vote() {
 
 
-        console.log("vote");
+        // console.log("vote");
         let xhr = new XMLHttpRequest;
         xhr.onload = function() {
             if (xhr.status == 200) {
@@ -825,7 +825,7 @@ window.addEventListener('load', function() {
                 // console.log(comments);
 
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
 
             }
         };
@@ -989,7 +989,7 @@ window.addEventListener('load', function() {
 
                 });
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             }
         };
 
@@ -1024,7 +1024,7 @@ window.addEventListener('load', function() {
                             // 重新計算票數
                             vote();
                         } else {
-                            console.log(xhr6.status);
+                            // console.log(xhr6.status);
                         }
                     }
 
@@ -1034,7 +1034,7 @@ window.addEventListener('load', function() {
                     voteData.custoNo = custoNo;
 
                     var voteData_str = JSON.stringify(voteData);
-                    console.log(voteData_str);
+                    // console.log(voteData_str);
 
                     // windows
                     xhr6.open('POST', './php/contest_vote_input.php', true);
@@ -1050,7 +1050,7 @@ window.addEventListener('load', function() {
 
 
             } else {
-                console.log(xhr5.status);
+                // console.log(xhr5.status);
             }
         }
 
@@ -1060,7 +1060,7 @@ window.addEventListener('load', function() {
         voteData.custoNo = custoNo;
 
         var voteData_str = JSON.stringify(voteData);
-        console.log(voteData_str);
+        // console.log(voteData_str);
 
         // windows
         xhr5.open('POST', './php/contest_vote_check.php', true);

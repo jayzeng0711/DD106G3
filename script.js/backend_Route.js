@@ -30,7 +30,7 @@ $(document).ready(function() {
 
 
             } else {
-                alert(xhr.status);
+                // alert(xhr.status);
             }
         };
 
@@ -64,7 +64,7 @@ $(document).ready(function() {
                     show();
 
                 } else {
-                    alert(xhr.status);
+                    // alert(xhr.status);
                 }
 
             };
@@ -92,7 +92,7 @@ $(document).ready(function() {
             route.routeSeat = $('#routeSeat').val();
 
             let data_info = JSON.stringify(route);
-            console.log(data_info);
+            // console.log(data_info);
             xhr.send(data_info);
 
             $('.addbtn').removeAttr('disabled');
@@ -169,7 +169,7 @@ $(document).ready(function() {
                         show();
 
                     } else {
-                        alert(xhr.status);
+                        // alert(xhr.status);
                     }
 
                 };
@@ -199,7 +199,7 @@ $(document).ready(function() {
                 editRoute.routeState = tr.find('.routeState').val();
 
                 let data_info = JSON.stringify(editRoute);
-                console.log(data_info);
+                // console.log(data_info);
                 xhr.send(data_info);
 
 

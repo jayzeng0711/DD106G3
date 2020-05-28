@@ -1,17 +1,17 @@
-$('#login_btn').click(function(){
+$('#login_btn').click(function() {
     var account = $('#account').val();
     var psw = $('#psw').val();
-    if(account=="" || psw==""){
+    if (account == "" || psw == "") {
         alert('請填寫所有欄位');
         return false;
-    }else{
+    } else {
         var xhr = new XMLHttpRequest();
-        xhr.onload = function(){
-            if(xhr.status == 200){
-                if(xhr.responseText == "登入成功"){
+        xhr.onload = function() {
+            if (xhr.status == 200) {
+                if (xhr.responseText == "登入成功") {
                     window.location.href = "backend_Admin.html";
-                }else{
-                    alert(xhr.responseText);
+                } else {
+                    // alert(xhr.responseText);
                 }
             }
         }

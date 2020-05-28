@@ -1,4 +1,4 @@
-window.addEventListener('load', function () {
+window.addEventListener('load', function() {
 
     // 顯示資料
     show();
@@ -9,13 +9,13 @@ window.addEventListener('load', function () {
 
         // 顯示資料庫內容
         let xhr = new XMLHttpRequest;
-        
-        xhr.onload = function () {
+
+        xhr.onload = function() {
             if (xhr.status == 200) {
 
                 let seafoodRows = JSON.parse(xhr.responseText);
                 let trLength = seafoodRows.length;
-                console.log("長度", trLength);
+                // console.log("長度", trLength);
 
 
                 for (let i = 0; i < trLength; i++) {
@@ -41,7 +41,7 @@ window.addEventListener('load', function () {
 
 
             } else {
-                alert(xhr.status);
+                // alert(xhr.status);
             }
         };
 
@@ -56,7 +56,7 @@ window.addEventListener('load', function () {
 
 
     // 新增資料
-    $('.addbtn').click(function () {
+    $('.addbtn').click(function() {
 
         // 停用新增按鈕
         $(this).attr('disabled', 'disabled');
@@ -68,7 +68,7 @@ window.addEventListener('load', function () {
         let xhr2 = new XMLHttpRequest;
         let tr = $(this).next().children().children().eq(1).children().eq(6);
 
-        xhr.onload = function () {
+        xhr.onload = function() {
             if (xhr.status == 200) {
                 let seafoodRows = JSON.parse(xhr.responseText);
                 let trLength = seafoodRows.length;
@@ -78,23 +78,23 @@ window.addEventListener('load', function () {
                     }
                 }
             } else {
-                alert(xhr2.status);
+                // alert(xhr2.status);
             }
         };
 
-        xhr2.onload = function () {
+        xhr2.onload = function() {
             if (xhr2.status == 200) {
                 let cookRows = JSON.parse(xhr2.responseText);
                 let cookLength = cookRows.length;
-                console.log("長度", cookLength);
+                // console.log("長度", cookLength);
                 tr.append("<select class='cooks' name='cooks'></select>");
                 for (let a = 0; a < cookLength; a++) {
-                    if(`${cookRows[a].cookState}` == 1){
+                    if (`${cookRows[a].cookState}` == 1) {
                         $(".cooks").append(`<option value="${cookRows[a].cookNo}">${cookRows[a].cookName}</option>`);
                     }
                 }
             } else {
-                alert(xhr2.status);
+                // alert(xhr2.status);
             }
         };
 
@@ -110,18 +110,18 @@ window.addEventListener('load', function () {
         // xhr.open('GET', 'http://localhost:8888/backend_Seafood_show.php', true);
         xhr2.send(null);
 
-        $(".addNew").click(function () {
+        $(".addNew").click(function() {
             $(".addNew").remove();
             $(".selectExist").remove();
             $(".forNew").css('display', 'block');
         });
-        $(".selectExist").click(function () {
+        $(".selectExist").click(function() {
             $(".addNew").remove();
             $(".selectExist").remove();
             $(".chooseExist").css('display', 'block');
         });
 
-        $("#uploadCookPic").on('submit', (function (e) {
+        $("#uploadCookPic").on('submit', (function(e) {
             e.preventDefault();
             $.ajax({
                 url: "./php/uploadCookPic.php",
@@ -130,16 +130,16 @@ window.addEventListener('load', function () {
                 contentType: false,
                 cache: false,
                 processData: false,
-                success: function (data) {
+                success: function(data) {
                     alert("上傳成功");
                 },
-                error: function () {
+                error: function() {
                     alert("上傳失敗");
                 }
             });
-            console.log(new FormData(this));
+            // console.log(new FormData(this));
         }));
-        $("#addSeafoodPic").on('submit', (function (e) {
+        $("#addSeafoodPic").on('submit', (function(e) {
             e.preventDefault();
             $.ajax({
                 url: "./php/uploadNewFish.php",
@@ -148,47 +148,47 @@ window.addEventListener('load', function () {
                 contentType: false,
                 cache: false,
                 processData: false,
-                success: function (data) {
+                success: function(data) {
                     alert("上傳成功");
                 },
-                error: function () {
+                error: function() {
                     alert("上傳失敗");
                 }
             });
-            console.log(new FormData(this));
+            // console.log(new FormData(this));
         }));
 
 
         //從海鮮圖片點新增
-        $(".addNew").click(function () {
-            document.getElementById("newFish").onchange = function (e) {
+        $(".addNew").click(function() {
+            document.getElementById("newFish").onchange = function(e) {
                 let fish = e.target.files[0];
                 let reader = new FileReader();
-                reader.onload = function (e) {
+                reader.onload = function(e) {
                     document.getElementById("newFishPreview").src = reader.result;
                 }
                 reader.readAsDataURL(fish);
 
-                document.getElementById("cookImg").onchange = function (e) {
+                document.getElementById("cookImg").onchange = function(e) {
                     let file = e.target.files[0];
                     let read = new FileReader();
-                    read.onload = function (e) {
+                    read.onload = function(e) {
                         document.getElementById("preview").src = read.result;
                     }
                     read.readAsDataURL(file);
 
                     // 儲存新增
-                    $('.save').click(function () {
+                    $('.save').click(function() {
                         let xhr = new XMLHttpRequest;
 
-                        xhr.onload = function () {
+                        xhr.onload = function() {
 
                             if (xhr.status == 200) {
                                 $('tr.insert').remove();
                                 show();
 
                             } else {
-                                alert(xhr.status);
+                                // alert(xhr.status);
                             }
 
                         };
@@ -228,7 +228,7 @@ window.addEventListener('load', function () {
                         seafood.seafoodState = seafoodState;
 
                         let data_info = JSON.stringify(seafood);
-                        console.log(data_info);
+                        // console.log(data_info);
                         xhr.send(data_info);
 
                         $('.addbtn').removeAttr('disabled');
@@ -240,27 +240,27 @@ window.addEventListener('load', function () {
 
 
         //從海鮮圖片選已有海鮮圖
-        $("select.existFish").on('change', function () {
-            document.getElementById("cookImg").onchange = function (e) {
+        $("select.existFish").on('change', function() {
+            document.getElementById("cookImg").onchange = function(e) {
                 let file = e.target.files[0];
                 let read = new FileReader();
-                read.onload = function (e) {
+                read.onload = function(e) {
                     document.getElementById("preview").src = read.result;
                 }
                 read.readAsDataURL(file);
 
                 // 儲存新增
-                $('.save').click(function () {
+                $('.save').click(function() {
                     let xhr = new XMLHttpRequest;
 
-                    xhr.onload = function () {
+                    xhr.onload = function() {
 
                         if (xhr.status == 200) {
                             $('tr.insert').remove();
                             show();
 
                         } else {
-                            alert(xhr.status);
+                            // alert(xhr.status);
                         }
 
                     };
@@ -300,7 +300,7 @@ window.addEventListener('load', function () {
                     seafood.seafoodState = seafoodState;
 
                     let data_info = JSON.stringify(seafood);
-                    console.log(data_info);
+                    // console.log(data_info);
                     xhr.send(data_info);
 
                     $('.addbtn').removeAttr('disabled');
@@ -309,35 +309,35 @@ window.addEventListener('load', function () {
         });
 
         //從後方先更新烹調圖片
-        document.getElementById("cookImg").onchange = function (e) {
+        document.getElementById("cookImg").onchange = function(e) {
             let file = e.target.files[0];
             let read = new FileReader();
-            read.onload = function (e) {
+            read.onload = function(e) {
                 document.getElementById("preview").src = read.result;
             }
             read.readAsDataURL(file);
             //選擇新增海鮮圖
-            $("#newFish").click(function () {
-                document.getElementById("newFish").onchange = function (e) {
+            $("#newFish").click(function() {
+                document.getElementById("newFish").onchange = function(e) {
                     let fish = e.target.files[0];
                     let reader = new FileReader();
-                    reader.onload = function (e) {
+                    reader.onload = function(e) {
                         document.getElementById("newFishPreview").src = reader.result;
                     }
                     reader.readAsDataURL(fish);
 
-                    $('.save').click(function () {
+                    $('.save').click(function() {
 
                         let xhr = new XMLHttpRequest;
 
-                        xhr.onload = function () {
+                        xhr.onload = function() {
 
                             if (xhr.status == 200) {
                                 $('tr.insert').remove();
                                 show();
 
                             } else {
-                                alert(xhr.status);
+                                // alert(xhr.status);
                             }
 
                         };
@@ -368,7 +368,7 @@ window.addEventListener('load', function () {
                         seafood.seafoodState = seafoodState;
 
                         let data_info = JSON.stringify(seafood);
-                        console.log(data_info);
+                        // console.log(data_info);
                         xhr.send(data_info);
 
                         $('.addbtn').removeAttr('disabled');
@@ -377,18 +377,18 @@ window.addEventListener('load', function () {
                 }
             });
             // 選擇已有海鮮
-            $('.save').click(function () {
+            $('.save').click(function() {
 
                 let xhr = new XMLHttpRequest;
 
-                xhr.onload = function () {
+                xhr.onload = function() {
 
                     if (xhr.status == 200) {
                         $('tr.insert').remove();
                         show();
 
                     } else {
-                        alert(xhr.status);
+                        // alert(xhr.status);
                     }
 
                 };
@@ -419,7 +419,7 @@ window.addEventListener('load', function () {
                 seafood.seafoodState = seafoodState;
 
                 let data_info = JSON.stringify(seafood);
-                console.log(data_info);
+                // console.log(data_info);
                 xhr.send(data_info);
 
                 $('.addbtn').removeAttr('disabled');
@@ -428,7 +428,7 @@ window.addEventListener('load', function () {
         }
 
         // 取消新增
-        $('.cancel').click(function () {
+        $('.cancel').click(function() {
             $('tr.insert').remove();
             $('.addbtn').removeAttr('disabled');
 
@@ -440,7 +440,7 @@ window.addEventListener('load', function () {
 
     function edit() {
 
-        $('.edit').click(function () {
+        $('.edit').click(function() {
 
             // 停用所有編輯按鈕
             $('.edit').attr('disabled', 'disabled');
@@ -448,7 +448,7 @@ window.addEventListener('load', function () {
             let tr = $(this).parent().parent();
             let xhr2 = new XMLHttpRequest;
 
-            xhr2.onload = function () {
+            xhr2.onload = function() {
                 if (xhr2.status == 200) {
                     let cookRows = JSON.parse(xhr2.responseText);
                     let cookLength = cookRows.length;
@@ -457,12 +457,12 @@ window.addEventListener('load', function () {
                     tr.find('td:eq(6)').text("");
                     tr.find('td:eq(6)').append("<select class='cookChange' name='cookChange'></select>");
                     for (let a = 0; a < cookLength; a++) {
-                        if(`${cookRows[a].cookState}` == 1){
+                        if (`${cookRows[a].cookState}` == 1) {
                             $(".cookChange").append(`<option value="${cookRows[a].cookNo}">${cookRows[a].cookName}</option>`);
                         }
                     }
                 } else {
-                    alert(xhr2.status);
+                    // alert(xhr2.status);
                 }
             };
 
@@ -476,12 +476,12 @@ window.addEventListener('load', function () {
             tr.find('td:eq(2)').text("");
             tr.find('td:eq(2)').append(`<form id="uploadSf"><div class="changeSeafood"><div class="seafoodNow">更新前圖片：<img src="${seafoodPic}"><button class="chNewSf">換一張新圖片</button></div>   <div class="forNewSf" style="display:none;"><label for="newSfIn"><img id="newSfPreview"></label><div id="uploadNewSf"><input type="file" name="newSfIn" id="newSfIn"><input type="submit" value="上傳新海鮮圖"></div></div></div></form>`);
 
-            $(".chNewSf").click(function () {
+            $(".chNewSf").click(function() {
                 $(".seafoodNow").remove();
                 $(".forNewSf").css('display', 'block');
             });
 
-            $("#uploadSf").on('submit', (function (e) {
+            $("#uploadSf").on('submit', (function(e) {
                 e.preventDefault();
                 $.ajax({
                     url: "./php/uploadSfIn.php",
@@ -490,14 +490,14 @@ window.addEventListener('load', function () {
                     contentType: false,
                     cache: false,
                     processData: false,
-                    success: function (data) {
+                    success: function(data) {
                         alert("上傳成功");
                     },
-                    error: function () {
+                    error: function() {
                         alert("上傳失敗");
                     }
                 });
-                console.log(new FormData(this));
+                // console.log(new FormData(this));
             }));
 
             // 海鮮價格
@@ -530,12 +530,12 @@ window.addEventListener('load', function () {
             tr.find('td:eq(7)').text("");
             tr.find('td:eq(7)').append(`<form id="uploadCookPic"><div class="chCook"><div class="cookPicNow">更新前圖片：<img class="cookNow" src="${seafoodCookPic}"><button class="chNewCook">換一張新圖片</button></div><div class="toNewCook" style="display:none;"><label for="newC"><img id="newCookPre"></label><div id="uploadNewCook"><input type="file" name="newC" id="newC"><input type="submit" value="上傳新海鮮"></div></div></div></form>`);
 
-            $(".chNewCook").click(function () {
+            $(".chNewCook").click(function() {
                 $(".cookPicNow").remove();
                 $(".toNewCook").css('display', 'block');
             });
 
-            $("#uploadCookPic").on('submit', (function (e) {
+            $("#uploadCookPic").on('submit', (function(e) {
                 e.preventDefault();
                 $.ajax({
                     url: "./php/uploadNewC.php",
@@ -544,14 +544,14 @@ window.addEventListener('load', function () {
                     contentType: false,
                     cache: false,
                     processData: false,
-                    success: function (data) {
+                    success: function(data) {
                         alert("上傳成功");
                     },
-                    error: function () {
+                    error: function() {
                         alert("上傳失敗");
                     }
                 });
-                console.log(new FormData(this));
+                // console.log(new FormData(this));
             }));
 
 
@@ -581,74 +581,74 @@ window.addEventListener('load', function () {
 
 
             //選擇換新海鮮圖
-            $(".chNewSf").click(function () {
-                document.getElementById("newSfIn").onchange = function (e) {
+            $(".chNewSf").click(function() {
+                document.getElementById("newSfIn").onchange = function(e) {
                     let fish = e.target.files[0];
                     let reader = new FileReader();
-                    reader.onload = function (e) {
+                    reader.onload = function(e) {
                         document.getElementById("newSfPreview").src = reader.result;
                     }
                     reader.readAsDataURL(fish);
                     //也換新烹調圖
-                    document.getElementById("newC").onchange = function (e) {
-                        let file = e.target.files[0];
-                        let read = new FileReader();
-                        read.onload = function (e) {
-                            document.getElementById("newCookPre").src = read.result;
+                    document.getElementById("newC").onchange = function(e) {
+                            let file = e.target.files[0];
+                            let read = new FileReader();
+                            read.onload = function(e) {
+                                document.getElementById("newCookPre").src = read.result;
+                            }
+                            read.readAsDataURL(file);
+
+                            // 儲存
+                            $('.save').click(function() {
+                                let xhr = new XMLHttpRequest;
+
+                                xhr.onload = function() {
+
+                                    if (xhr.status == 200) {
+                                        show();
+
+                                    } else {
+                                        // alert(xhr.status);
+                                    }
+
+                                };
+
+
+                                // windows
+                                xhr.open('post', './php/backend_Seafood_edit.php', true);
+                                // Mac
+                                // xhr.open('POST', 'http://localhost:8888/backend_Seafood_edit.php', true);
+                                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+                                let editSeafood = {};
+
+                                editSeafood.seafoodNo = tr.find('td:eq(0)').text();
+                                editSeafood.seafoodName = tr.find('.seafoodName').val();
+                                editSeafood.seafoodPic = `${fish.name}`;
+                                editSeafood.seafoodPrice = tr.find('.seafoodPrice').val();
+                                editSeafood.seafoodScore = tr.find('.seafoodScore').val();
+                                editSeafood.seafoodPoint = tr.find('.seafoodPoint').val();
+                                editSeafood.seafoodLevel = tr.find('.seafoodLevel').val();
+                                editSeafood.cookNo = tr.find('select.cookChange').val();
+                                editSeafood.seafoodCookPic = `${file.name}`;
+                                editSeafood.seafoodState = tr.find('.seafoodState').val();
+
+                                let data_info = JSON.stringify(editSeafood);
+                                // console.log(data_info);
+                                xhr.send(data_info);
+                                return;
+                            });
                         }
-                        read.readAsDataURL(file);
-
-                        // 儲存
-                        $('.save').click(function () {
-                            let xhr = new XMLHttpRequest;
-
-                            xhr.onload = function () {
-
-                                if (xhr.status == 200) {
-                                    show();
-
-                                } else {
-                                    alert(xhr.status);
-                                }
-
-                            };
-
-
-                            // windows
-                            xhr.open('post', './php/backend_Seafood_edit.php', true);
-                            // Mac
-                            // xhr.open('POST', 'http://localhost:8888/backend_Seafood_edit.php', true);
-                            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-
-                            let editSeafood = {};
-
-                            editSeafood.seafoodNo = tr.find('td:eq(0)').text();
-                            editSeafood.seafoodName = tr.find('.seafoodName').val();
-                            editSeafood.seafoodPic = `${fish.name}`;
-                            editSeafood.seafoodPrice = tr.find('.seafoodPrice').val();
-                            editSeafood.seafoodScore = tr.find('.seafoodScore').val();
-                            editSeafood.seafoodPoint = tr.find('.seafoodPoint').val();
-                            editSeafood.seafoodLevel = tr.find('.seafoodLevel').val();
-                            editSeafood.cookNo = tr.find('select.cookChange').val();
-                            editSeafood.seafoodCookPic = `${file.name}`;
-                            editSeafood.seafoodState = tr.find('.seafoodState').val();
-
-                            let data_info = JSON.stringify(editSeafood);
-                            console.log(data_info);
-                            xhr.send(data_info);
-                            return;
-                        });
-                    }
-                    //  沒換烹調圖
-                    $('.save').click(function () {
+                        //  沒換烹調圖
+                    $('.save').click(function() {
                         let xhr = new XMLHttpRequest;
 
-                        xhr.onload = function () {
+                        xhr.onload = function() {
 
                             if (xhr.status == 200) {
                                 show();
                             } else {
-                                alert(xhr.status);
+                                // alert(xhr.status);
                             }
                         };
 
@@ -659,7 +659,7 @@ window.addEventListener('load', function () {
                         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
                         let editSeafood = {};
-                        let forCook = parseInt(`${seafoodCookPic}`.lastIndexOf('/'))+1;
+                        let forCook = parseInt(`${seafoodCookPic}`.lastIndexOf('/')) + 1;
 
                         editSeafood.seafoodNo = tr.find('td:eq(0)').text();
                         editSeafood.seafoodName = tr.find('.seafoodName').val();
@@ -673,40 +673,40 @@ window.addEventListener('load', function () {
                         editSeafood.seafoodState = tr.find('.seafoodState').val();
 
                         let data_info = JSON.stringify(editSeafood);
-                        console.log(data_info);
+                        // console.log(data_info);
                         xhr.send(data_info);
                     });
                 }
             });
 
             //從後方先更新烹調圖片
-            document.getElementById("newC").onchange = function (e) {
+            document.getElementById("newC").onchange = function(e) {
                 let file = e.target.files[0];
                 let read = new FileReader();
-                read.onload = function (e) {
+                read.onload = function(e) {
                     document.getElementById("newCookPre").src = read.result;
                 }
                 read.readAsDataURL(file);
                 //也換了海鮮圖
-                $(".chNewSf").click(function () {
-                    document.getElementById("newSfIn").onchange = function (e) {
+                $(".chNewSf").click(function() {
+                    document.getElementById("newSfIn").onchange = function(e) {
                         let fish = e.target.files[0];
                         let reader = new FileReader();
-                        reader.onload = function (e) {
+                        reader.onload = function(e) {
                             document.getElementById("newSfPreview").src = reader.result;
                         }
                         reader.readAsDataURL(fish);
 
-                        $('.save').click(function () {
+                        $('.save').click(function() {
                             let xhr = new XMLHttpRequest;
 
-                            xhr.onload = function () {
+                            xhr.onload = function() {
 
                                 if (xhr.status == 200) {
                                     show();
 
                                 } else {
-                                    alert(xhr.status);
+                                    // alert(xhr.status);
                                 }
 
                             };
@@ -732,7 +732,7 @@ window.addEventListener('load', function () {
                             editSeafood.seafoodState = tr.find('.seafoodState').val();
 
                             let data_info = JSON.stringify(editSeafood);
-                            console.log(data_info);
+                            // console.log(data_info);
                             xhr.send(data_info);
                             return;
                         });
@@ -740,15 +740,15 @@ window.addEventListener('load', function () {
                 });
 
                 //沒更新海鮮圖
-                $('.save').click(function () {
+                $('.save').click(function() {
                     let xhr = new XMLHttpRequest;
 
-                    xhr.onload = function () {
+                    xhr.onload = function() {
 
                         if (xhr.status == 200) {
                             show();
                         } else {
-                            alert(xhr.status);
+                            // alert(xhr.status);
                         }
                     };
 
@@ -759,7 +759,7 @@ window.addEventListener('load', function () {
                     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
                     let editSeafood = {};
-                    let forSf = parseInt(`${seafoodPic}`.lastIndexOf('/'))+1;
+                    let forSf = parseInt(`${seafoodPic}`.lastIndexOf('/')) + 1;
 
                     editSeafood.seafoodNo = tr.find('td:eq(0)').text();
                     editSeafood.seafoodName = tr.find('.seafoodName').val();
@@ -773,22 +773,22 @@ window.addEventListener('load', function () {
                     editSeafood.seafoodState = tr.find('.seafoodState').val();
 
                     let data_info = JSON.stringify(editSeafood);
-                    console.log(data_info);
+                    // console.log(data_info);
                     xhr.send(data_info);
                 });
             }
 
             //海鮮圖和烹調圖都不換
-            $('.save').click(function () {
+            $('.save').click(function() {
                 let xhr = new XMLHttpRequest;
 
-                xhr.onload = function () {
+                xhr.onload = function() {
 
                     if (xhr.status == 200) {
                         show();
 
                     } else {
-                        alert(xhr.status);
+                        // alert(xhr.status);
                     }
 
                 };
@@ -800,8 +800,8 @@ window.addEventListener('load', function () {
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
                 let editSeafood = {};
-                let forSf = parseInt(`${seafoodPic}`.lastIndexOf('/'))+1;
-                let forCook = parseInt(`${seafoodCookPic}`.lastIndexOf('/'))+1;
+                let forSf = parseInt(`${seafoodPic}`.lastIndexOf('/')) + 1;
+                let forCook = parseInt(`${seafoodCookPic}`.lastIndexOf('/')) + 1;
 
                 editSeafood.seafoodNo = tr.find('td:eq(0)').text();
                 editSeafood.seafoodName = tr.find('.seafoodName').val();
@@ -815,12 +815,12 @@ window.addEventListener('load', function () {
                 editSeafood.seafoodState = tr.find('.seafoodState').val();
 
                 let data_info = JSON.stringify(editSeafood);
-                console.log(data_info);
+                // console.log(data_info);
                 xhr.send(data_info);
             });
 
             // 取消
-            tr.find('.cancel').click(function () {
+            tr.find('.cancel').click(function() {
                 show();
             });
 

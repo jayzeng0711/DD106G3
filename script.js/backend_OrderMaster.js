@@ -13,7 +13,7 @@ function show() {
 
             let orderRows = JSON.parse(xhr.responseText);
             let orderLength = orderRows.length;
-            console.log(orderRows);
+            // console.log(orderRows);
 
             for (let i = 0; i < orderLength; i++) {
 
@@ -30,7 +30,7 @@ function show() {
 
 
         } else {
-            alert(xhr.status);
+            // alert(xhr.status);
         }
     };
 

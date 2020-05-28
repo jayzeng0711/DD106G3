@@ -28,7 +28,7 @@ $(document).ready(function() {
                 $('table.price').append(`<tr><td>${orderRow.orderPrice} 元</td><td>${orderRow.orderPoints} 點</td><td>${orderRow.orderTotal} 元</td></tr>`);
 
             } else {
-                alert(xhr.status);
+                // alert(xhr.status);
             }
         };
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
                 }
 
             } else {
-                alert(xhrm.status);
+                // alert(xhrm.status);
             }
         };
 
@@ -85,7 +85,7 @@ $(document).ready(function() {
                 }
 
             } else {
-                alert(xhrm.status);
+                // alert(xhrm.status);
             }
         };
 
@@ -112,7 +112,7 @@ $(document).ready(function() {
                 show();
 
             } else {
-                alert(xhrs.status);
+                // alert(xhrs.status);
             }
         };
 
@@ -126,6 +126,6 @@ $(document).ready(function() {
         // xhr.open(''POST', 'http://localhost:8080/backend_OrderDetail_save.php', true);
         xhrs.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhrs.send(data);
-        console.log(data);
+        // console.log(data);
     });
 });

@@ -11,7 +11,7 @@ $(document).ready(function() {
             if (xhr.status == 200) {
 
                 reportRows = JSON.parse(xhr.responseText);
-                console.log(reportRows);
+                // console.log(reportRows);
                 // console.log(report.length)
                 for (i = 0; i < reportRows.length; i++) {
 
@@ -52,7 +52,7 @@ $(document).ready(function() {
                 edit();
 
             } else {
-                alert(xhr.status);
+                // alert(xhr.status);
             }
         }
 
@@ -112,7 +112,7 @@ $(document).ready(function() {
                         // alert('a')
 
                     } else {
-                        alert(xhr.status);
+                        // alert(xhr.status);
                     }
 
                 };
@@ -143,7 +143,7 @@ $(document).ready(function() {
                 }
 
                 let data_info = JSON.stringify(editReport);
-                console.log(data_info);
+                // console.log(data_info);
                 xhr.send(data_info);
 
 

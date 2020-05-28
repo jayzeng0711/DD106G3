@@ -285,7 +285,7 @@ window.addEventListener("load", function() {
             });
 
         } else {
-            alert(xhrn.status);
+            // alert(xhrn.status);
         }
     }
 
@@ -374,7 +374,7 @@ window.addEventListener("load", function() {
         xhr.onload = function() {
             if (xhr.status == 200) {
                 cooks = JSON.parse(xhr.responseText)
-                console.log(cooks);
+                    // console.log(cooks);
                 for (let i = 0; i < cooks.length; i++) {
                     $(`.cook-type:eq(${i})`).text(cooks[i].cookName);
                     $(`.cook-type:eq(${i})`).attr("id", cooks[i].seafoodCookPic);
@@ -391,7 +391,7 @@ window.addEventListener("load", function() {
                 lastSeafoodPrice = cooks[0].seafoodPrice;
 
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             }
 
         };
@@ -406,7 +406,7 @@ window.addEventListener("load", function() {
 
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
-        console.log(data_info);
+        // console.log(data_info);
         xhr.send(data_info);
 
     };
@@ -576,7 +576,7 @@ window.addEventListener("load", function() {
     // 存放配料
     function addIngret(ImgSrc) {
 
-        console.log(ImgSrc);
+        // console.log(ImgSrc);
         // 計算放配料次數
         count++;
         // 存現在這個配料的圖片，和前一個配料的位置
@@ -763,7 +763,7 @@ window.addEventListener("load", function() {
 
 
                 } else {
-                    console.log(xhr.status);
+                    // console.log(xhr.status);
                 }
             };
 
@@ -816,7 +816,7 @@ window.addEventListener("load", function() {
 
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
-            console.log(data_info);
+            // console.log(data_info);
             xhr.send(data_info);
 
 

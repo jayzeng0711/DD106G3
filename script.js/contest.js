@@ -165,20 +165,20 @@ $(document).ready(function() {
                         `);
                     }
                     //排行榜作品留言顯示區域
-                    $('.textHover').mousemove(function (e) { //當滑鼠移入顯示
+                    $('.textHover').mousemove(function(e) { //當滑鼠移入顯示
                         let theText = $(this).attr('hovertext');
-                        if(theText == ""){ //未留言的情況
+                        if (theText == "") { //未留言的情況
                             $('#contestant_msg').text('參賽者沒有留言~').show().css({
                                 left: e.pageX + 10,
                                 top: e.pageY + 10,
                             });
-                        }else{
+                        } else {
                             $('#contestant_msg').text(theText).show().css({
                                 left: e.pageX + 10,
                                 top: e.pageY + 10,
                             });
                         }
-                    }).mouseout(function () { //當滑鼠移出隱藏
+                    }).mouseout(function() { //當滑鼠移出隱藏
                         $('#contestant_msg').hide();
                     });
 
@@ -385,11 +385,11 @@ $(document).ready(function() {
                     });
 
                 } else {
-                    alert(xhr2.status);
+                    // alert(xhr2.status);
                 }
             }
-        // FTP
-        // xhr.open('post', './php/test.php', true);
+            // FTP
+            // xhr.open('post', './php/test.php', true);
 
         // Mac
         // xhr.open('post', 'http://localhost:8080/test.php', true);
@@ -411,7 +411,7 @@ $(document).ready(function() {
                 show();
                 page(index);
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             }
         };
 
@@ -431,7 +431,7 @@ $(document).ready(function() {
                 comments = JSON.parse(xhr.responseText);
 
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             }
         };
 
@@ -559,7 +559,7 @@ $(document).ready(function() {
 
 
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             }
         };
 
@@ -653,22 +653,22 @@ $(document).ready(function() {
                 </div>
                 `);
                 //排行榜作品留言顯示區域
-                    $('.textHover').mousemove(function (e) { //當滑鼠移入顯示
-                        let theText = $(this).attr('hovertext');
-                        if(theText == ""){
-                            $('#contestant_msg').text('參賽者沒有留言~').show().css({
-                                left: e.pageX + 10,
-                                top: e.pageY + 10,
-                            });
-                        }else{
-                            $('#contestant_msg').text(theText).show().css({
-                                left: e.pageX + 10,
-                                top: e.pageY + 10,
-                            });
-                        }
-                    }).mouseout(function () { //當滑鼠移出隱藏
-                        $('#contestant_msg').hide();
-                    });
+                $('.textHover').mousemove(function(e) { //當滑鼠移入顯示
+                    let theText = $(this).attr('hovertext');
+                    if (theText == "") {
+                        $('#contestant_msg').text('參賽者沒有留言~').show().css({
+                            left: e.pageX + 10,
+                            top: e.pageY + 10,
+                        });
+                    } else {
+                        $('#contestant_msg').text(theText).show().css({
+                            left: e.pageX + 10,
+                            top: e.pageY + 10,
+                        });
+                    }
+                }).mouseout(function() { //當滑鼠移出隱藏
+                    $('#contestant_msg').hide();
+                });
 
 
                 // 留言
@@ -943,19 +943,19 @@ $(document).ready(function() {
                 </div>
             </div>
             `);
-            //抓到(前三名)檢舉留言的按鈕，開啟燈箱
-            $(".RK_report_btn").on("click", function(e) {
-                //判斷是否登入
-                if ($('.pu_mem_login_suc_div').text() != false) {
-                    RKreportNo = e.target.id;
-                    // RKreportNo = RKreportNo.slice(4);
-                    $("div.report_overlay").addClass("-on");
-                } else {
-                    //未登入
-                    $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
-                    $('.alertbox2').addClass("on_alert2");
-                }
-            });
+                    //抓到(前三名)檢舉留言的按鈕，開啟燈箱
+                    $(".RK_report_btn").on("click", function(e) {
+                        //判斷是否登入
+                        if ($('.pu_mem_login_suc_div').text() != false) {
+                            RKreportNo = e.target.id;
+                            // RKreportNo = RKreportNo.slice(4);
+                            $("div.report_overlay").addClass("-on");
+                        } else {
+                            //未登入
+                            $('.alertbox2 .wrapper_alert2').text("請先進行登入再操作~");
+                            $('.alertbox2').addClass("on_alert2");
+                        }
+                    });
                     $(`#RKmsg_text_${id}`).append(`
             <p>
             <img src="./images/${member.memPic}" alt="">
@@ -966,11 +966,11 @@ $(document).ready(function() {
                     $(`.msg_wrap${id}`).scrollTop($(`.msg_wrap${id}`)[0].scrollHeight);
 
                 } else {
-                    alert(xhr3.status);
+                    // alert(xhr3.status);
                 }
             }
-        // FTP
-        // xhr.open('post', './php/test.php', true);
+            // FTP
+            // xhr.open('post', './php/test.php', true);
 
         // Mac
         // xhr.open('post', 'http://localhost:8080/test.php', true);
@@ -1011,7 +1011,7 @@ $(document).ready(function() {
                                 if (xhr6.status == 200) {
                                     vote(selectedIndex);
                                 } else {
-                                    alert(xhr6.status);
+                                    // alert(xhr6.status);
                                 }
                             }
                             // FTP
@@ -1043,7 +1043,7 @@ $(document).ready(function() {
 
 
                 } else {
-                    alert(xhr5.status);
+                    // alert(xhr5.status);
                 }
             }
             // FTP
@@ -1088,11 +1088,11 @@ $(document).ready(function() {
                                 if (xhr6.status == 200) {
                                     vote(selectedIndex);
                                 } else {
-                                    alert(xhr6.status);
+                                    // alert(xhr6.status);
                                 }
                             }
-                        // FTP
-                        // xhr.open('post', './php/test.php', true);
+                            // FTP
+                            // xhr.open('post', './php/test.php', true);
 
                         // Mac
                         // xhr.open('post', 'http://localhost:8080/test.php', true);
@@ -1121,11 +1121,11 @@ $(document).ready(function() {
 
 
                 } else {
-                    alert(xhr5.status);
+                    // alert(xhr5.status);
                 }
             }
-        // FTP
-        // xhr.open('post', './php/test.php', true);
+            // FTP
+            // xhr.open('post', './php/test.php', true);
 
         // Mac
         // xhr.open('post', 'http://localhost:8080/test.php', true);
@@ -1240,7 +1240,7 @@ $(document).ready(function() {
                         }
                     });
 
-                    $(`#nomsg_${id}`).css("display","none"); //清除<目前沒人留言>的訊息
+                    $(`#nomsg_${id}`).css("display", "none"); //清除<目前沒人留言>的訊息
 
                     $(`#msg_${id}`).append(`
                     <p>
@@ -1248,15 +1248,15 @@ $(document).ready(function() {
                     ${member.memName}：${inputText}
                     </p>
                     `)
-                    //留言後scroll bar至最新留言
+                        //留言後scroll bar至最新留言
                     $(`.List_msg_wrap${id}`).scrollTop($(`.List_msg_wrap${id}`)[0].scrollHeight);
 
                 } else {
-                    alert(xhr3.status);
+                    // alert(xhr3.status);
                 }
             }
-        // FTP
-        // xhr.open('post', './php/test.php', true);
+            // FTP
+            // xhr.open('post', './php/test.php', true);
 
         // Mac
         // xhr.open('post', 'http://localhost:8080/test.php', true);
@@ -1294,11 +1294,11 @@ $(document).ready(function() {
                 if (xhr4.status == 200) {
 
                 } else {
-                    alert(xhr4.status);
+                    // alert(xhr4.status);
                 }
             }
-        // FTP
-        // xhr.open('post', './php/test.php', true);
+            // FTP
+            // xhr.open('post', './php/test.php', true);
 
         // Mac
         // xhr.open('post', 'http://localhost:8080/test.php', true);

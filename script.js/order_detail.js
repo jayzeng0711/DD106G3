@@ -214,7 +214,7 @@ window.addEventListener('load', function() {
                 $('#maxpoint').text(point);
 
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             };
 
         };
@@ -290,7 +290,7 @@ window.addEventListener('load', function() {
 
 
                 } else {
-                    console.log(xhr.status);
+                    // console.log(xhr.status);
                 }
             };
 

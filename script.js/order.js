@@ -379,7 +379,7 @@ window.addEventListener('load', function() {
 
 
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             };
         };
 
@@ -514,7 +514,7 @@ window.addEventListener('load', function() {
                 first = firstYear + firstMonth; //可顯示最早的年月
 
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             }
         };
 
@@ -778,7 +778,7 @@ window.addEventListener('load', function() {
                     tdClick();
                     boxRemaining();
                 } else {
-                    console.log(xhr.status);
+                    // console.log(xhr.status);
                 };
             };
 
@@ -835,7 +835,7 @@ window.addEventListener('load', function() {
                 }
 
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             }
 
 
@@ -949,7 +949,7 @@ window.addEventListener('load', function() {
                     showCusto(0);
                 };
             } else {
-                console.log(xhr.status);
+                // console.log(xhr.status);
             }
         };
 

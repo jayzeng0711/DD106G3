@@ -14,7 +14,7 @@ window.addEventListener('load', function() {
 
                 let cookRows = JSON.parse(xhr.responseText);
                 let trLength = cookRows.length;
-                console.log("長度", trLength);
+                // console.log("長度", trLength);
 
                 for (let i = 0; i < trLength; i++) {
 
@@ -30,7 +30,7 @@ window.addEventListener('load', function() {
 
 
             } else {
-                alert(xhr.status);
+                // alert(xhr.status);
             }
         };
 
@@ -64,7 +64,7 @@ window.addEventListener('load', function() {
                     show();
 
                 } else {
-                    alert(xhr.status);
+                    // alert(xhr.status);
                 }
 
             };
@@ -88,7 +88,7 @@ window.addEventListener('load', function() {
             cook.cookName = $('#cookName').val();
 
             let data_info = JSON.stringify(cook);
-            console.log(data_info);
+            // console.log(data_info);
             xhr.send(data_info);
 
             $('.addbtn').removeAttr('disabled');
@@ -146,7 +146,7 @@ window.addEventListener('load', function() {
                         show();
 
                     } else {
-                        alert(xhr.status);
+                        // alert(xhr.status);
                     }
 
                 };
@@ -165,7 +165,7 @@ window.addEventListener('load', function() {
                 editCook.cookState = tr.find('.cookState').val();
 
                 let data_info = JSON.stringify(editCook);
-                console.log(data_info);
+                // console.log(data_info);
                 xhr.send(data_info);
 
 

@@ -29,7 +29,7 @@ $('.addbtn').click(function() {
                 message_content.msg_textleng = msg_textleng;
                 message_content.msg_text_sta = msg_text_sta;
                 var message_content_str = JSON.stringify(message_content);
-                console.log(message_content_str)
+                // console.log(message_content_str)
 
                 // windows
                 xhr.open('POST',  './php/backend_message_insert.php',  true);
@@ -54,7 +54,7 @@ function show_message() {
     xhr.onload = function() {
             if (xhr.status == 200) {
                 var message_row = JSON.parse(xhr.responseText);
-                console.log(message_row)
+                // console.log(message_row)
 
                 //先從資料庫把所有欄位撈出
                 for (i = 0; i < message_row.length; i++) {
@@ -118,7 +118,7 @@ function update(id) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function() {
         if (xhr.status == 200) {
-            console.log(xhr.responseText);
+            // console.log(xhr.responseText);
         }
     }
     var message_row_update = {};
