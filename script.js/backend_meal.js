@@ -51,9 +51,10 @@ $(document).ready(function () {
             // 停用新增按鈕
             $(this).attr('disabled', 'disabled');
 
-            // 顯示輸入新增資料的欄位
-            $('tr.title').after('<tr class="insert"><td></td><td><input type="text" id="mealName"></td><td><form id="newPic" action="./php/mealPicUpload.php"><input type="file" id="mealPic" name="mealPic"><input type="submit" value="OK"><lable id="mealPic"><img id="show" src=""></lable></form></td><td><input type="text" id="mealFirst"></td><td><input type="text" id="mealMain"></td><td><input type="text" id="mealDishOne"></td><td><input type="text" id="mealDishTwo"></td><td><input type="text" id="mealSoup"></td><td><input type="text" id="mealDrink"></td><td><input type="text" id="mealPrice"></td><td><select id="mealState"><option value="0">未上架</option><option value="1">上架</option></select></td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
+             // 顯示輸入新增資料的欄位
+             $('tr.title').after('<tr class="insert"><td></td><td><input type="text" id="mealName"></td><td><form id="newPic" action="./php/mealPicUpload.php"><input type="file" id="mealPic" name="mealPic"><input type="submit" value="OK"><lable id="mealPic"><img id="show" src=""></lable></form></td><td><input type="text" id="mealFirst"></td><td><input type="text" id="mealMain"></td><td><input type="text" id="mealDishOne"></td><td><input type="text" id="mealDishTwo"></td><td><input type="text" id="mealSoup"></td><td><input type="text" id="mealDrink"></td><td><input type="text" id="mealPrice"></td><td><select id="mealState"><option value="0">未上架</option><option value="1">上架</option></select></td><td><button type="submit" class="btn btn-info save">儲存</button><button type="button" class="btn btn-info cancel">取消</button></td></tr>');
 
+           
                 document.getElementById("mealPic").onchange = function (e) {
                     let file = e.target.files[0];
                     let reader = new FileReader();
