@@ -332,9 +332,9 @@ $(document).ready(function() {
 
         // 丟球的力量，決定球被丟多遠
         if($(window).width()>576){
-            MAX_VELOCITY = Screen.height * 0.003;
+            MAX_VELOCITY = Screen.height * 0.005;
         }else{
-            MAX_VELOCITY = Screen.height * 0.00000001;
+            MAX_VELOCITY = Screen.height * 0.0001;
         }
 
         var Ball = {
