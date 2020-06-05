@@ -4,12 +4,14 @@ try{
     require_once("connectdd106g3.php");
 
     // 抓這個月比賽的比賽編號
-    $sqlTime = "SELECT `contestNo` FROM `contest` WHERE DATE_FORMAT( `contestStart`, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' )";
-    $times = $pdo->query($sqlTime);
-    $time = $times->fetch(PDO::FETCH_ASSOC);
+    // $sqlTime = "SELECT `contestNo` FROM `contest` WHERE DATE_FORMAT( `contestStart`, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' )";
+    // $times = $pdo->query($sqlTime);
+    // $time = $times->fetch(PDO::FETCH_ASSOC);
 
     // 這個月比賽的編號  
-    $no = $time["contestNo"];
+    // $no = $time["contestNo"];
+    $no = 1;
+
 
     // 抓出這個月總票數前三名
     $sql = "SELECT * FROM `custo` WHERE `contestNo` = $no Order By `contestCustoVote` DESC limit 3"; 

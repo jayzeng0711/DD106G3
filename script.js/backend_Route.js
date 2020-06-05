@@ -79,9 +79,9 @@ $(document).ready(function() {
 
             let route = {};
             routePort = $('#routePort').val();
-            if (routePort == 0) {
+            if (routePort == 1) {
                 routePort = "深澳港";
-            } else if (routePort == 1) {
+            } else if (routePort == 2) {
                 routePort = "梧棲港";
             } else {
                 routePort = "高雄港";

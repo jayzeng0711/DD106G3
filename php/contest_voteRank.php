@@ -9,12 +9,13 @@ try {
   require_once("connectdd106g3.php");
 
   // 抓這個月比賽的比賽編號
-  $sqlTime = "SELECT `contestNo` FROM `contest` WHERE DATE_FORMAT( `contestStart`, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' )";
-  $times = $pdo->query($sqlTime);
-  $time = $times->fetch(PDO::FETCH_ASSOC);
+  // $sqlTime = "SELECT `contestNo` FROM `contest` WHERE DATE_FORMAT( `contestStart`, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' )";
+  // $times = $pdo->query($sqlTime);
+  // $time = $times->fetch(PDO::FETCH_ASSOC);
 
   // 這個月比賽的編號  
-  $no = $time["contestNo"];
+  // $no = $time["contestNo"];
+  $no = 1;
 
 
   // 算這次比賽，每個料理的得票數，並依照得票數高到低排列

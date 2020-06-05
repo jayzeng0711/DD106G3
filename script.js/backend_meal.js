@@ -13,13 +13,14 @@ $(document).ready(function() {
 
                 let mealRows = JSON.parse(xhr.responseText);
                 let trLength = mealRows.length;
+                console.log(mealRows);
 
                 for (let i = 0; i < trLength; i++) {
 
                     if (mealRows[i].mealState == 0) {
-                        mealState = "上架";
-                    } else {
                         mealState = "未上架";
+                    } else {
+                        mealState = "上架";
                     }
                     $('table').append(`<tr><td>${mealRows[i].mealNo}</td><td>${mealRows[i].mealName}</td><td><img src="./images/${mealRows[i].mealPic}"></td><td>${mealRows[i].mealFirst}</td><td>${mealRows[i].mealMain}</td><td>${mealRows[i].mealDishOne}</td><td>${mealRows[i].mealDishTwo}</td><td>${mealRows[i].mealSoup}</td><td>${mealRows[i].mealDrink}</td><td>${mealRows[i].mealPrice}</td><td>${mealState}</td><td><button type="button" class="btn btn-info edit">編輯</button></td></tr>`);
 
@@ -297,9 +298,9 @@ $(document).ready(function() {
             <option value="1">上架</option>
             </select>`);
             if (mealState == "未上架") {
-                tr.find('td:eq(10) option:eq(0)').attr("slected", "selected");
+                tr.find('td:eq(10) option:eq(0)').attr("selected", "selected");
             } else {
-                tr.find('td:eq(10) option:eq(1)').attr("slected", "selected");
+                tr.find('td:eq(10) option:eq(1)').attr("selected", "selected");
             }
 
             //編輯
@@ -345,10 +346,10 @@ $(document).ready(function() {
                 editMeal.mealSoup = tr.find('.mealSoup').val();
                 editMeal.mealDrink = tr.find('.mealDrink').val();
                 editMeal.mealPrice = tr.find('.mealPrice').val();
-                editMeal.mealState = mealState;
+                editMeal.mealState = tr.find('.mealState').val();
 
                 let data_info = JSON.stringify(editMeal);
-                // console.log(data_info);
+                console.log(data_info);
                 xhr.send(data_info);
             });
 
