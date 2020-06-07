@@ -66,6 +66,9 @@ window.addEventListener('load', function() {
 
         }
 
+        // 檢查是否登入(確認是否有會員客製化料理)
+        checkLogin();
+
     });
 
 
@@ -729,8 +732,6 @@ window.addEventListener('load', function() {
                         routenow[i].oridate = routenow[i].routeDate.replace("-", "").replace("-", "");
                         // 把營業日期存成斜線的格式
                         routenow[i].routeDate = routenow[i].routeDate.replace("-", "/").replace("-", "/");
-                        // 把營業日期存成斜線的格式
-                        routenow[i].routeDate = routenow[i].routeDate.replace("-", "/").replace("-", "/");
                         // 把營業日單獨存成一個陣列，parseInt()讓10號以前，從01變成1
                         routenow[i].routeDay = parseInt(routenow[i].routeDate.substr(8, 2));
                         // 計算剩餘座位
@@ -784,7 +785,7 @@ window.addEventListener('load', function() {
 
             let data = {};
             data.port = portnow;
-            data.from = `${year}-${now.getMonth() + 1}-1`;
+            data.from = `${year}-${now.getMonth() + 1}-${now.getDate()}`;
 
             data = JSON.stringify(data);
             // console.log(data);
@@ -909,63 +910,68 @@ window.addEventListener('load', function() {
 
     let custos; //客製化料理陣列
 
+
     // 先判斷是否登入
+    function checkLogin() {
 
-    // if (member.memNo != "") {
-    if ($('.pu_mem_login_suc_div').text() != false) {
-        let xhr = new XMLHttpRequest;
-        xhr.onload = function() {
+        if ($('.pu_mem_login_suc_div').text() != false) {
+            let xhr = new XMLHttpRequest;
+            xhr.onload = function() {
 
-            if (xhr.status == 200) {
-                custos = JSON.parse(xhr.responseText);
-                // console.log(custos);
+                if (xhr.status == 200) {
+                    custos = JSON.parse(xhr.responseText);
+                    // console.log(custos);
 
-                if (custos == "") {
-                    //已登入，沒有客製化料理
-                    $('#nocusto').css('display', 'block');
+                    if (custos == "") {
+                        //已登入，沒有客製化料理
+                        $('#nocusto').css('display', 'block');
 
-                } else {
-                    //已登入，有料理
+                    } else {
+                        //已登入，有料理
 
-                    // 抓同帳號上次存取的客製化料理
-                    if (localStorage['memNo'] == member.memNo && localStorage['custoLength'] != 0) {
-                        $('.custotable .nocusto').remove();
-                        custoarr = JSON.parse(localStorage['custo']);
-                        // console.log(custoarr);
-                        for (let i = 0; i < custoarr.length; i++) {
-                            $('.custotable').append(`<tr><td class="custo" custono="${custoarr[i].custoNo}" pic="${custoarr[i].custoPic}">${custoarr[i].name}</td><td class="custoPrice">${ custoarr[i].price}</td><td><span class="minus"><img src="./images/minus.svg" alt="">
+                        // 抓同帳號上次存取的客製化料理
+                        if (localStorage['memNo'] == member.memNo && localStorage['custoLength'] != 0) {
+                            $('.custotable .nocusto').remove();
+                            custoarr = JSON.parse(localStorage['custo']);
+                            // console.log(custoarr);
+                            for (let i = 0; i < custoarr.length; i++) {
+                                $('.custotable').append(`<tr><td class="custo" custono="${custoarr[i].custoNo}" pic="${custoarr[i].custoPic}">${custoarr[i].name}</td><td class="custoPrice">${ custoarr[i].price}</td><td><span class="minus"><img src="./images/minus.svg" alt="">
                             </span><input type="number" name="meal" min="0" class="custoAmount meal" value="1"><span class="plus ">
                             <img src="./images/plus.svg" alt=""></span></td><td><img src="./images/trash.svg" alt="刪除" class="delete"></td></tr>`);
-                            $('.custotable tr:last-child input').val(custoarr[i].amount);
+                                $('.custotable tr:last-child input').val(custoarr[i].amount);
 
-                        };
+                            };
 
-                        // 改變客製化料理數量
-                        custoamount();
+                            // 改變客製化料理數量
+                            custoamount();
 
-                        // 從購物車刪除客製化料理
-                        deleteCusto();
-                    }
-                    showCusto(0);
-                };
-            } else {
-                // console.log(xhr.status);
-            }
-        };
+                            // 從購物車刪除客製化料理
+                            deleteCusto();
+                        }
+                        showCusto(0);
+                    };
+                } else {
+                    // console.log(xhr.status);
+                }
+            };
 
-        data = ` memNo=${member.memNo}`;
-        // console.log(data);
-        // windows
-        xhr.open("POST", "./php/order_custo.php", true);
-        // Mac
-        // xhr.open('POST', 'http://localhost:8080/order_custo.php');
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-        xhr.send(data);
+            data = ` memNo=${member.memNo}`;
+            // console.log(data);
+            // windows
+            xhr.open("POST", "./php/order_custo.php", true);
+            // Mac
+            // xhr.open('POST', 'http://localhost:8080/order_custo.php');
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            xhr.send(data);
 
-    } else {
-        //未登入
-        $('#nologin').css('display', 'block');
+        } else {
+            //未登入
+            $('#nologin').css('display', 'block');
+        }
+
     }
+
+
 
     // 客製化料理點擊登入按鈕，出現登入燈箱
     $('.buttonlogin').click(function() {

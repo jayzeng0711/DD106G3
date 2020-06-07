@@ -636,8 +636,7 @@ window.addEventListener('load', function() {
 
             let data = {};
             data.port = portnow;
-            data.from = `${year}-${now.getMonth() + 1}-1`;
-
+            data.from = `${year}-${now.getMonth() + 1}-${now.getDate()}`;
             data = JSON.stringify(data);
             // console.log(data);
 
